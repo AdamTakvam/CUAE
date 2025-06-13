@@ -1,0 +1,5 @@
+Docbook has a complaint free-software license: http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd
+Docbook XSL Sourceforge project uses equivalent to MIT:  http://docbook.sourceforge.net/release/xsl/current/COPYING
+
+xalan (XSTL) 2.6 and above (we use 2.7) uses the Apache License Version 2.0. It also uses sub-products, all with very generous licensing:
+x:\Tools\xalan-j_2_7_0\licenses

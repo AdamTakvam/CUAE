@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ccmIp" displayName="CallManager IP Address or Host Name" format="String" description="The IP Address of the CallManager Cluster node servicing Extension Mobility requests" defaultValue="10.1.10.25" required="true" />
+    <configValue name="ccmVersion" displayName="CallManager Version" format="Version" description="The version of CallManager" defaultValue="4.0" required="true">
+      <EnumItem>3.3</EnumItem>
+      <EnumItem>4.0</EnumItem>
+      <EnumItem>4.1</EnumItem>
+      <EnumItem>4.2</EnumItem>
+      <EnumItem>5.0</EnumItem>
+    </configValue>
+    <configValue name="proxyUser" displayName="Proxy Username" format="String" description="The username of the proxy user" defaultValue="metreos" required="true" />
+    <configValue name="proxyPass" displayName="Proxy Password" format="Password" description="The password of the proxy user" defaultValue="metreos" required="true" />
+    <configValue name="globalPin" displayName="Global Pin" format="Password" description="The pin across all users" defaultValue="343434" required="true" />
+    <configValue name="welcomePrompt" displayName="Welcome Prompt" format="String" description="Used to format the welcome prompt. {0} = First, {1} Last. It is not recommended one change this, due to IP  Phone limitations" defaultValue="{0} {1}, please confirm your reservation" required="true" />
+    <configValue name="delayExecute" displayName="Delay Execute" format="Number" description="The amount of time to delay the Execute Command" defaultValue="15000" required="true" />
+    <configValue name="waitTime" displayName="Wait Time" format="Number" description="The amount of time to wait for a Tririga Username (ms)" defaultValue="5000" required="true" />
+    <configValue name="minConf" displayName="Minimum Confirmation Time" format="Number" description="The minimum amount of time between confirmations (ms)" defaultValue="1000" required="true" />
+    <configValue name="triHost" displayName="Tririga Host IP/Name" format="String" description="The IP address of the Tririga server" defaultValue="" required="true" />
+    <configValue name="triPort" displayName="Tririga Host Port" format="String" description="The port of the Tririga server" defaultValue="8001" required="true" />
+    <configValue name="triSecure" displayName="Use HTTPS Tririga Web Service" format="Bool" description="Whether to use HTTPS when connecting to Tririga" defaultValue="false" required="true" />
+    <configValue name="triUser1" displayName="Tririga Username 1" format="String" description="Tririga Username 1" defaultValue="" required="true" />
+    <configValue name="triPass1" displayName="Tririga Password 1" format="Password" description="Tririga Password 1" defaultValue="" required="true" />
+    <configValue name="triUser2" displayName="Tririga Username 2" format="String" description="Tririga Username 2" defaultValue="" required="false" />
+    <configValue name="triPass2" displayName="Tririga Password 2" format="Password" description="Tririga Password 2" defaultValue="" required="false" />
+    <configValue name="triUser3" displayName="Tririga Username 3" format="String" description="Tririga Username 3" required="false" />
+    <configValue name="triPass3" displayName="Tririga Password 3" format="Password" description="Tririga Password 3" defaultValue="" required="false" />
+    <configValue name="triUser4" displayName="Tririga Username 4" format="String" description="Tririga Username 4" defaultValue="" />
+    <configValue name="triPass4" displayName="Tririga Password 4" format="Password" description="Tririga Password 4" defaultValue="" required="false" />
+    <configValue name="triUser5" displayName="Tririga Username 5" format="String" description="Tririga Username 5" defaultValue="" />
+    <configValue name="triPass5" displayName="Tririga Password 5" format="Password" description="Tririga Password 5" defaultValue="" />
+    <configValue name="dbUser" displayName="Database Username" format="String" description="The database username" defaultValue="root" required="true" />
+    <configValue name="dbPass" displayName="Database Username Password" format="Password" description="The database username password" defaultValue="metreos" required="true" />
+    <configValue name="dbType" displayName="Database Type" format="String" description="The type of database used by this application" defaultValue="mysql" required="true" />
+    <configValue name="dbName" displayName="Database Name" format="String" description="The name of the database used by this application" defaultValue="Reserve" required="true" />
+    <configValue name="dbHost" displayName="Database Host" format="String" description="The IP address of the host database" defaultValue="127.0.0.1" required="true" />
+    <configValue name="dbPort" displayName="Database Port" format="Number" description="The port of the database" defaultValue="3306" required="true" />
+    <configValue name="workerCount" displayName="Workers" format="Number" description="The amount of workers to create for DisplayConfirmation Command" defaultValue="5" required="true" />
+    <configValue name="BoId" displayName="BoId" format="String" description="Tririga WebService variable.  Do not change unless it becomes necessary." defaultValue="10009943" required="true" />
+    <configValue name="BoName" displayName="BoName" format="String" description="Tririga WebService variable.  Do not change unless it becomes necessary." defaultValue="enyPhoneSwitchIntermediate" required="true" />
+    <configValue name="NewRecordId" displayName="New RecordID" format="String" description="Tririga WebService variable.  Do not change unless it becomes necessary." defaultValue="-1" required="true" />
+    <configValue name="ModuleId" displayName="ModuleId" format="String" description="Tririga WebService variable.  Do not change unless it becomes necessary." defaultValue="20620" required="true" />
+  </configuration>
+</install>

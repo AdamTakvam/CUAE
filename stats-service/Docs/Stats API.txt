@@ -1,0 +1,114 @@
+Alarms
+---------
+
+General:
+
+100 -- A CUAE Service is not available.
+101 -- A Media Server is not available.
+102 -- CUAE is running out of memory.
+
+Media Server:
+
+200 -- Media server compromised
+201 -- Unexpected condition 
+202 -- Media server unscheduled shutdown
+203 -- Resource type not deployed on this server (e.g. no voice rec)
+
+210 -- Out of connections (G.711)
+211 -- High water connections*
+212 -- Low water connections*
+
+220 -- Out of voice 
+221 -- High water voice*
+222 -- Low water voice*
+
+230 -- Out of low bitrate
+231 -- High water low bitrate*
+232 -- Low water low bitrate*
+
+240 -- Out of conference resources for service instance
+241 -- Conference resources for service instance high water*
+242 -- Conference resources for service instance low water*
+243 -- Out of conference slots for conference
+244 -- Conference slots for conference high water*
+245 -- Conference slots for conference low water*
+246 -- Out of conferences
+247 -- Conferences high water*
+248 -- Conferences low water*
+
+
+250 -- Out of TTS ports (request fails)
+251 -- Out of TTS ports (request queues)
+252 -- High water TTS*
+253 -- Low water TTS*
+
+260 -- Out of voice rec resources (request fails) 
+261 -- High water voice rec*
+262 -- Low water voice rec*
+
+AppServer:
+
+300 -- CUAE Server shutdown unexpectedly
+301 -- CUAE Server failed to start
+302 -- Application failed to load
+303 -- Provider failed to load
+304 -- Application reloaded due to failure
+305 -- Provider reloaded due to failure
+306 -- Media deploy failure
+
+310 -- High water application sesssions*
+311 -- Low water application sesssions*
+
+320 -- Management login failure
+321 -- Management login success
+
+Licensing:
+
+400 -- Number of licensed application instances exceeded.
+401 -- Number of licensed application instances exceeded; licenses are now strictly enforced.
+402 -- An attempt has been made to exceed the maximum number of licensed application instances.
+403 -- Number of licensed voice resources exceeded.
+404 -- Number of licensed voice resources exceeded; licenses are now strictly enforced.
+405 -- An attempt has been made to exceed the maximum number of licensed voice resources.
+406 -- Number of licensed RTP resources exceeded.
+407 -- Number of licensed RTP resources exceeded; licenses are now strictly enforced.
+408 -- An attempt has been made to exceed the maximum number of licensed RTP resources.
+409 -- Number of licensed enhanced RTP resources exceeded.
+410 -- Number of licensed enhanced RTP resources exceeded; licenses are now strictly enforced.
+411 -- An attempt has been made to exceed the maximum number of licensed enhanced RTP resources.
+412 -- Number of licensed conference resources exceeded.
+413 -- Number of licensed conference resources exceeded; licenses are now strictly enforced.
+414 -- An attempt has been made to exceed the maximum number of licensed conference resources.
+415 -- Number of licensed speech integration resources exceeded.
+416 -- Number of licensed speech integration resources exceeded; licenses are now strictly enforced.
+417 -- An attempt has been made to exceed the maximum number of licensed speech integration resources.
+418 -- Number of licensed TTS resources exceeded.
+419 -- Number of licensed TTS resources exceeded; licenses are now strictly enforced.
+420 -- An attempt has been made to exceed the maximum number of licensed TTS resources.
+
+
+Statistics
+---------------------
+
+2000 -- CPU load %*
+2001 -- CUAE Server memory usage*
+2002 -- Media Engine memory usage*
+
+2010 -- Number of active application sesssions
+2011 -- Number of active calls
+
+2020 -- Router: Messages/sec*
+2021 -- Router: Events/sec*
+2022 -- Router: Actions/sec*
+
+2100 -- Number of voice resources in use
+2101 -- Number of RTP resources in use
+2102 -- Number of enhanced RTP resources in use
+2103 -- Number of conference resources in use
+2104 -- Number of speech integration resources in use
+2105 -- Number of TTS resources in use
+2106 -- Number of conference slots in use
+2107 -- Number of conferences in use
+
+
+* Reserved for future use

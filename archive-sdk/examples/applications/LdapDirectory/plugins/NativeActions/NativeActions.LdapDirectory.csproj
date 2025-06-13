@@ -1,0 +1,150 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{13FFE621-AA3B-40A5-A079-CE9C0780CDCA}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "Metreos.Native.LdapDirectory"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "Metreos.Native.LdapDirectory"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "Common"
+                    Project = "{A667EBB3-6E4D-4A2C-9212-83AD201C66B9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Metreos.Interfaces"
+                    AssemblyName = "Metreos.Interfaces"
+                    HintPath = "..\..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.ApplicationFramework"
+                    AssemblyName = "Metreos.ApplicationFramework"
+                    HintPath = "..\..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.Core"
+                    AssemblyName = "Metreos.Core"
+                    HintPath = "..\..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.PackageGeneratorCore"
+                    AssemblyName = "Metreos.PackageGeneratorCore"
+                    HintPath = "..\..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.PackageGeneratorCore.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.LoggingFramework"
+                    AssemblyName = "Metreos.LoggingFramework"
+                    HintPath = "..\..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Novell.Directory.Ldap"
+                    AssemblyName = "Novell.Directory.Ldap"
+                    HintPath = "..\..\..\..\..\..\Contrib\Novell\Novell.Directory.Ldap.dll"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ILdap.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Search.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

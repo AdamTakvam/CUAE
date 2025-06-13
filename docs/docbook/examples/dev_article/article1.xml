@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>  <!-- -*- nxml -*- -->
+<!DOCTYPE article [
+<!ENTITY version "5.0b4">
+]>
+<article xmlns="http://docbook.org/ns/docbook"
+	 xmlns:xl="http://www.w3.org/1999/xlink"
+	 version="5.0" xml:lang="en">
+<info>
+	<title>ARTICLE NAME</title>
+	<subtitle>ARTICLE SUBTITLE OPT</subtitle>
+	<titleabbrev>TITLE ABBREV OPT</titleabbrev>
+</info>
+
+<!-- When working with an article, your next level after <article> is typically sect1, simplesect, or section.
+
+http://www.docbook.org/tdg/en/html/sect1.html (can contain sect2)
+http://www.docbook.org/tdg/en/html/simplesect.html (cannot contain other sections-proabbly only makes sense for very simple articles at this level)
+http://www.docbook.org/tdg/en/html/section.html (can contain other sections) -->
+
+	<section>
+		<title>SECTION TITLE</title>
+		<subtitle>SECTION SUBTITLE-Optional</subtitle>
+		
+		<para>
+			Content for titleless paragraph
+		</para>
+		
+		<formalpara>
+			<title>PARAGRAPH TITLE</title>
+			<para>Content</para>
+		</formalpara>
+	</section>
+	
+</article>

@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximumAppDomains", "MaximumAppDomains.csproj", "{EE6392C3-42D6-49E9-8B78-2781C9714971}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{EE6392C3-42D6-49E9-8B78-2781C9714971}.Debug.ActiveCfg = Debug|.NET
+		{EE6392C3-42D6-49E9-8B78-2781C9714971}.Debug.Build.0 = Debug|.NET
+		{EE6392C3-42D6-49E9-8B78-2781C9714971}.Release.ActiveCfg = Release|.NET
+		{EE6392C3-42D6-49E9-8B78-2781C9714971}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

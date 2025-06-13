@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY version "2.3.x">
+]>
+<article version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink" xml:lang="en">
+  <!--Document Header-->
+
+  <info>
+    <title>Cisco Unified Application Environment - Services and Processes</title>
+
+    <subtitle>Release 2.4</subtitle>
+
+    <authorgroup>
+      <author>
+        <personname>Cisco Systems, Inc.</personname>
+
+        <email>support@cisco.com</email>
+      </author>
+    </authorgroup>
+
+    <copyright>
+      <year>2007</year>
+
+      <holder>Cisco Systems, Inc.</holder>
+    </copyright>
+
+    <abstract>
+      <para>This document describes the processes and services that run on the Cisco Unified Application Environment 2.4</para>
+    </abstract>
+  </info>
+
+  <!--Document Body-->
+
+  <section id="Services and Processes">
+    <title>Services and Processes</title>
+
+    <para>Additional services and processes associated with the Cisco Unified
+    Application Server are listed below.</para>
+
+    <table>
+      <title>Services and Processes</title>
+
+      <tgroup cols="3">
+        <colspec align="center" />
+
+        <thead>
+          <row>
+            <entry align="center">Services</entry>
+
+            <entry align="center">Processes</entry>
+
+            <entry align="center">Comments</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry align="left">Apache</entry>
+
+            <entry align="left">Apache.exe</entry>
+
+            <entry align="left">Web Server - Management webpage -
+            Applications</entry>
+          </row>
+
+          <row>
+            <entry align="left">DlgPnPObserverService</entry>
+
+            <entry>ObserverService.exe</entry>
+
+            <entry>HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">DM3Config</entry>
+
+            <entry align="left">DM3Config.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">Intel Dialogic product Boardserver</entry>
+
+            <entry align="left">boardserver.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">Intel Dialogic product System Service</entry>
+
+            <entry align="left">dlgc_srv.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">ctbbserv.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">devmapserver.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">dlgimrservice.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">dlgsysloggerserver.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">dlgsysmonitorserver.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">eventserv.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">n/a</entry>
+
+            <entry align="left">nameserv.exe</entry>
+
+            <entry align="left">HMP - used by the Media Engine</entry>
+          </row>
+
+          <row>
+            <entry align="left">Stats Service</entry>
+
+            <entry align="left">Metreos.StatsService.exe</entry>
+
+            <entry align="left">Stats and Alarm Services</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE Application Server</entry>
+
+            <entry align="left">AppServerService.exe</entry>
+
+            <entry align="left">This service hosts applications and is the
+            central service to the Cisco UAE</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE H323 Service</entry>
+
+            <entry align="left">h323-runtime.exe</entry>
+
+            <entry align="left">Used for H.323</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE JTapiService for CCM 3-3</entry>
+
+            <entry align="left">wrapper.exe</entry>
+
+            <entry align="left">Used for JTAPI</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE JTapiService for CCM 4-0</entry>
+
+            <entry align="left">wrapper.exe</entry>
+
+            <entry align="left">Used for JTAPI</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE JTapiService for CCM 4-1</entry>
+
+            <entry align="left">wrapper.exe</entry>
+
+            <entry align="left">Used for JTAPI</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE JTapiService for CCM 4-2</entry>
+
+            <entry align="left">wrapper.exe</entry>
+
+            <entry align="left">Used for JTAPI</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE JTapiService for CCM 5-0</entry>
+
+            <entry align="left">wrapper.exe</entry>
+
+            <entry align="left">Used for JTAPI</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE Log Service</entry>
+
+            <entry align="left">LogServerService.exe</entry>
+
+            <entry align="left">Logging component used by MCE
+            Components</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE Media Server</entry>
+
+            <entry align="left">mmsserver.exe</entry>
+
+            <entry align="left">Provides media functionality to the app
+            server</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE SFTP Server</entry>
+
+            <entry align="left">SftpServerService.exe</entry>
+
+            <entry align="left">Used to deploy apps to the app server,
+            propagate media files, and allow secure extraction of log
+            files.</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE SIP Service</entry>
+
+            <entry align="left">Sip-runtime.exe</entry>
+
+            <entry align="left">Used for SIP</entry>
+          </row>
+
+          <row>
+            <entry align="left">MCE Watchdog</entry>
+
+            <entry align="left">WatchdogService.exe</entry>
+
+            <entry align="left">Monitors the status of running MCE
+            services</entry>
+          </row>
+
+          <row>
+            <entry align="left">MySQL</entry>
+
+            <entry align="left">mysqld-nt.exe</entry>
+
+            <entry align="left">Database</entry>
+          </row>
+
+          <row>
+            <entry align="left">VT Server</entry>
+
+            <entry align="left">VTSvc.exe</entry>
+
+            <entry align="left">NeoSpeech - used for Text-To-Speech</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+</article>

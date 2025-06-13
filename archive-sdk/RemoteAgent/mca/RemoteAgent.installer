@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <!-- <configValue name="UsePeerToPeer" displayName="Use Peer-to-Peer" format="Bool" description="If set to true, calls will be connected in a peer-to-peer fashion. If false, all calls are routed through a Metreos media server." defaultValue="true" readOnly="false" required="true" /> -->
+    <configValue name="DbName" displayName="DbName" format="String" description="Name of the application suite database" defaultValue="application_suite" readOnly="true" required="true" />
+    <configValue name="DbConnectionName" displayName="DbConnectionName" format="String" description="Name of the application suite database connection" defaultValue="ApplicationSuite" readOnly="true" required="true" />
+    <configValue name="DbServer" displayName="Server" format="String" description="Database server address" defaultValue="localhost" readOnly="true" required="true" />
+    <configValue name="DbPort" displayName="Port" format="Number" description="Database server port" defaultValue="3306" readOnly="true" required="true" />
+    <configValue name="DbUsername" displayName="Username" format="String" description="The username used to connect to the database" defaultValue="root" readOnly="true" required="true" />
+    <configValue name="DbPassword" displayName="Database Password" format="Password" description="Password" defaultValue="metreos" readOnly="true" required="true" />
+    <configValue name="EnterAccountNumAudio" displayName="EnterAccountNumAudio" format="String" description="TTS text or .wav filename that requests the user's account code. Default: rag_enter_acct.wav" defaultValue="rag_enter_acct.wav" readOnly="false" required="true" />
+    <configValue name="EnterPINAudio" displayName="EnterPINAudio" format="String" description="TTS text or .wav file that requests the user's PIN number. Default: rag_enter_pin.wav" defaultValue="rag_enter_pin.wav" required="true" />
+    <configValue name="PressPoundAudio" displayName="PressPoundAudio" format="String" description="TTS text or .wav file that reqiests that the user press # after providing input. Default: rag_pound_sign.wav" defaultValue="rag_pound_sign.wav" required="true" />
+    <configValue name="ExtensionToMonitorAudio" displayName="ExtensionToMonitorAudio" format="String" description="TTS text or .wav filename that requests the extension of the agent to supervise. Default: rag_enter_ext.wav" defaultValue="rag_enter_ext.wav" required="true" />
+    <configValue name="InsufficientLevelAudio" displayName="InsufficientLevelAudio" format="String" description="TTS text or .wav filename that informs the user that his account does not have RemoteAgent supervisor access. Default: rag_access_denied.wav" defaultValue="rag_access_denied.wav" required="true" />
+    <configValue name="InstructionsAudio" displayName="InstructionsAudio" format="String" description="TTS text or .wav filename that contains instructions on how to use the system. Default: rag_instructions.wav" defaultValue="rag_instructions.wav" required="true" />
+    <configValue name="MainMenuRecordingAudio" displayName="MainMenuRecordingAudio" format="String" description="TTS text or .wav filename that plays the Main Menu when the agent's extension is being recorded. Default: rag_menu_rec.wav" defaultValue="rag_menu_rec.wav" required="true" />
+    <configValue name="MainMenuNotRecordingAudio" displayName="MainMenuNotRecordingAudio" format="String" description="TTS text or .wav filename that plays the Main Menu when the agent's extension is not being recorded. Default: rag_menu_not_rec.wav" defaultValue="rag_menu_not_rec.wav" required="true" />
+    <configValue name="CallBeingRecordedAudio" displayName="CallBeingRecordedAudio" format="String" description="TTS text or .wav filename that indicates that the monitored agent's current call is being recorded. Default: rag_call_being_rec.wav" defaultValue="rag_call_being_rec.wav" required="true" />
+    <configValue name="UnrecognizedInputAudio" displayName="UnrecognizedInputAudio" format="String" description="TTS text or .wav filename that indicates that the input provided by the user was not understood. Default: rag_entry_unrec.wav" defaultValue="rag_entry_unrec.wav" required="true" />
+    <configValue name="NoActiveCallAudio" displayName="NoActiveCallAudio" format="String" description="TTS text or .wav filename that informs the user that there is no active call for the specified extension. Default: rag_no_active_call.wav" defaultValue="rag_no_active_call.wav" required="true" />
+    <configValue name="LoginFailedAudio" displayName="LoginFailedAudio" format="String" description="TTS text or .wav filename used to inform the user that the provided combination of account number and pin code was not valid. Default: rag_login_failed.wav" defaultValue="rag_login_failed.wav" required="true" />
+    <configValue name="RecordingEnabledAudio" displayName="RecordingEnabledAudio" format="String" description="TTS text or .wav filename used to indicate that recording of the agent's currently active call was enabled. Default: rag_recording_enabled.wav" defaultValue="rag_recording_enabled.wav" required="true" />
+    <configValue name="RecordingDisabledAudio" displayName="RecordingDisabledAudio" format="String" description="TTS text or .wav filename used to indicate that recording of the agent's currently active call was disabled. Default: rag_recording_disabled.wav" defaultValue="rag_recording_disabled.wav" required="true" />
+    <configValue name="CallEndedAudio" displayName="CallEndedAudio" format="String" description="TTS text or .wav filename that will be played when the Supervisor attempts to perform an action on a call that has ended. Default: rag_call_ended.wav" defaultValue="rag_call_ended.wav" required="true" />
+    <configValue name="MonitorKey" displayName="MonitorKey" format="Digits" description="The supervisor will press this button on his phone whenever he wants to monitor the agent's call." defaultValue="1" required="true">
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+      <EnumItem>7</EnumItem>
+      <EnumItem>8</EnumItem>
+      <EnumItem>9</EnumItem>
+      <EnumItem>0</EnumItem>
+    </configValue>
+    <configValue name="RecordKey" displayName="RecordKey" format="Digits" description="The supervisor will press this button on his phone whenever he wants to record the agent's call." defaultValue="2" required="true">
+      <EnumItem>2</EnumItem>
+      <EnumItem>1</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+      <EnumItem>7</EnumItem>
+      <EnumItem>8</EnumItem>
+      <EnumItem>9</EnumItem>
+      <EnumItem>0</EnumItem>
+    </configValue>
+    <configValue name="AnotherExtKey" displayName="AnotherExtKey" format="Digits" description="The supervisor will press this button on his phone whenever he wants to select another extension to supervise." defaultValue="0" required="true">
+      <EnumItem>0</EnumItem>
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+      <EnumItem>7</EnumItem>
+      <EnumItem>8</EnumItem>
+      <EnumItem>9</EnumItem>
+    </configValue>
+    <configValue name="MainMenuKey" displayName="MainMenuKey" format="StarPound" description="The supervisor will press this button on his phone whenever he wants to return to the main menu for the current call." defaultValue="*" required="true">
+      <EnumItem>*</EnumItem>
+      <EnumItem>#</EnumItem>
+    </configValue>    
+  </configuration>
+</install>

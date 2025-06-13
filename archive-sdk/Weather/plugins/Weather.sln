@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeActions.Weather", "NativeActions\NativeActions.Weather.csproj", "{61C4F7CB-50DC-4193-972D-FE8BCCCABC62}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postbuild", "Postbuild\Postbuild.csproj", "{ED1F4797-AC6E-4C2D-B719-15F45A666928}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0} = {1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}
+		{61C4F7CB-50DC-4193-972D-FE8BCCCABC62} = {61C4F7CB-50DC-4193-972D-FE8BCCCABC62}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StationParser", "StationParser\StationParser.csproj", "{02931544-7FD1-4584-A351-1990011527CD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{61C4F7CB-50DC-4193-972D-FE8BCCCABC62}.Debug.ActiveCfg = Debug|.NET
+		{61C4F7CB-50DC-4193-972D-FE8BCCCABC62}.Debug.Build.0 = Debug|.NET
+		{61C4F7CB-50DC-4193-972D-FE8BCCCABC62}.Release.ActiveCfg = Release|.NET
+		{61C4F7CB-50DC-4193-972D-FE8BCCCABC62}.Release.Build.0 = Release|.NET
+		{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}.Debug.ActiveCfg = Debug|.NET
+		{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}.Debug.Build.0 = Debug|.NET
+		{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}.Release.ActiveCfg = Release|.NET
+		{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}.Release.Build.0 = Release|.NET
+		{ED1F4797-AC6E-4C2D-B719-15F45A666928}.Debug.ActiveCfg = Debug|.NET
+		{ED1F4797-AC6E-4C2D-B719-15F45A666928}.Debug.Build.0 = Debug|.NET
+		{ED1F4797-AC6E-4C2D-B719-15F45A666928}.Release.ActiveCfg = Release|.NET
+		{ED1F4797-AC6E-4C2D-B719-15F45A666928}.Release.Build.0 = Release|.NET
+		{02931544-7FD1-4584-A351-1990011527CD}.Debug.ActiveCfg = Debug|.NET
+		{02931544-7FD1-4584-A351-1990011527CD}.Debug.Build.0 = Debug|.NET
+		{02931544-7FD1-4584-A351-1990011527CD}.Release.ActiveCfg = Release|.NET
+		{02931544-7FD1-4584-A351-1990011527CD}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

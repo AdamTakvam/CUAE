@@ -1,0 +1,48 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pcap-runtime", "pcap-runtime\pcap-runtime.vcproj", "{958E349F-3082-4114-8E9B-22E4B0158FBF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallMonitorReport", "..\utilities\CallMonitorReport\CallMonitorReport.csproj", "{57626F72-0923-41F0-A6F0-030504698E4E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostBuild", "..\postbuild\PostBuild.csproj", "{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{57626F72-0923-41F0-A6F0-030504698E4E} = {57626F72-0923-41F0-A6F0-030504698E4E}
+		{958E349F-3082-4114-8E9B-22E4B0158FBF} = {958E349F-3082-4114-8E9B-22E4B0158FBF}
+		{550AB2F2-FCB7-421B-9C42-0F1DD7B4F081} = {550AB2F2-FCB7-421B-9C42-0F1DD7B4F081}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NicSelector", "..\utilities\NicSelector\NicSelector.vcproj", "{550AB2F2-FCB7-421B-9C42-0F1DD7B4F081}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{958E349F-3082-4114-8E9B-22E4B0158FBF}.Debug.ActiveCfg = Debug|Win32
+		{958E349F-3082-4114-8E9B-22E4B0158FBF}.Debug.Build.0 = Debug|Win32
+		{958E349F-3082-4114-8E9B-22E4B0158FBF}.Release.ActiveCfg = Release|Win32
+		{958E349F-3082-4114-8E9B-22E4B0158FBF}.Release.Build.0 = Release|Win32
+		{57626F72-0923-41F0-A6F0-030504698E4E}.Debug.ActiveCfg = Debug|.NET
+		{57626F72-0923-41F0-A6F0-030504698E4E}.Debug.Build.0 = Debug|.NET
+		{57626F72-0923-41F0-A6F0-030504698E4E}.Release.ActiveCfg = Release|.NET
+		{57626F72-0923-41F0-A6F0-030504698E4E}.Release.Build.0 = Release|.NET
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Debug.ActiveCfg = Debug|.NET
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Debug.Build.0 = Debug|.NET
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Release.ActiveCfg = Release|.NET
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Release.Build.0 = Release|.NET
+		{550AB2F2-FCB7-421B-9C42-0F1DD7B4F081}.Debug.ActiveCfg = Debug|Win32
+		{550AB2F2-FCB7-421B-9C42-0F1DD7B4F081}.Debug.Build.0 = Debug|Win32
+		{550AB2F2-FCB7-421B-9C42-0F1DD7B4F081}.Release.ActiveCfg = Release|Win32
+		{550AB2F2-FCB7-421B-9C42-0F1DD7B4F081}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

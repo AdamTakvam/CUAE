@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xsd:complexType name="ReserveResponseType">
+      <xsd:sequence>
+                <!-- Guaranteed Present on 200 Response -->
+        <xsd:element name="ResultCode" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        
+                <!-- Guaranteed Present on 200 Response -->
+        <xsd:element name="ResultMessage" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      
+                <!-- Should be present on >= 1000 ResultCodes -->
+        <xsd:element name="DiagnosticCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+ 
+                <!-- Should be present on >= 1000 ResultCodes -->
+        <xsd:element name="DiagnosticMessage" type="xsd:string" minOccurs="0" maxOccurs="1" />
+     
+      </xsd:sequence>
+    </xsd:complexType>
+  <xsd:element name="ReserveResponse" type="ReserveResponseType"></xsd:element>
+</xsd:schema>

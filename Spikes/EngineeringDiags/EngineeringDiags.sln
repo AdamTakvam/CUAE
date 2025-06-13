@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngineeringDiags", "EngineeringDiags.csproj", "{7656B172-43A2-49F6-8768-9E165A3ECA82}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7656B172-43A2-49F6-8768-9E165A3ECA82}.Debug.ActiveCfg = Debug|.NET
+		{7656B172-43A2-49F6-8768-9E165A3ECA82}.Debug.Build.0 = Debug|.NET
+		{7656B172-43A2-49F6-8768-9E165A3ECA82}.Release.ActiveCfg = Release|.NET
+		{7656B172-43A2-49F6-8768-9E165A3ECA82}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="CallManagerVersion" displayName="CallManager Version" format="CCMVersion" description="The version of CallManager" defaultValue="5.0" required="true">
+      <EnumItem>3.3</EnumItem>
+      <EnumItem>4.1</EnumItem>
+      <EnumItem>5.0</EnumItem>
+    </configValue>
+    <configValue name="CallManagerIP" displayName="CallManager IP" format="String" description="The IP address of CallManager" defaultValue="" required="true" />
+    <configValue name="CallManagerUser" displayName="CallManager AXL Username" format="String" description="The username of the CallManager" defaultValue="" required="true" />
+    <configValue name="CallManagerPass" displayName="CallManager AXL Password" format="Password" description="The password of the CallManager" defaultValue="" required="true" />
+    <configValue name="Users" displayName="Users" format="HashTable" description="Key = Username, Value = Devicename" defaultValue="" required="true" />
+    <configValue name="PhoneUsername" displayName="Phone Username" format="String" description="The username associated with every phone" defaultValue="metreos" required="true" />
+    <configValue name="PhonePassword" displayName="Phone Password" format="Password" description="The password associated with every phone" defaultValue="metreos" required="true" />
+    <configValue name="UseBargeForConference" displayName="Use Barge For Conference" format="Bool" description="True to use Barge, false to use RTPTx" defaultValue="false" required="true" />
+    <configValue name="AppServerIP" displayName="Application Server IP" format="String" defaultValue="" />
+    <configValue name="ResellerLatOffestFixed" displayName="Reseller Lat Offest" format="String" description="" defaultValue="40" />
+    <configValue name="ResellerLongOffsetFixed" displayName="resller Long Offest" format="String" defaultValue="40" />
+    <configValue name="ResellerPhoneNumber" displayName="Reseller Phone Number" format="String" />
+    <configValue name="ResellerCompanyName" displayName="Reseller Company Name" format="String" defaultValue="Dell" />
+  </configuration>
+</install>

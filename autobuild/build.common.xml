@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Metreos.common" default="help" basedir=".">
+
+  <property environment="env" />
+  <condition property="Cisco.build.srcDirectory" value="${env.CUAEWORKSPACE}">
+    <isset property="env.CUAEWORKSPACE" />
+  </condition>
+  <condition property="Cisco.build.srcDirectory" value="X:" >
+    <not><isset property="Cisco.build.srcDirectory" /></not>
+  </condition>
+
+  <property name="Metreos.build.srcDirectory"       value="${Cisco.build.srcDirectory}" />
+  <property name="Metreos.build.srcRoot"            value="${Metreos.build.srcDirectory}/" />
+  <property name="Metreos.build.buildDirectory"     value="${Metreos.build.srcDirectory}/Build" />
+  <property name="Metreos.build.logDirectory"       value="${Metreos.build.buildDirectory}/BuildLogs" />
+  <property name="Metreos.build.toolsRoot"          value="${Metreos.build.srcDirectory}/Tools" />
+  <property name="Metreos.build.contribRoot"        value="${Metreos.build.srcDirectory}/Contrib" />
+  <property name="Metreos.build.docsRoot"           value="${Metreos.build.srcDirectory}/docs" />
+  <property name="Metreos.build.frameworkVersion"   value="1.0" />
+  <property name="Metreos.build.releaseMajorNumber" value="2" />
+  <property name="Metreos.build.releaseMinorNumber" value="4" />
+  <property name="Metreos.build.releasePatchNumber" value="0" />
+  <property name="Metreos.build.frameworkDirectory" value="${Metreos.build.buildDirectory}/Framework/${Metreos.build.frameworkVersion}" />
+
+  <!-- External task definitions -->
+  <property name="Metreos.ant.antcontrib"      location="${Metreos.build.toolsRoot}/ant-extensions/ant-contrib.jar" />
+  <property name="Metreos.ant.roxes"           location="${Metreos.build.toolsRoot}/ant-extensions/roxes-ant-tasks-1.2-2004-01-30.jar" />
+  <taskdef resource="com/roxes/tools/ant/taskdefs.properties" classpath="${Metreos.ant.roxes}" />
+  <!-- <taskdef resource="net/sf/antcontrib/antlib.xml"> -->
+  <taskdef name="if" classname="net.sf.antcontrib.logic.IfTask" classpath="${Metreos.ant.antcontrib}" />
+  <!-- ant-dotnet -->
+  <!-- <taskdef resource="org/apache/ant/dotnet/antlib.xml">
+    <classpath><pathelement location="${Metreos.build.toolsRoot}/ant-extensions/ant-dotnet-1.0.jar" /></classpath>
+  </taskdef> -->
+
+
+  <!-- Build Properties -->
+  <condition property="Metreos.build.buildNumber"   value="${env.MetreosBuildNumber}" >
+    <isset property="env.MetreosBuildNumber" />
+  </condition>
+  <condition property="Metreos.build.buildNumber" value="0000">
+    <not>
+      <isset property="Metreos.build.buildNumber" />
+    </not>
+  </condition>
+
+  <condition property="Metreos.build.releaseType" value="${env.MetreosReleaseType}" >
+    <isset property="env.MetreosReleaseType" />
+  </condition>
+  <condition property="Metreos.build.releaseType" value="DEV" >
+    <not>
+       <isset property="Metreos.build.releaseType" />
+    </not>
+  </condition>
+
+  <condition property="Metreos.build.optionFTF" value="${Metreos.build.setOptionFTF}" >
+     <isset property="Metreos.build.setOptionFTF" />
+  </condition>   
+  <condition property="Metreos.build.optionFTF" value="false" >
+     <not> <isset property="Metreos.build.optionFTF" /> </not>
+  </condition>
+
+  <property name="Metreos.build.releaseNumber" value="${Metreos.build.releaseMajorNumber}.${Metreos.build.releaseMinorNumber}.${Metreos.build.releasePatchNumber}" />
+  <property name="Metreos.build.releaseString" value="${Metreos.build.releaseMajorNumber}-${Metreos.build.releaseMinorNumber}-${Metreos.build.releasePatchNumber}" />
+
+  <property name="Metreos.tool.wscript" value="C:\Windows\system32\wscript.exe" />
+  <property name="Metreos.tool.mkisofs" value="${Metreos.build.toolsRoot}/cdrtools-2.01/mkisofs.exe" />
+  <property name="Metreos.doc2pdf-task" value="${Metreos.build.toolsRoot}/docprocessing/doc2pdf.py" />
+  <property name="Metreos.msbuild-task"  value="C:\Windows\Microsoft.NET\Framework\v2.0.50727\msbuild.exe" />
+  <property name="Metreos.vs-2k5-task"  value="${Metreos.build.srcDirectory}/autobuild/vs-2k5-task.bat" />
+  <property name="Metreos.vs-net-task"  value="${Metreos.build.srcDirectory}/autobuild/vs-net-task.bat" />
+  <property name="Metreos.vs-6-task"    value="${Metreos.build.srcDirectory}/autobuild/vs-6-task.bat" />
+  <property name="Metreos.max-designer" value="${Metreos.build.buildDirectory}/MaxDesigner/MaxDesigner.exe" />
+  <property name="Metreos.installshield" location="C:/Program Files/InstallShield 10.5 StandaloneBuild/issabld.exe" />
+  <property name="Metreos.installshield-12" location="C:/Program Files/Macrovision/IS 12 StandaloneBuild/issabld.exe" />
+  <property name="Cisco.docbook-task" location="${Metreos.build.toolsRoot}/build-scripts/docbook.bat" />
+
+  <!-- PatternSets -->
+  <patternset id="Metreos.patternset.max" >
+      <include name="MaxDesigner/**" />
+      <include name="Framework/**" />
+
+      <!-- exclude mce-specific components -->
+      <exclude name="Framework/${Metreos.build.frameworkVersion}/cpp-cored.*" />
+      <exclude name="Framework/${Metreos.build.frameworkVersion}/*.jar" />
+      <exclude name="Framework/${Metreos.build.frameworkVersion}/python/**" />
+      <exclude name="Framework/${Metreos.build.frameworkVersion}/wrapper.*" />
+  </patternset>
+  
+  <patternset id="Metreos.patternset.baseline" >
+      <!-- <include name="Applications/**" /> -->
+      <include name="AppServer/**" />
+      <include name="Framework/**" />
+      <include name="MediaServer/**" />
+      <include name="AlarmService/**" />
+      <include name="mceadmin/**" />
+      <!-- <include name="appsuiteadmin/**" /> -->
+      <include name="JTAPIService/**" />
+      <include name="LoggingService/**" />
+      <!-- <include name="SMIService/**" /> -->
+      <include name="WatchdogService/**" />
+      <include name="H323Service/**" />
+      <include name="SipService/**" />
+      <include name="SftpServer/**" />
+      <!-- <include name="PCapService/**" /> -->
+      <!-- <include name="RtpRelayService/**" /> -->
+      <include name="System/**" />
+      <include name="LicenseServer/**" />
+      <include name="PresenceService/**" />
+      <include name="DbMigration/**" />
+      <include name="MigrationTools/**" />
+	  <include name="Tools/**" />
+
+      <!-- exclude Sccp provider --> 
+      <!-- <exclude name="AppServer/Providers/Metreos.CallControl.Sccp.*" /> -->
+      <!-- exclude SccpProxy provider and RtpRelayService --> 
+      <exclude name="AppServer/Providers/Metreos.Providers.SccpProxy.*" />
+      <!-- exclude max-specific packages -->
+      <exclude name="Framework/${Metreos.build.frameworkVersion}/Packages/*" />
+      <!-- exclude special dev-mode apache conf -->
+      <exclude name="Apache/conf/*-dev.conf" />
+      <!-- exclude functional-test-framework providers -->
+      <exclude name="Framework/${Metreos.build.frameworkVersion}/MaxAppsGen.*" />
+      <exclude name="AppServer/Providers/Metreos.Providers.FunctionalTestFramework.*" />
+      <exclude name="AppServer/Providers/Metreos.Providers.TestCallControl.*" />
+  </patternset>
+
+  <!--
+  <patternset id="Metreos.patternset.ext-sccp" >
+      <include name="AppServer/Providers/Metreos.CallControl.Sccp.*" />
+  </patternset>
+
+  <patternset id="Metreos.patternset.ext-sccpproxy">
+      <include name="AppServer/Providers/Metreos.Providers.SccpProxy.*" />
+  </patternset>
+  -->
+
+  <patternset id="Metreos.patternset.ext-ftf">
+      <include name="Framework/${Metreos.build.frameworkVersion}/MaxAppsGen.*" />
+      <include name="AppServer/Providers/Metreos.Providers.FunctionalTestFramework.*" />
+      <include name="AppServer/Providers/Metreos.Providers.TestCallControl.*" />
+  </patternset>
+
+  <!-- Macros -->
+  <macrodef name="updateversionstring" >
+    <attribute name="file" default="" />
+    <sequential>
+        <copy file="@{file}.tmpl" tofile="@{file}" overwrite="true" preservelastmodified="true">
+            <filterset refid="Metreos.buildIdentifier" />
+        </copy>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="setBuildType" >
+      <attribute name="workDirectory"   default="${workDirectory}" />
+      <attribute name="releaseType"     default="${Metreos.build.releaseType}" />
+      <attribute name="packageType"     default="base" />
+      <sequential>
+         <echo message="TODO setBuildType: @{releaseType} (@{packageType})" />
+      </sequential>
+  </macrodef> 
+
+  <macrodef name="buildapp">
+    <attribute name="dir"    default="." />
+    <attribute name="target" default="${Metreos.build.target}" />
+    <sequential>
+        <echo message="Building @{dir}..." />
+        <ant dir="@{dir}" inheritAll="false" inheritRefs="false" output="${Metreos.build.logDirectory}/appsuite-@{dir}.@{target}.log" target="@{target}" />
+    </sequential>
+  </macrodef>
+
+  <macrodef name="wscript">
+    <attribute name="root" default="." />
+    <attribute name="dir"  default="." />
+    <attribute name="script" default="none.vbs" />
+    <element name="arglist" />
+    <sequential>
+        <exec executable="${Metreos.tool.wscript}" dir="@{root}/@{dir}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+            <arg value="@{script}" />
+            <arglist />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <!-- Installshield 10.5 -->
+  <macrodef name="metreosISMSetVersion" >
+    <attribute name="target"        default="installshield.ism" />
+    <attribute name="releaseNumber" default="0.0.0.0000" />
+    <attribute name="buildNumber"   default="0000" />
+    <sequential>
+        <exec executable="${Metreos.tool.wscript}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="${Metreos.build.toolsRoot}\build-scripts\changeversion.vbs" />
+            <arg value="@{target}" />
+            <arg value="@{releaseNumber}" />
+            <arg value="@{buildNumber}" />
+        </exec>
+    </sequential>
+  </macrodef>
+  
+  <macrodef name="metreosInstallShieldTask">
+    <attribute name="root"          default="." />
+    <attribute name="dir"           default="." />
+    <attribute name="work"          default="@{root}/@{dir}" />
+    <attribute name="solution"      default="installshield" />
+    <attribute name="basepath"      default="." />
+    <attribute name="genname"       default="@{solution}" />
+    <attribute name="msiname"       default="@{solution}" />
+    <attribute name="releaseNumber" default="${Metreos.build.releaseNumber}" />
+    <attribute name="buildNumber"   default="${Metreos.build.buildNumber}" />
+    <sequential>
+        <property name="installshield_dir_@{solution}"  location="@{work}/@{solution}" />
+        <exec executable="${Metreos.installshield}" dir="@{work}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="-p" /><arg value="@{work}/@{solution}.ism" />
+            <arg value="-r" /><arg value="@{releaseNumber}" />
+            <arg value="-a" /><arg value="@{buildNumber}" />
+            <arg value="-c" /><arg value="COMP" />
+            <arg value="-b" /><arg value="@{basepath}" />
+            <arg value="-x" />
+            <arg value="-e" /><arg value="n" />
+            <arg value="-t" /><arg value="C:\Windows\Microsoft.NET\Framework\v1.1.4322" />
+            <arg value="-o" /><arg value="C:\Program Files\Common Files\Merge Modules" />
+    </exec>
+        <move file="@{basepath}\@{buildNumber}\@{releaseNumber}\DiskImages\DISK1\@{genname}.msi" tofile="@{root}/@{dir}/@{msiname}.msi" />
+    </sequential>
+  </macrodef>
+  
+  <!-- Installshield 12 -->
+  <macrodef name="cuaeISMSetVersion" >
+    <attribute name="target"        default="installshield.ism" />
+    <attribute name="releaseNumber" default="0.0.0.0000" />
+    <attribute name="buildNumber"   default="0000" />
+    <sequential>
+        <exec executable="${Metreos.tool.wscript}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="${Metreos.build.toolsRoot}\build-scripts\is12-change-version.vbs" />
+            <arg value="@{target}" />
+            <arg value="@{releaseNumber}" />
+            <arg value="@{buildNumber}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="cuaeInstallShieldMsiTask">
+    <attribute name="root"          default="." />
+    <attribute name="dir"           default="." />
+    <attribute name="work"          default="@{root}/@{dir}" />
+    <attribute name="solution"      default="installshield" />
+    <attribute name="basepath"      default="." />
+    <attribute name="genname"       default="@{solution}" />
+    <attribute name="msiname"       default="@{solution}" />
+    <attribute name="releaseNumber" default="${Metreos.build.releaseNumber}" />
+    <attribute name="buildNumber"   default="${Metreos.build.buildNumber}" />
+    <sequential>
+        <property name="installshield_dir_@{solution}"  location="@{work}/@{solution}" />
+        <exec executable="${Metreos.installshield-12}" dir="@{work}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="-p" /><arg value="@{work}/@{solution}.ism" />
+            <arg value="-r" /><arg value="@{releaseNumber}" />
+            <arg value="-a" /><arg value="@{buildNumber}" />
+            <arg value="-c" /><arg value="COMP" />
+            <arg value="-b" /><arg value="@{basepath}" />
+            <arg value="-x" />
+            <arg value="-e" /><arg value="n" />
+            <arg value="-t" /><arg value="C:\Windows\Microsoft.NET\Framework\v2.0.50727" />
+            <arg value="-o" /><arg value="C:\Program Files\Common Files\Merge Modules,${Metreos.build.contribRoot}\Installshield\MergeModules" />
+    </exec>
+        <move file="@{basepath}\@{buildNumber}\@{releaseNumber}\DiskImages\DISK1\@{genname}.msi" tofile="@{root}/@{dir}/@{msiname}.msi" />
+    </sequential>
+  </macrodef>
+  
+  <macrodef name="cuaeInstallShieldExeTask">
+    <attribute name="root"                  default="." />
+    <attribute name="dir"                   default="." />
+    <attribute name="work"                  default="@{root}/@{dir}" />
+    <attribute name="solution"              default="installshield" />
+    <attribute name="basepath"              default="." />
+    <attribute name="productConfiguration"  default="MainRelease" />
+    <attribute name="releaseConfiguration"  default="SetupFile" />
+    <attribute name="finalname"             default="@{solution}" />
+    <sequential>
+        <property name="installshield_dir_@{solution}"  location="@{work}/@{solution}" />
+        <exec executable="${Metreos.installshield-12}" dir="@{work}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="-p" /><arg value="@{work}/@{solution}.ism" />
+            <arg value="-a" /><arg value="@{productConfiguration}" />
+            <arg value="-c" /><arg value="@{releaseConfiguration}" />
+            <arg value="-b" /><arg value="@{basepath}" />
+            <arg value="-x" />
+            <arg value="-t" /><arg value="C:\Windows\Microsoft.NET\Framework\v2.0.50727" />
+            <arg value="-o" /><arg value="C:\Program Files\Common Files\Merge Modules,${Metreos.build.contribRoot}\Installshield\MergeModules" />
+    </exec>
+        <move file="@{basepath}\@{productConfiguration}\@{releaseConfiguration}\DiskImages\DISK1\setup.exe" tofile="@{root}/@{dir}/@{finalname}.exe" />
+    </sequential>
+  </macrodef>
+  
+  <macrodef name="metreosBuildMSWord">
+    <attribute name="root"      default="." />
+    <attribute name="targetdir" default="doc" />
+    <attribute name="srcdir"    default="." />
+    <attribute name="builddir"  default="." />
+    <attribute name="name"      default="foo.doc" />
+    <sequential>
+        <mkdir dir="@{root}/@{builddir}/@{targetdir}" /> 
+        <copy todir="@{root}/@{builddir}/@{targetdir}" file="@{srcdir}/@{name}" />
+        <!-- suppress pdf building -->
+        <!-- <exec dir="@{root}/@{builddir}/@{targetdir}" executable="python">
+            <arg value="${Metreos.doc2pdf-task}" />
+            <arg value="@{name}" />
+        </exec>
+        <delete file="@{builddir}/@{targetdir}/@{name}" />
+        -->
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosBuildFramemaker">
+    <attribute name="root"      default="." />
+    <attribute name="targetdir" default="doc" />
+    <attribute name="srcdir"    default="." />
+    <attribute name="builddir"  default="." />
+    <attribute name="flatten"   default="true" />
+    <element   name="doc-fileset" optional="true" implicit="true" />
+    <sequential>
+        <mkdir dir="@{root}/@{builddir}/@{targetdir}" /> 
+        <copy todir="@{root}/@{builddir}/@{targetdir}" flatten="@{flatten}">
+            <fileset dir="@{srcdir}">
+                <doc-fileset />
+            </fileset>
+        </copy>    
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosAntTask">
+    <attribute name="root"      default="." />
+    <attribute name="dir"       default="." />
+    <attribute name="target"    default="${Metreos.build.target}" />
+    <attribute name="antfile"   default="build.xml" />
+    <attribute name="loglabel"  default="@{dir}" />
+    <attribute name="output"    default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <element name="metreosAntElements" optional="true" implicit="true" />
+    <sequential>
+        <echo message="@{loglabel}.@{target}" />
+        <ant dir="@{root}/@{dir}" antfile="@{antfile}" inheritAll="false" inheritRefs="false" output="@{output}" target="@{target}" >
+           <metreosAntElements />
+        </ant>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosVs2K5CleanTask">
+    <attribute name="root"      default="." />
+    <attribute name="dir"       default="." />
+    <attribute name="excludes"  default="" />
+    <sequential>
+        <delete includeEmptyDirs="true">
+            <fileset dir="@{root}/@{dir}" includes="**/*.dll" excludes="@{excludes}" />
+            <fileset dir="@{root}/@{dir}" includes="**/*.pdb" excludes="@{excludes}" />
+            <fileset dir="@{root}/@{dir}" includes="**/obj/*" excludes="@{excludes}" />
+            <fileset dir="@{root}/@{dir}" includes="**/bin/*" excludes="@{excludes}" />
+        </delete>
+    </sequential>
+  </macrodef>
+  
+  <macrodef name="metreosVsNetCleanTask">
+    <attribute name="root"      default="." />
+    <attribute name="dir"       default="." />
+    <attribute name="excludes"  default="" />
+    <sequential>
+        <delete includeEmptyDirs="true">
+            <fileset dir="@{root}/@{dir}" includes="**/*.dll" excludes="@{excludes}" />
+            <fileset dir="@{root}/@{dir}" includes="**/*.pdb" excludes="@{excludes}" />
+            <fileset dir="@{root}/@{dir}" includes="**/obj/*" excludes="@{excludes}" />
+            <fileset dir="@{root}/@{dir}" includes="**/bin/*" excludes="@{excludes}" />
+        </delete>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosCmdTask">
+    <attribute name="root"      default="." />
+    <attribute name="dir"       default="." />
+    <attribute name="command"   default="dir" />
+    <attribute name="args"      default="" />
+    <sequential>
+        <exec dir="@{root}/@{dir}" executable="@{root}/@{dir}/@{command}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg line="@{args}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosVs2K5TaskOutput">
+    <attribute name="root"     default="." />
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="@{dir}" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="project"  default="" />
+    <attribute name="loglabel" default="@{solution}" />
+    <attribute name="output"   default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <attribute name="failonerror" default="true" />
+    <sequential>
+        <echo message="@{loglabel}" />
+        <exec executable="${Metreos.vs-2k5-task}" dir="@{root}/@{dir}" output="@{output}" failonerror="@{failonerror}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}.sln" />
+            <arg value="@{target}" />
+            <arg value="@{project}" />
+        </exec>
+    </sequential>
+  </macrodef>
+  
+  <macrodef name="metreosVsNetTaskOutput">
+    <attribute name="root"     default="." />
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="@{dir}" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="project"  default="" />
+    <attribute name="loglabel" default="@{solution}" />
+    <attribute name="output"   default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <attribute name="failonerror" default="true" />
+    <sequential>
+        <echo message="@{loglabel}" />
+        <exec executable="${Metreos.vs-net-task}" dir="@{root}/@{dir}" output="@{output}" failonerror="@{failonerror}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}.sln" />
+            <arg value="@{target}" />
+            <arg value="@{project}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosMSBuildTask">
+    <attribute name="root"        default="." />
+    <attribute name="dir"         default="." />
+    <attribute name="solution"    default="@{dir}" />
+    <attribute name="target"      default="${Metreos.build.target}" />
+    <attribute name="project"     default="" />
+    <attribute name="loglabel"    default="@{solution}" />
+    <attribute name="output"      default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <attribute name="failonerror" default="false" />
+    <sequential>
+        <exec executable="${Metreos.msbuild-task}" dir="@{root}/@{dir}" failonerror="@{failonerror}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}.sln" />
+            <arg value="/p:Configuration=@{target}" />
+        </exec>
+    </sequential>      
+  </macrodef>
+
+  <macrodef name="metreosVs2K5Task">
+    <attribute name="root"     default="." />
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="@{dir}" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="project"  default="" />
+    <attribute name="loglabel" default="@{solution}" />
+    <attribute name="output"   default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <!-- <attribute name="resultproperty" default="returnCode" /> -->
+    <!-- <attribute name="failonerror" default="true" /> -->
+    <attribute name="failonerror" default="false" />
+    <sequential>
+        <!-- <exec executable="${Metreos.vs-net-task}" dir="@{root}/@{dir}" output="@{output}"> -->
+        <!-- <exec executable="${Metreos.vs-net-task}" dir="@{root}/@{dir}" > -->
+        <exec executable="${Metreos.vs-2k5-task}" dir="@{root}/@{dir}" failonerror="@{failonerror}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}.sln" />
+            <arg value="@{target}" />
+            <arg value="@{project}" />
+        </exec>
+    </sequential>
+  </macrodef>
+  
+  <macrodef name="metreosVsNetTask">
+    <attribute name="root"     default="." />
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="@{dir}" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="project"  default="" />
+    <attribute name="loglabel" default="@{solution}" />
+    <attribute name="output"   default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <!-- <attribute name="resultproperty" default="returnCode" /> -->
+    <!-- <attribute name="failonerror" default="true" /> -->
+    <attribute name="failonerror" default="false" />
+    <sequential>
+        <!-- <exec executable="${Metreos.vs-net-task}" dir="@{root}/@{dir}" output="@{output}"> -->
+        <!-- <exec executable="${Metreos.vs-net-task}" dir="@{root}/@{dir}" > -->
+        <exec executable="${Metreos.vs-net-task}" dir="@{root}/@{dir}" failonerror="@{failonerror}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}.sln" />
+            <arg value="@{target}" />
+            <arg value="@{project}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosMaxTask">
+    <attribute name="root"        default="." />
+    <attribute name="dir"         default="." />
+    <attribute name="solution"    default="@{dir}" />
+    <attribute name="target"      default="${Metreos.build.target}" />
+    <attribute name="project"     default="" />
+    <attribute name="loglabel"    default="@{solution}" />
+    <attribute name="output"      default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <attribute name="failonerror" default="false" />
+    <sequential>
+        <!-- <echo message="cd @{root}/@{dir}; ${Metreos.max-designer} @{solution}.max /b" /> -->
+        <exec executable="${Metreos.max-designer}" dir="@{root}/@{dir}" failonerror="@{failonerror}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{root}/@{dir}/@{solution}.max" />
+            <arg value="/b" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosV6Task">
+    <attribute name="root"         default="." />
+    <attribute name="dir"          default="." />
+    <attribute name="projectfile"  default="@{dir}.dsw" />
+    <attribute name="project"      default=""  />
+    <attribute name="loglabel"     default="@{dir}" />
+    <attribute name="target"       default="${Metreos.build.target}" />
+    <sequential>
+        <exec executable="${Metreos.vs-6-task}" dir="@{root}/@{dir}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{projectfile}" />
+            <arg value="@{target}" />
+            <arg value="@{project}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosV6TaskOutput">
+    <attribute name="root"         default="." />
+    <attribute name="dir"          default="." />
+    <attribute name="projectfile"  default="@{dir}.dsw" />
+    <attribute name="project"      default=""  />
+    <attribute name="loglabel"     default="@{dir}" />
+    <attribute name="target"       default="${Metreos.build.target}" />
+    <attribute name="output"       default="${Metreos.build.logDirectory}/@{loglabel}.@{target}.txt" />
+    <sequential>
+        <exec executable="${Metreos.vs-6-task}" dir="@{root}/@{dir}" output="@{output}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{projectfile}" />
+            <arg value="@{target}" />
+            <arg value="@{project}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="vs2k5task">
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="solution.sln" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="output"   default="" />
+    <sequential>
+        <echo message="Vs2K5Task @{solution} @{target}" />
+        <exec executable="${Metreos.vs-2k5-task}" dir="@{dir}" output="@{output}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}" />
+            <arg value="@{target}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  
+  <macrodef name="vsnettask">
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="solution.sln" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="output"   default="" />
+    <sequential>
+        <echo message="VsNetTask @{solution} @{target}" />
+        <exec executable="${Metreos.vs-net-task}" dir="@{dir}" output="@{output}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}" />
+            <arg value="@{target}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="vs6task">
+    <attribute name="dir"      default="." />
+    <attribute name="solution" default="solution.sln" />
+    <attribute name="target"   default="${Metreos.build.target}" />
+    <attribute name="output"   default="" />
+    <sequential>
+        <echo message="Vs6Task @{solution} @{target}" />
+        <exec executable="${Metreos.vs-6-task}" dir="@{dir}" output="@{output}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{solution}" />
+            <arg value="@{target}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="designertask">
+    <attribute name="project" default="project.max" />
+    <attribute name="dir"     default="." />
+    <attribute name="output"  default="" />
+    <sequential>
+        <echo message="MaxDesigner /b @{project}" />
+        <exec executable="${Metreos.max-designer}" dir="@{dir}" output="@{output}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{project}" />
+            <arg value="/b" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="zipdirectory">
+      <attribute name="zipfile"           default="zipfile.zip" />
+      <attribute name="working-directory" default="." />
+      <attribute name="files"             default="." />
+      <sequential>
+          <if>
+            <available file="C:/cygwin/bin/zip.exe" />
+            <then>
+              <exec executable="zip" dir="@{working-directory}">
+                <arg value="-r" />
+                <arg value="@{zipfile}" />
+                <arg value="@{files}" />
+              </exec>
+            </then>
+            <else>
+              <zip destfile="@{zipfile}" >
+                <zipfileset dir="@{working-directory}" />
+              </zip>
+            </else>
+          </if>
+      </sequential>
+  </macrodef>
+
+  <macrodef name="metreosMkisofs">
+    <attribute name="name"         default="cd" />
+    <attribute name="dir"          default="."  />
+    <attribute name="volumeID"     default="Cisco Software ISO Image" />
+    <attribute name="preparerName" default="Cisco Systems Inc." />
+    <sequential>
+        <exec executable="${Metreos.tool.mkisofs}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="-J" />  <!-- Generate Joliet directory Information -->
+            <arg value="-N" />  <!-- Omit ISO9660 version number -->
+            <arg value="-v" />  <!-- verbose -->
+            <arg value="-volid" /><arg value="@{volumeID}" />   <!-- set Volume ID -->
+            <arg value="-p" /><arg value="@{preparerName}" />   <!-- preparer Name --> 
+            <arg value="-output" /><arg value="@{name}.iso" />  <!-- output file -->
+            <arg value="@{dir}" />                              <!-- source directory -->
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="metreosSVN">
+    <attribute name="command" default="log" />
+    <attribute name="dir"     default="." />
+    <attribute name="file"    default="" />
+    <sequential>
+        <exec executable="svn" dir="@{dir}" >
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{command}" />
+            <arg value="@{file}" />
+        </exec>     
+    </sequential>
+  </macrodef>
+
+  <macrodef name="ciscoDocbook">
+    <attribute name="dir"      default="." />
+    <attribute name="docroot"  default="main.xml" />
+    <attribute name="output"   default="Docbook Document" />
+    <attribute name="dest"     default="." />
+    <attribute name="type"     default="DevArticle" />
+    <sequential>
+        <mkdir dir="@{dest}" />
+        <exec executable="${Cisco.docbook-task}" dir="@{dir}">
+            <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+            <arg value="@{docroot}" />
+            <arg value="@{dest}/@{output}" />
+            <arg value="@{type}" />
+        </exec>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="ciscoDocGen">
+    <attribute name="input"        default="${Metreos.build.frameworkDirectory}/Packages" />
+    <attribute name="out"          default="./obj" />
+    <attribute name="dir"          default="." />
+    <attribute name="name"         default="cuae-api-ref" />
+    <attribute name="display"      default="Cisco Unified Application Environment API Reference"  />
+    <attribute name="glossary"     default="${Metreos.build.docsRoot}/cuae-developer-api-reference/api-glossary.xml"  />
+    <sequential>
+      <exec executable="${Metreos.build.frameworkDirectory}/docgen.exe" dir="@{dir}">
+        <env key="CUAEWORKSPACE" value="${Cisco.build.srcDirectory}" />
+
+        <arg value="-in:@{input}" />
+        <arg value="-out:@{out}" />
+        <arg value="-name:@{name}" />
+	<arg value="-display:@{display}" />
+	<arg value="-glossary:@{glossary}" />
+      </exec>
+    </sequential>
+  </macrodef>
+
+</project>

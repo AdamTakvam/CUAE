@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="CUAEAgent" default="Debug" basedir=".">
+
+	<description>Build script for SNMP CUAEAgent</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="projectDirectory" value="${Metreos.build.srcRoot}/snmp-agent" />
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/StatsService" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <!-- <metreosVsNetCleanTask root="${Metreos.build.srcRoot}" dir="snmp-agent" /> -->
+        <delete includeEmptyDirs="true">
+            <fileset dir="${projectDirectory}" includes="**/bin/** **/obj/** **/Release/** **/Debug/**" />
+            <fileset dir="${projectDirectory}" includes="**/CUAEAgent.dll" />
+        </delete>          
+    </target>    
+        
+    <target name="do-build" >
+        <metreosMSBuildTask solution="./RegUpdate/RegUpdate" />
+        <metreosVsNetTask solution="./CUAEAgent/CUAEAgent" /> 
+    </target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

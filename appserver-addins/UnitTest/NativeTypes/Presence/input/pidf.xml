@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:tom@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="tom">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <unknown/>
+  </activities>
+
+</dm:person>
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cisco-upc">
+      <contact priority="0">sip:tom@cisco.com</contact>
+      <note xml:lang="en">lunching</note>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>false</sc:audio>
+        <sc:video>false</sc:video>
+        <sc:text>false</sc:text>
+      </sc:servcaps>
+      <user-input>active</user-input>
+      <status>
+        <basic>open</basic>
+      </status>
+    </tuple>
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="email">
+      <status>
+        <basic>open</basic>
+      </status>
+      <contact priority="0">mailto:hoyu2@cisco.com</contact>
+    </tuple>
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="phone">
+      <status>
+        <basic>open</basic>
+      </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+      </sc:servcaps>
+      <contact priority="1">phone:100018</contact>
+    </tuple>
+
+    <dm:device xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="d1">
+        <dm:deviceID>mac:1234567890</dm:deviceID>
+    </dm:device>
+    <dm:device xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="d2">
+        <dm:deviceID>mac:2234567890</dm:deviceID>
+    </dm:device>
+
+</presence>

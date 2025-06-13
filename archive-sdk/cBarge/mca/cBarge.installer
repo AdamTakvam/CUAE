@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+	  <configValue name="DialPointDN" description="The directory number that will place the conference bridge call required to perform barge" format="string" readOnly="false">*99999</configValue>
+	  <configValue name="DeviceBargeMap" description="A table that matches a phone's devicename to it's barge line number" format="hashtable" readOnly="false" />  
+  </configuration>
+</install>

@@ -1,0 +1,208 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC0E03AD-9F36-4980-AF0B-5066C8C30A70}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.Providers.CiscoDeviceListX</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\..\autobuild\metreos.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.Providers.CiscoDeviceListX</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugMethodCallTrace|AnyCPU' ">
+    <OutputPath>bin\DebugMethodCallTrace\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE;TrackMethodCalls</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Metreos.Core">
+      <Name>Metreos.Core</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.Core.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Interfaces">
+      <Name>Metreos.Interfaces</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.LoggingFramework">
+      <Name>Metreos.LoggingFramework</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Messaging">
+      <Name>Metreos.Messaging</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.Messaging.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.PackageGeneratorCore">
+      <Name>Metreos.PackageGeneratorCore</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.PackageGeneratorCore.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.ProviderFramework">
+      <Name>Metreos.ProviderFramework</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.ProviderFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Utilities">
+      <Name>Metreos.Utilities</Name>
+      <HintPath>..\..\..\build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <Name>MySql.Data</Name>
+      <HintPath>..\..\..\Contrib\MySQL\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nsoftware.IPWorks">
+      <Name>nsoftware.IPWorks</Name>
+      <HintPath>..\..\..\Contrib\IPWorks\nsoftware.IPWorks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\autobuild\AssemblyInfoCommon.cs">
+      <Link>AssemblyInfoCommon.cs</Link>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeviceListXData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DeviceListXReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DlxInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DlxProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HttpDlxReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SNMPReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="DeviceListXData.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="..\..\..\autobuild\metreos.snk">
+      <Link>metreos.snk</Link>
+    </None>
+    <None Include="DeviceListXData.xsx">
+      <DependentUpon>DeviceListXData.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

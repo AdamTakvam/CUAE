@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="appserver-addins" default="Debug" basedir=".">
+
+	<description>Build script for Application Server Add-in packages</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/AppServer" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+    </target>    
+        
+	<target name="do-build" >
+        <metreosCmdTask root="${Metreos.build.srcRoot}" dir="appserver-addins" command="GeneratePackages.bat" args="${Metreos.build.target}" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

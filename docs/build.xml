@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="docs" default="Debug" basedir=".">
+  <description>Build script for the CUAE Documents</description>
+  
+  <import file="../autobuild/build.includes.xml" />
+  <property name="deploymentDirectory" value="${Metreos.build.buildDirectory}/Installers/Documents" />
+  <property name="projectRoot"         value="${Metreos.build.srcRoot}/docs" />
+  <property name="buildDirectory"      value="obj" />
+  <property name="baseDirectory"       value="${Metreos.build.srcRoot}/docs/archived" />
+  
+  <target name="do-init" >
+     <mkdir dir="${Metreos.build.buildDirectory}/BuildLogs" />
+     <mkdir dir="${deploymentDirectory}" />
+     <mkdir dir="${buildDirectory}" />
+  </target>
+
+  <target name="doc-msword" >
+    <!-- select binary documents -->
+
+    <!-- ActiveRelay Docs -->
+    <metreosBuildMSWord targetdir="ActiveRelay" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/ActiveRelay" 
+        name="ActiveRelay Administration Guide (Gateway).doc" />
+    <metreosBuildMSWord targetdir="ActiveRelay" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/ActiveRelay" 
+        name="ActiveRelay Administration Guide (Shared Line).doc" />
+    <metreosBuildMSWord targetdir="ActiveRelay" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/ActiveRelay" 
+        name="ActiveRelay User Guide.doc" />
+    <metreosBuildMSWord targetdir="ActiveRelay" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/ActiveRelay/Technical Overview" 
+        name="ActiveRelay Tech Overview.doc" />
+
+    <!-- CCEM --> 
+    <metreosBuildMSWord targetdir="CCEM" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/CCEM Fundamentals" 
+        name="CCEM White Paper.doc" />
+
+    <!-- ClickToTalk --> 
+    <metreosBuildMSWord targetdir="ClickToTalk" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/ClickToTalk" 
+        name="ClickToTalk Admin Guide.doc" />
+
+    <!-- RemoteAgent -->
+    <metreosBuildMSWord targetdir="RemoteAgent" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/RemoteAgent" 
+        name="RemoteAgent Administration Guide (SCCP).doc" />
+
+    <metreosBuildMSWord targetdir="RemoteAgent" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/RemoteAgent" 
+        name="RemoteAgent Administration Guide (H323).doc" /> 
+
+    <metreosBuildMSWord targetdir="RemoteAgent" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/RemoteAgent" 
+        name="RemoteAgent White Paper.doc" />
+
+    <metreosBuildMSWord targetdir="RemoteAgent" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/RemoteAgent" 
+        name="RemoteAgent User Guide.doc" />
+           
+    <!-- Professional Services -->
+    <metreosBuildMSWord targetdir="Professional Services/Oracle" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/Production Architectures/Oracle-AR-H.323 Gateway Only"
+        name="Active Relay Call Manager Configuration for PBX Users 1.4.doc" />
+
+    <metreosBuildMSWord targetdir="Professional Services/Lehman" builddir="${buildDirectory}" 
+        srcdir="${baseDirectory}/Production Architectures/Lehman-AR-SCCPProxy"
+        name="Lehman I-Phone Architecture.vsd" />
+
+    <!-- Core Manuals -->
+    <!--
+    <metreosBuildFramemaker targetdir="Core Manuals" builddir="${buildDirectory}" srcdir="${baseDirectory}">
+        <include name="framedocs/Application Suite Administrators Guide/2.1 App Suite Admin Guide V2.book" />
+        <include name="framedocs/Application Suite Users Guide/Application Suite User Guide.book" />
+        <include name="framedocs/Developers Guide/Developer Guide.book" />
+        <include name="framedocs/Management Console Guide/Application Suite User Guide.book" />
+        <include name="HardwareInstSetUp/4_24_05 Metreos_MCE_2400_Guide/Installation Guide.book" />
+    </metreosBuildFramemaker>
+    -->
+
+     <metreosBuildMSWord targetdir="Developer" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/MCE_Developer_Core_Concepts/Common_Designs"
+        name="Telephony Application Development Concepts.doc" />
+        
+    <!-- Security -->
+    <metreosBuildMSWord targetdir="Security" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/Security"
+        name="Securing the MCE.doc" />
+    
+    <!-- Individual Projects -->
+    <!-- Tririga + EY Project: Hotelling and Reservation -->
+    <!-- <metreosBuildMSWord targetdir="Reserve" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/../application-suite/Reserve/docs"
+        name="The Metreos Reserve API (POC).doc" />
+      -->
+
+    <!-- Demo documents -->
+     <metreosBuildMSWord targetdir="Demoing" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/Demoing"
+        name="Demo Resource Matrix.doc" />
+
+     <metreosBuildMSWord targetdir="Demoing" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/Demoing"
+        name="Metreos Installation QuickStart.doc" />
+
+     <metreosBuildMSWord targetdir="Demoing" builddir="${buildDirectory}"
+        srcdir="${baseDirectory}/Demoing"
+        name="Administering Hosted Demo.doc" />
+
+     <!-- select text documents, and process macros -->
+     <copy todir="${buildDirectory}" flatten="true">
+        <fileset dir="${baseDirectory}/ReleaseNotes">
+          <include name="ReleaseNotes.txt" />
+        </fileset>
+        <filterset refid="Metreos.buildIdentifier" />
+     </copy>
+
+  </target>
+
+  <target name="doc-all-docbook" >
+    <metreosAntTask root="${projectRoot}" dir="release-notes" loglabel="docbook-release-notes" />
+    <metreosAntTask root="${projectRoot}" dir="cuae-developer-guide" loglabel="docbook-cuae-developer-guide" />
+    <metreosAntTask root="${projectRoot}" dir="cuae-developer-api-reference" loglabel="docbook-cuae-developer-api-reference" />
+    <metreosAntTask root="${projectRoot}" dir="cuae-admin-remote-monitoring" loglabel="docbook-cuae-admin-remote-monitoring" />
+    <metreosAntTask root="${projectRoot}" dir="cuae-admin-services-and-processes" loglabel="docbook-cuae-admin-services-and-processes" />
+  </target>
+
+  <target name="do-build"        depends="doc-msword,doc-all-docbook" />
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-clean" depends="doc-all-docbook" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-postbuild">
+     <copy todir="${deploymentDirectory}">
+         <fileset dir="${buildDirectory}" includes="**" />
+     </copy>
+  </target>
+</project>

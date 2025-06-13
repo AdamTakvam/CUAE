@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="logging-service" default="Debug" basedir=".">
+
+	<description>Build script for CPP Framework</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/LoggingService" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <!-- <metreosVsNetCleanTask root="${Metreos.build.srcRoot}" dir="logging-service" /> -->
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/logging-service" includes="**/bin/** **/obj/**" />
+        </delete>   
+    </target>    
+        
+	<target name="do-build" >
+        <metreosMSBuildTask solution="logging-service" />
+        <!-- <metreosVsNetTask solution="logging-service" /> -->
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

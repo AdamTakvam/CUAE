@@ -1,0 +1,5 @@
+To install this SNMP extension agent on Windows peform the instructions
+as outlined in the following URL:
+  http://www.codeproject.com/internet/SNMP_Agent_DLL__Part2_.asp
+
+The Windows SNMP component must be installed before this will work.

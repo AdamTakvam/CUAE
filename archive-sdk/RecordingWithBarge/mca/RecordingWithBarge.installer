@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="PassCode" displayName="Pass Code" format="Password" description="The passcode used to access the call monitoring/recording functionality" defaultValue="" required="true" />
+    <configValue name="DisplayName" displayName="Display Name" format="String" description="The display name presented to monitors when using an IP Phone" defaultValue="Call Monitor" required="true" />
+    <configValue name="LoginFailureThresh" displayName="Login Failure Threshold" format="FailureThresh" description="Number of login attempts allowed before the application ends the session" defaultValue="3" required="true">
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+    </configValue>
+    <configValue name="RecordKey" displayName="RecordKey" format="Digits" description="The supervisor will press this button on his phone whenever he wants to toggle recording on or off." defaultValue="*" required="true">
+      <EnumItem>*</EnumItem>
+      <EnumItem>#</EnumItem>
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+      <EnumItem>7</EnumItem>
+      <EnumItem>8</EnumItem>
+      <EnumItem>9</EnumItem>
+      <EnumItem>0</EnumItem>
+    </configValue>
+    <configValue name="MediaBucketIP" displayName="MediaBucketIP" format="String" description="IP address to which RTP traffic will be sent to." defaultValue="127.0.0.1" required="true" />
+    <configValue name="MediaBucketPort" displayName="MediaBucketPort" format="Number" description="Port to which RTP traffic will be sent to." defaultValue="60000" required="true" />
+    <configValue name="AuthFailedAudio" displayName="AuthFailedAudio" format="String" description="TTS text or .wav file that is played when caller provides the wrong pass code. Default: rwb_auth_failed.wav" defaultValue="rwb_auth_failed.wav" required="true" />
+    <configValue name="RequestAuthAudio" displayName="RequestAuthAudio" format="String" description="TTS text or .wav file that is played to request that the caller input the pass code. Default: rwb_enter_auth_code.wav" defaultValue="rwb_enter_auth_code.wav" required="true" />
+    <configValue name="GoodByeAudio" displayName="GoodByeAudio" format="String" description="TTS text or .wav file that is played right before the system disconnects the user. Default: rwb_good_bye.wav" defaultValue="rwb_good_bye.wav" required="true" />
+    <configValue name="PoundSignAudio" displayName="PoundSignAudio" format="String" description="TTS text or .wav file that is played to request that the caller press the pound key after providing keypad input. Default: rwb_pound_sign.wav" defaultValue="rwb_pound_sign.wav" required="true" />
+    <configValue name="NoActiveCallAudio" displayName="NoActiveCallAudio" format="String" description="TTS text or .wav filename that informs the user that there is no active call for the specified extension. Default: rwb_no_active_call.wav" defaultValue="rwb_no_active_call.wav" required="true" />
+    <configValue name="ExtensionToMonitorAudio" displayName="ExtensionToMonitorAudio" format="String" description="TTS text or .wav filename that requests the extension to monitor. Default: rwb_enter_ext.wav" defaultValue="rwb_enter_ext.wav" required="true" />
+    <configValue name="RecordNotifyAudio" displayName="RecordNotifyAudio" format="String" description="TTS text or .wav filename that will be played once when user enables recording, and twice when user disables recording. Default: rwb_beep.wav" defaultValue="rwb_beep.wav" required="true" />
+  </configuration>
+</install>

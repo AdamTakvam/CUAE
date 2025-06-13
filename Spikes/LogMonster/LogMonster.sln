@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogMonster", "LogMonster.csproj", "{89870CEF-5C15-4ECD-96EF-A6543DA4FF57}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{89870CEF-5C15-4ECD-96EF-A6543DA4FF57}.Debug.ActiveCfg = Debug|.NET
+		{89870CEF-5C15-4ECD-96EF-A6543DA4FF57}.Debug.Build.0 = Debug|.NET
+		{89870CEF-5C15-4ECD-96EF-A6543DA4FF57}.Release.ActiveCfg = Release|.NET
+		{89870CEF-5C15-4ECD-96EF-A6543DA4FF57}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

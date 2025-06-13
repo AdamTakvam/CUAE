@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xsd:complexType name="ReleaseRequestType">
+      <xsd:sequence>
+        <!-- Required, must be of the form SEPXXXXXXXXXXXX -->
+        <xsd:element name="DeviceName" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+  <xsd:element name="ReleaseRequest" type="ReleaseRequestType"></xsd:element>
+</xsd:schema>

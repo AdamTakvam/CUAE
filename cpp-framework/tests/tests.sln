@@ -1,0 +1,61 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestIpcClient", "TestIpcClient\TestIpcClient.vcproj", "{D7D273D7-4616-4671-8BB2-238EE0EF3F94}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestIpcServer", "TestIpcServer\TestIpcServer.vcproj", "{CCA4743B-E562-4413-BA60-A7DFCA51ACE8}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestServiceRuntime", "TestServiceRuntime\TestServiceRuntime.vcproj", "{E2C0FD68-0235-48E2-9788-A490B3A7D012}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestFlatmapIpcClient", "TestFlatmapIpcClient\TestFlatmapIpcClient.vcproj", "{1880B783-1B44-4BDE-8472-AFFCBED21245}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestFlatmapIpcServer", "TestFlatmapIpcServer\TestFlatmapIpcServer.vcproj", "{DFDC5225-B9E4-4483-B2A2-28938F0B14EE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestLogClient", "TestLogClient\TestLogClient.vcproj", "{D37D3A1D-64B9-46CD-9C19-4CCBDE4F6B32}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D7D273D7-4616-4671-8BB2-238EE0EF3F94}.Debug.ActiveCfg = Debug|Win32
+		{D7D273D7-4616-4671-8BB2-238EE0EF3F94}.Debug.Build.0 = Debug|Win32
+		{D7D273D7-4616-4671-8BB2-238EE0EF3F94}.Release.ActiveCfg = Release|Win32
+		{D7D273D7-4616-4671-8BB2-238EE0EF3F94}.Release.Build.0 = Release|Win32
+		{CCA4743B-E562-4413-BA60-A7DFCA51ACE8}.Debug.ActiveCfg = Debug|Win32
+		{CCA4743B-E562-4413-BA60-A7DFCA51ACE8}.Debug.Build.0 = Debug|Win32
+		{CCA4743B-E562-4413-BA60-A7DFCA51ACE8}.Release.ActiveCfg = Release|Win32
+		{CCA4743B-E562-4413-BA60-A7DFCA51ACE8}.Release.Build.0 = Release|Win32
+		{E2C0FD68-0235-48E2-9788-A490B3A7D012}.Debug.ActiveCfg = Debug|Win32
+		{E2C0FD68-0235-48E2-9788-A490B3A7D012}.Debug.Build.0 = Debug|Win32
+		{E2C0FD68-0235-48E2-9788-A490B3A7D012}.Release.ActiveCfg = Release|Win32
+		{E2C0FD68-0235-48E2-9788-A490B3A7D012}.Release.Build.0 = Release|Win32
+		{1880B783-1B44-4BDE-8472-AFFCBED21245}.Debug.ActiveCfg = Debug|Win32
+		{1880B783-1B44-4BDE-8472-AFFCBED21245}.Debug.Build.0 = Debug|Win32
+		{1880B783-1B44-4BDE-8472-AFFCBED21245}.Release.ActiveCfg = Release|Win32
+		{1880B783-1B44-4BDE-8472-AFFCBED21245}.Release.Build.0 = Release|Win32
+		{DFDC5225-B9E4-4483-B2A2-28938F0B14EE}.Debug.ActiveCfg = Debug|Win32
+		{DFDC5225-B9E4-4483-B2A2-28938F0B14EE}.Debug.Build.0 = Debug|Win32
+		{DFDC5225-B9E4-4483-B2A2-28938F0B14EE}.Release.ActiveCfg = Release|Win32
+		{DFDC5225-B9E4-4483-B2A2-28938F0B14EE}.Release.Build.0 = Release|Win32
+		{D37D3A1D-64B9-46CD-9C19-4CCBDE4F6B32}.Debug.ActiveCfg = Debug|Win32
+		{D37D3A1D-64B9-46CD-9C19-4CCBDE4F6B32}.Debug.Build.0 = Debug|Win32
+		{D37D3A1D-64B9-46CD-9C19-4CCBDE4F6B32}.Release.ActiveCfg = Release|Win32
+		{D37D3A1D-64B9-46CD-9C19-4CCBDE4F6B32}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

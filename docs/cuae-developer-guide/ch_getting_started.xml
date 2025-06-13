@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter>
+  <title>Getting Started</title>
+
+  <para>This chapter will introduce you to the CUAE SDK, its relationship with
+  Microsoft .NET, and explore the Cisco Unified Application Designer. After
+  reading this chapter and following the instructions contained within it you
+  should have a functioning CUAE development environment.</para>
+
+  <section>
+    <title>CUAE Development Environment Prerequisites</title>
+
+    <para>The CUAE depends on several external frameworks and applications to
+    do its job. The main components of CUAE are programmed using a combination
+    of C#, Java, and C++. The Application Server is the component that
+    directly affects developers and it is developed using C#. This means that
+    many of the programmatic interfaces are accessed via C#; therefore, a .NET
+    development environment is required to start using the CUAE.</para>
+
+    <section>
+      <title>Installing the .NET Framework SDK and Friends</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Mono vs. the Microsoft .NET Framework</title>
+
+      <para>As of CUAE version 2.4 only Microsoft .NET is officially
+      supported. Developers may wish to use Mono when building plug-ins. While
+      this has not explicitly been tested it is possible that it may work.
+      Mono will produce binary compatible assemblies when building in release
+      mode. Your mileage may vary, but adventurous developers may find success
+      if they want to experiment with the Mono implementation of .NET.</para>
+
+      <para>The Application Server will always need to be executed using the
+      Microsoft CLR. There are third-party libraries that we leverage that
+      will not run under Mono. Only use Mono for building plug-in assemblies
+      and not for running the Application Server software.</para>
+    </section>
+
+    <section>
+      <title>Installing the CUAE SDK</title>
+
+      <para></para>
+
+      <section>
+        <title>Operating System Requirements</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Downloading and Installing the SDK</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>VMWare Components in the Absence of Communications
+        Manager</title>
+
+        <para></para>
+      </section>
+    </section>
+  </section>
+
+  <section>
+    <title>The Relationship Between CUAE and .NET</title>
+
+    <para></para>
+  </section>
+
+  <section>
+    <title>Getting to Know the Application Designer</title>
+
+    <para>The Application Designer is the primary development interface of the
+    CUAE. It is an interactive development environment that enables you to
+    build a unified communications application visually and in a workflow type
+    manner. The goal of the Application Designer is to make building the
+    communications portion of your application very easy. It is tightly
+    integrated with the Application Server to enable you to quickly build,
+    deploy, and debug your applications. In this section we will take a brief
+    visual tour of the Application Designer before getting into more detail on
+    how to use it in later chapters.</para>
+
+    <section>
+      <title>Explorer, Canvas, Property Grid and Toolbox</title>
+
+      <para>Blah blah</para>
+
+      <figure>
+        <title>Annotated Application Designer Main Window</title>
+
+        <screenshot>
+          <screeninfo>Annotated Application Designer Main Window</screeninfo>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supplements/images/designer-annotated.png" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+    </section>
+
+    <section>
+      <title>Global vs. Function Canvas</title>
+
+      <para>The global canvas</para>
+
+      <figure>
+        <title>Application Designer Global Canvas</title>
+
+        <screenshot>
+          <screeninfo>Application Designer Global Canvas</screeninfo>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supplements/images/designer-global-canvas.png"
+                         format="PNG" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+
+      <para>Function canvas</para>
+
+      <figure>
+        <title>Application Designer Function Canvas</title>
+
+        <screenshot>
+          <screeninfo>Application Designer Function Canvas</screeninfo>
+
+          <mediaobject>
+            <imageobject>
+              <imagedata fileref="supplements/images/designer-function-canvas.png"
+                         format="PNG" />
+            </imageobject>
+          </mediaobject>
+        </screenshot>
+      </figure>
+    </section>
+  </section>
+</chapter>

@@ -1,0 +1,5 @@
+SERVER duffman 00111188888a
+VENDOR cisco
+INCREMENT Instances cisco 1.0 permanent 25 \
+	NOTICE="<LicFileID>1i1L25inst.lic</LicFileID><LicLineID>0</LicLineID> \
+	<PAK>dummyPak</PAK>" SIGN=C54D9BF2E304

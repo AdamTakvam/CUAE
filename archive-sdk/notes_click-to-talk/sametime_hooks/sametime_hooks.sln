@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hookdll", "hookdll\hookdll.vcproj", "{35AA7F39-BDDB-476D-A2C3-DE26412BC0DD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.vcproj", "{A5DC98D1-8062-41F1-88AA-C4C1ACA8FA17}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udpsvr", "udpsvr\udpsvr.vcproj", "{04670B5D-C2FE-4E4B-A937-F7F372614B84}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hooksvc", "hooksvc\hooksvc.vcproj", "{7A0CD655-73C5-46EA-892A-CEC82B33F191}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{35AA7F39-BDDB-476D-A2C3-DE26412BC0DD}.Debug.ActiveCfg = Debug|Win32
+		{35AA7F39-BDDB-476D-A2C3-DE26412BC0DD}.Debug.Build.0 = Debug|Win32
+		{35AA7F39-BDDB-476D-A2C3-DE26412BC0DD}.Release.ActiveCfg = Release|Win32
+		{35AA7F39-BDDB-476D-A2C3-DE26412BC0DD}.Release.Build.0 = Release|Win32
+		{A5DC98D1-8062-41F1-88AA-C4C1ACA8FA17}.Debug.ActiveCfg = Debug|Win32
+		{A5DC98D1-8062-41F1-88AA-C4C1ACA8FA17}.Debug.Build.0 = Debug|Win32
+		{A5DC98D1-8062-41F1-88AA-C4C1ACA8FA17}.Release.ActiveCfg = Release|Win32
+		{A5DC98D1-8062-41F1-88AA-C4C1ACA8FA17}.Release.Build.0 = Release|Win32
+		{04670B5D-C2FE-4E4B-A937-F7F372614B84}.Debug.ActiveCfg = Debug|Win32
+		{04670B5D-C2FE-4E4B-A937-F7F372614B84}.Debug.Build.0 = Debug|Win32
+		{04670B5D-C2FE-4E4B-A937-F7F372614B84}.Release.ActiveCfg = Release|Win32
+		{04670B5D-C2FE-4E4B-A937-F7F372614B84}.Release.Build.0 = Release|Win32
+		{7A0CD655-73C5-46EA-892A-CEC82B33F191}.Debug.ActiveCfg = Debug|Win32
+		{7A0CD655-73C5-46EA-892A-CEC82B33F191}.Debug.Build.0 = Debug|Win32
+		{7A0CD655-73C5-46EA-892A-CEC82B33F191}.Release.ActiveCfg = Release|Win32
+		{7A0CD655-73C5-46EA-892A-CEC82B33F191}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

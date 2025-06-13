@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Numbers" displayName="Numbers" format="Numbers" description="Numbers" defaultValue="1">
+      <EnumItem>0</EnumItem>
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+      <EnumItem>7</EnumItem>
+      <EnumItem>8</EnumItem>
+      <EnumItem>9</EnumItem>
+      <EnumItem>10</EnumItem>
+    </configValue>
+    <configValue name="Letters" displayName="Letters" format="Letters" description="Letters" defaultValue="A">
+      <EnumItem>A</EnumItem>
+      <EnumItem>B</EnumItem>
+      <EnumItem>C</EnumItem>
+      <EnumItem>D</EnumItem>
+      <EnumItem>E</EnumItem>
+      <EnumItem>F</EnumItem>
+      <EnumItem>G</EnumItem>
+      <EnumItem>H</EnumItem>
+      <EnumItem>I</EnumItem>
+      <EnumItem>J</EnumItem>
+      <EnumItem>K</EnumItem>
+    </configValue>
+  </configuration>
+</install>

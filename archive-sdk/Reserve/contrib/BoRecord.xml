@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:BoRecord" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="urn:BoRecord" xmlns:intf="urn:BoRecord" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:message name="getBoRecordRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="recordId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="updateConversionRatesEnddateRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="dataXML" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordSectionCountsResponse">
+    <wsdl:part name="getBoRecordSectionCountsReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="executeActionsRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="dataXML" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordSectionCountsRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="recordId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="deleteRecordFromSectionRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="sectionName" type="xsd:string"/>
+    <wsdl:part name="recordId" type="xsd:long"/>
+    <wsdl:part name="sectionRecordId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordActionsResponse">
+    <wsdl:part name="getBoRecordActionsReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordActionsRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+    <wsdl:part name="recordId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="executeActionsResponse">
+    <wsdl:part name="executeActionsReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="saveBoRecordIntegrationResponse">
+    <wsdl:part name="saveBoRecordIntegrationReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getSimpleBoStructureResponse">
+    <wsdl:part name="getSimpleBoStructureReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getFullBoRecordRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="recordId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="updateParentResponse">
+    <wsdl:part name="updateParentReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getFullBoRecordResponse">
+    <wsdl:part name="getFullBoRecordReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="saveBoRecordIntegrationRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="dataXML" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="addConversionRatesRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="dataXML" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getSimpleBoStructureRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="moduleId" type="xsd:int"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordResponse">
+    <wsdl:part name="getBoRecordReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getBoStructureResponse">
+    <wsdl:part name="getBoStructureReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="saveBoRecordResponse">
+    <wsdl:part name="saveBoRecordReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="updateParentRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="dataXML" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getBoStructureRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="moduleId" type="xsd:int"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordsRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getBoInitialActionsResponse">
+    <wsdl:part name="getBoInitialActionsReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="deleteRecordFromSectionResponse">
+    <wsdl:part name="deleteRecordFromSectionReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="doBoRecordActionRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="recordId" type="xsd:long"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+    <wsdl:part name="actionName" type="xsd:string"/>
+    <wsdl:part name="label" type="xsd:string"/>
+    <wsdl:part name="boActionLabelId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getBoRecordsResponse">
+    <wsdl:part name="getBoRecordsReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="doBoRecordActionResponse">
+    <wsdl:part name="doBoRecordActionReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getSelectedBoRecordsRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+    <wsdl:part name="Data" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getBoInitialActionsRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="boId" type="xsd:long"/>
+  </wsdl:message>
+  <wsdl:message name="getSelectedBoRecordsResponse">
+    <wsdl:part name="getSelectedBoRecordsReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="saveBoRecordRequest">
+    <wsdl:part name="securityToken" type="xsd:string"/>
+    <wsdl:part name="userId" type="xsd:long"/>
+    <wsdl:part name="companyId" type="xsd:long"/>
+    <wsdl:part name="dataXML" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="updateConversionRatesEnddateResponse">
+    <wsdl:part name="updateConversionRatesEnddateReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="addConversionRatesResponse">
+    <wsdl:part name="addConversionRatesReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:portType name="BoRecordActionsInterface">
+    <wsdl:operation name="getBoRecordSectionCounts" parameterOrder="securityToken userId recordId">
+      <wsdl:input message="impl:getBoRecordSectionCountsRequest" name="getBoRecordSectionCountsRequest"/>
+      <wsdl:output message="impl:getBoRecordSectionCountsResponse" name="getBoRecordSectionCountsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBoRecord" parameterOrder="securityToken userId companyId recordId">
+      <wsdl:input message="impl:getBoRecordRequest" name="getBoRecordRequest"/>
+      <wsdl:output message="impl:getBoRecordResponse" name="getBoRecordResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getFullBoRecord" parameterOrder="securityToken userId companyId recordId">
+      <wsdl:input message="impl:getFullBoRecordRequest" name="getFullBoRecordRequest"/>
+      <wsdl:output message="impl:getFullBoRecordResponse" name="getFullBoRecordResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSimpleBoStructure" parameterOrder="securityToken userId companyId moduleId boId">
+      <wsdl:input message="impl:getSimpleBoStructureRequest" name="getSimpleBoStructureRequest"/>
+      <wsdl:output message="impl:getSimpleBoStructureResponse" name="getSimpleBoStructureResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBoStructure" parameterOrder="securityToken userId companyId moduleId boId">
+      <wsdl:input message="impl:getBoStructureRequest" name="getBoStructureRequest"/>
+      <wsdl:output message="impl:getBoStructureResponse" name="getBoStructureResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="saveBoRecord" parameterOrder="securityToken userId companyId dataXML">
+      <wsdl:input message="impl:saveBoRecordRequest" name="saveBoRecordRequest"/>
+      <wsdl:output message="impl:saveBoRecordResponse" name="saveBoRecordResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="saveBoRecordIntegration" parameterOrder="securityToken userId companyId dataXML">
+      <wsdl:input message="impl:saveBoRecordIntegrationRequest" name="saveBoRecordIntegrationRequest"/>
+      <wsdl:output message="impl:saveBoRecordIntegrationResponse" name="saveBoRecordIntegrationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRecordFromSection" parameterOrder="securityToken userId companyId sectionName recordId sectionRecordId">
+      <wsdl:input message="impl:deleteRecordFromSectionRequest" name="deleteRecordFromSectionRequest"/>
+      <wsdl:output message="impl:deleteRecordFromSectionResponse" name="deleteRecordFromSectionResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBoInitialActions" parameterOrder="securityToken userId companyId boId">
+      <wsdl:input message="impl:getBoInitialActionsRequest" name="getBoInitialActionsRequest"/>
+      <wsdl:output message="impl:getBoInitialActionsResponse" name="getBoInitialActionsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBoRecordActions" parameterOrder="securityToken userId companyId boId recordId">
+      <wsdl:input message="impl:getBoRecordActionsRequest" name="getBoRecordActionsRequest"/>
+      <wsdl:output message="impl:getBoRecordActionsResponse" name="getBoRecordActionsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="doBoRecordAction" parameterOrder="securityToken userId companyId recordId boId actionName label boActionLabelId">
+      <wsdl:input message="impl:doBoRecordActionRequest" name="doBoRecordActionRequest"/>
+      <wsdl:output message="impl:doBoRecordActionResponse" name="doBoRecordActionResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addConversionRates" parameterOrder="securityToken userId dataXML">
+      <wsdl:input message="impl:addConversionRatesRequest" name="addConversionRatesRequest"/>
+      <wsdl:output message="impl:addConversionRatesResponse" name="addConversionRatesResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateConversionRatesEnddate" parameterOrder="securityToken userId dataXML">
+      <wsdl:input message="impl:updateConversionRatesEnddateRequest" name="updateConversionRatesEnddateRequest"/>
+      <wsdl:output message="impl:updateConversionRatesEnddateResponse" name="updateConversionRatesEnddateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateParent" parameterOrder="securityToken userId dataXML">
+      <wsdl:input message="impl:updateParentRequest" name="updateParentRequest"/>
+      <wsdl:output message="impl:updateParentResponse" name="updateParentResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="executeActions" parameterOrder="securityToken userId companyId dataXML">
+      <wsdl:input message="impl:executeActionsRequest" name="executeActionsRequest"/>
+      <wsdl:output message="impl:executeActionsResponse" name="executeActionsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getBoRecords" parameterOrder="securityToken userId companyId boId">
+      <wsdl:input message="impl:getBoRecordsRequest" name="getBoRecordsRequest"/>
+      <wsdl:output message="impl:getBoRecordsResponse" name="getBoRecordsResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getSelectedBoRecords" parameterOrder="securityToken userId companyId boId Data">
+      <wsdl:input message="impl:getSelectedBoRecordsRequest" name="getSelectedBoRecordsRequest"/>
+      <wsdl:output message="impl:getSelectedBoRecordsResponse" name="getSelectedBoRecordsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BoRecordSoapBinding" type="impl:BoRecordActionsInterface">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getBoRecordSectionCounts">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBoRecordSectionCountsRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoSectionCounts" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getBoRecordSectionCountsResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBoRecord">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBoRecordRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getBoRecordResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFullBoRecord">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getFullBoRecordRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getFullBoRecordResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSimpleBoStructure">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getSimpleBoStructureRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getSimpleBoStructureResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBoStructure">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBoStructureRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getBoStructureResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveBoRecord">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="saveBoRecordRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="saveBoRecordResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveBoRecordIntegration">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="saveBoRecordIntegrationRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="saveBoRecordIntegrationResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRecordFromSection">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="deleteRecordFromSectionRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="deleteRecordFromSectionResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBoInitialActions">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBoInitialActionsRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getBoInitialActionsResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBoRecordActions">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBoRecordActionsRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getBoRecordActionsResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doBoRecordAction">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="doBoRecordActionRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="doBoRecordActionResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addConversionRates">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="addConversionRatesRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="addConversionRatesResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateConversionRatesEnddate">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateConversionRatesEnddateRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="updateConversionRatesEnddateResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateParent">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="updateParentRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="updateParentResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeActions">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="executeActionsRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="executeActionsResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBoRecords">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getBoRecordsRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getBoRecordsResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSelectedBoRecords">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getSelectedBoRecordsRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:input>
+      <wsdl:output name="getSelectedBoRecordsResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:BoRecord" use="encoded"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BoRecordActionsInterfaceService">
+    <wsdl:port binding="impl:BoRecordSoapBinding" name="BoRecord">
+      <wsdlsoap:address location="http://app1env51.prd.tririga.net:8001/services/BoRecord"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter id="callcontrol">
+  <title id="packagedisplayname">Call Control</title>
+
+  <subtitle id="packagename">Metreos.CallControl</subtitle>
+
+  <section role="actions">
+    <title>Actions</title>
+
+    <section role="action">
+      <title role="actiondisplayname">Accept Call</title>
+
+      <subtitle role="actionname">Metreos.CallControl.AcceptCall</subtitle>
+
+      <formalpara role="description">
+        <title>Description</title>
+
+        <para>Accepts an incoming phone call.</para>
+      </formalpara>
+
+      <table role="actionparams" rowheader="firstcol">
+        <title>Action Parameters</title>
+
+        <tgroup cols="4">
+          <colspec colname="Parameter Display Name" colnum="1" />
+
+          <colspec colname="Data Type" colnum="2" />
+
+          <colspec colname="Default" colnum="3" />
+
+          <colspec colname="Description" colnum="4" />
+
+          <tbody>
+            <row>
+              <entry role="rowhead">Parameter Display Name</entry>
+
+              <entry role="rowhead">.NET Type</entry>
+
+              <entry role="rowhead">Default</entry>
+
+              <entry role="rowhead">Description</entry>
+            </row>
+
+            <row role="req">
+              <entry>CallId</entry>
+
+              <entry>System.String</entry>
+
+              <entry></entry>
+
+              <entry>A unique token used to identify this particular call
+              leg.</entry>
+            </row>
+
+            <row>
+              <entry>Timeout</entry>
+
+              <entry>System.Int32</entry>
+
+              <entry>5000</entry>
+
+              <entry>Amount of time to wait before the ARE should force the
+              action to fail.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <table role="resultdata" rowheader="firstcol">
+        <title>Result Data</title>
+
+        <tgroup cols="3">
+          <colspec colname="Parameter Display Name" colnum="1" />
+
+          <colspec colname="Data Type" colnum="2" />
+
+          <colspec colname="Description" colnum="3" />
+
+          <tbody>
+            <row>
+              <entry role="rowhead">Parameter Display Name</entry>
+
+              <entry role="rowhead">.NET Type</entry>
+
+              <entry role="rowhead">Description</entry>
+            </row>
+
+            <row>
+              <entry>CallId</entry>
+
+              <entry>System.String</entry>
+
+              <entry>A unique token used to identify this particular call
+              leg.</entry>
+            </row>
+
+            <row>
+              <entry>MmsId</entry>
+
+              <entry>System.UInt32</entry>
+
+              <entry>ID of the media server handling media for this
+              call</entry>
+            </row>
+
+            <row>
+              <entry>ConnectionId</entry>
+
+              <entry>System.String</entry>
+
+              <entry>ID of the connection to the media server handling this
+              media for this call</entry>
+            </row>
+
+            <row>
+              <entry>MediaRxIP</entry>
+
+              <entry>System.String</entry>
+
+              <entry>The local IP address that media is being received
+              on</entry>
+            </row>
+
+            <row>
+              <entry>MediaRxPort</entry>
+
+              <entry>System.UInt32</entry>
+
+              <entry>The local port that media is being received on</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <formalpara role="branch">
+        <title>Branch Conditions</title>
+
+        <para><variablelist>
+            <varlistentry>
+              <term>Success</term>
+
+              <listitem>
+                <para>The call was accepted</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term>Failure</term>
+
+              <listitem>
+                <para>The call could not be accepted</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+
+      <formalpara role="properties">
+        <title>Properties</title>
+
+        <para><variablelist>
+            <varlistentry role="actionclass">
+              <term>Action Class</term>
+
+              <listitem>
+                <para>Provider</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry role="actiontype">
+              <term>Action Type</term>
+
+              <listitem>
+                <para>Synchronous</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry role="asynccallbacks">
+              <term>Asynchronous Callback</term>
+
+              <listitem>
+                <simplelist>
+                  <member>Metreos.CallControl.MakeCall_Complete</member>
+
+                  <member>Metreos.CallControl.MakeCall_Failed</member>
+                </simplelist>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry role="allowcustomparams">
+              <term>Allow Custom Parameters</term>
+
+              <listitem>
+                <para>True</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry role="final">
+              <term>Final</term>
+
+              <listitem>
+                <para>True</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+
+      <formalpara role="remarks">
+        <title>Remarks</title>
+
+        <para>Acts as a provisional acceptance of an incoming call. To accept
+        a call means that the call can still be answered later. An accepted
+        call can not be rejected, however.</para>
+      </formalpara>
+
+      <formalpara role="dependencies">
+        <title>Dependencies</title>
+
+        <para><variablelist>
+            <varlistentry>
+              <term role="frameworkver">CUAE Framework Version</term>
+
+              <listitem>
+                <para>2.4</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term role="providerver">Providers</term>
+
+              <listitem>
+                <para>At least one of the following: SIP, H.323, SCCP, or
+                JTAPI.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+    </section>
+  </section>
+
+  <section role="events">
+    <title>Events</title>
+
+    <section role="event">
+      <title role="eventdisplayname">Incoming Call</title>
+
+      <subtitle role="eventname">Metreos.CallControl.IncomingCall</subtitle>
+
+      <formalpara role="description">
+        <title>Description</title>
+
+        <para>Indicates that a call has been received by the Application
+        Server</para>
+      </formalpara>
+
+      <table role="eventparams" rowheader="firstcol">
+        <title>Event Parameters</title>
+
+        <tgroup cols="3">
+          <colspec colname="Parameter Display Name" colnum="1" />
+
+          <colspec colname="Data Type" colnum="2" />
+
+          <colspec colname="Description" colnum="3" />
+
+          <tbody>
+            <row>
+              <entry role="rowhead">Parameter Display Name</entry>
+
+              <entry role="rowhead">.NET Type</entry>
+
+              <entry role="rowhead">Description</entry>
+            </row>
+
+            <row role="guaranteed">
+              <entry>CallId</entry>
+
+              <entry>System.String</entry>
+
+              <entry>A unique token used to identify this particular call
+              leg.</entry>
+            </row>
+
+            <row>
+              <entry>From</entry>
+
+              <entry>System.String</entry>
+
+              <entry>The calling number, or caller ID, for this call.</entry>
+            </row>
+
+            <row role="guaranteed">
+              <entry>To</entry>
+
+              <entry>System.String</entry>
+
+              <entry>The dialed number for this call.</entry>
+            </row>
+
+            <row role="guaranteed">
+              <entry>OriginalTo</entry>
+
+              <entry>System.String</entry>
+
+              <entry>The dialed number for this call.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <formalpara role="properties">
+        <title>Properties</title>
+
+        <para><variablelist>
+            <varlistentry role="eventtype">
+              <term>Event Type</term>
+
+              <listitem>
+                <para>Triggering</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry role="expects">
+              <term>Expects</term>
+
+              <listitem>
+                <para>Metreos.CallControl.AnswerCalll</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+
+      <formalpara role="remarks">
+        <title>Remarks</title>
+
+        <para>You should use Answer, Accept or Reject as soon as possible in
+        the event handler invoked to handle an IncomingCall event. Doing so
+        ensures the protocol layer in use will not timeout while attempting to
+        connect to the Metreos Communications Environment. If the call is
+        first accepted, it may then be answered later using the AnswerCall
+        action. Accepting a call first gives more time to the application to
+        determine if it should answer the call.</para>
+      </formalpara>
+
+      <formalpara role="dependencies">
+        <title>Dependencies</title>
+
+        <para><variablelist>
+            <varlistentry>
+              <term role="frameworkver">CUAE Framework Version</term>
+
+              <listitem>
+                <para>2.4</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term role="providerver">Providers</term>
+
+              <listitem>
+                <para>At least one of the following: SIP, H.323, SCCP, or
+                JTAPI.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+    </section>
+  </section>
+
+  <section role="types">
+    <title>Types</title>
+
+    <section role="type">
+      <title role="typedisplayname">QueryParamCollection</title>
+
+      <subtitle
+      role="typename">Metreos.Tpes.Http.QueryParamCollection</subtitle>
+
+      <formalpara role="description">
+        <title>Description</title>
+
+        <para>Parses the query parameter section of a HTTP URI, populating a
+        collection with key-value pairs. The collection can then be used to
+        determine which query parameters came in with an HTTP request.</para>
+      </formalpara>
+
+      <table role="parseableinputs" rowheader="firstcol">
+        <title>Parseable Inputs</title>
+
+        <tgroup cols="2">
+          <colspec colname="Data Type" colnum="1" />
+
+          <colspec colname="Description" colnum="2" />
+
+          <tbody>
+            <row>
+              <entry role="rowhead">.NET Type</entry>
+
+              <entry role="rowhead">Description</entry>
+            </row>
+
+            <row>
+              <entry>System.String</entry>
+
+              <entry>The section of the URI containing the query parameters,
+              exclusive or inclusive of the leading '?'.Configuring Triggering
+              Parameters in Multi-User Environment1</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <table role="publicmethods" rowheader="firstcol">
+        <title>Accessible Public Methods</title>
+
+        <tgroup cols="2">
+          <colspec colname="Method Name" colnum="1" />
+
+          <colspec colname="Description" colnum="2" />
+
+          <tbody>
+            <row>
+              <entry role="rowhead">Method Name</entry>
+
+              <entry role="rowhead">Description</entry>
+            </row>
+
+            <row>
+              <entry>string this[string name]</entry>
+
+              <entry>Returns the value of the named query parameter. An empty
+              string is a valid value for a query parameter. If a query
+              parameter was not defined in the supplied query parameter URI
+              fragment to pars, it will return null.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <table role="publicproperties" rowheader="firstcol">
+        <title>Accessible Public Properties</title>
+
+        <tgroup cols="2">
+          <colspec colname="Property Name" colnum="1" />
+
+          <colspec colname="Description" colnum="2" />
+
+          <tbody>
+            <row>
+              <entry role="rowhead">Property Name</entry>
+
+              <entry role="rowhead">Description</entry>
+            </row>
+
+            <row>
+              <entry>int Count</entry>
+
+              <entry>Returns the number of query parameters in the
+              collection.</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+
+      <formalpara role="properties">
+        <title>Properties</title>
+
+        <para><variablelist>
+            <varlistentry role="serializable">
+              <term>Serializable</term>
+
+              <listitem>
+                <para>True</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+
+      <formalpara role="remarks">
+        <title>Remarks</title>
+
+        <para>The most commonly intended use of this type is to initialize it
+        with the query event parameter accompanying
+        Metreos.Providers.Http.GotRequest.</para>
+      </formalpara>
+
+      <formalpara role="dependencies">
+        <title>Dependencies</title>
+
+        <para><variablelist>
+            <varlistentry>
+              <term role="frameworkver">CUAE Framework Version</term>
+
+              <listitem>
+                <para>2.4 and above</para>
+              </listitem>
+            </varlistentry>
+
+            <varlistentry>
+              <term role="providerver">Providers</term>
+
+              <listitem>
+                <para>Metreos.Providers.Http.GotRequest</para>
+              </listitem>
+            </varlistentry>
+          </variablelist></para>
+      </formalpara>
+    </section>
+  </section>
+</chapter>

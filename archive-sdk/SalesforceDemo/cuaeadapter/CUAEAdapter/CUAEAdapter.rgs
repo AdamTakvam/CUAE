@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'CUAEAdapter'
+		'CUAEAdapter.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

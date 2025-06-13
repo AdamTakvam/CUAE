@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="designer" default="Help" basedir=".">
+  <description>Build script for Visual Designer</description>
+
+  <import file="../autobuild/build.includes.xml" />
+
+  <target name="do-init" >
+  </target>
+  
+  <target name="do-build" >
+    <!-- prep version strings -->
+    <updateversionstring file="MaxDesigner/Core/BuildConst.cs" />
+
+    <metreosMSBuildTask solution="max" />
+    <!-- VS.NET Solution -->
+    <!-- <metreosVsNetTask solution="max" /> -->
+  </target>
+ 
+  <target name="do-test" >
+  </target>
+
+  <target name="do-clean" >
+        <!-- <metreosVsNetCleanTask root="${Metreos.build.srcRoot}" dir="max" /> -->
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/designer" includes="**/bin/** **/obj/**" />
+        </delete>
+        <delete>
+            <fileset dir="UnitTest" includes="unittest.txt" />
+        </delete>    
+  </target>
+
+  <target name="do-postbuild">
+  </target>
+
+</project>
+

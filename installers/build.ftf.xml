@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="installers-ftf" default="Help" basedir=".">
+  <description>Build script for installer packages</description>
+
+  <import file="../autobuild/build.includes.xml" />
+  <property name="buildDirectory"       value="obj-ftf" />
+  <property name="workDirectory"        value="work-ftf" />
+  <property name="baseDirectory"        value="${Metreos.build.srcRoot}\installers" />
+  <property name="src"                  value="${Metreos.build.buildDirectory}" />
+  <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}\Installers" />
+  
+
+  <!-- macros -->
+
+  <macrodef name="buildSFX" >
+    <attribute name="destDirectory" default="${buildDirectory}" />
+    <attribute name="srcDirectory"  default="." />
+    <attribute name="packageName"   default="package" />
+    <attribute name="execute"       default="setup.cmd" />
+    <sequential>
+        <zip destfile="@{destDirectory}/@{packageName}.zip" basedir="@{srcDirectory}" whenempty="create" />
+        <sfx    archive="@{destDirectory}/@{packageName}.zip"
+                mode="win32"
+                execute="${env:TEMP}/${app:absolutename}/@{execute}"
+                output="@{destDirectory}/@{packageName}.exe" />
+        <!-- The execute parameter has to explicitly point to the temporary extraction path so that Win2k3 can handle it -->
+        <!-- TODO - uncomment the follow to remove zip package from build -->
+        <!-- <delete file="@{destDirectory}/@{packageName}.zip" /> -->
+    </sequential>
+  </macrodef>
+
+  <!-- Standard Targets -->
+    <target name="do-init" >
+        <mkdir dir="${buildDirectory}" />
+        <mkdir dir="${workDirectory}" />
+    </target>
+
+
+  <target name="do-build" >
+
+    <!-- build FTF installer -->
+    <mkdir dir="${workDirectory}/ftf" />
+    <copy todir="${workDirectory}/ftf" >
+        <fileset dir="${Metreos.build.buildDirectory}/Framework/1.0/CoreAssemblies"
+            includes="Metreos.Samoa.FunctionalTestFramework.*" />
+        <fileset dir="${Metreos.build.buildDirectory}/AppServer/Providers"
+            includes="Metreos.Providers.FunctionalTest.* Metreos.Providers.TestCallControl.*" />
+        <fileset dir="${baseDirectory}" includes="ftf_install.cmd" />
+    </copy>
+    <buildSFX srcDirectory="${workDirectory}/ftf" packageName="MetreosFTFInstaller" execute="ftf_install.cmd" />
+
+  </target>
+
+  <target name="do-clean" >
+    <delete dir="${buildDirectory}" />
+    <delete dir="${workDirectory}" />
+  </target>
+
+  <target name="do-postbuild">
+     <mkdir dir="${deploymentDirectory}" />
+     <copy todir="${deploymentDirectory}">
+        <fileset dir="${buildDirectory}" />
+     </copy>
+  </target>
+
+</project>

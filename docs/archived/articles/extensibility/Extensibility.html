@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Extensibility</title><link href="dev_article.css" rel="stylesheet" type="text/css" /><meta content="DocBook XSL Stylesheets V1.71.1" name="generator" /></head><body><div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a id="N20002" />Extensibility</h1></div><div><h3 class="subtitle"><i>What can and can not be extended</i></h3></div></div><hr /></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#extensible">What can be extended?</a></span></dt><dt><span class="section"><a href="#inextensible">What can not be extended?</a></span></dt><dt><span class="section"><a href="#diff_extensible">What requires an extra layer of indirection to extend?</a></span></dt></dl></div>
+
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="extensible" />What can be extended?</h2></div></div></div>
+	
+	
+	<p>
+		It is possible to directly extend the CUAE with .NET via 3 extension types:
+		<div class="itemizedlist"><ul type="disc"><li>Providers</li><li>Native Actions</li><li>Native Types</li></ul></div>
+		Providers allow developers to create actions and events, while Native Actions only allow one to build actions.  
+		Native Types allow developers to create new variable types for use in their project.
+	</p>
+	
+	<p>
+		In practice, the reason one wants to extend the CUAE is to provide a new hook for applications to communicate with an API.
+		The question of 'Can I integrate the CUAE into a particular API of interest' has a fairly simple answer:  if you can 
+		use .NET to communicate with the API, then yes you can.  Choosing the right type of plug-in for a given integration is a separate
+		issue discussed in another article.
+	</p>
+	
+	<p>
+		There is are a few exceptions to this rule, however.  All of them relate APIs or features already provided by the CUAE.  This is
+		discussed in the next section.
+	</p>
+</div>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="inextensible" />What can not be extended?</h2></div></div></div>
+	
+	<p>
+		There are certain features, and even some classes of plug-ins, that are not extendable today in the CUAE.  In general, these are:
+		<div class="itemizedlist"><ul type="disc"><li>Call Control APIs</li><li>Media Engine</li><li>Custom Alarms</li></ul></div>
+	</p>
+	<p>
+		Call Control Providers today are only implementable by the CUAE development team.  This is because their are certain internal components within
+		the routing mechanism of the Application Server that are aware of the Call Control Providers and treat them specially.  The reason
+		this extra, non-extensible layer exists for the Call Control Providers is to make it possible to use the Cisco CallControl API 
+		without specifying the particular telephony protocol at development-time.  This level of abstraction above SIP, H.323, CTI, and SCCP
+		is not trivial and was not designed to be extensible.  Also, Call Control Providers also have hooks into the Call Route Group feature, 
+		which is also not extensible.
+	</p>
+	<p>
+		The Media Engine is controlled tightly by the Media Control Provider.  The only way to control the Media Engine is through the MediaControl
+		API.  Media Engine behavior can not be extended.  For instance, if you want to create an RTP stream from the Media Engine to an endpoint within
+		your own provider, you will have to send an event to an application which does a CreateConnection method on behalf of the provider to the media endpoint.
+	</p>
+	<p>
+		The ability to send alarms via SNMP and SMTP are not available to extensions.  At best, as a matter of convention one could use the
+		Send email action in each application built to add real-time administrative error reporting.
+	</p>
+</div>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="diff_extensible" />What requires an extra layer of indirection to extend?</h2></div></div></div>
+	
+	<p>
+		Non .NET Services are possible, but there is not a well-defined framework with which to integrate non .NET code into the CUAE.  For instance, it is technically
+		feasible to install a Java-based service on the CUAE, but to be useful to the Application Server, one would also have to build a provider
+		which communicates with that Java service, with the ultimate goal of piping actions and events into applications to and from the Java code.
+	</p>
+</div>
+</div></body></html>

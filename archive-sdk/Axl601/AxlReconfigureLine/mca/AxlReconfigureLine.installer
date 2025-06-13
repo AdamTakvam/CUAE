@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="profileName" displayName="ProfileName" format="String" description="The profile name" defaultValue="" required="true" />
+    <configValue name="callManagerIP" displayName="CallManager IP" format="String" description="The IP address of CallManager" defaultValue="" required="true" />
+    <configValue name="ccmUsername" displayName="CallManager Administrator" format="String" description="The administrative username of CallManager" defaultValue="Administrator" required="true" />
+    <configValue name="ccmPassword" displayName="CallManager Admin Password" format="String" description="The administrative password of CallManager" defaultValue="metreos" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="UseP2P" displayName="Use P2P" format="Bool" description="When set, media for calls  placed through the application will flow in a Peer-to-Peer fashion. Otherwise, media will flow through a Metreos Media Engine." defaultValue="true" required="true" />
+    <configValue name="NumDigitsToStrip" displayName="Prefix Length" format="Number" description="The number of characters that will be stripped off the front of the dialed SpeedDial Number, as seen by the MEC, before performing the Speed Dial Map lookup." defaultValue="1" required="true" />
+    <configValue name="SpeedDialMap" displayName="Speed Dial Map" format="HashTable" description="This table is used to map speed dial numbers to phone numbers." />
+    <configValue name="PlayOnFail" displayName="Use Error Prompts" format="Bool" description="If the application encounters a problem that it cannot recover from, it can either answer the incoming call and inform the user of the problem by playing one of the prompts defined below, or it can simply drop the call. " defaultValue="true" required="true" />
+    <configValue name="InvalidAudio" displayName="Invalid Dial Audio" format="String" description="TTS text or filename of a WAV file that will be played to the caller whenever the dialed speed dial number is not defined in the Speed Dial Map." defaultValue="sd_invalid.wav" required="true" />
+    <configValue name="CheckNumAudio" displayName="Check Number Audio" format="String" description="TTS text or filename of a WAV file that asks the caller to verify the speed dial number that they want to use before attempting another call. " defaultValue="sd_check_number.wav" required="true" />
+    <configValue name="CallFailedAudio" displayName="Call Failed Audio" format="String" description="TTS text or filename of a WAV file that informs the caller that the outbound call, placed to the number defined by the accessed speed dial, failed." defaultValue="sd_call_failed.wav" required="true" />
+    <configValue name="NoResourcesAudio" displayName="No Resources Audio" format="String" description="TTS text or filename of a WAV file that will be played to the caller in the case that the application runs out of media resources. Only applicable when the application is configured to route media through a Metreos Media Engine." defaultValue="sd_no_resources.wav" required="true" />
+  </configuration>
+</install>

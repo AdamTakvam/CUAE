@@ -1,0 +1,6 @@
+** UnitTest Beginning     
+UNITTEST: MODULE-NAME.StubTest.Stub01          
+stub unit test, replace with something real    
+RESULT: PASS                                   
+UNITTESTCOMPLETE: 1 PASS, 0 FAIL, 0 SKIPPED    
+** UnitTest Complete                         

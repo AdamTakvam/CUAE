@@ -1,0 +1,1115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head>
+<script type='text/javascript'>
+
+var username;
+var password;
+var phoneIP;
+var appServerIP;
+var number;
+var req = false;
+var state = 'dialing';
+
+var routingGuid = '';
+var req;
+var currentRowOver = '';
+var exDom;
+
+var pixelsBetweenRows = 20;
+
+var whisperButtonType = 'whisperbutton';
+var listenButtonType = 'listenbutton';
+var bargeButtonType = 'bargebutton';
+var messageButtonType = 'messagebutton';
+
+var rowoutTimers = {};
+var rowoutTimerMs = 1000;
+
+var testing = true;
+
+var successActionMessage = 'Command successfully executed';
+
+// setTimeout delegates
+function rowoutTimeoutDelegate(method, row, functionbar, userId)
+{
+	return (function()
+		{
+			method(row, functionbar, userId);
+		});
+}
+
+var BrowserDetect = {
+	init: function () {
+		this.browser = this.searchString(this.dataBrowser) || 'An unknown browser';
+		this.version = this.searchVersion(navigator.userAgent)
+			|| this.searchVersion(navigator.appVersion)
+			|| 'an unknown version';
+		this.OS = this.searchString(this.dataOS) || 'an unknown OS';
+	},
+	searchString: function (data) {
+		for (var i=0;i<data.length;i++)	{
+			var dataString = data[i].string;
+			var dataProp = data[i].prop;
+			this.versionSearchString = data[i].versionSearch || data[i].identity;
+			if (dataString) {
+				if (dataString.indexOf(data[i].subString) != -1)
+					return data[i].identity;
+			}
+			else if (dataProp)
+				return data[i].identity;
+		}
+	},
+	searchVersion: function (dataString) {
+		var index = dataString.indexOf(this.versionSearchString);
+		if (index == -1) return;
+		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+	},
+	dataBrowser: [
+		{ 	string: navigator.userAgent,
+			subString: 'OmniWeb',
+			versionSearch: 'OmniWeb/',
+			identity: 'OmniWeb'
+		},
+		{
+			string: navigator.vendor,
+			subString: 'Apple',
+			identity: 'Safari'
+		},
+		{
+			prop: window.opera,
+			identity: 'Opera'
+		},
+		{
+			string: navigator.vendor,
+			subString: 'iCab',
+			identity: 'iCab'
+		},
+		{
+			string: navigator.vendor,
+			subString: 'KDE',
+			identity: 'Konqueror'
+		},
+		{
+			string: navigator.userAgent,
+			subString: 'Firefox',
+			identity: 'Firefox'
+		},
+		{
+			string: navigator.vendor,
+			subString: 'Camino',
+			identity: 'Camino'
+		},
+		{		// for newer Netscapes (6+)
+			string: navigator.userAgent,
+			subString: 'Netscape',
+			identity: 'Netscape'
+		},
+		{
+			string: navigator.userAgent,
+			subString: 'MSIE',
+			identity: 'Explorer',
+			versionSearch: 'MSIE'
+		},
+		{
+			string: navigator.userAgent,
+			subString: 'Gecko',
+			identity: 'Mozilla',
+			versionSearch: 'rv'
+		},
+		{ 		// for older Netscapes (4-)
+			string: navigator.userAgent,
+			subString: 'Mozilla',
+			identity: 'Netscape',
+			versionSearch: 'Mozilla'
+		}
+	],
+	dataOS : [
+		{
+			string: navigator.platform,
+			subString: 'Win',
+			identity: 'Windows'
+		},
+		{
+			string: navigator.platform,
+			subString: 'Mac',
+			identity: 'Mac'
+		},
+		{
+			string: navigator.platform,
+			subString: 'Linux',
+			identity: 'Linux'
+		}
+	]
+
+};
+BrowserDetect.init();
+
+
+function attachEventListener(target, eventType, functionRef,
+   capture)
+{
+ 	if (typeof target.addEventListener != 'undefined')
+ 	{
+   		target.addEventListener(eventType, functionRef, capture);
+ 	}
+	 else if (typeof target.attachEvent != 'undefined')
+ 	{
+   		target.attachEvent('on' + eventType, functionRef);
+ 	}
+ 	else
+ 	{
+   		eventType = 'on' + eventType;
+
+	   	if (typeof target[eventType] == 'function')
+   		{
+     			var oldListener = target[eventType];
+
+	     		target[eventType] = function()
+     			{
+       				oldListener();
+
+       				return functionRef();
+     			};
+   		}
+   		else
+   		{
+     			target[eventType] = functionRef;
+   		}
+ 	}
+}
+
+
+function retrieveUpdate() {
+    // branch for native XMLHttpRequest object
+    if(window.XMLHttpRequest && !(window.ActiveXObject)) {
+    	try {
+			req = new XMLHttpRequest();
+        } catch(e) {
+			req = false;
+        }
+    // branch for IE/Windows ActiveX version
+    } else if(window.ActiveXObject) {
+       	try {
+        	req = new ActiveXObject('Msxml2.XMLHTTP');
+      	} catch(e) {
+        	try {
+          		req = new ActiveXObject('Microsoft.XMLHTTP');
+        	} catch(e) {
+          		req = false;
+        	}
+		}
+    }
+	if(req) {
+		req.onreadystatechange = processUpdateChange;
+		var link = 'http://' + document.location.host + '/SalesforceDemo/GetState?metreosSessionId=' + routingGuid;
+		req.open('GET', link, true);
+		req.send('');
+	}
+}
+
+
+function callActionRequest(link, text) {
+    // branch for native XMLHttpRequest object
+    if(window.XMLHttpRequest && !(window.ActiveXObject)) {
+    	try {
+			req = new XMLHttpRequest();
+        } catch(e) {
+			req = false;
+        }
+    // branch for IE/Windows ActiveX version
+    } else if(window.ActiveXObject) {
+       	try {
+        	req = new ActiveXObject('Msxml2.XMLHTTP');
+      	} catch(e) {
+        	try {
+          		req = new ActiveXObject('Microsoft.XMLHTTP');
+        	} catch(e) {
+          		req = false;
+        	}
+		}
+    }
+	if(req) {
+		req.onreadystatechange = processActionChange;
+		req.open('GET', link, true);
+		var content = '';
+		if(text)
+		{
+			req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');	
+			content = 'text=' + text
+		}
+		req.send(content);
+	}
+}
+
+
+
+
+function load()
+{
+	if(!testing)
+	{
+		retrieveUpdate();
+	}
+	else
+	{
+		syncTable(getExampleDom());
+	}
+}
+
+
+function getEventTarget(event, idSubstring)
+{
+ 	var targetElement = null;
+
+ 	if (typeof event.target != 'undefined')
+ 	{
+   		targetElement = event.target;
+ 	}
+ 	else
+ 	{
+   		targetElement = event.srcElement;
+ 	}
+
+ 	while (targetElement.nodeType == 3 && targetElement.parentNode != null)
+ 	{
+   		targetElement = targetElement.parentNode;
+	}
+
+
+	while(true)
+	{
+
+		var found = false;
+		var idAttr = targetElement.getAttribute('id');
+		if(idAttr)
+		{
+			found = idAttr.indexOf(idSubstring) > -1;
+			
+		}
+
+		if(!found)
+		{
+			targetElement = targetElement.parentNode;
+		}
+		else
+		{
+			break;
+		}
+	
+ 	} 
+
+
+ 	return targetElement;
+}
+
+
+
+function processUpdateChange()
+{
+	if(req.readyState == 4)
+	{
+		if(req.status == 200)
+		{
+			if(req.responseXML)
+			{
+				var dom = req.responseXML;
+				syncTable(dom);
+			}
+		}
+		else
+		{
+			alert(req.status);
+		}
+
+		setTimeout('retrieveUpdate()', 4000);
+	}
+}
+
+
+function processActionChange()
+{
+
+	if(req.readyState == 4)
+	{
+		if(req.status == 200)
+		{
+			if(req.responseXML)
+			{
+				var dom = req.responseXML;
+				
+				processActionResponse(dom);
+			}
+		}
+		else
+		{
+			alert(req.status);
+		}
+	}
+}
+
+
+function processActionResponse(dom)
+{
+	var dataNode = dom.lastChild;
+	var resultNode = dataNode.childNodes.length == 0 ? false : dataNode.childNodes[0];
+
+	var responseType = resultNode.getAttribute('type');
+	var userId = resultNode.getAttribute('id');
+
+	if(responseType == whisperButtonType)
+	{
+		var code = resultNode.getAttribute('code');
+		var errorMessage = resultNode.childNodes.length == 1 ? resultNode.childNodes[0].nodeValue : '';
+		processWhisperResponse(userId, code, errorMessage);
+	}
+	else if(responseType == listenButtonType)
+	{
+		var code = resultNode.getAttribute('code');
+		var errorMessage = resultNode.childNodes.length == 1 ? resultNode.childNodes[0].nodeValue : '';
+		processWhisperResponse(userId, code, errorMessage);
+	}
+	else if(responseType == bargeButtonType)
+	{
+		var code = resultNode.getAttribute('code');
+		var errorMessage = resultNode.childNodes.length == 1 ? resultNode.childNodes[0].nodeValue : '';
+		processWhisperResponse(userId, code, errorMessage);
+	}
+	else if(responseType == messageButtonType)
+	{
+		var code = resultNode.getAttribute('code');
+		var errorMessage = resultNode.childNodes.length == 1 ? resultNode.childNodes[0].nodeValue : '';
+		processMessageResponse(userId, code, errorMessage);
+	}
+	
+}
+
+
+function processWhisperResponse(userId, code, errorMessage)
+{
+	var responsebox =document.getElementById('responsebox');
+	var responseboxtext = document.getElementById('responseboxtext');
+
+	if(code == '0') // success
+	{
+		responsebox.style.visibility = 'visible';
+		if(responseboxtext.childNodes.length == 1)
+		{
+			responseboxtext.childNodes[0].nodeValue = successActionMessage;
+		}
+		else
+		{
+			var textNode = document.createTextNode(successActionMessage);
+			responseboxtext.appendChild(textNode);
+		}
+
+		
+		responseboxtext.nodeValue = successActionMessage;
+	}
+	else
+	{
+		// error!
+		responsebox.style.visibility = 'visible';
+		if(responseboxtext.childNodes.length == 1)
+		{
+			responseboxtext.childNodes[0].nodeValue = errorMessage;
+		}
+		else
+		{
+			var textNode = document.createTextNode(errorMessage);
+			responseboxtext.appendChild(textNode);
+		}
+
+	}
+}
+
+
+function processMessageResponse(userId, code, errorMessage)
+{
+	var responsebox =document.getElementById('responsebox');
+	var responseboxtext = document.getElementById('responseboxtext');
+
+	if(code == '0') // success
+	{
+		responsebox.style.visibility = 'visible';
+		if(responseboxtext.childNodes.length == 1)
+		{
+			responseboxtext.childNodes[0].nodeValue = successActionMessage;
+		}
+		else
+		{
+			var textNode = document.createTextNode(successActionMessage);
+			responseboxtext.appendChild(textNode);
+		}
+
+		
+		responseboxtext.nodeValue = successActionMessage;
+	}
+	else
+	{
+		// error!
+		responsebox.style.visibility = 'visible';
+		if(responseboxtext.childNodes.length == 1)
+		{
+			responseboxtext.childNodes[0].nodeValue = errorMessage;
+		}
+		else
+		{
+			var textNode = document.createTextNode(errorMessage);
+			responseboxtext.appendChild(textNode);
+		}
+
+	}
+}
+
+
+function getExampleDom()
+{
+	exampleDom = '<data><allusers>';
+	exampleDom = exampleDom + "<user id='1' status='active' username='User1' direction='inbound' customer='Dave Jones' customerNumber='512-555-1234' time='00:01:15' misc='http://appserver_ip:8000/SalesforceDemo/Misc' />";
+
+	exampleDom = exampleDom + '</allusers></data>'; 
+
+	// code for IE
+	if (window.ActiveXObject)
+  	{
+  		var doc=new ActiveXObject('Microsoft.XMLDOM');
+  		doc.async='false';
+  		doc.loadXML(exampleDom);
+  	}
+	// code for Mozilla, Firefox, Opera, etc.
+	else
+  	{
+  		var parser=new DOMParser();
+  		var doc=parser.parseFromString(exampleDom,'text/xml');
+  	}
+
+	// documentElement always represents the root node
+	var x=doc.documentElement;
+
+	return x;
+}
+
+
+function syncTable(dom)
+{
+	var dataNode = dom.lastChild;
+	var allUsersNode = dataNode.childNodes.length == 0 ? false : dataNode.childNodes[0];
+
+	// testing logic with FF -- can be removed 
+	if(allUsersNode.nodeName == 'user') allUsersNode = allUsersNode.parentNode;
+
+	if(allUsersNode)
+	{
+		var table = document.getElementById('activecalls');
+		
+		var rowsFound = new Array();
+
+		for(i = 0; i < allUsersNode.childNodes.length; i++)
+		{
+			if(allUsersNode.childNodes[i].nodeType == 1)
+			{
+			var userElement = allUsersNode.childNodes[i];
+			var userId = userElement.getAttribute('id');
+			var callStatus = userElement.getAttribute('status');
+			var userName = userElement.getAttribute('username');
+			var direction = userElement.getAttribute('direction');
+			var customerName = userElement.getAttribute('customer');
+			var customerNumber = userElement.getAttribute('customerNumber');
+			var duration = userElement.getAttribute('time');
+			var misc = userElement.getAttribute('misc');
+
+			if(userId && userId != '')
+			{
+				rowsFound[rowsFound.length] = userId;
+
+				var statusText = '?';
+				var usernameText = '?';
+				var directionalText = 'called';
+				var customerNameText = '?';
+				var customerPhoneText = '?';
+				var durationText = '?';
+				var miscText = '?';
+			
+				// read in only set values
+
+				if(callStatus == 'active')
+				{
+					statusText = 'ON';
+				}
+				else if(callStatus == 'inactive')
+				{
+					statusText = 'HOLD';
+				}
+
+				if(userName && userName != '')
+				{
+					usernameText = userName;
+				}
+
+				if(direction == 'inbound')
+				{
+					directionalText = 'called by';
+				}
+				else if(direction == 'outbound')
+				{
+					directionalText = 'called'
+				}
+
+				if(customerName && customerName != '')
+				{
+					customerNameText = customerName;
+				}
+
+				if(customerNumber && customerNumber != '')
+				{
+					customerPhoneText = customerNumber;
+				}
+
+				if(duration && duration != '')
+				{
+					durationText = duration;
+				}
+
+				if(misc && misc != '')
+				{
+					miscText = misc;
+				}
+
+				// durationText not dealt with
+
+				// find if this row already exists
+				var matchingRow = document.getElementById('user' + userId);
+
+				if(matchingRow)
+				{
+					SyncValues(table, matchingRow, statusText, usernameText, directionalText, customerNameText, customerPhoneText, durationText, miscText);
+				}
+				else
+				{
+					 AddRow(table, userId, statusText, usernameText, directionalText, customerNameText, customerPhoneText, durationText, miscText);
+				}
+			}
+			}
+		}
+
+
+		// clean up any completely gone calls
+		var rows = table.childNodes;
+
+		var toDelete = new Array();
+
+		if(rows && rows.length > 0)
+		{
+			for(i = 0; i < rows.length; i++)
+			{
+				if(rows[i].nodeType == 1)
+				{
+				var userId = rows[i].getAttribute('id');
+
+				if(userId != 'activecallstitle') // kindly skip the header div
+				{
+				var found = false;
+				for(j = 0; j < rowsFound.length; j++)
+				{
+					var rowUserId = 'user' + rowsFound[j];
+
+					if(rowUserId == userId)
+					{
+						found = true;
+						break;
+					}
+				}
+	
+				if(!found)
+				{
+					toDelete[toDelete.length] = rows[i];
+				}
+				}
+				}
+			}
+		}
+
+		for(i = 0; i < toDelete.length; i++)
+		{
+			RemoveRow(toDelete[i]);
+		}
+	}
+}
+
+function BuildCallElement(statusText, usernameText, directionalText, customerNameText, customerPhoneText)
+{
+	var callTextWrapper = document.createElement('span');
+	var userNameWrapper = document.createElement('span');
+	var customerNameWrapper = document.createElement('span');
+	var calledByWrapper = document.createElement('span');
+
+	var userNameWrapperText = document.createTextNode(usernameText);
+	var customerNameWrapperText = document.createTextNode(customerNameText);
+	var calledByWrapperText = document.createTextNode(' ' + directionalText + ' ');
+
+	userNameWrapper.appendChild(userNameWrapperText);
+	customerNameWrapper.appendChild(customerNameWrapperText);
+	calledByWrapper.appendChild(calledByWrapperText);
+
+	callTextWrapper.appendChild(userNameWrapper);
+	callTextWrapper.appendChild(calledByWrapper);
+	callTextWrapper.appendChild(customerNameWrapper);
+	
+
+	callTextWrapper.className = 'calltext';
+	userNameWrapper.className = 'username';
+	customerNameWrapper.className = 'customername';
+	calledByWrapper.className = 'directional';
+
+	return callTextWrapper;
+}
+
+function BuildDurationElement(durationText, userId)
+{
+	var durationWrapper = document.createElement('span');
+	var durationWrapperText = document.createTextNode(BuildDurationString(durationText));
+	durationWrapper.appendChild(durationWrapperText);
+	durationWrapper.className = 'duration';
+	durationWrapper.setAttribute('id', 'duration' + userId);
+	return durationWrapper;
+}
+
+
+function BuildDurationString(durationText)
+{
+	return ' (' + durationText + ') ';
+}
+
+function findPos(obj)
+{
+	var curleft = curtop = 0;
+	if (obj.offsetParent) {
+		curleft = obj.offsetLeft
+		curtop = obj.offsetTop
+		while (obj = obj.offsetParent)
+	       	{
+			curleft += obj.offsetLeft
+			curtop += obj.offsetTop
+		}
+	}
+	return [curleft,curtop];
+}
+
+function checkMouseEnter (element, evt)
+{
+	if (element.contains && evt.fromElement) 
+	{
+		return !element.contains(evt.fromElement);
+	}
+	else if (evt.relatedTarget)
+       	{
+		return !containsDOM(element, evt.relatedTarget);
+	}
+}
+
+
+function checkMouseLeave (element, evt)
+{
+	if (element.contains && evt.toElement)
+       	{
+		return !element.contains(evt.toElement);
+	}
+	else if (evt.relatedTarget) 
+	{
+		return !containsDOM(element, evt.relatedTarget);
+	}
+}
+
+
+
+function containsDOM (container, containee)
+{
+	var isParent = false;
+	do 
+	{
+		if ((isParent = container == containee))
+		break;
+		containee = containee.parentNode;
+	}
+	while (containee != null);
+	
+	return isParent;
+}
+
+
+
+
+function rowmouseover(evt)
+{
+	var row = getEventTarget(evt, 'user');
+
+	if(checkMouseEnter(row, evt))
+	{
+		var userId = row.userId;
+
+		row.style.backgroundColor = 'yellow';
+		row.style.borderWidth = '2px 0 2px 2px';
+
+		var functionBar = document.getElementById('functionbar' + userId);
+		if(functionBar)
+		{
+			functionBar.style.visibility = 'visible';
+			functionBar.style.backgroundColor = 'yellow';
+		}
+
+		if(rowoutTimers[userId])
+		{
+			clearTimeout(rowoutTimers[userId]);
+			delete rowoutTimers[userId];
+		}
+	}
+}
+
+function rowmouseout(evt)
+{
+	var row = getEventTarget(evt, 'user');
+	
+	if(checkMouseLeave(row, evt))
+	{
+		var userId = row.userId;
+
+		row.style.backgroundColor = '#b0b0b0';
+	
+		var functionBar = document.getElementById('functionbar' + userId);
+		functionBar.style.backgroundColor = '#b0b0b0';
+
+		// and what should be delayed 
+		rowoutTimers[userId] = setTimeout(rowoutTimeoutDelegate(mouseoutTimoutHandler, row, functionBar, userId), rowoutTimerMs);
+	}
+}
+
+
+function functionbarmouseover(evt)
+{
+	var functionbar = getEventTarget(evt, 'functionbar')
+		
+	if(checkMouseEnter(functionbar, evt))
+	{
+		var userId = functionbar.userId;
+
+		functionbar.style.visibility = 'visible';
+		functionbar.style.backgroundColor = 'yellow';
+
+		var rowbar = document.getElementById('user' + userId);
+		rowbar.style.backgroundColor = 'yellow';
+		rowbar.style.borderWidth = '2px 0 2px 2px';
+
+		if(rowoutTimers[userId])
+		{
+			clearTimeout(rowoutTimers[userId]);
+			delete rowoutTimers[userId];
+		}
+	}
+}
+
+
+function functionbarmouseout(evt)
+{
+	var functionbar = getEventTarget(evt, 'functionbar');
+	
+	if(checkMouseLeave(functionbar, evt))
+	{
+		var userId = functionbar.userId;
+
+		// process immediate execute
+	
+		var rowbar = document.getElementById('user' + userId);
+		rowbar.style.backgroundColor = '#b0b0b0';
+		functionbar.style.backgroundColor = '#b0b0b0';
+	
+
+		// and what should be delayed
+		rowoutTimers[userId] = setTimeout(rowoutTimeoutDelegate(mouseoutTimoutHandler, rowbar, functionbar, userId), rowoutTimerMs);
+		
+	}
+}
+
+
+function mouseoutTimoutHandler(row, functionBar, userId)
+{
+	row.style.borderWidth = '2px';
+	functionBar.style.visibility = 'hidden';
+
+	// remove timer
+	delete rowoutTimers[userId];
+}
+
+
+
+
+function findLastRow(rowHolder)
+{
+	for(i = rowHolder.childNodes.length; i > 0; i--)
+	{
+		if(rowHolder.childNodes[i - 1].nodeType == 1)
+		{
+			return rowHolder.childNodes[i - 1];
+		}
+	}
+
+	return null;
+}
+
+
+
+
+
+function AddRow(rowHolder, userId, statusText, usernameText, directionalText, customerNameText, customerPhoneText, durationTextValue, miscTextValue)
+{
+	// get rowheader
+	var newRow = document.createElement('div');
+	newRow.className = 'normalrow';
+	newRow.setAttribute('id', 'user' + userId);
+
+	// figure out top pixel position if not first row
+	if(rowHolder.getElementsByTagName('div').length > 1) // don't forget that there is the title div
+	{
+		var lastRow = findLastRow(rowHolder);
+
+		var rowHeight = lastRow.offsetHeight;
+		var topLeftPos = findPos(lastRow);
+		var rowBottom = rowHeight + topLeftPos[1]; 
+
+		var newRowTop = rowBottom + pixelsBetweenRows - 230; // offset for css stlye on activecalls div... this could certainly be more intelligent. findPos finds absolute pos
+
+		newRow.style.top = newRowTop + 'px';	
+	}
+
+	var call = document.createElement('div');
+	call.className = 'call';
+	call.appendChild(BuildCallElement(statusText, usernameText, directionalText, customerNameText, customerPhoneText));
+	call.appendChild(BuildDurationElement(durationTextValue, userId));
+	newRow.appendChild(call);
+
+	// add onmouseout, onmountover
+	newRow.userId = userId;
+
+	attachEventListener(newRow, 'mouseover', rowmouseover, true);
+	attachEventListener(newRow, 'mouseout', rowmouseout, true);
+
+	rowHolder.appendChild(newRow);
+
+	// after adding the row, build function bar
+
+	var functionBar = document.createElement('div');
+	functionBar.className = 'functionbar';
+	functionBar.setAttribute('id', 'functionbar' + userId);
+	functionBar.userId = userId;
+	attachEventListener(functionBar, 'mouseover', functionbarmouseover, false);
+	attachEventListener(functionBar, 'mouseout', functionbarmouseout, false);
+
+
+
+	var whisperButton = buildButton(whisperButtonType, 'Whisper', userId);
+	var listenButton = buildButton(listenButtonType, 'Listen', userId);
+	var bargeButton = buildButton(bargeButtonType, 'Barge', userId);
+	var messageButton = buildButton(messageButtonType, 'Message', userId);
+
+	functionBar.appendChild(whisperButton);
+	functionBar.appendChild(listenButton);
+	functionBar.appendChild(bargeButton);
+	functionBar.appendChild(messageButton);
+
+	// get right-top position, and height of the newRow, and put this functionBar to the right
+	var rowHeight = newRow.offsetHeight;
+	var topLeftPos = findPos(newRow);
+	var rowRight = topLeftPos[0] + newRow.offsetWidth;
+
+	var body = document.getElementsByTagName('body')[0];
+	functionBar.style.position = 'absolute';
+	functionBar.style.visibility = 'hidden';
+	functionBar.style.left = (rowRight - 2) + 'px';  // -2 makes up for the border we wil collapse on mouseover/mouseout events
+	functionBar.style.top = topLeftPos[1] + 'px' ;
+	functionBar.style.height = (rowHeight - 4) + 'px'; // if you change CSS of functionbar border width, padding, or margin, must compensate here
+	body.appendChild(functionBar);
+}
+
+function callactionclick(evt)
+{
+	var callActionButton = getEventTarget(evt, 'callaction');
+
+	if (!evt) evt = window.event;
+	var relTarg = evt.relatedTarget || evt.fromElement;
+
+	if(relTarg != callActionButton)
+	{
+		var buttonType = callActionButton.buttonType;
+		
+		makeActionRequest(buttonType, callActionButton);
+	}
+}
+
+function makeActionRequest(buttonType, button)
+{
+	var link;
+	var content;
+	if(buttonType == whisperButtonType)
+	{
+		link = 'http://' + document.location.host + '/SalesforceDemo/Whisper?metreosSessionId=' + routingGuid + '&type=' + buttonType + '&id=' + button.userId;
+	}
+	else if(buttonType == listenButtonType)
+	{
+	}
+	else if(buttonType == bargeButtonType)
+	{
+	}
+	else if(buttonType == messageButtonType)
+	{
+		link = 'http://' + document.location.host + '/SalesforceDemo/SendUnicastMessage?metreosSessionId=' + routingGuid + '&type=' + buttonType + '&id=' + button.userId;
+		content = 'You had better backup foo';
+	}
+	if(link)
+	{
+		callActionRequest(link, content);
+	}
+}
+
+
+function buildButton(classname, buttontext, userId)
+{
+	var button = document.createElement('span');
+	button.setAttribute('id', 'callaction' + buttontext);
+	button.buttonType = classname;
+	button.userId = userId;
+	button.className = classname;
+	var buttonText = document.createTextNode(buttontext);
+	button.appendChild(buttonText);
+
+	attachEventListener(button, 'click', callactionclick, true);
+
+	return button;
+}
+
+
+function SyncValues(table, matchingRow, statusText, usernameText, directionalText, customerNameText, customerPhoneText, durationText, miscText)
+{
+
+	var currentDurationSpan = matchingRow.childNodes[0].childNodes[1]; // row, call div, duration span
+
+	var testString = BuildDurationString(durationText);
+	if(currentDurationSpan.childNodes[0].nodeValue != testString)
+	{
+		currentDurationSpan.childNodes[0].nodeValue = testString;
+	}
+
+/*	var callNode = matchingRow.childNodes[0];
+	var callNodeText = callNode.childNodes[0];
+
+	var durationNode = matchingRow.childNodes[1];
+	var durationNodeText = durationNode.childNodes[0];
+
+
+	if(durationNodeText.nodeValue != durationText)
+	{
+		durationNodeText.nodeValue = durationText;
+	}
+
+	
+	if(miscNodeText.nodeValue != miscText)
+	{
+		miscNodeText.nodeValue = miscText;
+	}
+		
+*/
+	
+}
+
+
+function RemoveRow(childNode)
+{
+	childNode.parentNode.removeChild(childNode);
+}
+
+
+function add()
+{
+
+	// code for IE
+	if (window.ActiveXObject)
+  	{
+  		var doc=new ActiveXObject('Microsoft.XMLDOM');
+  		doc.async='false';
+  		doc.loadXML(exampleDom);
+  	}
+	// code for Mozilla, Firefox, Opera, etc.
+	else
+  	{
+  		var parser=new DOMParser();
+  		var doc=parser.parseFromString(exampleDom,'text/xml');
+  	}
+
+	// documentElement always represents the root node
+	exDom=doc.documentElement;
+
+	// add some more stuff to existing dom
+
+	var allUsersNode = exDom.childNodes.length == 0 ? false : exDom.childNodes[0];
+
+	if(allUsersNode)
+	{
+		var table = document.getElementById('activecalls');
+		
+		var rowsFound = new Array();
+
+		var maxInt = -1;
+		for(i = 0; i < allUsersNode.childNodes.length; i++)
+		{
+			var userElement = allUsersNode.childNodes[i];
+			var userId = userElement.getAttribute('id');
+			if(parseInt(userId) > maxInt)
+			{
+				maxInt = parseInt(userId);
+			}
+		}
+
+
+		// add a new row
+
+		 AddRow(table, (maxInt + 1).toString(), 'my status', 'Billy Bob', 'called', 'His Highness', '512-3333-222', '00:00:12', 'belH');
+
+	}
+}
+
+function remove()
+{
+}
+
+</script>
+	<link rel='stylesheet' type='text/css' href='web.css'>
+	 
+	</head>
+
+	<body onload='load()'> 
+		<div id='headerbar'>
+			<span>Cisco Unified Application Environment SDK Reference Application</span>	
+			<div id='subheaderbar'>
+				<span>In-house Sales Manager Portal</span>	
+			</div>
+		</div>
+
+		<div id='activecalls'>
+			<div id='activecallstitle'>In-house Rep Call Panel</div>
+		</div>
+
+		<!--<div id='testbox' style='display:block;position:absolute;width:100px;height 50px;top:400px' onclick='add()'>Add</div>-->
+
+		<div id='controlbox'>
+			<div id='controlboxtitle'>Controls</div>
+			<div class='helpbutton'><span>Broadcast</span></div>
+		</div>	
+
+		<div id='responsebox'>
+			<div id='responseboxtitle'></div>
+			<span id='responseboxtext'></span>
+		</div>	
+	</body>
+</html>
+
+
+

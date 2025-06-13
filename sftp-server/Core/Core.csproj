@@ -1,0 +1,156 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{78CEBC1C-23A0-477C-8DA9-DF1223CDD732}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.SftpServer</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\autobuild\metreos.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.SftpServer</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Metreos.Configuration, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Interfaces">
+      <Name>Metreos.Interfaces</Name>
+      <HintPath>..\..\Build\framework\1.0\CoreAssemblies\Metreos.Interfaces.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.LoggingFramework">
+      <Name>Metreos.LoggingFramework</Name>
+      <HintPath>..\..\Build\framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.LogSinks, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Utilities">
+      <Name>Metreos.Utilities</Name>
+      <HintPath>..\..\Build\framework\1.0\CoreAssemblies\Metreos.Utilities.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="SecureBlackbox.PKI, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTP, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="SecureBlackbox.SFTPCommon, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="SecureBlackbox.SFTPServer, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="SecureBlackbox.SSHClient, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="SecureBlackbox.SSHCommon, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="SecureBlackbox.SSHServer, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Server.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SFTPSession.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SSHSession.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="X:\autobuild\AssemblyInfoCommon.cs">
+      <Link>AssemblyInfoCommon.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="X:\autobuild\metreos.snk">
+      <Link>metreos.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

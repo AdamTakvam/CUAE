@@ -1,0 +1,1 @@
+{include file="component_configs.tpl"}

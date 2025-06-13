@@ -1,0 +1,76 @@
+module : World, MCE
+processor : phone in World, AppServer in MCE, MMS in MCE
+eternal : provider in AppServer, telMan in AppServer, app in AppServer
+
+feature "Outbound Call"
+  
+  case
+    leg "H323":
+      MakeCall(to, from) : app -> telMan
+      GetMediaCaps : telMan -> MMS 
+      GetMediaCaps_Success(localMediaCaps) : MMS -> telMan
+      MakeCall(to, from, localMediaCaps) : telMan -> provider
+      SETUP : provider -> phone
+      MakeCall_Success(callId) : provider -> telMan
+      MakeCall_Success(callId) : telMan -> app
+      ALERTING : phone -> provider
+      CONNECT : phone -> provider
+      CallEstablished(callId2) : provider -> telMan
+      TERMCAPS(localMediaCaps) : provider -> phone
+      TERMCAPS(remoteMediaCaps) : phone -> provider
+      GotCapabilities(callId, remoteMediaCaps) : provider -> telMan
+      (* When telMan receives a populated GotCapabilities, it does one of the following: *)
+      (* - If there is a media server associated with this session (i.e. clusterConnections="true"), drop any remoteMediaCaps which it does not support. If none are supported, tear down call and send hangups to provider and app. *)
+      (* - Choose the first media server in the list which supports any codec in remoteMediaCaps *)
+      telMan takes action "Choose media encoding to send"
+      ReserveMedia(mmsId) : telMan -> MMS
+      ReserveMedia_Success(connectionId, mmsId, rxAddr) : MMS -> telMan
+      SetMedia(callId, rxAddr, txCodec) : telMan -> provider
+      OLC(rxControlAddr, txCodec) : provider -> phone
+      SetMedia_Success(callId) : provider -> telMan
+      OLC_ACK(txAddr, txControlAddr) : phone -> provider
+      MediaEstablished(callId, txAddr) : provider -> telMan
+      CreateConnection(connectionId, txAddr, txCodec, rcvCodec="none") : telMan -> MMS
+      CreateConnection_Success(connectionId) : MMS -> telMan
+      StartTx(callId, connectionId, txAddr, txCodec) : telMan -> app
+      MakeCall_Complete(callId, connectionId, txAddr, txCodec) : telMan -> app
+      OLC(txControlAddr, rxCodec) : phone -> provider
+      OLC_ACK(rxAddr, rxControlAddr) : provider -> phone
+      MediaEstablished(callId, rxCodec) : provider -> telMan
+      ModifyConnection(connectionId, rxCodec) : telMan -> MMS
+      ModifyConnection_Success(connectionId) : MMS -> telMan
+      StartRx(callId, connectionId, rxCodec) : telMan -> app
+            
+    leg "SIP":
+      MakeCall(to, from) : app -> telMan
+      (* RoutingGuid will imply mmsId if clusterConnections="true" OR
+         preferredCodec may be supplied to aid MMS selection *)
+      GetMediaCaps : telMan -> MMS 
+      GetMediaCaps_Success(localMediaCaps) : MMS -> telMan
+      (* The media caps list is sorted by MMS provider preference *)
+      MakeCall(to, from, localMediaCaps) : telMan -> provider
+      MakeCall_Success(callId) : provider -> telMan
+      MakeCall_Success(callId) : telMan -> app
+      GotCapabilities : provider -> telMan
+      (* When telMan receives an empty GotCapabilities, it does one of the following: *)
+      (* - Chooses the media server associated with this app session *)
+      (* - Chooses the first media server in the localMediaCaps list *)
+      telMan takes action "Choose media server and prune localMediaCaps accordingly"
+      ReserveMedia(mmsId) : telMan -> MMS
+      ReserveMedia_Success(connectionId, mmsId, rxAddr) : MMS -> telMan
+      SetMedia(callId, rxAddr, prunedLocalMediaCaps) : telMan -> provider
+      INVITE(rxAddr, prunedLocalMediaCaps) : provider -> phone
+      SetMedia_Success(callId) : provider -> telMan
+      RINGING : phone -> provider
+      OK(txAddr, rxCodec) : phone -> provider
+      ACK : provider -> phone
+      MediaEstablished(callId, txAddr, rxCodec, txCodec) : provider -> telMan
+      (* rxCodec = txCodec *)
+      CreateConnection(connectionId, txAddr, rxCodec, txCodec) : telMan -> MMS
+      CreateConnection_Success(connectionId) : MMS -> telMan
+      StartRx(callId, connectionId, rxCodec) : telMan -> app
+      StartTx(callId, connectionId, txAddr, txCodec) : telMan -> app
+      CallEstablished(callId2) : provider -> telMan
+      MakeCall_Complete(callId, connectionId, txAddr, txCodec) : telMan -> app
+  endcase
+endfeature

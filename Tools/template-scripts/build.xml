@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Replace 'module-name' with the top-level name/path of the module -->
+<project name="module-name" default="Debug" basedir=".">
+
+	<description>Build script for 'module-name'</description>
+    <import file="../autobuild/build.includes.xml" />
+    
+    <!-- Replace 'module-name' with the top-level name/path of the module -->
+    <property name="buildModuleName" value="module-name" />
+    <property name="buildModuleRoot" value="${Metreos.build.srcRoot}/${buildModuleName}" />
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/ModuleName" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${buildModuleRoot}" includes="**/bin/** **/obj/**" />
+        </delete>          
+    </target>    
+        
+	<target name="do-build" >
+        <!-- Replace 'module-name' with name of MSBuild solution file -->
+        <metreosMSBuildTask solution="module-name" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

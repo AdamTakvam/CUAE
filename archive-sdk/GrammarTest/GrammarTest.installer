@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="to" displayName="to" format="String" defaultValue="13526" required="true" />
+    <configValue name="grammar1" displayName="grammar1" format="String" description="" defaultValue="NONE" required="true" />
+    <configValue name="grammar2" displayName="grammar2" format="String" defaultValue="NONE" required="true" />
+    <configValue name="grammar3" displayName="grammar3" format="String" defaultValue="NONE" required="true" />
+    <configValue name="HttpUsername" displayName="HTTP Username" format="String" defaultValue="metreos" required="true" />
+    <configValue name="HttpPassword" displayName="HTTP Password" format="Password" defaultValue="metreos" required="true" />
+  </configuration>
+</install>

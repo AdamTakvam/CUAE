@@ -1,0 +1,145 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{61C4F7CB-50DC-4193-972D-FE8BCCCABC62}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "Metreos.Native.Weather"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "Metreos.Native.Weather"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "Common"
+                    Project = "{1B8F1C5C-DA30-4C7A-B9E3-FCA1B9B658A0}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                />
+                <Reference
+                    Name = "Metreos.PackageGeneratorCore"
+                    AssemblyName = "Metreos.PackageGeneratorCore"
+                    HintPath = "..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.PackageGeneratorCore.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                />
+                <Reference
+                    Name = "Metreos.ApplicationFramework"
+                    AssemblyName = "Metreos.ApplicationFramework"
+                    HintPath = "..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                />
+                <Reference
+                    Name = "Metreos.Core"
+                    AssemblyName = "Metreos.Core"
+                    HintPath = "..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                />
+                <Reference
+                    Name = "Metreos.Interfaces"
+                    AssemblyName = "Metreos.Interfaces"
+                    HintPath = "..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                />
+                <Reference
+                    Name = "Metreos.LoggingFramework"
+                    AssemblyName = "Metreos.LoggingFramework"
+                    HintPath = "..\..\..\..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GetAllStations.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GetStates.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "GetWeatherStatus.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

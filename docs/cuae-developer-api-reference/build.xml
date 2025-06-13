@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="docs" default="Debug" basedir=".">
+  <description>Build script for the docbook-documents.</description>
+  
+  <import file="../../autobuild/build.includes.xml" />
+  <property name="deploymentDirectory" value="../obj" />
+  <property name="buildDirectory"      value="obj" />
+  <property name="projectRoot"         value="${Metreos.build.srcRoot}/docs" />
+  
+  <target name="do-init" >
+     <mkdir dir="${deploymentDirectory}" />
+     <mkdir dir="${buildDirectory}" />
+  </target>
+
+  <target name="do-build">
+    <ciscoDocGen />
+    <echo message="${projectRoot}/cuae-developer-api-reference/obj/cuae-api-ref" />
+	  <ciscoDocbook docroot="cuae-api-ref.xml" dir="${projectRoot}/cuae-developer-api-reference/obj/cuae-api-ref" dest="${projectRoot}/cuae-developer-api-reference/${buildDirectory}/cuae-api-reference-guide" output="CUAE API Reference Guide" type="API" />
+  </target>  
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-clean" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${deploymentDirectory}/cuae-api-reference-guide" />
+  </target>
+
+  <target name="do-postbuild">
+     <copy todir="${deploymentDirectory}/cuae-api-reference-guide">
+        <fileset dir="./obj/cuae-api-reference-guide" />
+    </copy>
+    <copy file="../docbook/style/api.css" tofile="${deploymentDirectory}/cuae-api-reference-guide/api.css">
+    </copy>
+  </target>
+</project>

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter>
+  <title>What is the CUAE, Exactly?</title>
+
+  <section>
+    <title>What is this Thing?</title>
+
+    <para>The Cisco Unified Application Environment (CUAE) is a collection of
+    tools and services for building, executing, and managing unified
+    communications applications. You can use the CUAE to build applications
+    that perform 1st and 3rd party call control, media processing, interface
+    with enterprise conferencing and voice mail systems, and integrate with
+    business applications and web services. The CUAE is, in essence, a service
+    construction and delivery platform delivered as a runtime container for
+    your application, enabling you to build media rich convergence
+    applications without becoming a telephony or media processing
+    expert.</para>
+
+    <para>The CUAE is comprised of several distinct components that will be
+    thoroughly addressed throughout this book. These components
+    are:<itemizedlist>
+        <listitem>
+          <para>Cisco Unified Application Server (CUAS)</para>
+
+          <para>The CUAS is an extensible application container that loads,
+          manages, and executes CUAE applications. Additionally, the CUAS is
+          responsible for loading and managing plugins that have been
+          developed to extend the core capabilities of the Application Server.
+          The Cisco Unified Application Server is the focal point for the CUAE
+          system. Often times you will hear the term "runtime environment"
+          when listening to people talk or write about the CUAE. In most cases
+          they are making reference to the CUAS when they use this
+          terminology.</para>
+        </listitem>
+
+        <listitem>
+          <para>Cisco Unified Media Engine (CUME)</para>
+
+          <para>CUME is a pure software, programmatic audio media server. It
+          is a tightly integrated component of the CUAE and can be leveraged
+          without deep understanding of media processing or digital signal
+          processing. CUME is capable of originating, terminating, and
+          manipulating audio transported via RTP. It supports multiple codecs,
+          both high and low bit rate, and can perform functions that fall into
+          many traditional telephony domains such as conferencing,
+          transcoding, text to speech, and interactive voice response.</para>
+        </listitem>
+
+        <listitem>
+          <para>Cisco Unified Application Designer (CUAD)</para>
+
+          <para>Every development platform needs a good Integrated Development
+          Environment (IDE). The CUAD is a visual IDE capable of building,
+          deploying, and debugging CUAE applications. The Application Designer
+          presents a work flow like programming model to developers, enabling
+          a very productive development process when creating unified
+          communications applications. The output of the CUAD will be covered
+          in detail in <remark>LRM: INSERT CHAPTER HERE</remark>. At this
+          point is sufficient to know that the output of the CUAD is loaded
+          into the Cisco Unified Application Server where it is then executed.
+          You can see a screen shot of the Application Designer in the figure
+          below.</para>
+
+          <figure id="fig-designer-main">
+            <title>The Application Designer Main Window</title>
+
+            <screenshot>
+              <screeninfo>The Application Designer Main Window</screeninfo>
+
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="supplements/images/designer-main.png"
+                             format="PNG" />
+                </imageobject>
+              </mediaobject>
+            </screenshot>
+          </figure>
+        </listitem>
+      </itemizedlist></para>
+
+    <remark>LRM: (a) Possibly insert a high-level diagram of the system here.
+    (b) Should we make any mention of the management console at this
+    level?</remark>
+
+    <para>Astute readers, especially those that have been exposed to other
+    Cisco voice products, will quickly note that Cisco's communications
+    products are all very, <emphasis>very</emphasis> unified. In this vain the
+    "Cisco Unified" portion of many of the product names will be omitted
+    throughout this book. For example, when you see references to the Visual
+    Designer, we of course mean the <emphasis>Cisco Unified</emphasis> Visual
+    Designer.</para>
+  </section>
+
+  <section>
+    <title>A Brief History of the CUAE</title>
+
+    <para>As the World Wide Web began to come of age in the early 1990s
+    designers throughout the world had a desire to create more interactive and
+    dynamic web sites. Early technologies such as the Common Gateway Interface
+    (CGI) enabled a bailing wire and bubble gum approach to creating online
+    web applications using languages like C and Perl. However, the pain
+    involved in constructing a complex, dynamic web site using this approach
+    was evident to anyone trying to do it. It wasn't until the tool set
+    evolved that we started to witness the massive revolution in how
+    applications delivered via the web were developed, and thus how they began
+    to change our lives. Technologies like J2EE, Coldfusion, PHP, and ASP
+    fueled the web engine in the mid to late 90s, and today, in 2007, that
+    engine is getting a turbo boost from newer, more productive web frameworks
+    like Ruby on Rails. These frameworks make developers productive,
+    productive developers are happy developers, and happy developers use the
+    joy they derive from programming to create revolutionary software
+    applications.</para>
+
+    <para>In early 2001 Louis Marascio set out to solve a similar problem for
+    telephony applications. Voice over IP (VoIP) had started to take hold in
+    the late 90s. The technology was being embraced by telecommunications
+    carriers and Internet Telephony Service Providers (ITSPs), like Net2Phone
+    and <remark>LRM: INSERT ANOTHER EXAMPLE HERE</remark>, as a means to bring
+    a lower cost phone call to end users and service providers alike. However,
+    it was the architecture shift that caught the attention of technologists
+    around the world. By putting the voice on an IP driven data network, in an
+    open way, it should be possible to more easily manipulate the signaling
+    and audio data to build new and compelling applications. Technologies like
+    VoiceXML and Session Initiation Protocol (SIP) were starting to gain
+    momentum, all promising to bring some aspect of the web to the stodgy old
+    telephony world, thus revolutionizing how developers build applications
+    that interact with voice systems.</para>
+
+    <para>Unfortunately, the vast majority of programmers don't understand
+    call control or media processing. They have no idea the difference between
+    a blind transfer and a consultative transfer. There was no question that
+    developers <emphasis>needed</emphasis> to use communications in their
+    applications. There simply was no straightforward way for them to do it.
+    Traditional technologies like TAPI and JTAPI were too arcane and
+    convoluted to gain mass acceptance. Newer technologies like SIP and
+    VoiceXML were not developer frameworks, they were the plumbing to make the
+    revolution possible. Much like what happened with the Web, a new tool set
+    was needed to fuel mass development of new, converged voice
+    applications.</para>
+
+    <para>Louis founded Metreos Corporation on this basic premise: businesses
+    have a magnetic attraction to Voice over IP<footnote id="voip-antiquated">
+        <para>VoIP is an antiquated phrase these days. The phrase de jour is
+        unified communications. A shift in terminology seems to happen every
+        18-24 months in this industry.</para>
+      </footnote> as a technology primarily because they want to leverage it
+    to build new applications, but before that can happen a new development
+    framework must be introduced to empower "normal" programmers to build this
+    type of software. The Metreos Communications Environment was born.</para>
+
+    <para>In 2006 Cisco had become the dominant vendor for IP telephony
+    communications systems. Of course, Cisco CallManager is not an application
+    development platform. It does expose numerous Application Programming
+    Interfaces (APIs) but it does a less than stellar job of living up to what
+    developers expect from a development platform. For example, it was not
+    uncommon for the native CallManager APIs to change dramatically between
+    maintenance releases. Cisco acquired Metreos in June 2006 to help
+    alleviate this problem and deliver a more compelling and complete
+    developer experience. The Metreos Communications Environment became known
+    as the Cisco Unified Application Environment and ventures to solve the
+    same problems as before, but now with an even tighter integration with the
+    market leading Cisco Unified Communications System.</para>
+  </section>
+
+  <section>
+    <title>The Cisco Unified Communications System</title>
+
+    <para><remark>LRM: Discuss the Cisco UC platform as a whole. Each of the
+    piece parts and how they all work together. Display a picture and talk
+    about how things talk to one another. Finally, how does the CUAE provide a
+    development platform overlay for all of this stuff? Do we have enough here
+    to talk about the network is part of the UC platform and how it impacts
+    the developer?</remark></para>
+
+    <para>The Cisco Unified Communications System is a collection of
+    communications products that deliver an end-to-end experience for business
+    users: making and receiving phone calls, sending and receiving voicemails,
+    audio, video, and data conferencing, and much more. These products also
+    represent a set of services that can be leveraged from within the CUAE to
+    build applications. In this sense, you can think of the Cisco UC System as
+    a type of development platform foundation. The core capabilities
+    encompassed by the Cisco UC System are inherent in almost all of the
+    applications a developer would want to build using the CUAE: call control,
+    media processing, conferencing, presence, instant messaging, location,
+    etc. While the CUAE is in no way tied to these services and can be
+    integrated with non-Cisco communications systems, it derives enormous
+    benefit from them. The figure below gives a high level overview of the
+    product set encompassed by the Cisco UC System.</para>
+
+    <para><remark>LRM: Insert figure of the UC System here</remark></para>
+
+    <para><remark>LRM: Write a small blurb about each of the products in the
+    UC System</remark></para>
+
+    <para>While each of the products depicted above have some type of API
+    available to developers none of them are a true developer platform. The
+    CUAE sits on top of all of the products in the Cisco UC System, integrates
+    with their services, and exposes a well defined, easy to use, and
+    productive platform for developers. The CUAE abstracts many complex
+    interfaces into more usable APIs and hides many of the implementation and
+    migration details of the underlying UC System APIs. For example, Cisco
+    CallManager version 4.x had an API known as DeviceListX. DeviceListX was
+    the only way a developer could correlate a Cisco IP phone with its current
+    IP address. The API was accessed via HTTP and manifested itself as an XML
+    object returned to the requestor. In CallManager 5.0, this API was
+    summarily removed. The reasons for its removal are not important; however,
+    DeviceListX was used by many third party developers. This type of pain can
+    (most of the time) be avoided when using the CUAE. In this particular
+    case, the corresponding release of the CUAE transparently substituted an
+    alternate method for retrieving the same information from CallManager,
+    making the transition much less painful.</para>
+
+    <para>The relationship between the CUAE and the rest of the Cisco UC
+    System is both straightforward and complex. As a piece of technology CUAE
+    performs a critical, and often times dirty, role of taking very rough APIs
+    exposed via the underlying platform and massaging them into a usable
+    developer interface in the Visual Designer. From a social perspective,
+    CUAE represents the first step in an overarching shift in how developers
+    interact with the Cisco Unified Communications System. You will continue
+    to see more robust developer services exposed by the various products, a
+    more structured means of communicating with and interacting with
+    developers, and a continuing push to aggregate all development interfaces
+    for the Cisco UC System into the CUAE. As we write this book in early 2007
+    we are only at the beginning of this transition but the boat has already
+    started to turn and the future looks to be very interesting indeed.</para>
+  </section>
+
+  <section>
+    <title>What about J2EE or .NET?</title>
+
+    <para>The designers of the CUAE are regularly asked one of the following
+    questions:</para>
+
+    <para><quote>Why didn't you leverage an existing application container
+    architecture like J2EE?</quote></para>
+
+    <para><quote>Why do you have such a heavy dependence on
+    .NET?</quote></para>
+
+    <para>Both are valid questions and touch on two aspects of the CUAE that
+    will flavor the lives of any developer using it to build applications.
+    Let's address each one independently.</para>
+
+    <section>
+      <title>Why not use an existing application container architecture like
+      J2EE?</title>
+
+      <para>When the CUAE was conceived and its primary goals identified it
+      was clear that, while a J2EE application server could be adapted to
+      solve the problems faced by developers wanting to build voice
+      applications, it was not ideal. If we were to have chosen J2EE we would
+      not have wanted to become dependent on a particular implementation;
+      however, to properly extend any one application server, such as JBoss,
+      it would have required fairly intimate knowledge of that application
+      server and thus tied our destinies together. Secondly, J2EE was
+      originally architected around data driven web applications powered by
+      HTTP. Over time it has morphed into a multi-headed dragon that is very,
+      very complicated. Using J2EE would have imposed two very large burdens
+      on our third party developers to effectively use our platform:</para>
+
+      <orderedlist>
+        <listitem>
+          <para>A developer must thoroughly understand J2EE and its orbiting
+          technologies, and in the worst case, go so far as to thoroughly
+          understand a particular implementation of a J2EE application
+          server.</para>
+        </listitem>
+
+        <listitem>
+          <para>A developer must then understand the nuances of the CUAE
+          developer platform and how it can be applied to unified
+          communications applications.</para>
+        </listitem>
+      </orderedlist>
+
+      <para>The first challenge is more daunting than it may appear on the
+      surface. Had we chosen to use J2EE the layers of technology would have
+      become so deep we thought it would present more of a barrier to any
+      developer who was not already exposed to J2EE. We would lose some
+      control over the developer experience at the expense of picking up a
+      well known and well vetted technology, but we were less sure that this
+      architecture would really do anything for us. This combined with the
+      second fact stated above, that developers would still have to become
+      acquainted with unified communications sealed the deal: we would build
+      our application server and focus on getting the developer experience
+      right.</para>
+
+      <para>A side effect of this choice is that as platform developers the
+      CUAE engineering team can tailor the capabilities and features of the
+      platform for the unique challenges of the communications world. A J2EE
+      application server can be used to solve all types of problems, but there
+      is a definite undertone and slant towards web enabled or web connected
+      applications. By building our own application server from scratch we can
+      give a similar slant to our feature set, except this time towards
+      communications.</para>
+
+      <para>We believe we made the right decision, but only time will tell. Of
+      course, we aren't so naive to believe that the CUAE can live in an ivory
+      tower all by itself. This book devotes an entire part (several chapters)
+      to integrating applications built using the CUAE with those built using
+      other frameworks, including J2EE. We are pragmatists and firm believers
+      in using the right tool for the job. We believe the CUAE is the best
+      tool when building unified communications applications, and often times
+      those applications require web interfaces that should be built with
+      frameworks more focused on that problem domain.</para>
+    </section>
+
+    <section>
+      <title>Why is there such a large dependence on .NET?</title>
+
+      <para>The Application Server is built using the C# programming language
+      and leverages Microsoft's .NET Framework. C# is a very productive,
+      modern programming language that has been standardized by the European
+      Computer Manufacturers Association (ECMA) and submitted for
+      standardization by the International Organization for Standardization
+      (ISO).<footnote>
+          <para>Read more about the standardization of C# on Microsoft's C#
+          standardization web page at <ulink
+          url="http://msdn.microsoft.com/net/ecma/">http://msdn.microsoft.com/net/ecma</ulink>.</para>
+        </footnote> It is important to understand the differences between the
+      standard C# language and the Microsoft proprietary stack. Portions of
+      the Microsoft .NET Framework are covered by the C# standards and other
+      portions are specific to Microsoft. The Application Server only
+      leverages standards compliant C#. In fact, there is now an open source
+      implementation of the .NET Framework and the C# programming language.
+      This project is called Mono and the primary sponsor is Novell.<footnote>
+          <para>For more details on Mono, the open source .NET implementation,
+          visit the Mono web site at <ulink
+          url="http://www.mono-project.com/ECMA">http://www.mono-project.com.</ulink></para>
+        </footnote> It is important to note that even thought the Application
+      Server is written using C# there is nothing to stop you from developing
+      applications or plug-ins that integrate with software written in other
+      languages. Examples of this type of integration will be covered in part
+      IV of this book, Integration CUAE Applications with Friends. The
+      philosphy of the CUAE and the engineering team behind it is to embrace
+      and enable as many programming languages as possible to leverage the
+      services the CUAE provides. We want developers to use the tools that
+      they are most comfortable with and throughout this book you will see how
+      you can do that.</para>
+    </section>
+  </section>
+</chapter>

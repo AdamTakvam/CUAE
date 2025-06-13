@@ -1,0 +1,61 @@
+using System;
+using System.Collections;
+
+namespace CuaeLocalServer
+{
+	/// <summary>
+	/// Summary description for NotifyManager.
+	/// </summary>
+	public class NotifyManager : IDisposable
+	{
+		static NotifyManager instance = null;
+		static readonly object padlock = new object();
+		private OutlookNotifier lastNotifier = null;
+
+        public delegate void ClickHandler(object sender, object state);
+		private NotifyManager()
+		{
+		}
+
+		public static NotifyManager Instance
+		{
+			get
+			{
+				lock (padlock)
+				{
+					if (instance == null)
+					{
+						instance = new NotifyManager();
+					}
+					return instance;
+				}
+			}
+		}
+
+        public void AddNotifier(int width, int height, string text, object state, ClickHandler handleClick)
+		{
+			int xo = 0;
+			int yo = 0;
+			if (lastNotifier != null && lastNotifier.IsDisposed == false)
+			{
+				// offset it
+				xo = lastNotifier.Right;
+				yo = lastNotifier.Top;
+			}
+
+			lastNotifier = new OutlookNotifier();
+			lastNotifier.SetDimensions(width, height);
+            lastNotifier.SetText(text);
+            lastNotifier.SetClickState(state, handleClick);
+			lastNotifier.Notify(xo, yo);	
+		}
+
+		#region IDisposable Members
+
+		public void Dispose()
+		{
+		}
+
+		#endregion
+	}
+}

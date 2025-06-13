@@ -1,0 +1,20 @@
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+                             http://www.w3.org/TR/speech-grammar/grammar.xsd"
+ xml:lang="en-US" mode="voice" root="ROOT">
+
+<rule id="ROOT" scope="public">
+  <ruleref uri="builtin:grammar/alphanum" />
+  <ruleref uri="#options"/>
+</rule>
+
+<rule id="options">
+  <one-of>
+  <item><tag>VAL=&quot;windows&quot;</tag>windows</item>
+  <item><tag>VAL=&quot;voicemail&quot;</tag>voicemail</item>
+  <item><tag>VAL='VPN';</tag>vpn</item>
+  </one-of>
+</rule>
+
+</grammar>

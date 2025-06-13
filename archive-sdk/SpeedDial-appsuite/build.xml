@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="SpeedDial" default="Debug" basedir=".">
+  <description>Build script for SpeedDial Application</description>
+  <import file="../../autobuild/build.includes.xml" />
+
+  <property name="appName"                  value="SpeedDial" />
+  <property name="deploymentDirectory"      value="${Metreos.build.buildDirectory}/AppSuite/${appName}" />
+
+  <target name="do-init">
+    <mkdir dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-clean">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/${appName}" includes="**/*.dll **/*.pdb" />
+    </delete>
+    <delete dir="mca/bin" />
+    <delete dir="mca/obj" />
+    <delete dir="${deploymentDirectory}" />
+
+  </target>
+
+  <target name="do-build">
+    <!-- build max project -->
+    <metreosMaxTask root="${Metreos.build.srcRoot}" dir="application-suite/${appName}/mca" solution="${appName}" />
+  </target>
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-postbuild">
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="mca/bin" />
+    </copy>
+  </target>
+  
+</project>

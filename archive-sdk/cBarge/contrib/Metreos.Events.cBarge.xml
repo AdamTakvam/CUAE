@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Events.cBarge" description="Events used by the cBarge application" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <eventList>
+    <event name="IntegrityCheck" type="nontriggering" displayName="IntegrityCheck" description="Requests that a script w/ specified guid check that it is associated w/ specified lineId">
+      <eventParam type="System.String" guaranteed="true">lineId</eventParam>
+      <eventParam type="System.String" guaranteed="true">fromRoutingGuid</eventParam>
+    </event>
+    <event name="IntegrityCheckFailed" type="nontriggering" displayName="IntegrityCheckFailed" description="This event is sent by a script if the cBarge IntegrityCheck fails.">
+	  <eventParam type="System.String" guaranteed="true">fromRoutingGuid</eventParam>
+    </event>
+    <event name="AddConferee" type="nontriggering" displayName="AddConferee" description="This event is sent by a barge script to the main barge controller script to notify that a conferee has been added">
+	  <eventParam type="System.String" guaranteed="true">from</eventParam>
+	  <eventParam type="System.String" guaranteed="true">callId</eventParam>
+	  <eventParam type="System.String" guaranteed="true">connectionId</eventParam>
+	  <eventParam type="System.String" guaranteed="true">fromRoutingGuid</eventParam>
+    </event>
+  </eventList>
+</package>

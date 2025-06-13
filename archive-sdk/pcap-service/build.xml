@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="pcap-service" default="Debug" basedir=".">
+
+	<description>Build script for pcap-service</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/PCapService" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <metreosVsNetTask dir="projects" solution="pcap-service" />
+    </target>    
+        
+	<target name="do-build" >
+        <metreosVsNetTask dir="projects" solution="pcap-service" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

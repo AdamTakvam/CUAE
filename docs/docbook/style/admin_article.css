@@ -1,0 +1,362 @@
+html
+{
+	margin:0;
+	padding:0;
+}
+
+body
+{
+	margin:0;
+	padding:0;
+}
+
+.navheader
+{
+	background-color:#43758d;
+	padding-bottom:10px;
+}
+
+.navheader th
+{
+	font-size:x-large;
+	color:white;
+	display:none;
+}
+
+.navheader td
+{
+	padding:8px 5px 2px;
+}
+
+.navheader a
+{
+	margin:10px;
+	color:White;
+}
+
+.navfooter
+{
+	background-color:#43758d;
+	padding-top:10px;
+}
+
+.navfooter th
+{
+	font-size:x-large;
+	color:white;
+}
+
+.navfooter td
+{
+	color:White;
+	padding:0 16px 4px;
+}
+
+.navfooter a
+{
+	color:White;
+}
+
+.navheader hr, .navfooter hr
+{
+	display:none;
+}
+
+
+h3.title
+{
+	font-size:xx-large;
+	font-weight:bold;
+	padding:0;
+	margin:0;
+}
+
+h4.subtitle
+{
+	font-weight:normal;
+	font-style:italic;
+	margin-bottom:50px;
+}
+
+table
+{
+	border-collapse:collapse;
+}
+
+.section
+{
+	padding-left:10px;
+}
+
+
+table.eventparams, table.actionparams, table.resultdata, table.parseableinputs, table.publicmethods, table.publicproperties
+{
+	border-color:white;
+	border-collapse:collapse;
+	margin-bottom:20px;
+
+}
+
+table.eventparams th, table.actionparams th, table.resultdata th, table.parseableinputs th, table.publicmethods th, table.publicproperties th
+{
+	background-color:#43758d;
+	color:White;
+	text-align:left;
+	font-weight:normal;
+	padding:8px 30px;
+	border-color:#bbbbbb;
+	border-width:0;
+	border-style:solid;
+	border-collapse:collapse;
+	white-space:nowrap;
+}
+
+table.eventparams td, table.actionparams td, table.resultdata td, table.parseableinputs td, table.publicmethods td, table.publicproperties td
+
+{
+	background-color:#dddddd;
+	padding:10px 20px;
+	text-align:left;
+	border-color:Gray;
+	border-width:0 1px;
+	border-style:solid;
+	border-collapse:collapse;
+}
+
+td.actionparamdisplayname
+{
+	font-weight:bold;
+}
+
+td.resultdatadisplayname
+{
+	font-weight:bold;
+}
+
+td.eventparamdisplayname
+{
+	font-weight:bold;
+}
+
+td.publicmethodname
+{
+	font-weight:bold;
+}
+
+td.publicpropertyname
+{
+	font-weight:bold;
+}
+
+caption
+{
+	text-align:left;
+	font-weight:bold;
+	padding:5px 0;
+}
+span.term
+{
+	font-weight:bold;
+}
+
+p
+{
+	margin:20px;
+}
+
+code
+{	
+	font-size:medium;
+	font-family:Times New Roman;
+	font-weight:bold;
+}
+
+
+p.actionproperties + div.itemizedlist
+{
+	position:relative;
+	top:-40px;
+	margin-bottom:-40px;
+}
+
+p.actionproperties + div.itemizedlist div
+{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+p.actionproperties + div.itemizedlist ul p
+{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+p.actionproperties + div.itemizedlist ul li
+{
+	float:left;
+	margin-right:50px;
+	padding-left:0px;
+	list-style-position:inside;
+
+}
+
+p.actionproperties + div.itemizedlist ul
+{
+	margin:0;
+	padding:0 0 0 20px;
+	position:relative;
+	list-style-type:circle;
+}
+
+.allowcustomparams, .final, .actionclass, .actiontype
+{
+	padding:5px;
+	color:Gray;
+	font-size:small;
+}
+
+p.break
+{
+	padding:0;
+	margin:0;
+	clear:both;
+}
+
+span.asynccallbacks
+{
+	display:block;
+	font-weight:bold;
+	clear:both;
+}
+
+span.asynccallbacks + div.itemizedlist
+{
+	clear:both;
+	
+}
+
+p.branch
+{
+	margin:0;
+	padding:0;
+}
+
+p.branch + div.variablelist
+{
+	margin-left:50px;
+}
+
+p.branch + div.variablelist span
+{
+	
+}
+
+p.branch + div.variablelist dt
+{
+
+}
+
+p.branch + div.variablelist dd
+{
+
+}
+
+p.branch + div.variablelist p
+{
+	margin:0 0 0 10px;
+	padding:0;
+}
+
+p.eventproperties + div.itemizedlist
+{
+	position:relative;
+	top:-40px;
+	margin-bottom:-40px;
+}
+
+p.eventproperties + div.itemizedlist div
+{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+p.eventproperties + div.itemizedlist ul p
+{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+p.eventproperties + div.itemizedlist ul li
+{
+	float:left;
+	margin-right:50px;
+	padding-left:0px;
+	list-style-position:inside;
+
+}
+
+p.eventproperties + div.itemizedlist ul
+{
+	margin:0;
+	padding:0 0 0 20px;
+	position:relative;
+	list-style-type:circle;
+}
+
+.eventtype
+{
+	padding:5px;
+	color:Gray;
+	font-size:small;
+}
+
+p.typeproperties + div.itemizedlist
+{
+	position:relative;
+	top:-40px;
+	margin-bottom:-40px;
+}
+
+p.typeproperties + div.itemizedlist div
+{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+p.typeproperties + div.itemizedlist ul p
+{
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+p.typeproperties + div.itemizedlist ul li
+{
+	float:left;
+	margin-right:50px;
+	padding-left:0px;
+	list-style-position:inside;
+
+}
+
+p.typeproperties + div.itemizedlist ul
+{
+	margin:0;
+	padding:0 0 0 20px;
+	position:relative;
+	list-style-type:circle;
+}
+
+.serializable
+{
+	padding:5px;
+	color:Gray;
+	font-size:small;
+}
+
+

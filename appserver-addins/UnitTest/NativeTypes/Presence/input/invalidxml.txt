@@ -1,0 +1,85 @@
+Via: SIP/2.0/TCP 10.89.31.251:5060;branch=z9hG4bK7fc96ef9-ef062213-a4e40616-9d65008c-1
+Via: SIP/2.0/TCP 10.89.31.251:5070;received=10.89.31.251;branch=z9hG4bK31111b94-1dd2-11b2-ae8b-d27af7d01a3c
+Max-Forwards: 68
+Record-Route: <sip:hong.7fc96ef9-ef062213-a4e40616-9d65008c@10.89.31.251:5060;maddr=10.89.31.251;lr>
+Require: eventlist
+Contact: <sip:10.89.31.251:5070;transport=tcp>
+To: <sip:hong@cisco.com>;tag=6a257d57
+From: <sip:hong-contacts@cisco.com>;tag=3107c8b4
+Call-ID: 023738795572363c@SFlVLVBDLm1ldHJlb3MuY29t
+CSeq: 657291864 NOTIFY
+Content-Type: multipart/related;type="application/rlmi+xml";boundary="310ff624-1dd2-11b2-a";start="<310ff6@10.89.31.251>"
+Subscription-State: active;expires=300
+Event: presence
+Content-Length: 2007
+
+--310ff624-1dd2-11b2-a
+Content-Transfer-Encoding: binary
+Content-ID: <310ff6@10.89.31.251>
+Content-Type: application/rlmi+xml;charset="UTF-8"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:ietf:params:xml:ns:rlmi" version="0" fullState="true"><resource uri="sip:metreos@cisco.com">
+
+  <instance cid="310f83@10.89.31.251" id="1" state="active"/>
+
+</resource>
+<resource uri="sip:tom@cisco.com">
+
+  <instance cid="310f99@10.89.31.251" id="1" state="active"/>
+
+</resource>
+</list>
+
+--310ff624-1dd2-11b2-a
+Content-Transfer-Encoding: binary
+Content-ID: <310f83@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:metreos@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="metreos">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <unavailable xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+<tuple xmlns="urn:ietf:params:xml:ns:pidf" id="default">
+
+  <status>
+    <basic>closed</basic>
+  </status>
+
+</tuple>
+</presence>
+
+--310ff624-1dd2-11b2-a
+Content-Transfer-Encoding: binary
+Content-ID: <310f99@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:tom@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="tom">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <available xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cmp-711002-27234sip:711002@10.89.31.46">
+      <status>
+        <basic>open</basic>
+    </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+    </sc:servcaps>
+      <contact priority="0.8">sip:711002@10.89.31.46:5060</contact>
+      <timestamp>2007-02-13T16:38:51Z</timestamp>
+  </tuple>
+
+</presence>
+
+--310ff624-1dd2-11b2-a--

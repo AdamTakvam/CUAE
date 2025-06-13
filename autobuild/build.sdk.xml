@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="MCE SDK" default="debug" basedir=".">
+
+	<description>Build script for MCE SDK</description>
+    <import file="build.common.xml"/>
+
+    <target name="Debug"          depends="debug" />
+    <target name="Release"        depends="release" />
+    <target name="Clean"          depends="clean" />
+    <target name="debug"          depends="init-debug,all"   />
+    <target name="release"        depends="init-release,all" />
+    <target name="clean"          depends="init-clean,all" />
+    <target name="debug-rebuild"  depends="clean,debug" />
+    <target name="all"            depends="component-sdk" />
+
+    <target name="validate-dependencies" >
+        <!-- TODO -->
+        <mkdir dir="${Metreos.build.logDirectory}" />
+    </target>
+    
+    <target name="init-debug" depends="validate-dependencies" >
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Debug" />
+    </target>
+    
+    <target name="init-release" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Release" />
+    </target>
+   
+    <target name="init-clean" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Clean" />
+    </target>
+ 
+    <!-- Subtargets -->
+
+    <target name="component-sdk">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="sdk" />
+    </target>
+</project>

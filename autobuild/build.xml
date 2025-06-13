@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="CUAE" default="debug" basedir=".">
+
+    <description>Build script for the CUAE</description>
+    <import file="build.common.xml"/>
+
+    <target name="Debug"          depends="debug" />
+    <target name="Release"        depends="release" />
+    <target name="Clean"          depends="clean" />
+
+    <target name="debug"           depends="init-debug,component-mceall"   />
+    <target name="debug-docs"      depends="init-debug,component-docs" />
+    <target name="debug-tests"     depends="debug,component-functional-tests" />
+    <target name="debug-all"       depends="debug,component-docs,component-installers" />
+    <target name="debug-nodocs"    depends="debug,component-installers" />
+    <target name="debug-noinstall" depends="debug,component-docs" />
+    <!-- <target name="debug-all"      depends="init-debug,all" /> -->
+
+    <target name="release"        depends="init-release,component-mceall" />
+    <target name="release-docs"   depends="init-release,component-docs" />
+    <target name="release-tests"  depends="release,component-functional-tests" />
+    <target name="release-nodocs" depends="release,component-installers" />
+    <target name="release-all"    depends="release,component-docs,component-installers,component-functional-test-framework,component-installers-ftf" />
+    <!-- <target name="release-all"    depends="init-release,all" /> -->
+
+    <target name="clean"          depends="init-clean,all,post-clean" />
+    <target name="clean-all"      depends="init-clean,all,post-clean" />
+
+    <target name="rebuild-debug"       depends="clean,debug" />
+    <target name="rebuild-debug-all"   depends="clean,debug-all" />
+    <target name="rebuild-release"     depends="clean,release" />
+    <target name="rebuild-release-all" depends="clean,release" />
+
+    <target name="all" depends="component-mceall,component-functional-tests,component-docs,component-installers,component-installers-ftf" />
+    <target name="all-noinstall" depends="component-mceall,component-functional-tests,component-docs" />
+
+    <target name="validate-dependencies" >
+        <!-- TODO -->
+        <mkdir dir="${Metreos.build.logDirectory}" />
+    </target>
+
+    <target name="init-debug" depends="validate-dependencies" >
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Debug" />
+    </target>
+
+    <target name="init-release" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Release" />
+    </target>
+
+    <target name="init-clean" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Clean" />
+    </target>
+
+    <!-- T -->
+
+    <!-- deprecated -->
+    <!--
+    <target name="debug-designer"            depends="init-debug,component-designer" />
+    <target name="release-designer"          depends="init-debug,component-designer" />
+    <target name="debug-appserver"           depends="init-debug,component-appserver" />
+    <target name="release-appserver"         depends="init-release,component-appserver" />
+    <target name="debug-appserver-service"   depends="init-debug,component-appserver-service" />
+    <target name="release-appserver-service" depends="init-release,component-appserver-service" />
+    <target name="debug-mediaserver"         depends="init-debug,component-mediaserver" />
+    <target name="release-mediaserver"       depends="init-debug,component-mediaserver" />
+    <target name="debug-mceadmin"            depends="init-debug,component-mceadmin" />
+    <target name="release-mceadmin"          depends="init-release,component-mceadmin" />
+    -->
+
+    <!-- Subtargets -->
+
+    <!-- clean the top-level 'X:\Build' directory and reset the BuildConst.* templates -->
+    <target name="post-clean">
+        <echo message="Executing top-level clean" />
+        <delete quiet="true" dir="${Metreos.build.srcRoot}/Build" />
+        <delete quiet="true" file="${Metreos.build.srcRoot}/cpp-framework/include/BuildConst.h" />
+        <delete quiet="true" file="${Metreos.build.srcRoot}/csharp-framework/Core/BuildConst.cs" />
+        <delete quiet="true" file="${Metreos.build.srcRoot}/designer/MaxDesigner/Core/BuildConst.cs" />
+        <metreosSVN command="update" dir="${Metreos.build.srcRoot}/cpp-framework/include" file="BuildConst.h" />
+        <metreosSVN command="update" dir="${Metreos.build.srcRoot}/csharp-framework/Core" file="BuildConst.cs" />
+        <metreosSVN command="update" dir="${Metreos.build.srcRoot}/designer/MaxDesigner/Core" file="BuildConst.cs" />
+    </target>
+
+    <!--
+    <target name="component-LicenseManager">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="LicenseManager" />
+    </target> -->
+
+    <target name="component-mediaserver" depends="component-HmpUtility,component-TTSLicenseManager,component-LicenseManager,component-HmpLicenseManager">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="mediaserver" />
+    </target>
+
+    <target name="component-cpp-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="cpp-framework" />
+    </target>
+
+    <target name="component-http-provider" depends="component-cpp-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="mod-metreos-http" />   <!-- depends: cpp-framwork -->
+    </target>
+
+    <target name="component-csharp-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="csharp-framework" />
+    </target>
+
+    <target name="component-appserver-service" depends="component-csharp-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="appserver" />              <!-- depends: samoa-framework -->
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="appserver-addins" />       <!-- depends: samoa-framework, samoa -->
+    </target>
+
+    <target name="component-utilities" depends="component-csharp-framework">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="cmd-utilities" />
+    </target>
+
+    <target name="component-designer" depends="component-appserver-service" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="designer" />                <!-- depends: samoa-framework, samoa -->
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="appserver-addins" antfile="build-packages.xml" loglabel="max-packages" /> <!-- depends: samoa-framework, samoa, max -->
+    </target>
+
+    <target name="component-sdk" depends="component-designer" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="sdk" />
+    </target>
+
+    <target name="component-logging-service" depends="component-csharp-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="logging-service" />    <!-- depends: samoa-framework -->
+    </target>
+
+    <target name="component-alarm-service" depends="component-csharp-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="alarm-service" />      <!-- depends: samoa-framework -->
+    </target>
+
+    <target name="component-stats-service" depends="component-csharp-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="stats-service" />      <!-- depends: samoa-framework -->
+    </target>
+
+    <target name="component-snmpagent-service" depends="component-csharp-framework,component-cpp-framework">
+      <metreosAntTask   root="${Metreos.build.srcRoot}" dir="snmp-agent" />
+    </target>
+
+    <target name="component-watchdog-service" depends="component-csharp-framework,component-stats-service" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="watchdog-service" />   <!-- depends: samoa-framework,stats-service -->
+    </target>
+
+    <target name="component-h323-service" depends="component-csharp-framework,component-cpp-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="h323-service" />       <!-- depends: samoa-framework,cpp-framework -->
+    </target>
+
+    <target name="component-sip-service" depends="component-csharp-framework,component-cpp-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="sip-service" />       <!-- depends: samoa-framework,cpp-framework -->
+    </target>
+
+    <target name="component-presence-service" depends="component-csharp-framework,component-cpp-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="presence-service" />
+        <!-- depends: samoa-framework,cpp-framework -->
+    </target>
+
+    <target name="component-sftp-server" depends="component-csharp-framework,component-cpp-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="sftp-server" />       <!-- depends: samoa-framework,cpp-framework -->
+    </target>
+
+    <!-- <target name="component-pcap-service" depends="component-cpp-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="pcap-service" />
+    </target> -->
+
+    <target name="component-java-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="java-framework" />
+    </target>
+
+    <target name="component-jtapi-service" depends="component-java-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="jtapi-service" />      <!-- depends: java-framework -->
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="jtapi-service-33" />      <!-- depends: java-framework -->
+    </target>
+
+    <!--
+    <target name="component-rtp-relay" depends="component-java-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="rtp-relay-service" />
+    </target> -->
+
+    <!--
+    <target name="component-python-framework" >
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="python-framework" />
+    </target> -->
+
+    <target name="component-mceadmin" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="mceadmin" />
+    </target>
+
+    <target name="component-functional-test-framework" depends="component-appserver">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="functional-tests-framework" />
+    </target>
+
+    <!--
+    <target name="component-smi" depends="component-python-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="mce-smi" />
+    </target> -->
+
+    <!--
+    <target name="component-firmware" depends="component-python-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="metreos-firmware" />
+    </target> -->
+
+    <!--
+    <target name="component-scripts" depends="component-python-framework">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="mce-python-scripts" />
+    </target> -->
+
+    <target name="component-HmpUtility" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="licensing/HmpUtility" loglabel="licensing-hmp-utility"/>
+    </target>
+
+    <target name="component-TTSLicenseManager" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="licensing/TTSLicenseManager" loglabel="licensing-tts-licensemgr"/>
+    </target>
+
+    <target name="component-LicenseManager" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="licensing/LicenseManager" loglabel="licensing-licensemgr"/>
+    </target>
+
+    <target name="component-HmpLicenseManager" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="licensing/HmpLicenseManager" loglabel="licensing-HmpLicenseMgr"/>
+    </target>
+
+    <!--
+    <target name="component-rrdtool" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="rrdtool" />
+    </target>
+    -->
+
+    <target name="component-dbmigration" depends="component-csharp-framework">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="db-migration" />
+    </target>
+
+    <target name="component-MigrationTools" depends="component-csharp-framework">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="migration-tools" />
+    </target>
+
+    <target name="component-qatools" depends="component-designer" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="qatools" />
+    </target>
+
+    <!-- <target name="component-baseline" depends="component-cpp-framework,component-samoa-framework,component-logging-service,component-alarm-service,component-watchdog-service,component-python-framework,component-scripts,component-smi,component-mceadmin,component-LicenseManager" /> -->
+
+    <target name="component-baseline" depends="component-cpp-framework,component-csharp-framework,component-logging-service,component-snmpagent-service,component-stats-service,component-watchdog-service,component-mceadmin,component-sftp-server,component-utilities,component-HmpUtility,component-TTSLicenseManager,component-LicenseManager,component-HmpLicenseManager,component-dbmigration,component-MigrationTools,component-qatools" />
+
+    <!-- <target name="component-appserver" depends="component-baseline,component-samoa,component-java-framework,component-jtapi-service,component-h323-service,component-sip-service,component-pcap-service,component-http-provider" /> -->
+
+    <target name="component-appserver" depends="component-baseline,component-appserver-service,component-java-framework,component-jtapi-service,component-h323-service,component-sip-service,component-presence-service,component-http-provider" />
+
+    <!-- <target name="component-rtp" depends="component-baseline,component-java-framework,component-rtp-relay" /> -->
+
+    <target name="component-mceall" depends="component-baseline,component-appserver,component-mediaserver,component-designer,component-sdk" />
+
+    <target name="component-functional-tests" depends="component-mceall,component-functional-test-framework">
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="functional-tests" /> -->
+    </target>
+
+    <target name="component-docs">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="docs" />
+    </target>
+
+    <target name="component-installers">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="installers" >
+           <property name="Metreos.build.setOptionFTF" value="true" />
+        </metreosAntTask>
+    </target>
+
+    <target name="component-installers-ftf">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="installers" antfile="build.ftf.xml" loglabel="installers-ftf" />
+    </target>
+
+</project>

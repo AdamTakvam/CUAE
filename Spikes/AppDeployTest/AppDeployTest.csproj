@@ -1,0 +1,177 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{F9DD2E84-55D3-4C5D-8336-D24920C179AB}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "AppDeployTest"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Library"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "AppDeployTest"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "Accessibility"
+                    AssemblyName = "Accessibility"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\Accessibility.dll"
+                />
+                <Reference
+                    Name = "Metreos.ApplicationFramework"
+                    AssemblyName = "Metreos.ApplicationFramework"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.Core"
+                    AssemblyName = "Metreos.Core"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.DebugFramework"
+                    AssemblyName = "Metreos.DebugFramework"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.DebugFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.Interfaces"
+                    AssemblyName = "Metreos.Interfaces"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.LoggingFramework"
+                    AssemblyName = "Metreos.LoggingFramework"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.Messaging"
+                    AssemblyName = "Metreos.Messaging"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.Messaging.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.PackageGeneratorCore"
+                    AssemblyName = "Metreos.PackageGeneratorCore"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.PackageGeneratorCore.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "Metreos.Utilities"
+                    AssemblyName = "Metreos.Utilities"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "System.Web"
+                    AssemblyName = "System.Web"
+                    HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Web.dll"
+                />
+                <Reference
+                    Name = "Metreos.AppArchiveCore"
+                    AssemblyName = "Metreos.AppArchiveCore"
+                    HintPath = "X:\Build\Framework\1.0\CoreAssemblies\Metreos.AppArchiveCore.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AppDeployer.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "TestApp\VoiceTunnel.mca"
+                    BuildAction = "None"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieTester", "CookieTester.csproj", "{91E65D14-093C-46B3-BD2C-1477C711FA77}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookieTesterPage", "http://localhost/CookieTesterPage/CookieTesterPage.csproj", "{4BBD2809-276F-4999-B1ED-32F575879672}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{91E65D14-093C-46B3-BD2C-1477C711FA77}.Debug.ActiveCfg = Debug|.NET
+		{91E65D14-093C-46B3-BD2C-1477C711FA77}.Debug.Build.0 = Debug|.NET
+		{91E65D14-093C-46B3-BD2C-1477C711FA77}.Release.ActiveCfg = Release|.NET
+		{91E65D14-093C-46B3-BD2C-1477C711FA77}.Release.Build.0 = Release|.NET
+		{4BBD2809-276F-4999-B1ED-32F575879672}.Debug.ActiveCfg = Debug|.NET
+		{4BBD2809-276F-4999-B1ED-32F575879672}.Debug.Build.0 = Debug|.NET
+		{4BBD2809-276F-4999-B1ED-32F575879672}.Release.ActiveCfg = Release|.NET
+		{4BBD2809-276F-4999-B1ED-32F575879672}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

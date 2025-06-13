@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+	<configValue name="Ldap_Address"  description="LDAP Server address" format="string"     diagnostic="false" requiresRestart="false" readOnly="false">192.168.1.150</configValue> 
+  <configValue name="Ldap_Port"     description="LDAP Server Port"    format="integer"    diagnostic="false" requiresRestart="false" readOnly="false">389</configValue> 
+	<configValue name="Ldap_Username" description="Ldap Username"       format="string"     diagnostic="false" requiresRestart="false" readOnly="false">cn=Directory Manager, dc=metreos, dc=com</configValue> 
+	<configValue name="Ldap_Password" description="Ldap Password"       format="string"     diagnostic="false" requiresRestart="false" readOnly="false"></configValue> 
+	
+	<configValue name="Search_Base"          description="The base element of the search defining what category of entities are returned"         format="string"     diagnostic="false" requiresRestart="false" readOnly="false">ou=people, dc=metreos, dc=com</configValue>	
+	<configValue name="First_Name_Attribute" description="Attribute name which contains the first name of an entry in LDAP"         format="string"     diagnostic="false" requiresRestart="false" readOnly="false">givenName</configValue>
+	<configValue name="Last_Name_Attribute"  description="Attribute name which contains the last name of an entry in LDAP"          format="string"     diagnostic="false" requiresRestart="false" readOnly="false">sn</configValue>
+	<configValue name="Telephone_Attribute" description="Attribute name which contains the phone number of an entry in LDAP"       format="string"     diagnostic="false" requiresRestart="false" readOnly="false">telephoneNumber</configValue>
+
+	<configValue name="Unknown_Number"       description="The number to use if an LDAP entry has an invalid number, i.e., the company number for the operator"      format="string"     diagnostic="false" requiresRestart="false" readOnly="false">0</configValue>
+	<configValue name="Main_Menu_URL"        description="URL for the 7970 Main Menu image"       format="string"     diagnostic="false" requiresRestart="false" readOnly="false">http://192.168.1.150/LdapDirectory/directorysearch-main.png</configValue>
+  </configuration>
+</install>	

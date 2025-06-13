@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="PhoneControlSupported" displayName="Phone Control Supported" format="Bool" description="If the user knows their own username and password, and web access is enabled on all user phones." defaultValue="true" required="true" />
+    <configValue name="CallbackSupported" displayName="Callback Supported" format="String" description="If the Application Server can perform callbacks to the user" defaultValue="true" required="true" />
+  </configuration>
+</install>

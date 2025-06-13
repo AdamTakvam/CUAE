@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Events.Reserve" description="Events used by the Reserve application" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <eventList>
+    <event name="LaunchWorkerBee" type="triggering" displayName="LaunchWorkerBee" description="Event that is used to trigger a WorkerBee script used to Send Execute commands.">            
+    </event>
+    <event name="Send" type="nontriggering" displayName="Send" description="Used to tell a WorkerBee script to send an IP Phone Execute">
+      <eventParam type="System.String" name="Title" guaranteed="true" displayName="Title" />
+      <eventParam type="System.String" name="Text" guaranteed="true" displayName="Text" />
+      <eventParam type="System.String" name="DeviceName" guaranteed="true" displayName="DeviceName" />
+      <eventParam type="System.String" name="User" guaranteed="true" displayName="User" />
+      <eventParam type="System.String" name="Host" guaranteed="true" displayName="Host" />    
+</event>  
+    <event name="Exit" type="nontriggering" displayName="Exit" description="USed to tell a WorkerBee script to exit">
+    </event>  
+  </eventList>
+</package>

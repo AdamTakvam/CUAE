@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="docs" default="Debug" basedir=".">
+  <description>Build script for the docbook-documents.</description>
+  
+  <import file="../../autobuild/build.includes.xml" />
+  <property name="deploymentDirectory" value="../obj" />
+  <property name="buildDirectory"      value="obj" />
+  <property name="projectRoot"         value="${Metreos.build.srcRoot}/docs" />
+  
+  <target name="do-init" >
+     <mkdir dir="${deploymentDirectory}" />
+     <mkdir dir="${buildDirectory}" />
+  </target>
+
+  <target name="do-build">
+    <copy file="${projectRoot}/cuae-admin-remote-monitoring/cuae-admin-remote-monitoring.xml" tofile="${projectRoot}/cuae-admin-remote-monitoring/obj/cuae-admin-remote-monitoring/cuae-admin-remote-monitoring.xml"></copy>
+    <echo message="${projectRoot}/cuae-admin-remote-monitoring/obj/cuae-admin-remote-monitoring" />
+	  <ciscoDocbook docroot="cuae-admin-remote-monitoring.xml" dir="${projectRoot}/cuae-admin-remote-monitoring/obj/cuae-admin-remote-monitoring" dest="${projectRoot}/cuae-admin-remote-monitoring/${buildDirectory}/cuae-admin-remote-monitoring" output="CUAE Remote Monitoring Guide" type="AdminArticle" />
+  </target>  
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-clean" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${deploymentDirectory}/cuae-admin-remote-monitoring" />
+  </target>
+
+  <target name="do-postbuild">
+     <copy todir="${deploymentDirectory}/cuae-admin-remote-monitoring">
+        <fileset dir="./obj/cuae-admin-remote-monitoring" />
+    </copy>
+    <copy file="../docbook/style/admin_article.css" tofile="${deploymentDirectory}/cuae-admin-remote-monitoring/admin_article.css">
+    </copy>
+  </target>
+</project>

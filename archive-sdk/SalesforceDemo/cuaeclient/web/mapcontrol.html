@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Contact Dashboard</title>
+    <style type="text/css">
+        body, html
+        {
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            margin:0;
+            padding:0;
+            width:100%;
+            height:100%;
+        }
+        
+        #wrapper
+        {
+            position:absolute;
+            width:100%;
+            height:100%;
+            margin:0;
+            padding:0;
+        }
+        
+        #map
+        {
+            position:relative;
+            width:100%;
+            height:100%;
+        }
+        
+        .contactlabel
+        {
+            border-style:solid;
+            border-color:black;
+            border-width:2px;
+            color:black;
+            background-color:white;
+            font-size:1.5em;
+        }
+        
+        img.call, img.contact
+        {
+            display:inline;
+        }
+        a.call
+        {
+            text-decoration:underline;
+            color:blue;
+        }
+        
+    </style>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAgkj5rPbiR-ldrWr0iPZg-hT2yXp_ZAY8_ufC3CFXhHIE1NvwkxTO3u45-5WUW15vOQDTjD1jTimUmA"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+	    var geocoder = new GClientGeocoder();
+        var map;
+        var mapElement;
+        var wrapperElement;
+        var markers = {};
+    //<![CDATA[
+
+function load()
+{
+    if (GBrowserIsCompatible()) 
+    {
+        map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+    }
+    
+    mapElement = document.getElementById("map");
+    wrapperElement = document.getElementById("wrapper");
+    window.onresize = resized;
+}
+
+
+function resized()
+{
+    mapElement.style.width = wrapperElement.style.width;
+    mapElement.style.height = wrapperElement.style.height;
+}
+
+
+
+
+function doGeocode(address)
+{
+geocoder.getLatLng( address,
+		function(point)
+		{
+		    if(point)
+		    {
+		        window.external.GeoCodeDone(point.lat().toString(), point.lng().toString());
+		    }
+		    else
+		    {
+		        window.external.GeoCodeFailed();
+		    }
+		}
+		);
+}
+
+function setLocation(lng, lat, formattedBalloonText)
+{
+    var point = new GLatLng(lat, lng);
+    
+    map.setCenter(point, 13);
+    map.setZoom(12);
+
+    var icon = new GIcon();
+    icon.image = "user.png";
+    icon.shadow = "user_shadow.png";
+    icon.iconSize = new GSize(32, 32);
+    icon.shadowSize = new GSize(54, 27);
+    icon.iconAnchor = new GPoint(6, 20);
+    icon.infoWindowAnchor = new GPoint(5, 1);
+
+	var marker = new GMarker(point, icon);
+	map.addOverlay(marker);
+	marker.openInfoWindowHtml(formattedBalloonText);
+	GEvent.addListener(marker, "mouseover", function() {
+	    marker.openInfoWindowHtml(formattedBalloonText);
+    			});
+}
+
+function setCallableEntity(lng, lat, formattedBalloonText, phone, callId)
+{
+    var point = new GLatLng(lat, lng);
+
+	var marker = new GMarker(point);
+	var methodCall = "window.external.ConferenceRequest(" + phone + ", " + callId + ")";
+	var link = "<img  class='call' src='phone.gif' /> <a class='call' onclick='" + methodCall + "'>Conference</a>";
+	GEvent.addListener(marker, "mouseover", function() {
+	    marker.openInfoWindowHtml(link + "<br />" + formattedBalloonText);
+	});
+	map.addOverlay(marker);
+}
+
+    //]]>
+    </script>
+  </head>
+  <body onload="load()" onunload="GUnload()">
+  <div id="wrapper">
+    <div id="map"></div>
+   </div>
+  </body>
+</html>
+

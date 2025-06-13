@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Providers.SalesforceDemo" description="Communications with the Salesforce client and CUAE applications" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <actionList>
+    <action name="NotifyIncomingCall" type="provider" allowCustomParams="false" final="false" displayName="NotifyIncomingCall" description="Notify a subscriber of an incoming call">
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="From" type="System.String" displayName="From" use="optional" allowMultiple="false" description="Calling Party Number" />
+      <actionParam name="CallId" type="System.String" displayName="CallId" use="required" allowMultiple="false" description="The ID of the call" />
+      <actionParam name="To" type="System.String" displayName="To" use="required" allowMultiple="false" description="Final Called Party Number" />
+      <actionParam name="OriginalTo" type="System.String" displayName="OriginalTo" use="required" allowMultiple="false" description="Original Called Party Number" />
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="NotifyCallActive" type="provider" allowCustomParams="false" final="false" displayName="NotifyCallActive" description="Notify a subscriber of the call going active">
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <actionParam name="CallId" type="System.String" displayName="CallId" use="required" allowMultiple="false" description="The ID of the call" />
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="To" type="System.String" displayName="To" use="required" allowMultiple="false" description="Final Called Party Number" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="NotifyCallInactive" type="provider" allowCustomParams="false" final="false" displayName="NotifyCallInactive" description="Notify a subscriber of the call going inactive">
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="InUse" type="System.Boolean" displayName="InUse" use="required" allowMultiple="false" description="Is the call in use by remote party" />
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <actionParam name="CallId" type="System.String" displayName="CallId" use="required" allowMultiple="false" description="The ID of the call" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="NotifyHangup" type="provider" allowCustomParams="false" final="false" displayName="NotifyHangup" description="Notify a subscriber of the call being hungup">
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="Cause" type="System.String" displayName="Cause" use="required" allowMultiple="false" description="The end reason of the call" />
+      <actionParam name="CallId" type="System.String" displayName="CallId" use="required" allowMultiple="false" description="The ID of the call" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="NotifyInitiate" type="provider" allowCustomParams="false" final="false" displayName="NotifyInitiate" description="Notify a subscriber of the call being initiated">
+      <actionParam name="CallId" type="System.String" displayName="CallId" use="required" allowMultiple="false" description="The ID of the call" />
+      <actionParam name="From" type="System.String" displayName="From" use="required" allowMultiple="false" description="Calling party number" />
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <actionParam name="To" type="System.String" displayName="To" use="required" allowMultiple="false" description="Called party number" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="NotifyLogin" type="provider" allowCustomParams="false" final="false" displayName="NotifyLogin" description="Notify a subscriber of the results of the login">
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <actionParam name="Lines" type="System.Collections.ArrayList" displayName="Lines" use="required" allowMultiple="false" description="Calling party number" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="CustomerLookup" type="provider" allowCustomParams="false" final="false" displayName="Customer Lookup" description="Looks up a customer based on phone number">
+      <actionParam name="PhoneNumber" type="System.String" displayName="PhoneNumber" use="required" allowMultiple="false" description="Phone Number of customer to be looked up" />
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <resultData type="System.String" displayName="ContactSFId" description="Customer's SF Database ID">ContactSFId</resultData>
+      <resultData type="System.String" displayName="PostalCode" description="Postal Code">PostalCode</resultData>
+      <resultData type="System.String" displayName="Country" description="Country">Country</resultData>
+      <resultData type="System.String" displayName="AccounType" description="Account Type">AccounType</resultData>
+      <resultData type="System.String" displayName="FirstName" description="Customer's first name">FirstName</resultData>
+      <resultData type="System.String" displayName="LastName" description="Customer's last name">LastName</resultData>
+      <resultData type="System.String" displayName="PhoneNumber" description="Customer's phone number">PhoneNumber</resultData>
+      <resultData type="System.String" displayName="Street" description="Street Address">Street</resultData>
+      <resultData type="System.String" displayName="City" description="City">City</resultData>
+      <resultData type="System.String" displayName="State" description="State">State</resultData>
+      <resultData type="System.String" displayName="Latitude" description="Contact Latitude">Latitude</resultData>
+      <resultData type="System.String" displayName="Longitude" description="Contact Longitude">Longitude</resultData>
+      <resultData type="System.String" displayName="AccountSFId" description="Account SF Database ID">AccountSFId</resultData>
+      <resultData type="System.String" displayName="AccountName" description="Account Name">AccountName</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="ConferenceInitiated" type="provider" allowCustomParams="false" final="false" displayName="Conference Initiated" description="Notify a subscriber of the initiation results of a conference">
+      <actionParam name="FirstPartyCallId" type="System.String" displayName="FirstPartyCallId" use="optional" allowMultiple="false" description="1st-party CallId associated with the new conference call" />
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="Success" type="System.Boolean" displayName="Success" use="required" allowMultiple="false" description="Success" />
+      <actionParam name="DeviceName" type="System.String" displayName="DeviceName" use="required" allowMultiple="false" description="Name of device being called" />
+      <resultData type="System.Boolean" displayName="IsSubscriber" description="Returns true if there is a subscriber, false if not">IsSubscriber</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+  </actionList>
+  <eventList>
+    <event name="MakeCallRequest" type="triggering" displayName="MakeCall Request" description="An outbound call was requested by the client">
+      <eventParam name="From" type="System.String" displayName="From" guaranteed="true" description="The number of the line to call from" />
+      <eventParam name="DeviceName" type="System.String" displayName="DeviceName" guaranteed="true" description="The device to call from" />
+      <eventParam name="To" type="System.String" displayName="To" guaranteed="true" description="The number to call" />
+    </event>
+    <event name="HangupRequest" type="nontriggering" displayName="Hangup Request" description="An client has requested to hangup a call">
+      <eventParam name="CallId" type="System.String" displayName="CallId" guaranteed="true" description="The callId of the call to hangup" />
+    </event>
+    <event name="AnswerRequest" type="nontriggering" displayName="Answer Request" description="An client has requested to answer a call" />
+    <event name="LoginRequest" type="triggering" displayName="Login Request" description="An client has requested to login">
+      <eventParam name="DeviceName" type="System.String" displayName="DeviceName" guaranteed="true" description="The name of the device being logged into" />
+    </event>
+    <event name="ConferenceRequest" type="nontriggering" displayName="Confereence Request" description="An client has requested to conference in a 3-party to an existing call">
+      <eventParam name="JTAPICallId" type="System.String" displayName="JTAPICallId" guaranteed="true" description="The JTAPI callIds of the call to merge to" />
+      <eventParam name="To" type="System.String" displayName="To" guaranteed="true" description="The number to call" />
+    </event>
+  </eventList>
+</package>

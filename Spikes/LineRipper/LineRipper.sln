@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LineRipper", "LineRipper.csproj", "{BF3872A6-2CF1-46F9-8A10-A0EE45432481}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BF3872A6-2CF1-46F9-8A10-A0EE45432481}.Debug.ActiveCfg = Debug|.NET
+		{BF3872A6-2CF1-46F9-8A10-A0EE45432481}.Debug.Build.0 = Debug|.NET
+		{BF3872A6-2CF1-46F9-8A10-A0EE45432481}.Release.ActiveCfg = Release|.NET
+		{BF3872A6-2CF1-46F9-8A10-A0EE45432481}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

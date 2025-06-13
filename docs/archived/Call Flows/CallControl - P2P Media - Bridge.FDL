@@ -1,0 +1,108 @@
+module : World, MCE
+processor : phone1 in World, phone2 in World, AppServer in MCE, MMS in MCE
+eternal : provider in AppServer, telMan in AppServer, app in AppServer
+
+feature "P2P Media - Bridge"
+  case
+    leg "JTAPI" :
+      BridgeCalls(callId1) : app -> telMan
+      telMan takes action "Create conference with two connections"
+      Hold(callId1) : telMan -> provider
+      hold : provider -> phone1
+      Hold_Success : provider -> telMan
+      Hold(callId2) : telMan -> provider
+      hold : provider -> phone2
+      Hold_Success : provider -> telMan
+      
+      Resume(callId1, rxAddr) : telMan -> provider
+      unhold(rxAddr) : provider -> phone1
+      Resume_Success(callId1) : provider -> telMan
+      Resume(callId2, rxAddr) : telMan -> provider
+      unhold(rxAddr) : provider -> phone2
+      Resume_Success(callId2) : provider -> telMan      
+      
+      startTransmit(txAddr, rxCodec, txCodec) : phone1 -> provider
+      MediaChanged(callId1, txAddr, rxCodec, txCodec) : provider -> telMan
+      telMan takes action "Modify connection"
+      startTransmit(txAddr, rxCodec, txCodec) : phone2 -> provider
+      MediaChanged(callId2, txAddr, rxCodec, txCodec) : provider -> telMan
+      telMan takes action "Modify connection"
+      
+      BridgeCalls_Success : telMan -> app
+      
+    leg "SIP":
+      BridgeCalls(callId1) : app -> telMan
+      telMan takes action "Create conference with two connections"
+      Hold(callId1) : telMan -> provider
+      (*Hold action ignored*)
+      Hold_Success : provider -> telMan
+      Hold(callId2) : telMan -> provider
+      (*Hold action ignored*)
+      Hold_Success : provider -> telMan
+      
+      Resume(callId1, rxAddr, localMediaCaps) : telMan -> provider
+      INVITE(rxAddr, localMediaCaps) : provider -> phone1
+      Resume_Success(callId1) : provider -> telMan
+      Resume(callId2, rxAddr, localMediaCaps) : telMan -> provider
+      INVITE(rxAddr, localMediaCaps) : provider -> phone2
+      Resume_Success(callId2) : provider -> telMan      
+      
+      OK(txAddr, rxCodec) : phone1 -> provider
+      MediaChanged(callId1, txAddr, rxCodec) : provider -> telMan
+      telMan takes action "Modify connection"
+      ACK : provider -> phone1
+      OK(txAddr, rxCodec) : phone2 -> provider
+      MediaChanged(callId2, txAddr, rxCodec) : provider -> telMan
+      telMan takes action "Modify connection"
+      ACK : provider -> phone2    
+      
+      BridgeCalls_Success : telMan -> app  
+      
+    leg "H323":
+      BridgeCalls(callId1) : app -> telMan
+      telMan takes action "Create conference with two connections"
+      Hold(callId1) : telMan -> provider
+      TCS("3rd-party pause") : provider -> phone1
+      provider takes action "Close media channels"
+      Hold_Success : provider -> telMan
+      Hold(callId2) : telMan -> provider
+      TCS("3rd-party pause") : provider -> phone2
+      provider takes action "Close media channels"
+      Hold_Success : provider -> telMan
+      Resume(callId1, rxAddr, localMediaCaps) : telMan -> provider
+      TCS(localMediaCaps) : provider -> phone1
+      Resume_Success(callId1) : provider -> telMan
+      Resume(callId2, rxAddr, localMediaCaps) : telMan -> provider
+      TCS(localMediaCaps) : provider -> phone2
+      Resume_Success(callId2) : provider -> telMan
+      
+      TCS(remoteMediaCaps) : phone1 -> provider
+      GotCapabilities(callId1, remoteMediaCaps) : provider -> telMan
+      SetMedia(callId1, txCodec) : telMan -> provider
+      OLC(txCodec) : provider -> phone1
+      SetMedia_Success : provider -> telMan     
+      TCS(remoteMediaCaps) : phone2 -> provider
+      GotCapabilities(callId2, remoteMediaCaps) : provider -> telMan
+      SetMedia(callId2, txCodec) : telMan -> provider
+      OLC(txCodec) : provider -> phone2
+      SetMedia_Success : provider -> telMan     
+
+      OLC_Ack(txAddr) : phone1 -> provider
+      MediaChanged(callId1, txAddr) : provider -> telMan
+      telMan takes action "Modify Connection"
+      OLC_Ack(txAddr) : phone2 -> provider
+      MediaChanged(callId2, txAddr) : provider -> telMan
+      telMan takes action "Modify Connection"
+      
+      OLC(rxCodec) : phone1 -> provider
+      OLC_Ack(rxAddr) : provider -> phone1
+      MediaChanged(callId1, rxCodec) : provider -> telMan
+      telMan takes action "Modify Connection"
+      OLC(rxCodec) : phone2 -> provider
+      OLC_Ack(rxAddr) : provider -> phone2
+      MediaChanged(callId2, rxCodec) : provider -> telMan
+      telMan takes action "Modify Connection"
+      
+      BridgeCalls_Success : telMan -> app
+  endcase
+endfeature

@@ -1,0 +1,47 @@
+How To Install the application on the CUAS
+------------------------------------------
+
+**MediaServer must run co-located with Application Server
+
+1. Place these media files on the CUAS:
+contrib\rt_sales_demo_080106_p2.png must reside in c:\images
+contrib\rt_sales_demo_080106.png must reside in c:\images
+contrib\green_icon.png must reside in c:\images
+contrib\red_icon.png must reside in c:\images
+
+contrib\rt__sku_080106.png must reside in c:\program files\metreos\mceadmin\public\
+
+Copy RetailStoreFront\sql to CUAS.  Then must run initialize_db.bat on Application Server (be sure to put init.sql in same directory as bat file... doesn't matter which directory)
+
+
+2. Create IP Phone Service in CCM:
+Service URL (replace CUAE_IP with the ip of the app server):
+http://CUAE_IP:8000/Retail/Start?device=#DEVICENAME#
+
+3. Find IP Phone device and subscribe to the IP Phone Service
+
+4. Associate metreos/metreos user with IP phone to test.
+
+5. Check configs on mceadmin > Application > RetailStoreFront.  There should be a database username/password that might have to be updated to reflect your own setup.
+
+
+
+
+
+How To Use the App
+------------------
+On the IP Phone, click the services button and then launch the service. 
+
+Click on Update Status button in the top right of app window.
+This will show a list of 'users' 
+
+click on a user. Sign in with 
+UserID: 111111
+Ext: <phone number to dial> (think about the dial plan. ex. 915123781375 to dial out to the PSTN)
+
+now that there is a user signed in, click on Inventory Helpdesk to call them.
+
+To look at a product sku, click on Inventory Availability
+enter SKU: 33333
+then submit. The SKU details should show up.
+

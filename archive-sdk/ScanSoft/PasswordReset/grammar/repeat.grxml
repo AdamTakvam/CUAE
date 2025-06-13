@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+
+**************************License********************************
+
+Copyright © 1995-2004 by ScanSoft, Inc. All rights reserved. 
+
+ScanSoft, Inc. provides this document without representation or warranty of
+any kind. ScanSoft, Inc. reserves the right to revise this document and to
+change the information contained in this document without further notice.
+
+Dialog Modules, OpenSpeech, Productivity Without Boundaries, ScanSoft, 
+the ScanSoft logo, SMARTRecognizer, SpeechCare, Speechify, SpeechSecure, 
+SpeechSpot, SpeechSite, SpeechWorks, the SpeechWorks logo, and 
+SpeechWorksHere are trademarks or registered trademarks of ScanSoft, Inc.
+or its licensors in the United States and/or other countries.  This 
+document may also contain other trademarks, which are the property of
+their respective owners.
+
+Without limiting the rights under copyright reserved above, no part of 
+this document may be reproduced, stored in or introduced into a retrieval 
+system, or transmitted in any form or by any means, including, without 
+limitation, electronic, mechanical, photocopying, recording, or otherwise, 
+without the prior written permission of ScanSoft, Inc.
+
+Portions of the OpenSpeech Recognizer Software are subject to copyrights 
+of AT&T Corp., E-Speech Corporations, Bell Communications Research, Inc., 
+European Telecommunications Standards Institute and GlobeTrotter 
+Software, Inc.
+
+U.S. Patent Nos. 5,765,130; 5,809,494; 5,995,928; 6,061,651; and 6,173,266. 
+One or more patents may be pending in the United States and other countries.
+
+SpeechWorks and OpenSpeech are registered trademarks, and SpeechWorks Here, 
+OpenSpeech DialogModules, DialogModules and the SpeechWorks logo are 
+trademarks of SpeechWorks International, Inc. in the United States and 
+other countries.
+
+ScanSoft Source Code Files
+Notice and Disclaimer of Liability
+
+This source code software is provided to the user as an example of
+an application which utilizes OpenSpeech Recognizer Software to assist
+the user to develop its own application software.  This source code
+has not been fully tested and may contain errors.  This software is
+not subject to any warranty or maintenance terms as may be
+contained in the Software License Agreement between ScanSoft and
+User.  SCANSOFT PROVIDES THIS SOFTWARE ON AN "AS IS' BASIS, AND
+DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING THE
+IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NON-INFRINGEMENT.
+
+Use of this software is subject to certain restrictions and limitations
+set forth in a license agreement entered into between ScanSoft Inc. and
+the licensee of this software.  Please refer to the license agreement 
+for license use rights and restrictions.
+
+
+Published by:
+ScanSoft, Inc.
+Worldwide Headquarters 
+9 Centennial Drive
+Peabody, MA 01960
+United States
+
+-->
+
+<grammar version="1.0" xmlns="http://www.w3.org/2001/06/grammar"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+                             http://www.w3.org/TR/speech-grammar/grammar.xsd"
+ xml:lang="en-US" mode="voice" root="startingRule">
+
+      
+   <rule id="startingRule" scope="public">
+      <ruleref uri="#repeat"/>
+      <tag>SWI_meaning=repeat.VAL</tag>
+   </rule>
+      
+   <rule id="repeat">
+      repeat 
+      <tag>VAL=&quot;repeat&quot;</tag>
+   </rule>
+
+</grammar>

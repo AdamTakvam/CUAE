@@ -1,0 +1,15 @@
+--80138f93-e8c9-47b8-a
+Content-Transfer-Encoding: binary
+Content-ID: <67ee40@10.89.31.251>
+Content-Type: application/rlmi+xml;charset="UTF-8"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:ietf:params:xml:ns:rlmi" uri="sip:hong-contacts@cisco.com" version="2" fullState="false"><resource uri=
+"sip:tuser1@cisco.com">
+
+  <instance cid="7bd62e@10.89.31.251" id="1" reason="noresource" state="terminated"/>
+
+</resource>
+</list>
+
+--80138f93-e8c9-47b8-a--

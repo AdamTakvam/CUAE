@@ -1,0 +1,1 @@
+.\bin\debug\Test.exe -t:SignOn -iu:scall -ip:password -ih:pilot51.tririga.com

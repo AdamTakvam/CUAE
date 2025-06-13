@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="CCM_IP" displayName="CallManager IP" format="string" description="IP of CallManager to register with" defaultValue="" readOnly="false" required="true" />
+    <configValue name="CCM_Port" displayName="CallManager Port" format="number" description="Port of CallManager to register with" defaultValue="2000" readOnly="false" required="true" />
+    <configValue name="Db_Name" displayName="Database Name" format="string" description="The name of the database containing the registration records" defaultValue="sccp_proxy_activity" />
+    <configValue name="Db_Hostname" displayName="Database Host" format="string" description="The hostname or IP address of the database" defaultValue="localhost" />
+    <configValue name="Db_User" displayName="Database User" format="string" description="The username to use in connect to the database" defaultValue="root" />
+    <configValue name="Db_Pass" displayName="Database Password" format="password" description="The password to use in connecting to the database" defaultValue="metreos" />
+    <configValue name="Db_Type" displayName="Database Type" format="string" description="The type of database to use" defaultValue="mysql" />
+    <configValue name="Log_to_db" displayName="Database Logging" format="Bool" description="Set to true if the application should attempt to the configured database and log registration and device activity, false if it should not" defaultValue="false" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="performAuth" displayName="Perform Authentication" format="Bool" description="To perform authentication against CallManager Cluster" defaultValue="true" required="true" />
+    <configValue name="authUrl" displayName="Authentication URL" format="String" description="URL to script performing authentication" defaultValue="http://10.1.14.29/CCMCIP/authenticate.asp" required="true" />
+  </configuration>
+</install>

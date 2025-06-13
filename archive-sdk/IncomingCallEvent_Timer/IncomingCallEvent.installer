@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="HangupTime" displayName="HangupTime" format="Number" description="Number of seconds to wait before terminating the call (0 = never)" minValue="0" maxValue="3600" defaultValue="10" readOnly="false" required="true" />
+  </configuration>
+</install>

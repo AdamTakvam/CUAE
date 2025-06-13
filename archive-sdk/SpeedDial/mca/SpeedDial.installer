@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="NumDigitsToStrip" displayName="DigitsToStrip" format="Number" description="The number of digits that will be stripped off the front of the dialed SpeedDial Number" defaultValue="1" required="true" />
+    <configValue name="SpeedDialHash" displayName="SpeedDial Map" format="HashTable" description="The table that contains the mapping between speed dial number and the actual number to dial." />
+  </configuration>
+</install>

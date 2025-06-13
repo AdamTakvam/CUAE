@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="toCall1" displayName="User 1" format="String" description="To Call 1" defaultValue="91403" required="true" />
+    <configValue name="toCall2" displayName="User 2" format="String" description="To Call 2" defaultValue="915126892237" required="true" />
+  </configuration>
+</install>

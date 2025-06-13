@@ -1,0 +1,46 @@
+module : AppServer
+processor : Providers in AppServer, Router in AppServer, Application in AppServer
+eternal : timer in Providers, http in Providers, router in Router, application in Application
+
+feature "Router Message Flows"
+
+case 
+  leg "Provider-initiated":
+    application takes action "Loading"
+    Register(Event="Metreos.Provider.Http.GotRequest", URL="/blah") : application -> router
+    router takes action "Adds trigger criteria to table"
+    [* --- Some time later --- *]
+    "Metreos.Providers.Http.GotRequest"(RoutingGUID, URL="/blah", RemoteHost) : http -> router
+    router takes action "Finds script registered to handle this event with this URL and creates a session info object"
+    "Metreos.Providers.Http.GotRequest"(RoutingGUID, URL="/blah", RemoteHost) : router -> application
+    "Metreos.Providers.Http.SendResponse"(ActionGUID, Remotehost) : application -> router
+    "Metreos.Providers.Http.SendResponse"(ActionGUID, Remotehost) : router -> http
+    (* The Provider Manager, which resides within the router, takes this action *)
+    Success : http -> router
+    Success : router -> application
+    EndScript : application -> router
+    router takes action "Deletes session info object"
+    UninstallApplication : application -> router
+    (* This occurs at some later time when the app is uninstalled by an administrator or the server is shut down *)
+    router takes action "Removes triggering criteria from table"
+
+  leg "Application-initiated":
+    "Metreos.Providers.Timer.SetTimer"(ActionGUID, time="5s") : application -> router
+    router takes action "Creates a session info object"
+    "Metreos.Providers.Timer.SetTimer"(ActionGUID, time="5s") : router -> timer
+    (* The Provider Manager, again, takes this action *)
+    Success : http -> router
+    Success : router -> application
+    [* --- 5 seconds later --- *]
+    "Metreos.Provider.Timer.TimerFire"(RoutingGUID) : timer -> router
+    router takes action "Router notices that this GUID corresponds to an outstanding session and routes it accordingly"
+    "Metreos.Provider.Timer.TimerFire"(RoutingGUID) : router -> application
+    EndScript : application -> router
+    router takes action "Deletes session info object"
+    UninstallApplication : application -> router
+    (* This occurs at some later time when the app is uninstalled by an administrator or the server is shut down *)
+    router takes action "Removes triggering criteria from table"
+
+endcase
+
+endfeature

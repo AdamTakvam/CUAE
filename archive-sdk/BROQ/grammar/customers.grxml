@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<grammar xml:lang="en-us" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" 
+   root="CUSTOMERS">
+
+<meta name="maxspeechtimeout" content="4000"/>
+<meta name="incompletetimeout" content="2000"/>
+
+  <rule id="CUSTOMERS" scope="public">
+    <one-of>
+		<item> <ruleref uri='#utterance' /> BearingPoint <ruleref uri='#kindness' /><tag>SWI_meaning='BearingPoint';</tag></item>
+		<item> <ruleref uri='#utterance' /> Bearing Point <ruleref uri='#kindness' /><tag>SWI_meaning='BearingPoint';</tag></item>
+		<item> <ruleref uri='#utterance' /> Blue Cross Blue Shield <ruleref uri='#kindness' /><tag>SWI_meaning='Blue Cross Blue Shield';</tag></item>
+		<item> <ruleref uri='#utterance' /> Cisco <ruleref uri='#kindness' /><tag>SWI_meaning='Cisco';</tag></item>
+		<item> <ruleref uri='#utterance' /> Dimension Data <ruleref uri='#kindness' /><tag>SWI_meaning='Dimension Data';</tag></item>
+		<item> <ruleref uri='#utterance' /> Ernst and Young <ruleref uri='#kindness' /><tag>SWI_meaning='Ernst and Young';</tag></item>
+		<item> <ruleref uri='#utterance' /> Goldman Sachs <ruleref uri='#kindness' /><tag>SWI_meaning='GoldmanSachs';</tag></item>
+		<item> <ruleref uri='#utterance' /> H S B C <ruleref uri='#kindness' /><tag>SWI_meaning='HSBC';</tag></item>
+		<item> <ruleref uri='#utterance' /> I B M <ruleref uri='#kindness' /><tag>SWI_meaning='IBM';</tag></item>
+		<item> <ruleref uri='#utterance' /> Lehman Brothers <ruleref uri='#kindness' /><tag>SWI_meaning='Lehman Brothers';</tag></item>
+		<item> <ruleref uri='#utterance' /> Morgan Stanley <tag>SWI_meaning='Morgan Stanley';</tag></item>
+		<item> <ruleref uri='#utterance' /> Sony Ericsson<tag>SWI_meaning='Sony Ericsson';</tag></item>
+    </one-of> 
+  </rule>
+  
+  <rule id="utterance">
+	<one-of>
+		<item repeat="0-3">uh</item>
+		<item repeat="0-3">um</item>
+		<item repeat="0-3">hum</item>
+		<item repeat="0-3">eh</item>
+	</one-of>
+  </rule>
+  
+  <rule id="kindness">
+	<item repeat="0-1">please</item>
+  </rule>
+</grammar>

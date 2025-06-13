@@ -1,0 +1,1939 @@
+ sappwin
+
+ Timestamp is 40f864a4 (Fri Jul 16 18:28:36 2004)
+
+ Preferred load address is 00400000
+
+ Start         Length     Name                   Class
+ 0001:00000000 00014e74H .text                   CODE
+ 0002:00000000 00000190H .idata$5                DATA
+ 0002:00000190 00005ea8H .rdata                  DATA
+ 0002:00006040 00000008H .rdata$sxdata           DATA
+ 0002:00006048 00000004H .rtc$IAA                DATA
+ 0002:0000604c 00000004H .rtc$IZZ                DATA
+ 0002:00006050 00000004H .rtc$TAA                DATA
+ 0002:00006054 00000004H .rtc$TZZ                DATA
+ 0002:00006058 0000003cH .idata$2                DATA
+ 0002:00006094 00000014H .idata$3                DATA
+ 0002:000060a8 00000190H .idata$4                DATA
+ 0002:00006238 0000058aH .idata$6                DATA
+ 0002:000067c2 00000000H .edata                  DATA
+ 0003:00000000 00000004H .CRT$XCA                DATA
+ 0003:00000004 00000004H .CRT$XCAA               DATA
+ 0003:00000008 00000004H .CRT$XCZ                DATA
+ 0003:0000000c 00000004H .CRT$XIA                DATA
+ 0003:00000010 0000000cH .CRT$XIC                DATA
+ 0003:0000001c 00000004H .CRT$XIZ                DATA
+ 0003:00000020 00000004H .CRT$XPA                DATA
+ 0003:00000024 00000004H .CRT$XPX                DATA
+ 0003:00000028 00000004H .CRT$XPZ                DATA
+ 0003:0000002c 00000004H .CRT$XTA                DATA
+ 0003:00000030 00000004H .CRT$XTZ                DATA
+ 0003:00000040 00002d90H .data                   DATA
+ 0003:00002de0 0000ba20H .bss                    DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0000:00000000       __except_list              00000000     <absolute>
+ 0000:00000002       ___safe_se_handler_count   00000002     <absolute>
+ 0001:00000000       ?menu_init@@YAPAUmenu_state@@XZ 00401000 f   cli_menu.obj
+ 0001:0000002f       ?menu_destroy@@YAHPAUmenu_state@@@Z 0040102f f   cli_menu.obj
+ 0001:00000150       ?menu_add_command_ex@@YAHPAUmenu_state@@PBD1P6AH1KJJJJ@ZJJJJJ@Z 00401150 f   cli_menu.obj
+ 0001:00000276       ?menu_item_configure@@YAHPAUmenu_state@@PBDW4MENU_ITEM_OPTION@@@Z 00401276 f   cli_menu.obj
+ 0001:000002cf       ?menu_print@@YAHPAUmenu_state@@@Z 004012cf f   cli_menu.obj
+ 0001:00000330       ?menu_process_command_line@@YAHPAUmenu_state@@PBD@Z 00401330 f   cli_menu.obj
+ 0001:0000046d       _platform_mutex_create     0040146d f   platform_win32.obj
+ 0001:000004c0       _platform_mutex_delete     004014c0 f   platform_win32.obj
+ 0001:00000505       _platform_mutex_lock       00401505 f   platform_win32.obj
+ 0001:00000557       _platform_mutex_unlock     00401557 f   platform_win32.obj
+ 0001:000005a4       _platform_event_create     004015a4 f   platform_win32.obj
+ 0001:000005fb       _platform_event_delete     004015fb f   platform_win32.obj
+ 0001:00000648       _platform_event_set        00401648 f   platform_win32.obj
+ 0001:00000695       _platform_event_wait       00401695 f   platform_win32.obj
+ 0001:000006e7       _platform_get_local_mac_address 004016e7 f   platform_win32.obj
+ 0001:000006ed       _platform_thread_create    004016ed f   platform_win32.obj
+ 0001:0000071f       _platform_thread_exit      0040171f f   platform_win32.obj
+ 0001:0000072c       _platform_strtime          0040172c f   platform_win32.obj
+ 0001:00000731       _platform_getsockport      00401731 f   platform_win32.obj
+ 0001:00000755       _platform_getsockname      00401755 f   platform_win32.obj
+ 0001:00000778       _platform_get_last_error   00401778 f   platform_win32.obj
+ 0001:0000077e       _platform_get_last_error_string 0040177e f   platform_win32.obj
+ 0001:000007a1       _platform_socket           004017a1 f   platform_win32.obj
+ 0001:000007f1       _platform_ioctl            004017f1 f   platform_win32.obj
+ 0001:0000084c       _platform_close            0040184c f   platform_win32.obj
+ 0001:00000893       _platform_shutdown         00401893 f   platform_win32.obj
+ 0001:000008dc       _platform_connect          004018dc f   platform_win32.obj
+ 0001:00000960       _sapp_debug_entry          00401960 f   sapp.obj
+ 0001:00000988       _sapp_free_call            00401988 f   sapp.obj
+ 0001:000009dc       _sapp_get_call_by_conn_id  004019dc f   sapp.obj
+ 0001:000009fe       _sapp_get_call_by_call_id  004019fe f   sapp.obj
+ 0001:00001211       _sccprec_cleanup           00402211 f   sccp:sccprec.obj
+ 0001:00001211       _sccpreg_cleanup           00402211 f   sccp:sccpreg.obj
+ 0001:00001211       _sccprec_init              00402211 f   sccp:sccprec.obj
+ 0001:00001211       _sccpcm_cleanup            00402211 f   sccp:sccpcm.obj
+ 0001:00001211       _sccpcc_cleanup            00402211 f   sccp:sccpcc.obj
+ 0001:00001291       _sapp_get_cminfo           00402291 f   sapp.obj
+ 0001:000012c8       _sapp_get_cmaddr_by_state  004022c8 f   sapp.obj
+ 0001:000012f8       _sapp_showsession          004022f8 f   sapp.obj
+ 0001:0000157d       _sapp_get_conn_id          0040257d f   sapp.obj
+ 0001:00001583       _sapp_get_line             00402583 f   sapp.obj
+ 0001:00001589       _sapp_get_num_lines        00402589 f   sapp.obj
+ 0001:0000158f       _sapp_get_line_name        0040258f f   sapp.obj
+ 0001:0000159d       _sapp_get_info             0040259d f   sapp.obj
+ 0001:000015b8       _sapp_cleanup              004025b8 f   sapp.obj
+ 0001:00001666       _sapp_set_flags            00402666 f   sapp.obj
+ 0001:00001670       _sapp_local_addr           00402670 f   sapp.obj
+ 0001:0000177a       _sapp_get_cmaddr_by_state2 0040277a f   sapp.obj
+ 0001:0000178b       _sapp_init                 0040278b f   sapp.obj
+ 0001:00001ca4       _sapp_setup                00402ca4 f   sapp_win79xx.obj
+ 0001:00001d9e       _sapp_connect              00402d9e f   sapp_win79xx.obj
+ 0001:00001e29       _sapp_connect_ack          00402e29 f   sapp_win79xx.obj
+ 0001:00001ea3       _sapp_release              00402ea3 f   sapp_win79xx.obj
+ 0001:00001f1a       _sapp_release_complete     00402f1a f   sapp_win79xx.obj
+ 0001:00001fca       _sapp_digits               00402fca f   sapp_win79xx.obj
+ 0001:0000205b       _sapp_feature_req          0040305b f   sapp_win79xx.obj
+ 0001:0000210b       _sapp_opensession_req      0040310b f   sapp_win79xx.obj
+ 0001:0000215c       _sapp_resetsession_req     0040315c f   sapp_win79xx.obj
+ 0001:000021e3       _sapp_sapp_passthru        004031e3 f   sapp_win79xx.obj
+ 0001:0000221f       _sapp_sapp_setup           0040321f f   sapp_win79xx.obj
+ 0001:000022c3       _sapp_sapp_offhook         004032c3 f   sapp_win79xx.obj
+ 0001:0000230e       _sapp_sapp_setup_ack       0040330e f   sapp_win79xx.obj
+ 0001:000023c0       _sapp_sapp_proceeding      004033c0 f   sapp_win79xx.obj
+ 0001:000023d8       _sapp_sapp_alerting        004033d8 f   sapp_win79xx.obj
+ 0001:0000244b       _sapp_sapp_connect         0040344b f   sapp_win79xx.obj
+ 0001:000024be       _sapp_sapp_connect_ack     004034be f   sapp_win79xx.obj
+ 0001:00002531       _sapp_sapp_disconnect      00403531 f   sapp_win79xx.obj
+ 0001:00002549       _sapp_sapp_release         00403549 f   sapp_win79xx.obj
+ 0001:000025bc       _sapp_sapp_release_complete 004035bc f   sapp_win79xx.obj
+ 0001:00002664       _sapp_sapp_openrcv_req     00403664 f   sapp_win79xx.obj
+ 0001:000026ec       _sapp_sapp_closercv        004036ec f   sapp_win79xx.obj
+ 0001:00002704       _sapp_sapp_startxmit       00403704 f   sapp_win79xx.obj
+ 0001:0000271c       _sapp_sapp_stopxmit        0040371c f   sapp_win79xx.obj
+ 0001:00002734       _sapp_sapp_feature_req     00403734 f   sapp_win79xx.obj
+ 0001:000027c8       _sapp_sapp_feature_res     004037c8 f   sapp_win79xx.obj
+ 0001:000027e0       _sapp_sapp_connectionstats 004037e0 f   sapp_win79xx.obj
+ 0001:00002813       _sapp_sapp_reset           00403813 f   sapp_win79xx.obj
+ 0001:00002876       _sapp_sapp_opensession_res 00403876 f   sapp_win79xx.obj
+ 0001:000028cb       _sapp_sapp_sessionstatus   004038cb f   sapp_win79xx.obj
+ 0001:00002c13       _sapp_sapp_resetsession_res 00403c13 f   sapp_win79xx.obj
+ 0001:00002c52       _sapp_sapp_linestat_res    00403c52 f   sapp_win79xx.obj
+ 0001:00002c8d       _sapp_sapp_speeddialstat_res 00403c8d f   sapp_win79xx.obj
+ 0001:00002ccb       _sapp_sapp_featurestat_res 00403ccb f   sapp_win79xx.obj
+ 0001:00002d09       _sapp_sapp_serviceurlstat_res 00403d09 f   sapp_win79xx.obj
+ 0001:00002d47       _sapp_sapp_softkeytemplate_res 00403d47 f   sapp_win79xx.obj
+ 0001:00002db7       _sapp_sapp_softkeyset_res  00403db7 f   sapp_win79xx.obj
+ 0001:00002e2a       _sapp_sapp_conninfo        00403e2a f   sapp_win79xx.obj
+ 0001:00002f0c       _sapp_sapp_starttone       00403f0c f   sapp_win79xx.obj
+ 0001:00002f83       _sccp_test_get_cm_addr1    00403f83 f   sccptest.obj
+ 0001:00002fac       _sccptest_get_new_call_id  00403fac f   sccptest.obj
+ 0001:00002fc4       ?sccptest_get_call@@YAPAUsccptest_call_t_@@HH@Z 00403fc4 f   sccptest.obj
+ 0001:0000300a       ?sccptest_free_call@@YAXHH@Z 0040400a f   sccptest.obj
+ 0001:00003021       ?sccptest_set_menu_state@@YAXW4sccptest_menu_states_e_@@HH@Z 00404021 f   sccptest.obj
+ 0001:00003085       ?sccptest_set_menu_state_all@@YAXW4sccptest_menu_states_e_@@@Z 00404085 f   sccptest.obj
+ 0001:000030c0       ?print_menu@@YAXXZ         004040c0 f   sccptest.obj
+ 0001:000031be       ?sccp_callback@@YAJPAUsccp_client_state@@W4SCCP_STACK_EVENT@@PAUsccp_event_data@@PAX@Z 004041be f   sccptest.obj
+ 0001:00003211       ?init_routine@@YAJXZ       00404211 f   sccptest.obj
+ 0001:00003263       _sccptest_offhook          00404263 f   sccptest.obj
+ 0001:000032b1       _sccptest_callback         004042b1 f   sccptest.obj
+ 0001:000032cc       ?sccp_sm_event@@YAXPAUsccp_client_state@@KPAUsccp_event_data@@@Z 004042cc f   sccptest.obj
+ 0001:0000344d       ?menu_func@@YAHPBDKJJJJ@Z  0040444d f   sccptest.obj
+ 0001:00003cd5       ?sccp_menu_func@@YAHPBDKJJJJ@Z 00404cd5 f   sccptest.obj
+ 0001:00003f85       _sccptest_sessionstatus    00404f85 f   sccptest.obj
+ 0001:00003fa6       _sccptest_setup            00404fa6 f   sccptest.obj
+ 0001:00003fec       _sccptest_setup_ack        00404fec f   sccptest.obj
+ 0001:00003ffb       _sccptest_proceeding       00404ffb f   sccptest.obj
+ 0001:0000400a       _sccptest_alerting         0040500a f   sccptest.obj
+ 0001:00004019       _sccptest_connect          00405019 f   sccptest.obj
+ 0001:0000402c       _sccptest_connect_ack      0040502c f   sccptest.obj
+ 0001:0000403b       _sccptest_release          0040503b f   sccptest.obj
+ 0001:0000407b       _sccptest_release_complete 0040507b f   sccptest.obj
+ 0001:000040ac       _sccptest_starttone        004050ac f   sccptest.obj
+ 0001:000040f0       _sccptest_feature_req      004050f0 f   sccptest.obj
+ 0001:00004131       _main                      00405131 f   sccptest.obj
+ 0001:00004889       _timer_event_activate      00405889 f   timer.obj
+ 0001:000048d9       _timer_event_allocate      004058d9 f   timer.obj
+ 0001:00004911       _timer_event_cancel        00405911 f   timer.obj
+ 0001:0000492f       _timer_event_free          0040592f f   timer.obj
+ 0001:0000497f       _timer_event_initialize    0040597f f   timer.obj
+ 0001:000049f3       _timer_event_process       004059f3 f   timer.obj
+ 0001:00004a35       _timer_event_system_init   00405a35 f   timer.obj
+ 0001:00004a77       _platform_critical_enter   00405a77 f   timer_platform_windows.obj
+ 0001:00004a83       _platform_critical_exit    00405a83 f   timer_platform_windows.obj
+ 0001:00004a8f       _platform_ms_to_ticks      00405a8f f   timer_platform_windows.obj
+ 0001:00004aa1       _TimerTask                 00405aa1 f   timer_platform_windows.obj
+ 0001:00004ace       _current_time              00405ace f   timer_platform_windows.obj
+ 0001:00004ad4       _platform_timer_init       00405ad4 f   timer_platform_windows.obj
+ 0001:00004af8       ___WSAFDIsSet@8            00405af8 f   ws2_32:WS2_32.dll
+ 0001:00004afe       _gapi_init                 00405afe f   sccp:gapi.obj
+ 0001:00004b21       _gapi_cleanup              00405b21 f   sccp:gapi.obj
+ 0001:00004b39       _gapi_bind                 00405b39 f   sccp:gapi.obj
+ 0001:00004b81       _gapi_get_new_conn_id      00405b81 f   sccp:gapi.obj
+ 0001:00004b99       _gapi_check_and_set_callbacks 00405b99 f   sccp:gapi.obj
+ 0001:00004c75       _ssapi_init                00405c75 f   sccp:ssapi.obj
+ 0001:00004c88       _ssapi_cleanup             00405c88 f   sccp:ssapi.obj
+ 0001:00004ca9       _ssapi_bind                00405ca9 f   sccp:ssapi.obj
+ 0001:00004cf7       _sccpmsg_get_message_text  00405cf7 f   sccp:sccpmsg.obj
+ 0001:00004d19       _sccpmsg_alarm_name        00405d19 f   sccp:sccpmsg.obj
+ 0001:00004d42       _sccpmsg_dump              00405d42 f   sccp:sccpmsg.obj
+ 0001:00004da2       _sccpmsg_send_message      00405da2 f   sccp:sccpmsg.obj
+ 0001:00004e86       _sccpmsg_get_gen_msg       00405e86 f   sccp:sccpmsg.obj
+ 0001:00004eab       _sccpmsg_send_bare_message 00405eab f   sccp:sccpmsg.obj
+ 0001:00004ed7       _sccpmsg_send_register_token_req 00405ed7 f   sccp:sccpmsg.obj
+ 0001:00004f33       _sccpmsg_send_register     00405f33 f   sccp:sccpmsg.obj
+ 0001:00004fa9       _sccpmsg_send_ip_port      00405fa9 f   sccp:sccpmsg.obj
+ 0001:00004fda       _sccpmsg_send_keypress     00405fda f   sccp:sccpmsg.obj
+ 0001:00005018       _sccpmsg_send_offhook      00406018 f   sccp:sccpmsg.obj
+ 0001:00005050       _sccpmsg_send_onhook       00406050 f   sccp:sccpmsg.obj
+ 0001:00005088       _sccpmsg_send_speeddial_stat_req 00406088 f   sccp:sccpmsg.obj
+ 0001:000050b9       _sccpmsg_send_line_stat_req 004060b9 f   sccp:sccpmsg.obj
+ 0001:000050ea       _sccpmsg_send_feature_stat_req 004060ea f   sccp:sccpmsg.obj
+ 0001:0000511b       _sccpmsg_send_service_url_stat_req 0040611b f   sccp:sccpmsg.obj
+ 0001:0000514c       _sccpmsg_send_capabilities_response 0040614c f   sccp:sccpmsg.obj
+ 0001:000051d0       _sccpmsg_send_alarm        004061d0 f   sccp:sccpmsg.obj
+ 0001:00005227       _sccpmsg_send_connection_stats 00406227 f   sccp:sccpmsg.obj
+ 0001:00005289       _sccpmsg_send_softkey_event 00406289 f   sccp:sccpmsg.obj
+ 0001:000052c7       _sccpmsg_send_headset_status 004062c7 f   sccp:sccpmsg.obj
+ 0001:000052f8       _sccpmsg_send_register_available_lines 004062f8 f   sccp:sccpmsg.obj
+ 0001:00005329       _sccpmsg_send_open_receive_channel_ack 00406329 f   sccp:sccpmsg.obj
+ 0001:00005373       _sccpmsg_send_device_to_user_data 00406373 f   sccp:sccpmsg.obj
+ 0001:000053d8       _sccpmsg_send_device_to_user_data_response 004063d8 f   sccp:sccpmsg.obj
+ 0001:0000543d       _sccpmsg_parse_msg         0040643d f   sccp:sccpmsg.obj
+ 0001:00005732       _sccpmsg_get_sccp_msg_data 00406732 f   sccp:sccpmsg.obj
+ 0001:000058b3       _sccpmsg_sccp_to_gapi_enum 004068b3 f   sccp:sccpmsg.obj
+ 0001:000058b3       _sccpmsg_sccp_to_gapi_data 004068b3 f   sccp:sccpmsg.obj
+ 0001:000058b8       _sccpmsg_create_alarm_string 004068b8 f   sccp:sccpmsg.obj
+ 0001:000058ec       _am_init                   004068ec f   sccp:am.obj
+ 0001:00005916       _am_cleanup                00406916 f   sccp:am.obj
+ 0001:0000591e       _am_get_am_callbacks       0040691e f   sccp:am.obj
+ 0001:00005923       _am_get_new_handle         00406923 f   sccp:am.obj
+ 0001:000059e3       _sccp_pool_malloc          004069e3 f   sccp:sccp.obj
+ 0001:00005a56       _sccp_pool_free            00406a56 f   sccp:sccp.obj
+ 0001:00005abf       _sccp_pool_delete_all      00406abf f   sccp:sccp.obj
+ 0001:00005b9e       _sccp_debug_show           00406b9e f   sccp:sccp.obj
+ 0001:00005c43       _sccp_push_event           00406c43 f   sccp:sccp.obj
+ 0001:00005d6d       _sccp_event_main           00406d6d f   sccp:sccp.obj
+ 0001:000061c9       _sccp_tcp_main             004071c9 f   sccp:sccp.obj
+ 0001:00006234       _sccp_free_sccpcb          00407234 f   sccp:sccp.obj
+ 0001:00006246       _sccp_free_sccpcb2         00407246 f   sccp:sccp.obj
+ 0001:000062ac       _sccp_get_new_sccpcb       004072ac f   sccp:sccp.obj
+ 0001:0000642b       _sccp_cleanup              0040742b f   sccp:sccp.obj
+ 0001:00006486       _sccp_get_callbacks        00407486 f   sccp:sccp.obj
+ 0001:0000648c       _sccp_set_version          0040748c f   sccp:sccp.obj
+ 0001:000064a9       _sccp_set_callbacks        004074a9 f   sccp:sccp.obj
+ 0001:00006563       _sccp_init                 00407563 f   sccp:sccp.obj
+ 0001:0000667f       _sccp_platform_write_file  0040767f f   sccp:sccp_platform.obj
+ 0001:000066a9       _sccp_platform_printf      004076a9 f   sccp:sccp_platform.obj
+ 0001:00006713       _sccp_platform_init        00407713 f   sccp:sccp_platform.obj
+ 0001:00006743       _sccp_platform_cleanup     00407743 f   sccp:sccp_platform.obj
+ 0001:000067f7       _sccpcm_print_cm           004077f7 f   sccp:sccpcm.obj
+ 0001:0000690c       _sccpcm_get_cm_count       0040790c f   sccp:sccpcm.obj
+ 0001:0000694f       _sccpcm_get_primary_cmcb   0040794f f   sccp:sccpcm.obj
+ 0001:00006984       _sccpcm_get_primary_socket 00407984 f   sccp:sccpcm.obj
+ 0001:000069d1       _sccpcm_get_primary_index  004079d1 f   sccp:sccpcm.obj
+ 0001:000069f8       _sccpcm_get_secondary_cmcb 004079f8 f   sccp:sccpcm.obj
+ 0001:00006a34       _sccpcm_get_secondary_index 00407a34 f   sccp:sccpcm.obj
+ 0001:00006a5b       _sccpcm_get_cmcb_by_socket 00407a5b f   sccp:sccpcm.obj
+ 0001:00006a93       _sccpcm_get_cmcb_by_index  00407a93 f   sccp:sccpcm.obj
+ 0001:00006acb       _sccpcm_get_chunk_data     00407acb f   sccp:sccpcm.obj
+ 0001:00006ae5       _sccpcm_get_cm_by_index    00407ae5 f   sccp:sccpcm.obj
+ 0001:00006b00       _sccpcm_are_all_cms_idle   00407b00 f   sccp:sccpcm.obj
+ 0001:00006b24       _sccpcm_are_all_cms_lockout 00407b24 f   sccp:sccpcm.obj
+ 0001:00006b48       _sccpcm_is_cmcb_idle       00407b48 f   sccp:sccpcm.obj
+ 0001:00006b59       _sccpcm_is_cmcb_connected  00407b59 f   sccp:sccpcm.obj
+ 0001:00006b74       _sccpcm_is_cmcb_connected2 00407b74 f   sccp:sccpcm.obj
+ 0001:00006b86       _sccpcm_is_cmcb_registered 00407b86 f   sccp:sccpcm.obj
+ 0001:00006b98       _sccpcm_is_cmcb_token      00407b98 f   sccp:sccpcm.obj
+ 0001:00006baa       _sccpcm_is_cmcb_lockout    00407baa f   sccp:sccpcm.obj
+ 0001:00006bbc       _sccpcm_is_cm_registered_with_fallback 00407bbc f   sccp:sccpcm.obj
+ 0001:00006c0a       _sccpcm_get_keepalive_timeout 00407c0a f   sccp:sccpcm.obj
+ 0001:00006cc6       _sccpcm_free_cmcb          00407cc6 f   sccp:sccpcm.obj
+ 0001:00006ce1       _sccpcm_free_cmcb2         00407ce1 f   sccp:sccpcm.obj
+ 0001:00006d3f       _sccpcm_init_cmcb          00407d3f f   sccp:sccpcm.obj
+ 0001:00006d7f       _sccpcm_get_new_cmcb       00407d7f f   sccp:sccpcm.obj
+ 0001:00006ed5       _sccpcm_push_tcp_event     00407ed5 f   sccp:sccpcm.obj
+ 0001:00006f41       _sccpcm_push_con_req       00407f41 f   sccp:sccpcm.obj
+ 0001:00006f54       _sccpcm_push_discon_req    00407f54 f   sccp:sccpcm.obj
+ 0001:00006f67       _sccpcm_push_reg_req       00407f67 f   sccp:sccpcm.obj
+ 0001:00006f7a       _sccpcm_push_reg_ack       00407f7a f   sccp:sccpcm.obj
+ 0001:00006fef       _sccpcm_push_reg_nak       00407fef f   sccp:sccpcm.obj
+ 0001:00007072       _sccpcm_push_registered    00408072 f   sccp:sccpcm.obj
+ 0001:00007085       _sccpcm_push_unreg_req     00408085 f   sccp:sccpcm.obj
+ 0001:00007098       _sccpcm_push_unreg_ack     00408098 f   sccp:sccpcm.obj
+ 0001:000070ab       _sccpcm_push_unreg_nak     004080ab f   sccp:sccpcm.obj
+ 0001:000070be       _sccpcm_push_token_req     004080be f   sccp:sccpcm.obj
+ 0001:000070d1       _sccpcm_push_keepalive_ack 004080d1 f   sccp:sccpcm.obj
+ 0001:000070e4       _sccpcm_push_error         004080e4 f   sccp:sccpcm.obj
+ 0001:000077f6       _sccpcm_init               004087f6 f   sccp:sccpcm.obj
+ 0001:00007f26       _sccpcc_get_new_cccb       00408f26 f   sccp:sccpcc.obj
+ 0001:000080b0       _sccpcc_get_cccb_by_sccpmsg 004090b0 f   sccp:sccpcc.obj
+ 0001:000083b5       _sccpcc_push_simple        004093b5 f   sccp:sccpcc.obj
+ 0001:000083ec       _sccpcc_push_cleanup       004093ec f   sccp:sccpcc.obj
+ 0001:00008434       _sccpcc_push_setup         00409434 f   sccp:sccpcc.obj
+ 0001:0000857e       _sccpcc_push_setup_ack     0040957e f   sccp:sccpcc.obj
+ 0001:000085fe       _sccpcc_push_proceeding    004095fe f   sccp:sccpcc.obj
+ 0001:00008669       _sccpcc_push_alerting      00409669 f   sccp:sccpcc.obj
+ 0001:000086e9       _sccpcc_push_connect       004096e9 f   sccp:sccpcc.obj
+ 0001:00008763       _sccpcc_push_connect_ack   00409763 f   sccp:sccpcc.obj
+ 0001:000087dd       _sccpcc_push_disconnect    004097dd f   sccp:sccpcc.obj
+ 0001:0000883f       _sccpcc_push_release       0040983f f   sccp:sccpcc.obj
+ 0001:000088a1       _sccpcc_push_release_complete 004098a1 f   sccp:sccpcc.obj
+ 0001:00008903       _sccpcc_push_openrcv_res   00409903 f   sccp:sccpcc.obj
+ 0001:00008962       _sccpcc_push_feature_req   00409962 f   sccp:sccpcc.obj
+ 0001:00008a1a       _sccpcc_push_feature_res   00409a1a f   sccp:sccpcc.obj
+ 0001:00008a66       _sccpcc_push_digits        00409a66 f   sccp:sccpcc.obj
+ 0001:00008ad8       _sccpcc_push_devicetouserdata_req 00409ad8 f   sccp:sccpcc.obj
+ 0001:00008b58       _sccpcc_push_devicetouserdata_res 00409b58 f   sccp:sccpcc.obj
+ 0001:000098d0       _sccpcc_init               0040a8d0 f   sccp:sccpcc.obj
+ 0001:00009a40       _sccprec_set_fallback      0040aa40 f   sccp:sccprec.obj
+ 0001:00009a68       _sccprec_set_tcp_close_cause 0040aa68 f   sccp:sccprec.obj
+ 0001:00009a82       _sccprec_set_keepalive_timeout 0040aa82 f   sccp:sccprec.obj
+ 0001:00009ad6       _sccprec_get_keepalive_to  0040aad6 f   sccp:sccprec.obj
+ 0001:00009b0c       _sccprec_set_free_events_flag 0040ab0c f   sccp:sccprec.obj
+ 0001:00009b23       _sccprec_set_register_reject 0040ab23 f   sccp:sccprec.obj
+ 0001:00009b3a       _sccprec_init_reccb        0040ab3a f   sccp:sccprec.obj
+ 0001:00009bdf       _sccprec_free_reccb        0040abdf f   sccp:sccprec.obj
+ 0001:00009c08       _sccprec_get_new_reccb     0040ac08 f   sccp:sccprec.obj
+ 0001:00009cb1       _sccprec_push_dev_notify   0040acb1 f   sccp:sccprec.obj
+ 0001:00009cc0       _sccprec_push_opensession_req 0040acc0 f   sccp:sccprec.obj
+ 0001:00009e19       _sccprec_push_resetsession_req 0040ae19 f   sccp:sccprec.obj
+ 0001:00009fad       _sccprec_get_mac           0040afad f   sccp:sccprec.obj
+ 0001:00009fb8       _sccprec_get_media_caps    0040afb8 f   sccp:sccprec.obj
+ 0001:00009fc3       _sccprec_get_index         0040afc3 f   sccp:sccprec.obj
+ 0001:0000c818       _sccpcc_free_cccb2         0040d818 f   sccp:sccpcc.obj
+ 0001:0000c818       _sccpreg_free_regcb        0040d818 f   sccp:sccpreg.obj
+ 0001:0000c82d       _sccpreg_get_new_regcb     0040d82d f   sccp:sccpreg.obj
+ 0001:0000c89b       _sccpreg_get_session_data  0040d89b f   sccp:sccpreg.obj
+ 0001:0000c8c1       _sccpreg_push_unreg_req    0040d8c1 f   sccp:sccpreg.obj
+ 0001:0000c8c1       _sccpreg_push_reg_req      0040d8c1 f   sccp:sccpreg.obj
+ 0001:0000c8e0       _sccpreg_push_unregister_ack 0040d8e0 f   sccp:sccpreg.obj
+ 0001:0000cd02       _sccpreg_init              0040dd02 f   sccp:sccpreg.obj
+ 0001:0000cf68       _sllist_create_list        0040df68 f   sccp:sllist.obj
+ 0001:0000cff4       _sllist_empty_list         0040dff4 f   sccp:sllist.obj
+ 0001:0000d03c       _sllist_delete_list        0040e03c f   sccp:sllist.obj
+ 0001:0000d08c       _sllist_add_node           0040e08c f   sccp:sllist.obj
+ 0001:0000d0e8       _sllist_find_node          0040e0e8 f   sccp:sllist.obj
+ 0001:0000d132       _sllist_delete_node        0040e132 f   sccp:sllist.obj
+ 0001:0000d185       _sllist_get_node_by_id     0040e185 f   sccp:sllist.obj
+ 0001:0000d1cc       _sllist_remove_node        0040e1cc f   sccp:sllist.obj
+ 0001:0000d224       _sllist_get_list_size      0040e224 f   sccp:sllist.obj
+ 0001:0000d255       _sllist_get_new_id         0040e255 f   sccp:sllist.obj
+ 0001:0000d291       _sllist_init               0040e291 f   sccp:sllist.obj
+ 0001:0000d2be       _sllist_cleanup            0040e2be f   sccp:sllist.obj
+ 0001:0000d2d4       _sem_process_event         0040e2d4 f   sccp:sem.obj
+ 0001:0000d440       _memset                    0040e440 f   LIBCMT:memset.obj
+ 0001:0000d4a0       ??2@YAPAXI@Z               0040e4a0 f   LIBCMT:new.obj
+ 0001:0000d4ae       ??3@YAXPAX@Z               0040e4ae f   LIBCMT:delete.obj
+ 0001:0000d4c0       _strncmp                   0040e4c0 f   LIBCMT:strncmp.obj
+ 0001:0000d500       _strncpy                   0040e500 f   LIBCMT:strncpy.obj
+ 0001:0000d624       _printf                    0040e624 f   LIBCMT:printf.obj
+ 0001:0000d690       _strlen                    0040e690 f   LIBCMT:strlen.obj
+ 0001:0000d720       _memcpy                    0040e720 f   LIBCMT:memcpy.obj
+ 0001:0000da5d       __endthreadex              0040ea5d f   LIBCMT:threadex.obj
+ 0001:0000db23       __beginthreadex            0040eb23 f   LIBCMT:threadex.obj
+ 0001:0000dbae       __strtime                  0040ebae f   LIBCMT:strtime.obj
+ 0001:0000dc15       _free                      0040ec15 f   LIBCMT:free.obj
+ 0001:0000dc86       __vsnprintf                0040ec86 f   LIBCMT:vsnprint.obj
+ 0001:0000dcdc       __snprintf                 0040ecdc f   LIBCMT:snprintf.obj
+ 0001:0000dd33       __heap_alloc               0040ed33 f   LIBCMT:malloc.obj
+ 0001:0000ddae       __nh_malloc                0040edae f   LIBCMT:malloc.obj
+ 0001:0000ddda       _malloc                    0040edda f   LIBCMT:malloc.obj
+ 0001:0000ddec       _atol                      0040edec f   LIBCMT:atox.obj
+ 0001:0000de74       _atoi                      0040ee74 f   LIBCMT:atox.obj
+ 0001:0000de79       __fgetchar                 0040ee79 f   LIBCMT:fgetchar.obj
+ 0001:0000de85       _getchar                   0040ee85 f   LIBCMT:fgetchar.obj
+ 0001:0000de8a       ___crtExitProcess          0040ee8a f   LIBCMT:crt0dat.obj
+ 0001:0000deba       __lockexit                 0040eeba f   LIBCMT:crt0dat.obj
+ 0001:0000dec3       __unlockexit               0040eec3 f   LIBCMT:crt0dat.obj
+ 0001:0000dee4       __cinit                    0040eee4 f   LIBCMT:crt0dat.obj
+ 0001:0000e011       _exit                      0040f011 f   LIBCMT:crt0dat.obj
+ 0001:0000e022       __exit                     0040f022 f   LIBCMT:crt0dat.obj
+ 0001:0000e033       __cexit                    0040f033 f   LIBCMT:crt0dat.obj
+ 0001:0000e042       __c_exit                   0040f042 f   LIBCMT:crt0dat.obj
+ 0001:0000e210       _strtoul                   0040f210 f   LIBCMT:strtol.obj
+ 0001:0000e227       _fgets                     0040f227 f   LIBCMT:fgets.obj
+ 0001:0000e2ad       ___initstdio               0040f2ad f   LIBCMT:_file.obj
+ 0001:0000e356       ___endstdio                0040f356 f   LIBCMT:_file.obj
+ 0001:0000e36a       __lock_file                0040f36a f   LIBCMT:_file.obj
+ 0001:0000e399       __lock_file2               0040f399 f   LIBCMT:_file.obj
+ 0001:0000e3bc       __unlock_file              0040f3bc f   LIBCMT:_file.obj
+ 0001:0000e3eb       __unlock_file2             0040f3eb f   LIBCMT:_file.obj
+ 0001:0000e410       _strcpy                    0040f410 f   LIBCMT:strcat.obj
+ 0001:0000e420       _strcat                    0040f420 f   LIBCMT:strcat.obj
+ 0001:0000e508       _gets                      0040f508 f   LIBCMT:gets.obj
+ 0001:0000e592       __endthread                0040f592 f   LIBCMT:thread.obj
+ 0001:0000e662       __beginthread              0040f662 f   LIBCMT:thread.obj
+ 0001:0000e6f3       __amsg_exit                0040f6f3 f   LIBCMT:crt0.obj
+ 0001:0000e73c       _mainCRTStartup            0040f73c f   LIBCMT:crt0.obj
+ 0001:0000e8fc       _rewind                    0040f8fc f   LIBCMT:rewind.obj
+ 0001:0000e985       __fsopen                   0040f985 f   LIBCMT:fopen.obj
+ 0001:0000e9e1       _fopen                     0040f9e1 f   LIBCMT:fopen.obj
+ 0001:0000e9f4       __fclose_lk                0040f9f4 f   LIBCMT:fclose.obj
+ 0001:0000ea40       _fclose                    0040fa40 f   LIBCMT:fclose.obj
+ 0001:0000ea91       __flush                    0040fa91 f   LIBCMT:fflush.obj
+ 0001:0000eaee       __fflush_lk                0040faee f   LIBCMT:fflush.obj
+ 0001:0000ebf1       _fflush                    0040fbf1 f   LIBCMT:fflush.obj
+ 0001:0000ec41       __flushall                 0040fc41 f   LIBCMT:fflush.obj
+ 0001:0000ec4a       _fprintf                   0040fc4a f   LIBCMT:fprintf.obj
+ 0001:0000eca8       __stbuf                    0040fca8 f   LIBCMT:_sftbuf.obj
+ 0001:0000ed30       __ftbuf                    0040fd30 f   LIBCMT:_sftbuf.obj
+ 0001:0000ede8       __output                   0040fde8 f   LIBCMT:output.obj
+ 0001:0000f5e4       __SEH_prolog               004105e4 f   LIBCMT:sehprolg.obj
+ 0001:0000f61f       __SEH_epilog               0041061f f   LIBCMT:sehprolg.obj
+ 0001:0000f638       __except_handler3          00410638 f   LIBCMT:exsup3.obj
+ 0001:0000f71e       __seh_longjmp_unwind@4     0041071e f   LIBCMT:exsup3.obj
+ 0001:0000f739       ___crtTlsAlloc@4           00410739 f   LIBCMT:tidtable.obj
+ 0001:0000f742       __mtterm                   00410742 f   LIBCMT:tidtable.obj
+ 0001:0000f75f       __initptd                  0041075f f   LIBCMT:tidtable.obj
+ 0001:0000f772       __getptd                   00410772 f   LIBCMT:tidtable.obj
+ 0001:0000f7e3       __freefls@4                004107e3 f   LIBCMT:tidtable.obj
+ 0001:0000f92a       __freeptd                  0041092a f   LIBCMT:tidtable.obj
+ 0001:0000f959       __mtinit                   00410959 f   LIBCMT:tidtable.obj
+ 0001:0000fa48       __XcptFilter               00410a48 f   LIBCMT:winxfltr.obj
+ 0001:0000fbac       __errno                    00410bac f   LIBCMT:dosmap.obj
+ 0001:0000fbb5       ___doserrno                00410bb5 f   LIBCMT:dosmap.obj
+ 0001:0000fbbe       __dosmaperr                00410bbe f   LIBCMT:dosmap.obj
+ 0001:0000fc31       _calloc                    00410c31 f   LIBCMT:calloc.obj
+ 0001:0000fcf0       __aulldiv                  00410cf0 f   LIBCMT:ulldiv.obj
+ 0001:0000fd58       ___heap_select             00410d58 f   LIBCMT:heapinit.obj
+ 0001:0000fd72       __heap_init                00410d72 f   LIBCMT:heapinit.obj
+ 0001:0000fdc3       __mtinitlocks              00410dc3 f   LIBCMT:mlock.obj
+ 0001:0000fe0c       __mtdeletelocks            00410e0c f   LIBCMT:mlock.obj
+ 0001:0000fe61       __unlock                   00410e61 f   LIBCMT:mlock.obj
+ 0001:0000fe76       __mtinitlocknum            00410e76 f   LIBCMT:mlock.obj
+ 0001:0000ff16       __lock                     00410f16 f   LIBCMT:mlock.obj
+ 0001:0000ff47       ___sbh_heap_init           00410f47 f   LIBCMT:sbheap.obj
+ 0001:0000ff8f       ___sbh_find_block          00410f8f f   LIBCMT:sbheap.obj
+ 0001:0000ffba       ___sbh_free_block          00410fba f   LIBCMT:sbheap.obj
+ 0001:000102d2       ___sbh_alloc_new_region    004112d2 f   LIBCMT:sbheap.obj
+ 0001:00010389       ___sbh_alloc_new_group     00411389 f   LIBCMT:sbheap.obj
+ 0001:0001048f       ___sbh_resize_block        0041148f f   LIBCMT:sbheap.obj
+ 0001:0001076e       ___sbh_alloc_block         0041176e f   LIBCMT:sbheap.obj
+ 0001:00010a6a       __flsbuf                   00411a6a f   LIBCMT:_flsbuf.obj
+ 0001:00010b83       __callnewh                 00411b83 f   LIBCMT:handler.obj
+ 0001:00010b9e       ___isctype_mt              00411b9e f   LIBCMT:isctype.obj
+ 0001:00010c15       ___freetlocinfo            00411c15 f   LIBCMT:setlocal.obj
+ 0001:00010da6       ___updatetlocinfo          00411da6 f   LIBCMT:setlocal.obj
+ 0001:00010df0       __allmul                   00411df0 f   LIBCMT:llmul.obj
+ 0001:00010e24       _getc                      00411e24 f   LIBCMT:fgetc.obj
+ 0001:00010ef4       ___onexitinit              00411ef4 f   LIBCMT:onexit.obj
+ 0001:00010f1c       __onexit                   00411f1c f   LIBCMT:onexit.obj
+ 0001:00010f54       _atexit                    00411f54 f   LIBCMT:onexit.obj
+ 0001:00010f66       __RTC_Initialize           00411f66 f   LIBCMT:initsect.obj
+ 0001:00010faa       __RTC_Terminate            00411faa f   LIBCMT:initsect.obj
+ 0001:00010fee       __filbuf                   00411fee f   LIBCMT:_filbuf.obj
+ 0001:000110cf       __ioinit                   004120cf f   LIBCMT:ioinit.obj
+ 0001:000112cd       __fcloseall                004122cd f   LIBCMT:closeall.obj
+ 0001:00011368       __NMSG_WRITE               00412368 f   LIBCMT:crt0msg.obj
+ 0001:000114df       __FF_MSGBANNER             004124df f   LIBCMT:crt0msg.obj
+ 0001:00011518       __setenvp                  00412518 f   LIBCMT:stdenvp.obj
+ 0001:0001174b       __setargv                  0041274b f   LIBCMT:stdargv.obj
+ 0001:000117ed       ___crtGetEnvironmentStringsA 004127ed f   LIBCMT:a_env.obj
+ 0001:00011910       __alloca_probe             00412910     LIBCMT:chkstk.obj
+ 0001:00011910       __chkstk                   00412910 f   LIBCMT:chkstk.obj
+ 0001:0001194d       __lseek_lk                 0041294d f   LIBCMT:lseek.obj
+ 0001:000119c1       __lseek                    004129c1 f   LIBCMT:lseek.obj
+ 0001:00011a6c       __openfile                 00412a6c f   LIBCMT:_open.obj
+ 0001:00011bd4       __getstream                00412bd4 f   LIBCMT:stream.obj
+ 0001:00011cf6       __close_lk                 00412cf6 f   LIBCMT:close.obj
+ 0001:00011d79       __close                    00412d79 f   LIBCMT:close.obj
+ 0001:00011e14       __freebuf                  00412e14 f   LIBCMT:_freebuf.obj
+ 0001:00011e3f       __write_lk                 00412e3f f   LIBCMT:write.obj
+ 0001:0001200d       __write                    0041300d f   LIBCMT:write.obj
+ 0001:000120b8       __commit                   004130b8 f   LIBCMT:commit.obj
+ 0001:00012174       __isatty                   00413174 f   LIBCMT:isatty.obj
+ 0001:0001219e       ___wctomb_mt               0041319e f   LIBCMT:wctomb.obj
+ 0001:000121fe       _wctomb                    004131fe f   LIBCMT:wctomb.obj
+ 0001:00012256       @__security_check_cookie@4 00413256 f   LIBCMT:secchk.obj
+ 0001:00012270       __aulldvrm                 00413270 f   LIBCMT:ulldvrm.obj
+ 0001:00012308       __global_unwind2           00413308 f   LIBCMT:exsup.obj
+ 0001:0001234a       __local_unwind2            0041334a f   LIBCMT:exsup.obj
+ 0001:000123a2       __NLG_Return2              004133a2     LIBCMT:exsup.obj
+ 0001:000123b2       __abnormal_termination     004133b2 f   LIBCMT:exsup.obj
+ 0001:000123d5       __NLG_Notify1              004133d5 f   LIBCMT:exsup.obj
+ 0001:000123de       __NLG_Notify               004133de f   LIBCMT:exsup.obj
+ 0001:000123f1       __NLG_Dispatch             004133f1     LIBCMT:exsup.obj
+ 0001:000123f6       __ValidateEH3RN            004133f6 f   LIBCMT:eh3valid.obj
+ 0001:00012993       __setmbcp                  00413993 f   LIBCMT:mbctype.obj
+ 0001:00012ae3       ___initmbctable            00413ae3 f   LIBCMT:mbctype.obj
+ 0001:00012b11       ___crtInitCritSecAndSpinCount 00413b11 f   LIBCMT:initcrit.obj
+ 0001:00012ba0       _memmove                   00413ba0 f   LIBCMT:memmove.obj
+ 0001:00012edd       __getbuf                   00413edd f   LIBCMT:_getbuf.obj
+ 0001:00012f21       ___crtGetStringTypeA       00413f21 f   LIBCMT:a_str.obj
+ 0001:000130db       ___free_lc_time            004140db f   LIBCMT:inittime.obj
+ 0001:0001326b       ___free_lconv_num          0041426b f   LIBCMT:initnum.obj
+ 0001:000132ca       ___free_lconv_mon          004142ca f   LIBCMT:initmon.obj
+ 0001:000133b0       _strcspn                   004143b0 f   LIBCMT:strcspn.obj
+ 0001:00013400       _strcmp                    00414400 f   LIBCMT:strcmp.obj
+ 0001:00013490       _memcmp                    00414490 f   LIBCMT:memcmp.obj
+ 0001:00013550       _strpbrk                   00414550 f   LIBCMT:strpbrk.obj
+ 0001:00013590       _realloc                   00414590 f   LIBCMT:realloc.obj
+ 0001:0001373d       __msize                    0041473d f   LIBCMT:msize.obj
+ 0001:000137b3       __read_lk                  004147b3 f   LIBCMT:read.obj
+ 0001:0001398e       __read                     0041498e f   LIBCMT:read.obj
+ 0001:00013a39       ___crtMessageBoxA          00414a39 f   LIBCMT:crtmbox.obj
+ 0001:00013b32       __set_osfhnd               00414b32 f   LIBCMT:osfinfo.obj
+ 0001:00013bae       __free_osfhnd              00414bae f   LIBCMT:osfinfo.obj
+ 0001:00013c2d       __get_osfhandle            00414c2d f   LIBCMT:osfinfo.obj
+ 0001:00013c6e       __lock_fhandle             00414c6e f   LIBCMT:osfinfo.obj
+ 0001:00013d0e       __unlock_fhandle           00414d0e f   LIBCMT:osfinfo.obj
+ 0001:00013d30       __alloc_osfhnd             00414d30 f   LIBCMT:osfinfo.obj
+ 0001:00014193       __sopen                    00415193 f   LIBCMT:open.obj
+ 0001:000141e8       __lseeki64_lk              004151e8 f   LIBCMT:lseeki64.obj
+ 0001:0001426b       __fptrap                   0041526b f   LIBCMT:crt0fp.obj
+ 0001:00014274       ___security_init_cookie    00415274 f   LIBCMT:seccinit.obj
+ 0001:000142da       ___security_error_handler  004152da f   LIBCMT:secfail.obj
+ 0001:00014422       ___crtLCMapStringA         00415422 f   LIBCMT:a_map.obj
+ 0001:000147de       ___ansicp                  004157de f   LIBCMT:convrtcp.obj
+ 0001:00014821       ___convertcp               00415821 f   LIBCMT:convrtcp.obj
+ 0001:000149ea       __resetstkoflw             004159ea f   LIBCMT:resetstk.obj
+ 0001:00014ad0       ___ascii_stricmp           00415ad0 f   LIBCMT:_stricmp.obj
+ 0001:00014b5c       __itoa                     00415b5c f   LIBCMT:xtoa.obj
+ 0001:00014b5c       _itoa                      00415b5c f   LIBCMT:xtoa.obj
+ 0001:00014b86       __chsize_lk                00415b86 f   LIBCMT:chsize.obj
+ 0001:00014cd0       ___ascii_strnicmp          00415cd0 f   LIBCMT:_strnicm.obj
+ 0001:00014d31       __setmode_lk               00415d31 f   LIBCMT:setmode.obj
+ 0001:00014db0       _strchr                    00415db0 f   LIBCMT:strchr.obj
+ 0001:00014db6       ___from_strstr_to_strchr   00415db6     LIBCMT:strchr.obj
+ 0001:00014e6e       _RtlUnwind@16              00415e6e f   kernel32:KERNEL32.dll
+ 0002:00000000       __imp__TlsSetValue@8       00416000     kernel32:KERNEL32.dll
+ 0002:00000004       __imp__SetEndOfFile@4      00416004     kernel32:KERNEL32.dll
+ 0002:00000008       __imp__GetSystemInfo@4     00416008     kernel32:KERNEL32.dll
+ 0002:0000000c       __imp__VirtualProtect@16   0041600c     kernel32:KERNEL32.dll
+ 0002:00000010       __imp__LCMapStringW@24     00416010     kernel32:KERNEL32.dll
+ 0002:00000014       __imp__LCMapStringA@24     00416014     kernel32:KERNEL32.dll
+ 0002:00000018       __imp__GetCurrentProcessId@0 00416018     kernel32:KERNEL32.dll
+ 0002:0000001c       __imp__GetTickCount@0      0041601c     kernel32:KERNEL32.dll
+ 0002:00000020       __imp__QueryPerformanceCounter@4 00416020     kernel32:KERNEL32.dll
+ 0002:00000024       __imp__CreateFileA@28      00416024     kernel32:KERNEL32.dll
+ 0002:00000028       __imp__SetStdHandle@8      00416028     kernel32:KERNEL32.dll
+ 0002:0000002c       __imp__LoadLibraryA@4      0041602c     kernel32:KERNEL32.dll
+ 0002:00000030       __imp__ReadFile@20         00416030     kernel32:KERNEL32.dll
+ 0002:00000034       __imp__HeapSize@12         00416034     kernel32:KERNEL32.dll
+ 0002:00000038       __imp__FormatMessageA@28   00416038     kernel32:KERNEL32.dll
+ 0002:0000003c       __imp__GetLastError@0      0041603c     kernel32:KERNEL32.dll
+ 0002:00000040       __imp__CreateMutexA@12     00416040     kernel32:KERNEL32.dll
+ 0002:00000044       __imp__CloseHandle@4       00416044     kernel32:KERNEL32.dll
+ 0002:00000048       __imp__WaitForSingleObject@8 00416048     kernel32:KERNEL32.dll
+ 0002:0000004c       __imp__ReleaseMutex@4      0041604c     kernel32:KERNEL32.dll
+ 0002:00000050       __imp__CreateEventA@16     00416050     kernel32:KERNEL32.dll
+ 0002:00000054       __imp__SetEvent@4          00416054     kernel32:KERNEL32.dll
+ 0002:00000058       __imp__GetCurrentThreadId@0 00416058     kernel32:KERNEL32.dll
+ 0002:0000005c       __imp__Sleep@4             0041605c     kernel32:KERNEL32.dll
+ 0002:00000060       __imp__EnterCriticalSection@4 00416060     kernel32:KERNEL32.dll
+ 0002:00000064       __imp__LeaveCriticalSection@4 00416064     kernel32:KERNEL32.dll
+ 0002:00000068       __imp__InitializeCriticalSection@4 00416068     kernel32:KERNEL32.dll
+ 0002:0000006c       __imp__GetLocaleInfoA@16   0041606c     kernel32:KERNEL32.dll
+ 0002:00000070       __imp__ExitThread@4        00416070     kernel32:KERNEL32.dll
+ 0002:00000074       __imp__CreateThread@24     00416074     kernel32:KERNEL32.dll
+ 0002:00000078       __imp__GetSystemTimeAsFileTime@4 00416078     kernel32:KERNEL32.dll
+ 0002:0000007c       __imp__GetLocalTime@4      0041607c     kernel32:KERNEL32.dll
+ 0002:00000080       __imp__HeapFree@12         00416080     kernel32:KERNEL32.dll
+ 0002:00000084       __imp__HeapAlloc@12        00416084     kernel32:KERNEL32.dll
+ 0002:00000088       __imp__ExitProcess@4       00416088     kernel32:KERNEL32.dll
+ 0002:0000008c       __imp__GetProcAddress@8    0041608c     kernel32:KERNEL32.dll
+ 0002:00000090       __imp__GetModuleHandleA@4  00416090     kernel32:KERNEL32.dll
+ 0002:00000094       __imp__TerminateProcess@8  00416094     kernel32:KERNEL32.dll
+ 0002:00000098       __imp__GetCurrentProcess@0 00416098     kernel32:KERNEL32.dll
+ 0002:0000009c       __imp__ResumeThread@4      0041609c     kernel32:KERNEL32.dll
+ 0002:000000a0       __imp__GetCommandLineA@0   004160a0     kernel32:KERNEL32.dll
+ 0002:000000a4       __imp__GetVersionExA@4     004160a4     kernel32:KERNEL32.dll
+ 0002:000000a8       __imp__TlsAlloc@0          004160a8     kernel32:KERNEL32.dll
+ 0002:000000ac       __imp__SetLastError@4      004160ac     kernel32:KERNEL32.dll
+ 0002:000000b0       __imp__TlsFree@4           004160b0     kernel32:KERNEL32.dll
+ 0002:000000b4       __imp__TlsGetValue@4       004160b4     kernel32:KERNEL32.dll
+ 0002:000000b8       __imp__UnhandledExceptionFilter@4 004160b8     kernel32:KERNEL32.dll
+ 0002:000000bc       __imp__HeapDestroy@4       004160bc     kernel32:KERNEL32.dll
+ 0002:000000c0       __imp__HeapCreate@12       004160c0     kernel32:KERNEL32.dll
+ 0002:000000c4       __imp__VirtualFree@12      004160c4     kernel32:KERNEL32.dll
+ 0002:000000c8       __imp__DeleteCriticalSection@4 004160c8     kernel32:KERNEL32.dll
+ 0002:000000cc       __imp__VirtualAlloc@16     004160cc     kernel32:KERNEL32.dll
+ 0002:000000d0       __imp__HeapReAlloc@16      004160d0     kernel32:KERNEL32.dll
+ 0002:000000d4       __imp__SetHandleCount@4    004160d4     kernel32:KERNEL32.dll
+ 0002:000000d8       __imp__GetStdHandle@4      004160d8     kernel32:KERNEL32.dll
+ 0002:000000dc       __imp__GetFileType@4       004160dc     kernel32:KERNEL32.dll
+ 0002:000000e0       __imp__GetStartupInfoA@4   004160e0     kernel32:KERNEL32.dll
+ 0002:000000e4       __imp__WriteFile@20        004160e4     kernel32:KERNEL32.dll
+ 0002:000000e8       __imp__GetModuleFileNameA@12 004160e8     kernel32:KERNEL32.dll
+ 0002:000000ec       __imp__FreeEnvironmentStringsA@4 004160ec     kernel32:KERNEL32.dll
+ 0002:000000f0       __imp__GetEnvironmentStrings@0 004160f0     kernel32:KERNEL32.dll
+ 0002:000000f4       __imp__FreeEnvironmentStringsW@4 004160f4     kernel32:KERNEL32.dll
+ 0002:000000f8       __imp__WideCharToMultiByte@32 004160f8     kernel32:KERNEL32.dll
+ 0002:000000fc       __imp__GetEnvironmentStringsW@0 004160fc     kernel32:KERNEL32.dll
+ 0002:00000100       __imp__SetFilePointer@16   00416100     kernel32:KERNEL32.dll
+ 0002:00000104       __imp__FlushFileBuffers@4  00416104     kernel32:KERNEL32.dll
+ 0002:00000108       __imp__RtlUnwind@16        00416108     kernel32:KERNEL32.dll
+ 0002:0000010c       __imp__InterlockedExchange@8 0041610c     kernel32:KERNEL32.dll
+ 0002:00000110       __imp__VirtualQuery@12     00416110     kernel32:KERNEL32.dll
+ 0002:00000114       __imp__GetACP@0            00416114     kernel32:KERNEL32.dll
+ 0002:00000118       __imp__GetOEMCP@0          00416118     kernel32:KERNEL32.dll
+ 0002:0000011c       __imp__GetCPInfo@8         0041611c     kernel32:KERNEL32.dll
+ 0002:00000120       __imp__GetStringTypeA@20   00416120     kernel32:KERNEL32.dll
+ 0002:00000124       __imp__MultiByteToWideChar@24 00416124     kernel32:KERNEL32.dll
+ 0002:00000128       __imp__GetStringTypeW@16   00416128     kernel32:KERNEL32.dll
+ 0002:0000012c       \177KERNEL32_NULL_THUNK_DATA 0041612c     kernel32:KERNEL32.dll
+ 0002:00000130       __imp__RegisterWindowMessageA@4 00416130     user32:USER32.dll
+ 0002:00000134       __imp__PostThreadMessageA@16 00416134     user32:USER32.dll
+ 0002:00000138       __imp__PeekMessageA@20     00416138     user32:USER32.dll
+ 0002:0000013c       __imp__GetMessageA@16      0041613c     user32:USER32.dll
+ 0002:00000140       \177USER32_NULL_THUNK_DATA 00416140     user32:USER32.dll
+ 0002:00000144       __imp__WSAStartup@8        00416144     ws2_32:WS2_32.dll
+ 0002:00000148       __imp__WSACleanup@0        00416148     ws2_32:WS2_32.dll
+ 0002:0000014c       __imp__inet_addr@4         0041614c     ws2_32:WS2_32.dll
+ 0002:00000150       __imp__ntohl@4             00416150     ws2_32:WS2_32.dll
+ 0002:00000154       __imp__ntohs@4             00416154     ws2_32:WS2_32.dll
+ 0002:00000158       __imp__send@16             00416158     ws2_32:WS2_32.dll
+ 0002:0000015c       __imp__select@20           0041615c     ws2_32:WS2_32.dll
+ 0002:00000160       __imp____WSAFDIsSet@8      00416160     ws2_32:WS2_32.dll
+ 0002:00000164       __imp__htons@4             00416164     ws2_32:WS2_32.dll
+ 0002:00000168       __imp__htonl@4             00416168     ws2_32:WS2_32.dll
+ 0002:0000016c       __imp__recv@16             0041616c     ws2_32:WS2_32.dll
+ 0002:00000170       __imp__connect@12          00416170     ws2_32:WS2_32.dll
+ 0002:00000174       __imp__shutdown@8          00416174     ws2_32:WS2_32.dll
+ 0002:00000178       __imp__closesocket@4       00416178     ws2_32:WS2_32.dll
+ 0002:0000017c       __imp__ioctlsocket@12      0041617c     ws2_32:WS2_32.dll
+ 0002:00000180       __imp__socket@12           00416180     ws2_32:WS2_32.dll
+ 0002:00000184       __imp__getsockname@12      00416184     ws2_32:WS2_32.dll
+ 0002:00000188       __imp__WSAGetLastError@0   00416188     ws2_32:WS2_32.dll
+ 0002:0000018c       \177WS2_32_NULL_THUNK_DATA 0041618c     ws2_32:WS2_32.dll
+ 0002:00000190       ??_C@_0M@OEOMNCAP@?$CF?9?$CKs?$CF?9?$CKs?$CFs?6?$AA@ 00416190     cli_menu.obj
+ 0002:0000019c       ??_C@_00CNPNBAHC@?$AA@     0041619c     cli_menu.obj
+ 0002:000001a0       ??_C@_0BO@DAPONNK@Event?5object?5handle?5not?5valid?$AA@ 004161a0     platform_win32.obj
+ 0002:000001c0       ??_C@_0CD@JDHFHKJD@One?5or?5more?5parameters?5are?5inval@ 004161c0     platform_win32.obj
+ 0002:000001e4       ??_C@_0CD@OPEBIIIN@Overlapped?5I?1O?5will?5complete?5lat@ 004161e4     platform_win32.obj
+ 0002:00000208       ??_C@_0CE@OGHOKPMG@Overlapped?5I?1O?5object?5not?5signal@ 00416208     platform_win32.obj
+ 0002:0000022c       ??_C@_0BN@KGMIDOOK@Overlapped?5operation?5aborted?$AA@ 0041622c     platform_win32.obj
+ 0002:0000024c       ??_C@_0BO@GICNLCFB@Insufficient?5memory?5available?$AA@ 0041624c     platform_win32.obj
+ 0002:0000026c       ??_C@_0BE@GAGGAMME@System?5call?5failure?$AA@ 0041626c     platform_win32.obj
+ 0002:00000280       ??_C@_0CA@DPPBNJJI@Graceful?5disconnect?5in?5progress?$AA@ 00416280     platform_win32.obj
+ 0002:000002a0       ??_C@_0CN@KFPNHBIN@Valid?5name?0?5no?5data?5record?5of?5re@ 004162a0     platform_win32.obj
+ 0002:000002d0       ??_C@_0BH@DKELOGJK@Non?9recoverable?5errors?$AA@ 004162d0     platform_win32.obj
+ 0002:000002e8       ??_C@_0CB@MPDDEPDA@Non?9authoritative?5host?5not?5found@ 004162e8     platform_win32.obj
+ 0002:0000030c       ??_C@_0P@CAFMJNJH@Host?5not?5found?$AA@ 0041630c     platform_win32.obj
+ 0002:0000031c       ??_C@_0BM@FDBLOCJJ@Winsock?5not?5yet?5initialized?$AA@ 0041631c     platform_win32.obj
+ 0002:00000338       ??_C@_0BO@CMBHKIGC@Winsock?5version?5not?5supported?$AA@ 00416338     platform_win32.obj
+ 0002:00000358       ??_C@_0CB@PLJNFILF@Network?5subsystem?5is?5unavailable@ 00416358     platform_win32.obj
+ 0002:0000037c       ??_C@_0CC@DBGGHIAG@Too?5many?5levels?5of?5remote?5in?5pat@ 0041637c     platform_win32.obj
+ 0002:000003a0       ??_C@_0BG@KNCBNNDC@Stale?5NFS?5file?5handle?$AA@ 004163a0     platform_win32.obj
+ 0002:000003b8       ??_C@_0BE@KMAIMPL@Disc?5quota?5exceeded?$AA@ 004163b8     platform_win32.obj
+ 0002:000003cc       ??_C@_0P@DAFGFIDC@Too?5many?5users?$AA@ 004163cc     platform_win32.obj
+ 0002:000003dc       ??_C@_0BD@LPHIGPM@Too?5many?5processes?$AA@ 004163dc     platform_win32.obj
+ 0002:000003f0       ??_C@_0BE@ICMCHPHH@Directory?5not?5empty?$AA@ 004163f0     platform_win32.obj
+ 0002:00000404       ??_C@_0BB@PFBILCPA@No?5route?5to?5host?$AA@ 00416404     platform_win32.obj
+ 0002:00000418       ??_C@_0N@OHOPOBEF@Host?5is?5down?$AA@ 00416418     platform_win32.obj
+ 0002:00000428       ??_C@_0BD@CGPKCNP@File?5name?5too?5long?$AA@ 00416428     platform_win32.obj
+ 0002:0000043c       ??_C@_0CC@CPDHMANB@Too?5many?5levels?5of?5symbolic?5link@ 0041643c     platform_win32.obj
+ 0002:00000460       ??_C@_0BD@NPDMPPFP@Connection?5refused?$AA@ 00416460     platform_win32.obj
+ 0002:00000474       ??_C@_0BF@IBBHAGLD@Connection?5timed?5out?$AA@ 00416474     platform_win32.obj
+ 0002:0000048c       ??_C@_0CC@BICDPOAJ@Too?5many?5references?0?5can?8t?5splic@ 0041648c     platform_win32.obj
+ 0002:000004b0       ??_C@_0CB@IOOOMFJJ@Can?8t?5send?5after?5socket?5shutdown@ 004164b0     platform_win32.obj
+ 0002:000004d4       ??_C@_0BI@ILAOGBJJ@Socket?5is?5not?5connected?$AA@ 004164d4     platform_win32.obj
+ 0002:000004ec       ??_C@_0BM@CCONNCKE@Socket?5is?5already?5connected?$AA@ 004164ec     platform_win32.obj
+ 0002:00000508       ??_C@_0BK@OCAHGMEA@No?5buffer?5space?5available?$AA@ 00416508     platform_win32.obj
+ 0002:00000524       ??_C@_0BJ@FJAMCHKE@Connection?5reset?5by?5peer?$AA@ 00416524     platform_win32.obj
+ 0002:00000540       ??_C@_0CB@DJAOADN@Software?5caused?5connection?5abort@ 00416540     platform_win32.obj
+ 0002:00000564       ??_C@_0BF@ODIGNMHJ@Net?5connection?5reset?$AA@ 00416564     platform_win32.obj
+ 0002:0000057c       ??_C@_0BH@CIEOBPFM@Network?5is?5unreachable?$AA@ 0041657c     platform_win32.obj
+ 0002:00000594       ??_C@_0BA@LPIEBGEK@Network?5is?5down?$AA@ 00416594     platform_win32.obj
+ 0002:000005a4       ??_C@_0BP@OKMOKAIP@Can?8t?5assign?5requested?5address?$AA@ 004165a4     platform_win32.obj
+ 0002:000005c4       ??_C@_0BH@LOKACPE@Address?5already?5in?5use?$AA@ 004165c4     platform_win32.obj
+ 0002:000005dc       ??_C@_0BN@GMEBDOHK@Address?5family?5not?5supported?$AA@ 004165dc     platform_win32.obj
+ 0002:000005fc       ??_C@_0BO@EBCCBLCJ@Protocol?5family?5not?5supported?$AA@ 004165fc     platform_win32.obj
+ 0002:0000061c       ??_C@_0CC@GKIJMEBA@Operation?5not?5supported?5on?5socke@ 0041661c     platform_win32.obj
+ 0002:00000640       ??_C@_0BK@LMAIHBL@Socket?5type?5not?5supported?$AA@ 00416640     platform_win32.obj
+ 0002:0000065c       ??_C@_0BH@JNBKLLAJ@Protocol?5not?5supported?$AA@ 0041665c     platform_win32.obj
+ 0002:00000674       ??_C@_0BE@NEGCDJON@Bad?5protocol?5option?$AA@ 00416674     platform_win32.obj
+ 0002:00000688       ??_C@_0BP@PDKJLOAE@Protocol?5wrong?5type?5for?5socket?$AA@ 00416688     platform_win32.obj
+ 0002:000006a8       ??_C@_0BB@NDAKHOCP@Message?5too?5long?$AA@ 004166a8     platform_win32.obj
+ 0002:000006bc       ??_C@_0BN@HFCIEIME@Destination?5address?5required?$AA@ 004166bc     platform_win32.obj
+ 0002:000006dc       ??_C@_0BP@MCCLAMPH@Socket?5operation?5on?5non?9socket?$AA@ 004166dc     platform_win32.obj
+ 0002:000006fc       ??_C@_0BO@BMABNIPB@Operation?5already?5in?5progress?$AA@ 004166fc     platform_win32.obj
+ 0002:0000071c       ??_C@_0BK@LBMNDGCG@Operation?5now?5in?5progress?$AA@ 0041671c     platform_win32.obj
+ 0002:00000738       ??_C@_0BG@GMFMDOIH@Operation?5would?5block?$AA@ 00416738     platform_win32.obj
+ 0002:00000750       ??_C@_0BG@HDGDIOKN@Too?5many?5open?5sockets?$AA@ 00416750     platform_win32.obj
+ 0002:00000768       ??_C@_0BB@HMGGCEBG@Invalid?5argument?$AA@ 00416768     platform_win32.obj
+ 0002:0000077c       ??_C@_0M@LOEHLCJD@Bad?5address?$AA@ 0041677c     platform_win32.obj
+ 0002:00000788       ??_C@_0BC@HFNFNKAI@Permission?5denied?$AA@ 00416788     platform_win32.obj
+ 0002:0000079c       ??_C@_0BA@IMABKEOI@Bad?5file?5number?$AA@ 0041679c     platform_win32.obj
+ 0002:000007ac       ??_C@_0BI@EAGLFFDI@Interrupted?5system?5call?$AA@ 004167ac     platform_win32.obj
+ 0002:000007c4       ??_C@_08INEPGKHH@No?5error?$AA@ 004167c4     platform_win32.obj
+ 0002:000007d0       ??_C@_0N@FLKFIIKF@000347b98077?$AA@ 004167d0     platform_win32.obj
+ 0002:000007e0       ??_C@_0BJ@MHALOKOD@?$CFs?3?5?$CF?925s?3?5ERROR?$DN?5?$CFd?3?$CFs?6?$AA@ 004167e0     platform_win32.obj
+ 0002:000007fc       ??_C@_07EIDMLBOD@PLAT?5?5?5?$AA@ 004167fc     platform_win32.obj
+ 0002:00000804       ??_C@_0N@NOHLFGNM@mutex_create?$AA@ 00416804     platform_win32.obj
+ 0002:00000814       ??_C@_0N@IHHNKPFH@mutex_delete?$AA@ 00416814     platform_win32.obj
+ 0002:00000824       ??_C@_0L@PLFMHJJE@mutex_lock?$AA@ 00416824     platform_win32.obj
+ 0002:00000830       ??_C@_0N@MEEELAPB@mutex_unlock?$AA@ 00416830     platform_win32.obj
+ 0002:00000840       ??_C@_0N@ICEKEEKJ@event_create?$AA@ 00416840     platform_win32.obj
+ 0002:00000850       ??_C@_0N@NLEMLNCC@event_delete?$AA@ 00416850     platform_win32.obj
+ 0002:00000860       ??_C@_09LNLFNGAD@event_set?$AA@ 00416860     platform_win32.obj
+ 0002:0000086c       ??_C@_0L@LMPLFJCK@event_wait?$AA@ 0041686c     platform_win32.obj
+ 0002:00000878       ??_C@_0O@BFJCFAAK@unknown?5error?$AA@ 00416878     platform_win32.obj
+ 0002:00000888       ??_C@_0CF@DJCMJFMI@?$CFs?3?5?$CF?925s?3?5socket?$DN?5?$CFd?3?5ERROR?$DN?5?$CFd@ 00416888     platform_win32.obj
+ 0002:000008b0       ??_C@_06HBELJPBO@socket?$AA@ 004168b0     platform_win32.obj
+ 0002:000008b8       ??_C@_05MJIHFMJI@ioctl?$AA@ 004168b8     platform_win32.obj
+ 0002:000008c0       ??_C@_05LBOHBHFK@close?$AA@ 004168c0     platform_win32.obj
+ 0002:000008c8       ??_C@_08FIACBBDA@shutdown?$AA@ 004168c8     platform_win32.obj
+ 0002:000008d4       ??_C@_07KAIBNCHO@connect?$AA@ 004168d4     platform_win32.obj
+ 0002:000008dc       ??_C@_0BB@LJNHCGEE@connect?3?5rc?$DN?5?$CFd?6?$AA@ 004168dc     platform_win32.obj
+ 0002:000008f0       ??_C@_05OLHFCAJP@SAPP2?$AA@ 004168f0     sapp.obj
+ 0002:000008f8       ??_C@_05MAFIHDFM@SAPP1?$AA@ 004168f8     sapp.obj
+ 0002:00000900       ??_C@_0N@EIDFFEEH@S_REGISTERED?$AA@ 00416900     sapp.obj
+ 0002:00000910       ??_C@_0O@BAIJACML@S_REGISTERING?$AA@ 00416910     sapp.obj
+ 0002:00000920       ??_C@_0M@JOOBNCJJ@S_CONNECTED?$AA@ 00416920     sapp.obj
+ 0002:0000092c       ??_C@_0N@HBDECJJO@S_CONNECTING?$AA@ 0041692c     sapp.obj
+ 0002:0000093c       ??_C@_08DCAJHIIF@S_CLOSED?$AA@ 0041693c     sapp.obj
+ 0002:00000948       ??_C@_09PLJBKNLE@UNDEFINED?$AA@ 00416948     sapp.obj
+ 0002:00000954       ??_C@_0BC@BJNOLHHL@?$CFs?3?5?$CFd?3?$CFd?3?5?$CF?925s?6?$AA@ 00416954     sapp.obj
+ 0002:00000968       ??_C@_07JKGOKADO@SAPP?5?5?5?$AA@ 00416968     sapp.obj
+ 0002:00000970       ??_C@_0BN@LDMLFNIL@?$CFs?3?5?$CFd?9?$CFd?3?5?$CF?925s?3?5count?$DN?5?$CFd?6?$AA@ 00416970     sapp.obj
+ 0002:00000990       ??_C@_0BL@DDAJPCPP@sapp_sapp_all_streams_idle?$AA@ 00416990     sapp.obj
+ 0002:000009ac       ??_C@_0CD@KIJKIEHO@sapp_sapp_close_abandonded_strea@ 004169ac     sapp.obj
+ 0002:000009d0       ??_C@_0BH@BAHKCJHB@?$CFs?3?5sccp?5task?5started?6?$AA@ 004169d0     sapp.obj
+ 0002:000009e8       ??_C@_0DJ@MJAKALBB@?6?$CFs?3?5socket?$DN?5?$CFd?3?5STATUS?3?5Connect@ 004169e8     sapp.obj
+ 0002:00000a24       ??_C@_0CE@GKCCKKKH@?6?$CFs?3?5socket?$DN?5?$CFd?3?5recv?5ERROR?$DN?5?$CFd?3@ 00416a24     sapp.obj
+ 0002:00000a48       ??_C@_0DJ@GGCIFELM@?$CFs?3?5socket?$DN?5?$CFd?3?5except?5STATUS?3?5f@ 00416a48     sapp.obj
+ 0002:00000a84       ??_C@_0CL@OMDOOLGC@?$CFs?3?5socket?$DN?5?$CFd?3?5connected?3?5addr?$DN@ 00416a84     sapp.obj
+ 0002:00000ab0       ??_C@_0BG@IJPKADPJ@?$CFs?3?5tcp?5task?5started?6?$AA@ 00416ab0     sapp.obj
+ 0002:00000ac8       ??_C@_0CK@BINFIDL@?$CFs?3?5?$CF?925s?3?5socket?$DN?5?$CFd?3?$CFd?0?5addr?$DN0@ 00416ac8     sapp.obj
+ 0002:00000af4       ??_C@_0BB@JIALHCNJ@sapp_socket_open?$AA@ 00416af4     sapp.obj
+ 0002:00000b08       ??_C@_0BL@CAEMNKNN@?$CFs?3?5?$CF?925s?3?5socket?$DN?5?$CFd?9?$DO?$CFd?6?$AA@ 00416b08     sapp.obj
+ 0002:00000b24       ??_C@_0CO@LFBJEFED@?$CFs?3?5?$CF?925s?3?5received?5?$CFd?5bytes?5aft@ 00416b24     sapp.obj
+ 0002:00000b54       ??_C@_0BC@EOIMJEFP@sapp_socket_close?$AA@ 00416b54     sapp.obj
+ 0002:00000b68       ??_C@_0CF@FNENPIAB@?$CFs?3?5?$CF?925s?3?5socket?$DN?5?$CFd?3?5ERROR?3?5?$CFd@ 00416b68     sapp.obj
+ 0002:00000b90       ??_C@_0CH@GIKFECPD@?$CFs?3?5?$CF?925s?3?5socket?$DN?5?$CFd?3?5addr?$DN0x?$CF0@ 00416b90     sapp.obj
+ 0002:00000bb8       ??_C@_0BB@KMGGKIJM@sapp_socket_send?$AA@ 00416bb8     sapp.obj
+ 0002:00000bcc       ??_C@_0M@NBLOEHPI@?$CF02x?3?$CF04x?5?5?$AA@ 00416bcc     sapp.obj
+ 0002:00000bd8       ??_C@_06NHFJIIB@?6?5?5?5?5?5?$AA@ 00416bd8     sapp.obj
+ 0002:00000be0       ??_C@_08IDCOINDK@?6?$FL?$CF02d?$FN?5?$AA@ 00416be0     sapp.obj
+ 0002:00000bec       ??_C@_0BE@ONACIAAA@?6?6softkeysetcnt?$DN?5?$CFd?$AA@ 00416bec     sapp.obj
+ 0002:00000c00       ??_C@_0BA@PCNKDCEI@?$CF04x?3?$CF?912?412s?5?5?$AA@ 00416c00     sapp.obj
+ 0002:00000c10       ??_C@_01EEMJAFIK@?6?$AA@   00416c10     sapp.obj
+ 0002:00000c14       ??_C@_0BA@GIDELHNE@?6softkeycnt?$DN?5?$CFd?$AA@ 00416c14     sapp.obj
+ 0002:00000c24       ??_C@_0BE@KGOJLCOL@?6serviceurlcnt?$DN?5?$CFd?6?$AA@ 00416c24     sapp.obj
+ 0002:00000c38       ??_C@_0BB@GCOMAMPD@?$FL?$CFd?$FN?5?$CFs?5?3?5?$CFd?3?$CFd?6?$AA@ 00416c38     sapp.obj
+ 0002:00000c4c       ??_C@_0BB@LKPDHAGC@?6featurecnt?$DN?5?$CFd?6?$AA@ 00416c4c     sapp.obj
+ 0002:00000c60       ??_C@_0O@EFJFEIGJ@?$FL?$CFd?$FN?5?$CFs?5?3?5?$CFs?6?$AA@ 00416c60     sapp.obj
+ 0002:00000c70       ??_C@_0BD@HKAIFOPM@?6speeddialcnt?$DN?5?$CFd?6?$AA@ 00416c70     sapp.obj
+ 0002:00000c84       ??_C@_0BD@IIANKICH@?$FL?$CFd?$FN?5?$CFs?5?3?5?$CFs?5?3?5?$CFs?6?$AA@ 00416c84     sapp.obj
+ 0002:00000c98       ??_C@_0O@LPNAPEI@?6linecnt?$DN?5?$CFd?6?$AA@ 00416c98     sapp.obj
+ 0002:00000ca8       ??_C@_0BM@GPLBFCGA@?6state?$DN?5?$CFd?0?5call_count?$DN?5?$CFd?6?$AA@ 00416ca8     sapp.obj
+ 0002:00000cc4       ??_C@_0CB@IHNPLPPO@?$FL?$CF03d?3?$CF03d?3?$CF03d?3?$CF03d?3?$CF06d?$FN?5?9?5?$CFs?6@ 00416cc4     sapp.obj
+ 0002:00000ce8       ??_C@_0CD@ODLPKLA@?6address?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5?5stat@ 00416ce8     sapp.obj
+ 0002:00000d0c       ??_C@_0BJ@EHAJKBJK@?6?6?9?9?9?9?5SAPP?5SESSION?5?9?9?9?6?$AA@ 00416d0c     sapp.obj
+ 0002:00000d28       ??_C@_0BE@KJEHALMK@sapp_socket_connect?$AA@ 00416d28     sapp.obj
+ 0002:00000d3c       ??_C@_0BF@ICHIGEKM@?$CFs?3?5?$CFs?3?5initialized?6?$AA@ 00416d3c     sapp.obj
+ 0002:00000d54       ??_C@_0BM@CCJBJJPJ@?$CFs?3?5?$CFs?3?5initializing?3?5sccp?6?$AA@ 00416d54     sapp.obj
+ 0002:00000d70       ??_C@_0BN@NHAFCCEH@?$CFs?3?5?$CFs?3?5initializing?3?5calls?6?$AA@ 00416d70     sapp.obj
+ 0002:00000d90       ??_C@_0BP@PAEHNEDP@?$CFs?3?5?$CFs?3?5initializing?3?5sockets?6?$AA@ 00416d90     sapp.obj
+ 0002:00000db0       ??_C@_07DNPEMFJF@SCCPMSG?$AA@ 00416db0     sapp.obj
+ 0002:00000db8       ??_C@_0BG@MPEPCKDL@?$CFs?3?5?$CFs?3?5initializing?6?$AA@ 00416db8     sapp.obj
+ 0002:00000dd0       ??_C@_09LEHNBODN@sapp_init?$AA@ 00416dd0     sapp.obj
+ 0002:00000ddc       ??_C@_04LDMBPBEF@SAPP?$AA@ 00416ddc     sapp_win79xx.obj
+ 0002:00000de4       ??_C@_0L@BMPLNGA@sapp_setup?$AA@ 00416de4     sapp_win79xx.obj
+ 0002:00000df0       ??_C@_0P@DIIEGODO@sapp_setup_ack?$AA@ 00416df0     sapp_win79xx.obj
+ 0002:00000e00       ??_C@_0BA@BCKFEGGI@sapp_proceeding?$AA@ 00416e00     sapp_win79xx.obj
+ 0002:00000e10       ??_C@_0O@IIOJBHOI@sapp_alerting?$AA@ 00416e10     sapp_win79xx.obj
+ 0002:00000e20       ??_C@_0N@NLJOCCHE@sapp_connect?$AA@ 00416e20     sapp_win79xx.obj
+ 0002:00000e30       ??_C@_0BB@NEBGAGOE@sapp_connect_ack?$AA@ 00416e30     sapp_win79xx.obj
+ 0002:00000e44       ??_C@_0N@DFHKMLKC@sapp_release?$AA@ 00416e44     sapp_win79xx.obj
+ 0002:00000e54       ??_C@_0BG@CPAANIDE@sapp_release_complete?$AA@ 00416e54     sapp_win79xx.obj
+ 0002:00000e6c       ??_C@_0L@OJBAAFCD@sapp_digit?$AA@ 00416e6c     sapp_win79xx.obj
+ 0002:00000e78       ??_C@_0BB@OFGLLDGF@sapp_feature_req?$AA@ 00416e78     sapp_win79xx.obj
+ 0002:00000e8c       ??_C@_0BF@PCAKMEKC@sapp_opensession_req?$AA@ 00416e8c     sapp_win79xx.obj
+ 0002:00000ea4       ??_C@_0BG@BPEKPICH@sapp_resetsession_req?$AA@ 00416ea4     sapp_win79xx.obj
+ 0002:00000ebc       ??_C@_07KJFPOMFC@?$CFs?3?5?$CFs?6?$AA@ 00416ebc     sapp_win79xx.obj
+ 0002:00000ec4       ??_C@_08FCNPJFBG@passthru?$AA@ 00416ec4     sapp_win79xx.obj
+ 0002:00000ed0       ??_C@_0N@NBEHBCLL@sapp_offhook?$AA@ 00416ed0     sapp_win79xx.obj
+ 0002:00000ee0       ??_C@_0CH@POMDMABL@?$CFs?3?5?$CFd?9?$CFd?3?5?$CFs?3?5call?9?$DOsccp_conn_i@ 00416ee0     sapp_win79xx.obj
+ 0002:00000f08       ??_C@_0BA@DONGOAAO@sapp_disconnect?$AA@ 00416f08     sapp_win79xx.obj
+ 0002:00000f18       ??_C@_0BG@EDHOOIEP@sapp_sapp_openrcv_req?$AA@ 00416f18     sapp_win79xx.obj
+ 0002:00000f30       ??_C@_0O@EIKKGNGK@sapp_closercv?$AA@ 00416f30     sapp_win79xx.obj
+ 0002:00000f40       ??_C@_0P@BAKILMDP@sapp_startxmit?$AA@ 00416f40     sapp_win79xx.obj
+ 0002:00000f50       ??_C@_0O@GCALIEIF@sapp_stopxmit?$AA@ 00416f50     sapp_win79xx.obj
+ 0002:00000f60       ??_C@_0BB@NHFNNBOH@sapp_feature_res?$AA@ 00416f60     sapp_win79xx.obj
+ 0002:00000f74       ??_C@_0BG@DKFCBPNI@sapp_connection_stats?$AA@ 00416f74     sapp_win79xx.obj
+ 0002:00000f8c       ??_C@_0BL@JDMCOJGO@?$CFs?3?50?90?3?5?$CF?925s?3?5cause?$DN?5?$CFd?6?$AA@ 00416f8c     sapp_win79xx.obj
+ 0002:00000fa8       ??_C@_0L@CPAODAAI@sapp_reset?$AA@ 00416fa8     sapp_win79xx.obj
+ 0002:00000fb4       ??_C@_0BF@MADMKGCA@sapp_opensession_res?$AA@ 00416fb4     sapp_win79xx.obj
+ 0002:00000fcc       ??_C@_0CP@PLOBKLFL@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?$FL?$CFd?3?$CFd?3?$CFd?3?$CFd?3?$CF@ 00416fcc     sapp_win79xx.obj
+ 0002:00000ffc       ??_C@_0DE@GOIABOJK@?$CFs?3?50?90?3?5?$CF?925s?3?5need?5to?5kill?5cal@ 00416ffc     sapp_win79xx.obj
+ 0002:00001030       ??_C@_0CN@PLHEFEHH@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?$FL?$CFd?3?$CFd?3?$CFd?3?$CFd?3?$CF@ 00417030     sapp_win79xx.obj
+ 0002:00001060       ??_C@_0CP@NIJIKPAM@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?$FL?$CFd?3?$CFd?3?$CFd?3?$CFd?3?$CF@ 00417060     sapp_win79xx.obj
+ 0002:00001090       ??_C@_0DA@OGPFACBF@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?$FL?$CFd?3?$CFd?3?$CFd?3?$CFd?3?$CF@ 00417090     sapp_win79xx.obj
+ 0002:000010c0       ??_C@_0CM@NIFGBIPK@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?3?5enumeration?5@ 004170c0     sapp_win79xx.obj
+ 0002:000010ec       ??_C@_0CK@BDFOLKKC@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?3?5enumeration?5@ 004170ec     sapp_win79xx.obj
+ 0002:00001118       ??_C@_0CH@FCFJNJCG@?$CFs?3?50?90?3?5?$CF?925s?3?5CM?3?5register?5com@ 00417118     sapp_win79xx.obj
+ 0002:00001140       ??_C@_0BM@LHCNNHFK@?$CFs?3?50?90?3?5?$CF?925s?3?5status?$DN?5?$CFd?6?$AA@ 00417140     sapp_win79xx.obj
+ 0002:0000115c       ??_C@_0BD@BGKOBCMB@sapp_sessionstatus?$AA@ 0041715c     sapp_win79xx.obj
+ 0002:00001170       ??_C@_0BG@CNHMJKKF@sapp_resetsession_res?$AA@ 00417170     sapp_win79xx.obj
+ 0002:00001188       ??_C@_0BC@JOAPMPDC@sapp_linestat_res?$AA@ 00417188     sapp_win79xx.obj
+ 0002:0000119c       ??_C@_0BH@POEDNIHN@sapp_speeddialstat_res?$AA@ 0041719c     sapp_win79xx.obj
+ 0002:000011b4       ??_C@_0BF@KKNKDNIA@sapp_featurestat_res?$AA@ 004171b4     sapp_win79xx.obj
+ 0002:000011cc       ??_C@_0BI@NKOMPLJO@sapp_serviceurlstat_res?$AA@ 004171cc     sapp_win79xx.obj
+ 0002:000011e4       ??_C@_0BJ@KHCCACDG@sapp_softkeytemplate_res?$AA@ 004171e4     sapp_win79xx.obj
+ 0002:00001200       ??_C@_0BE@MBNAKLFA@sapp_softkeyset_res?$AA@ 00417200     sapp_win79xx.obj
+ 0002:00001218       ??_C@_0FD@BMNMAFKK@?5?5?5?5calling_name?3?5?$CFs?0?5calling_nu@ 00417218     sapp_win79xx.obj
+ 0002:0000126c       ??_C@_0O@JNOOBOKN@sapp_conninfo?$AA@ 0041726c     sapp_win79xx.obj
+ 0002:0000127c       ??_C@_0P@CJMHKMCA@sapp_starttone?$AA@ 0041727c     sapp_win79xx.obj
+ 0002:0000128c       ??_C@_01INIBCBCB@f?$AA@    0041728c     sccptest.obj
+ 0002:00001290       ??_C@_01OMGOGALD@u?$AA@    00417290     sccptest.obj
+ 0002:00001294       ??_C@_01LPLHEDKD@d?$AA@    00417294     sccptest.obj
+ 0002:00001298       ??_C@_01PAPGNFGE@c?$AA@    00417298     sccptest.obj
+ 0002:0000129c       ??_C@_01BDACAMKP@h?$AA@    0041729c     sccptest.obj
+ 0002:000012a0       ??_C@_01DICPFPGM@k?$AA@    004172a0     sccptest.obj
+ 0002:000012a4       ??_C@_01HHGOMJKL@l?$AA@    004172a4     sccptest.obj
+ 0002:000012a8       ??_C@_01LKDEMHDF@s?$AA@    004172a8     sccptest.obj
+ 0002:000012ac       ??_C@_01KDCPPGHE@r?$AA@    004172ac     sccptest.obj
+ 0002:000012b0       ??_C@_01FMEDJKGI@o?$AA@    004172b0     sccptest.obj
+ 0002:000012b4       ??_C@_01IIACKFLH@q?$AA@    004172b4     sccptest.obj
+ 0002:000012b8       ??_C@_07CECPKGHP@HOLDING?$AA@ 004172b8     sccptest.obj
+ 0002:000012c0       ??_C@_06MHJDLBHA@ACTIVE?$AA@ 004172c0     sccptest.obj
+ 0002:000012c8       ??_C@_06CGDNEJNN@ONHOOK?$AA@ 004172c8     sccptest.obj
+ 0002:000012d0       ??_C@_08DJFPIMHC@OUTGOING?$AA@ 004172d0     sccptest.obj
+ 0002:000012dc       ??_C@_08FPHOKLMI@INCOMING?$AA@ 004172dc     sccptest.obj
+ 0002:000012e8       ??_C@_06NFMCBAPL@OPENED?$AA@ 004172e8     sccptest.obj
+ 0002:000012f0       ??_C@_07NCMDAKCI@OPENING?$AA@ 004172f0     sccptest.obj
+ 0002:000012f8       ??_C@_06IOLFCPIM@CLOSED?$AA@ 004172f8     sccptest.obj
+ 0002:00001300       ??_C@_0CC@BGEEMMFK@Press?5any?5key?5to?5exit?5sccptest?4?4@ 00417300     sccptest.obj
+ 0002:00001324       ??_C@_02PHMGELLB@?6?6?$AA@ 00417324     sccptest.obj
+ 0002:00001328       ??_C@_0BD@IEENLILN@?$CF?94d?5?5?$CF?94d?5?5?$CF?910s?6?$AA@ 00417328     sccptest.obj
+ 0002:0000133c       ??_C@_0BD@NGJBEOCM@line?5?5call?5?5state?6?$AA@ 0041733c     sccptest.obj
+ 0002:00001350       ??_C@_0BM@HICFFFJA@active?5line?1call_id?$DN?5?$CFd?1?$CFd?6?$AA@ 00417350     sccptest.obj
+ 0002:0000136c       ??_C@_0BA@OEPJIJCP@call_state?$DN?5?$CFs?6?$AA@ 0041736c     sccptest.obj
+ 0002:0000137c       ??_C@_0BK@CGLIHMBC@cmaddr?$DN?5?$FL?$CFd?3?$CFd?3?$CFd?3?$CFd?3?$CFd?$FN?6?$AA@ 0041737c     sccptest.obj
+ 0002:00001398       ??_C@_0BE@MGOIHNAE@sccptest?5state?$DN?5?$CFd?6?$AA@ 00417398     sccptest.obj
+ 0002:000013ac       ??_C@_0CH@FEOHKAME@?6?9?9?9?9?9?9?9?9?9?9?9?9?$DN?$DN?$HL?5MENU?5?$HN?$DN?$DN?9?9?9?9?9?9?9@ 004173ac     sccptest.obj
+ 0002:000013d4       ??_C@_0DE@ONLAMEC@?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO@ 004173d4     sccptest.obj
+ 0002:00001408       ??_C@_02DKCKIIND@?$CFs?$AA@ 00417408     sccptest.obj
+ 0002:0000140c       ??_C@_0DE@CPHENHME@?6?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO?$DO@ 0041740c     sccptest.obj
+ 0002:00001440       ??_C@_05NFBAKGKI@?$CF010d?$AA@ 00417440     sccptest.obj
+ 0002:00001448       ??_C@_0CD@OFNEPCPM@Windows?5socket?5system?5initialize@ 00417448     sccptest.obj
+ 0002:0000146c       ??_C@_0CF@FDKBCFCL@?6Initializing?5Windows?5socket?5sys@ 0041746c     sccptest.obj
+ 0002:00001494       ??_C@_0BJ@HJCKNACE@TEST?3?5ignoring?5offhook?4?6?$AA@ 00417494     sccptest.obj
+ 0002:000014b0       ??_C@_0BN@KBIOCLEK@Invalid?5or?5missing?5feature?4?6?$AA@ 004174b0     sccptest.obj
+ 0002:000014d0       ??_C@_0BF@EBJKMMBB@ACTION?3?5Feature?3?5?$CFd?6?$AA@ 004174d0     sccptest.obj
+ 0002:000014e8       ??_C@_0CG@GJNGHMIO@TEST?3?5Opening?5SCCP?5session?5?$CFd?3?5?$CF@ 004174e8     sccptest.obj
+ 0002:00001510       ??_C@_0CC@KMJHGMKB@TEST?3?5Opening?5SCCP?5session?5?$CFd?4?4?4@ 00417510     sccptest.obj
+ 0002:00001534       ??_C@_0CC@LCEEFOIC@TEST?3?5Opening?5SCCP?5session?5?$CFs?4?4?4@ 00417534     sccptest.obj
+ 0002:00001558       ??_C@_0BF@BJLNCGBC@TEST?3?5no?5sapp?5info?4?6?$AA@ 00417558     sccptest.obj
+ 0002:00001570       ??_C@_0CB@JEIAJDPG@TEST?3?5Resetting?5SCCP?5session?4?4?4?6@ 00417570     sccptest.obj
+ 0002:00001594       ??_C@_0BP@PPDLPNOK@TEST?3?5Showing?5SCCP?5session?4?4?4?6?$AA@ 00417594     sccptest.obj
+ 0002:000015b4       ??_C@_0L@PAIMOPGI@flags?$DN?5?$CFd?6?$AA@ 004175b4     sccptest.obj
+ 0002:000015c0       ??_C@_0P@HEOLGFFI@Invalid?5line?4?6?$AA@ 004175c0     sccptest.obj
+ 0002:000015d0       ??_C@_0BK@MFCKGNPJ@Line?5to?5change?5to?5?$FL1?92?$FN?3?5?$AA@ 004175d0     sccptest.obj
+ 0002:000015ec       ??_C@_0BP@JCILNHNL@TEST?3?5Closing?5SCCP?5session?4?4?4?6?$AA@ 004175ec     sccptest.obj
+ 0002:0000160c       ??_C@_0P@BANOOCFC@TEST?3?5Quiting?6?$AA@ 0041760c     sccptest.obj
+ 0002:0000161c       ??_C@_0BG@KOKHAJHK@Digit?5?$FL0?99?0A?9D?0?$CK?0?$CD?$FN?3?5?$AA@ 0041761c     sccptest.obj
+ 0002:00001634       ??_C@_0BN@LFPCIKND@Press?5Enter?5to?5exit?5dialing?6?$AA@ 00417634     sccptest.obj
+ 0002:00001654       ??_C@_0BI@HMFNMOLA@Dial?5via?5single?5digits?6?$AA@ 00417654     sccptest.obj
+ 0002:0000166c       ??_C@_0BA@MCGJGFFD@no?5free?5calls?4?6?$AA@ 0041766c     sccptest.obj
+ 0002:0000167c       ??_C@_0BI@FGKPCACC@No?5dialstring?5to?5dial?4?6?$AA@ 0041767c     sccptest.obj
+ 0002:00001694       ??_C@_0BF@PPKDMEBK@ACTION?3?5Dialing?3?5?$CFs?6?$AA@ 00417694     sccptest.obj
+ 0002:000016ac       ??_C@_0BB@LNCJBFLC@Number?5to?5dial?3?5?$AA@ 004176ac     sccptest.obj
+ 0002:000016c0       ??_C@_0BG@CLOCDIOD@ACTION?3?5Going?5onhook?6?$AA@ 004176c0     sccptest.obj
+ 0002:000016d8       ??_C@_0BI@CKFPMFA@ACTION?3?5Answering?5call?6?$AA@ 004176d8     sccptest.obj
+ 0002:000016f0       ??_C@_0BF@LDPCJNCL@ACTION?3?5Sending?3?5?$CFs?6?$AA@ 004176f0     sccptest.obj
+ 0002:00001708       ??_C@_0BB@LBNEOEPK@Transaction?5ID?3?5?$AA@ 00417708     sccptest.obj
+ 0002:0000171c       ??_C@_0BB@PDHDNDMA@Application?5ID?3?5?$AA@ 0041771c     sccptest.obj
+ 0002:00001730       ??_C@_0P@BINGIFPJ@Data?5to?5send?3?5?$AA@ 00417730     sccptest.obj
+ 0002:00001740       ??_C@_0BG@KMIDHEIN@Disconnected?5from?5CM?6?$AA@ 00417740     sccptest.obj
+ 0002:00001758       ??_C@_0BC@LPNOHIOB@?5?5?9?5Line?$FL?$CFd?$FN?3?5?$CFs?6?$AA@ 00417758     sccptest.obj
+ 0002:0000176c       ??_C@_0BP@DMPHHFNA@Number?5of?5lines?5available?3?5?$CFd?6?$AA@ 0041776c     sccptest.obj
+ 0002:0000178c       ??_C@_0BB@IBPILBMH@Connected?5to?5CM?6?$AA@ 0041778c     sccptest.obj
+ 0002:000017a0       ??_C@_0BO@NAMHOLFH@STATUS?3?5Got?5DTMF?5Digit?3?50x?$CFd?6?$AA@ 004177a0     sccptest.obj
+ 0002:000017c0       ??_C@_0BB@OPNEANJP@STATUS?3?5Holding?6?$AA@ 004177c0     sccptest.obj
+ 0002:000017d4       ??_C@_0CE@KCNMPMOB@STATUS?3?5Tone?3?5Call?5Failed?4?5Hangu@ 004177d4     sccptest.obj
+ 0002:000017f8       ??_C@_0P@DFEEGOJ@STATUS?3?5Tone?4?6?$AA@ 004177f8     sccptest.obj
+ 0002:00001808       ??_C@_0CO@GLHHMINL@STATUS?3?5Got?5feature?5in?5callback?4@ 00417808     sccptest.obj
+ 0002:00001838       ??_C@_04IBDNPPCI@Idle?$AA@ 00417838     sccptest.obj
+ 0002:00001840       ??_C@_09NJLBODLJ@Connected?$AA@ 00417840     sccptest.obj
+ 0002:0000184c       ??_C@_0P@CKLLANHG@Call?5Setup?5Ack?$AA@ 0041784c     sccptest.obj
+ 0002:0000185c       ??_C@_07KEMHLLKP@Ringing?$AA@ 0041785c     sccptest.obj
+ 0002:00001864       ??_C@_0L@BKKAFK@Proceeding?$AA@ 00417864     sccptest.obj
+ 0002:00001870       ??_C@_0BD@OFKHCKBD@Ringing?5?$CIIncoming?$CJ?$AA@ 00417870     sccptest.obj
+ 0002:00001884       ??_C@_07FDCOIAOH@Offhook?$AA@ 00417884     sccptest.obj
+ 0002:00001890       ??_C@_0GE@BNAPMLNL@Usage?3?5sccp_test?5?$DMMAC?5Address?$DO?5?$DM@ 00417890     sccptest.obj
+ 0002:000018f4       ??_C@_07HAEFGBDM@Feature?$AA@ 004178f4     sccptest.obj
+ 0002:000018fc       ??_C@_0BN@CDDNFNBI@Call?5via?5complete?5dialstring?$AA@ 004178fc     sccptest.obj
+ 0002:0000191c       ??_C@_0BL@BFMPNPIA@Call?5via?5individual?5digits?$AA@ 0041791c     sccptest.obj
+ 0002:00001938       ??_C@_0BH@CCJDNMKH@Send?5Device?9?$DOUser?5data?$AA@ 00417938     sccptest.obj
+ 0002:00001950       ??_C@_06CLCJBCLL@Hangup?$AA@ 00417950     sccptest.obj
+ 0002:00001958       ??_C@_0L@PJJDFNAG@Go?5offhook?$AA@ 00417958     sccptest.obj
+ 0002:00001964       ??_C@_0M@DJNFLAJO@Switch?5line?$AA@ 00417964     sccptest.obj
+ 0002:00001970       ??_C@_0N@JJDOEHE@Show?5session?$AA@ 00417970     sccptest.obj
+ 0002:00001980       ??_C@_0O@MCLHEMIG@Reset?5session?$AA@ 00417980     sccptest.obj
+ 0002:00001990       ??_C@_0N@BECOJCPB@Open?5session?$AA@ 00417990     sccptest.obj
+ 0002:000019a0       ??_C@_01BNIGIBBF@Q?$AA@    004179a0     sccptest.obj
+ 0002:000019a4       ??_C@_04GMBKPCGK@Quit?$AA@ 004179a4     sccptest.obj
+ 0002:000019ac       ??_C@_01GLPGHMHM@z?$AA@    004179ac     sccptest.obj
+ 0002:000019b0       ??_C@_04CEJDCDCH@test?$AA@ 004179b0     sccptest.obj
+ 0002:000019b8       ??_C@_0CB@PPNAMMPN@SCCP_STACK_EVENT_CM_DISCONNECTED@ 004179b8     sccptest.obj
+ 0002:000019dc       ??_C@_0BO@DMIECOLA@SCCP_STACK_EVENT_CM_CONNECTED?$AA@ 004179dc     sccptest.obj
+ 0002:000019fc       ??_C@_0CF@HCODHJDK@SCCP_STACK_EVENT_MEDIA_TRANSMIT_@ 004179fc     sccptest.obj
+ 0002:00001a24       ??_C@_0CG@PLPCABMG@SCCP_STACK_EVENT_MEDIA_TRANSMIT_@ 00417a24     sccptest.obj
+ 0002:00001a4c       ??_C@_0CE@MHMKJPDI@SCCP_STACK_EVENT_MEDIA_RECEIVE_S@ 00417a4c     sccptest.obj
+ 0002:00001a70       ??_C@_0CF@BFEJEJAM@SCCP_STACK_EVENT_MEDIA_RECEIVE_S@ 00417a70     sccptest.obj
+ 0002:00001a98       ??_C@_0BJ@NGINBLGF@SCCP_STACK_EVENT_FEATURE?$AA@ 00417a98     sccptest.obj
+ 0002:00001ab4       ??_C@_0BO@LEHKEFNP@SCCP_STACK_EVENT_CALL_RELEASE?$AA@ 00417ab4     sccptest.obj
+ 0002:00001ad4       ??_C@_0CA@OMOGMLDO@SCCP_STACK_EVENT_CALL_CONNECTED?$AA@ 00417ad4     sccptest.obj
+ 0002:00001af4       ??_C@_0CB@OGHHMFFD@SCCP_STACK_EVENT_CALL_PROCEEDING@ 00417af4     sccptest.obj
+ 0002:00001b18       ??_C@_0BP@DDFIDOEF@SCCP_STACK_EVENT_CALL_ALERTING?$AA@ 00417b18     sccptest.obj
+ 0002:00001b38       ??_C@_0CA@MEBNALOE@SCCP_STACK_EVENT_CALL_SETUP_ACK?$AA@ 00417b38     sccptest.obj
+ 0002:00001b58       ??_C@_0BM@KJABFJPK@SCCP_STACK_EVENT_CALL_SETUP?$AA@ 00417b58     sccptest.obj
+ 0002:00001b74       ??_C@_0BJ@PFOGPKLO@SCCP_STACK_EVENT_OFFHOOK?$AA@ 00417b74     sccptest.obj
+ 0002:00001b90       ??_C@_0BH@KMDGPMBL@CM?$FL?$CFd?$FN?5?$CFd?4?$CFd?4?$CFd?4?$CFd?3?$CFd?6?$AA@ 00417b90     sccptest.obj
+ 0002:00001ba8       ??_C@_0CB@LNOEOBNK@CM?$FL?$CFd?$FN?3?5addr?3port?$DN?50x?$CF08lx?3?$CF04x?6@ 00417ba8     sccptest.obj
+ 0002:00001bcc       ??_C@_0BJ@MKDMKIAI@sapp?5init?5error?3?5rc?$DN?5?$CFd?6?$AA@ 00417bcc     sccptest.obj
+ 0002:00001be8       ??_C@_0CJ@NHMBGNHA@Attempting?5to?5activate?5unitializ@ 00417be8     timer.obj
+ 0002:00001c14       ??_C@_0CE@LHBDKDGE@Attempting?5to?5activate?5active?5ti@ 00417c14     timer.obj
+ 0002:00001c38       ??_C@_0BO@FOLBPHNN@?$CBtimer_event_activate?3?5?$CFx?5?$CFs?6?$AA@ 00417c38     timer.obj
+ 0002:00001c58       ??_C@_0CD@INMCELNJ@Attempting?5to?5activate?5free?5time@ 00417c58     timer.obj
+ 0002:00001c7c       ??_C@_0DC@PPICMIEJ@?$CBtimer_event_allocate?3?5?5Could?5no@ 00417c7c     timer.obj
+ 0002:00001cb0       ??_C@_0CA@EINNLAC@Attempting?5to?5free?5active?5timer?$AA@ 00417cb0     timer.obj
+ 0002:00001cd0       ??_C@_0BK@KIPOMGEL@?$CBtimer_event_free?3?5?$CFx?5?$CFs?6?$AA@ 00417cd0     timer.obj
+ 0002:00001cec       ??_C@_0CO@BKPNCLGF@Attempting?5to?5free?5timer?5that?5is@ 00417cec     timer.obj
+ 0002:00001d1c       ??_C@_0CF@OFIKGLEF@Attempting?5to?5initilize?5active?5t@ 00417d1c     timer.obj
+ 0002:00001d44       ??_C@_0CA@GONAMCNI@?$CBtimer_event_initialize?3?5?$CFx?5?$CFs?6?$AA@ 00417d44     timer.obj
+ 0002:00001d64       ??_C@_0CF@KAPILEAL@Attempting?5to?5initialize?5free?5ti@ 00417d64     timer.obj
+ 0002:00001d8c       ??_C@_0BO@ILBFEELC@?$CBtimer_event_initialize?3?5?5?$CFs?6?$AA@ 00417d8c     timer.obj
+ 0002:00001dac       ??_C@_0M@KNOLBNAE@Null?5timer?6?$AA@ 00417dac     timer.obj
+ 0002:00001db8       ??_C@_0BF@GCKHPOKN@?6Timer?5task?5started?6?$AA@ 00417db8     timer_platform_windows.obj
+ 0002:00001dd0       ??_C@_0BB@NFGPMGOE@SERVICE_URL_STAT?$AA@ 00417dd0     sccp:sccpmsg.obj
+ 0002:00001de4       ??_C@_0N@LCGEJFMB@FEATURE_STAT?$AA@ 00417de4     sccp:sccpmsg.obj
+ 0002:00001df4       ??_C@_0BG@CEDPMJFA@CLEAR_PRIORITY_NOTIFY?$AA@ 00417df4     sccp:sccpmsg.obj
+ 0002:00001e0c       ??_C@_0BI@COHOKNEC@DISPLAY_PRIORITY_NOTIFY?$AA@ 00417e0c     sccp:sccpmsg.obj
+ 0002:00001e24       ??_C@_0BE@FKOLHKCK@USER_TO_DEVICE_DATA?$AA@ 00417e24     sccp:sccpmsg.obj
+ 0002:00001e38       ??_C@_0O@GLODIBHA@DIALED_NUMBER?$AA@ 00417e38     sccp:sccpmsg.obj
+ 0002:00001e48       ??_C@_0BO@IDPFKGLB@START_MEDIA_FAILURE_DETECTION?$AA@ 00417e48     sccp:sccpmsg.obj
+ 0002:00001e68       ??_C@_0BG@FCPEGHM@REGISTER_TOKEN_REJECT?$AA@ 00417e68     sccp:sccpmsg.obj
+ 0002:00001e80       ??_C@_0BD@PLLANFND@REGISTER_TOKEN_ACK?$AA@ 00417e80     sccp:sccpmsg.obj
+ 0002:00001e94       ??_C@_0O@LNJKPAJJ@BACKSPACE_REQ?$AA@ 00417e94     sccp:sccpmsg.obj
+ 0002:00001ea4       ??_C@_0P@HGKGNHLE@UNREGISTER_ACK?$AA@ 00417ea4     sccp:sccpmsg.obj
+ 0002:00001eb4       ??_C@_0BG@HFJKEJCO@DEACTIVATE_CALL_PLANE?$AA@ 00417eb4     sccp:sccpmsg.obj
+ 0002:00001ecc       ??_C@_0BE@DNELBJFA@ACTIVATE_CALL_PLANE?$AA@ 00417ecc     sccp:sccpmsg.obj
+ 0002:00001ee0       ??_C@_0N@BNLLDAIO@CLEAR_NOTIFY?$AA@ 00417ee0     sccp:sccpmsg.obj
+ 0002:00001ef0       ??_C@_0P@COHJMFLL@DISPLAY_NOTIFY?$AA@ 00417ef0     sccp:sccpmsg.obj
+ 0002:00001f00       ??_C@_0BE@ICKAPAOE@CLEAR_PROMPT_STATUS?$AA@ 00417f00     sccp:sccpmsg.obj
+ 0002:00001f14       ??_C@_0BG@EMOPBOEP@DISPLAY_PROMPT_STATUS?$AA@ 00417f14     sccp:sccpmsg.obj
+ 0002:00001f2c       ??_C@_0L@LLDJPCKK@CALL_STATE?$AA@ 00417f2c     sccp:sccpmsg.obj
+ 0002:00001f38       ??_C@_0BA@HNHGCCGC@SELECT_SOFTKEYS?$AA@ 00417f38     sccp:sccpmsg.obj
+ 0002:00001f48       ??_C@_0BA@HEOPCOJP@SOFTKEY_SET_RES?$AA@ 00417f48     sccp:sccpmsg.obj
+ 0002:00001f58       ??_C@_0BF@OFGPAIPP@SOFTKEY_TEMPLATE_RES?$AA@ 00417f58     sccp:sccpmsg.obj
+ 0002:00001f70       ??_C@_0BK@GKBOHGME@CONNECTION_STATISTICS_REQ?$AA@ 00417f70     sccp:sccpmsg.obj
+ 0002:00001f8c       ??_C@_0BG@GALCHODI@CLOSE_RECEIVE_CHANNEL?$AA@ 00417f8c     sccp:sccpmsg.obj
+ 0002:00001fa4       ??_C@_0BF@OOKHJOEE@OPEN_RECEIVE_CHANNEL?$AA@ 00417fa4     sccp:sccpmsg.obj
+ 0002:00001fbc       ??_C@_0BK@KBOMOOMI@STOP_MULTICAST_MEDIA_XMIT?$AA@ 00417fbc     sccp:sccpmsg.obj
+ 0002:00001fd8       ??_C@_0BK@BBEJDJNC@STOP_MULTICAST_MEDIA_RECV?$AA@ 00417fd8     sccp:sccpmsg.obj
+ 0002:00001ff4       ??_C@_0BL@MAMCLABP@START_MULTICAST_MEDIA_XMIT?$AA@ 00417ff4     sccp:sccpmsg.obj
+ 0002:00002010       ??_C@_0BL@HAGHGHAF@START_MULTICAST_MEDIA_RECV?$AA@ 00418010     sccp:sccpmsg.obj
+ 0002:0000202c       ??_C@_0O@MIDPLFFE@KEEPALIVE_ACK?$AA@ 0041802c     sccp:sccpmsg.obj
+ 0002:0000203c       ??_C@_05OOFGFHKO@RESET?$AA@ 0041803c     sccp:sccpmsg.obj
+ 0002:00002044       ??_C@_0L@KJKPIHMO@SERVER_RES?$AA@ 00418044     sccp:sccpmsg.obj
+ 0002:00002050       ??_C@_0BA@GJEDBIGC@REGISTER_REJECT?$AA@ 00418050     sccp:sccpmsg.obj
+ 0002:00002060       ??_C@_0BB@KPOAPOBJ@CAPABILITIES_REQ?$AA@ 00418060     sccp:sccpmsg.obj
+ 0002:00002074       ??_C@_0O@JOAJANBP@CLEAR_DISPLAY?$AA@ 00418074     sccp:sccpmsg.obj
+ 0002:00002084       ??_C@_0N@DDBIPADG@DISPLAY_TEXT?$AA@ 00418084     sccp:sccpmsg.obj
+ 0002:00002094       ??_C@_07NCHCCDCP@VERSION?$AA@ 00418094     sccp:sccpmsg.obj
+ 0002:0000209c       ??_C@_0BA@EBEHJEMH@BUTTON_TEMPLATE?$AA@ 0041809c     sccp:sccpmsg.obj
+ 0002:000020ac       ??_C@_0BC@IENPPGKI@STOP_SESSION_XMIT?$AA@ 004180ac     sccp:sccpmsg.obj
+ 0002:000020c0       ??_C@_0BD@KDBAMHDA@START_SESSION_XMIT?$AA@ 004180c0     sccp:sccpmsg.obj
+ 0002:000020d4       ??_C@_0BB@LMKHOMOB@DEFINE_TIME_DATE?$AA@ 004180d4     sccp:sccpmsg.obj
+ 0002:000020e8       ??_C@_0M@HFGJIGHN@CONFIG_STAT?$AA@ 004180e8     sccp:sccpmsg.obj
+ 0002:000020f4       ??_C@_09KJGNKHJB@LINE_STAT?$AA@ 004180f4     sccp:sccpmsg.obj
+ 0002:00002100       ??_C@_0P@BEEHBGGI@SPEEDDIAL_STAT?$AA@ 00418100     sccp:sccpmsg.obj
+ 0002:00002110       ??_C@_0N@NDCLHMKA@FORWARD_STAT?$AA@ 00418110     sccp:sccpmsg.obj
+ 0002:00002120       ??_C@_09INIOPJGN@CALL_INFO?$AA@ 00418120     sccp:sccpmsg.obj
+ 0002:0000212c       ??_C@_0BA@KJLOAFLN@STOP_MEDIA_XMIT?$AA@ 0041812c     sccp:sccpmsg.obj
+ 0002:0000213c       ??_C@_0BB@OIKOHEI@START_MEDIA_XMIT?$AA@ 0041813c     sccp:sccpmsg.obj
+ 0002:00002150       ??_C@_0P@KMHDDFND@SET_MICRO_MODE?$AA@ 00418150     sccp:sccpmsg.obj
+ 0002:00002160       ??_C@_0BB@LNDNPNDJ@SET_SPEAKER_MODE?$AA@ 00418160     sccp:sccpmsg.obj
+ 0002:00002174       ??_C@_08GFEEOEDK@SET_LAMP?$AA@ 00418174     sccp:sccpmsg.obj
+ 0002:00002180       ??_C@_0L@CNMOJNKJ@SET_RINGER?$AA@ 00418180     sccp:sccpmsg.obj
+ 0002:0000218c       ??_C@_09LGLGADIG@STOP_TONE?$AA@ 0041818c     sccp:sccpmsg.obj
+ 0002:00002198       ??_C@_0L@MIJNHNJH@START_TONE?$AA@ 00418198     sccp:sccpmsg.obj
+ 0002:000021a4       ??_C@_0N@JJDNGKBJ@REGISTER_ACK?$AA@ 004181a4     sccp:sccpmsg.obj
+ 0002:000021b4       ??_C@_0BB@BPGBDDHG@FEATURE_STAT_REQ?$AA@ 004181b4     sccp:sccpmsg.obj
+ 0002:000021c8       ??_C@_0BF@NGFFNBKD@SERVICE_URL_STAT_REQ?$AA@ 004181c8     sccp:sccpmsg.obj
+ 0002:000021e0       ??_C@_0BJ@MFJFKCK@DEVICE_TO_USER_DATA_RESP?$AA@ 004181e0     sccp:sccpmsg.obj
+ 0002:000021fc       ??_C@_0BE@IBMJBMBJ@DEVICE_TO_USER_DATA?$AA@ 004181fc     sccp:sccpmsg.obj
+ 0002:00002210       ??_C@_0BJ@MCOIFELK@REGISTER_AVAILABLE_LINES?$AA@ 00418210     sccp:sccpmsg.obj
+ 0002:0000222c       ??_C@_0BM@CGCKDMGO@MEDIA_RESOURCE_NOTIFICATION?$AA@ 0041822c     sccp:sccpmsg.obj
+ 0002:00002248       ??_C@_0P@NOHCCCAF@HEADSET_STATUS?$AA@ 00418248     sccp:sccpmsg.obj
+ 0002:00002258       ??_C@_0BD@DFBMAGFJ@MEDIA_XMIT_FAILURE?$AA@ 00418258     sccp:sccpmsg.obj
+ 0002:0000226c       ??_C@_0BD@NLMKLML@REGISTER_TOKEN_REQ?$AA@ 0041826c     sccp:sccpmsg.obj
+ 0002:00002280       ??_C@_0BF@NHFJGKHN@SOFTKEY_TEMPLATE_REQ?$AA@ 00418280     sccp:sccpmsg.obj
+ 0002:00002298       ??_C@_0L@EMMAOAFP@UNREGISTER?$AA@ 00418298     sccp:sccpmsg.obj
+ 0002:000022a4       ??_C@_0O@HFJOGKNL@SOFTKEY_EVENT?$AA@ 004182a4     sccp:sccpmsg.obj
+ 0002:000022b4       ??_C@_0BA@EGNJEMBN@SOFTKEY_SET_REQ?$AA@ 004182b4     sccp:sccpmsg.obj
+ 0002:000022c4       ??_C@_0BC@BIOBHJGM@OFFHOOK_WITH_CGPN?$AA@ 004182c4     sccp:sccpmsg.obj
+ 0002:000022d8       ??_C@_0BK@FICIBEEG@CONNECTION_STATISTICS_RES?$AA@ 004182d8     sccp:sccpmsg.obj
+ 0002:000022f4       ??_C@_0BG@FNLCLHEJ@OPEN_RECV_CHANNEL_ACK?$AA@ 004182f4     sccp:sccpmsg.obj
+ 0002:0000230c       ??_C@_0BJ@NGKIBLG@MULTICAST_MEDIA_RECV_ACK?$AA@ 0041830c     sccp:sccpmsg.obj
+ 0002:00002328       ??_C@_05BOHNMGBD@ALARM?$AA@ 00418328     sccp:sccpmsg.obj
+ 0002:00002330       ??_C@_0L@JLJJOFEM@SERVER_REQ?$AA@ 00418330     sccp:sccpmsg.obj
+ 0002:0000233c       ??_C@_0BA@KBMNJHMO@MEDIA_PORT_LIST?$AA@ 0041833c     sccp:sccpmsg.obj
+ 0002:0000234c       ??_C@_0BB@JNNGJMJL@CAPABILITIES_RES?$AA@ 0041834c     sccp:sccpmsg.obj
+ 0002:00002360       ??_C@_0M@LJDIFDFA@VERSION_REQ?$AA@ 00418360     sccp:sccpmsg.obj
+ 0002:0000236c       ??_C@_0BE@KBNFNCFK@BUTTON_TEMPLATE_REQ?$AA@ 0041836c     sccp:sccpmsg.obj
+ 0002:00002380       ??_C@_0O@ILMHPNIF@TIME_DATE_REQ?$AA@ 00418380     sccp:sccpmsg.obj
+ 0002:00002390       ??_C@_0BA@OGALPGCD@CONFIG_STAT_REQ?$AA@ 00418390     sccp:sccpmsg.obj
+ 0002:000023a0       ??_C@_0O@KICEHPIP@LINE_STAT_REQ?$AA@ 004183a0     sccp:sccpmsg.obj
+ 0002:000023b0       ??_C@_0BD@ENGNLBJM@SPEEDDIAL_STAT_REQ?$AA@ 004183b0     sccp:sccpmsg.obj
+ 0002:000023c4       ??_C@_0BB@HHJMEKDL@FORWARD_STAT_REQ?$AA@ 004183c4     sccp:sccpmsg.obj
+ 0002:000023d8       ??_C@_0L@GPDFHCC@HOOK_FLASH?$AA@ 004183d8     sccp:sccpmsg.obj
+ 0002:000023e4       ??_C@_07FHAFFODF@OFFHOOK?$AA@ 004183e4     sccp:sccpmsg.obj
+ 0002:000023ec       ??_C@_08DLMAAHDE@STIMULUS?$AA@ 004183ec     sccp:sccpmsg.obj
+ 0002:000023f8       ??_C@_0M@GLAMIAPM@ENBLOC_CALL?$AA@ 004183f8     sccp:sccpmsg.obj
+ 0002:00002404       ??_C@_0O@DEBMKOEG@KEYPAD_BUTTON?$AA@ 00418404     sccp:sccpmsg.obj
+ 0002:00002414       ??_C@_07DIIJEPOL@IP_PORT?$AA@ 00418414     sccp:sccpmsg.obj
+ 0002:0000241c       ??_C@_08EINEADGI@REGISTER?$AA@ 0041841c     sccp:sccpmsg.obj
+ 0002:00002428       ??_C@_09PGKGJKNM@KEEPALIVE?$AA@ 00418428     sccp:sccpmsg.obj
+ 0002:00002434       ??_C@_0O@KLOFBNI@FileAuthError?$AA@ 00418434     sccp:sccpmsg.obj
+ 0002:00002444       ??_C@_0M@IIPPPNNE@Phone?9Abort?$AA@ 00418444     sccp:sccpmsg.obj
+ 0002:00002450       ??_C@_09BJFDFALE@DSP?5Error?$AA@ 00418450     sccp:sccpmsg.obj
+ 0002:0000245c       ??_C@_0CG@DCHMIIHO@Waiting?5for?5state?5?$CFd?5response?5fr@ 0041845c     sccp:sccpmsg.obj
+ 0002:00002484       ??_C@_0BH@HLBLPEEC@Waiting?5for?5?$CFs?5From?5?$CFs?$AA@ 00418484     sccp:sccpmsg.obj
+ 0002:0000249c       ??_C@_0M@GNHFPEHO@Last?$DN0x?$CF02X?$AA@ 0041849c     sccp:sccpmsg.obj
+ 0002:000024a8       ??_C@_0M@OJIBHFOA@Initialized?$AA@ 004184a8     sccp:sccpmsg.obj
+ 0002:000024b4       ??_C@_0O@BDIMKOHA@Phone?9Reg?9Rej?$AA@ 004184b4     sccp:sccpmsg.obj
+ 0002:000024c4       ??_C@_0O@NFGDPHBO@Reset?9Restart?$AA@ 004184c4     sccp:sccpmsg.obj
+ 0002:000024d4       ??_C@_0M@JEECBBLF@Reset?9Reset?$AA@ 004184d4     sccp:sccpmsg.obj
+ 0002:000024e0       ??_C@_0M@FHFGCKJA@Phone?9Re?9IP?$AA@ 004184e0     sccp:sccpmsg.obj
+ 0002:000024ec       ??_C@_0N@GGJGODFH@Phone?9Keypad?$AA@ 004184ec     sccp:sccpmsg.obj
+ 0002:000024fc       ??_C@_0L@ICAFEEJC@Phone?9Diag?$AA@ 004184fc     sccp:sccpmsg.obj
+ 0002:00002508       ??_C@_08GFNHIELA@Failback?$AA@ 00418508     sccp:sccpmsg.obj
+ 0002:00002514       ??_C@_0M@DKKHADCL@KeepaliveTO?$AA@ 00418514     sccp:sccpmsg.obj
+ 0002:00002520       ??_C@_08LBECDJEC@CM?9NAKed?$AA@ 00418520     sccp:sccpmsg.obj
+ 0002:0000252c       ??_C@_0BA@EHFCCEBK@CM?9ICMP?9Unreach?$AA@ 0041852c     sccp:sccpmsg.obj
+ 0002:0000253c       ??_C@_0O@DDPJIAJD@CM?9closed?9TCP?$AA@ 0041853c     sccp:sccpmsg.obj
+ 0002:0000254c       ??_C@_0P@GDOFFGOE@CM?9aborted?9TCP?$AA@ 0041854c     sccp:sccpmsg.obj
+ 0002:0000255c       ??_C@_0N@CJPLAGPD@CM?9reset?9TCP?$AA@ 0041855c     sccp:sccpmsg.obj
+ 0002:0000256c       ??_C@_0M@JAODHKIG@TCP?9Bad?9ACK?$AA@ 0041856c     sccp:sccpmsg.obj
+ 0002:00002578       ??_C@_0M@JHPHEHEI@TCP?9timeout?$AA@ 00418578     sccp:sccpmsg.obj
+ 0002:00002584       ??_C@_0L@DJKNJKHM@TFTP?5Error?$AA@ 00418584     sccp:sccpmsg.obj
+ 0002:00002590       ??_C@_0BC@ENFEPBD@TFTP?5Access?5Error?$AA@ 00418590     sccp:sccpmsg.obj
+ 0002:000025a4       ??_C@_0N@EFLCLNGI@TFTP?5Timeout?$AA@ 004185a4     sccp:sccpmsg.obj
+ 0002:000025b4       ??_C@_0P@HJNGBKMO@File?5Not?5Found?$AA@ 004185b4     sccp:sccpmsg.obj
+ 0002:000025c4       ??_C@_0BD@CAPBCLPL@ROM?5Checksum?5Error?$AA@ 004185c4     sccp:sccpmsg.obj
+ 0002:000025d8       ??_C@_0BA@CFECMAGG@Disk?5Full?5Error?$AA@ 004185d8     sccp:sccpmsg.obj
+ 0002:000025e8       ??_C@_0O@KKCHHJBD@Version?5Error?$AA@ 004185e8     sccp:sccpmsg.obj
+ 0002:000025f8       ??_C@_0BH@IOPGJEPF@Compression?5Type?5Error?$AA@ 004185f8     sccp:sccpmsg.obj
+ 0002:00002610       ??_C@_0BA@HFJHKKFA@TFTP?5Size?5Error?$AA@ 00418610     sccp:sccpmsg.obj
+ 0002:00002620       ??_C@_0BB@MCPKOBKJ@Load?5Rejected?5HC?$AA@ 00418620     sccp:sccpmsg.obj
+ 0002:00002634       ??_C@_01CLKCMJKC@?5?$AA@   00418634     sccp:sccpmsg.obj
+ 0002:00002638       ??_C@_02BAABKJLB@?9?9?$AA@ 00418638     sccp:sccpmsg.obj
+ 0002:0000263c       ??_C@_04NOJCDH@?$CF02x?$AA@ 0041863c     sccp:sccpmsg.obj
+ 0002:00002644       ??_C@_0CB@CBNFHHF@?$CFs?5?5?5?5?5?5?3?5?$CF?920s?3?5?$FL?$CFd?$FN?5ERROR?$DN?5?$CFd?6@ 00418644     sccp:sccpmsg.obj
+ 0002:00002668       ??_C@_0CF@BKKBILOO@?$CFs?5?5?5?5?5?5?3?5?$CF?920s?3?5?$FL?$CFd?$FN?5?$CF?98s?5?9?$DO?5?$CF?9@ 00418668     sccp:sccpmsg.obj
+ 0002:00002690       ??_C@_0EJ@BBGBFGIN@?$CFs?5?5?5?5?5?5?3?5?$CF?920s?3?5?$FL?$CFd?$FN?5STATUS?3?5In@ 00418690     sccp:sccpmsg.obj
+ 0002:000026dc       ??_C@_0N@EHCNMEMF@send_message?$AA@ 004186dc     sccp:sccpmsg.obj
+ 0002:000026ec       ??_C@_0CJ@HNALJOAK@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5call_id?$DN?50x?$CFx?0?5l@ 004186ec     sccp:sccpmsg.obj
+ 0002:00002718       ??_C@_0BC@PIMGGDLN@get_sccp_msg_data?$AA@ 00418718     sccp:sccpmsg.obj
+ 0002:0000272c       ??_C@_0CE@OEBBCFKA@?$CFd?3?5Name?$DN?$CFs?$CFs?5Load?$DN3?43?$CI2?40?$CJ?5Last@ 0041872c     sccp:sccpmsg.obj
+ 0002:00002750       ??_C@_03MLOJJCNA@SEP?$AA@  00418750     sccp:sccpmsg.obj
+ 0002:00002754       ??_C@_0CG@OLLPCDEK@?$CFs?3am_init?3?5ERROR?3?5sccp_init?3?5rc@ 00418754     sccp:am.obj
+ 0002:0000277c       ??_C@_02LJPLACFK@yo?$AA@   0041877c     sccp:am.obj
+ 0002:00002780       ??_C@_05MHNPJFOH@pool4?$AA@ 00418780     sccp:sccp.obj
+ 0002:00002788       ??_C@_05IIJOADCA@pool3?$AA@ 00418788     sccp:sccp.obj
+ 0002:00002790       ??_C@_05JBIFDCGB@pool2?$AA@ 00418790     sccp:sccp.obj
+ 0002:00002798       ??_C@_05LKKIGBKC@pool1?$AA@ 00418798     sccp:sccp.obj
+ 0002:000027a0       ??_C@_0BJ@LANDOLMO@?$CFs?3?5Invalid?5address?$DN?5?$CFp?6?$AA@ 004187a0     sccp:sccp.obj
+ 0002:000027bc       ??_C@_07IILDMBCC@SCCP?5?5?5?$AA@ 004187bc     sccp:sccp.obj
+ 0002:000027c4       ??_C@_0DE@EMJCKBIJ@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5Unable?5to?5add?5qu@ 004187c4     sccp:sccp.obj
+ 0002:000027f8       ??_C@_0DM@PNOJHDIA@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5Unable?5to?5alloca@ 004187f8     sccp:sccp.obj
+ 0002:00002834       ??_C@_0O@JJBJHOGF@get_new_event?$AA@ 00418834     sccp:sccp.obj
+ 0002:00002844       ??_C@_05GLJKJNFA@oops?6?$AA@ 00418844     sccp:sccp.obj
+ 0002:0000284c       ??_C@_0BL@MNEJCMJB@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5?$CFs?5?$DM?9?5?$CFs?4?6?$AA@ 0041884c     sccp:sccp.obj
+ 0002:00002868       ??_C@_0EB@IFBCGHED@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5Unable?5to?5alloca@ 00418868     sccp:sccp.obj
+ 0002:000028ac       ??_C@_0L@EOMOFJBD@push_event?$AA@ 004188ac     sccp:sccp.obj
+ 0002:000028b8       ??_C@_0CP@EPJEDHMP@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5recv?$FL?$CFi?$FN?5?$DM?9?5?$CFs?$FL0@ 004188b8     sccp:sccp.obj
+ 0002:000028e8       ??_C@_0DM@IBOJJFG@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5ERROR?3?5SCCP?5mess@ 004188e8     sccp:sccp.obj
+ 0002:00002924       ??_C@_08PHCJDKP@push_tcp?$AA@ 00418924     sccp:sccp.obj
+ 0002:00002930       ??_C@_0DB@GPEJBDBD@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5ERROR?3?5size?5?$DO?5bu@ 00418930     sccp:sccp.obj
+ 0002:00002964       ??_C@_0CP@KAJGBMBE@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5ERROR?3?5msg?5is?5NU@ 00418964     sccp:sccp.obj
+ 0002:00002994       ??_C@_08EHHDKLEO@tcp_recv?$AA@ 00418994     sccp:sccp.obj
+ 0002:000029a0       ??_C@_0CI@LKLJHEBJ@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5invalid?5sccpcb?$DN?5@ 004189a0     sccp:sccp.obj
+ 0002:000029c8       ??_C@_08KFCNCBMF@tcp_main?$AA@ 004189c8     sccp:sccp.obj
+ 0002:000029d4       ??_C@_0BM@JPHIKFJM@?$CFs?5?$CF?95d?3?5?$CF?920s?3?5cb?$DN?50x?$CF08x?6?$AA@ 004189d4     sccp:sccp.obj
+ 0002:000029f0       ??_C@_0CF@GIGLBGPF@?$CFs?3?5?$CF?920s?3?5cmcbs?5list?5create?5fai@ 004189f0     sccp:sccp.obj
+ 0002:00002a18       ??_C@_05MHCNPNMC@cmcbs?$AA@ 00418a18     sccp:sccp.obj
+ 0002:00002a20       ??_C@_0CF@CPLLOJOE@?$CFs?3?5?$CF?920s?3?5cccbs?5list?5create?5fai@ 00418a20     sccp:sccp.obj
+ 0002:00002a48       ??_C@_05HIBNEDKD@cccbs?$AA@ 00418a48     sccp:sccp.obj
+ 0002:00002a50       ??_C@_0CG@GDBEEHNG@?$CFs?3?5?$CF?920s?3?5events?5list?5create?5fa@ 00418a50     sccp:sccp.obj
+ 0002:00002a78       ??_C@_0P@BLHANPKJ@get_new_sccpcb?$AA@ 00418a78     sccp:sccp.obj
+ 0002:00002a88       ??_C@_06LLKHDPKL@events?$AA@ 00418a88     sccp:sccp.obj
+ 0002:00002a90       ??_C@_07BDDMBADA@sccpcbs?$AA@ 00418a90     sccp:sccp.obj
+ 0002:00002a98       ??_C@_02CHHAKFFB@w?$CL?$AA@ 00418a98     sccp:sccp_platform.obj
+ 0002:00002a9c       ??_C@_05KJDPJACP@?$FL?$CFs?$FN?5?$AA@ 00418a9c     sccp:sccp_platform.obj
+ 0002:00002aa4       ??_C@_07FOPLOKJH@sem?4txt?$AA@ 00418aa4     sccp:sccp_platform.obj
+ 0002:00002aac       ??_C@_0BD@FBALEOCE@sem_token_retry_to?$AA@ 00418aac     sccp:sccpcm.obj
+ 0002:00002ac0       ??_C@_0O@EGNPFNBG@sem_token_rej?$AA@ 00418ac0     sccp:sccpcm.obj
+ 0002:00002ad0       ??_C@_0P@MEDPBDAM@sem_registered?$AA@ 00418ad0     sccp:sccpcm.obj
+ 0002:00002ae0       ??_C@_0BK@GHCJBELK@sccpcm_sem_lockout_ka_ack?$AA@ 00418ae0     sccp:sccpcm.obj
+ 0002:00002afc       ??_C@_0BM@IBEBEHON@sem_lockout_timeout_lockout?$AA@ 00418afc     sccp:sccpcm.obj
+ 0002:00002b18       ??_C@_0BH@NEENCPGB@sem_lockout_timeout_ka?$AA@ 00418b18     sccp:sccpcm.obj
+ 0002:00002b30       ??_C@_0O@CMAPANEN@sem_keepalive?$AA@ 00418b30     sccp:sccpcm.obj
+ 0002:00002b40       ??_C@_0P@OBPJHBED@sem_tcp_events?$AA@ 00418b40     sccp:sccpcm.obj
+ 0002:00002b50       ??_C@_0BG@KFBNPDMJ@sem_wf_reg_res_ka_ack?$AA@ 00418b50     sccp:sccpcm.obj
+ 0002:00002b68       ??_C@_0BL@GCEHDEJ@sem_wf_unreg_res_unreg_nak?$AA@ 00418b68     sccp:sccpcm.obj
+ 0002:00002b84       ??_C@_0BL@FNMDLHHB@sem_wf_unreg_res_unreg_ack?$AA@ 00418b84     sccp:sccpcm.obj
+ 0002:00002ba0       ??_C@_0BJ@JFKDBADF@sem_wf_unreg_res_timeout?$AA@ 00418ba0     sccp:sccpcm.obj
+ 0002:00002bbc       ??_C@_0BH@DDICPGDI@sem_wf_unreg_res_error?$AA@ 00418bbc     sccp:sccpcm.obj
+ 0002:00002bd4       ??_C@_0BN@PGAFANOF@sem_wf_reg_res_wf_reg_res_to?$AA@ 00418bd4     sccp:sccpcm.obj
+ 0002:00002bf4       ??_C@_0BH@NPGGIHFB@sem_wf_reg_res_timeout?$AA@ 00418bf4     sccp:sccpcm.obj
+ 0002:00002c0c       ??_C@_0BH@PKGKAFLE@sem_wf_reg_res_reg_nak?$AA@ 00418c0c     sccp:sccpcm.obj
+ 0002:00002c24       ??_C@_0BH@KBINMBIM@sem_wf_reg_res_reg_ack?$AA@ 00418c24     sccp:sccpcm.obj
+ 0002:00002c3c       ??_C@_0BJ@HIJCDHBD@sem_wf_con_retry_timeout?$AA@ 00418c3c     sccp:sccpcm.obj
+ 0002:00002c58       ??_C@_0BJ@MDBLDAOF@sem_wf_con_retry_con_req?$AA@ 00418c58     sccp:sccpcm.obj
+ 0002:00002c74       ??_C@_0BH@FOHAKKAI@sem_wf_con_res_timeout?$AA@ 00418c74     sccp:sccpcm.obj
+ 0002:00002c8c       ??_C@_0BF@IHDIGOIB@sem_wf_con_res_error?$AA@ 00418c8c     sccp:sccpcm.obj
+ 0002:00002ca4       ??_C@_0BJ@LMAOHICM@sem_wf_con_res_con_retry?$AA@ 00418ca4     sccp:sccpcm.obj
+ 0002:00002cc0       ??_C@_0BH@BDPFNDOG@sem_wf_con_res_con_ack?$AA@ 00418cc0     sccp:sccpcm.obj
+ 0002:00002cd8       ??_C@_0O@FDKLJCDJ@sem_unreg_req?$AA@ 00418cd8     sccp:sccpcm.obj
+ 0002:00002ce8       ??_C@_0BE@LCCCIKIK@sem_token_unreg_nak?$AA@ 00418ce8     sccp:sccpcm.obj
+ 0002:00002cfc       ??_C@_0BH@OMGLGFCB@sem_registered_timeout?$AA@ 00418cfc     sccp:sccpcm.obj
+ 0002:00002d14       ??_C@_0BH@KFNPKFJE@sem_registered_lockout?$AA@ 00418d14     sccp:sccpcm.obj
+ 0002:00002d2c       ??_C@_0BF@PPGOLACE@sem_registered_error?$AA@ 00418d2c     sccp:sccpcm.obj
+ 0002:00002d44       ??_C@_0BB@PNHJMFAC@sem_idle_con_req?$AA@ 00418d44     sccp:sccpcm.obj
+ 0002:00002d58       ??_C@_0P@PCPMLICJ@sem_do_nothing?$AA@ 00418d58     sccp:sccpcm.obj
+ 0002:00002d68       ??_C@_0BF@KPHLMCPA@sem_connected_ka_ack?$AA@ 00418d68     sccp:sccpcm.obj
+ 0002:00002d80       ??_C@_0BG@IAGJGJGI@sem_connected_timeout?$AA@ 00418d80     sccp:sccpcm.obj
+ 0002:00002d98       ??_C@_0BJ@CNPPLFNI@sem_connected_send_token?$AA@ 00418d98     sccp:sccpcm.obj
+ 0002:00002db4       ??_C@_0BG@IIOFBKN@sem_connected_reg_req?$AA@ 00418db4     sccp:sccpcm.obj
+ 0002:00002dcc       ??_C@_0BJ@CDKALLBJ@sem_connected_recv_token?$AA@ 00418dcc     sccp:sccpcm.obj
+ 0002:00002de8       ??_C@_0BG@MJNNKJNN@sem_connected_lockout?$AA@ 00418de8     sccp:sccpcm.obj
+ 0002:00002e00       ??_C@_0BJ@KMAAACID@sem_connected_discon_req?$AA@ 00418e00     sccp:sccpcm.obj
+ 0002:00002e1c       ??_C@_0M@NOCAPACI@sem_default?$AA@ 00418e1c     sccp:sccpcm.obj
+ 0002:00002e28       ??_C@_0O@MOHKKFMN@T_TOKEN_RETRY?$AA@ 00418e28     sccp:sccpcm.obj
+ 0002:00002e38       ??_C@_09BMCIMANE@T_LOCKOUT?$AA@ 00418e38     sccp:sccpcm.obj
+ 0002:00002e44       ??_C@_0P@HLDHNHFO@T_WF_UNREG_RES?$AA@ 00418e44     sccp:sccpcm.obj
+ 0002:00002e54       ??_C@_0N@DHHAFKDO@T_WF_REG_RES?$AA@ 00418e54     sccp:sccpcm.obj
+ 0002:00002e64       ??_C@_0M@FAOFENII@T_WF_KA_ACK?$AA@ 00418e64     sccp:sccpcm.obj
+ 0002:00002e70       ??_C@_0P@BBOAMLPO@T_WF_CON_RETRY?$AA@ 00418e70     sccp:sccpcm.obj
+ 0002:00002e80       ??_C@_0N@EBOGFAN@T_WF_CON_RES?$AA@ 00418e80     sccp:sccpcm.obj
+ 0002:00002e90       ??_C@_0BC@IGOKNJPE@ERROR_REGISTER_TO?$AA@ 00418e90     sccp:sccpcm.obj
+ 0002:00002ea4       ??_C@_0BG@PLNPOHEO@ERROR_REGISTER_REJECT?$AA@ 00418ea4     sccp:sccpcm.obj
+ 0002:00002ebc       ??_C@_0BA@OFPFLBBK@ERROR_TCP_CLOSE?$AA@ 00418ebc     sccp:sccpcm.obj
+ 0002:00002ecc       ??_C@_0BE@GGPOFEFE@ERROR_CLOSE_ALL_NOW?$AA@ 00418ecc     sccp:sccpcm.obj
+ 0002:00002ee0       ??_C@_0BD@OCNAJIPK@ERROR_NO_UNREG_ACK?$AA@ 00418ee0     sccp:sccpcm.obj
+ 0002:00002ef4       ??_C@_0P@GKIBOBAD@ERROR_SHUTDOWN?$AA@ 00418ef4     sccp:sccpcm.obj
+ 0002:00002f04       ??_C@_0BA@HBAOEMMK@ERROR_NO_KA_ACK?$AA@ 00418f04     sccp:sccpcm.obj
+ 0002:00002f14       ??_C@_0BG@BGEHBOAI@ERROR_CANT_SEND_TOKEN?$AA@ 00418f14     sccp:sccpcm.obj
+ 0002:00002f2c       ??_C@_0O@MCOPAPE@ERROR_TCP_NAK?$AA@ 00418f2c     sccp:sccpcm.obj
+ 0002:00002f3c       ??_C@_0BE@BOLODDKD@ERROR_CANT_OPEN_TCP?$AA@ 00418f3c     sccp:sccpcm.obj
+ 0002:00002f50       ??_C@_0BF@EHKNCDPP@ERROR_NULL_ADDR_PORT?$AA@ 00418f50     sccp:sccpcm.obj
+ 0002:00002f68       ??_C@_0BD@MPGDGDMG@ERROR_CANT_SEND_KA?$AA@ 00418f68     sccp:sccpcm.obj
+ 0002:00002f7c       ??_C@_0BE@JBACNDFK@ERROR_DR_PRI_REG_TO?$AA@ 00418f7c     sccp:sccpcm.obj
+ 0002:00002f90       ??_C@_0BA@PJNBGJBC@E_WF_REG_RES_TO?$AA@ 00418f90     sccp:sccpcm.obj
+ 0002:00002fa0       ??_C@_07KBALDEEF@E_KA_TO?$AA@ 00418fa0     sccp:sccpcm.obj
+ 0002:00002fa8       ??_C@_0N@JCGEFHEJ@E_LOCKOUT_TO?$AA@ 00418fa8     sccp:sccpcm.obj
+ 0002:00002fb8       ??_C@_0BB@OFBKENDP@E_TOKEN_RETRY_TO?$AA@ 00418fb8     sccp:sccpcm.obj
+ 0002:00002fcc       ??_C@_0M@IGGOKCJI@E_TOKEN_REJ?$AA@ 00418fcc     sccp:sccpcm.obj
+ 0002:00002fd8       ??_C@_0M@HNMEJKIF@E_CONNECTED?$AA@ 00418fd8     sccp:sccpcm.obj
+ 0002:00002fe4       ??_C@_07IOFGHMLD@E_RESET?$AA@ 00418fe4     sccp:sccpcm.obj
+ 0002:00002fec       ??_C@_0BA@HLAJILIF@E_KEEPALIVE_ACK?$AA@ 00418fec     sccp:sccpcm.obj
+ 0002:00002ffc       ??_C@_09HJDNEHFG@E_REG_NAK?$AA@ 00418ffc     sccp:sccpcm.obj
+ 0002:00003008       ??_C@_09CCNKIDGO@E_REG_ACK?$AA@ 00419008     sccp:sccpcm.obj
+ 0002:00003014       ??_C@_0N@IAGHCNFJ@E_TCP_EVENTS?$AA@ 00419014     sccp:sccpcm.obj
+ 0002:00003024       ??_C@_0M@DOPBNHJH@E_UNREG_NAK?$AA@ 00419024     sccp:sccpcm.obj
+ 0002:00003030       ??_C@_0M@GFBGBDKP@E_UNREG_ACK?$AA@ 00419030     sccp:sccpcm.obj
+ 0002:0000303c       ??_C@_0M@MLPLBDJF@E_CON_RETRY?$AA@ 0041903c     sccp:sccpcm.obj
+ 0002:00003048       ??_C@_09BBLELMFN@E_CON_ACK?$AA@ 00419048     sccp:sccpcm.obj
+ 0002:00003054       ??_C@_09NEEECKAC@E_LOCKOUT?$AA@ 00419054     sccp:sccpcm.obj
+ 0002:00003060       ??_C@_09JNPAOKLH@E_TIMEOUT?$AA@ 00419060     sccp:sccpcm.obj
+ 0002:0000306c       ??_C@_0M@JDBKGNLH@E_UNREG_REQ?$AA@ 0041906c     sccp:sccpcm.obj
+ 0002:00003078       ??_C@_0N@FMNHCNEA@E_REGISTERED?$AA@ 00419078     sccp:sccpcm.obj
+ 0002:00003088       ??_C@_09NENGPNHG@E_REG_REQ?$AA@ 00419088     sccp:sccpcm.obj
+ 0002:00003094       ??_C@_0N@POEONNIB@E_RECV_TOKEN?$AA@ 00419094     sccp:sccpcm.obj
+ 0002:000030a4       ??_C@_0N@PABBNDEA@E_SEND_TOKEN?$AA@ 004190a4     sccp:sccpcm.obj
+ 0002:000030b4       ??_C@_0N@HPJCHCID@E_DISCON_REQ?$AA@ 004190b4     sccp:sccpcm.obj
+ 0002:000030c4       ??_C@_07KBDEEADH@E_ERROR?$AA@ 004190c4     sccp:sccpcm.obj
+ 0002:000030cc       ??_C@_0M@CNHPNNMH@E_KEEPALIVE?$AA@ 004190cc     sccp:sccpcm.obj
+ 0002:000030d8       ??_C@_08CELKHAEA@E_CNTREG?$AA@ 004190d8     sccp:sccpcm.obj
+ 0002:000030e4       ??_C@_09OHLIMCEF@E_CON_REQ?$AA@ 004190e4     sccp:sccpcm.obj
+ 0002:000030f0       ??_C@_09POPENLKN@S_LOCKOUT?$AA@ 004190f0     sccp:sccpcm.obj
+ 0002:000030fc       ??_C@_0P@OADGNIEE@S_WF_UNREG_RES?$AA@ 004190fc     sccp:sccpcm.obj
+ 0002:0000310c       ??_C@_0P@IKOBMEOE@S_WF_CON_RETRY?$AA@ 0041910c     sccp:sccpcm.obj
+ 0002:0000311c       ??_C@_0N@EKADFMGG@S_WF_REG_RES?$AA@ 0041911c     sccp:sccpcm.obj
+ 0002:0000312c       ??_C@_07INOLDKAI@S_TOKEN?$AA@ 0041912c     sccp:sccpcm.obj
+ 0002:00003134       ??_C@_0N@HJGNGDFF@S_WF_CON_RES?$AA@ 00419134     sccp:sccpcm.obj
+ 0002:00003144       ??_C@_06DIGNFDDP@S_IDLE?$AA@ 00419144     sccp:sccpcm.obj
+ 0002:0000314c       ??_C@_07OBCPMBLM@SCCPCM?5?$AA@ 0041914c     sccp:sccpcm.obj
+ 0002:00003154       ??_C@_0BG@GKNALCDF@CM?$FL?$CFd?$FN?5?$CFd?4?$CFd?4?$CFd?4?$CFd?3?$CFd?$AA@ 00419154     sccp:sccpcm.obj
+ 0002:0000316c       ??_C@_0BP@NJKFGMIG@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?5?$DM?9?5?$CFs?6?$AA@ 0041916c     sccp:sccpcm.obj
+ 0002:0000318c       ??_C@_0BP@JNEOILMJ@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?5?9?$DO?5?$CFs?6?$AA@ 0041918c     sccp:sccpcm.obj
+ 0002:000031ac       ??_C@_0CD@OCIHMJNM@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5cmcb?$DN?50x?$CF08@ 004191ac     sccp:sccpcm.obj
+ 0002:000031d0       ??_C@_0BB@INAEIDGP@get_primary_cmcb?$AA@ 004191d0     sccp:sccpcm.obj
+ 0002:000031e4       ??_C@_0BD@MEIFOPIA@get_primary_socket?$AA@ 004191e4     sccp:sccpcm.obj
+ 0002:000031f8       ??_C@_0BC@EEMFPMDO@get_primary_index?$AA@ 004191f8     sccp:sccpcm.obj
+ 0002:0000320c       ??_C@_0BD@FBLELHDB@get_secondary_cmcb?$AA@ 0041920c     sccp:sccpcm.obj
+ 0002:00003220       ??_C@_0BE@MIMKDAPJ@get_secondary_index?$AA@ 00419220     sccp:sccpcm.obj
+ 0002:00003234       ??_C@_0BD@LEMFIKIJ@get_cmcb_by_socket?$AA@ 00419234     sccp:sccpcm.obj
+ 0002:00003248       ??_C@_0BC@GOFEHKDL@get_cmcb_by_index?$AA@ 00419248     sccp:sccpcm.obj
+ 0002:0000325c       ??_C@_0BN@JHFFLNME@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?50x?$CF08x?6?$AA@ 0041925c     sccp:sccpcm.obj
+ 0002:0000327c       ??_C@_0L@GIMFHODC@stop_timer?$AA@ 0041927c     sccp:sccpcm.obj
+ 0002:00003288       ??_C@_0CB@FMNEMEKG@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5do?5nothing?6@ 00419288     sccp:sccpcm.obj
+ 0002:000032ac       ??_C@_0CA@CAEAIPKO@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5event?$DN?5?$CFd?6?$AA@ 004192ac     sccp:sccpcm.obj
+ 0002:000032cc       ??_C@_0CE@DGAOOOGF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5error?$DN?5@ 004192cc     sccp:sccpcm.obj
+ 0002:000032f0       ??_C@_0CM@BGMJOKO@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5unable?5@ 004192f0     sccp:sccpcm.obj
+ 0002:0000331c       ??_C@_0DA@PCGBGMAM@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5registe@ 0041931c     sccp:sccpcm.obj
+ 0002:0000334c       ??_C@_0BN@JNEPJBBO@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5?$CFs?6?$AA@ 0041934c     sccp:sccpcm.obj
+ 0002:0000336c       ??_C@_0CB@EBFNCLKE@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?50x?$CF08x?6@ 0041936c     sccp:sccpcm.obj
+ 0002:00003390       ??_C@_0BB@GCJDAJN@timeout_callback?$AA@ 00419390     sccp:sccpcm.obj
+ 0002:000033a4       ??_C@_0CH@GIBEEDNB@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?50x?$CF08x?3@ 004193a4     sccp:sccpcm.obj
+ 0002:000033cc       ??_C@_0M@BKDKKOEG@start_timer?$AA@ 004193cc     sccp:sccpcm.obj
+ 0002:000033d8       ??_C@_0CE@FBKGNAIB@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5connect@ 004193d8     sccp:sccpcm.obj
+ 0002:000033fc       ??_C@_0CE@PLHLBJMD@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5retry?$DN?5@ 004193fc     sccp:sccpcm.obj
+ 0002:00003420       ??_C@_0CF@HFHFMDPH@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5registe@ 00419420     sccp:sccpcm.obj
+ 0002:00003448       ??_C@_0BJ@JPKHACG@sem_devicetouserdata_res?$AA@ 00419448     sccp:sccpcc.obj
+ 0002:00003464       ??_C@_0BJ@DLMMBCKE@sem_devicetouserdata_req?$AA@ 00419464     sccp:sccpcc.obj
+ 0002:00003480       ??_C@_0M@DHGKEDCJ@sem_cleanup?$AA@ 00419480     sccp:sccpcc.obj
+ 0002:0000348c       ??_C@_0P@JNFIIJOP@sem_cs_release?$AA@ 0041948c     sccp:sccpcc.obj
+ 0002:0000349c       ??_C@_0P@HIIAHABG@sem_or_release?$AA@ 0041949c     sccp:sccpcc.obj
+ 0002:000034ac       ??_C@_0BI@PGOLNPAH@sem_ia_release_complete?$AA@ 004194ac     sccp:sccpcc.obj
+ 0002:000034c4       ??_C@_0BE@BKGGMFNP@sem_ic_cs_connected?$AA@ 004194c4     sccp:sccpcc.obj
+ 0002:000034d8       ??_C@_0BE@OBHBBNKK@sem_oa_cs_connected?$AA@ 004194d8     sccp:sccpcc.obj
+ 0002:000034ec       ??_C@_0BA@IACMAIIH@sem_cs_alerting?$AA@ 004194ec     sccp:sccpcc.obj
+ 0002:000034fc       ??_C@_0BC@HNMIDEDA@sem_cs_proceeding?$AA@ 004194fc     sccp:sccpcc.obj
+ 0002:00003510       ??_C@_0N@EDILGFEN@sem_cs_setup?$AA@ 00419510     sccp:sccpcc.obj
+ 0002:00003520       ??_C@_0P@HJGFFAPG@sem_cs_offhook?$AA@ 00419520     sccp:sccpcc.obj
+ 0002:00003530       ??_C@_0BA@JPNJJIEP@sem_xxx_offhook?$AA@ 00419530     sccp:sccpcc.obj
+ 0002:00003540       ??_C@_0BA@DADLOKHE@sem_feature_req?$AA@ 00419540     sccp:sccpcc.obj
+ 0002:00003550       ??_C@_0BF@LIIJCCPM@sem_idle_feature_req?$AA@ 00419550     sccp:sccpcc.obj
+ 0002:00003568       ??_C@_0BA@DOCOFMCN@sem_openrcv_res?$AA@ 00419568     sccp:sccpcc.obj
+ 0002:00003578       ??_C@_09ODJAGPGJ@sem_media?$AA@ 00419578     sccp:sccpcc.obj
+ 0002:00003584       ??_C@_0P@GGNCOFNB@sem_call_state?$AA@ 00419584     sccp:sccpcc.obj
+ 0002:00003594       ??_C@_0O@NLIEILLN@sem_update_ui?$AA@ 00419594     sccp:sccpcc.obj
+ 0002:000035a4       ??_C@_0L@IPIIPNEF@sem_digits?$AA@ 004195a4     sccp:sccpcc.obj
+ 0002:000035b0       ??_C@_0M@EPAKJDKO@sem_offhook?$AA@ 004195b0     sccp:sccpcc.obj
+ 0002:000035bc       ??_C@_0BF@FEHGDJME@sem_release_complete?$AA@ 004195bc     sccp:sccpcc.obj
+ 0002:000035d4       ??_C@_0M@KLDHEKLH@sem_release?$AA@ 004195d4     sccp:sccpcc.obj
+ 0002:000035e0       ??_C@_0M@EFNDKDGB@sem_connect?$AA@ 004195e0     sccp:sccpcc.obj
+ 0002:000035ec       ??_C@_09MMLACCBJ@sem_setup?$AA@ 004195ec     sccp:sccpcc.obj
+ 0002:000035f8       ??_C@_0L@EPPNGGBL@E_PASSTHRU?$AA@ 004195f8     sccp:sccpcc.obj
+ 0002:00003604       ??_C@_0BE@GPKJKNID@E_DEVTOUSERDATA_RES?$AA@ 00419604     sccp:sccpcc.obj
+ 0002:00003618       ??_C@_0BE@FNJPMPAB@E_DEVTOUSERDATA_REQ?$AA@ 00419618     sccp:sccpcc.obj
+ 0002:0000362c       ??_C@_09HMLFHLOO@E_CLEANUP?$AA@ 0041962c     sccp:sccpcc.obj
+ 0002:00003638       ??_C@_07HLGDPFIF@E_TIMER?$AA@ 00419638     sccp:sccpcc.obj
+ 0002:00003640       ??_C@_0O@BFJJLCAO@E_OPENRCV_RES?$AA@ 00419640     sccp:sccpcc.obj
+ 0002:00003650       ??_C@_07IPLHLMKL@E_MEDIA?$AA@ 00419650     sccp:sccpcc.obj
+ 0002:00003658       ??_C@_0M@HKMGPEAJ@E_UPDATE_UI?$AA@ 00419658     sccp:sccpcc.obj
+ 0002:00003664       ??_C@_0N@IHEBDFAA@E_CS_RELEASE?$AA@ 00419664     sccp:sccpcc.obj
+ 0002:00003674       ??_C@_0P@LKEDFAOJ@E_CS_CONNECTED?$AA@ 00419674     sccp:sccpcc.obj
+ 0002:00003684       ??_C@_0O@CFAHMKHA@E_CS_ALERTING?$AA@ 00419684     sccp:sccpcc.obj
+ 0002:00003694       ??_C@_0BA@POJGCHLP@E_CS_PROCEEDING?$AA@ 00419694     sccp:sccpcc.obj
+ 0002:000036a4       ??_C@_0L@BMPJPAFI@E_CS_SETUP?$AA@ 004196a4     sccp:sccpcc.obj
+ 0002:000036b0       ??_C@_0N@GDHMOMBJ@E_CS_OFFHOOK?$AA@ 004196b0     sccp:sccpcc.obj
+ 0002:000036c0       ??_C@_0N@DBIHOCAB@E_CALL_STATE?$AA@ 004196c0     sccp:sccpcc.obj
+ 0002:000036d0       ??_C@_0O@BLIMAEFH@E_FEATURE_REQ?$AA@ 004196d0     sccp:sccpcc.obj
+ 0002:000036e0       ??_C@_08GPAKFNKI@E_DIGITS?$AA@ 004196e0     sccp:sccpcc.obj
+ 0002:000036ec       ??_C@_08EFFLCFCP@E_ONHOOK?$AA@ 004196ec     sccp:sccpcc.obj
+ 0002:000036f8       ??_C@_09ENFKLGJ@E_OFFHOOK?$AA@ 004196f8     sccp:sccpcc.obj
+ 0002:00003704       ??_C@_0BD@JJEAKIKJ@E_RELEASE_COMPLETE?$AA@ 00419704     sccp:sccpcc.obj
+ 0002:00003718       ??_C@_09OAOIHCHA@E_RELEASE?$AA@ 00419718     sccp:sccpcc.obj
+ 0002:00003724       ??_C@_0N@JGCGCLGA@E_DISCONNECT?$AA@ 00419724     sccp:sccpcc.obj
+ 0002:00003734       ??_C@_0O@CKPBLBNG@E_CONNECT_ACK?$AA@ 00419734     sccp:sccpcc.obj
+ 0002:00003744       ??_C@_09OAMJLKG@E_CONNECT?$AA@ 00419744     sccp:sccpcc.obj
+ 0002:00003750       ??_C@_0L@HFGFBCAL@E_ALERTING?$AA@ 00419750     sccp:sccpcc.obj
+ 0002:0000375c       ??_C@_0N@LKFFINAG@E_PROCEEDING?$AA@ 0041975c     sccp:sccpcc.obj
+ 0002:0000376c       ??_C@_0M@FFDPFKFP@E_SETUP_ACK?$AA@ 0041976c     sccp:sccpcc.obj
+ 0002:00003778       ??_C@_07KAJHPBNL@E_SETUP?$AA@ 00419778     sccp:sccpcc.obj
+ 0002:00003780       ??_C@_0BF@KFFMFEFO@S_INCOMING_RELEASING?$AA@ 00419780     sccp:sccpcc.obj
+ 0002:00003798       ??_C@_0BF@HKCLLND@S_OUTGOING_RELEASING?$AA@ 00419798     sccp:sccpcc.obj
+ 0002:000037b0       ??_C@_0BG@MFGHDAPK@S_INCOMING_CONNECTING?$AA@ 004197b0     sccp:sccpcc.obj
+ 0002:000037c8       ??_C@_0BE@PMDJPBLO@S_INCOMING_ALERTING?$AA@ 004197c8     sccp:sccpcc.obj
+ 0002:000037dc       ??_C@_0BE@GFKHAOJN@S_OUTGOING_ALERTING?$AA@ 004197dc     sccp:sccpcc.obj
+ 0002:000037f0       ??_C@_0BG@IJEPOMBH@S_OUTGOING_PROCEEDING?$AA@ 004197f0     sccp:sccpcc.obj
+ 0002:00003808       ??_C@_0BB@OJFOGNEO@S_CALL_INITIATED?$AA@ 00419808     sccp:sccpcc.obj
+ 0002:0000381c       ??_C@_07OLLBOMLG@SCCPCC?5?$AA@ 0041981c     sccp:sccpcc.obj
+ 0002:00003824       ??_C@_0CC@BHEIOCMB@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5?$CFs?5?$DM?9?5?$CFs@ 00419824     sccp:sccpcc.obj
+ 0002:00003848       ??_C@_0CC@FDKDAFIO@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5?$CFs?5?9?$DO?5?$CFs@ 00419848     sccp:sccpcc.obj
+ 0002:0000386c       ??_C@_0CG@GCAFPBHE@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5cccb?$DN?50x@ 0041986c     sccp:sccpcc.obj
+ 0002:00003894       ??_C@_0N@HPIALJF@get_new_cccb?$AA@ 00419894     sccp:sccpcc.obj
+ 0002:000038a4       ??_C@_0P@HIJDCFGO@get_cccb_by_id?$AA@ 004198a4     sccp:sccpcc.obj
+ 0002:000038b4       ??_C@_0BE@JMKIEEIN@get_cccb_by_call_id?$AA@ 004198b4     sccp:sccpcc.obj
+ 0002:000038c8       ??_C@_0BC@MJPJINDM@get_cccb_by_state?$AA@ 004198c8     sccp:sccpcc.obj
+ 0002:000038dc       ??_C@_0BI@OAFPPAON@get_cccb_by_state_media?$AA@ 004198dc     sccp:sccpcc.obj
+ 0002:000038f4       ??_C@_0BO@CAFPGLHM@get_cccb_by_passthru_party_id?$AA@ 004198f4     sccp:sccpcc.obj
+ 0002:00003914       ??_C@_0DO@DMCHNKLB@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5call_ref@ 00419914     sccp:sccpcc.obj
+ 0002:00003958       ??_C@_0EK@NIFAJLEE@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5conferen@ 00419958     sccp:sccpcc.obj
+ 0002:000039a4       ??_C@_0BE@EDHEOJJG@get_cccb_by_sccpmsg?$AA@ 004199a4     sccp:sccpcc.obj
+ 0002:000039b8       ??_C@_0CJ@HLMJECNH@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5feature_@ 004199b8     sccp:sccpcc.obj
+ 0002:000039e4       ??_C@_0BD@CLNABGL@sccpcc_feature_res?$AA@ 004199e4     sccp:sccpcc.obj
+ 0002:000039f8       ??_C@_0CB@GJLBPGPD@?$CFs?5?$CF?92d?3?$CF?93d?3?$CFd?3?5?$CF?920s?3?5msg?$DN?5?$CFs?6@ 004199f8     sccp:sccpcc.obj
+ 0002:00003a1c       ??_C@_0BL@OJNCDBGH@sccprec_sem_resetting_done?$AA@ 00419a1c     sccp:sccprec.obj
+ 0002:00003a38       ??_C@_0CB@GNBJAKGA@sccprec_sem_resetting_dev_notify@ 00419a38     sccp:sccprec.obj
+ 0002:00003a5c       ??_C@_0BG@CKEFCLDM@sem_resetting_timeout?$AA@ 00419a5c     sccp:sccprec.obj
+ 0002:00003a74       ??_C@_0O@HKMKGHDG@sem_reset_req?$AA@ 00419a74     sccp:sccprec.obj
+ 0002:00003a84       ??_C@_09OCHBKPHB@sem_reset?$AA@ 00419a84     sccp:sccprec.obj
+ 0002:00003a90       ??_C@_08JKFFCCHL@sem_open?$AA@ 00419a90     sccp:sccprec.obj
+ 0002:00003a9c       ??_C@_0BJ@KCOKDNKE@sem_make_sec_con_timeout?$AA@ 00419a9c     sccp:sccprec.obj
+ 0002:00003ab8       ??_C@_0BM@IKKHOGHH@sem_make_sec_con_dev_notify?$AA@ 00419ab8     sccp:sccprec.obj
+ 0002:00003ad4       ??_C@_0BJ@EBMCFHOH@sem_sec_opt_sec_optimize?$AA@ 00419ad4     sccp:sccprec.obj
+ 0002:00003af0       ??_C@_0BB@MFFJKJFA@sem_sec_optimize?$AA@ 00419af0     sccp:sccprec.obj
+ 0002:00003b04       ??_C@_0BH@ENLGJBL@sem_pri_reg_cm_timeout?$AA@ 00419b04     sccp:sccprec.obj
+ 0002:00003b1c       ??_C@_0BK@MLKMMHJG@sem_pri_reg_cm_dev_notify?$AA@ 00419b1c     sccp:sccprec.obj
+ 0002:00003b38       ??_C@_0BJ@OKLEHOOD@sem_pri_unreg_cm_reg_req?$AA@ 00419b38     sccp:sccprec.obj
+ 0002:00003b54       ??_C@_0BJ@GCFDEGCG@sem_pri_unreg_cm_timeout?$AA@ 00419b54     sccp:sccprec.obj
+ 0002:00003b70       ??_C@_0BM@BGGAICEM@sem_pri_unreg_cm_dev_notify?$AA@ 00419b70     sccp:sccprec.obj
+ 0002:00003b8c       ??_C@_0BI@GCABLMLL@sem_token_req_unreg_req?$AA@ 00419b8c     sccp:sccprec.obj
+ 0002:00003ba4       ??_C@_0BG@BHAIMEIJ@sem_token_req_timeout?$AA@ 00419ba4     sccp:sccprec.obj
+ 0002:00003bbc       ??_C@_0BJ@DBEIOKNB@sem_token_req_dev_notify?$AA@ 00419bbc     sccp:sccprec.obj
+ 0002:00003bd8       ??_C@_0BL@KPLMJLHG@sem_make_pri_con_unreg_req?$AA@ 00419bd8     sccp:sccprec.obj
+ 0002:00003bf4       ??_C@_0BL@BDPOJPMD@sem_make_pri_con_token_req?$AA@ 00419bf4     sccp:sccprec.obj
+ 0002:00003c10       ??_C@_0BJ@IGHGMDJI@sem_make_pri_con_timeout?$AA@ 00419c10     sccp:sccprec.obj
+ 0002:00003c2c       ??_C@_0BM@NEFAOJPL@sem_make_pri_con_dev_notify?$AA@ 00419c2c     sccp:sccprec.obj
+ 0002:00003c48       ??_C@_0BJ@GBKOPDPP@sem_pri_opt_pri_optimize?$AA@ 00419c48     sccp:sccprec.obj
+ 0002:00003c64       ??_C@_0BB@OCLMJJGJ@sem_pri_optimize?$AA@ 00419c64     sccp:sccprec.obj
+ 0002:00003c78       ??_C@_0BF@LPLBGHKP@sem_find_sec_timeout?$AA@ 00419c78     sccp:sccprec.obj
+ 0002:00003c90       ??_C@_0BI@DKBPDECJ@sem_find_sec_dev_notify?$AA@ 00419c90     sccp:sccprec.obj
+ 0002:00003ca8       ??_C@_0BH@NIIKHNDG@sem_sec_check_find_sec?$AA@ 00419ca8     sccp:sccprec.obj
+ 0002:00003cc0       ??_C@_0O@JBBMHIMF@sem_sec_check?$AA@ 00419cc0     sccp:sccprec.obj
+ 0002:00003cd0       ??_C@_0BF@FIMAPENO@sem_find_pri_timeout?$AA@ 00419cd0     sccp:sccprec.obj
+ 0002:00003ce8       ??_C@_0BI@BCECKONK@sem_find_pri_dev_notify?$AA@ 00419ce8     sccp:sccprec.obj
+ 0002:00003d00       ??_C@_0BH@HHEOIACL@sem_pri_check_find_pri?$AA@ 00419d00     sccp:sccprec.obj
+ 0002:00003d18       ??_C@_0O@CDEKPALG@sem_pri_check?$AA@ 00419d18     sccp:sccprec.obj
+ 0002:00003d28       ??_C@_08KFOGCIJ@sem_done?$AA@ 00419d28     sccp:sccprec.obj
+ 0002:00003d34       ??_C@_08EDBDDKCO@T_REJECT?$AA@ 00419d34     sccp:sccprec.obj
+ 0002:00003d40       ??_C@_0L@MBAONLD@T_WF_CLOSE?$AA@ 00419d40     sccp:sccprec.obj
+ 0002:00003d4c       ??_C@_0BG@DKLGBKFF@T_RETRY_UNREGISTER_TO?$AA@ 00419d4c     sccp:sccprec.obj
+ 0002:00003d64       ??_C@_0BF@NFCCFLLC@T_WF_RETRY_TOKEN_REQ?$AA@ 00419d64     sccp:sccprec.obj
+ 0002:00003d7c       ??_C@_0L@CBFODEBO@T_WF_TOKEN?$AA@ 00419d7c     sccp:sccprec.obj
+ 0002:00003d88       ??_C@_0BA@BMMEFDPM@T_WF_UNREGISTER?$AA@ 00419d88     sccp:sccprec.obj
+ 0002:00003d98       ??_C@_0O@FBDKHFCJ@T_WF_REGISTER?$AA@ 00419d98     sccp:sccprec.obj
+ 0002:00003da8       ??_C@_0N@NPJMFOGM@T_WF_CONNECT?$AA@ 00419da8     sccp:sccprec.obj
+ 0002:00003db8       ??_C@_0BA@OIJILGND@T_WF_REG_ACK_KA?$AA@ 00419db8     sccp:sccprec.obj
+ 0002:00003dc8       ??_C@_0O@BJJGPGF@T_WF_CALL_END?$AA@ 00419dc8     sccp:sccprec.obj
+ 0002:00003dd8       ??_C@_0O@POIJIMHE@T_DEVICE_POLL?$AA@ 00419dd8     sccp:sccprec.obj
+ 0002:00003de8       ??_C@_0M@IJPGEIL@T_RETRY_PRI?$AA@ 00419de8     sccp:sccprec.obj
+ 0002:00003df4       ??_C@_0O@HBHNNGBE@T_RETRY_NO_CM?$AA@ 00419df4     sccp:sccprec.obj
+ 0002:00003e04       ??_C@_0M@LKHLJILI@E_RESET_REQ?$AA@ 00419e04     sccp:sccprec.obj
+ 0002:00003e10       ??_C@_0M@KBCMAPDF@E_UNREG_RES?$AA@ 00419e10     sccp:sccprec.obj
+ 0002:00003e1c       ??_C@_09OGOAJPPE@E_REG_RES?$AA@ 00419e1c     sccp:sccprec.obj
+ 0002:00003e28       ??_C@_09NFIOKAMH@E_CON_RES?$AA@ 00419e28     sccp:sccprec.obj
+ 0002:00003e34       ??_C@_07BKHBNLAJ@E_CLOSE?$AA@ 00419e34     sccp:sccprec.obj
+ 0002:00003e3c       ??_C@_06IAHNCNOH@E_OPEN?$AA@ 00419e3c     sccp:sccprec.obj
+ 0002:00003e44       ??_C@_06BAHGGNBF@E_DONE?$AA@ 00419e44     sccp:sccprec.obj
+ 0002:00003e4c       ??_C@_0P@LKGAENII@E_SEC_OPTIMIZE?$AA@ 00419e4c     sccp:sccprec.obj
+ 0002:00003e5c       ??_C@_0M@CPFIGJAC@E_TOKEN_REQ?$AA@ 00419e5c     sccp:sccprec.obj
+ 0002:00003e68       ??_C@_0P@JNIFHNLB@E_PRI_OPTIMIZE?$AA@ 00419e68     sccp:sccprec.obj
+ 0002:00003e78       ??_C@_0L@KOCBGINF@E_FIND_SEC?$AA@ 00419e78     sccp:sccprec.obj
+ 0002:00003e84       ??_C@_0M@FPNBJBND@E_SEC_CHECK?$AA@ 00419e84     sccp:sccprec.obj
+ 0002:00003e90       ??_C@_0N@FDFBPOOJ@E_DEV_NOTIFY?$AA@ 00419e90     sccp:sccprec.obj
+ 0002:00003ea0       ??_C@_0L@FPBCJKEE@E_FIND_PRI?$AA@ 00419ea0     sccp:sccprec.obj
+ 0002:00003eac       ??_C@_0M@ONIHBJKA@E_PRI_CHECK?$AA@ 00419eac     sccp:sccprec.obj
+ 0002:00003eb8       ??_C@_0M@LJFLGLBN@S_RESETTING?$AA@ 00419eb8     sccp:sccprec.obj
+ 0002:00003ec4       ??_C@_0BA@HKCOJHMO@S_MAKE_SEC_CONN?$AA@ 00419ec4     sccp:sccprec.obj
+ 0002:00003ed4       ??_C@_0P@NMPIAGDF@S_SEC_OPTIMIZE?$AA@ 00419ed4     sccp:sccprec.obj
+ 0002:00003ee4       ??_C@_0P@DAFPFGDD@S_PRI_REG_CMGR?$AA@ 00419ee4     sccp:sccprec.obj
+ 0002:00003ef4       ??_C@_0BB@BGGHKHBO@S_PRI_UNREG_CMGR?$AA@ 00419ef4     sccp:sccprec.obj
+ 0002:00003f08       ??_C@_0M@MMHNCBBO@S_TOKEN_REQ?$AA@ 00419f08     sccp:sccprec.obj
+ 0002:00003f14       ??_C@_0BA@JBKNMMHH@S_MAKE_PRI_CONN?$AA@ 00419f14     sccp:sccprec.obj
+ 0002:00003f24       ??_C@_0P@PLBNDGAM@S_PRI_OPTIMIZE?$AA@ 00419f24     sccp:sccprec.obj
+ 0002:00003f34       ??_C@_0L@OIGCGGFN@S_FIND_SEC?$AA@ 00419f34     sccp:sccprec.obj
+ 0002:00003f40       ??_C@_0M@LMPENJMP@S_SEC_CHECK?$AA@ 00419f40     sccp:sccprec.obj
+ 0002:00003f4c       ??_C@_0L@BJFBJEMM@S_FIND_PRI?$AA@ 00419f4c     sccp:sccprec.obj
+ 0002:00003f58       ??_C@_0M@OKCFBLM@S_PRI_CHECK?$AA@ 00419f58     sccp:sccprec.obj
+ 0002:00003f64       ??_C@_07EJEJJIJK@SCCPREC?$AA@ 00419f64     sccp:sccprec.obj
+ 0002:00003f70       ??_C@_0EA@MIBJKFBL@?$CFs?5?$CF?92d?3?$CF?92d?3?5Changing?5keepalive@ 00419f70     sccp:sccprec.obj
+ 0002:00003fb0       ??_C@_0CE@GHBPMDKD@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5reccb?$DN?50x?$CF0@ 00419fb0     sccp:sccprec.obj
+ 0002:00003fd4       ??_C@_0O@JBKBNIEM@get_new_reccb?$AA@ 00419fd4     sccp:sccprec.obj
+ 0002:00003fe4       ??_C@_0DC@OBLFGFPK@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5disconn@ 00419fe4     sccp:sccprec.obj
+ 0002:00004018       ??_C@_0DI@CLEMJCMG@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5CM?5list?5int@ 0041a018     sccp:sccprec.obj
+ 0002:00004050       ??_C@_0CK@CGDDKOAH@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5trying?5@ 0041a050     sccp:sccprec.obj
+ 0002:0000407c       ??_C@_0CM@KCCKHJJI@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5secondar@ 0041a07c     sccp:sccprec.obj
+ 0002:000040a8       ??_C@_0DH@JIDMLELH@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5not?5enough?5@ 0041a0a8     sccp:sccprec.obj
+ 0002:000040e0       ??_C@_0CL@LCPHCKHK@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5No?5primary?0@ 0041a0e0     sccp:sccprec.obj
+ 0002:00004110       ??_C@_0EE@HLAHCNLC@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5no?5acti@ 0041a110     sccp:sccprec.obj
+ 0002:00004158       ??_C@_0EC@JBNAJGBM@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5No?5connecti@ 0041a158     sccp:sccprec.obj
+ 0002:000041a0       ??_C@_0EB@BOKFABJI@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5active?5@ 0041a1a0     sccp:sccprec.obj
+ 0002:000041e4       ??_C@_0DE@HFODIKA@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5optimiz@ 0041a1e4     sccp:sccprec.obj
+ 0002:00004218       ??_C@_0DH@IABFBIJP@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5optimiz@ 0041a218     sccp:sccprec.obj
+ 0002:00004250       ??_C@_0DK@OAMKMPPP@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5No?5better?5s@ 0041a250     sccp:sccprec.obj
+ 0002:0000428c       ??_C@_0DG@FKEAGEKN@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5optimiz@ 0041a28c     sccp:sccprec.obj
+ 0002:000042c4       ??_C@_0DH@NDFAIHPB@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5Not?5enough?5@ 0041a2c4     sccp:sccprec.obj
+ 0002:000042fc       ??_C@_0CN@CHJEGMKL@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5No?5secondar@ 0041a2fc     sccp:sccprec.obj
+ 0002:0000432c       ??_C@_0DE@FCJAJPDF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5optimiz@ 0041a32c     sccp:sccprec.obj
+ 0002:00004360       ??_C@_0DE@GLDBCKNF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5IDLE?5or@ 0041a360     sccp:sccprec.obj
+ 0002:00004394       ??_C@_0DG@JPBMEBCA@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5connect@ 0041a394     sccp:sccprec.obj
+ 0002:000043cc       ??_C@_0CE@FEJKMAAL@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5has?5tok@ 0041a3cc     sccp:sccprec.obj
+ 0002:000043f0       ??_C@_0CN@KHMKKEBK@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5CM?$FL?$CFd?$FN?3?5NUL@ 0041a3f0     sccp:sccprec.obj
+ 0002:00004420       ??_C@_0BJ@HAIEFJLD@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?6?$AA@ 0041a420     sccp:sccprec.obj
+ 0002:0000443c       ??_C@_0DE@NLLIJAMG@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5timeout@ 0041a43c     sccp:sccprec.obj
+ 0002:00004470       ??_C@_0CM@FPCHDKHC@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5Null?5CM?$FL?$CFd?$FN@ 0041a470     sccp:sccprec.obj
+ 0002:0000449c       ??_C@_0CK@OONLFLDN@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5connect@ 0041a49c     sccp:sccprec.obj
+ 0002:000044c8       ??_C@_0DM@OPGNKKML@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5IDLE?5or@ 0041a4c8     sccp:sccprec.obj
+ 0002:00004504       ??_C@_0CH@NGCPALGO@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5unregis@ 0041a504     sccp:sccprec.obj
+ 0002:0000452c       ??_C@_0CK@JJNHGJHK@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5Need?5a?5new?5@ 0041a52c     sccp:sccprec.obj
+ 0002:00004558       ??_C@_0EK@IENDHMOI@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5hasn?8t?5@ 0041a558     sccp:sccprec.obj
+ 0002:000045a8       ??_C@_0EF@CCLPHOHF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5optimiz@ 0041a5a8     sccp:sccprec.obj
+ 0002:000045f0       ??_C@_0EA@DOADNONF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5optimiz@ 0041a5f0     sccp:sccprec.obj
+ 0002:00004630       ??_C@_0CN@NJECJCNB@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5secondar@ 0041a630     sccp:sccprec.obj
+ 0002:00004660       ??_C@_0CL@DKGILILJ@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5primary?0@ 0041a660     sccp:sccprec.obj
+ 0002:0000468c       ??_C@_0BP@ODIJODKC@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5type?$DN?5?$CFd?6?$AA@ 0041a68c     sccp:sccprec.obj
+ 0002:000046ac       ??_C@_0CC@CJACOKBL@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?5?9?50x?$CF08x@ 0041a6ac     sccp:sccprec.obj
+ 0002:000046d0       ??_C@_0CM@GKGLDIG@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5trying?5@ 0041a6d0     sccp:sccprec.obj
+ 0002:000046fc       ??_C@_0CN@MMJAIOMH@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5trying?5@ 0041a6fc     sccp:sccprec.obj
+ 0002:0000472c       ??_C@_0CP@JEFJJBFF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5trying?5@ 0041a72c     sccp:sccprec.obj
+ 0002:00004760       ??_C@_0FC@IFPKMBJI@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5primary?0@ 0041a760     sccp:sccprec.obj
+ 0002:000047b4       ??_C@_0CP@DFOPPDAG@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5primary?0@ 0041a7b4     sccp:sccprec.obj
+ 0002:000047e4       ??_C@_0CF@DCGLCLLM@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5CMs?5defi@ 0041a7e4     sccp:sccprec.obj
+ 0002:0000480c       ??_C@_0DG@JCJIOBBK@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5Shutting?5do@ 0041a80c     sccp:sccprec.obj
+ 0002:00004844       ??_C@_0DC@DMLMFBBO@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5No?5CM?5found@ 0041a844     sccp:sccprec.obj
+ 0002:00004878       ??_C@_0DB@GPGKKFDB@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5no?5CMs?5foun@ 0041a878     sccp:sccprec.obj
+ 0002:000048ac       ??_C@_0DE@DPKFGNHI@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5No?5CM?5found@ 0041a8ac     sccp:sccprec.obj
+ 0002:000048e0       ??_C@_0DO@MLDGBJN@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5connect@ 0041a8e0     sccp:sccprec.obj
+ 0002:00004920       ??_C@_0CD@EOBBKIOE@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5CM?$FL?$CFd?$FN?3?5NUL@ 0041a920     sccp:sccprec.obj
+ 0002:00004944       ??_C@_0DD@BEBBEPH@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5CM?$FL?$CFd?$FN?3?5no?5@ 0041a944     sccp:sccprec.obj
+ 0002:00004978       ??_C@_0DJ@ICCPPHPF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5skippin@ 0041a978     sccp:sccprec.obj
+ 0002:000049b8       ??_C@_0EK@KCFDALII@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFs?3?5connect@ 0041a9b8     sccp:sccprec.obj
+ 0002:00004a04       ??_C@_0BH@KHCHLJKL@sccpreg_sem_registered?$AA@ 0041aa04     sccp:sccpreg.obj
+ 0002:00004a1c       ??_C@_0BD@BNHOIDDJ@sem_unregister_ack?$AA@ 0041aa1c     sccp:sccpreg.obj
+ 0002:00004a30       ??_C@_0BI@OJFKLBJH@sem_serviceurl_stat_res?$AA@ 0041aa30     sccp:sccpreg.obj
+ 0002:00004a48       ??_C@_0BF@CDJEDOMN@sem_feature_stat_res?$AA@ 0041aa48     sccp:sccpreg.obj
+ 0002:00004a60       ??_C@_0BH@FIALIAFM@sem_speeddial_stat_res?$AA@ 0041aa60     sccp:sccpreg.obj
+ 0002:00004a78       ??_C@_0BC@DMNHMHHP@sem_line_stat_res?$AA@ 0041aa78     sccp:sccpreg.obj
+ 0002:00004a8c       ??_C@_0BE@DGJFIFGF@sem_softkey_set_res?$AA@ 0041aa8c     sccp:sccpreg.obj
+ 0002:00004aa0       ??_C@_0BJ@KDKCNFJM@sem_softkey_template_res?$AA@ 0041aaa0     sccp:sccpreg.obj
+ 0002:00004abc       ??_C@_0BI@BDAHDJKI@sem_button_template_res?$AA@ 0041aabc     sccp:sccpreg.obj
+ 0002:00004ad4       ??_C@_0BF@OOHOJCPA@sem_capabilities_req?$AA@ 0041aad4     sccp:sccpreg.obj
+ 0002:00004aec       ??_C@_0BB@GHOGOIGP@sem_register_rej?$AA@ 0041aaec     sccp:sccpreg.obj
+ 0002:00004b00       ??_C@_0BB@DINMFNON@sem_register_ack?$AA@ 0041ab00     sccp:sccpreg.obj
+ 0002:00004b14       ??_C@_0M@FOMIOKLF@sem_reg_req?$AA@ 0041ab14     sccp:sccpreg.obj
+ 0002:00004b20       ??_C@_0BI@MGMKMPLF@sccpreg_sem_xxx_reg_req?$AA@ 0041ab20     sccp:sccpreg.obj
+ 0002:00004b38       ??_C@_0BE@GMLHGFFC@sccpreg_sem_cleanup?$AA@ 0041ab38     sccp:sccpreg.obj
+ 0002:00004b4c       ??_C@_0BB@IHMBADMI@E_UNREGISTER_ACK?$AA@ 0041ab4c     sccp:sccpreg.obj
+ 0002:00004b60       ??_C@_0N@CDBBJHGF@E_SERVER_RES?$AA@ 0041ab60     sccp:sccpreg.obj
+ 0002:00004b70       ??_C@_0O@MKIAPFKC@E_VERSION_RES?$AA@ 0041ab70     sccp:sccpreg.obj
+ 0002:00004b80       ??_C@_0BG@DOKMGNLG@E_SERVICEURL_STAT_RES?$AA@ 0041ab80     sccp:sccpreg.obj
+ 0002:00004b98       ??_C@_0BD@CPGDIAKE@E_FEATURE_STAT_RES?$AA@ 0041ab98     sccp:sccpreg.obj
+ 0002:00004bac       ??_C@_0BD@EHJOPJOJ@E_FORWARD_STAT_RES?$AA@ 0041abac     sccp:sccpreg.obj
+ 0002:00004bc0       ??_C@_0BF@DEDEGODM@E_SPEEDDIAL_STAT_RES?$AA@ 0041abc0     sccp:sccpreg.obj
+ 0002:00004bd8       ??_C@_0BA@CJCECDNM@E_LINE_STAT_RES?$AA@ 0041abd8     sccp:sccpreg.obj
+ 0002:00004be8       ??_C@_0BC@INHPMOGC@E_CONFIG_STAT_RES?$AA@ 0041abe8     sccp:sccpreg.obj
+ 0002:00004bfc       ??_C@_0BC@CEDEHIKB@E_SELECT_SOFTKEYS?$AA@ 0041abfc     sccp:sccpreg.obj
+ 0002:00004c10       ??_C@_0BC@CNKNHEFM@E_SOFTKEY_SET_RES?$AA@ 0041ac10     sccp:sccpreg.obj
+ 0002:00004c24       ??_C@_0BH@PHANMKIB@E_SOFTKEY_TEMPLATE_RES?$AA@ 0041ac24     sccp:sccpreg.obj
+ 0002:00004c3c       ??_C@_0BG@EGMIJOIB@E_BUTTON_TEMPLATE_RES?$AA@ 0041ac3c     sccp:sccpreg.obj
+ 0002:00004c54       ??_C@_0BD@KNNECPEJ@E_CAPABILITIES_REQ?$AA@ 0041ac54     sccp:sccpreg.obj
+ 0002:00004c68       ??_C@_0P@JGEDCAGD@E_REGISTER_REJ?$AA@ 0041ac68     sccp:sccpreg.obj
+ 0002:00004c78       ??_C@_0P@MJHJJFOB@E_REGISTER_ACK?$AA@ 0041ac78     sccp:sccpreg.obj
+ 0002:00004c88       ??_C@_0BA@IHFKFPIJ@S_UNREGISTERING?$AA@ 0041ac88     sccp:sccpreg.obj
+ 0002:00004c98       ??_C@_07CNCFFNJO@SCCPREG?$AA@ 0041ac98     sccp:sccpreg.obj
+ 0002:00004ca0       ??_C@_0CE@KHKGKJDF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5regcb?$DN?50x?$CF0@ 0041aca0     sccp:sccpreg.obj
+ 0002:00004cc4       ??_C@_0O@BOMDEPBL@get_new_regcb?$AA@ 0041acc4     sccp:sccpreg.obj
+ 0002:00004cd4       ??_C@_04HDOCAJNK@?$CFs?$CFs?$AA@ 0041acd4     sccp:sccpreg.obj
+ 0002:00004ce0       ??_C@_0GG@HAAIMAMC@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5linecnt?$DN?5?$CFd@ 0041ace0     sccp:sccpreg.obj
+ 0002:00004d48       ??_C@_0CD@BIGKJHIC@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5softkeys?$DN?5?$CF@ 0041ad48     sccp:sccpreg.obj
+ 0002:00004d6c       ??_C@_0CG@KLBICDFC@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5softkeysets@ 0041ad6c     sccp:sccpreg.obj
+ 0002:00004d94       ??_C@_0CL@OBHHDDNF@?$CFs?5?$CF?92d?3?$CF?92d?3?5?$CF?920s?3?5?$CFd?3?5dn?$DN?5?$CFs?0@ 0041ad94     sccp:sccpreg.obj
+ 0002:00004dc0       ??_C@_0CD@KNGNDNJO@?$CFs?5?$CF?95d?3?5NULL?5function?3?5?$FL?$CFs?$FN?5?$FL?$CFs@ 0041adc0     sccp:sem.obj
+ 0002:00004de4       ??_C@_0BJ@LOEBBDLA@?$CFs?5?$CF?95d?3?5?$FL?$CFs?$FN?5?$FL?$CFs?$FN?5?$FL?$CFs?$FN?6?$AA@ 0041ade4     sccp:sem.obj
+ 0002:00004e00       ??_C@_0CB@IKACGKKD@?$CFs?5?$CF?95d?3?5not?5handled?3?5?$FL?$CFs?$FN?5?$FL?$CFs?$FN?6@ 0041ae00     sccp:sem.obj
+ 0002:00004e64       ??_C@_0P@MIGLKIOC@CorExitProcess?$AA@ 0041ae64     LIBCMT:crt0dat.obj
+ 0002:00004e74       ??_C@_0M@MBOPBNBK@mscoree?4dll?$AA@ 0041ae74     LIBCMT:crt0dat.obj
+ 0002:00004f38       ___lookuptable             0041af38     LIBCMT:output.obj
+ 0002:00004f94       ??_C@_1O@CEDCILHN@?$AA?$CI?$AAn?$AAu?$AAl?$AAl?$AA?$CJ?$AA?$AA@ 0041af94     LIBCMT:output.obj
+ 0002:00004fa4       ??_C@_06OJHGLDPL@?$CInull?$CJ?$AA@ 0041afa4     LIBCMT:output.obj
+ 0002:00004fc8       ??_C@_07PEJMOBNF@FlsFree?$AA@ 0041afc8     LIBCMT:tidtable.obj
+ 0002:00004fd0       ??_C@_0M@JCPCPOEF@FlsSetValue?$AA@ 0041afd0     LIBCMT:tidtable.obj
+ 0002:00004fdc       ??_C@_0M@GDNOONDI@FlsGetValue?$AA@ 0041afdc     LIBCMT:tidtable.obj
+ 0002:00004fe8       ??_C@_08KNHFBNJ@FlsAlloc?$AA@ 0041afe8     LIBCMT:tidtable.obj
+ 0002:00004ff4       ??_C@_0N@MDJJJHMB@kernel32?4dll?$AA@ 0041aff4     LIBCMT:tidtable.obj
+ 0002:000051f8       ___newctype                0041b1f8     LIBCMT:ctype.obj
+ 0002:000054f8       __wctype                   0041b4f8     LIBCMT:ctype.obj
+ 0002:0000570c       ??_C@_0P@GGKDKEEG@runtime?5error?5?$AA@ 0041b70c     LIBCMT:crt0msg.obj
+ 0002:0000571c       ??_C@_02PCIJFNDE@?$AN?6?$AA@ 0041b71c     LIBCMT:crt0msg.obj
+ 0002:00005720       ??_C@_0O@MJNIPGOH@TLOSS?5error?$AN?6?$AA@ 0041b720     LIBCMT:crt0msg.obj
+ 0002:00005730       ??_C@_0N@BONNPDHF@SING?5error?$AN?6?$AA@ 0041b730     LIBCMT:crt0msg.obj
+ 0002:00005740       ??_C@_0P@MBDAJNE@DOMAIN?5error?$AN?6?$AA@ 0041b740     LIBCMT:crt0msg.obj
+ 0002:00005750       ??_C@_0KC@BDDGGBEJ@R6029?$AN?6?9?5This?5application?5cannot@ 0041b750     LIBCMT:crt0msg.obj
+ 0002:000057f4       ??_C@_0CF@KJDAIALP@R6028?$AN?6?9?5unable?5to?5initialize?5he@ 0041b7f4     LIBCMT:crt0msg.obj
+ 0002:0000581c       ??_C@_0DF@GAKBPDFP@R6027?$AN?6?9?5not?5enough?5space?5for?5lo@ 0041b81c     LIBCMT:crt0msg.obj
+ 0002:00005854       ??_C@_0DF@IBLNNAIG@R6026?$AN?6?9?5not?5enough?5space?5for?5st@ 0041b854     LIBCMT:crt0msg.obj
+ 0002:0000588c       ??_C@_0CG@IOHKGFNJ@R6025?$AN?6?9?5pure?5virtual?5function?5c@ 0041b88c     LIBCMT:crt0msg.obj
+ 0002:000058b4       ??_C@_0DF@JIJJFJDC@R6024?$AN?6?9?5not?5enough?5space?5for?5_o@ 0041b8b4     LIBCMT:crt0msg.obj
+ 0002:000058ec       ??_C@_0CJ@EGEJHFME@R6019?$AN?6?9?5unable?5to?5open?5console?5@ 0041b8ec     LIBCMT:crt0msg.obj
+ 0002:00005918       ??_C@_0CB@GNHNIELH@R6018?$AN?6?9?5unexpected?5heap?5error?$AN?6@ 0041b918     LIBCMT:crt0msg.obj
+ 0002:0000593c       ??_C@_0CN@FOLDKNG@R6017?$AN?6?9?5unexpected?5multithread?5@ 0041b93c     LIBCMT:crt0msg.obj
+ 0002:0000596c       ??_C@_0CM@FAHFJNHO@R6016?$AN?6?9?5not?5enough?5space?5for?5th@ 0041b96c     LIBCMT:crt0msg.obj
+ 0002:00005998       ??_C@_0JG@LBKMGKLD@?$AN?6This?5application?5has?5requested@ 0041b998     LIBCMT:crt0msg.obj
+ 0002:00005a30       ??_C@_0CM@FLCNIPKK@R6009?$AN?6?9?5not?5enough?5space?5for?5en@ 0041ba30     LIBCMT:crt0msg.obj
+ 0002:00005a5c       ??_C@_0CK@KMMJOAPP@R6008?$AN?6?9?5not?5enough?5space?5for?5ar@ 0041ba5c     LIBCMT:crt0msg.obj
+ 0002:00005a88       ??_C@_0CF@HOHMHDEK@R6002?$AN?6?9?5floating?5point?5not?5load@ 0041ba88     LIBCMT:crt0msg.obj
+ 0002:00005ab0       ??_C@_0CF@GOGNBNAK@Microsoft?5Visual?5C?$CL?$CL?5Runtime?5Lib@ 0041bab0     LIBCMT:crt0msg.obj
+ 0002:00005ad8       ??_C@_0BK@OFGJDLJJ@Runtime?5Error?$CB?6?6Program?3?5?$AA@ 0041bad8     LIBCMT:crt0msg.obj
+ 0002:00005af4       ??_C@_03KHICJKCI@?4?4?4?$AA@ 0041baf4     LIBCMT:crt0msg.obj
+ 0002:00005af8       ??_C@_0BH@DNAGHKFM@?$DMprogram?5name?5unknown?$DO?$AA@ 0041baf8     LIBCMT:crt0msg.obj
+ 0002:00005b7c       ??_C@_0CG@PKBDLMEO@InitializeCriticalSectionAndSpin@ 0041bb7c     LIBCMT:initcrit.obj
+ 0002:00005bb4       ??_C@_13NOLLCAOD@?$AA?$AA?$AA?$AA@ 0041bbb4     LIBCMT:a_str.obj
+ 0002:00005bc4       ??_C@_08JCCMCCIL@HH?3mm?3ss?$AA@ 0041bbc4     LIBCMT:strftime.obj
+ 0002:00005bd0       ??_C@_0BE@CKGJFCPC@dddd?0?5MMMM?5dd?0?5yyyy?$AA@ 0041bbd0     LIBCMT:strftime.obj
+ 0002:00005be4       ??_C@_08BPBNCDIB@MM?1dd?1yy?$AA@ 0041bbe4     LIBCMT:strftime.obj
+ 0002:00005bf0       ??_C@_02CJNFDJBF@PM?$AA@   0041bbf0     LIBCMT:strftime.obj
+ 0002:00005bf4       ??_C@_02DEDBPAFC@AM?$AA@   0041bbf4     LIBCMT:strftime.obj
+ 0002:00005bf8       ??_C@_08EDHMEBNP@December?$AA@ 0041bbf8     LIBCMT:strftime.obj
+ 0002:00005c04       ??_C@_08HCHEGEOA@November?$AA@ 0041bc04     LIBCMT:strftime.obj
+ 0002:00005c10       ??_C@_07JJNFCEND@October?$AA@ 0041bc10     LIBCMT:strftime.obj
+ 0002:00005c18       ??_C@_09BHHEALKD@September?$AA@ 0041bc18     LIBCMT:strftime.obj
+ 0002:00005c24       ??_C@_06LBBHFDDG@August?$AA@ 0041bc24     LIBCMT:strftime.obj
+ 0002:00005c2c       ??_C@_04MIEPOIFP@July?$AA@ 0041bc2c     LIBCMT:strftime.obj
+ 0002:00005c34       ??_C@_04CNLMGBGM@June?$AA@ 0041bc34     LIBCMT:strftime.obj
+ 0002:00005c3c       ??_C@_05DMJDNLEJ@April?$AA@ 0041bc3c     LIBCMT:strftime.obj
+ 0002:00005c44       ??_C@_05HPCKOFNC@March?$AA@ 0041bc44     LIBCMT:strftime.obj
+ 0002:00005c4c       ??_C@_08GNJGEPFN@February?$AA@ 0041bc4c     LIBCMT:strftime.obj
+ 0002:00005c58       ??_C@_07CGJPFGJA@January?$AA@ 0041bc58     LIBCMT:strftime.obj
+ 0002:00005c60       ??_C@_03MKABNOCG@Dec?$AA@  0041bc60     LIBCMT:strftime.obj
+ 0002:00005c64       ??_C@_03JPJOFNIA@Nov?$AA@  0041bc64     LIBCMT:strftime.obj
+ 0002:00005c68       ??_C@_03BMAOKBAD@Oct?$AA@  0041bc68     LIBCMT:strftime.obj
+ 0002:00005c6c       ??_C@_03GGCAPAJC@Sep?$AA@  0041bc6c     LIBCMT:strftime.obj
+ 0002:00005c70       ??_C@_03IFJFEIGA@Aug?$AA@  0041bc70     LIBCMT:strftime.obj
+ 0002:00005c74       ??_C@_03LBGABGKK@Jul?$AA@  0041bc74     LIBCMT:strftime.obj
+ 0002:00005c78       ??_C@_03IDFGHECI@Jun?$AA@  0041bc78     LIBCMT:strftime.obj
+ 0002:00005c7c       ??_C@_03CNMDKL@May?$AA@    0041bc7c     LIBCMT:strftime.obj
+ 0002:00005c80       ??_C@_03LEOLGMJP@Apr?$AA@  0041bc80     LIBCMT:strftime.obj
+ 0002:00005c84       ??_C@_03ODNJBKGA@Mar?$AA@  0041bc84     LIBCMT:strftime.obj
+ 0002:00005c88       ??_C@_03HJBDCHOM@Feb?$AA@  0041bc88     LIBCMT:strftime.obj
+ 0002:00005c8c       ??_C@_03JIHJHPIE@Jan?$AA@  0041bc8c     LIBCMT:strftime.obj
+ 0002:00005c90       ??_C@_08INBOOONO@Saturday?$AA@ 0041bc90     LIBCMT:strftime.obj
+ 0002:00005c9c       ??_C@_06JECMNKMI@Friday?$AA@ 0041bc9c     LIBCMT:strftime.obj
+ 0002:00005ca4       ??_C@_08HACCIKIA@Thursday?$AA@ 0041bca4     LIBCMT:strftime.obj
+ 0002:00005cb0       ??_C@_09DLIGFAKA@Wednesday?$AA@ 0041bcb0     LIBCMT:strftime.obj
+ 0002:00005cbc       ??_C@_07BAAGCFCM@Tuesday?$AA@ 0041bcbc     LIBCMT:strftime.obj
+ 0002:00005cc4       ??_C@_06JLEDEDGH@Monday?$AA@ 0041bcc4     LIBCMT:strftime.obj
+ 0002:00005ccc       ??_C@_06OOPIFAJ@Sunday?$AA@ 0041bccc     LIBCMT:strftime.obj
+ 0002:00005cd4       ??_C@_03FEFJNEK@Sat?$AA@   0041bcd4     LIBCMT:strftime.obj
+ 0002:00005cd8       ??_C@_03IDIOELNC@Fri?$AA@  0041bcd8     LIBCMT:strftime.obj
+ 0002:00005cdc       ??_C@_03IOFIKPDN@Thu?$AA@  0041bcdc     LIBCMT:strftime.obj
+ 0002:00005ce0       ??_C@_03MHOMLAJA@Wed?$AA@  0041bce0     LIBCMT:strftime.obj
+ 0002:00005ce4       ??_C@_03NAGEINEP@Tue?$AA@  0041bce4     LIBCMT:strftime.obj
+ 0002:00005ce8       ??_C@_03PDAGKDH@Mon?$AA@   0041bce8     LIBCMT:strftime.obj
+ 0002:00005cec       ??_C@_03KOEHGMDN@Sun?$AA@  0041bcec     LIBCMT:strftime.obj
+ 0002:00005d1c       ??_C@_0BI@DFKBFLJE@GetProcessWindowStation?$AA@ 0041bd1c     LIBCMT:crtmbox.obj
+ 0002:00005d34       ??_C@_0BK@CIDNPOGP@GetUserObjectInformationA?$AA@ 0041bd34     LIBCMT:crtmbox.obj
+ 0002:00005d50       ??_C@_0BD@HHGDFDBJ@GetLastActivePopup?$AA@ 0041bd50     LIBCMT:crtmbox.obj
+ 0002:00005d64       ??_C@_0BA@HNOPNCHB@GetActiveWindow?$AA@ 0041bd64     LIBCMT:crtmbox.obj
+ 0002:00005d74       ??_C@_0M@CHKKJDAI@MessageBoxA?$AA@ 0041bd74     LIBCMT:crtmbox.obj
+ 0002:00005d80       ??_C@_0L@GMPLCCII@user32?4dll?$AA@ 0041bd80     LIBCMT:crtmbox.obj
+ 0002:00005dc4       ??_C@_09KLGCKDOD@Program?3?5?$AA@ 0041bdc4     LIBCMT:secfail.obj
+ 0002:00005dd0       ??_C@_0KA@JEHFIFGP@A?5buffer?5overrun?5has?5been?5detect@ 0041bdd0     LIBCMT:secfail.obj
+ 0002:00005e70       ??_C@_0BJ@MDEKIEOJ@Buffer?5overrun?5detected?$CB?$AA@ 0041be70     LIBCMT:secfail.obj
+ 0002:00005e90       ??_C@_0LB@BPLHHLFD@A?5security?5error?5of?5unknown?5caus@ 0041be90     LIBCMT:secfail.obj
+ 0002:00005f44       ??_C@_0CD@GMKACBEK@Unknown?5security?5failure?5detecte@ 0041bf44     LIBCMT:secfail.obj
+ 0002:00005fac       ___dnames                  0041bfac     LIBCMT:timeset.obj
+ 0002:00005fc4       ___mnames                  0041bfc4     LIBCMT:timeset.obj
+ 0002:00005ff0       __load_config_used         0041bff0     LIBCMT:loadcfg.obj
+ 0002:00006040       ___safe_se_handler_table   0041c040     <linker-defined>
+ 0002:00006048       ___rtc_iaa                 0041c048     LIBCMT:initsect.obj
+ 0002:0000604c       ___rtc_izz                 0041c04c     LIBCMT:initsect.obj
+ 0002:00006050       ___rtc_taa                 0041c050     LIBCMT:initsect.obj
+ 0002:00006054       ___rtc_tzz                 0041c054     LIBCMT:initsect.obj
+ 0002:00006058       __IMPORT_DESCRIPTOR_WS2_32 0041c058     ws2_32:WS2_32.dll
+ 0002:0000606c       __IMPORT_DESCRIPTOR_KERNEL32 0041c06c     kernel32:KERNEL32.dll
+ 0002:00006080       __IMPORT_DESCRIPTOR_USER32 0041c080     user32:USER32.dll
+ 0002:00006094       __NULL_IMPORT_DESCRIPTOR   0041c094     ws2_32:WS2_32.dll
+ 0003:00000000       ___xc_a                    0041d000     LIBCMT:crt0init.obj
+ 0003:00000008       ___xc_z                    0041d008     LIBCMT:crt0init.obj
+ 0003:0000000c       ___xi_a                    0041d00c     LIBCMT:crt0init.obj
+ 0003:0000001c       ___xi_z                    0041d01c     LIBCMT:crt0init.obj
+ 0003:00000020       ___xp_a                    0041d020     LIBCMT:crt0init.obj
+ 0003:00000028       ___xp_z                    0041d028     LIBCMT:crt0init.obj
+ 0003:0000002c       ___xt_a                    0041d02c     LIBCMT:crt0init.obj
+ 0003:00000030       ___xt_z                    0041d030     LIBCMT:crt0init.obj
+ 0003:00000048       ?gaErrorList@@3PAUErrorEntry_t@@A 0041d048     platform_win32.obj
+ 0003:00000238       _sapp_debug                0041d238     sapp.obj
+ 0003:00000248       _sapp_msgcb                0041d248     sapp_win79xx.obj
+ 0003:00000590       _sccpmsg_alarm_names       0041d590     sccp:sccpmsg.obj
+ 0003:000008f0       _sccp_debug                0041d8f0     sccp:sccp_debug.obj
+ 0003:0000127c       _sccpcm_sem_table          0041e27c     sccp:sccpcm.obj
+ 0003:00001994       _sccpcc_sem_table          0041e994     sccp:sccpcc.obj
+ 0003:00001fc4       _sccprec_sem_table         0041efc4     sccp:sccprec.obj
+ 0003:00002218       _sccpreg_sem_table         0041f218     sccp:sccpreg.obj
+ 0003:00002240       __iob                      0041f240     LIBCMT:_file.obj
+ 0003:000024c0       __aexit_rtn                0041f4c0     LIBCMT:crt0.obj
+ 0003:000024c4       ___app_type                0041f4c4     LIBCMT:crt0.obj
+ 0003:000024c8       ___nullstring              0041f4c8     LIBCMT:output.obj
+ 0003:000024cc       ___wnullstring             0041f4cc     LIBCMT:output.obj
+ 0003:000024d0       ___tlsindex                0041f4d0     LIBCMT:tidtable.obj
+ 0003:000024d8       __XcptActTab               0041f4d8     LIBCMT:winxfltr.obj
+ 0003:00002550       __First_FPE_Indx           0041f550     LIBCMT:winxfltr.obj
+ 0003:00002554       __Num_FPE                  0041f554     LIBCMT:winxfltr.obj
+ 0003:00002558       __XcptActTabSize           0041f558     LIBCMT:winxfltr.obj
+ 0003:0000255c       __XcptActTabCount          0041f55c     LIBCMT:winxfltr.obj
+ 0003:000026d0       __amblksiz                 0041f6d0     LIBCMT:heapinit.obj
+ 0003:00002800       ___initiallocinfo          0041f800     LIBCMT:setlocal.obj
+ 0003:00002854       ___ptlocinfo               0041f854     LIBCMT:setlocal.obj
+ 0003:00002990       __pctype                   0041f990     LIBCMT:ctype.obj
+ 0003:00002994       __pwctype                  0041f994     LIBCMT:ctype.obj
+ 0003:00002998       ___badioinfo               0041f998     LIBCMT:ioinit.obj
+ 0003:00002a60       __cfltcvt_tab              0041fa60     LIBCMT:cmiscdat.obj
+ 0003:00002a78       ___security_cookie         0041fa78     LIBCMT:seccook.obj
+ 0003:00002a80       __NLG_Destination          0041fa80     LIBCMT:exsup.obj
+ 0003:00002b90       ___lc_time_curr            0041fb90     LIBCMT:strftime.obj
+ 0003:00002b98       ___lc_time_c               0041fb98     LIBCMT:strftime.obj
+ 0003:00002c50       ___lconv_static_decimal    0041fc50     LIBCMT:lconv.obj
+ 0003:00002c54       ___lconv_c                 0041fc54     LIBCMT:lconv.obj
+ 0003:00002c84       ___lconv                   0041fc84     LIBCMT:lconv.obj
+ 0003:00002c90       ___lc_clike                0041fc90     LIBCMT:nlsdata2.obj
+ 0003:00002ca0       ___mb_cur_max              0041fca0     LIBCMT:nlsdata1.obj
+ 0003:00002ca4       ___decimal_point           0041fca4     LIBCMT:nlsdata1.obj
+ 0003:00002ca8       ___decimal_point_length    0041fca8     LIBCMT:nlsdata1.obj
+ 0003:00002cb0       __timezone                 0041fcb0     LIBCMT:timeset.obj
+ 0003:00002cb4       __daylight                 0041fcb4     LIBCMT:timeset.obj
+ 0003:00002cb8       __dstbias                  0041fcb8     LIBCMT:timeset.obj
+ 0003:00002d40       __tzname                   0041fd40     LIBCMT:timeset.obj
+ 0003:00002d60       __lpdays                   0041fd60     LIBCMT:days.obj
+ 0003:00002d94       __days                     0041fd94     LIBCMT:days.obj
+ 0003:000034d4       _sapp_initialized          004204d4     sapp.obj
+ 0003:000034dc       _sapp_null_cmaddr          004204dc     sapp.obj
+ 0003:000034e8       ?sccp_menu_event_data@@3PAXA 004204e8     sccptest.obj
+ 0003:00003500       ?call_state@@3PADA         00420500     sccptest.obj
+ 0003:0000361c       ?sccp_menu_callback_data@@3PAXA 0042061c     sccptest.obj
+ 0003:00003620       ?sccp_menu@@3PAUmenu_state@@A 00420620     sccptest.obj
+ 0003:00003624       ?sccp_menu_state@@3PAXA    00420624     sccptest.obj
+ 0003:00003628       ?local_mac@@3PADA          00420628     sccptest.obj
+ 0003:0000363c       ?menu@@3PAUmenu_state@@A   0042063c     sccptest.obj
+ 0003:00003640       ?client@@3PAUsccp_client_state@@A 00420640     sccptest.obj
+ 0003:00003650       ?active_line@@3JA          00420650     sccptest.obj
+ 0003:00003654       ?active_call@@3HA          00420654     sccptest.obj
+ 0003:00003918       _ssapi_cbs                 00420918     sccp:ssapi.obj
+ 0003:00003920       _am_debug                  00420920     sccp:sccp_debug.obj
+ 0003:00003924       _sccpmsg_debug             00420924     sccp:sccp_debug.obj
+ 0003:00003928       _sccpcc_debug              00420928     sccp:sccp_debug.obj
+ 0003:0000392c       _sccpcm_debug              0042092c     sccp:sccp_debug.obj
+ 0003:00003930       _sccprec_debug             00420930     sccp:sccp_debug.obj
+ 0003:00003934       _sccpreg_debug             00420934     sccp:sccp_debug.obj
+ 0003:00003938       _sem_debug                 00420938     sccp:sccp_debug.obj
+ 0003:00006234       __umaskval                 00423234     LIBCMT:crt0dat.obj
+ 0003:00006238       __osplatform               00423238     LIBCMT:crt0dat.obj
+ 0003:0000623c       __osver                    0042323c     LIBCMT:crt0dat.obj
+ 0003:00006240       __winver                   00423240     LIBCMT:crt0dat.obj
+ 0003:00006244       __winmajor                 00423244     LIBCMT:crt0dat.obj
+ 0003:00006248       __winminor                 00423248     LIBCMT:crt0dat.obj
+ 0003:0000624c       ___argc                    0042324c     LIBCMT:crt0dat.obj
+ 0003:00006250       ___argv                    00423250     LIBCMT:crt0dat.obj
+ 0003:00006254       ___wargv                   00423254     LIBCMT:crt0dat.obj
+ 0003:00006258       __environ                  00423258     LIBCMT:crt0dat.obj
+ 0003:0000625c       ___initenv                 0042325c     LIBCMT:crt0dat.obj
+ 0003:00006260       __wenviron                 00423260     LIBCMT:crt0dat.obj
+ 0003:00006264       ___winitenv                00423264     LIBCMT:crt0dat.obj
+ 0003:00006268       __pgmptr                   00423268     LIBCMT:crt0dat.obj
+ 0003:0000626c       __wpgmptr                  0042326c     LIBCMT:crt0dat.obj
+ 0003:00006270       __exitflag                 00423270     LIBCMT:crt0dat.obj
+ 0003:00006274       __C_Termination_Done       00423274     LIBCMT:crt0dat.obj
+ 0003:00006278       __C_Exit_Done              00423278     LIBCMT:crt0dat.obj
+ 0003:0000627c       __cflush                   0042327c     LIBCMT:_file.obj
+ 0003:00006280       __aenvptr                  00423280     LIBCMT:crt0.obj
+ 0003:00006284       __wenvptr                  00423284     LIBCMT:crt0.obj
+ 0003:00006288       ___error_mode              00423288     LIBCMT:crt0.obj
+ 0003:0000628c       __stdbuf                   0042328c     LIBCMT:_sftbuf.obj
+ 0003:00006294       _gpFlsAlloc                00423294     LIBCMT:tidtable.obj
+ 0003:00006298       _gpFlsGetValue             00423298     LIBCMT:tidtable.obj
+ 0003:0000629c       _gpFlsSetValue             0042329c     LIBCMT:tidtable.obj
+ 0003:000062a0       _gpFlsFree                 004232a0     LIBCMT:tidtable.obj
+ 0003:000063f8       ?_pnhHeap@@3P6AHI@ZA       004233f8     LIBCMT:handler.obj
+ 0003:000063fc       __newmode                  004233fc     LIBCMT:_newmode.obj
+ 0003:0000640c       __adbgmsg                  0042340c     LIBCMT:crt0msg.obj
+ 0003:00006578       ___lconv_static_null       00423578     LIBCMT:lconv.obj
+ 0003:0000657c       ___lc_time_intl            0042357c     LIBCMT:inittime.obj
+ 0003:00006580       ___lconv_intl              00423580     LIBCMT:initmon.obj
+ 0003:000065a8       ___lc_handle               004235a8     LIBCMT:nlsdata2.obj
+ 0003:000065c0       ___lc_codepage             004235c0     LIBCMT:nlsdata2.obj
+ 0003:000065c4       ___lc_collate_cp           004235c4     LIBCMT:nlsdata2.obj
+ 0003:000065c8       ___lc_id                   004235c8     LIBCMT:nlsdata3.obj
+ 0003:00006600       __commode                  00423600     LIBCMT:ncommode.obj
+ 0003:000066d0       __fmode                    004236d0     LIBCMT:txtmode.obj
+ 0003:000066e0       _sapp_calls                004236e0     <common>
+ 0003:00006b20       _sapp_infos                00423b20     <common>
+ 0003:0000d428       _sccp_platform_file        0042a428     <common>
+ 0003:0000d430       ___ctype1_refcount         0042a430     <common>
+ 0003:0000d434       ___lconv_mon_refcount      0042a434     <common>
+ 0003:0000d438       ___lconv_num_refcount      0042a438     <common>
+ 0003:0000d43c       ___mblcid                  0042a43c     <common>
+ 0003:0000d440       ___ptmbcinfo               0042a440     <common>
+ 0003:0000d444       ___ismbcodepage            0042a444     <common>
+ 0003:0000d460       __mbctype                  0042a460     <common>
+ 0003:0000d564       ___mbcodepage              0042a564     <common>
+ 0003:0000d570       ___mbulinfo                0042a570     <common>
+ 0003:0000d580       __mbcasemap                0042a580     <common>
+ 0003:0000d680       __nhandle                  0042a680     <common>
+ 0003:0000d6a0       ___pioinfo                 0042a6a0     <common>
+ 0003:0000d7a0       ___sbh_pHeaderDefer        0042a7a0     <common>
+ 0003:0000d7a4       ___sbh_cntHeaderList       0042a7a4     <common>
+ 0003:0000d7a8       ___sbh_pHeaderList         0042a7a8     <common>
+ 0003:0000d7ac       ___sbh_threshold           0042a7ac     <common>
+ 0003:0000d7b0       ___sbh_pHeaderScan         0042a7b0     <common>
+ 0003:0000d7b4       ___sbh_sizeHeaderList      0042a7b4     <common>
+ 0003:0000d7b8       ___sbh_indGroupDefer       0042a7b8     <common>
+ 0003:0000d7bc       __crtheap                  0042a7bc     <common>
+ 0003:0000d7c0       ___active_heap             0042a7c0     <common>
+ 0003:0000d7c4       __acmdln                   0042a7c4     <common>
+ 0003:0000d7c8       ___piob                    0042a7c8     <common>
+ 0003:0000d7e0       __bufin                    0042a7e0     <common>
+ 0003:0000e7e0       __nstream                  0042b7e0     <common>
+ 0003:0000e7e4       ___env_initialized         0042b7e4     <common>
+ 0003:0000e7e8       ___onexitend               0042b7e8     <common>
+ 0003:0000e7ec       ___onexitbegin             0042b7ec     <common>
+ 0003:0000e7f0       ___mbctype_initialized     0042b7f0     <common>
+ 0003:0000e7f4       __FPinit                   0042b7f4     <common>
+ 0003:0000e7f8       __FPmtterm                 0042b7f8     <common>
+ 0003:0000e7fc       __FPmtinit                 0042b7fc     <common>
+
+ entry point at        0001:0000e73c
+
+ Static symbols
+
+ 0001:0000007f       ?menu_find_item_by_command@@YAPAUmenu_item_entry@@PAUmenu_state@@PBD@Z 0040107f f   cli_menu.obj
+ 0001:000000b9       ?menu_attach_item@@YAHPAUmenu_state@@PAUmenu_item_entry@@@Z 004010b9 f   cli_menu.obj
+ 0001:000000f5       ?menu_attach_command_to_item@@YAHPAUmenu_item_entry@@PAUmenu_item_entry_command@@@Z 004010f5 f   cli_menu.obj
+ 0001:00000449       ?platform_strerror@@YAPADK@Z 00401449 f   platform_win32.obj
+ 0001:00000a1f       _sapp_sapp_all_streams_idle 00401a1f f   sapp.obj
+ 0001:00000a64       _sapp_sapp_close_abandonded_streams 00401a64 f   sapp.obj
+ 0001:00000a7f       _sapp_sccp_main2@4         00401a7f f   sapp.obj
+ 0001:00000b4c       _sapp_get_socket2_by_id    00401b4c f   sapp.obj
+ 0001:00000b6a       _sapp_socket_getsockname   00401b6a f   sapp.obj
+ 0001:00000ba5       _sapp_socket_getmac        00401ba5 f   sapp.obj
+ 0001:00000bae       _sapp_tcp_main@4           00401bae f   sapp.obj
+ 0001:00000f49       _sapp_socket_open          00401f49 f   sapp.obj
+ 0001:00001040       _sapp_socket_close         00402040 f   sapp.obj
+ 0001:00001121       _sapp_socket_send          00402121 f   sapp.obj
+ 0001:00001211       _sccpreg_sem_registered    00402211 f   sapp.obj
+ 0001:00001211       _gapi_null_callback        00402211 f   sapp.obj
+ 0001:00001211       _sccprec_sem_default       00402211 f   sapp.obj
+ 0001:00001211       _sapp_socket_recv          00402211 f   sapp.obj
+ 0001:00001211       _sccpcc_sem_default        00402211 f   sapp.obj
+ 0001:00001211       _sccpcm_sem_token_unreg_nak 00402211 f   sapp.obj
+ 0001:00001211       _sccpcm_sem_do_nothing     00402211 f   sapp.obj
+ 0001:00001211       _sccpreg_sem_default       00402211 f   sapp.obj
+ 0001:00001214       _sapp_ntohs                00402214 f   sapp.obj
+ 0001:0000121f       _sapp_ntohl                0040221f f   sapp.obj
+ 0001:0000122a       _sapp_sccp_thread_get      0040222a f   sapp.obj
+ 0001:00001241       _sapp_sccp_thread_run      00402241 f   sapp.obj
+ 0001:000016bc       _sapp_socket_connect       004026bc f   sapp.obj
+ 0001:00001b9a       _sapp_sccp_to_sapp_media   00402b9a f   sapp_win79xx.obj
+ 0001:00001bde       _sapp_sapp_to_sccp_media   00402bde f   sapp_win79xx.obj
+ 0001:00001c1c       _sapp_set_new_call_data    00402c1c f   sapp_win79xx.obj
+ 0001:000030a7       ?sccptest_exit@@YAHXZ      004040a7 f   sccptest.obj
+ 0001:00003198       ?sccptest_print_menu_str@@YAXPAD@Z 00404198 f   sccptest.obj
+ 0001:00004804       _timer_insert              00405804 f   timer.obj
+ 0001:0000484f       _timer_remove              0040584f f   timer.obj
+ 0001:00004bb2       _ssapi_verify_app_callbacks 00405bb2 f   sccp:ssapi.obj
+ 0001:0000597b       _sccp_sccp_to_sccp_event   0040697b f   sccp:sccp.obj
+ 0001:0000599b       _sccp_get_sem_table        0040699b f   sccp:sccp.obj
+ 0001:000059c4       _sccp_pool_get_list_by_type 004069c4 f   sccp:sccp.obj
+ 0001:00005adc       _sccp_free_pool2           00406adc f   sccp:sccp.obj
+ 0001:00005add       _sccp_free_event2          00406add f   sccp:sccp.obj
+ 0001:00005b03       _sccp_get_new_event        00406b03 f   sccp:sccp.obj
+ 0001:00005df7       _sccp_push_tcp             00406df7 f   sccp:sccp.obj
+ 0001:00005fb0       _sccp_next_chunk           00406fb0 f   sccp:sccp.obj
+ 0001:00006127       _sccp_tcp_recv             00407127 f   sccp:sccp.obj
+ 0001:0000649c       _sccp_sccp_cleanup         0040749c f   sccp:sccp.obj
+ 0001:00006752       _sccpcm_sem_name           00407752 f   sccp:sccpcm.obj
+ 0001:00006758       _sccpcm_state_name         00407758 f   sccp:sccpcm.obj
+ 0001:00006774       _sccpcm_event_name         00407774 f   sccp:sccpcm.obj
+ 0001:00006790       _sccpcm_error_name         00407790 f   sccp:sccpcm.obj
+ 0001:000067a8       _sccpcm_function_name      004077a8 f   sccp:sccpcm.obj
+ 0001:000067c4       _sccpcm_sessionstatus      004077c4 f   sccp:sccpcm.obj
+ 0001:0000685b       _sccpcm_debug_sem_entry    0040785b f   sccp:sccpcm.obj
+ 0001:000068a1       _sccpcm_validate_cb        004078a1 f   sccp:sccpcm.obj
+ 0001:000068b9       _sccpcm_change_state       004078b9 f   sccp:sccpcm.obj
+ 0001:0000691a       _sccpcm_print_cmcb         0040791a f   sccp:sccpcm.obj
+ 0001:00006bd1       _sccpcm_stop_timer         00407bd1 f   sccp:sccpcm.obj
+ 0001:00006c38       _sccpcm_cm_connect         00407c38 f   sccp:sccpcm.obj
+ 0001:00006c80       _sccpcm_cm_disconnect      00407c80 f   sccp:sccpcm.obj
+ 0001:00006e13       _sccpcm_reset_cmcb         00407e13 f   sccp:sccpcm.obj
+ 0001:00006e3e       _sccpcm_check_cm_stuck     00407e3e f   sccp:sccpcm.obj
+ 0001:00006ea0       _sccpcm_push_simple        00407ea0 f   sccp:sccpcm.obj
+ 0001:00007158       _sccpcm_push_timeout       00408158 f   sccp:sccpcm.obj
+ 0001:000071ca       _sccpcm_sem_default        004081ca f   sccp:sccpcm.obj
+ 0001:000071fa       _sccpcm_sem_tcp_events     004081fa f   sccp:sccpcm.obj
+ 0001:00007284       _sccpcm_sem_wf_con_res_timeout 00408284 f   sccp:sccpcm.obj
+ 0001:00007284       _sccpcm_sem_connected_discon_req 00408284 f   sccp:sccpcm.obj
+ 0001:000072a6       _sccpcm_sem_wf_con_res_error 004082a6 f   sccp:sccpcm.obj
+ 0001:00007302       _sccpcm_sem_wf_con_retry_con_req 00408302 f   sccp:sccpcm.obj
+ 0001:00007398       _sccpcm_sem_wf_con_retry_timeout 00408398 f   sccp:sccpcm.obj
+ 0001:000073b2       _sccpcm_sem_connected_send_token 004083b2 f   sccp:sccpcm.obj
+ 0001:000073fc       _sccpcm_sem_connected_recv_token 004083fc f   sccp:sccpcm.obj
+ 0001:0000742b       _sccpcm_sem_connected_ka_ack 0040842b f   sccp:sccpcm.obj
+ 0001:00007439       _sccpcm_sem_wf_reg_res_reg_nak 00408439 f   sccp:sccpcm.obj
+ 0001:000074ae       _sccpcm_sem_wf_reg_res_wf_reg_res_to 004084ae f   sccp:sccpcm.obj
+ 0001:000074ec       _sccpcm_sem_wf_reg_res_ka_ack 004084ec f   sccp:sccpcm.obj
+ 0001:0000752d       _sccpcm_sem_registered_error 0040852d f   sccp:sccpcm.obj
+ 0001:000075d8       _sccpcm_sem_registered_lockout 004085d8 f   sccp:sccpcm.obj
+ 0001:0000763c       _sccpcm_sem_wf_unreg_res_unreg_ack 0040863c f   sccp:sccpcm.obj
+ 0001:0000766b       _sccpcm_sem_wf_unreg_res_unreg_nak 0040866b f   sccp:sccpcm.obj
+ 0001:000076a0       _sccpcm_sem_wf_unreg_res_error 004086a0 f   sccp:sccpcm.obj
+ 0001:00007715       _sccpcm_sem_lockout_timeout_lockout 00408715 f   sccp:sccpcm.obj
+ 0001:00007739       _sccpcm_sem_lockout_ka_ack 00408739 f   sccp:sccpcm.obj
+ 0001:0000775d       _sccpcm_sem_registered     0040875d f   sccp:sccpcm.obj
+ 0001:000077b1       _sccpcm_sem_token_retry_to 004087b1 f   sccp:sccpcm.obj
+ 0001:000077d7       _sccpcm_sem_keepalive      004087d7 f   sccp:sccpcm.obj
+ 0001:00007814       _sccpcm_timeout_callback   00408814 f   sccp:sccpcm.obj
+ 0001:000078b6       _sccpcm_start_timer        004088b6 f   sccp:sccpcm.obj
+ 0001:0000792a       _sccpcm_start_keepalive_timer 0040892a f   sccp:sccpcm.obj
+ 0001:00007949       _sccpcm_start_misc_timer   00408949 f   sccp:sccpcm.obj
+ 0001:0000799c       _sccpcm_sem_idle_con_req   0040899c f   sccp:sccpcm.obj
+ 0001:00007a17       _sccpcm_sem_wf_con_res_con_ack 00408a17 f   sccp:sccpcm.obj
+ 0001:00007a6c       _sccpcm_sem_wf_con_res_con_retry 00408a6c f   sccp:sccpcm.obj
+ 0001:00007a7b       _sccpcm_sem_token_rej      00408a7b f   sccp:sccpcm.obj
+ 0001:00007ab1       _sccpcm_sem_connected_reg_req 00408ab1 f   sccp:sccpcm.obj
+ 0001:00007ae1       _sccpcm_sem_connected_timeout 00408ae1 f   sccp:sccpcm.obj
+ 0001:00007bbf       _sccpcm_sem_connected_lockout 00408bbf f   sccp:sccpcm.obj
+ 0001:00007bed       _sccpcm_sem_wf_reg_res_reg_ack 00408bed f   sccp:sccpcm.obj
+ 0001:00007cb0       _sccpcm_sem_wf_reg_res_timeout 00408cb0 f   sccp:sccpcm.obj
+ 0001:00007cf2       _sccpcm_sem_unreg_req      00408cf2 f   sccp:sccpcm.obj
+ 0001:00007d15       _sccpcm_sem_registered_timeout 00408d15 f   sccp:sccpcm.obj
+ 0001:00007d15       _sccpcm_sem_lockout_timeout_ka 00408d15 f   sccp:sccpcm.obj
+ 0001:00007d52       _sccpcm_sem_wf_unreg_res_timeout 00408d52 f   sccp:sccpcm.obj
+ 0001:00007dc1       _sccpcc_sem_name           00408dc1 f   sccp:sccpcc.obj
+ 0001:00007dc7       _sccpcc_state_name         00408dc7 f   sccp:sccpcc.obj
+ 0001:00007de3       _sccpcc_event_name         00408de3 f   sccp:sccpcc.obj
+ 0001:00007dff       _sccpcc_function_name      00408dff f   sccp:sccpcc.obj
+ 0001:00007e1b       _sccpcc_debug_sem_entry    00408e1b f   sccp:sccpcc.obj
+ 0001:00007e64       _sccpcc_validate_cb        00408e64 f   sccp:sccpcc.obj
+ 0001:00007e7c       _sccpcc_change_state       00408e7c f   sccp:sccpcc.obj
+ 0001:00007ed2       _sccpcc_print_cccb         00408ed2 f   sccp:sccpcc.obj
+ 0001:00007f0f       _sccpcc_free_cccb          00408f0f f   sccp:sccpcc.obj
+ 0001:00007f9f       _sccpcc_get_cccb_by_id     00408f9f f   sccp:sccpcc.obj
+ 0001:00007fbf       _sccpcc_get_cccb_by_call_id 00408fbf f   sccp:sccpcc.obj
+ 0001:00007ff3       _sccpcc_get_cccb_by_state  00408ff3 f   sccp:sccpcc.obj
+ 0001:00008027       _sccpcc_get_cccb_by_state_media 00409027 f   sccp:sccpcc.obj
+ 0001:00008073       _sccpcc_get_cccb_by_passthru_party_id 00409073 f   sccp:sccpcc.obj
+ 0001:000082c1       _sccpcc_copy_start_xmit_media 004092c1 f   sccp:sccpcc.obj
+ 0001:00008316       _sccpcc_copy_call_info     00409316 f   sccp:sccpcc.obj
+ 0001:0000836a       _sccpcc_event_setup        0040936a f   sccp:sccpcc.obj
+ 0001:00008bd8       _sccpcc_gapi_to_sccp_digit 00409bd8 f   sccp:sccpcc.obj
+ 0001:00008c74       _sccpcc_sem_cleanup        00409c74 f   sccp:sccpcc.obj
+ 0001:00008c83       _sccpcc_sem_offhook        00409c83 f   sccp:sccpcc.obj
+ 0001:00008cf5       _sccpcc_sem_idle_feature_req 00409cf5 f   sccp:sccpcc.obj
+ 0001:00008d85       _sccpcc_sem_setup          00409d85 f   sccp:sccpcc.obj
+ 0001:00008e20       _sccpcc_sem_digits         00409e20 f   sccp:sccpcc.obj
+ 0001:00008e60       _sccpcc_sem_cs_offhook     00409e60 f   sccp:sccpcc.obj
+ 0001:00008eaf       _sccpcc_sem_cs_setup       00409eaf f   sccp:sccpcc.obj
+ 0001:00008f0c       _sccpcc_sem_cs_proceeding  00409f0c f   sccp:sccpcc.obj
+ 0001:00008f35       _sccpcc_sem_cs_alerting    00409f35 f   sccp:sccpcc.obj
+ 0001:00008f61       _sccpcc_sem_oa_cs_connected 00409f61 f   sccp:sccpcc.obj
+ 0001:00008f8c       _sccpcc_sem_ic_cs_connected 00409f8c f   sccp:sccpcc.obj
+ 0001:00008fb7       _sccpcc_sem_cs_release     00409fb7 f   sccp:sccpcc.obj
+ 0001:00008fe0       _sccpcc_sem_call_state     00409fe0 f   sccp:sccpcc.obj
+ 0001:00009165       _sccpcc_sem_openrcv_res    0040a165 f   sccp:sccpcc.obj
+ 0001:000091a5       _sccpcc_sem_feature_req    0040a1a5 f   sccp:sccpcc.obj
+ 0001:000091ea       _sccpcc_sem_xxx_offhook    0040a1ea f   sccp:sccpcc.obj
+ 0001:000091ea       _sccpcc_sem_connect        0040a1ea f   sccp:sccpcc.obj
+ 0001:0000920a       _sccpcc_sem_release        0040a20a f   sccp:sccpcc.obj
+ 0001:0000922a       _sccpcc_sem_ia_release_complete 0040a22a f   sccp:sccpcc.obj
+ 0001:0000925e       _sccpcc_sem_release_complete 0040a25e f   sccp:sccpcc.obj
+ 0001:0000927d       _sccpcc_sem_or_release     0040a27d f   sccp:sccpcc.obj
+ 0001:000092cb       _sccpcc_sem_media          0040a2cb f   sccp:sccpcc.obj
+ 0001:000093fa       _sccpcc_sem_update_ui      0040a3fa f   sccp:sccpcc.obj
+ 0001:0000984c       _sccpcc_sem_devicetouserdata_req 0040a84c f   sccp:sccpcc.obj
+ 0001:0000988e       _sccpcc_sem_devicetouserdata_res 0040a88e f   sccp:sccpcc.obj
+ 0001:000098eb       _sccprec_sem_name          0040a8eb f   sccp:sccprec.obj
+ 0001:000098f1       _sccprec_state_name        0040a8f1 f   sccp:sccprec.obj
+ 0001:0000990d       _sccprec_event_name        0040a90d f   sccp:sccprec.obj
+ 0001:00009929       _sccprec_function_name     0040a929 f   sccp:sccprec.obj
+ 0001:00009945       _sccprec_timer_name        0040a945 f   sccp:sccprec.obj
+ 0001:0000995d       _sccprec_debug_sem_entry   0040a95d f   sccp:sccprec.obj
+ 0001:000099a3       _sccprec_validate_cb       0040a9a3 f   sccp:sccprec.obj
+ 0001:000099b4       _sccprec_change_state      0040a9b4 f   sccp:sccprec.obj
+ 0001:00009a07       _sccprec_stop_timer        0040aa07 f   sccp:sccprec.obj
+ 0001:00009c94       _sccprec_push_simple       0040ac94 f   sccp:sccprec.obj
+ 0001:00009e68       _sccprec_push_timeout      0040ae68 f   sccp:sccprec.obj
+ 0001:00009eb0       _sccprec_cleanup_secondarys 0040aeb0 f   sccp:sccprec.obj
+ 0001:00009f5c       _sccprec_count_list_iterations 0040af5c f   sccp:sccprec.obj
+ 0001:00009fce       _sccprec_close_cms         0040afce f   sccp:sccprec.obj
+ 0001:0000a041       _sccprec_get_next_cm_index 0040b041 f   sccp:sccprec.obj
+ 0001:0000a051       _sccprec_open_init         0040b051 f   sccp:sccprec.obj
+ 0001:0000a2a3       _sccprec_get_wait_before_unregister 0040b2a3 f   sccp:sccprec.obj
+ 0001:0000a2eb       _sccprec_sem_sec_check     0040b2eb f   sccp:sccprec.obj
+ 0001:0000a3b8       _sccprec_sem_pri_optimize  0040b3b8 f   sccp:sccprec.obj
+ 0001:0000a58c       _sccprec_sem_sec_optimize  0040b58c f   sccp:sccprec.obj
+ 0001:0000a764       _sccprec_sem_make_pri_con_dev_notify 0040b764 f   sccp:sccprec.obj
+ 0001:0000a9ca       _sccprec_sem_make_pri_con_timeout 0040b9ca f   sccp:sccprec.obj
+ 0001:0000ac11       _sccprec_sem_token_req_timeout 0040bc11 f   sccp:sccprec.obj
+ 0001:0000ad4b       _sccprec_sem_token_req_dev_notify 0040bd4b f   sccp:sccprec.obj
+ 0001:0000ae8b       _sccprec_sem_pri_unreg_cm_dev_notify 0040be8b f   sccp:sccprec.obj
+ 0001:0000af86       _sccprec_sem_pri_unreg_cm_timeout 0040bf86 f   sccp:sccprec.obj
+ 0001:0000afce       _sccprec_sem_pri_reg_cm_dev_notify 0040bfce f   sccp:sccprec.obj
+ 0001:0000b124       _sccprec_sem_pri_reg_cm_timeout 0040c124 f   sccp:sccprec.obj
+ 0001:0000b251       _sccprec_sem_make_sec_con_dev_notify 0040c251 f   sccp:sccprec.obj
+ 0001:0000b34b       _sccprec_sem_make_sec_con_timeout 0040c34b f   sccp:sccprec.obj
+ 0001:0000b5b8       _sccprec_sem_reset         0040c5b8 f   sccp:sccprec.obj
+ 0001:0000b628       _sccprec_sem_resetting_timeout 0040c628 f   sccp:sccprec.obj
+ 0001:0000b678       _sccprec_sem_resetting_dev_notify 0040c678 f   sccp:sccprec.obj
+ 0001:0000b6a6       _sccprec_sem_resetting_done 0040c6a6 f   sccp:sccprec.obj
+ 0001:0000b71c       _sccprec_sem_open          0040c71c f   sccp:sccprec.obj
+ 0001:0000b78d       _sccprec_timeout_callback  0040c78d f   sccp:sccprec.obj
+ 0001:0000b7dd       _sccprec_start_timer       0040c7dd f   sccp:sccprec.obj
+ 0001:0000b841       _sccprec_connect_cm        0040c841 f   sccp:sccprec.obj
+ 0001:0000b89c       _sccprec_register_cm       0040c89c f   sccp:sccprec.obj
+ 0001:0000b900       _sccprec_unregister_cm     0040c900 f   sccp:sccprec.obj
+ 0001:0000b954       _sccprec_sem_done          0040c954 f   sccp:sccprec.obj
+ 0001:0000ba70       _sccprec_sem_pri_check     0040ca70 f   sccp:sccprec.obj
+ 0001:0000bb84       _sccprec_sem_pri_check_find_pri 0040cb84 f   sccp:sccprec.obj
+ 0001:0000bc58       _sccprec_sem_find_pri_timeout 0040cc58 f   sccp:sccprec.obj
+ 0001:0000bdd2       _sccprec_sem_sec_check_find_sec 0040cdd2 f   sccp:sccprec.obj
+ 0001:0000be54       _sccprec_sem_find_sec_timeout 0040ce54 f   sccp:sccprec.obj
+ 0001:0000bf93       _sccprec_sem_find_sec_dev_notify 0040cf93 f   sccp:sccprec.obj
+ 0001:0000c0a2       _sccprec_sem_pri_opt_pri_optimize 0040d0a2 f   sccp:sccprec.obj
+ 0001:0000c1b0       _sccprec_sem_make_pri_con_token_req 0040d1b0 f   sccp:sccprec.obj
+ 0001:0000c1e4       _sccprec_sem_make_pri_con_unreg_req 0040d1e4 f   sccp:sccprec.obj
+ 0001:0000c263       _sccprec_sem_token_req_unreg_req 0040d263 f   sccp:sccprec.obj
+ 0001:0000c30d       _sccprec_sem_pri_unreg_cm_reg_req 0040d30d f   sccp:sccprec.obj
+ 0001:0000c3c8       _sccprec_sem_sec_opt_sec_optimize 0040d3c8 f   sccp:sccprec.obj
+ 0001:0000c4fc       _sccprec_sem_reset_req     0040d4fc f   sccp:sccprec.obj
+ 0001:0000c588       _sccprec_sem_find_pri_dev_notify 0040d588 f   sccp:sccprec.obj
+ 0001:0000c714       _sccpreg_sem_name          0040d714 f   sccp:sccpreg.obj
+ 0001:0000c71a       _sccpreg_state_name        0040d71a f   sccp:sccpreg.obj
+ 0001:0000c736       _sccpreg_event_name        0040d736 f   sccp:sccpreg.obj
+ 0001:0000c752       _sccpreg_function_name     0040d752 f   sccp:sccpreg.obj
+ 0001:0000c76e       _sccpreg_debug_sem_entry   0040d76e f   sccp:sccpreg.obj
+ 0001:0000c7b4       _sccpreg_validate_cb       0040d7b4 f   sccp:sccpreg.obj
+ 0001:0000c7c5       _sccpreg_change_state      0040d7c5 f   sccp:sccpreg.obj
+ 0001:0000c8a6       _sccpreg_push_simple       0040d8a6 f   sccp:sccpreg.obj
+ 0001:0000c932       _sccpreg_sem_cleanup       0040d932 f   sccp:sccpreg.obj
+ 0001:0000c95c       _sccpreg_sem_xxx_reg_req   0040d95c f   sccp:sccpreg.obj
+ 0001:0000c98e       _sccpreg_sem_reg_req       0040d98e f   sccp:sccpreg.obj
+ 0001:0000ca8f       _sccpreg_sem_register_ack  0040da8f f   sccp:sccpreg.obj
+ 0001:0000cae5       _sccpreg_sem_register_rej  0040dae5 f   sccp:sccpreg.obj
+ 0001:0000cb0d       _sccpreg_sem_capabilities_req 0040db0d f   sccp:sccpreg.obj
+ 0001:0000cb32       _sccpreg_sem_button_template_res 0040db32 f   sccp:sccpreg.obj
+ 0001:0000cc0c       _sccpreg_sem_softkey_template_res 0040dc0c f   sccp:sccpreg.obj
+ 0001:0000cc80       _sccpreg_sem_unreg_req     0040dc80 f   sccp:sccpreg.obj
+ 0001:0000ccbe       _sccpreg_sem_unregister_ack 0040dcbe f   sccp:sccpreg.obj
+ 0001:0000cd20       _sccpreg_process_buttons   0040dd20 f   sccp:sccpreg.obj
+ 0001:0000cdd1       _sccpreg_sem_softkey_set_res 0040ddd1 f   sccp:sccpreg.obj
+ 0001:0000ce3a       _sccpreg_sem_line_stat_res 0040de3a f   sccp:sccpreg.obj
+ 0001:0000cea2       _sccpreg_sem_speeddial_stat_res 0040dea2 f   sccp:sccpreg.obj
+ 0001:0000cedb       _sccpreg_sem_feature_stat_res 0040dedb f   sccp:sccpreg.obj
+ 0001:0000cf14       _sccpreg_sem_serviceurl_stat_res 0040df14 f   sccp:sccpreg.obj
+ 0001:0000cf4d       _sllist_free_head          0040df4d f   sccp:sllist.obj
+ 0001:0000da8e       __threadstartex@4          0040ea8e f   LIBCMT:threadex.obj
+ 0001:0000decc       __initterm                 0040eecc f   LIBCMT:crt0dat.obj
+ 0001:0000df4e       _doexit                    0040ef4e f   LIBCMT:crt0dat.obj
+ 0001:0000e051       _strtoxl                   0040f051 f   LIBCMT:strtol.obj
+ 0001:0000e5d0       __threadstart@4            0040f5d0 f   LIBCMT:thread.obj
+ 0001:0000e718       _fast_error_exit           0040f718 f   LIBCMT:crt0.obj
+ 0001:0000eb1c       _flsall                    0040fb1c f   LIBCMT:fflush.obj
+ 0001:0000ed5a       _write_char                0040fd5a f   LIBCMT:output.obj
+ 0001:0000ed8d       _write_multi_char          0040fd8d f   LIBCMT:output.obj
+ 0001:0000edb1       _write_string              0040fdb1 f   LIBCMT:output.obj
+ 0001:0000f739       $$$00003                   00410739 f   LIBCMT:exsup3.obj
+ 0001:00010ce5       ___updatetlocinfo_lk       00411ce5 f   LIBCMT:setlocal.obj
+ 0001:00010e74       __onexit_lk                00411e74 f   LIBCMT:onexit.obj
+ 0001:000115df       _parse_cmdline             004125df f   LIBCMT:stdargv.obj
+ 0001:00012225       _report_failure            00413225 f   LIBCMT:secchk.obj
+ 0001:00012308       $$$00001                   00413308 f   LIBCMT:exsup.obj
+ 0001:00012328       $$$00003                   00413328 f   LIBCMT:exsup.obj
+ 0001:00012328       __unwind_handler           00413328 f   LIBCMT:exsup.obj
+ 0001:0001234a       $$$00005                   0041334a f   LIBCMT:exsup.obj
+ 0001:000123b2       $$$00007                   004133b2 f   LIBCMT:exsup.obj
+ 0001:000123f6       $$$00011                   004133f6 f   LIBCMT:exsup.obj
+ 0001:0001261f       _CPtoLCID                  0041361f f   LIBCMT:mbctype.obj
+ 0001:0001264e       _setSBCS                   0041364e f   LIBCMT:mbctype.obj
+ 0001:00012677       _setSBUpLow                00413677 f   LIBCMT:mbctype.obj
+ 0001:00012803       __setmbcp_lk               00413803 f   LIBCMT:mbctype.obj
+ 0001:00012b01       ___crtInitCritSecNoSpinCount@8 00413b01 f   LIBCMT:initcrit.obj
+ 0001:00013eac       __tsopen_lk                00414eac f   LIBCMT:open.obj
+ 0001:00014b1e       _xtoa                      00415b1e f   LIBCMT:xtoa.obj
+ 0001:00014da0       _$$$00001                  00415da0 f   LIBCMT:strchr.obj

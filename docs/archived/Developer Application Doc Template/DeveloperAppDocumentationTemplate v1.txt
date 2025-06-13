@@ -1,0 +1,215 @@
+ <APPLICATION NAME> <VERSION LIST> DEVELOPER DOCUMENTATION
+===========================================================
+
+
+COPYRIGHT (C) 2005 Metreos Corporation 
+
+
+TABLE OF CONTENTS
+================
+
+	
+1. OVERVIEW
+   1.1 INTRODUCTION
+   1.2 REQUIREMENTS
+   1.3 CALLMANAGER CONFIGURATION
+2. SCRIPTS
+   2.1 <SCRIPT NAME> SCRIPT
+   2.1.1 OVERVIEW
+   2.1.2 TRIGGERING CRITERIA
+   2.1.3 APPLICATION FLOW
+   2.1.4 IMPLEMENTATION DETAILS
+   2.2 <SCRIPT NAME> SCRIPT
+	.
+	.
+	.
+	.
+3. INSTALLER FILE
+4. DATABASES
+5. MEDIA FILES
+6. PLUG-INS
+   6.1 <Solution>::<Project>
+   6.1.1 NATIVE ACTIONS
+   6.1.2 NATIVE TYPES
+	.
+	.
+	.
+	.
+7. CONTRIB
+   7.1 Item1
+   7.2 Item2
+   7.3 Item3
+8. ADDITIONAL COMMENTS
+
+
+
+
+
+1. OVERVIEW
+============
+
+1.1 INTRODUCTION
+----------------
+
+Provide high-level overview of what the application does. What needs does the application fulfill? 
+Describe the target user group that this application was designed to cater to, if any.
+
+
+1.2 REQUIREMENTS
+----------------
+
+Describe the requirements posed by the application. Address the following:
+- Supported MCE versions
+- Required MCE services (and versions, if we version at some point)
+- Required MCE providers (and versions, if we version at some point)
+- CallManager versions, if applicable
+- CallControl protocols required/supported/unsupported
+- Media requirements (ports, codecs, whatever)
+- Any other requirements, such as OS versions, external plug-ins (such as CTT Outlook plug-in), etc.
+
+1.3 CALLMANAGER CONFIGURATION
+-----------------------------
+
+This section is not applicable to applications that do not require any call manager configuration. In
+the case of such applications, this entire section should be removed, and the TOC should be updated accordingly.
+
+Discuss the general CallManager setup required to make this application work. High-level discussion
+is fine, don't need to provide step-by-step instructions. Describe route/hunt patterns, partitions, 
+calling search spaces. Basically describe how calls need to be routed for the purposes of the application.
+
+
+
+
+
+2. SCRIPTS 
+===========
+
+Discuss individual application scripts in this section.
+
+2.x <SCRIPT NAME> SCRIPT
+------------------------
+
+2.x.1 OVERVIEW:
+
+- Outline the subset of application features provided by this script. If all application features are provided
+  by this script, inform the reader of the fact that all features discussed in Section 1.1 are provided by this script.
+
+
+2.x.2 TRIGGERING CRITERIA:
+
+- Specify the event that this script triggers on. 
+- Describe the event parameters that the script expects to trigger on. 
+- Discuss required/acceptable values for these event parameters. 
+
+
+2.x.3 APPLICATION FLOW
+
+- Discuss the flow of the application, starting at the Entry point. Discuss the flow of execution, error handling, and termination points.
+- Make references to information contained in other sections of document as necessary
+- Avoid duplicating information, if possible. Instead, make references to other sections of document.
+- **** Rather than going into deep technical details in this section, make references to subsections you will create in section 2.x.4 Implementation Details
+- Discuss non-obvious global/local variables
+
+2.x.4 IMPLEMENTATION DETAILS
+
+Discuss particulars of implementation in this section. Create subsections with the following format:
+  a) <FUNCTION NAME> Function
+		-or-
+  a) <FUNCTION NAME>::<NODE NAME> Node (NodeID: xxxxxxxx) 
+		etc.
+
+If discussing particular nodes, try to include the node ID. 
+
+
+
+
+
+3. INSTALLER FILE
+==================
+
+Write a short paragraph for each Installer file value. Describe its purpose, required/acceptable/unacceptable values, and the default value, if any.
+Make references to other sections as needed.
+If no installer file is used, say "Not applicable."
+
+
+
+
+4. DATABASES
+=============
+
+Discuss each database script included with the application. Talk about its purpose, discuss its fields.
+Make references to other sections as needed.
+If no databases are used, say "Not applicable."
+
+
+
+
+
+5. MEDIA FILES
+===============
+
+Specify sampling rate and sampling frequency that all files use. 
+Discuss media files used by the application, going into as much or as little detail as appropriate. 
+Make references to other sections as needed.
+If no media files are used, say "Not applicable."
+
+
+
+
+
+6. PLUG-INS
+============
+
+Discuss plug-ins. Talk about their purpose, how they are used by the application, and provide any pertinent information. 
+If documentation for particular plug-in exists elsewhere, make references to it as needed.
+Discuss bits of code that may not be clear. Use the following structure:
+
+6.x <Solution>::<Project>
+--------------------------
+
+6.x.1 NATIVE ACTIONS
+
+Discuss native actions and their code
+
+
+6.x.2 NATIVE TYPES
+
+Discuss native types and their code.
+
+
+
+
+
+7. CONTRIB
+===========
+
+Discuss any items in the contrib directory. Discuss where they need to be placed. For example, in the case of an event package: talk about where
+it needs to be placed, what functionality it provides, and any other pertinent information. 
+Discuss WSDL files, etc. Make a subsection for each item, update TOC
+Ex:
+
+7.1 File.WSDL
+Text
+
+7.2 Event package file
+Text
+
+
+
+
+
+8. ADDITIONAL COMMENTS
+=======================
+
+Provide any additional comments that don't belong in the other sections, that you feel would be helpful to the reader.
+
+
+
+
+
+
+
+
+
+---
+Template v.1

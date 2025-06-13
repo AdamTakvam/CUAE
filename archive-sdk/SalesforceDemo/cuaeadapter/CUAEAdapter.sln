@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CTIAdapterLib", "CTIAdapterLib\CTIAdapterLib.vcproj", "{7549E76A-7A1D-4CA9-888B-D3E08E10E31A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CUAEAdapter", "CUAEAdapter\CUAEAdapter.vcproj", "{9EB4FE67-25FE-4BFB-8CF2-78DF35FFD4C0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7549E76A-7A1D-4CA9-888B-D3E08E10E31A} = {7549E76A-7A1D-4CA9-888B-D3E08E10E31A}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CUAEAdapterInstaller", "CUAEAdapterInstaller\CUAEAdapterInstaller.vdproj", "{2B914535-3D29-4491-96F4-019750F95898}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{7549E76A-7A1D-4CA9-888B-D3E08E10E31A}.Debug.ActiveCfg = Debug|Win32
+		{7549E76A-7A1D-4CA9-888B-D3E08E10E31A}.Debug.Build.0 = Debug|Win32
+		{7549E76A-7A1D-4CA9-888B-D3E08E10E31A}.Release.ActiveCfg = Release|Win32
+		{7549E76A-7A1D-4CA9-888B-D3E08E10E31A}.Release.Build.0 = Release|Win32
+		{9EB4FE67-25FE-4BFB-8CF2-78DF35FFD4C0}.Debug.ActiveCfg = Debug|Win32
+		{9EB4FE67-25FE-4BFB-8CF2-78DF35FFD4C0}.Debug.Build.0 = Debug|Win32
+		{9EB4FE67-25FE-4BFB-8CF2-78DF35FFD4C0}.Release.ActiveCfg = Release|Win32
+		{9EB4FE67-25FE-4BFB-8CF2-78DF35FFD4C0}.Release.Build.0 = Release|Win32
+		{2B914535-3D29-4491-96F4-019750F95898}.Debug.ActiveCfg = Debug
+		{2B914535-3D29-4491-96F4-019750F95898}.Release.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionItems) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

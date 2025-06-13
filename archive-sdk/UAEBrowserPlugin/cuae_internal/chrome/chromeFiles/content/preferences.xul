@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<!-- Localization Information -->
+<!DOCTYPE overlay SYSTEM "chrome://cuae_internal/locale/cuae_internal.dtd">
+
+<overlay id="cuae_internal_preferences_overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <!-- Merge with the BrowserPreferences Window -->
+  <prefwindow id="BrowserPreferences">
+
+    <!-- Create a new pane (tab) for CUAE Internal. -->
+    <prefpane id="cuae_internalPane" label="&prefpane.label;" 
+              image="chrome://cuae_internal/content/images/cuae_internal32.png">
+
+		<!-- Intermediary between GUI and preferences system -->
+		<preferences>
+			<preference id="username" name="extensions.cuae_internal.username" type="string" />
+			<preference id="password" name="extensions.cuae_internal.password" type="string" />
+			<preference id="primaryPhoneIP" name="extensions.cuae_internal.primaryPhoneIP" type="string" />
+			<preference id="appServerIP" name="extensions.cuae_internal.appServerIP" type="string" />
+			<preference id="allOnOff" name="extensions.cuae_internal.allOnOff" type="bool" />
+		</preferences>
+	    
+
+		<!-- Include the javascript code -->
+		<script type="application/x-javascript" src="chrome://cuae_internal/content/browser.js" />
+
+		<!-- Global Settings -->
+		<groupbox id="globalSettingsGroupBox" width="300">
+			<caption label="&groupbox.globalSettings;" accesskey="g" />
+			<hbox align="center">
+				<label value="&allOnOff.label;" control="allOnOffField" />
+				<checkbox id="allOnOffField" preference="allOnOff" />
+			</hbox>
+		</groupbox>
+		
+		<!-- Phone Settings Area -->
+		<groupbox id="phoneSettingsGroupBox" width="300">
+			<caption label="&groupbox.phoneSettings;" accesskey="p" />
+			<vbox align="start">
+				<hbox align="center">
+					<label value="&username.label;" control="usernameField" />
+					<textbox class="padded" flex="1" preference="username" id="usernameField" type="password" />
+				</hbox>
+				<hbox align="center">
+					<label value="&password.label;" control="passwordField" />
+					<textbox class="padded" flex="1" preference="password" id="passwordField" type="password" />
+				</hbox>
+				<hbox align="center">
+					<label value="&primaryPhoneIP.label;" control="primaryPhoneIPField" />
+					<textbox class="padded" flex="1" preference="primaryPhoneIP" id="primaryPhoneIPField" type="password" />
+				</hbox>
+				<hbox align="center">
+					<label value="&appServerIP.label;" control="appServerIPField" />
+					<textbox class="padded" flex="1" preference="appServerIP" id="appServerIPField" type="password" />
+				</hbox>
+			</vbox>
+		</groupbox>
+		
+	
+    </prefpane>
+
+  </prefwindow>
+
+</overlay>

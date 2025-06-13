@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xmlScriptData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="script1" type="master" instanceType="singleton" xmlns="http://metreos.com/XmlScriptData.xsd">
+  <using>System</using>
+  <using>System.Collections</using>
+  <using>System.Collections.Specialized</using>
+  <using>System.Data</using>
+  <using>System.Drawing</using>
+  <using>System.Diagnostics</using>
+  <using>System.Xml</using>
+  <using>System.Xml.Serialization</using>
+  <using>Metreos.ApplicationFramework</using>
+  <using>Metreos.ApplicationFramework.Collections</using>
+  <using>Metreos.LoggingFramework</using>
+  <using>Metreos.Interfaces</using>
+  <globalVariables>
+    <configurationValue name="Config.subscriber">
+      <variable name="g_subscriber" type="Metreos.Types.String" />
+    </configurationValue>
+    <configurationValue name="Config.password">
+      <variable name="g_passwd" type="Metreos.Types.String" />
+    </configurationValue>
+    <configurationValue name="Config.requestUri">
+      <variable name="g_requestUri" type="Metreos.Types.String" />
+    </configurationValue>
+  </globalVariables>
+  <function id="OnGotRequest" firstAction="633128803436875470">
+    <event type="triggering">Metreos.Providers.Http.GotRequest</event>
+    <parameter name="remoteHost" type="reference">
+      <variable name="remoteHost" type="Metreos.Types.String" />
+    </parameter>
+    <action id="633128803436875470" type="provider">
+      <name>Metreos.Providers.Presence.NonTriggeringSubscribe</name>
+      <param name="requestUri" type="variable">g_requestUri</param>
+      <param name="password" type="variable">g_passwd</param>
+      <param name="userData" type="literal">none</param>
+      <param name="subscriber" type="variable">g_subscriber</param>
+      <param name="HandlerId" type="literal">none</param>
+      <nextAction returnValue="default">633128803436875473</nextAction>
+    </action>
+    <action id="633128803436875473" type="provider">
+      <name>Metreos.Providers.Http.SendResponse</name>
+      <param name="remoteHost" type="variable">remoteHost</param>
+      <param name="responseCode" type="literal">200</param>
+      <param name="responsePhrase" type="literal">Ok</param>
+      <nextAction returnValue="default">633128803436875472</nextAction>
+    </action>
+    <action id="633128803436875472" type="provider">
+      <name>Metreos.ApplicationControl.EndFunction</name>
+    </action>
+  </function>
+  <function id="OnNotify" firstAction="633143181006563022">
+    <event type="unsolicited">Metreos.Providers.Presence.Notify</event>
+    <parameter name="status" type="reference">
+      <variable name="status" type="Metreos.Types.Presence.PresenceNotification" />
+    </parameter>
+    <action id="633143181006563022" type="userCode">
+      <code>
+        <Value><![CDATA[
+public static string Execute(Metreos.Types.Presence.PresenceNotification status, LogWriter log)
+{
+	// TODO: add parameters with same name and type as variables
+	// TODO: add function body
+
+	Hashtable resources = status.ResourceList.Resources;
+	IEnumerator	it = resources.Values.GetEnumerator();
+	while(it.MoveNext())
+	{
+		Metreos.Types.Presence.Resource r = (Metreos.Types.Presence.Resource) it.Current;
+		log.Write(TraceLevel.Info, "Resource: {0} Status: {1}", r.Uri, 
+			r.Presence.tuple[0].status.basic);
+	}
+
+	return "success";
+}
+]]></Value>
+      </code>
+      <nextAction returnValue="default">633128803436875500</nextAction>
+    </action>
+    <action id="633128803436875500" type="provider">
+      <name>Metreos.ApplicationControl.EndFunction</name>
+    </action>
+  </function>
+</xmlScriptData>

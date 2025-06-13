@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Digits" displayName="Digits to Push" format="String" description="The digits that the application should send to MeetingPlace.  Use , to indicate a delay, use A to indicate Account Code, and use P to indicate Pin" defaultValue=",,,,2,,,,,,,,,,,,A#,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,P#,,,,,,,*,,,,,,,,2,,,,,1" required="true" />
+    <configValue name="MPAccount" displayName="MeetingPlace Account Code" format="Password" description="The MeetingPlace Account Code" defaultValue="" required="true" />
+    <configValue name="MPPin" displayName="MeetingPlace Pin" format="Password" description="The MeetingPlace Account Pin" defaultValue="" required="true" />
+    <configValue name="CommaDelay" displayName="Comma Delay" format="String" description="The amount of delay that one comma has" defaultValue="200" required="true" />
+    <configValue name="MPDialIn" displayName="MeetingPlace DialIn" format="String" description="MeetingPlace Dial In" defaultValue="918663493520" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,74 @@
+--7a1f0d2c-6a63-43ae-b
+Content-Transfer-Encoding: binary
+Content-ID: <49e5ea@10.89.31.251>
+Content-Type: application/rlmi+xml;charset="UTF-8"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:ietf:params:xml:ns:rlmi" uri="sip:hong-contacts@cisco.com" version="4" fullState="false">
+<resource uri="sip:jan@cisco.com">
+
+  <instance cid="4f0033@10.89.31.251" id="1" state="active"/>
+
+</resource>
+</list>
+
+--7a1f0d2c-6a63-43ae-b
+Content-Transfer-Encoding: binary
+Content-ID: <4f0033@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:jan@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="jan">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <available xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cmp-100034-88457sip:100034@10.89.31.46">
+      <status>
+        <basic>open</basic>
+    </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+    </sc:servcaps>
+      <contact priority="0.8">sip:100034@10.89.31.46:5060</contact>
+      <timestamp>2007-06-22T15:57:43Z</timestamp>
+  </tuple>
+
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cisco-upc">
+      <contact priority="0">sip:jan@cisco.com</contact>
+      <cisco:source xmlns:cisco="urn:cisco:params:xml:ns:pidf:source">cupc1.1</cisco:source>
+      <note xml:lang="en"/>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>false</sc:audio>
+        <sc:video>false</sc:video>
+        <sc:text>false</sc:text>
+      </sc:servcaps>
+      <user-input>idle</user-input>
+      <status>
+        <basic>open</basic>
+      </status>
+    </tuple>
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="email">
+      <status>
+        <basic>open</basic>
+      </status>
+      <contact priority="0">mailto:jacapps@cisco.com</contact>
+    </tuple>
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="phone">
+      <status>
+        <basic>open</basic>
+      </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+      </sc:servcaps>
+      <contact priority="1">phone:100034</contact>
+    </tuple>
+
+</presence>
+
+--7a1f0d2c-6a63-43ae-b--

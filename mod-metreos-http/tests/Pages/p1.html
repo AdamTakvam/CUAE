@@ -1,0 +1,54 @@
+<html>
+<body>
+<TABLE BORDER=1 CELLSPACING="5">
+<TR><TH><code>SELECT</code> element
+<TH>radio buttons
+<TH>checkboxes
+<TH>several submit buttons<BR></TR>
+<TR><TD>
+
+<FORM ACTION="http://127.0.0.1:8000/mypost" method="post"
+><DIV>
+<SELECT NAME="flavor">
+    <OPTION VALUE="van" SELECTED>Vanilla
+    <OPTION VALUE="str">Strawberry
+    <OPTION VALUE="rr">Rum and Raisin
+    <OPTION VALUE="po">Peach and Orange
+    </SELECT>
+<BR>
+<INPUT TYPE="submit" VALUE="Make it so!">
+</DIV></FORM>
+</TD><TD>
+<FORM ACTION="http://127.0.0.1:8000/mypost" method="post">
+<DIV>
+    <INPUT TYPE="radio" NAME="flavor" VALUE="van" CHECKED>Vanilla<BR>
+
+    <INPUT TYPE="radio" NAME="flavor" VALUE="str">Strawberry<BR>
+    <INPUT TYPE="radio" NAME="flavor" VALUE="rr">Rum and Raisin<BR>
+    <INPUT TYPE="radio" NAME="flavor" VALUE="po">Peach and Orange<BR>
+<INPUT TYPE="submit" VALUE="Make it so!">
+</DIV></FORM>
+</TD><TD>
+<FORM ACTION="http://127.0.0.1:8000/mypost"  method="post">
+<DIV>
+    <INPUT TYPE="checkbox" NAME="flavor" VALUE="van">Vanilla<BR>
+
+    <INPUT TYPE="checkbox" NAME="flavor" VALUE="str">Strawberry<BR>
+    <INPUT TYPE="checkbox" NAME="flavor" VALUE="rr">Rum and Raisin<BR>
+    <INPUT TYPE="checkbox" NAME="flavor" VALUE="po">Peach and Orange<BR>
+<INPUT TYPE="submit" VALUE="Make it so!">
+</DIV></FORM>
+</TD><TD>
+<FORM ACTION="http://127.0.0.1:8000/mypost" method="post">
+<DIV>
+    <INPUT TYPE="submit" NAME="flavor" VALUE="Vanilla"><BR>
+    <INPUT TYPE="submit" NAME="flavor" VALUE="Strawberry"><BR>
+
+    <INPUT TYPE="submit" NAME="flavor" VALUE="Rum and Raisin"><BR>
+    <INPUT TYPE="submit" NAME="flavor" VALUE="Peach and Orange"><BR>
+</DIV></FORM>
+</TD></TR>
+</TABLE>
+</form>
+</body>
+</html>

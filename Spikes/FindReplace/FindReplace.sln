@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindReplace", ".\FindReplace\FindReplace.csproj", "{952BCF91-803D-443B-BF7A-89AA7A760151}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{952BCF91-803D-443B-BF7A-89AA7A760151}.Debug.ActiveCfg = Debug|.NET
+		{952BCF91-803D-443B-BF7A-89AA7A760151}.Debug.Build.0 = Debug|.NET
+		{952BCF91-803D-443B-BF7A-89AA7A760151}.Release.ActiveCfg = Release|.NET
+		{952BCF91-803D-443B-BF7A-89AA7A760151}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

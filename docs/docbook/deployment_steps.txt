@@ -1,0 +1,14 @@
+1)  Obtain docbook schemas.  The initial version of this was put in X:\Contrib\docbook\docbook-5.0b5
+
+2)  Obtain docbook XSLT files for converting to the various formats.  The initial version of this was put into X:\Contrib\docbook\docbook-xsl-1.71.1
+
+3)  Obtain XSLT processor (Xalan appears to be the way to go in this regard).  Initial version is in x:\Tools\xalan-j_2_7_0
+
+4)  Set up Java environment for XSLT usage.  In windows, this means adding this to your CLASSPATH: X:\Tools\xalan-j_2_7_0\xalan.jar;X:\Tools\xalan-j_2_7_0\xml-apis.jar;X:\Tools\xalan-j_2_7_0\xercesImpl.jar;X:\Contrib\docbook\docbook-xsl-1.71.1\extensions\xalan27.jar
+
+5)  x:\docs\docbook contain override XSLT files for the various types of documents we create, such as articles and the CUAE API Reference.
+
+6)  x:\docs\docbook\examples contain some skeleton files and docs on how to use docbook
+
+7)  The x:\docs\build.xml invokes x:\Tools\Build-Support\docbook.bat with the appropriate parameters to take a docbook file and generate the appropriate content.
+

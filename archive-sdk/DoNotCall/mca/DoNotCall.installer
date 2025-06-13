@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="DbUsername" displayName="Database Username" format="String" description="The username to use when connecting to the database" defaultValue="voipdncuser" required="true" />
+    <configValue name="DbPassword" displayName="Database Password" format="Password" description="The password of the user when connecting to the database" defaultValue="n0$bugs" required="true" />
+    <configValue name="DbHost" displayName="Database Host" format="String" description="The IP address of the database" defaultValue="12.40.50.180" required="true" />
+    <configValue name="DbLicense" displayName="Database Database License" format="String" description="A license key to the database" defaultValue="3133-307A-38E5-43B6-9FD5-2CDB-C0AA-0E59" required="true" />
+    <configValue name="RespectCurfew" displayName="Respect Curfew" format="Bool" description="Respect curfew considerations" defaultValue="true" required="true" />
+    <configValue name="OverrideCode" displayName="Database Override Code" format="String" description="Optional Override code" defaultValue="12345678" />
+    <configValue name="DbRefKey" displayName="Database Reference Key" format="String" description="Database Reference Key" defaultValue="NONE" required="true" />
+    <configValue name="PrependDigits" displayName="Prepended Digits" format="String" description="Specifies the prepended digits to remove" defaultValue="NONE" required="true" />
+    <configValue name="DTMFOverride" displayName="Prepended Digits Override" format="String" description="Specifies the prepended digits signifying to not check the DNC database.  This must include the outbound steering digit (normally 9)" defaultValue="99" required="true" />
+    <configValue name="TestFailure" displayName="Test Failure" format="Bool" description="Only set to true to test CTI Route Point Failure Forwarding Conditions" defaultValue="false" required="true" />
+    <configValue name="ForceOutbound" displayName="Force Outbound" format="String" description="For testing all calls outbound as one number" defaultValue="NONE" required="true" />
+    <configValue name="PrependOnRedirect" displayName="Prepend on Redirect" format="String" description="If not NONE, all redirected calls will have this prepended" defaultValue="NONE" required="true" />
+    <configValue name="UseWirelessDNC" displayName="Use Only Wireless DNC" format="Bool" description="If true, only respect the Wireless DNC list.  If false, respect all DNC lists" defaultValue="true" required="true" />
+    <configValue name="UseMetreosDNC" displayName="Use Metreos DNC" format="Bool" description="Use the Metreos DNC Configuration Item" defaultValue="true" required="true" />
+  </configuration>
+</install>

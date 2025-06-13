@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Prompt1" displayName="Prompt1" format="String" description="The first prompt to TTS" defaultValue="This is a test of the text-to-speech engine." required="false" />
+    <configValue name="Prompt2" displayName="Prompt2" format="String" description="The second prompt to TTS." defaultValue="I'm a little teapot, short and stout." readOnly="false" required="false" />
+    <configValue name="Prompt3" displayName="Prompt3" format="String" description="The third prompt to TTS." defaultValue="This is my handle, and this is my spout." />
+    <configValue name="PauseTime" displayName="PauseTime" format="Number" description="Number of milliseconds between sequential invocations of the Play action." defaultValue="2000" required="true" />
+  </configuration>
+</install>

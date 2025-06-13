@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagedRequest", "PagedRequest.csproj", "{C4BC9433-64E9-46D9-B0CB-9DC36B0EE812}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{C4BC9433-64E9-46D9-B0CB-9DC36B0EE812}.Debug.ActiveCfg = Debug|.NET
+		{C4BC9433-64E9-46D9-B0CB-9DC36B0EE812}.Debug.Build.0 = Debug|.NET
+		{C4BC9433-64E9-46D9-B0CB-9DC36B0EE812}.Release.ActiveCfg = Release|.NET
+		{C4BC9433-64E9-46D9-B0CB-9DC36B0EE812}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

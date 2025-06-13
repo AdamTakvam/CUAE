@@ -1,0 +1,864 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{083E03F2-2DAF-4E80-91E3-A4BEBEB71462}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>Resources\max.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>MaxDesigner</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MaxDesigner</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility">
+      <Name>Accessibility</Name>
+    </Reference>
+    <Reference Include="MagicLibrary">
+      <Name>MagicLibrary</Name>
+      <HintPath>X:\Contrib\Crownwood\MagicLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.AppArchiveCore">
+      <Name>Metreos.AppArchiveCore</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.AppArchiveCore.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.ApplicationFramework">
+      <Name>Metreos.ApplicationFramework</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.AxlSoap">
+      <Name>Metreos.AxlSoap</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.AxlSoap.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Core">
+      <Name>Metreos.Core</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.DebugFramework">
+      <Name>Metreos.DebugFramework</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.DebugFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Interfaces">
+      <Name>Metreos.Interfaces</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Messaging">
+      <Name>Metreos.Messaging</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Messaging.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.PackageGeneratorCore">
+      <Name>Metreos.PackageGeneratorCore</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.PackageGeneratorCore.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.ProviderFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Utilities">
+      <Name>Metreos.Utilities</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.WebServicesConsumerCore">
+      <Name>Metreos.WebServicesConsumerCore</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.WebServicesConsumerCore.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Northwoods.Go">
+      <Name>Northwoods.Go</Name>
+      <HintPath>X:\Contrib\Northwoods\2.2.2\lib\Northwoods.Go.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nsoftware.System">
+      <Name>nsoftware.System</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\nsoftware.System.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Name>System.Runtime.Remoting</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+      <Private>False</Private>
+    </Reference>
+    <ProjectReference Include="..\MaxPropertiesManager\MaxPropertiesManager.csproj">
+      <Name>MaxPropertiesManager</Name>
+      <Project>{5A3E037F-73E0-48F4-A504-4096DBA84A5A}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\BuildConst.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Const.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\MaxObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\NativeType\MaxNativeType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\NativeType\MaxNativeTypeGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\NativeType\MaxNativeTypeNameSpace.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\NativeType\MaxNativeTypes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Package\MaxPackage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Package\MaxPackages.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Reg.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Tool\MaxStockTools.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Tool\MaxTool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Tool\MaxToolGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Tool\MaxToolImport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Util.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debugger\Breakpoints\MaxBreakpointsListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Debugger\CallStack\MaxBreakpointsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debugger\CallStack\MaxCallStackListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Debugger\CallStack\MaxCallStackWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debugger\MaxDebugger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debugger\MaxDebugListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Debugger\MaxDebugUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debugger\RemoteConsole\MaxConsoleView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Debugger\RemoteConsole\MaxConsoleWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debugger\Watch\MaxWatchGridAdapter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Debugger\Watch\MaxWatchWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\App\MaxAppTreeBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\App\MaxAppTreeMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\App\MaxAppTreeNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\App\MaxAppTreeSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\App\MaxAppTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxAnnotationState.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxAppCanvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxAppTree.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxCanvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxCanvasDragTool.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxCanvasMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxCanvasSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxContainerMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxFunctionCanvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxTabContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxVariablesManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Canvas\MaxView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\Link\MaxLink.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Link\MaxLinkHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Link\MaxLinks.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxAnnotationNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxAsyncActionNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxCallNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxIconicMultiTextNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxLoopContainerNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxMultiIconNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxNodeMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxNodes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxNodesComplex.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Node\MaxNodeSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\MediaFileLocaleDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\MediaFileLocaleDlg.Designer.cs">
+      <DependentUpon>MediaFileLocaleDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\LocalizationHelpDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\LocalizationHelpDlg.Designer.cs">
+      <DependentUpon>LocalizationHelpDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\RenameLocaleDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\RenameLocaleDlg.Designer.cs">
+      <DependentUpon>RenameLocaleDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\RenameStringDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\RenameStringDlg.Designer.cs">
+      <DependentUpon>RenameStringDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\MaxLocalizationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\MaxLocalizationEditor.Designer.cs">
+      <DependentUpon>MaxLocalizationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\MaxLocalizationEditorTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\CustomConfigManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\CustomDataGridColumns.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\MaxInstallerEditor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\MaxTextEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\NewLocaleDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\NewLocaleDlg.Designer.cs">
+      <DependentUpon>NewLocaleDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\NewNameDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\NewStringDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drawing\Text\NewStringDlg.Designer.cs">
+      <DependentUpon>NewStringDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\Text\UserConfigType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Drawing\Variable\MaxVariableTray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\AppDeployment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\AssemblyWorker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ConstructionConst.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ExitLogGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\FunctionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ICompileNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\IMetreosScript.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\IViewport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\LoopNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\LoopParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\MaxParentNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\MetreosActionNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ProjectBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ProjectXmlUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ScriptCompiler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ScriptConstruction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ScriptMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\ScriptParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Build\Stepper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxAppUninstallDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxAuthenticationDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxChooserDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxCustomizeDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxDeployingDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxFunctionRefsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxLocalFileDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxLocationDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxNewAppDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxNewFileDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxNewTriggerDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxNodeIdDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxOptionsDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxPageSetupDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\MaxPassiveListDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\ToolsOptions\MaxOptionsDlg.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\ToolsOptions\MaxOptsBuild.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\ToolsOptions\MaxOptsCanvas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\ToolsOptions\MaxOptsDebug.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\ToolsOptions\MaxOptsGeneral.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\ToolsOptions\MaxOptsServer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\WebService\MaxWebServiceA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\WebService\MaxWebServiceB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\WebService\MaxWebServiceC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\WebService\MaxWebServiceD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\WebService\MaxWebServicePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Dialog\WebService\MaxWebServiceWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\MaxMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\MaxMainDialog.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\MaxMainUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\MaxMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\MaxMenuHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Explorer\MaxExplorerMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Explorer\MaxExplorerTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Explorer\MaxExplorerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Explorer\MaxTreeNode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\MaxSatelliteWindow.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Output\MaxOutputWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Overview\MaxOverviewWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Property\MaxPropertyWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxTab.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxTabArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Satellite\Toolbox\MaxToolboxWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Framework\Util\AssemblyPeeker.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Util\MaxCommandLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Util\MaxCurrentView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Util\MaxRecentFileList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Util\MaxWindowPlacement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Framework\Util\MaxWsdlExaminer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GlobalEvents\GlobalEvents.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GlobalEvents\GlobalHandlersInbound.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GlobalEvents\GlobalHandlersOutbound.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manager\MaxApp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manager\MaxManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Manager\MaxProject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manager\MaxProjectSerializer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manager\MaxProjectUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Manager\MaxProjectView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resources\Images\MaxImageIndex.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resources\Images\MaxImageList.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Resources\XML\MaxXmlResource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Drawing\App\MaxAppTreeView.resx">
+      <DependentUpon>MaxAppTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Canvas\MaxCanvas.resx">
+      <DependentUpon>MaxCanvas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Canvas\MaxTabContent.resx">
+      <DependentUpon>MaxTabContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Canvas\MaxView.resx">
+      <DependentUpon>MaxView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\MediaFileLocaleDlg.resx">
+      <DependentUpon>MediaFileLocaleDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\LocalizationHelpDlg.resx">
+      <DependentUpon>LocalizationHelpDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\RenameLocaleDlg.resx">
+      <DependentUpon>RenameLocaleDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\RenameStringDlg.resx">
+      <DependentUpon>RenameStringDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\MaxLocalizationEditor.resx">
+      <DependentUpon>MaxLocalizationEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\MaxLocalizationEditorTab.resx">
+      <DependentUpon>MaxLocalizationEditorTab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\CustomConfigManager.resx">
+      <DependentUpon>CustomConfigManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\CustomDataGridColumns.resx">
+      <DependentUpon>CustomDataGridColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\MaxInstallerEditor.resx">
+      <DependentUpon>MaxInstallerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\NewLocaleDlg.resx">
+      <DependentUpon>NewLocaleDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\NewNameDlg.resx">
+      <DependentUpon>NewNameDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\Text\NewStringDlg.resx">
+      <DependentUpon>NewStringDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxAppUninstallDlg.resx">
+      <DependentUpon>MaxAppUninstallDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxAuthenticationDlg.resx">
+      <DependentUpon>MaxAuthenticationDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxChooserDlg.resx">
+      <DependentUpon>MaxChooserDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxCustomizeDlg.resx">
+      <DependentUpon>MaxCustomizeDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxDeployingDlg.resx">
+      <DependentUpon>MaxDeployingDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxFunctionRefsDlg.resx">
+      <DependentUpon>MaxFunctionRefsDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxLocalFileDlg.resx">
+      <DependentUpon>MaxLocalFileDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxLocationDlg.resx">
+      <DependentUpon>MaxLocationDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxNewAppDlg.resx">
+      <DependentUpon>MaxNewAppDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxNewFileDlg.resx">
+      <DependentUpon>MaxNewFileDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxNewTriggerDlg.resx">
+      <DependentUpon>MaxNewTriggerDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxNodeIdDlg.resx">
+      <DependentUpon>MaxNodeIdDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxOptionsDlg.resx">
+      <DependentUpon>MaxOptionsDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxPageSetupDlg.resx">
+      <DependentUpon>MaxPageSetupDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\MaxPassiveListDlg.resx">
+      <DependentUpon>MaxPassiveListDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\ToolsOptions\MaxOptionsDlg.resx">
+      <DependentUpon>MaxOptionsDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\ToolsOptions\MaxOptsBuild.resx">
+      <DependentUpon>MaxOptsBuild.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\ToolsOptions\MaxOptsCanvas.resx">
+      <DependentUpon>MaxOptsCanvas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\ToolsOptions\MaxOptsDebug.resx">
+      <DependentUpon>MaxOptsDebug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\ToolsOptions\MaxOptsGeneral.resx">
+      <DependentUpon>MaxOptsGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\ToolsOptions\MaxOptsServer.resx">
+      <DependentUpon>MaxOptsServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\WebService\MaxWebServiceA.resx">
+      <DependentUpon>MaxWebServiceA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\WebService\MaxWebServiceB.resx">
+      <DependentUpon>MaxWebServiceB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\WebService\MaxWebServiceC.resx">
+      <DependentUpon>MaxWebServiceC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\WebService\MaxWebServiceD.resx">
+      <DependentUpon>MaxWebServiceD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\WebService\MaxWebServicePanel.resx">
+      <DependentUpon>MaxWebServicePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Dialog\WebService\MaxWebServiceWizard.resx">
+      <DependentUpon>MaxWebServiceWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\MaxMain.resx">
+      <DependentUpon>MaxMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Satellite\Explorer\MaxExplorerTreeView.resx">
+      <DependentUpon>MaxExplorerTreeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Satellite\Explorer\MaxExplorerWindow.resx">
+      <DependentUpon>MaxExplorerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Satellite\Output\MaxOutputWindow.resx">
+      <DependentUpon>MaxOutputWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Framework\Satellite\Property\MaxPropertyWindow.resx">
+      <DependentUpon>MaxPropertyWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="licenses.licx" />
+    <EmbeddedResource Include="Manager\MaxManager.resx">
+      <DependentUpon>MaxManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images\Framework16x16.bmp" />
+    <EmbeddedResource Include="Resources\Images\MaxLoopNodePort.bmp" />
+    <EmbeddedResource Include="Resources\Images\StockTool16x16.bmp" />
+    <EmbeddedResource Include="Resources\Images\StockTool32x32.bmp" />
+    <EmbeddedResource Include="Resources\max.ico" />
+    <EmbeddedResource Include="Resources\XML\DefaultToolboxLayout.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

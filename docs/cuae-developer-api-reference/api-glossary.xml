@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<glossary id="ApiGlossary">
+	<title>CUAE API Reference Glossary</title>
+	<para>
+		This glossary defines the complex concepts that are needed for fuller understanding of individual actions, events, and types defined in the CUAE API Reference Guide.
+	</para>
+	<glossdiv id="Core">
+		<title>CUAE Core Terms</title>
+		<glossentry id="ApiGlossary.Action">
+			<glossterm>Action</glossterm>
+			<glossdef>
+  				<para>An action represents a single block of code that has zero or more inputs and zero or more outputs.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ActionParameter">
+			<glossterm>Action Parameter</glossterm>
+			<glossdef>
+				<para>An action parameter is an input to an <link linkend="ApiGlossary.Action"><code>action</code></link>. It is comprised of a name, a value, and a type declaring how the value should be intepreted (literal, variable, csharp).</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ApplicationLifetime">
+			<glossterm>Application Lifetime</glossterm>
+			<glossdef>
+				<para>
+					The life of an application is started when the application server loads the application, which in practice happens either when the application is first installed or if the application is already loaded when the application server service is starting. The life of the application ends when the application is either disabled, uninstalled, or if the application server service is stopped.
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ApplicationPartition">
+			<glossterm>Application Partition</glossterm>
+			<glossdef>
+				<para>All script instances execute within the context of an application partition.   An application partition defines a number of parameters for the script instance, such as <link linkend="ApiGlossary.CallRouteGroup"><code>Call Route Group</code></link>, <link linkend="ApiGlossary.MediaResourceGroup"><code>Media Resource Group</code></link>, <link linkend="ApiGlossary.ReserveMediaEarly"><code>Reserve Media Early</code></link>, Locale, and custom configuration items.  An application partition can not be set or changed by the script instance; instead, by setting <link linkend="ApiGlossary.EventFilterCriteria"><code>event filter criteria</code></link>, one can configure in mceadmin which partition of a particular script initiates under which condition.</para>
+				<para>Partitions provide a means to split a single application into different templates or modes of operation.  Usually partitions correspond to geographies of the user(s) of the application, but certainly this is not the only use for partitions.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ARE">
+			<glossterm>Application Runtime Environment</glossterm>
+  			<acronym>ARE</acronym>
+			<glossdef>
+  				<para>The entity within the application server which manages the execution and messaging of scripts.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.AsyncAction">
+			<glossterm>Asynchronous Action</glossterm>
+			<glossdef>
+				<para>An ansynchronous action is an action that has defined one or more <link linkend="ApiGlossary.AsyncCallback"><code>asynchronous callbacks</code></link>.  An asynchronous action, in conjuction with asynchronous callbacks, form a simple design pattern:  the usage of a single asynchronous action will result in one (and only one) of the asynchronous callbacks defined for that action being fired back to the same script instance that invoked the action.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.AsyncCallback">
+			<glossterm>Asynchronous Callback</glossterm>
+			<glossdef>
+				<para>One ansynchronous callback event out of other asynchronous callbacks defined by an <link linkend="ApiGlossary.AsyncAction"><code>asynchronous action</code></link>, is guaranteed to fire back to the same script instance that used the corresponding asynchronous action, making an asynchronous callback a <link linkend="ApiGlossary.NonTriggeringEvent"><code>non-triggering event</code></link>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.Branching">
+			<glossterm>Branching</glossterm>
+			<glossdef>
+				<para><link linkend="ApiGlossary.Action"><code>Actions</code></link> always exit with a branch condition which should indicate the overall outcome of the action.  An action can return any string value; by convention, must actions built by Cisco Systems return <code>success</code> and <code>failure</code>. The <code>default</code> branch condition is a special keyword that one can define when using any action to indicate a catch-all branch for that action.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CallRouteGroup">
+			<glossterm>Call Route Group</glossterm>
+			<glossdef>
+				<para>A Call Route Group defines 1 or more telephony endpoints that practically correspond to one or more Cisco Unified Communication Manager nodes in a cluster.  A Call Route Group also is associated with a single call control protocol (SIP, H.323, SCCP, CTI).  Call Route Groups are associated with <link linkend="ApiGlossary.ApplicationPartition"><code>application partitions</code></link> in mceadmin.</para>
+				<para>Once a Call Route Group has been defined, it can be associated with any number of application partitions.  If a script instance uses <link linkend="Metreos.CallControl.MakeCall"><code>MakeCall</code></link> or <link linkend="Metreos.CallControl.Barge"><code>Barge</code></link>, the configured Call Route Group will decide which protocol is used to communicate with the Cisco Unified Communications Manager configured in the Call Route Group.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CUAD">
+			<glossterm>Cisco Unified Application Designer</glossterm>
+			<acronym>CUAD</acronym>
+			<glossdef>
+				<para>The graphical IDE of the <link linkend="ApiGlossary.CUAE"><code>Cisco Unified Application Enviroment</code></link> in which applications are built.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CUAE">
+			<glossterm>Cisco Unified Application Environment</glossterm>
+			<acronym>CUAE</acronym>
+			<glossdef>
+				<para>The Cisco Unified Application Environment is an umbrella term encompassing the three discrete products which comprise a development platform for building applications which leverage Cisco voice infrastructure and enterprise applications and data. These there products are the <link linkend="ApiGlossary.CUAS"><code>Cisco Unified Application Server</code></link>, <link linkend="ApiGlossary.CUME"><code>Cisco Unified Media Engine</code></link>, and the <link linkend="ApiGlossary.CUAD"><code>Cisco Unified Application Designer</code></link>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CUAS">
+			<glossterm>Cisco Unified Application Server</glossterm>
+			<acronym>CUAS</acronym>
+			<glossdef>
+				<para>The Cisco Unified Application Server performs two major functions.  One is to act as a hub for any number of protocols, implemented via <link linkend="ApiGlossary.Provider"><code>providers</code></link>.  The other is to host applications, which implement business logic and have the installed providers at their disposal when executing.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CUME">
+			<glossterm>Cisco Unified Media Engine</glossterm>
+			<acronym>CUME</acronym>
+			<glossdef>
+				<para>The Cisco Unified Media Engine is a rich-media processing node that can perform a number of operations on RTP audio streams.  The Media Engine is not directly extensible or programmable.  The only means by which it is controlled is with the <link linkend="ApiGlossary.CUAS"><code>Cisco Unified Application Server</code></link> the <link linkend="Metreos.MediaControl">Media Control</link> or <link linkend="Metreos.CallControl">Call Control</link> API.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CustomActionParams">
+			<glossterm>Custom Action Parameters</glossterm>
+			<glossdef>
+				<para><link linkend="ApiGlossary.Action"><code>Actions</code></link> are comprised of zero or more static, well-defined <link linkend="ApiGlossary.ActionParameter"><code>action parameters</code></link>.  For some actions, it may be possible for the developer of the action to declare every action parameter when the action is built.  If the action allows <code>custom action parameters</code>, then the action can have arbitrary action parameters, meaning they can have any name.  Such actions have a different behavior within the property grid of the <link linkend="ApiGlossary.CUAD"><code>Cisco Unified Application Environment</code></link>, in that they have a unique property called <code>Custom Action Parameters</code>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CustomCode">
+			<glossterm>CustomCode</glossterm>
+			<glossdef>
+				<para><code>CustomCode</code> is a special-case action that allows an application developer to create user-defined C# code and place it in a single function that is invoked when the action is executed by the script instance.</para>
+				<para>There are a few major aspects of a <code>CustomCode</code> action. 
+					<variablelist>
+    						<varlistentry>
+        						<term>Method Arguments</term>
+       						 	<listitem>
+            							<para>
+									In the <code>string Execute(...)</code> method signature of a <code>CustomCode</code>, 
+									one can pass in any global variable, local variable, or the few, special omnipresent variables that always exist in the context of a script instance or loop.  Regardless of what is being passed in, one must make sure that the resulting <code>public static string Execute(...)</code> is valid C#.  So for instance, if one wanted to pass in an <code>System.Int32</code> global variable named 'id' and also the always-present <code>LogWriter log</code> variable, the method signature becomes <code>public static string Execute(int id, Logwriter log)</code>
+    								</para>
+        						</listitem>
+						</varlistentry>
+					</variablelist>
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.EventFilterCriteria">
+			<glossterm>Event Filter Criteria</glossterm>
+			<glossdef>
+                <para>
+                    When an event rises up from a <link linkend="ApiGlossary.Provider">provider</link> to the <link linkend="ApiGlossary.ARE">Application Runtime Environment</link>, the <link linkend="ApiGlossary.EventSignature">event signature </link> is subjected to the event filter criteria of every enabled script, in order to determine which script has the best-fit match for the event.  If no script is a match, then a <link linkend="ApiGlossary.NoHandler">No Handler</link> will occur.
+                </para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.EventHandler">
+			<glossterm>Event Handler</glossterm>
+			<glossdef>
+				<para>An event handler function is initiated due to the occcurrence of an incoming event. An event handler function can also be invoked with the <link linkend="Metreos.ApplicationControl.CallFunction"><code>CallFunction</code></link> action.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.EventParameter">
+			<glossterm>Event Parameter</glossterm>
+			<glossdef>
+				<para>An event parameter is a name/value pair that is associated with an instance of an event.  Events are usually defined with event parameters that are known to occur for that event.  However, events can send up undefined parameters and applications can use them if the name of the event is known by the application developer.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.EventSignature">
+			<glossterm>Event Signature</glossterm>
+			<glossdef>
+				<para>An event signature defines the characteristics of an event.  When an event is created and sent up to the <link linkend="ApiGlossary.ARE"><code>Application Runtime Environment</code></link>, there are two fundamental components to the event.  One is the event type, or name.  The other is any <link linkend="ApiGlossary.EventParameter">event parameters</link> that are associated with the event.  A good example is an incoming call.  The event name of that event is <code>Metreos.CallControl.IncomingCall</code>, and if number dialed was <code>6000</code> from a phone with a line number of <code>2000</code>, then the event parameters would be <code>To</code>=6000, <code>OriginalTo</code>=6000, and <code>From</code>=2000.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.Final">
+			<glossterm>Final</glossterm>
+			<glossdef>
+				<para>A final action is one that can not be followed by any other actions; it is always the last action in a function.  There can be multiple final actions in a single function.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.Function">
+			<glossterm>Function</glossterm>
+			<glossdef>
+				<para>A function contains some number of <link linkend="ApiGlossary.Action"><code>actions</code></link>.  A function can be initiated by an incoming event; such a function is known as an <link linkend="ApiGlossary.EventHandler"><code>event handler</code></link>.  A function can also be invoked with the <link linkend="Metreos.ApplicationControl.CallFunction"><code>CallFunction</code></link> action.  All functions must formally declare when they come to an end.  This is done by using a <link linkend="ApiGlossary.Final"><code>final</code></link> action, such as <link linkend="Metreos.ApplicationControl.EndFunction"><code>EndFunction</code></link>, <link linkend="Metreos.ApplicationControl.EndScript"><code>EndScript</code></link>, or <link linkend="Metreos.ApplicationControl.Forward"><code>Forward</code></link>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.MediaResourceGroup">
+			<glossterm>Media Resource Group</glossterm>
+			<glossdef>
+				<para>A Media Resource Group defines 1 or more media engines.  Media Resource Groups are associated with <link linkend="ApiGlossary.ApplicationPartition"><code>application partitions</code></link> in mceadmin.</para>
+				<para>Once a Media Resource Group has been defined, it can be associated with any number of application partitions.  If a script instance uses any action which results in the creation of a media engine connection, then the configured Media Resource Group will determine which Media Engine in the group with the most available amount of resources will be used to host and process the connection (the exception to the rule is if one specifies <code>MmsId</code> in such an action, bypassing Media Resource Group logic.  Such actions are <link linkend="Metreos.MediaControl.ReserveConnection"><code>ReserveConnection</code></link>, <link linkend="Metreos.MediaControl.CreateConnection"><code>CreateConnection</code></link>, <link linkend="Metreos.CallControl.MakeCall"><code>MakeCall</code></link>, <link linkend="Metreos.CallControl.AnswerCall"><code>AnswerCall</code></link>, <link linkend="Metreos.CallControl.AcceptCall"><code>AcceptCall</code></link> and <link linkend="Metreos.CallControl.Barge"><code>Barge</code></link>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.NativeType">
+			<glossterm>Native Type</glossterm>
+			<glossdef>
+				<para>A variable built to exist within a script.  All such variables must implement the <code>IVariable</code> interface.</para>
+				<para>When a value is passed to a native type, the best-fit <code>Parse(System.Type)</code> is used to take the value in and perform whatever processing deemed necessary for the type.  All native types must implement <code>Parse(System.String)</code> due to the <code>IVariable</code> interface, although any number of <code>Parse(System.Type)</code> overloads may be implemented by a native type if the native type designer expects other value types to be passed to the native type variable.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.NoHandler">
+			<glossterm>No Handler</glossterm>
+			<glossdef>
+				<para>A no handler indicates the condition in which an event is sent up from a provider to be the <link linkend="ApiGlossary.ARE"><code>Application Runtime Environment</code></link></para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.NonTriggeringEvent">
+			<glossterm>Non-Triggering Event</glossterm>
+			<glossdef>
+				<para>A non-triggering event is an event that is sent to an already-running script instance.  There are two types of non-triggering events:  <link linkend="ApiGlossary.UnsolicitedEvent"><code>unsolicited</code></link> and <link linkend="ApiGlossary.AsyncCallback"><code>asynchronous callbacks.</code></link>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.Provider">
+			<glossterm>Protocol Provider</glossterm>
+			<glossdef>
+				<para>A protocol provider typically implements a particular protocol, and translates it into the message format native to the <link linkend="ApiGlossary.CUAE">Cisco Unified Application Enviroment</link>.  From the perspective of a protocol provider developer, the ultimate goal is to take complex interaction with the protocol and convert it to simple yet powerful API calls for applications built within the <link linkend="ApiGlossary.ARE">Application Runtime Environment</link>.  From the perspective of the application developer, protocol providers present an API from which underlying complexities of the protocol have been hdden away, and digested down to simple actions, events, and types.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ResultData">
+			<glossterm>Result Data</glossterm>
+			<glossdef>
+				<para>A result data parameter is an output to an <link linkend="ApiGlossary.Action"><code>action</code></link>. It is comprised of a name and a variable <link linkend="ApiGlossary.NativeType"><code>native type</code></link> that will be used to store the result of the action. </para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.RoutingGuid">
+			<glossterm>RoutingGuid</glossterm>
+			<glossdef>
+				<para>The <code>RoutingGuid</code> is a unique identifier for a script instance.  It is used throughout the platform to identify a particular script instance.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.Sandboxing">
+			<glossterm>Sandboxing</glossterm>
+			<glossdef>
+				<para>Sandboxing is a system-wide configuration which, if enabled, causes all calls and all media connections created by a script to be automatically destroyed when the script ends.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ScriptEventQueue">
+			<glossterm>Script Event Queue</glossterm>
+			<glossdef>
+				<para>A script instance can only execute one event at a time.  The <code>Script Event Queue</code> is an entity that exists for every script instance, and will queue up events that are routed to the script.  The queue behaves in a first in/first out pattern; there is no way to alter this behavior.  There is also no way to read events currently in the script queue.  The only way to cause events to be handled in the queue promptly is to follow the best practice of designing <link linkend="ApiGlossary.EventHandler"><code>event handler functions</code></link> to spend as little time as possible in these functions so that events in the queue can be processed with minimal delay.</para>
+			</glossdef>
+ScriptEventQueue
+		</glossentry>
+		<glossentry id="ApiGlossary.SessionData">
+			<glossterm>Session Data</glossterm>
+			<glossdef>
+				<para>SessionData is an omnipresent variable found in all script instances.  It's instance name is .NET is <code>sessionData</code></para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.TriggeringEvent">
+			<glossterm>Triggering Criteria</glossterm>
+			<glossdef>
+				<para>A triggering event is an event that can cause a new script instance to begin executing.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.UnsolicitedEvent">
+			<glossterm>Unsolicited Event</glossterm>
+			<glossdef>
+				<para>An unsolicited event is a <link linkend="ApiGlossary.NonTriggeringEvent"><code>non-triggering event</code></link> that does not necessarily have a known number of times or when it will fire.  For instance, if a chat system was integrated into the <link linkend="ApiGlossary.CUAS"><code>application server</code></link>, each message in a session would conceivably be an unsolicited event, because it is generally unknown how many times, and when, a user will send a message.</para>
+			</glossdef>
+		</glossentry>
+	</glossdiv>
+	<glossdiv id="Telephony">
+		<title>Telephony Terms</title>
+		<glossentry id="ApiGlossary.CallControl">
+			<glossterm>Call Control</glossterm>
+			<glossdef>
+				<para><code>Call Control</code> is used to encompass any 1st-party call control protocol, such as SIP, H.323, SCCP, or CTI (JTAPI, being a 3rd-party device monitoring protocol, is not consider a <code>Call Control</code> protocol).  The <link linkend="ApiGlossary.CUAE">Cisco Unified Application Environment</link> has abstracted these 4 protocols into a single <link linkend="Metreos.CallControl">Call Control API</link> that hides the underlying characteristics of complexities of the particular protocol being implemented.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CallControlFeatureMatrix">
+			<glossterm>Call Control Feature Matrix</glossterm>
+			<glossdef>
+				<para>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.CallRouting">
+			<glossterm>Call Routing</glossterm>
+			<glossdef>
+				<para><code>Call Routing</code> can be a very complex subject because it goes well beyond the boundaries of the <link linkend="ApiGlossary.CUAE">Cisco Unified Application Environment</link>.  The calls that are made and answered by the <link linkend="ApiGlossary.CUAS">Cisco Unified Application Server</link> are, as a matter of best practice, routed through Cisco Unified Communications Manager.  Cisco Unified Communication Manager's proficiency is call routing, and so it should always be the negotiator of the calls placed to and from the application server.  Once a call is sent from the CUAE to CUCM, the call could be routed virtually anywhere, including other CUCM clusters, to the PSTN, voicemail, and other destinations.  Likewise, a call that came from CUCM to the CUAE could have originally come from anywhere.</para>
+				<para>Because Call Control should always route through Cisco Unified Communications Manager, the path of the call control signaling will terminate to CUCM.  As an example, even though a call may be SIP or H.323 from the CUAE to CUCM, CUCM may very well convert that call to SCCP if the calling/called device is a SCCP phone.</para>
+				<para>
+					The sum of all routing logic defined by the administrator in Cisco Unified Communications Manager is known as the dial plan.  Your application, when making calls, must conform to this dial plan.  Specifically, if one is using <link linkend="Metreos.CallControl.MakeCall"><code>MakeCall</code></link>, the value <link linkend="Metreos.CallControl.MakeCall.ActionParams.To"><code>To</code></link> will be processed by the dial plan to determine where the specified number should go.  In CUCM terms, the device appearance of the CUAE (such as an H.323 gateway, SIP Trunk, CTI Port, etc) has a calling search space(s) assigned to it, and some number of route patterns, line numbers, translation patterns, hunt patterns, and so on will all be analyzed to determine what final destination is a best match for the called number.  In truth, call routing in CUCM can be even more complex then mentioned here.  The 2nd chapter of Cisco CallManager Fundamentals (2nd edition) is a great summary of CUCM call routing.
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.P2P">
+			<glossterm>Peer-to-Peer</glossterm>
+			<acronym>P2P</acronym>
+			<glossdef>
+				<para>A peer-to-peer call is actually two call legs that have been logically joined together by the <link linkend="ApiGlossary.ARE"><code>Application Runtime Environment</code></link>.  The purpose of forming a peer-to-peer relationship between two call legs is to cause the media engine to be bypassed for the streaming of RTP for each call. Instead have the remote endpoints of each call stream directly to each other.  Special behavioroccurs for the termination P2P calls; if one call leg hangs up, the other is also automatically hung up.</para>
+				<para>There are two ways to create a peer-to-peer call.  One is to use the <link linkend="Metreos.CallControl.UnbridgeCalls"><code>UnbridgeCalls</code></link> action on two, already established call legs.  The other is topass in a <code>CallId</code> from an unanswered, incoming call to the <link linkend="Metreos.CallControl.MakeCall.ActionParams.PeerCallId"><code>PeerCallId</code></link> action parameter of <link linkend="Metreos.CallControl.MakeCall"><code>MakeCall</code></link>.  When the call from <code>MakeCall</code> completes with <link linkend="Metreos.CallControl.MakeCall_Complete"><code>MakeCall_Complete</code></link>, the incoming call is automatically answered and the media streams of both are negotiated in a peer-to-peer fashion.</para>
+				<para>One can undo a peer-to-peer call by using the <link linkend="Metreos.CallControl.BridgeCalls"><code>BridgeCalls</code></link>, which will result in both call legs having their media streams renegotiated to transmit/receive to the media engine, in the process creating two new Media Engine connections.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ReserveMediaEarly">
+			<glossterm>Reserve Media Early</glossterm>
+			<glossdef>
+				<para><code>Reserve Media Early</code> affects at what point during an outbound call created with <link linkend="Metreos.CallControl.MakeCall"><code>MakeCall</code></link> that the <link linkend="ApiGlossary.ARE"><code>Application Runtime Environment</code></link> will use <link linkend="Metreos.MediaControl.ReserveConnection"><code>ReserveConnection</code></link> to create a connection on a media engine for the call.  If set to <code>true</code>, then the connection is reserved as soon as the call is offered.  If set to <code>false</code>, then the connection is not reserved until the media negotiation phase of the call, which is typically as the call is being answered by the remote endpoint.  This setting is configured per <link linkend="ApiGlossary.ApplicationPartition"><code>application partition</code></link>.</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.WaitForMedia">
+			<glossterm>Wait For Media</glossterm>
+			<glossdef>
+				<para><code>Wait For Media</code> is a parameter on <link linkend="Metreos.CallControl.MakeCall"><code>MakeCall</code></link> and <link linkend="Metreos.CallControl.AnswerCall"><code>AnswerCall</code></link> that determines at which point in the call control and media negotiation signalling that the <link linkend="ApiGlossary.ARE"><code>Application Runtime</code></link> considers the call completed.  Regardless of the setting, the call must be at a minimum completed from a purely telephony protocol perspective before the cal is considered completed; in other words, if one were using H.323 or SIP for instance, the call must reach the CONNECT or a 200 OK state.  A value of <code>TxRx</code>, which is the default for both actions, indicates that the call should be considered completed only once both transmit and receive properties of the RTP streams for the call have been established.  A value of <code>Tx</code> indicates that the call should be considered completed once the transmit properties of the RTP streams for the call have been established. A value of <code>Rx</code> indicates that the call should be considered completed once the receive properties of the RTP streams for the call have been established. A value of <code>None</code> indicates that the call should be considered completed as soon as the call control considers the call completed.</para>
+			</glossdef>
+		</glossentry>
+	</glossdiv>
+	<glossdiv id="Media">
+		<title>Media Control Terms</title>
+		<glossentry id="ApiGlossary.BaseAudioPath">
+			<glossterm>Base Audio Path</glossterm>
+			<glossdef>
+				<para>
+					The <code>Base Audio Path</code> is the base directory for all media files available to the media engine.  This path by default is <code>C:\Program Files\Cisco Systems\Unified Application Environment\MediaServer\Audio</code>. All recorded files are placed in this directory. If audio files are defined as resources of an application and that application is deployed to an application server, the application server will create additional folders under this <code>Base Audio Path</code> for that application for any media engines in its control.   Please reference <link linkend="ApiGlossary.ApplicationAudioDirectory">Application Audio Directory</link> and the <link linkend="ApiGlossary.LocaleAudioDirectory">Locale Audio Directory</link> for more information.
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.ApplicationAudioDirectory">
+			<glossterm>Application Audio Directory</glossterm>
+			<glossdef>
+				<para>
+					The <code>Application Audio Directory</code> is a folder created underneath the <link linkend="ApiGlossary.BaseAudioPath">base audio path</link> for any application which has more than one audio files defined as a resource.  No audio files are placed into this directory; it is used as a placeholder to distinguish from other applications and their own audio files. 
+				</para>
+				<para>
+					The name of the folder corresponds to the name of the application.
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.LocaleAudioDirectory">
+			<glossterm>Locale Audio Directory</glossterm>
+			<glossdef>
+				<para>
+					The <code>Locale Audio Directory</code> is a folder created underneath the <link linkend="ApiGlossary.ApplicationAudioDirectory">application audio directory</link>.  One such folder is created for every locale defined by audio files defined as resources in the application.  Each audio file has a locale defined with it; all audio files packaged with the application as resources are placed into the their own defined locale directory.  The media engine will attempt to read from this locale directory corresponding to the current locale that the application is executing under. 
+				</para>
+				<para>
+					The name of the locale folder(s) corresponds to the name of the locale (i.e, 'en-US').
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.MediaErrors">
+			<glossterm>Media Control Error Codes</glossterm>
+			<glossdef>
+				<para>The following table represents all potential error codes and descriptions returned by <link linkend="Metreos.MediaControl">Media Control API</link> operations:
+
+<table id="MediaErrorTable" class="generictable">
+<tr><th>Error Code</th><th>Description</th></tr>
+<tr><td>0</td><td>No Error</td></tr>
+<tr><td>1</td><td>No Error</td></tr>
+<tr><td>4</td><td>All sessions are in use</td></tr>
+<tr><td>5</td><td>Server disabled; likely shutdown</td></tr>
+<tr><td>6</td><td>Server code or logic error</td></tr>
+<tr><td>7</td><td>Device error</td></tr>
+<tr><td>8</td><td>Media resource not available</td></tr>
+<tr><td>9</td><td>Server in unexpected state</td></tr>
+<tr><td>10</td><td>Event registration error</td></tr>
+<tr><td>11</td><td>Unspecified event error</td></tr>
+<tr><td>12</td><td>Session inactivity</td></tr>
+<tr><td>13</td><td>Command timeout</td></tr>
+<tr><td>14</td><td>Session busy with prior request</td></tr>
+<tr><td>15</td><td>A connection already exists</td></tr>
+<tr><td>16</td><td>No connection exists</td></tr>
+<tr><td>20</td><td>Unrecognized event fired</td></tr>
+<tr><td>21</td><td>Command number not defined</td></tr>
+<tr><td>22</td><td>ConnectionId is in invalid format</td></tr>
+<tr><td>23</td><td>ConnectionId not registered </td></tr>
+<tr><td>24</td><td>Session is not in conference</td></tr>
+<tr><td>25</td><td>No operation in progress</td></tr>
+<tr><td>26</td><td>Insufficient parameters supplied</td></tr>
+<tr><td>27</td><td>Value error e.g. non-numeric</td></tr>
+<tr><td>30</td><td>File open error</td></tr>
+<tr><td>31</td><td>File read or write error</td></tr>
+<tr><td>35</td><td>Server command format error</td></tr>
+<tr><td>36</td><td>No such condition or bad value</td></tr>
+</table>
+				</para>
+			</glossdef>
+		</glossentry>
+	</glossdiv>
+	<glossdiv id="ApplicationDesigner">
+		<title>Application Designer Terms</title>
+		<glossentry id="ApiGlossary.LocalDefaultValue">
+			<glossterm>DefaultValue (local)</glossterm>
+			<glossdef>
+				<para>
+					One can initialize a local variable with a string value by specifying a value in the <code>DefaultValue</code> property..  When the function starts that contains the local variable, the value in the event parameter will be assigned to the variable, using the <code>Parse(System.String)</code> overload defined on the <code>IVariable</code> class. Note that the <code>DefaultValue</code> will not be used if the <link linkend="ApiGlossary.LocalInitializeWith">InitializeWith</link> property has been specified for which an event parameter is present that matches the value specified in that property.
+				</para>
+			</glossdef>
+		</glossentry>
+		<glossentry id="ApiGlossary.LocalInitializeWith">
+			<glossterm>InitializeWith (local)</glossterm>
+			<glossdef>
+				<para>
+					One can initialize a local variable with an event parameter by specifying a value in the <code>InitializeWith</code> property which corresponds to the name of the event parameter of interest.  When the function starts that contains the local variable, the value in the event parameter will be assigned to the variable, using the best-fit <code>Parse()</code> overload defined on the <code>IVariable</code> class. Note that one should also define a value in the <link linkend="ApiGlossary.LocalDefaultValue">DefaultValue</link> when using <code>InitializeWith</code> with string-compatible variables to gracefully take care of the case that the event parameter does not exist in the event.  In that case, the string value defined in <code>DefaultValue</code> will be used to initialize the variable instead.  One can then do a comparison in their script to determine if the <code>DefaultValue</code> was used to initialize the variable by checking if the variable is the same value as the value defined in the <code>DefaultValue</code> property of the grid.
+				</para>
+			</glossdef>
+		</glossentry>
+	</glossdiv>
+</glossary>
+

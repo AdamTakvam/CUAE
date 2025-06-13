@@ -1,0 +1,1 @@
+X:\Tools\build-scripts\docbook.bat article1.xml article DevArticle

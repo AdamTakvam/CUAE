@@ -1,0 +1,6 @@
+LIBRARY	SnmpExtensionAgent
+
+EXPORTS
+  SnmpExtensionInit
+  SnmpExtensionTrap
+  SnmpExtensionQuery

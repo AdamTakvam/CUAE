@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="presence-service" default="Debug" basedir=".">
+
+	<description>Build script for presence-service</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/PresenceService" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <metreosVsNetTask dir="projects" solution="presence-runtime" />
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/presence-service/projects" includes="**/Debug/** **/Release/**" />
+            <fileset dir="${Metreos.build.srcRoot}/presence-service/postbuild" includes="postbuild.txt" />
+            <fileset dir="${Metreos.build.srcRoot}/presence-service/projects/presence-runtime" includes="postbuild.txt" />
+            <fileset dir="${Metreos.build.srcRoot}/presence-service" includes="**/bin/** **/obj/**" />
+        </delete>   
+    </target>    
+        
+	<target name="do-build" >
+        <metreosVsNetTask dir="projects" solution="presence-runtime" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

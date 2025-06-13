@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY ch_what_is_the_cuae SYSTEM "ch_what_is_the_cuae.xml">
+<!ENTITY ch_getting_started SYSTEM "ch_getting_started.xml">
+<!ENTITY ch_lang_fundamentals SYSTEM "ch_lang_fundamentals.xml">
+<!ENTITY ch_call_control_and_media SYSTEM "ch_call_control_and_media.xml">
+<!ENTITY ap_understanding_voip SYSTEM "ap_understanding_voip.xml">
+]>
+<book id="cuae_dev_guide">
+  <bookinfo>
+    <title>Developing Applications using the Cisco Unified Application
+    Environment (CUAE)</title>
+
+    <subtitle>For CUAE version 2.4</subtitle>
+
+    <authorgroup>
+      <author>
+        <firstname>Louis</firstname>
+
+        <surname>Marascio</surname>
+      </author>
+
+      <author>
+        <firstname>Seth</firstname>
+
+        <surname>Call</surname>
+      </author>
+    </authorgroup>
+
+    <copyright>
+      <year>2007</year>
+
+      <holder>Cisco Systems, Inc.</holder>
+    </copyright>
+
+    <abstract>
+      <para>This document explores the tools and techniques for effectively
+      using the Cisco Unified Application Environment to build applications
+      and services on top of the Cisco Unified Communications platform.</para>
+    </abstract>
+  </bookinfo>
+
+  <preface id="preface">
+    <title>Preface</title>
+
+    <section>
+      <title>About this Book</title>
+
+      <para>This book is about the Cisco Unified Application Environment
+      (CUAE) and how to use it to build applications that leverage the Cisco
+      Unified Communications System platform. Cisco's Unified Communications
+      System platform is deployed in over 40,000 businesses and is the market
+      leading voice, video, and data communications platform available on the
+      market today. This book will teach you how to create software
+      applications for the communications market and how to enhance existing
+      software by embedding communications capabilities. The material in this
+      book will cover, from the ground up, the CUAE language, how to apply it
+      to practical problems, how to extend it by building plug-ins, and how to
+      integrate it with other popular programming languages and
+      frameworks.</para>
+    </section>
+
+    <section>
+      <title>Why Read this Book?</title>
+
+      <para>Software developers interested in building communications
+      applications or adding these capabilities to an existing application
+      will find this book particularly interesting.</para>
+
+      <formalpara>
+        <title>It's a new and important skill to have.</title>
+
+        <para>Voice over IP has made telephony and video a much more
+        accessible technology to developers. The consumer and business IP
+        telephony markets have grown tremendously over the last ten years and
+        it is no longer a technology that can be ignored by developers. It is
+        important for you to understand the technology and how to build
+        applications that use unified communications.</para>
+      </formalpara>
+
+      <formalpara>
+        <title>The technology is really neat.</title>
+
+        <para>blah blah blah</para>
+      </formalpara>
+
+      <formalpara>
+        <title>It's a skill set differentiator.</title>
+
+        <para>blah blah blah</para>
+      </formalpara>
+    </section>
+
+    <section>
+      <title>Using this Book</title>
+
+      <para>This book is intended to give novice and expert software
+      developers an understanding of all tools and techniques required to be
+      successful developing applications using the Cisco Unified Applications
+      Environment. It is split into four main parts. The first part, CUAE
+      Programming Fundamentals, is intended to be read first and completed
+      sequentially. The remaining three parts of the book can be tackled
+      piecemeal and in whichever order the reader finds most suitable for
+      their experience level and goals.<itemizedlist>
+          <listitem>
+            <para id="test"><link linkend="pt_cuae_programming">CUAE
+            Programming Fundamentals</link></para>
+
+            <para>This part introduces the CUAE Software Development Kit
+            (SDK), core language concepts, a detailed explanation of the CUAE
+            application execution model, debugging strategies, and other tools
+            and techniques that can be used when building applications using
+            the CUAE. Additionally, a thorough explanation of the Cisco
+            Unified Visual Designer and how to use its graphical programming
+            model is presented.</para>
+          </listitem>
+
+          <listitem>
+            <para><link linkend="pt_practical_application">Practical
+            Application of the CUAE</link></para>
+
+            <para>This portion of the book explores how to apply the CUAE and
+            its capabilities to various areas of unified communications.
+            Covered in detail are how to build call control applications, how
+            to leverage the media processing capabilities of the system,
+            consuming web services, leveraging the HTTP capabilities of CUAE,
+            building IP phone services, leveraging the AVVID XML Layer
+            (AXL-SOAP) for programmatic configuration of CUCM, and much
+            more.</para>
+          </listitem>
+
+          <listitem>
+            <para><link linkend="pt_cuae_plugins">Building Plug-ins to Extend
+            the CUAE</link></para>
+
+            <para>The CUAE is built around a very robust extensibility model.
+            Multiple plug-in layers enable developers to extend the
+            capabilities of the Application Server and leverage those
+            extensions within the Visual Designer. Chapters within this
+            portion of the book explore how to build each of the differing
+            types of plug-ins, installing those plug-ins, and using them from
+            within the Visual Designer.</para>
+          </listitem>
+
+          <listitem>
+            <para><link linkend="pt_cuae_and_friends">Integrating CUAE
+            Applications with Friends</link></para>
+
+            <para>Often times CUAE applications must interact with services or
+            applications built in other languages and runtime environments
+            such as J2EE and web services. This part of the book describes
+            effective strategies for integrating with other applications built
+            using other technologies.</para>
+          </listitem>
+        </itemizedlist></para>
+
+      <para>Appendices are provided that cover various primer material for
+      developers who do not have exposure to telephony or other tangential
+      technologies that the CUAE leverages extensively. It is recommended that
+      you read those applicable appendices before progressing through the book
+      if you are not familiar with the relevant foundation material. Finally,
+      all examples in this book (including this book itself) are included as
+      part of the CUAE SDK package to make it easier for you to load, build,
+      and run examples as you encounter them.</para>
+    </section>
+  </preface>
+
+  <part id="pt_cuae_programming">
+    <title>CUAE Programming Fundamentals</title>
+
+    &ch_what_is_the_cuae;
+
+    &ch_getting_started;
+
+    &ch_lang_fundamentals;
+  </part>
+
+  <part id="pt_practical_application">
+    <title>Practical Application of the CUAE</title>
+
+    &ch_call_control_and_media;
+  </part>
+
+  <part id="pt_cuae_plugins">
+    <title>Building Plug-ins to Extend the CUAE</title>
+  </part>
+
+  <part id="pt_cuae_and_friends">
+    <title>Integrating CUAE Applications with Friends</title>
+  </part>
+
+  &ap_understanding_voip;
+</book>

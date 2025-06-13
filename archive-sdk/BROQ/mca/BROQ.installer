@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="DbConnPooling" displayName="Database Connection Pooling" format="Bool" description="If this field is set to true, a connection pool will be used for the DB connections. Otherwise, a connection per script instance will be created. Default: Yes" defaultValue="true" required="true" />
+    <configValue name="DbConnectionName" displayName="Database Connection Name" format="String" description="Name of the Application Suite database connection" defaultValue="ApplicationSuite" readOnly="false" />
+    <configValue name="DbName" displayName="Publisher Database Name" format="String" description="Name of the Application Suite database on the publisher database" defaultValue="application_suite" readOnly="false" required="true" />
+    <configValue name="Server" displayName="Publisher Database Server Address" format="String" description="Address of the publisher database" defaultValue="localhost" readOnly="false" required="true" />
+    <configValue name="Port" displayName="Publisher Database Server Port" format="String" description="Port of the publisher database" defaultValue="3306" readOnly="false" required="true" />
+    <configValue name="Username" displayName="Publisher Database Server Username" format="String" description="The username to use to connect to the publisher database" defaultValue="root" readOnly="false" required="true" />
+    <configValue name="Password" displayName="Publisher Database Server Password" format="Password" description="The password of the publisher database" defaultValue="metreos" readOnly="false" required="true" />
+    <configValue name="SlaveDBName" displayName="Subscriber Database Name" format="String" description="Name of the Application Suite database on the subscriber" defaultValue="application_suite" readOnly="false" />
+    <configValue name="SlaveDBServerAddress" displayName="Subscriber Database Server Address" format="String" description="Address of the suscriber database" defaultValue="localhost" readOnly="false" required="false" />
+    <configValue name="SlaveDBServerPort" displayName="Subscriber Database Server Port" format="String" description="Port of the subscriber database server" defaultValue="3306" readOnly="false" required="false" />
+    <configValue name="SlaveDBServerUsername" displayName="Subscriber Database Server Username" format="String" description="The username to connect to the subscriber database" defaultValue="root" readOnly="false" />
+    <configValue name="SlaveDBServerPassword" displayName="Subscriber Database Server Password" format="Password" description="The password of the subscriber database" defaultValue="metreos" readOnly="false" />
+    <configValue name="FailoverSupportNumbers" displayName="Failover Support Numbers" format="Array" description="The extentions to dial for the support staff members. Will only be used if and when the database is down" defaultValue="" required="false" />
+    <configValue name="SupportStaffUserNames" displayName="Support Staff User Names" format="Array" description="The User Names for the support staff" defaultValue="" />
+    <configValue name="SupportStaffEmailAddress" displayName="Support Staff Email Address" format="String" description="This is the email address for the support staff" defaultValue="BROQ@metreos.com" />
+  </configuration>
+</install>

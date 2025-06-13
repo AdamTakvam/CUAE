@@ -1,0 +1,62 @@
+This is only to you because the attached installer is specific to your IP Communicator.   
+Computer Prep:
+-----------------------
+1)  Download by clicking on the link and scrolling down to bottom of linked page and selecting the first download (msxml6.msi) http://www.microsoft.com/downloads/details.aspx?familyid=993c0bcf-3bcf-4009-be21-27e85e1857b1&displaylang=en 
+ 
+2)  Run the msxml6.msi
+ 
+ 
+Installation of SF Demo (Debug.zip)
+----------------------------------
+1)  Run the installer provided in the zip file by first downloading the attachment, and extracting all the contents to your desktop, and then running CUAEAdapterInstaller.msi.  Accept all defaults.  Install for 'Everyone'.
+ 
+ 
+2)  Open cmd window under Start > Run:
+ 
+ 
+3)  At cmd prompt, copy/paste the following:          
+ 
+regsvr32.exe "C:\Program Files\Cisco Systems, Inc\CUAEAdapterInstaller\CUAEAdapter.dll"
+ 
+A 'successful' dialog should pop up after 2-3 seconds.
+ 
+ 
+4)  At cmd prompt, copy/paste the following:
+ 
+regsvr32.exe "C:\Program Files\Cisco Systems, Inc\CUAEAdapterInstaller\SF_MSApi4.dll"
+ 
+A 'successful' dialog should pop up after 2-3 seconds.
+ 
+ 
+5)  Navigate Windows Explorer to c:\program files\Cisco Systems, Inc\CUAEAdapterInstaller\, and run the SalesforceCTI.exe file.
+ 
+ 
+6)  Open IE.  (you can actually do Step 5 and 6 in either order)
+ 
+
+7)  Go to http://aspen.salesforce.com:7921/ <http://aspen.salesforce.com:7921/>    ( user/pass: call@cisco.com/cisco321 <mailto:call@cisco.com/cisco321>  )
+ 
+ 
+8)  The progress bar in the top-left should show for a while ( a looong while), but it should eventually say 'Line 1 Open'.   
+ 
+9)  Right-click on Red tray icon in your tray.  Choose Configure.  Enter CUAE IP Address and the MAC address of 'Ben Alves' phone.
+
+10) For the changes to take effect, you will have to right-click the red icon, and exit.  Then start it again by doing step 5.
+
+
+ 
+At that is left to do is to call in to your IP Communicator and the UI of the cute phone widget in the SF webpage should update in-step with the IP Communicator if all is right in the world.
+ 
+ 
+USAGE NOTES
+-----------------------
+A few very important pieces of advice:  
+ 
+* Do the demo by calling from the 'other phone' to your IP Communicator.
+ 
+* After you add a contact with a phone number matching the phone you are using to call into the app, you should be able to get an inbound call to search successfully for that new contact.  HOWEVER, I've noticed that if you use that comment feature when in a call, that the comment will only save if you use the IP Phone softkey to hangup the call... you can't use the Hangup Call button in the SF Widget.  The Hangup Call button works in that it hangs up the call, but the comment is not stored for some reason.  
+ 
+* Also, even though there are a number of cute buttons on that widget, just stick to the comment field and that's it... I've made some of the other buttons do work, but some don't... I definitely wouldn't go off of script!
+ 
+*  I suggest to login before the demo starts and do a test call.  Also, I recommend just staying logged in since it takes so long to login in the 1st place.
+ 

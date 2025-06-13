@@ -1,0 +1,124 @@
+module : World, MCE
+processor : phone in World, AppServer in MCE, MMS in MCE
+eternal : provider in AppServer, telMan in AppServer, app in AppServer
+
+feature "Inbound Call"
+  
+  case
+    leg "H323":
+      SETUP : phone -> provider
+      IncomingCall(callId) : provider -> telMan
+      IncomingCall(callId) : telMan -> app
+      AnswerCall(callId, waitForMedia) : app -> telMan
+      AcceptCall(callId) : telMan -> provider
+      ALERTING : provider -> phone
+      AcceptCall_Success(callId) : provider -> telMan
+      GetMediaCaps(appPartitionId) : telMan -> MMS 
+      (* MMS provider uses the app partition ID to locate the preferred codec for this media resource group and arranges the localMediaCaps accordingly *)
+      GetMediaCaps_Success(localMediaCaps) : MMS -> telMan
+      SetMedia(callId, localMediaCaps) : telMan -> provider
+      SetMedia_Success(callId) : provider -> telMan
+      AnswerCall(callId) : telMan -> provider
+      CONNECT : provider -> phone
+      AnswerCall_Success(callId) : provider -> telMan
+      AnswerCall_Success(callId) : telMan -> app
+      (* If waitForMedia=false *)
+      TERMCAPS(remoteMediaCaps) : phone -> provider
+      TERMCAPS(localMediaCaps) : provider -> phone
+      GotCapabilities(callId, remoteMediaCaps) : provider -> telMan
+      telMan takes action "Choose media server and codec to send"
+      (* Uses the same rules as the SIP scenario *)
+      ReserveMedia(mmsId) : telMan -> MMS
+      ReserveMedia_Success(connectionId, mmsId, rxAddr) : MMS -> telMan
+      SetMedia(callId, rxAddr, txCodec) : telMan -> provider
+      OLC(rxControlAddr, txCodec) : provider -> phone
+      SetMedia_Success(callId) : provider -> telMan
+      OLC_ACK(txAddr, txControlAddr) : phone -> provider
+      MediaEstablished(callId, txAddr, txControlAddr) : provider -> telMan
+      CreateConnection(connectionId, txAddr, rxCodec="none", txCodec) : telMan -> MMS
+      CreateConnection_Success(connectionId) : MMS -> telMan
+      StartTx(callId, connectionId, txAddr, txCodec) : telMan -> app
+      AnswerCall_Success(callId, connectionId, txAddr, txCodec) : telMan -> app
+      (* If waitForMedia=true (default) *)
+      OLC(txControlAddr, rxCodec) : phone -> provider
+      OLC_ACK(rxAddr, rxControlAddr) : provider -> phone
+      MediaEstablished(callId, rxCodec) : provider -> telMan
+      ModifyConnection(connectionId, rxCodec) : telMan -> MMS
+      ModifyConnection_Success(connectionId) : MMS -> telMan
+      StartRx(callId, connectionId, rxAddr, rxCodec) : telMan -> app
+      
+    leg "SIP":
+      INVITE(txAddr, remoteMediaCaps) : phone -> provider
+      IncomingCall(callId) : provider -> telMan
+      IncomingCall(callId) : telMan -> app
+      GotCapabilities(callId, txAddr, remoteMediaCaps) : provider -> telMan
+      GetMediaCaps(appPartitionId) : telMan -> MMS 
+      (* MMS provider uses the app partition ID to locate the preferred codec for this media resource group and arranges the localMediaCaps accordingly *)
+      GetMediaCaps_Success(localMediaCaps) : MMS -> telMan
+      (* When telMan receives a populated GotCapabilities, it does one of the following: *)
+      (* - If there is a media server associated with this session (i.e. clusterConnections=true), drop any remoteMediaCaps which it does not support. From that list, select the first codec in our prioritized list *)
+      (* - Choose the first media server in the list which supports any codec in remoteMediaCaps *)
+      telMan takes action "Choose media server and codec to send"
+      SetMedia(callId, txCodec) : telMan -> provider
+      SetMedia_Success(callId) : provider -> telMan
+      AnswerCall(callId, waitForMedia) : app -> telMan
+      AcceptCall(callId) : telMan -> provider
+      RINGING : provider -> phone
+      AcceptCall_Success(callId) : provider -> telMan
+      ReserveMedia(mmsId) : telMan -> MMS
+      ReserveMedia_Success(connectionId, mmsId, rxAddr) : MMS -> telMan
+      SetMedia(callId, rxAddr) : telMan -> provider
+      SetMedia_Success(callId) : provider -> telMan
+      AnswerCall(callId) : telMan -> provider
+      OK(rxAddr, txCodec) : provider -> phone
+      (* rxCodec = txCodec *)
+      ACK : phone -> provider
+      AnswerCall_Success(callId) : provider -> telMan
+      AnswerCall_Success(callId) : telMan -> app
+      (* If waitForMedia=false *)
+      MediaEstablished(callId, txAddr, rxCodec, txCodec) : provider -> telMan
+      CreateConnection(connectionId, txAddr, rxCodec, txCodec) : telMan -> MMS
+      CreateConnection_Success(connectionId) : MMS -> telMan
+      StartTx(callId, connectionId, txAddr, txCodec) : telMan -> app
+      AnswerCall_Success(callId, connectionId, txAddr, txCodec) : telMan -> app
+      (* If waitForMedia=true (default) *)
+      StartRx(callId, connectionId, rxCodec) : telMan -> app  
+    
+    leg "SIP-LateMedia":
+      INVITE : phone -> provider
+      IncomingCall(callId) : provider -> telMan
+      IncomingCall(callId) : telMan -> app
+      AnswerCall(callId, waitForMedia) : app -> telMan
+      AcceptCall(callId) : telMan -> provider
+      RINGING : provider -> phone
+      AcceptCall_Success(callId) : provider -> telMan
+      GetMediaCaps(appPartitionId) : telMan -> MMS 
+      (* MMS provider uses the app partition ID to locate the preferred codec for this media resource group and arranges the localMediaCaps accordingly *)
+      GetMediaCaps_Success(localMediaCaps) : MMS -> telMan
+      SetMedia(callId, localMediaCaps) : telMan -> provider
+      SetMedia_Success(callId) : provider -> telMan
+      GotCapabilities : provider -> telMan
+      (* When telMan receives an empty GotCapabilities, it does one of the following: *)
+      (* - Chooses the media server associated with this app session *)
+      (* - Chooses the first media server in the localMediaCaps list *)
+      telMan takes action "Choose media server and prune localMediaCaps accordingly"
+      ReserveMedia(mmsId) : telMan -> MMS
+      ReserveMedia_Success(connectionId, mmsId, rxAddr) : MMS -> telMan
+      SetMedia(callId, rxAddr, prunedLocalMediaCaps) : telMan -> provider
+      SetMedia_Success(callId) : provider -> telMan      
+      AnswerCall(callId) : telMan -> provider
+      OK(rxAddr, prunedLocalMediaCaps) : provider -> phone
+      AnswerCall_Success(callId) : provider -> telMan
+      AnswerCall_Success(callId) : telMan -> app  
+      (* If waitForMedia=false *)    
+      ACK(txAddr, rxCodec) : phone -> provider
+      (* rxCodec = txCodec *)
+      MediaEstablished(callId, txAddr, rxCodec, txCodec) : provider -> telMan
+      CreateConnection(connectionId, txAddr, rxCodec, txCodec) : telMan -> MMS
+      CreateConnection_Success(connectionId) : MMS -> telMan
+      StartTx(callId, connectionId, txAddr, txCodec) : telMan -> app
+      AnswerCall_Success(callId, connectionId, txAddr, txCodec) : telMan -> app  
+      (* If waitForMedia=true (default) *)
+      StartRx(callId, connectionId, rxCodec) : telMan -> app  
+  endcase
+endfeature

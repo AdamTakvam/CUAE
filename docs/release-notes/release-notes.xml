@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY version "2.4(1)">
+]>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en" >
+<info>
+    <title>Cisco Unified Application Environment - Release Notes</title>
+    <subtitle>Release &version;</subtitle>
+    <authorgroup>
+        <author>
+            <personname>Cisco Systems, Inc.</personname>
+            <email>support@cisco.com</email>
+        </author>
+    </authorgroup>
+
+    <copyright>
+      <year>2007</year>
+      <holder>Cisco Systems, Inc.</holder>
+    </copyright>
+
+    <abstract>
+        <para>This document enumerates the release notes for the Cisco Unified
+        Application Environment Release &version;.</para>
+    </abstract>
+
+</info>
+
+<section id="overview">
+    <title>Overview</title>
+    <para>This major release introduces a number of new capabilities over release 2.3(x).</para>
+
+    <formalpara>
+        <title>Management Improvements</title>
+        <para>The management interface has been improved.</para>
+    </formalpara>
+
+    <formalpara>
+        <title>CUPS Support</title>
+        <para>Application's can be written that take advantage of
+        presences information as provide by Cisco Unified Presence Server.</para>
+
+    </formalpara>
+
+    <formalpara>
+        <title>CallManager 6.0 Support</title>
+        <para>blah</para>
+    </formalpara>
+
+    <formalpara>
+        <title>Monitoring and Statistics</title>
+        <para>The alarm server has been morphed to a statistics and monitoring server</para>
+    </formalpara>
+
+</section>
+
+<section id="bug_fixes">
+    <title>Bug fixes and minor enhancements</title>
+    <para>Blah</para>
+    <itemizedlist>
+        <listitem>
+            <para>CSCxx000000</para>
+            <para>Blah</para>
+        </listitem>
+
+        <listitem>
+            <para>CSCxx00000</para>
+            <para>Blah</para>
+        </listitem>     
+    </itemizedlist>
+</section>
+
+<section id="known_issues">
+    <title>Known Issues</title>
+    <para>Blah Blah Blah</para>
+
+    <itemizedlist>
+        <listitem>
+            <para>CSCxx000000</para>
+            <para>Blah</para>
+        </listitem>
+
+        <listitem>
+            <para>CSCxx00000</para>
+            <para>Blah</para>
+        </listitem>     
+    </itemizedlist>
+</section>
+</article>

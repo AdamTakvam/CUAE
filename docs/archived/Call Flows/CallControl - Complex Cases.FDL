@@ -1,0 +1,47 @@
+module : World, MCE
+processor : Phone in World, AppServer in MCE, MMS in MCE
+eternal : phone in Phone, provider in AppServer, telMan in AppServer, app in AppServer, mms in MMS
+
+feature "Complex Cases"
+  case
+    leg "H323-MediaMismatch":
+      GetMediaCaps : telMan -> mms
+      GetMediaCaps_Success(localMediaCaps="{1: G.711; 2: G.711, G.729}") : mms -> telMan
+      SetMedia(callId, localMediaCaps="{G.711, G.729}") : telMan -> provider
+      TERMCAPS(localMediaCaps="{G.711, G.729}") : provider -> phone
+      SetMedia_Success(callId) : provider -> telMan
+      TERMCAPS(remoteMediaCaps="{G.711, G.729}") : phone -> provider
+      GotCapabilities(callId, remoteMediaCaps="{G.711, G.729}") : provider -> telMan
+      telMan takes action "Choose txCodec=G.711 and thus mmsId=1"
+      ReserveMedia(mmsId="1") : telMan -> mms
+      ReserveMedia_Success(connectionId, rxAddr, mmsId="1") : mms -> telMan
+      SetMedia(callId, rxAddr, sendCodec="G.711") : telMan -> provider
+      OLC(rxControlAddr, txCodec="G.711") : provider -> phone
+      SetMedia_Success(callId) : provider -> telMan
+      OLC_ACK(txAddr, txControlAddr) : phone -> provider
+      MediaEstablished(callId, txAddr) : provider -> telMan
+      CreateConnection(connectionId, txAddr, rxCodec="none", txCodec="G.711") : telMan -> mms
+      CreateConnection_Success(connectionId) : mms -> telMan
+      StartTx(callId, connectionId, txAddr, txCodec) : telMan -> app
+      OLC(txControlAddr, rxCodec="G.729") : phone -> provider
+      OLC_ACK(rxAddr, rxControlAddr) : provider -> phone
+      MediaEstablished(callId, rxCodec="G.729") : provider -> telMan
+      telMan takes action "Notices that MMS 1 does not support G.729"
+      (* TelMan sends a pruned localMediaCaps set *)
+      SetMedia(callId, localMediaCaps="{G.711}") : telMan -> provider
+      TERMCAPS : provider -> phone
+      phone takes action "Closes send channel"
+      TERMCAPS(localMediaCaps="{G.711}") : provider -> phone
+      (* Causes phone to re-open send channel with a codec from the new list *)
+      SetMedia_Success(callId) : provider -> telMan
+      OLC(txControlAddr, rxCodec="G.711") : phone -> provider
+      OLC_ACK(rxAddr, rxControlAddr) : provider -> phone
+      MediaEstablished(callId, rxCodec="G.711") : provider -> telMan
+      ModifyConnection(connectionId, rxCodec="G.711") : telMan -> mms
+      ModifyConnection_Success(connectionId) : mms -> telMan
+      StartRx(callId, connectionId, rxCodec) : telMan -> app
+      
+    leg "Media-Renegotiation":
+    
+  endcase
+endfeature

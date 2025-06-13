@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Application Suite" default="debug" basedir=".">
+  <description>Build script for the entire Application Suite</description>
+
+  <!-- do not modify this file, modify ../metreos-autobuild/build.applications.xml instead -->
+  <import file="../autobuild/build.applications.xml" />
+</project>

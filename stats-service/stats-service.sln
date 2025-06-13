@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostBuild", "PostBuild\PostBuild.csproj", "{85769F78-0902-4066-A0B7-B08439E95B86}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1B140115-E3C5-46F5-97CD-3266AE7B08AF} = {1B140115-E3C5-46F5-97CD-3266AE7B08AF}
+		{A8EB2019-3F2A-4D0C-9DDD-3741904A072B} = {A8EB2019-3F2A-4D0C-9DDD-3741904A072B}
+		{EC3C43ED-548B-4EC2-BCA4-23D16A03CE22} = {EC3C43ED-548B-4EC2-BCA4-23D16A03CE22}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleFacade", "ConsoleFacade\ConsoleFacade.csproj", "{A8EB2019-3F2A-4D0C-9DDD-3741904A072B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceFacade", "ServiceFacade\ServiceFacade.csproj", "{EC3C43ED-548B-4EC2-BCA4-23D16A03CE22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsCore", "StatsCore\StatsCore.csproj", "{1B140115-E3C5-46F5-97CD-3266AE7B08AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70BBBCB1-330B-4402-A824-349CE39BF412}"
+	ProjectSection(SolutionItems) = preProject
+		MIB\metreos-mce.mib = MIB\metreos-mce.mib
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{85769F78-0902-4066-A0B7-B08439E95B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85769F78-0902-4066-A0B7-B08439E95B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85769F78-0902-4066-A0B7-B08439E95B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85769F78-0902-4066-A0B7-B08439E95B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8EB2019-3F2A-4D0C-9DDD-3741904A072B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8EB2019-3F2A-4D0C-9DDD-3741904A072B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8EB2019-3F2A-4D0C-9DDD-3741904A072B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8EB2019-3F2A-4D0C-9DDD-3741904A072B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC3C43ED-548B-4EC2-BCA4-23D16A03CE22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC3C43ED-548B-4EC2-BCA4-23D16A03CE22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC3C43ED-548B-4EC2-BCA4-23D16A03CE22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC3C43ED-548B-4EC2-BCA4-23D16A03CE22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B140115-E3C5-46F5-97CD-3266AE7B08AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B140115-E3C5-46F5-97CD-3266AE7B08AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B140115-E3C5-46F5-97CD-3266AE7B08AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B140115-E3C5-46F5-97CD-3266AE7B08AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

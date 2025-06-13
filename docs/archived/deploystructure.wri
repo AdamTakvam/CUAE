@@ -1,0 +1,27 @@
+AppFolder
+
+ -- mca		
+	-- bin
+	-- bak
+	-- obj
+	MaxProject.max
+
+ -- plugins
+      -- Project.sln
+      -- dir 	(project) for each type or action
+
+ -- media 		(typically audio files)
+ -- sql
+ -- contrib 	(external dlls or anything else extra needed by the demo)
+ -- doc           
+ -- web   		(php)
+ -- bin
+    	-- mca 	(needs only to contain MaxProject.mca file)
+	-- plugins  (dlls, pdbs, and xml packages of types and actions and any dlls they might reference.
+                   The Max Project should reference to this directory for dlls)
+
+
+
+*  Each app should have a build script, front to end.
+
+*  Any relevant output from build script should go to the bin directory

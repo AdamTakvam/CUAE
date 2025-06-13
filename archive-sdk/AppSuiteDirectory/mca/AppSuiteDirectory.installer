@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="DbName" displayName="DbName" format="String" description="Name of the application suite database" defaultValue="application_suite" readOnly="true" required="true" />
+    <configValue name="DbConnectionName" displayName="DbConnectionName" format="String" description="Name of the application suite database connection" defaultValue="ApplicationSuite" readOnly="true" required="true" />
+    <configValue name="DbServer" displayName="Server" format="String" description="Address of the server" defaultValue="localhost" readOnly="true" required="true" />
+    <configValue name="DbPort" displayName="Port" format="Number" description="Port of the database server" defaultValue="3306" readOnly="true" required="true" />
+    <configValue name="DbUsername" displayName="Username" format="String" description="The username to connect to database" defaultValue="root" readOnly="true" required="true" />
+    <configValue name="DbPassword" displayName="Password" format="Password" description="Password" defaultValue="metreos" readOnly="true" required="true" />
+    <configValue name="CompanyName" displayName="CompanyName" format="String" description="Name of the company whose directory will be displayed." defaultValue="Metreos" required="true" />
+  </configuration>
+</install>

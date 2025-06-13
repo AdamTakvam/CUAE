@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Scheduled Conference" default="Debug" basedir=".">
+  <description>Build script for Scheduled Conference</description>
+  <import file="../../autobuild/build.includes.xml" />
+
+  <property name="appName"                  value="ScheduledConference" />
+  <property name="deploymentDirectory"      value="${Metreos.build.buildDirectory}/AppSuite/${appName}" />
+
+  <target name="do-init">
+    <mkdir dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-clean">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/${appName}" includes="**/bin/** **/obj/**" />
+    </delete>
+    <delete dir="mca/bin" />
+    <delete dir="mca/obj" />
+    <delete dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-build">
+    <!-- build plugin -->
+    <metreosMSBuildTask root="${Metreos.build.srcRoot}" dir="application-suite/${appName}/plugins" solution="${appName}" />
+    <!-- plugin-post-build -->
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="plugins/NativeActions/bin/${Metreos.build.target}" includes="Metreos.Native.${appName}.*" />
+    </copy>
+
+    <!-- build max project -->
+    <metreosMaxTask root="${Metreos.build.srcRoot}" dir="application-suite/${appName}/mca" solution="${appName}" />
+  </target>
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-postbuild">
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="mca/bin" />
+    </copy>
+  </target>
+
+</project>

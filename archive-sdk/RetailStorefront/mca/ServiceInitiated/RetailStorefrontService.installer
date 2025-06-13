@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<install xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="PhoneUser" displayName="Phone Username" format="String" description="The username associated with the phone" defaultValue="metreos" required="true" />
+    <configValue name="PhonePass" displayName="Phone Password" format="String" description="The password associated with the phone" defaultValue="metreos" required="true" />
+    <configValue name="MainMenuFilePath" displayName="MainMenu Filepath" format="String" description="Path to main menu file" defaultValue="c:\images\rt_sales_demo_080106_p2.png" required="true" />
+    <configValue name="AvailableIconFilePath" displayName="Available Icon Filepath" format="String" description="Path to green icon file" defaultValue="c:\images\green_icon.png" required="true" />
+    <configValue name="UnavailableIconFilePath" displayName="Unavailable Icon Filepath" format="String" description="Path to red icon file" defaultValue="c:\images\red_icon.png" required="true" />
+    <configValue name="SkuItemFilePath" displayName="Sku Item Filepath" format="String" description="Path to sku item file" defaultValue="rt__sku_080106.png" required="true" />
+    <configValue name="MainMenuClosedFilePath" displayName="MainMenu Closed Filepath" format="String" description="Path to main menu file when closed" defaultValue="c:\images\rt_sales_demo_080106.png" required="true" />
+    <configValue name="DatabaseUser" displayName="Database User" format="String" description="Database Username" defaultValue="root" required="true" />
+    <configValue name="DatabasePassword" displayName="Database Password" format="String" description="default password for database" defaultValue="cisco" required="true" />
+    <configValue name="MceAdminInstallPath" displayName="Mceadmin Install Path" format="String" description="The location of mceadmin on the CUAE server" defaultValue="c:\Program Files\Cisco Systems\Unified Application Environment\mceadmin" required="true" />
+  </configuration>
+</install>

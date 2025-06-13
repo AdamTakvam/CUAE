@@ -1,0 +1,122 @@
+METREOS-MCE-MIB DEFINITIONS ::= BEGIN
+
+	--  metreos-mce.mib
+	--  Revision: 1.00
+	--  Date: October 26, 2005
+
+	--  Metreos Corporation 
+	--  4401 Westgate Blvd., Suite 308
+	--  Austin, TX 78745
+	--  www.metreos.com
+
+	--  This module provides definitions for Metreos MCE
+	--  enterprise specific traps.
+	--  This module will be extended, as needed.
+
+	IMPORTS
+		--  These definitions use the enterprises macro as
+		--  defined in RFC 1155-SMI
+		enterprises
+			FROM RFC1155-SMI
+		--  These definitions use the OBJECT-TYPE macro as
+		--  defined in RFC 1212
+		OBJECT-TYPE
+			FROM RFC-1212
+		--  These definitions use the TRAP-TYPE macro as
+		--  defined in RFC 1215
+		TRAP-TYPE
+			FROM RFC-1215
+        DisplayString
+                FROM RFC-1213;
+			
+	metreos		OBJECT IDENTIFIER ::= {enterprises 22720}
+	mce			OBJECT IDENTIFIER ::= {metreos	1}
+	
+	trapText  OBJECT-TYPE
+	SYNTAX DisplayString
+	ACCESS read-only
+	STATUS mandatory
+	DESCRIPTION "Alarm Message Text String"
+	::= { mce 1 }
+	-- 1.3.6.1.4.1.22720.1.1.0
+
+	trapID  OBJECT-TYPE
+	SYNTAX INTEGER
+	ACCESS read-only
+	STATUS mandatory
+	DESCRIPTION "Specific Trap Number from Alarm Message"
+	::= { mce 2 }
+	-- 1.3.6.1.4.1.22720.1.2.0
+	
+	serviceUnavailableAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"A Metreos Service is not available."
+	::= 100
+	-- 1.3.6.1.4.1.22720.1.100
+
+	mediaServiceUnavailableAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"A Media Server is not available."
+	::= 101
+	-- 1.3.6.1.4.1.22720.1.101
+
+		
+	outOfRTPPortsAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"MCE is running out of G711 RTP ports."
+	::= 102
+	-- 1.3.6.1.4.1.22720.1.102
+
+	outOfEnhancedRTPPortsAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"MCE is running out of G723/729 enhanced RTP ports."
+	::= 103
+	-- 1.3.6.1.4.1.22720.1.103
+		
+	outOfMemoryAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"MCE is running out of memory."
+	::= 104
+	-- 1.3.6.1.4.1.22720.1.104
+	
+	clearServiceUnavailableAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"Alarm Cleared: A Metreos Service is not available."
+	::= 1100
+	-- 1.3.6.1.4.1.22720.1.1100
+
+	clearMediaServiceUnavailableAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"Alarm Cleared: A Media Server is not available."
+	::= 1101
+	-- 1.3.6.1.4.1.22720.1.1101
+		
+	clearOutOfRTPPortsAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"Alarm Cleared: MCE is running out of G711 RTP ports."
+	::= 1102
+	-- 1.3.6.1.4.1.22720.1.1102
+
+	clearOutOfEnhancedRTPPortsAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"Alarm Cleared: MCE is running out of G723/729 enhanced RTP ports."
+	::= 1103
+	-- 1.3.6.1.4.1.22720.1.1103
+		
+	clearOutOfMemoryAlarm TRAP-TYPE
+		ENTERPRISE  mce
+		DESCRIPTION
+			"Alarm Cleared: MCE is running out of memory."
+	::= 1104
+	-- 1.3.6.1.4.1.22720.1.1104
+					
+END

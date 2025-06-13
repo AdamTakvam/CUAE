@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleAppDomains", "MultipleAppDomains.csproj", "{DBD01343-E938-4CFF-88DA-45C29759EDC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DBD01343-E938-4CFF-88DA-45C29759EDC1}.Debug.ActiveCfg = Debug|.NET
+		{DBD01343-E938-4CFF-88DA-45C29759EDC1}.Debug.Build.0 = Debug|.NET
+		{DBD01343-E938-4CFF-88DA-45C29759EDC1}.Release.ActiveCfg = Release|.NET
+		{DBD01343-E938-4CFF-88DA-45C29759EDC1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

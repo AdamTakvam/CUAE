@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="MCE Packages" default="debug" basedir=".">
+
+	<description>Build Script for Packages and Updaters</description>
+    <import file="build.common.xml"/>
+
+    <target name="Debug"          depends="debug" />
+    <target name="Release"        depends="release" />
+    <target name="Clean"          depends="clean" />
+    <target name="debug"          depends="init-debug,all"   />
+    <target name="release"        depends="init-release,all" />
+    <target name="clean"          depends="init-clean,all" />
+    <target name="debug-rebuild"  depends="clean,debug" />
+    <target name="all"            depends="component-docs,component-packages" />
+
+    <target name="validate-dependencies" >
+        <!-- TODO -->
+        <mkdir dir="${Metreos.build.logDirectory}" />
+    </target>
+    
+    <target name="init-debug" depends="validate-dependencies" >
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Debug" />
+    </target>
+    
+    <target name="init-release" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Release" />
+    </target>
+   
+    <target name="init-clean" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Clean" />
+    </target>
+
+    <!-- Subtargets -->
+    <target name="component-docs">
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="docs" />
+    </target>
+    
+    <target name="component-packages">
+        <!-- TODO -->
+
+        <!-- <metreosAntTask   root="${Metreos.build.srcRoot}" dir="application-packages" />      -->
+        <metreosAntTask   root="${Metreos.build.srcRoot}" dir="installers" >
+           <property name="Metreos.build.setOptionFTF" value="true" />
+        </metreosAntTask>
+        <!-- <metreosAntTask   root="${Metreos.build.srcRoot}" dir="metreos-system-updates"> 
+           <property name="Metreos.build.setOptionFTF" value="true" />
+        </metreosAntTask>
+        -->
+    </target>
+</project>

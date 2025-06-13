@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceManipulator", "DeviceManipulator.csproj", "{313FE1EF-E06E-4C4A-8629-8CEB0417BABA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{313FE1EF-E06E-4C4A-8629-8CEB0417BABA}.Debug.ActiveCfg = Debug|.NET
+		{313FE1EF-E06E-4C4A-8629-8CEB0417BABA}.Debug.Build.0 = Debug|.NET
+		{313FE1EF-E06E-4C4A-8629-8CEB0417BABA}.Release.ActiveCfg = Release|.NET
+		{313FE1EF-E06E-4C4A-8629-8CEB0417BABA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

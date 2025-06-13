@@ -1,0 +1,278 @@
+module : World, MCE, World2
+processor : phone1 in World, AppServer in MCE, phone2 in World2
+eternal : provider1 in AppServer, telMan in AppServer, app in AppServer, provider2 in AppServer
+
+feature "Interprotocol P2P Media"
+
+  case
+    leg "SIP-JTAPI":
+      INVITE(txAddr, remoteMediaCaps1) : phone1 -> provider1
+      IncomingCall(callId1, "to", from, negCaps="true") : provider1 -> telMan
+      IncomingCall(callId1, "to", from) : telMan -> app
+      MakeCall("to", from, peerCallId="callId1") : app -> telMan
+      MakeCall(callId2, "to", from) : telMan -> provider2
+      MakeCall : provider2 -> phone2
+      MakeCall_Success : provider2 -> telMan
+      AcceptCall(callId1) : telMan -> provider1
+      Ringing : provider1 -> phone1
+      AcceptCall_Success : provider1 -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      GotCapabilities(callId1, remoteMediaCaps) : provider1 -> telMan
+      (*This was really sent immediately after IncomingCall*)
+      SetMedia(callId2, localMediaCaps) : telMan -> provider2
+      (*localMediaCaps are remoteMediaCaps from other call*)
+      (*JTAPI ignores caps sets*)
+      SetMedia_Success : provider2 -> telMan
+      OLC(rxCodec) : phone2 -> provider2
+      MediaEstablished(callId2, rxCodec) : provider2 -> telMan
+      SetMedia(callId1, localMediaCaps, txCodec) : telMan -> provider1
+      (*localMediaCaps contains only the rxCodec from other call*)
+      (*txCodec is rxCodec from other call*)
+      provider1 takes action "Verify that txCodec exists in remoteMediaCaps"
+      SetMedia_Success : provider1 -> telMan
+      MediaEstablished(callId1, txAddr) : provider1 -> telMan
+      (*This was really sent immediately after IncomingCall*)
+      SetMedia(callId2, rxAddr) : telMan -> provider2
+      (*rxAddr is txAddr from other call*)
+      setRTPParams(rxAddr) : provider2 -> phone2
+      SetMedia_Success : provider2 -> telMan
+      MediaEstablished(callId1, rxCodec) : provider1 -> telMan
+      (*SIP sends this reflexively because it does not support asymmetric media*)
+      SetMedia(callId2, txCodec) : telMan -> provider2
+      (*txCodec is rxCodec from other call*)
+      (*JTAPI ignores codec*)
+      SetMedia_Success : provider2 -> telMan
+      ConnEstablished : phone2 -> provider2
+      CallEstablished(callId2) : provider2 -> telMan
+      AnswerCall(callId1) : telMan -> provider1
+      (*SIP provider should change call state, but still must wait for rxAddr*)
+      AnswerCall_Success : provider1 -> telMan
+      OutputStarted(txAddr) : phone2 -> provider2
+      MediaEstablished(callId2, txAddr) : provider2 -> telMan
+      SetMedia(callId1, rxAddr) : telMan -> provider1
+      (*rxAddr is txAddr from other call*)
+      OK(rxAddr, txCodec) : provider1 -> phone1
+      ACK : phone1 -> provider1
+      SetMedia_Success : provider1 -> telMan
+      CallEstablished(callId1) : provider1 -> telMan
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "SIP-H323":
+      INVITE(txAddr, remoteMediaCaps1) : phone1 -> provider1
+      IncomingCall(callId1, "to", from, negCaps="true") : provider1 -> telMan
+      IncomingCall(callId1, "to", from) : telMan -> app
+      MakeCall("to", from, peerCallId="callId1") : app -> telMan
+      MakeCall(callId2, "to", from) : telMan -> provider2
+      SETUP : provider2 -> phone2
+      MakeCall_Success : provider2 -> telMan
+      AcceptCall(callId1) : telMan -> provider1
+      Ringing : provider1 -> phone1
+      AcceptCall_Success : provider1 -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      ALERTING : phone2 -> provider2
+      CONNECT : phone2 -> provider2
+      CallEstablished(callId2) : provider2 -> telMan
+      AnswerCall(callId1) : telMan -> provider1
+      (*SIP provider should change call state, but still must wait for rxAddr*)
+      AnswerCall_Success : provider1 -> telMan
+      GotCapabilities(callId1, remoteMediaCaps) : provider1 -> telMan
+      (*This was really sent immediately after IncomingCall*)
+      SetMedia(callId2, localMediaCaps) : telMan -> provider2
+      (*localMediaCaps are remoteMediaCaps from other call*)
+      TCS(localMediaCaps) : provider2 -> phone2
+      SetMedia_Success : provider2 -> telMan
+      TCS(remoteMediaCaps) : phone2 -> provider2
+      MediaEstablished(callId2, remoteMediaCaps) : provider2 -> telMan
+      SetMedia(callId1, localMediaCaps) : telMan -> provider1
+      (*localMediaCaps are remoteMediaCaps from other call*)
+      SetMedia_Success : provider1 -> telMan
+      OLC(rxCodec) : phone2 -> provider2
+      MediaEstablished(callId2, rxCodec) : provider2 -> telMan
+      SetMedia(callId1, txCodec) : telMan -> provider1
+      (*txCodec is rxCodec from other call*)
+      SetMedia_Success : provider1 -> telMan
+      MediaEstablished(callId1, txAddr) : provider1 -> telMan
+      (*This was really sent immediately after IncomingCall*)
+      SetMedia(callId2, rxAddr) : telMan -> provider2
+      (*rxAddr is txAddr from other call*)
+      OLC_Ack(rxAddr) : provider2 -> phone2
+      SetMedia_Success : provider2 -> telMan
+      MediaEstablished(callId1, rxCodec) : provider1 -> telMan
+      (*SIP sends this reflexively because it does not support asymmetric media*)
+      SetMedia(callId2, txCodec) : telMan -> provider2
+      (*txCodec is rxCodec from other call*)
+      OLC(txCodec) : provider2 -> phone2
+      SetMedia_Success : provider2 -> telMan
+      OLC_Ack(txAddr) : phone2 -> provider2
+      MediaEstablished(callId2, txAddr) : provider2 -> telMan
+      SetMedia(callId1, rxAddr) : telMan -> provider1
+      (*rxAddr is txAddr from other call*)
+      OK(rxAddr, txCodec) : provider1 -> phone1
+      ACK : phone1 -> provider1
+      SetMedia_Success : provider1 -> telMan
+      CallEstablished(callId1) : provider1 -> telMan
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "SIP-SCCP":
+      INVITE(txAddr, remoteMediaCaps1) : phone1 -> provider1
+      IncomingCall(callId1, "to", from, negCaps="true") : provider1 -> telMan
+      IncomingCall(callId1, "to", from) : telMan -> app
+      MakeCall("to", from, peerCallId="callId1") : app -> telMan
+      MakeCall(callId2, "to", from) : telMan -> provider2
+      Setup : provider2 -> phone2
+      MakeCall_Success : provider2 -> telMan
+      AcceptCall(callId1) : telMan -> provider1
+      Ringing : provider1 -> phone1
+      AcceptCall_Success : provider1 -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      GotCapabilities(callId1, remoteMediaCaps) : provider1 -> telMan
+      (*This was really sent immediately after IncomingCall*)
+      SetMedia(callId2, localMediaCaps) : telMan -> provider2
+      (*localMediaCaps are remoteMediaCaps from other call*)
+      (*SCCP ignores caps sets*)
+      SetMedia_Success : provider2 -> telMan
+      ORC(rxCodec) : phone2 -> provider2
+      MediaEstablished(callId2, rxCodec) : provider2 -> telMan
+      SetMedia(callId1, localMediaCaps, txCodec) : telMan -> provider1
+      (*localMediaCaps contains only the rxCodec from other call*)
+      (*txCodec is rxCodec from other call*)
+      provider1 takes action "Verify that txCodec exists in remoteMediaCaps"
+      SetMedia_Success : provider1 -> telMan
+      MediaEstablished(callId1, txAddr) : provider1 -> telMan
+      (*This was really sent immediately after IncomingCall*)
+      SetMedia(callId2, rxAddr) : telMan -> provider2
+      (*rxAddr is txAddr from other call*)
+      ORC_Ack(rxAddr) : provider2 -> phone2
+      SetMedia_Success : provider2 -> telMan
+      MediaEstablished(callId1, rxCodec) : provider1 -> telMan
+      (*SIP sends this reflexively because it does not support asymmetric media*)
+      SetMedia(callId2, txCodec) : telMan -> provider2
+      (*txCodec is rxCodec from other call*)
+      (*SCCP ignores codec*)
+      SetMedia_Success : provider2 -> telMan
+      CallEstablished(callId2) : provider2 -> telMan
+      (*This is sent immediately after sending ORC_Ack*)
+      AnswerCall(callId1) : telMan -> provider1
+      (*SIP provider should change call state, but still must wait for rxAddr*)
+      AnswerCall_Success : provider1 -> telMan
+      SMT(txAddr) : phone2 -> provider2
+      MediaEstablished(callId2, txAddr) : provider2 -> telMan
+      SetMedia(callId1, rxAddr) : telMan -> provider1
+      (*rxAddr is txAddr from other call*)
+      OK(rxAddr, txCodec) : provider1 -> phone1
+      ACK : phone1 -> provider1
+      SetMedia_Success : provider1 -> telMan
+      CallEstablished(callId1) : provider1 -> telMan
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "SCCP-JTAPI":
+      RingIn : phone1 -> provider1
+      IncomingCall(callId1, "to", from, negCaps="false") : provider1 -> telMan
+      IncomingCall(callId1, "to", from) : telMan -> app
+      MakeCall("to", from, peerCallId="callId1") : app -> telMan
+      MakeCall(callId2, "to", from) : telMan -> provider2
+      MakeCall : provider2 -> phone2
+      MakeCall_Success : provider2 -> telMan
+      AcceptCall(callId1) : telMan -> provider1
+      Alerting : provider1 -> phone1
+      AcceptCall_Success : provider1 -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      OLC(rxCodec) : phone2 -> provider2
+      MediaEstablished(callId2, rxCodec) : provider2 -> telMan
+      SetMedia(callId1, localMediaCaps, txCodec) : telMan -> provider1
+      (*localMediaCaps contains only the rxCodec from other call*)
+      (*txCodec is rxCodec from other call*)
+      (*SCCP ignores caps sets and codec selection*)
+      SetMedia_Success : provider1 -> telMan
+      [* ------------------------------------- DEADLOCK - Please solve ------------------------------------- *]
+      
+    leg "SCCP-H323":
+      RingIn : phone1 -> provider1
+      IncomingCall(callId1, "to", from, negCaps="false") : provider1 -> telMan
+      IncomingCall(callId1, "to", from) : telMan -> app
+      MakeCall("to", from, peerCallId="callId1") : app -> telMan
+      MakeCall(callId2, "to", from) : telMan -> provider2
+      SETUP : provider2 -> phone2
+      MakeCall_Success : provider2 -> telMan
+      AcceptCall(callId1) : telMan -> provider1
+      Alerting : provider1 -> phone1
+      AcceptCall_Success : provider1 -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      ALERTING : phone2 -> provider2
+      CONNECT : phone2 -> provider2
+      CallEstablished(callId2) : provider2 -> telMan
+      AnswerCall(callId1) : telMan -> provider1
+      Connect : provider1 -> phone1
+      AnswerCall_Success : provider1 -> telMan
+      TERMCAPS(remoteMediaCaps) : phone2 -> provider2
+      GotCapabilities(callId2, remoteMediaCaps) : provider2 -> telMan
+      SetMedia(callId1, localMediaCaps) : telMan -> provider1
+      (*localMediaCaps are remoteMediaCaps from other call*)
+      (*SCCP ignores caps sets*)
+      SetMedia_Success : provider1 -> telMan
+      ORC(rxCodec) : phone1 -> provider1
+      MediaEstablished(callId1, rxCodec) : provider1 -> telMan
+      SetMedia(callId2, localMediaCaps, txCodec) : telMan -> provider2
+      (*localMediaCaps contains only the rxCodec from other call*)
+      (*txCodec is rxCodec from other call*)
+      TCS(localMediaCaps) : provider2 -> phone2
+      provider2 takes action "Verify that txCodec exists in remoteMediaCaps"
+      OLC(txCodec) : provider2 -> phone2
+      SetMedia_Success : provider2 -> telMan
+      OLC(rxCodec) : phone2 -> provider2
+      MediaEstablished(callId2, rxCodec) : provider2 -> telMan
+      SetMedia(callId1, txCodec) : telMan -> provider1
+      (*txCodec is rxCodec from other call*)
+      (*SCCP ignores codec selection*)
+      SetMedia_Success : provider1 -> telMan
+      OLC_Ack(txAddr) : phone2 -> provider2
+      MediaEstablished(callId2, txAddr) : provider2 -> telMan
+      SetMedia(callId1, rxAddr) : telMan -> provider1
+      (*rxAddr is txAddr from other call*)
+      ORC_Ack(rxAddr) : provider1 -> phone1
+      SetMedia_Success : provider1 -> telMan
+      SMT(txAddr) : phone1 -> provider1
+      MediaEstablished(callId1, txAddr) : provider1 -> telMan
+      SetMedia(callId2, rxAddr) : telMan -> provider2
+      OLC_Ack(rxAddr) : provider2 -> phone2
+      SetMeda_Success : provider2 -> telMan
+      CallEstablished(callId1) : provider1 -> telMan
+      (*This is sent immediately after sending ORC_Ack*)
+      MakeCall_Complete(callId2) : telMan -> app      
+    
+    leg "SCCP-SIP":
+      RingIn : phone1 -> provider1
+      
+      MakeCall_Complete(callId2) : telMan -> app
+    
+    leg "H323-JTAPI":
+      SETUP : phone1 -> provider1
+      
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "H323-SCCP":
+      SETUP : phone1 -> provider1
+    
+      MakeCall_Complete(callId2) : telMan -> app
+    
+    leg "H323-SIP":
+      SETUP : phone1 -> provider1
+
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "JTAPI-SIP":
+      CallInitiated : phone1 -> provider1
+      
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "JTAPI-H323":
+      CallInitiated : phone1 -> provider1
+      
+      MakeCall_Complete(callId2) : telMan -> app
+
+    leg "JTAPI-SCCP":
+      CallInitiated : phone1 -> provider1
+      
+      MakeCall_Complete(callId2) : telMan -> app
+  endcase
+endfeature

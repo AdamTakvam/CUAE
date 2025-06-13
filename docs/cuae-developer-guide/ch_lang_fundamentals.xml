@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter>
+  <title>Language Fundamentals</title>
+
+  <section>
+    <title>Introduction</title>
+
+    <remark>LRM: Introduce the reader to the language of the CUAE. Make sure
+    they understand that it actually does have a language.</remark>
+  </section>
+
+  <section>
+    <title>Hello, World!</title>
+
+    <para></para>
+
+    <section>
+      <title>Overview</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>The Traditional "Hello, World!" Using C#</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Building "Hello, Word!" Using the CUAE</title>
+
+      <para></para>
+
+      <remark>LRM: Draw analogies as we code the application with the CUAE.
+      Help them understand how the visual elements relate back to the C# code
+      example. Use a dynamic element like DateTime to draw an analogy to a C#
+      parameter in the CUAE.</remark>
+
+      <itemizedlist>
+        <listitem>
+          <para>Context &lt;&gt; Application</para>
+        </listitem>
+
+        <listitem>
+          <para>C# &lt;&gt; Script</para>
+        </listitem>
+
+        <listitem>
+          <para>Triggering Event &lt;&gt; Process Start</para>
+        </listitem>
+
+        <listitem>
+          <para>Triggering Event Handler &lt;&gt; Main</para>
+        </listitem>
+
+        <listitem>
+          <para>HTTP Send Response Action &lt;&gt; Console.WriteLine()</para>
+        </listitem>
+
+        <listitem>
+          <para>End Script Action &lt;&gt; System.Exit()</para>
+        </listitem>
+
+        <listitem>
+          <para>Msg Output with DateTime &lt;&gt; C# Parameter</para>
+        </listitem>
+      </itemizedlist>
+
+      <section>
+        <title>Coding the Application</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Building and Deploying</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Running the Application</title>
+
+        <para></para>
+      </section>
+    </section>
+  </section>
+
+  <section>
+    <title>CUAE Language Elements</title>
+
+    <remark>LRM: Draw out the big relationships, graphically and using
+    pseudocode. Help the reader understand how these elements relate to
+    traditional programming languages. This chapter is all about crystalizing
+    our core concepts. Be very clear and use lots of graphics and
+    pseudocode.</remark>
+
+    <section>
+      <title>Scripts</title>
+
+      <para></para>
+
+      <section>
+        <title>Script Properties</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Basics of Script Execution</title>
+
+        <para></para>
+
+        <remark>LRM: Don't go too deep here. The main goal is to set up the
+        discussion around function execution and sync vs. async
+        actions.</remark>
+      </section>
+    </section>
+
+    <section>
+      <title>Events</title>
+
+      <para></para>
+
+      <section>
+        <title>Types of Events</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Event Signatures</title>
+
+        <para></para>
+      </section>
+    </section>
+
+    <section>
+      <title>Functions</title>
+
+      <para></para>
+
+      <section>
+        <title>Function Signatures</title>
+
+        <para></para>
+
+        <section>
+          <title>Function Names</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Input Parameters</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Output Parameters</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Starting and Terminating Functions</title>
+
+        <para></para>
+
+        <section>
+          <title>The Basics of Function Execution</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Standalone vs. Event Handlers</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Calling Other Functions</title>
+
+        <para></para>
+      </section>
+    </section>
+
+    <section>
+      <title>Actions</title>
+
+      <para></para>
+
+      <section>
+        <title>What is an Action?</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Input Parameters</title>
+
+        <para></para>
+
+        <section>
+          <title>Type of Inputs</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Output Parameters</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Branching</title>
+
+        <para></para>
+
+        <section>
+          <title>How to Create and Name Branches</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>The Default Path</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Types of Actions</title>
+
+        <para></para>
+
+        <section>
+          <title>Synchronous Actions</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Asynchronous Action</title>
+
+          <para></para>
+        </section>
+      </section>
+    </section>
+
+    <section>
+      <title>Variables</title>
+
+      <para></para>
+
+      <section>
+        <title>CUAE Type System</title>
+
+        <para></para>
+
+        <section>
+          <title>The Basics of the Type System</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Specifying the Type for a Variable</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Scoping</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Variable Initialization</title>
+
+        <para></para>
+
+        <section>
+          <title>Default Values</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Globals</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Locals</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Variable Assignment</title>
+
+        <remark>LRM: Using the Assign action. Assigning local variables to
+        global variables.</remark>
+      </section>
+    </section>
+
+    <section>
+      <title>Comments</title>
+
+      <para></para>
+
+      <section>
+        <title>Floating Comments</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Action Annotations</title>
+
+        <para></para>
+      </section>
+    </section>
+
+    <section>
+      <title>Conditionals</title>
+
+      <para></para>
+
+      <section>
+        <title>Conditional Actions vs. Action Branching</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>If</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Switch</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Compare</title>
+
+        <para></para>
+      </section>
+    </section>
+
+    <section>
+      <title>Loops</title>
+
+      <para></para>
+
+      <section>
+        <title>Graphical Elements of a Loop</title>
+
+        <para></para>
+
+        <section>
+          <title>Available Ports</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Drawing a Loop</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Loop Properties</title>
+
+        <para></para>
+
+        <section>
+          <title>Count</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Loop Type</title>
+
+          <para></para>
+        </section>
+
+        <section>
+          <title>Loop Iteration Type</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Breaking Out of a Loop</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Continuing to the Next Iteration</title>
+
+        <para></para>
+      </section>
+
+      <section>
+        <title>Do-While Loops</title>
+
+        <para></para>
+
+        <section>
+          <title>Best Practices when Using Loops</title>
+
+          <para></para>
+        </section>
+      </section>
+
+      <section>
+        <title>Nested Loops</title>
+
+        <para></para>
+      </section>
+    </section>
+
+    <section>
+      <title>Labels</title>
+
+      <para></para>
+
+      <section>
+        <title>Using Labels to Organize Your Application</title>
+
+        <para></para>
+      </section>
+    </section>
+  </section>
+
+  <section>
+    <title>Application Elements</title>
+
+    <para></para>
+
+    <section>
+      <title>Installer</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>String Table</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Media Files</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Database Scripts</title>
+
+      <para></para>
+    </section>
+
+    <section>
+      <title>Voice Recognition Grammar</title>
+
+      <para></para>
+    </section>
+  </section>
+</chapter>

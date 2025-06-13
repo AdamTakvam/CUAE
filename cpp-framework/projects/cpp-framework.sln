@@ -1,0 +1,33 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cpp-core", "cpp-core\cpp-core.vcproj", "{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		DebugLib = DebugLib
+		DebugWin = DebugWin
+		Release = Release
+		ReleaseLib = ReleaseLib
+		ReleaseWin = ReleaseWin
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.Debug.ActiveCfg = Debug|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.Debug.Build.0 = Debug|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.DebugLib.ActiveCfg = DebugLib|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.DebugLib.Build.0 = DebugLib|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.DebugWin.ActiveCfg = DebugWin|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.DebugWin.Build.0 = DebugWin|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.Release.ActiveCfg = Release|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.Release.Build.0 = Release|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.ReleaseLib.ActiveCfg = ReleaseLib|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.ReleaseLib.Build.0 = ReleaseLib|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.ReleaseWin.ActiveCfg = ReleaseWin|Win32
+		{39FD5A06-B8EB-4314-9115-38D1B8FC2BC8}.ReleaseWin.Build.0 = ReleaseWin|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

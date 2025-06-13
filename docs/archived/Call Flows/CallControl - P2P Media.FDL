@@ -1,0 +1,89 @@
+module : World, MCE
+processor : phone1 in World, phone2 in World, AppServer in MCE, MMS in MCE
+eternal : provider in AppServer, telMan in AppServer, app in AppServer
+
+feature "P2P Media"
+[* The only time peer-to-peer media makes any sense is when the AppServer receives a call and then places a call on behalf of that caller *]
+
+  case
+    leg "SIP":
+      INVITE(txAddr1, remoteMediaCaps1) : phone1 -> provider
+      IncomingCall(callId1) : provider -> telMan
+      IncomingCall(callId1) : telMan -> app
+      GotCapabilities(callId1, txAddr1, remoteMediaCaps1) : provider -> telMan
+      telMan takes action "Performs actions described in the SIP InboundCall scenario"
+      (* At this point, the telMan will get the localMediaCaps, select a media server and send codec, and issue a SetMedia as in the SIP InboundCall scenario. This is OK, because no resources are reserved and the media values will be overwritten later *)
+      MakeCall(to, from, peerCallId="callId1") : app -> telMan
+      MakeCall(to, from, txAddr1, remoteMediaCaps1) : telMan -> provider
+      INVITE(txAddr1, remoteMediaCaps1) : provider -> phone2
+      MakeCall_Success(callId2) : provider -> telMan
+      AcceptCall(callId1) : telMan -> provider
+      RINGING : provider -> phone1
+      AcceptCall_Success(callId1) : provider -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      RINGING : phone2 -> provider
+      OK(txAddr2, rxCodec) : phone2 -> provider
+      (* rxCodec = txCodec *)
+      ACK : provider -> phone2
+      MediaEstablished(callId2, txAddr2, rxCodec, txCodec) : provider -> telMan
+      SetMedia(callId1, txAddr2, rxCodec, txCodec) : telMan -> provider
+      SetMedia_Success(callId1) : provider -> telMan
+      CallEstablished(callId2) : provider -> telMan
+      AnswerCall(callId1) : telMan -> provider
+      OK(txAddr2, rxCodec) : provider -> phone1
+      ACK : phone1 -> provider
+      AnswerCall_Success(callId1) : provider -> telMan
+      MediaEstablished(callId1) : provider -> telMan
+      MakeCall_Complete(callId2) : telMan -> app
+      
+    leg "H323":
+      SETUP : phone1 -> provider
+      IncomingCall(callId1) : provider -> telMan
+      IncomingCall(callId1) : telMan -> app
+      MakeCall(to, from, peerCallId="callId1") : app -> telMan
+      MakeCall(to, from) : telMan -> provider
+      SETUP : provider -> phone2
+      MakeCall_Success(callId2) : provider -> telMan
+      AcceptCall(callId1) : telMan -> provider
+      ALERTING : provider -> phone1
+      AcceptCall_Success(callId1) : provider -> telMan
+      MakeCall_Success(callId2) : telMan -> app
+      ALERTING : phone2 -> provider
+      CONNECT : phone2 -> provider
+      CallEstablished(callId2) : provider -> telMan
+      AnswerCall(callId1) : telMan -> provider
+      CONNECT : provider -> phone1
+      AnswerCall_Success(callId1) : provider -> telMan
+      TERMCAPS : provider -> phone2
+      TERMCAPS(remoteMediaCaps2) : phone2 -> provider
+      GotCapabilities(callId2, remoteMediaCaps2) : provider -> telMan
+      SetMedia(callId1, remoteMediaCaps2) : telMan -> provider
+      TERMCAPS(remoteMediaCaps2) : provider -> phone1
+      TERMCAPS(remoteMediaCaps1) : phone1 -> provider
+      GotCapabilities(callId1, remoteMediaCaps1) : provider -> telMan
+      SetMedia(callId2, remoteMediaCaps1) : telMan -> provider
+      TERMCAPS(remoteMediaCaps1) : provider -> phone2
+      OLC(rxControlAddr2, txCodec2) : phone2 -> provider
+      MediaEstablished(callId2, rxControlAddr2, txCodec2) : provider -> telMan
+      SetMedia(callId1, rxControlAddr2, txCodec2) : telMan -> provider
+      OLC(rxControlAddr2, txCodec2) : provider -> phone1
+      SetMedia_Success(callId1) : provider -> telMan
+      OLC_ACK(rxAddr1, rxControlAddr1) : phone1 -> provider
+      MediaEstablished(callId1, rxAddr1, rxControlAddr1) : provider -> telMan
+      SetMedia(callId2, rxAddr1, rxControlAddr1) : telMan -> provider
+      OLC_ACK(rxAddr1, rxControlAddr1) : provider -> phone2
+      SetMedia_Success(callId2) : provider -> telMan
+      OLC(rxControlAddr1, txCodec1) : phone1 -> provider
+      MediaEstablished(callId1, rxControlAddr1, txCodec1) : provider -> telMan
+      SetMedia(callId2, rxControlAddr1, txCodec1) : telMan -> provider
+      OLC(rxControlAddr1, txCodec1) : provider -> phone2
+      SetMedia_Success(callId2) : provider -> telMan
+      OLC_ACK(rxAddr2, rxControlAddr2) : phone2 -> provider
+      MediaEstablished(callId2, rxAddr2, rxControlAddr2) : provider -> telMan
+      SetMedia(callId1, rxAddr2, rxControlAddr2) : telMan -> provider
+      OLC_ACK(rxAddr2, rxControlAddr2) : provider -> phone1
+      SetMedia_Success(callId1) : provider -> telMan
+      CallEstablished(callId1) : provider -> telMan
+      MakeCall_Complete(callId2) : telMan -> app
+  endcase
+endfeature

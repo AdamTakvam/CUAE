@@ -1,0 +1,1 @@
+.\bin\debug\Test.exe -t:Release -d:SEP001109F0EB31 -url:http://10.1.14.128:8000/Release/10.1.14.29 -u:user1 -ccmip:10.1.14.30 -ri:10000 -st:ABCDE -iu:triUser

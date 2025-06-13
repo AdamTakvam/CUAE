@@ -1,0 +1,157 @@
+--2a091cd8-7c6b-42d5-a
+Content-Transfer-Encoding: binary
+Content-ID: <84752f@10.89.31.251>
+Content-Type: application/rlmi+xml;charset="UTF-8"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:ietf:params:xml:ns:rlmi" uri="sip:hong-contacts@cisco.com" version="0" fullState="true">
+<resource uri="sip:metreos@cisco.com">
+
+  <instance cid="2925fa@10.89.31.251" id="1" state="active"/>
+
+</resource>
+<resource uri="sip:tom@cisco.com">
+
+  <instance cid="a62016@10.89.31.251" id="1" state="active"/>
+
+</resource>
+<resource uri="sip:jan@cisco.com">
+
+  <instance cid="742c55@10.89.31.251" id="1" state="active"/>
+
+</resource>
+<resource uri="sip:tuser1@cisco.com">
+
+  <instance cid="554f3b@10.89.31.251" id="1" state="active"/>
+
+</resource>
+</list>
+
+--2a091cd8-7c6b-42d5-a
+Content-Transfer-Encoding: binary
+Content-ID: <2925fa@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:metreos@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="metreos">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <unavailable xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+<tuple xmlns="urn:ietf:params:xml:ns:pidf" id="default">
+
+  <status>
+    <basic>closed</basic>
+  </status>
+
+</tuple>
+</presence>
+
+--2a091cd8-7c6b-42d5-a
+Content-Transfer-Encoding: binary
+Content-ID: <a62016@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:tom@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="tom">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <unavailable xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+<tuple xmlns="urn:ietf:params:xml:ns:pidf" id="default">
+
+  <status>
+    <basic>closed</basic>
+  </status>
+
+</tuple>
+</presence>
+
+--2a091cd8-7c6b-42d5-a
+Content-Transfer-Encoding: binary
+Content-ID: <742c55@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:jan@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="jan">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <available xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cmp-100034-88457sip:100034@10.89.31.46">
+      <status>
+        <basic>open</basic>
+    </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+    </sc:servcaps>
+      <contact priority="0.8">sip:100034@10.89.31.46:5060</contact>
+      <timestamp>2007-06-22T15:57:43Z</timestamp>
+  </tuple>
+
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cisco-upc">
+      <contact priority="0">sip:jan@cisco.com</contact>
+      <cisco:source xmlns:cisco="urn:cisco:params:xml:ns:pidf:source">cupc1.1</cisco:source>
+      <note xml:lang="en"/>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>false</sc:audio>
+        <sc:video>false</sc:video>
+        <sc:text>false</sc:text>
+      </sc:servcaps>
+      <user-input>active</user-input>
+      <status>
+        <basic>open</basic>
+      </status>
+    </tuple>
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="email">
+      <status>
+        <basic>open</basic>
+      </status>
+      <contact priority="0">mailto:jacapps@cisco.com</contact>
+    </tuple>
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="phone">
+      <status>
+        <basic>open</basic>
+      </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+      </sc:servcaps>
+      <contact priority="1">phone:100034</contact>
+    </tuple>
+
+</presence>
+
+--2a091cd8-7c6b-42d5-a
+Content-Transfer-Encoding: binary
+Content-ID: <554f3b@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence xmlns="urn:ietf:params:xml:ns:pidf" entity="sip:tuser1@cisco.com" xmlns:dm="urn:ietf:params:xml:ns:pidf:data-m
+odel">
+
+  <dm:person id="tuser1">
+    <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+      <unavailable xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+    </activities>
+  </dm:person>
+
+  <tuple id="default">
+    <status>
+      <basic>closed</basic>
+    </status>
+  </tuple>
+
+</presence>
+--2a091cd8-7c6b-42d5-a--

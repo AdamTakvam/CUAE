@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Events.RecWithBarge" description="Events used by the RecordingWithBarge application" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <eventList>
+    <event name="RecWithBargeCall" type="triggering" displayName="RecWithBargeCall" description="Event used to trigger the RecordingWithBargeControl script. This script handles the logic for the inbound/outbound call scenarios.">
+      <eventParam name="LineId" displayName="LineId" type="System.String" guaranteed="true" />
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" />
+      <eventParam name="To" displayName="To" type="System.String" guaranteed="true" />
+      <eventParam name="OriginalTo" displayName="OriginalTo" type="System.String" guaranteed="true" />
+      <eventParam name="From" displayName="From" type="System.String" guaranteed="true" />
+      <eventParam name="CallType" displayName="CallType" type="System.String" guaranteed="true" />
+    </event>    
+  </eventList>
+</package>

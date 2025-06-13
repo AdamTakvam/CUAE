@@ -1,0 +1,1142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd" [
+<!ENTITY version "2.3.x">
+]>
+<article version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xl="http://www.w3.org/1999/xlink" xml:lang="en">
+  <!--Document Header-->
+
+  <info>
+    <title>Cisco Unified Application Environment - Remote Monitoring</title>
+
+    <subtitle>Release 2.4</subtitle>
+
+    <authorgroup>
+      <author>
+        <personname>Cisco Systems, Inc.</personname>
+
+        <email>support@cisco.com</email>
+      </author>
+    </authorgroup>
+
+    <copyright>
+      <year>2007</year>
+
+      <holder>Cisco Systems, Inc.</holder>
+    </copyright>
+
+    <abstract>
+      <para>This document describes how to configure and use the MIBs and
+      Alarm Management features of the Cisco Unified Application Environment
+      2.3.x.</para>
+    </abstract>
+  </info>
+
+  <!--Document Body-->
+
+  <section id="Alarm Management">
+    <title>Alarm Management</title>
+
+    <para>Real-time alarm messages warn of critical system events such as a
+    server failing to start.</para>
+
+    <para>Use the Alarm Management page in MCEAdmin to define SMTP servers or
+    SNMP managers that will receive the alarm messages</para>
+
+    <orderedlist>
+      <title>To add new alarm destinations, follow these steps:</title>
+
+      <listitem>From the Main Control Panel, click <emphasis>Alarm
+      Management</emphasis></listitem>
+
+      <listitem>Choose SMTP Manager or SNMP Manager, then click
+      <emphasis>Create</emphasis></listitem>
+
+      <listitem>Configure settings for the selected option. (see description
+      of configuration parameters below)</listitem>
+    </orderedlist>
+
+    <variablelist>
+      <title>SMTP Alarm Manager Parameters</title>
+
+      <varlistentry>
+        <term>Name</term>
+
+        <listitem>
+          <para>Name of alarm manager</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Description</term>
+
+        <listitem>
+          <para>Description of alarm manager</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Recipient</term>
+
+        <listitem>
+          <para>Email address to which to send alarm message</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Sender</term>
+
+        <listitem>
+          <para>Email address from which to send alarm message</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Server</term>
+
+        <listitem>
+          <para>IP address of SMTP server</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Username</term>
+
+        <listitem>
+          <para>(optional) User name for outbound SMTP authentication</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Password</term>
+
+        <listitem>
+          <para>(optional) Password for outbound SMTP authentication</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Server Port</term>
+
+        <listitem>
+          <para>SMTP server port (default is 25)</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Trigger Level</term>
+
+        <listitem>
+          <para>Event level that triggers alarm</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <variablelist>
+      <title>SNMP Alarm Manager Parameters</title>
+
+      <varlistentry>
+        <term>Name</term>
+
+        <listitem>
+          <para>Name of alarm manager</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Description</term>
+
+        <listitem>
+          <para>Description of alarm manager</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>SNMP Manager</term>
+
+        <listitem>
+          <para>IP address of SNMP manager</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Trigger Level</term>
+
+        <listitem>
+          <para>Event level that triggers alarm</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+
+  <section id="MIBs">
+    <title>MIBs</title>
+
+    <para>The <filename>metreos-mce.mib</filename> supplies the definitions
+    for the SNMP traps sent out by the Cisco Unified Application Server. These
+    are currently the only supported traps and they should not be
+    edited.</para>
+
+    <para>The MIB can be found at <filename>C:\Program Files\Cisco
+    Systems\Unified Application
+    Environment\Framework\1.0\MIB\metreos-mce.mib</filename></para>
+
+    <table>
+      <title>General</title>
+
+      <tgroup cols="2">
+        <colspec align="left" />
+
+        <thead>
+          <row>
+            <entry align="center">Event ID</entry>
+
+            <entry align="center">Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.100</entry>
+
+            <entry>A CUAE Service is not available.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.101</entry>
+
+            <entry>A Media Server is not available.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.102</entry>
+
+            <entry>CUAE is running out of memory.</entry>
+          </row>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1100</entry>
+
+            <entry>Alarm Cleared: A CUAE Service is not available.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1101</entry>
+
+            <entry>Alarm Cleared: A Media Server is not available.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1102</entry>
+
+            <entry>Alarm Cleared: CUAE is running out of memory.</entry>
+          </row>          
+        </tbody>
+      </tgroup>
+    </table>
+
+    <table>
+      <title>Media Server</title>
+
+      <tgroup cols="2">
+        <colspec align="left" />
+
+        <thead>
+          <row>
+            <entry align="center">Event ID</entry>
+
+            <entry align="center">Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.200</entry>
+
+            <entry>Media server compromised</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.201</entry>
+
+            <entry>Unexpected condition</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.202</entry>
+
+            <entry>Media server unscheduled shutdown</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.203</entry>
+
+            <entry>Resource type not deployed on this server</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.210</entry>
+
+            <entry>Out of RTP ports (G.711)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.211</entry>
+
+            <entry>High water RTP ports (G.711)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.212</entry>
+
+            <entry>Low water RTP ports (G.711)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.220</entry>
+
+            <entry>Out of Voice ports</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.221</entry>
+
+            <entry>High water Voice</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.222</entry>
+
+            <entry>Low water Voice</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.230</entry>
+
+            <entry>Out of eRTP ports (g723 g729)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.231</entry>
+
+            <entry>High water eRTP ports (g723 g729)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.232</entry>
+
+            <entry>Low water eRTP ports (g723 g729)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.240</entry>
+
+            <entry>Out of conference resources for service instance</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.241</entry>
+
+            <entry>Conference resources for service instance high
+            water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.242</entry>
+
+            <entry>Conference resources for service instance low water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.243</entry>
+
+            <entry>Out of conference slots for conference</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.244</entry>
+
+            <entry>Conference slots for conference high water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.245</entry>
+
+            <entry>Conference slots for conference low water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.246</entry>
+
+            <entry>Out of conferences</entry>
+          </row>
+          
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.247</entry>
+
+            <entry>Conferences high water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.248</entry>
+
+            <entry>Conferences low water</entry>
+          </row>
+          
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.250</entry>
+
+            <entry>Out of TTS ports (request fails)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.251</entry>
+
+            <entry>Out of TTS ports (request queues)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.252</entry>
+
+            <entry>High water TTS ports</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.253</entry>
+
+            <entry>Low water TTS ports</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.260</entry>
+
+            <entry>Out of VoiceRec resources (request fails)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.261</entry>
+
+            <entry>High water VoiceRec</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.262</entry>
+
+            <entry>Low water VoiceRec</entry>
+          </row>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1200</entry>
+
+            <entry>Alarm Cleared: Media server compromised</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1201</entry>
+
+            <entry>Alarm Cleared: Unexpected condition</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1202</entry>
+
+            <entry>Alarm Cleared: Media server unscheduled shutdown</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1203</entry>
+
+            <entry>Alarm Cleared: Resource type not deployed on this server</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1210</entry>
+
+            <entry>Alarm Cleared: Out of RTP ports (G.711)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1211</entry>
+
+            <entry>Alarm Cleared: High water RTP ports (G.711)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1212</entry>
+
+            <entry>Alarm Cleared: Low water RTP ports (G.711)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1220</entry>
+
+            <entry>Alarm Cleared: Out of Voice ports</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1221</entry>
+
+            <entry>Alarm Cleared: High water Voice</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1222</entry>
+
+            <entry>Alarm Cleared: Low water Voice</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1230</entry>
+
+            <entry>Alarm Cleared: Out of eRTP ports (g723 g729)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1231</entry>
+
+            <entry>Alarm Cleared: High water eRTP ports (g723 g729)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1232</entry>
+
+            <entry>Alarm Cleared: Low water eRTP ports (g723 g729)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1240</entry>
+
+            <entry>Alarm Cleared: Out of conference resources for service instance</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1241</entry>
+
+            <entry>Alarm Cleared: Conference resources for service instance high
+            water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1242</entry>
+
+            <entry>Alarm Cleared: Conference resources for service instance low water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1243</entry>
+
+            <entry>Alarm Cleared: Out of conference slots for conference</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1244</entry>
+
+            <entry>Alarm Cleared: Conference slots for conference high water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1245</entry>
+
+            <entry>Alarm Cleared: Conference slots for conference low water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1246</entry>
+
+            <entry>Alarm Cleared: Out of conferences</entry>
+          </row>
+          
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1247</entry>
+
+            <entry>Alarm Cleared: Conferences high water</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1248</entry>
+
+            <entry>Alarm Cleared: Conferences low water</entry>
+          </row>
+          
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1250</entry>
+
+            <entry>Alarm Cleared: Out of TTS ports (request fails)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1251</entry>
+
+            <entry>Alarm Cleared: Out of TTS ports (request queues)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1252</entry>
+
+            <entry>Alarm Cleared: High water TTS ports</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1253</entry>
+
+            <entry>Alarm Cleared: Low water TTS ports</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1260</entry>
+
+            <entry>Alarm Cleared: Out of VoiceRec resources (request fails)</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1261</entry>
+
+            <entry>Alarm Cleared: High water VoiceRec</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1262</entry>
+
+            <entry>Alarm Cleared: Low water VoiceRec</entry>
+          </row>
+          
+        </tbody>
+      </tgroup>
+    </table>
+
+    <table>
+      <title>AppServer</title>
+
+      <tgroup cols="2">
+        <colspec align="left" />
+
+        <thead>
+          <row>
+            <entry align="center">Event ID</entry>
+
+            <entry align="center">Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.300</entry>
+
+            <entry>CUAE Server shutdown unexpectedly</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.301</entry>
+
+            <entry>CUAE Server failed to start</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.302</entry>
+
+            <entry>Application failed to load</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.303</entry>
+
+            <entry>Provider failed to load</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.304</entry>
+
+            <entry>Application reloaded due to failure</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.305</entry>
+
+            <entry>Provider reloaded due to failure</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.306</entry>
+
+            <entry>Media deploy failure</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.310</entry>
+
+            <entry>*High water application sessions</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.311</entry>
+
+            <entry>*Low water application sessions</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.320</entry>
+
+            <entry>Management login failure</entry>
+          </row>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1300</entry>
+
+            <entry>Alarm Cleared: CUAE Server shutdown unexpectedly</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1301</entry>
+
+            <entry>Alarm Cleared: CUAE Server failed to start</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1302</entry>
+
+            <entry>Alarm Cleared: Application failed to load</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1303</entry>
+
+            <entry>Alarm Cleared: Provider failed to load</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1304</entry>
+
+            <entry>Alarm Cleared: Application reloaded due to failure</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1305</entry>
+
+            <entry>Alarm Cleared: Provider reloaded due to failure</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1306</entry>
+
+            <entry>Alarm Cleared: Media deploy failure</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1310</entry>
+
+            <entry>*Alarm Cleared: High water application sessions</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1311</entry>
+
+            <entry>*Alarm Cleared: Low water application sessions</entry>
+          </row>
+
+        </tbody>
+      </tgroup>
+    </table>
+
+    <table>
+      <title>Licensing</title>
+
+      <tgroup cols="2">
+        <colspec align="left" />
+
+        <thead>
+          <row>
+            <entry align="center">Event ID</entry>
+
+            <entry align="center">Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.400</entry>
+
+            <entry>Number of licensed application instances exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.401</entry>
+
+            <entry>Number of licensed application instances exceeded; licenses
+            are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.402</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed application instances.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.403</entry>
+
+            <entry>Number of licensed voice resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.404</entry>
+
+            <entry>Number of licensed voice resources exceeded; licenses are
+            now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.405</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed voice resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.406</entry>
+
+            <entry>Number of licensed RTP resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.407</entry>
+
+            <entry>Number of licensed RTP resources exceeded; licenses are now
+            strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.408</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed RTP resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.409</entry>
+
+            <entry>Number of licensed enhanced RTP resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.410</entry>
+
+            <entry>Number of licensed enhanced RTP resources exceeded;
+            licenses are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.411</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed enhanced RTP resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.412</entry>
+
+            <entry>Number of licensed conference resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.413</entry>
+
+            <entry>Number of licensed conference resources exceeded; licenses
+            are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.414</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed conference resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.415</entry>
+
+            <entry>Number of licensed speech integration resources
+            exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.416</entry>
+
+            <entry>Number of licensed speech integration resources exceeded;
+            licenses are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.417</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed speech integration resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.418</entry>
+
+            <entry>Number of licensed TTS resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.419</entry>
+
+            <entry>Number of licensed TTS resources exceeded; licenses are now
+            strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.420</entry>
+
+            <entry>An attempt has been made to exceed the maximum number of
+            licensed TTS resources.</entry>
+          </row>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1400</entry>
+
+            <entry>Alarm Cleared: Number of licensed application instances exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1401</entry>
+
+            <entry>Alarm Cleared: Number of licensed application instances exceeded; licenses
+            are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1402</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed application instances.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1403</entry>
+
+            <entry>Alarm Cleared: Number of licensed voice resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1404</entry>
+
+            <entry>Alarm Cleared: Number of licensed voice resources exceeded; licenses are
+            now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1405</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed voice resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1406</entry>
+
+            <entry>Alarm Cleared: Number of licensed RTP resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1407</entry>
+
+            <entry>Alarm Cleared: Number of licensed RTP resources exceeded; licenses are now
+            strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1408</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed RTP resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1409</entry>
+
+            <entry>Alarm Cleared: Number of licensed enhanced RTP resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1410</entry>
+
+            <entry>Alarm Cleared: Number of licensed enhanced RTP resources exceeded;
+            licenses are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1411</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed enhanced RTP resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1412</entry>
+
+            <entry>Alarm Cleared: Number of licensed conference resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1413</entry>
+
+            <entry>Alarm Cleared: Number of licensed conference resources exceeded; licenses
+            are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1414</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed conference resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1415</entry>
+
+            <entry>Alarm Cleared: Number of licensed speech integration resources
+            exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1416</entry>
+
+            <entry>Alarm Cleared: Number of licensed speech integration resources exceeded;
+            licenses are now strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1417</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed speech integration resources.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1418</entry>
+
+            <entry>Alarm Cleared: Number of licensed TTS resources exceeded.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1419</entry>
+
+            <entry>Alarm Cleared: Number of licensed TTS resources exceeded; licenses are now
+            strictly enforced.</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.1420</entry>
+
+            <entry>Alarm Cleared: An attempt has been made to exceed the maximum number of
+            licensed TTS resources.</entry>
+          </row>
+          
+        </tbody>
+      </tgroup>
+    </table>
+
+    <table>
+      <title>Statistics</title>
+
+      <tgroup cols="2">
+        <colspec align="left" />
+
+        <thead>
+          <row>
+            <entry align="center">Event ID</entry>
+
+            <entry align="center">Description</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2000</entry>
+
+            <entry>*Get CPU load %</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2001</entry>
+
+            <entry>*Get CUAE Server memory usage</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2002</entry>
+
+            <entry>*Get Media Engine memory usage</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2010</entry>
+
+            <entry>Get Number of active application sessions</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2011</entry>
+
+            <entry>Get Number of active calls</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2020</entry>
+
+            <entry>*Get Router: Messages/sec</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2021</entry>
+
+            <entry>*Get Router: Events/sec</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2022</entry>
+
+            <entry>*Get Router: Actions/sec</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2100</entry>
+
+            <entry>Get Number of voice resources in use</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2101</entry>
+
+            <entry>Get Number of RTP resources in use</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2102</entry>
+
+            <entry>Get Number of enhanced RTP resources in use</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2103</entry>
+
+            <entry>Get Number of conference resources in use</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2104</entry>
+
+            <entry>Get Number of speech integration resources in use</entry>
+          </row>
+
+          <row>
+            <entry>1.3.6.1.4.1.22720.1.2105</entry>
+
+            <entry>Get Number of TTS resources in use</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+
+    <para>* Reserved for future use</para>
+  </section>
+</article>

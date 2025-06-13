@@ -1,0 +1,11 @@
+TODO Task List
+Metreos.Providers.TimerFacility
+
+--------------------------------------------------------------------------------
+ID          Description                                                 [STATUS]
+--------------------------------------------------------------------------------
+
+001         Add support for timer persistence. We need to store the     [OPEN]
+            timer data somewhere so it can be read in again next time
+            the timer provider starts. This is important for recurring
+            timers.

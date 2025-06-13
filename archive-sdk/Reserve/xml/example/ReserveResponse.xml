@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ReserveResponse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ResultCode>1000</ResultCode>
+  <ResultMessage>Cisco Extension Mobility Error</ResultMessage>
+  <DiagnosticCode>18</DiagnosticCode>
+  <DiagnoticMessage>Device Already Logged In: The system could not log in to the specified device because a user is already logged in.</DiagnoticMessage>
+  <LoggedInUser>scall</LoggedInUser>
+</ReserveResponse>

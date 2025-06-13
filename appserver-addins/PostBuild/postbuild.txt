@@ -1,0 +1,154 @@
+** PostBuild Beginning     
+** Installing files in deployment directory   
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Download cache deleted successfully
+X:\appserver-addins\NativeActions\ApplicationControl\bin\Debug\Metreos.ApplicationControl.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoDeviceList\bin\Debug\Metreos.Native.CiscoDeviceList.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoIpPhone\bin\Debug\Metreos.Native.CiscoIpPhone.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\Conditional\bin\Debug\Metreos.Native.Conditional.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\DialPlan\bin\Debug\Metreos.Native.DialPlan.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\Log\bin\Debug\Metreos.Native.Log.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\Mail\bin\Debug\Metreos.Native.Mail.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\Database\bin\Debug\Metreos.Native.Database.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\ImageBuilder\bin\Debug\Metreos.Native.ImageBuilder.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoExtensionMobility\bin\Debug\Metreos.Native.CiscoExtensionMobility.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoExtensionMobility\bin\Debug\Metreos.Native.CiscoExtensionMobility.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\3.3.3\bin\Debug\Metreos.Native.AxlSoap333.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\4.1.3\bin\Debug\Metreos.Native.AxlSoap413.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\5.0.4\bin\Debug\Metreos.Native.AxlSoap504.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\6.0.1\bin\Debug\Metreos.Native.AxlSoap601.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\Ldap\bin\Debug\Metreos.Native.Ldap.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\CiscoIPPhoneXml\bin\Debug\Metreos.Types.CiscoIpPhone.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Standard\bin\Debug\Metreos.Types.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Database\bin\Debug\Metreos.Types.Database.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Http\bin\Debug\Metreos.Types.Http.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Imaging\bin\Debug\Metreos.Types.Imaging.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\CiscoExtensionMobility\bin\Debug\Metreos.Types.CiscoExtensionMobility.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\3.3.3\bin\Debug\Metreos.Types.AxlSoap333.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\4.1.3\bin\Debug\Metreos.Types.AxlSoap413.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\5.0.4\bin\Debug\Metreos.Types.AxlSoap504.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\6.0.1\bin\Debug\Metreos.Types.AxlSoap601.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\CiscoDeviceList\bin\Debug\Metreos.Types.CiscoDeviceList.dll
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Presence\bin\Debug\Metreos.Types.Presence.dll
+1 File(s) copied
+X:\appserver-addins\NativeActions\ApplicationControl\bin\Debug\Metreos.ApplicationControl.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoDeviceList\bin\Debug\Metreos.Native.CiscoDeviceList.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoIpPhone\bin\Debug\Metreos.Native.CiscoIpPhone.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\Conditional\bin\Debug\Metreos.Native.Conditional.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\DialPlan\bin\Debug\Metreos.Native.DialPlan.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\Log\bin\Debug\Metreos.Native.Log.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\Mail\bin\Debug\Metreos.Native.Mail.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\Database\bin\Debug\Metreos.Native.Database.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\ImageBuilder\bin\Debug\Metreos.Native.ImageBuilder.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\CiscoExtensionMobility\bin\Debug\Metreos.Native.CiscoExtensionMobility.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\3.3.3\bin\Debug\Metreos.Native.AxlSoap333.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\4.1.3\bin\Debug\Metreos.Native.AxlSoap413.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\5.0.4\bin\Debug\Metreos.Native.AxlSoap504.pdb
+1 File(s) copied
+X:\appserver-addins\NativeActions\AxlSoap\6.0.1\bin\Debug\Metreos.Native.AxlSoap601.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\CiscoIPPhoneXml\bin\Debug\Metreos.Types.CiscoIpPhone.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Standard\bin\Debug\Metreos.Types.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Database\bin\Debug\Metreos.Types.Database.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Http\bin\Debug\Metreos.Types.Http.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Imaging\bin\Debug\Metreos.Types.Imaging.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\CiscoExtensionMobility\bin\Debug\Metreos.Types.CiscoExtensionMobility.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\CiscoDeviceList\bin\Debug\Metreos.Types.CiscoDeviceList.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\3.3.3\bin\Debug\Metreos.Types.AxlSoap333.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\4.1.3\bin\Debug\Metreos.Types.AxlSoap413.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\5.0.4\bin\Debug\Metreos.Types.AxlSoap504.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\AxlSoap\6.0.1\bin\Debug\Metreos.Types.AxlSoap601.pdb
+1 File(s) copied
+X:\appserver-addins\NativeTypes\Presence\bin\Debug\Metreos.Types.Presence.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\MediaControl\bin\Debug\Metreos.MediaControl.dll
+1 File(s) copied
+X:\appserver-addins\Providers\MediaControl\bin\Debug\Metreos.MediaControl.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\Http\bin\Debug\Metreos.Providers.Http.dll
+1 File(s) copied
+X:\appserver-addins\Providers\Http\bin\Debug\Metreos.Providers.Http.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\TimerFacility\bin\Debug\Metreos.Providers.TimerFacility.dll
+1 File(s) copied
+X:\appserver-addins\Providers\TimerFacility\bin\Debug\Metreos.Providers.TimerFacility.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\Presence\bin\Debug\Metreos.Providers.Presence.dll
+1 File(s) copied
+X:\appserver-addins\Providers\Presence\bin\Debug\Metreos.Providers.Presence.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\Cisco.DeviceListX\bin\Debug\Metreos.Providers.CiscoDeviceListX.dll
+1 File(s) copied
+X:\appserver-addins\Providers\Cisco.DeviceListX\bin\Debug\Metreos.Providers.CiscoDeviceListX.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\H323\bin\Debug\Metreos.CallControl.H323.dll
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\H323\bin\Debug\Metreos.CallControl.H323.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\Jtapi\bin\Debug\Metreos.CallControl.JTapi.dll
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\Jtapi\bin\Debug\Metreos.CallControl.JTapi.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\Sccp\bin\Debug\Metreos.CallControl.Sccp.dll
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\Sccp\bin\Debug\Metreos.CallControl.Sccp.pdb
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\Sip\bin\Debug\Metreos.CallControl.Sip.dll
+1 File(s) copied
+X:\appserver-addins\Providers\CallControl\Sip\bin\Debug\Metreos.CallControl.Sip.pdb
+1 File(s) copied
+X:\appserver-addins\licenses.licx
+1 File(s) copied
+** Installing debug symbols                   
+** PostBuild Complete                         

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="callManagerIP" displayName="CallManager IP" format="String" description="The IP address of CallManager" defaultValue="" required="true" />
+    <configValue name="ccmUsername" displayName="CallManager Administrator" format="String" description="The administrative username of CallManager" defaultValue="CCMAdministrator" required="true" />
+    <configValue name="ccmPassword" displayName="CallManager Admin Password" format="Password" description="The administrative password of CallManager" defaultValue="" required="true" />
+    <configValue name="userIdPassword" displayName="UserPassword" format="Password" description="The password of the user" defaultValue="" required="false" />
+    <configValue name="userid" displayName="UserID" format="String" description="The Id of the user to do authentication check on." defaultValue="" required="true" />
+    
+<configValue name="userIdPin" displayName="UserPin" format="Password" description="The pin of the user" defaultValue="" />
+    <configValue name="TestPassword" displayName="Test Password" format="Bool" description="True to test password, false to test pin" defaultValue="False" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,38 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeActions", "NativeActions\NativeActions.csproj", "{FB8771CA-C1E0-41E2-A46F-DB3DF200E07E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postbuild", "Postbuild\Postbuild.csproj", "{D1CB64D7-66CB-4EEB-AE91-764FD9EF9C92}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FB8771CA-C1E0-41E2-A46F-DB3DF200E07E} = {FB8771CA-C1E0-41E2-A46F-DB3DF200E07E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpeakerManager", "SpeakerManager\SpeakerManager.csproj", "{0F4FB1BE-8DDC-44C1-B3EA-FED1A072B2E4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FB8771CA-C1E0-41E2-A46F-DB3DF200E07E}.Debug.ActiveCfg = Debug|.NET
+		{FB8771CA-C1E0-41E2-A46F-DB3DF200E07E}.Debug.Build.0 = Debug|.NET
+		{FB8771CA-C1E0-41E2-A46F-DB3DF200E07E}.Release.ActiveCfg = Release|.NET
+		{FB8771CA-C1E0-41E2-A46F-DB3DF200E07E}.Release.Build.0 = Release|.NET
+		{D1CB64D7-66CB-4EEB-AE91-764FD9EF9C92}.Debug.ActiveCfg = Debug|.NET
+		{D1CB64D7-66CB-4EEB-AE91-764FD9EF9C92}.Debug.Build.0 = Debug|.NET
+		{D1CB64D7-66CB-4EEB-AE91-764FD9EF9C92}.Release.ActiveCfg = Release|.NET
+		{D1CB64D7-66CB-4EEB-AE91-764FD9EF9C92}.Release.Build.0 = Release|.NET
+		{0F4FB1BE-8DDC-44C1-B3EA-FED1A072B2E4}.Debug.ActiveCfg = Debug|.NET
+		{0F4FB1BE-8DDC-44C1-B3EA-FED1A072B2E4}.Debug.Build.0 = Debug|.NET
+		{0F4FB1BE-8DDC-44C1-B3EA-FED1A072B2E4}.Release.ActiveCfg = Release|.NET
+		{0F4FB1BE-8DDC-44C1-B3EA-FED1A072B2E4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

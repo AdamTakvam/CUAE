@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="PassCode" displayName="Pass Code" format="Password" description="The passcode used to access the call monitoring functionality" defaultValue="" required="true" />
+    <configValue name="DisplayName" displayName="Display Name" format="String" description="The display name presented to monitors when using an IP Phone" defaultValue="Call Monitor" required="true" />
+    <configValue name="OperationFailureThresh" displayName="Operation Failure Threshold" format="FailureThresh" description="The number of times the application will retry critical operations, such as connecting the monitor to the conversation" defaultValue="3" required="true">
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+    </configValue>
+    <configValue name="LoginFailureThresh" displayName="Login Failure Threshold" format="FailureThresh" description="Number of login attempts allowed before the application ends the session" defaultValue="3" required="true">
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+    </configValue>
+    <configValue name="MonitoredDN" displayName="Directory Numbers of Monitored Devices" format="Array" description="List of directory numbers of monitored phones." required="true" />
+    <configValue name="DatabaseName" displayName="Database Name" format="String" description="The name of the call record database" defaultValue="monitor_call" required="true" />
+    <configValue name="Server" displayName="Database Server" format="String" description="The hostname of the call record database server" defaultValue="localhost" required="true" />
+    <configValue name="Port" displayName="Database Port" format="Number" description="Port of call record database server" defaultValue="3306" required="true" />
+    <configValue name="Username" displayName="Database Username" format="String" description="Username used to access the call record database server" defaultValue="root" required="true" />
+    <configValue name="Password" displayName="Database Password" format="Password" description="Password used to access the call record database server" defaultValue="metreos" required="true" />
+    <configValue name="AuthFailedAudio" displayName="AuthFailedAudio" format="String" description="TTS text or .wav file that is played when caller provides the wrong pass code. Default: cm_auth_failed.wav" defaultValue="cm_auth_failed.wav" required="true" />
+    <configValue name="RequestAuthAudio" displayName="RequestAuthAudio" format="String" description="TTS text or .wav file that is played to request that the caller input the pass code. Default: cm_enter_auth_code.wav" defaultValue="cm_enter_auth_code.wav" required="true" />
+    <configValue name="GoodByeAudio" displayName="GoodByeAudio" format="String" description="TTS text or .wav file that is played right before the system disconnects the user. Default: cm_good_bye.wav" defaultValue="cm_good_bye.wav" required="true" />
+    <configValue name="NoActiveCallsAudio" displayName="NoActiveCallsAudio" format="String" description="TTS text or .wav file that is played to let the caller know that there are no active calls that can be monitored. Default: cm_no_active_calls.wav" defaultValue="cm_no_active_calls.wav" required="true" />
+    <configValue name="NoDeviceAssocAudio" displayName="NoDeviceAssocAudio" format="String" description="TTS text or .wav file that is played to let the caller know that there are devices associated with the DID. Default: cm_no_device_assoc.wav" defaultValue="cm_no_device_assoc.wav" required="true" />
+    <configValue name="MonitorsFailedAudio" displayName="MonitorsFailedAudio" format="String" description="TTS text or .wav file that is played to let the caller know that all attempts at monitoring a call have failed. Default: cm_monitors_failed.wav" defaultValue="cm_monitors_failed.wav" required="true" />
+    <configValue name="PoundSignAudio" displayName="PoundSignAudio" format="String" description="TTS text or .wav file that is played to request that the caller press the pound key after providing keypad input. Default: cm_pound_sign.wav" defaultValue="cm_pound_sign.wav" required="true" />
+  </configuration>
+</install>

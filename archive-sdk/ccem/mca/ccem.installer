@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="LDAPUsername" displayName="LDAP Administrative Username" format="String" description="The LDAP Administrative Username" defaultValue="cn=Directory Manager,o=cisco.com" required="true" />
+    <configValue name="LDAPPassword" displayName="LDAP Administrative Password" format="Password" description="The LDAP Administrator Password" defaultValue="metreos" required="true" />
+    <configValue name="CallManagerPubIP" displayName="Home CallManager Pub IP" format="String" description="The CallManager IP Address of the home cluster publisher" defaultValue="" required="true" />
+    <configValue name="LDAPBaseSearch" displayName="LDAP Base Search" format="String" description="The base search for finding users" defaultValue="ou=users,o=cisco.com" required="true" />
+    <configValue name="EMUsername" displayName="EM Administrative Username" format="String" description="The user on CallManager with EM Proxy  Rights" defaultValue="metreos" required="true" />
+    <configValue name="EMPassword" displayName="EM Administrative Password" format="Password" description="The password of the EM Admin Username" defaultValue="metreos" required="true" />
+    <configValue name="CallManagerRemoteIP" displayName="Remote CallManager IP" format="String" description="The IP of the CallManager repesenting the PUB IP of the foreign cluster" defaultValue="" required="true" />
+    <configValue name="HotelPhoneUser" displayName="Hotel Phone Username" format="String" description="The username of a user associated with all hotel phones" defaultValue="metreos" required="true" />
+    <configValue name="HotelPhonePassword" displayName="Hotel Phone Password" format="Password" description="The password of the user associated with every hotel phone" defaultValue="metreos" required="true" />
+    <configValue name="CcmAXLUsername" displayName="AXL Administrative Username" format="String" description="The AXL Administrator Username" defaultValue="Administrator" required="true" />
+    <configValue name="CcmAXLPassword" displayName="AXL Administrative Password" format="Password" description="The AXL Administrative Password" defaultValue="metreos" required="true" />
+    <configValue name="ConvertAllLines" displayName="Convert All Lines" format="Bool" description="Considers all lines for CCEM" defaultValue="false" required="true" />
+    <configValue name="CFARoutingPrefix" displayName="CallForwardAll Routing Prefix" format="String" description="Prepended to CFA on home phone line(s) to route to remote cluster" defaultValue="77" />
+    <configValue name="CFACSS" displayName="CallForwardAll CSS" format="String" description="The Calling Search Space to apply to CFA on home phone line(s)" defaultValue="Unrestricted" />
+    <configValue name="CallManagerHomeEMIP" displayName="Home CallManager EM IP" format="String" description="The CallManager IP Address of an EM-enabled node on home cluster" />
+  </configuration>
+</install>

@@ -1,0 +1,1 @@
+.\bin\debug\Test.exe -t:Simulation -bhca:1800 -time:86400 -loginDuration:5 -startMac:FFFFFF000000 -count:2500 -reserveUrl:http://10.1.14.128:8000/Reserve/10.1.14.29 -releaseUrl:http://10.1.14.128:8000/Release/10.1.14.29

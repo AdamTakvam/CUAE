@@ -1,0 +1,6 @@
+content   cuae_internal   chrome/chromeFiles/content/
+
+locale    cuae_internal   en-US   chrome/chromeFiles/locale/en-US/cuae_internal/
+
+overlay   chrome://browser/content/browser.xul   chrome://cuae_internal/content/browser.xul
+overlay   chrome://browser/content/preferences/preferences.xul   chrome://cuae_internal/content/preferences.xul

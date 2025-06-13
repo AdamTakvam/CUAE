@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+      <configValue name="appServerDn" description="The number used to call the Application Server" format="string" readOnly="false">50000</configValue>
+		<configValue name="zeroValue" description="The Integer 0" format="integer" readOnly="true">0</configValue>
+  </configuration>
+</install>

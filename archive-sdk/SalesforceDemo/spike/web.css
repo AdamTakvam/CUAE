@@ -1,0 +1,190 @@
+html, body
+{
+	border:0;
+	margin:0;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	font-family:Arial;
+	background-color:#f0f0f0;
+}
+
+.calltext
+{
+}
+
+.username
+{
+	font-weight:bold;
+}
+
+.customername
+{
+	font-weight:bold;
+}
+
+.directional
+{
+}
+
+#activecalls
+{
+	position:relative;
+	left:250px;
+	top:100px;
+}
+
+div.normalrow
+{
+	text-align:center;
+	font-size:2em;
+	width:650px;
+	position:absolute;
+	display:block;
+	margin:10px 0 0 0;
+	background-color:#b0b0b0;
+	border-color:black;
+	border-width:2px;
+	border-style:solid;
+	color:black;
+}
+
+
+#activecallstitle
+{
+	padding-left:10px;
+	background-color:#2f6681;
+	margin:10px 0 10px 0;
+	border-color:white;
+	border-width:4px;
+	border-style:solid;
+	font-size:2em;
+	color:White;
+}
+
+
+.functionbar
+{
+	background-color:Yellow;
+	background-repeat:repeat-x;
+	border-width:2px 2px 2px 0;
+	border-style:solid;
+	border-color:Black;
+}
+
+
+.whisperbutton, .listenbutton, .bargebutton, .messagebutton, .helpbutton, .intercom, .messagebroadcast
+{
+	position:relative;
+	font-size:1.2em;
+	border-width:2px;
+	border-style:solid;
+	border-color:Black;
+	padding:3px;
+	margin:2px;
+	cursor:pointer;
+	background-color:#b0b0b0;
+}
+
+
+span.whisperbutton:hover, span.listenbutton:hover, span.bargebutton:hover, span.messagebutton:hover, span.intercom:hover, span.messagebroadcast:hover
+{
+	background-color:black;
+	color:white;
+}
+
+
+#headerbar
+{
+	padding-left:10px;
+	top:35px;
+	display:block;
+	position:relative;
+	background-color:#2f6681;
+	color:White;
+	font-size:2.5em;
+	border-color:White;
+	border-style:solid;
+	border-width:6px 0;
+}
+
+
+#subheaderbar
+{
+	font-size:.8em;
+	margin-top:10px;
+}
+
+
+#controlbox
+{
+	position:absolute;
+	top:213px;
+	width:220px;
+}
+
+
+#controlboxtitle
+{
+	position:relative;
+	padding-left:10px;
+	margin-bottom:20px;
+	background-color:#2f6681;
+	border-color:white;
+	border-width:4px;
+	border-style:solid;
+	font-size:2em;
+	color:White;
+}
+
+#responsebox
+{
+	position:absolute;
+	top:165px;
+	left:250px;
+	font-size:1em;
+	visibility:hidden;
+	border-style:dotted;
+	border-width:2px;
+	border-color:White;
+	background-color:#2f6681;
+	padding:3px;
+	color:White;
+}
+
+
+#responseboxtitle
+{
+	display:inline;
+}
+
+#responseboxtext
+{
+	
+}
+
+#login
+{
+	position:relative;
+	display:block;
+	left:100px;
+	top:75px;
+	padding-left:10px;
+	border-width:0 0 0 17px;
+	border-color:#2f6681;
+	border-style:solid;
+}
+
+label
+{
+	color:#2f6681;
+	font-weight:bold;
+	width:100px;
+}
+
+input
+{
+	display:block;
+	left:100px;
+}

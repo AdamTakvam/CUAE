@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="ClickToTalk" default="Debug" basedir=".">
+  <description>Build script for Click-to-Talk</description>
+
+  <import file="../../autobuild/build.includes.xml" />
+
+
+  <property name="appName"                  value="ClickToTalk" />
+  <property name="deploymentDirectory"      value="${Metreos.build.buildDirectory}/AppSuite/${appName}" />
+
+  <target name="do-init">
+    <mkdir dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-clean">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/click-to-talk" includes="**/bin/** **/obj/**" />
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/click-to-talk" includes="**/Debug/** **/Release/**" />
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/click-to-talk/plugins/OutlookClient" includes="AddIn.h AddIn_i.c AddIn_p.c" />
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/click-to-talk/plugins/OutlookClient/Installer/OutlookClient" excludes="IsConfig.ini Script?Files/Setup.rul Script?Files/ShutDownRunningApp.rul" />
+
+    </delete>
+
+    <delete dir="${deploymentDirectory}" />
+    <delete includeEmptyDirs="true" >
+      <fileset dir="plugins/OutlookClient/Installer" includes="*.msi" />
+    </delete>  
+  </target>
+
+  <target name="do-build">
+    <!-- build plugin -->
+    <metreosMSBuildTask root="${Metreos.build.srcRoot}" dir="application-suite/click-to-talk/plugins" solution="Click-To-Talk" />
+    <!-- plugin-post-build -->
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="plugins/NativeActions/Database/bin/${Metreos.build.target}" includes="Metreos.Native.${appName}.*" />
+        <fileset dir="plugins/NativeTypes/ClickToTalk/bin/${Metreos.build.target}" includes="Metreos.Types.${appName}.*" />
+    </copy>
+
+    <!-- build max project -->
+    <metreosMaxTask root="${Metreos.build.srcRoot}" dir="application-suite/click-to-talk/mca" solution="${appName}" />
+
+    <!-- build client MSI -->
+    <metreosInstallShieldTask 
+        root="${Metreos.build.srcRoot}" 
+        dir="application-suite/click-to-talk/plugins/OutlookClient/Installer"
+        solution="OutlookClient"
+        genname="Click-To-Talk Plug-in"
+        msiname="C2T-Outlook-Plugin-${Metreos.build.identifier}"
+        basepath="X:\application-suite\click-to-talk\plugins\OutlookClient\Installer\OutlookClient"
+    />
+    
+  </target>
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-postbuild">
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="mca/bin" />
+    </copy>
+    <copy todir="${deploymentDirectory}" flatten='true'>
+        <fileset dir="plugins/OutlookClient/Installer" includes="**/*.msi" />
+    </copy>
+    
+  </target>
+  
+</project>

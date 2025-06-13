@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+	<configValue name="dbHostName" defaultValue="localhost" format="string" />
+	<configValue name="dbUsername" defaultValue="root" format="string" />
+	<configValue name="dbPassword" defaultValue="metreos" format="password" />
+	<configValue name="FromEmailAddress" displayName="FromEmailAddress" defaultValue="metreos@metreos.com"  description="The email address to send from" format="string" readOnly="false" />
+	<configValue name="smtpUserName" defaultValue="" format="string" />
+	<configValue name="smtpPassword" defaultValue="" format="password" />
+	<configValue name="smtpHostName" defaultValue="springfield" format="string" />
+</configuration>
+</install>

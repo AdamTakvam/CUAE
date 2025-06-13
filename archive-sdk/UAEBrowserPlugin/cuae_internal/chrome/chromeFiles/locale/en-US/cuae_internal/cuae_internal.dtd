@@ -1,0 +1,10 @@
+<!ENTITY  menuitem.label             "Cisco UAE Personal Dashboard">
+<!ENTITY  statusbar.tooltip.default  "Configure Cisco UAE Personal Dashboard">
+<!ENTITY  prefpane.label             "UAE Personal Dashboard">
+<!ENTITY  username.label             "CCMUser Username">
+<!ENTITY  password.label             "CCMUser Password">
+<!ENTITY  primaryPhoneIP.label       "Primary Phone IP">
+<!ENTITY  appServerIP.label          "Application Server IP">
+<!ENTITY  groupbox.phoneSettings     "Phone Settings">
+<!ENTITY  groupbox.globalSettings    "Global Settings">
+<!ENTITY  allOnOff.label			 "All On/Off">

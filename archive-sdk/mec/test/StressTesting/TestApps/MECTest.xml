@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<serviceApp name="MEC Test" xmlns="http://metreos.com/ServiceApp.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://metreos.com/ServiceApp.xsd">
+
+<variable type="Metreos.Types.String">g_conferenceId</variable>
+<variable type="Metreos.Types.String">g_mmsConferenceId</variable>
+
+<trigger>
+    <triggerEvent>Metreos.Providers.Http.GotRequest</triggerEvent>
+    <triggerParam name="url">/conference/create</triggerParam>
+    <triggerHandler>OnCreateConference</triggerHandler>
+</trigger>
+
+<function id="OnCreateConference">
+    <variable type="Metreos.Types.Conference.WebMsg" initWith="body">createCommand</variable>
+    <variable type="Metreos.Types.Conference.WebMsgResponse">webResponse</variable>
+    <variable type="Metreos.Types.String" initWith="remoteHost">remoteHost</variable>
+    <variable type="Metreos.Types.String">mediaServerIp</variable>
+	<variable type="Metreos.Types.String">mediaServerPort</variable>
+	<variable type="Metreos.Types.String">callId</variable>
+	<variable type="Metreos.Types.String">connectionId</variable>
+	<variable type="Metreos.Types.String">locationId</variable>
+    
+    <action id="001" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Creating a new conference.</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">003</nextAction>
+    </action>
+    
+    <action id="003" type="native">
+		<actionName>Metreos.Native.ConferenceData.InitializeConference</actionName>
+		<resultDataVariable>g_conferenceId</resultDataVariable>
+		<nextAction returnValue="success">004</nextAction>
+		<nextAction returnValue="default">090</nextAction>
+    </action>
+    
+    <action id="004" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message" type="csharp">"New conferencesId: " + g_conferenceId</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">005</nextAction>
+    </action>
+    
+    <!-- Create the initial media server connection -->
+    <action id="005">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">MsHalfConnectVox</actionParam>
+        <resultDataVariable field="mediaServerIp">mediaServerIp</resultDataVariable>
+        <resultDataVariable field="mediaServerPort">mediaServerPort</resultDataVariable>
+        <resultDataVariable field="connectionId">connectionId</resultDataVariable>
+        <nextAction returnValue="success">010</nextAction>
+        <nextAction returnValue="default">090</nextAction>
+    </action>
+    
+    <action id="010" type="provider">
+        <actionName>Metreos.CallControl.MakeCall</actionName>
+        <actionParam name="to" type="csharp">createCommand.GetContactAddress(0)</actionParam>
+        <actionParam name="mediaIP" type="variable">mediaServerIp</actionParam>
+        <actionParam name="mediaPort" type="variable">mediaServerPort</actionParam>
+        <resultDataVariable field="callId">callId</resultDataVariable>
+        <nextAction returnValue="success">015</nextAction>
+        <nextAction returnValue="default">090</nextAction>
+    </action>
+    
+    <action id="015" type="native">
+		<actionName>Metreos.Native.ConferenceData.AddLocation</actionName>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<actionParam name="mmsConnectionId" type="variable">connectionId</actionParam>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="contactAddress" type="csharp">createCommand.GetContactAddress(0)</actionParam>
+		<actionParam name="description" type="csharp">createCommand.GetDescription(0)</actionParam>
+		<actionParam name="isHost">true</actionParam>
+		<resultDataVariable>locationId</resultDataVariable>
+		<nextAction returnValue="success">017</nextAction>
+		<nextAction returnValue="default">090</nextAction>
+    </action>
+    
+    <action id="017" type="native">
+		<actionName>Metreos.Native.Conference.CreateWebResponse</actionName>
+		<actionParam name="requestType">create</actionParam>
+		<actionParam name="result">success</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<actionParam name="contactAddress" type="csharp">createCommand.GetContactAddress(0)</actionParam>
+		<actionParam name="locationId" type="variable">locationId</actionParam>
+		<resultDataVariable>webResponse</resultDataVariable>
+		<nextAction returnValue="default">018</nextAction>
+    </action>
+    
+    <action id="018" type="provider">
+        <actionName>Metreos.Providers.Http.SendResponse</actionName>
+        <actionParam name="responseCode">200</actionParam>
+        <actionParam name="remoteHost" type="variable">remoteHost</actionParam>
+        <actionParam name="body" type="variable">webResponse</actionParam>
+        <nextAction returnValue="default">025</nextAction>
+    </action>
+    
+    <action id="025" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message" type="csharp">"Call in progress: callId: " + callId + " -> connectionId: " + connectionId</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">099</nextAction>
+    </action>
+    
+    <action id="090" type="native">
+		<actionName>Metreos.Native.Conference.CreateWebResponse</actionName>
+		<actionParam name="requestType">create</actionParam>
+		<actionParam name="result">failure</actionParam>
+		<resultDataVariable>webResponse</resultDataVariable>
+		<nextAction returnValue="default">091</nextAction>
+    </action>
+    
+    <action id="091" type="provider">
+        <actionName>Metreos.Providers.Http.SendResponse</actionName>
+        <actionParam name="responseCode">200</actionParam>
+        <actionParam name="remoteHost" type="variable">remoteHost</actionParam>
+        <nextAction returnValue="default">098</nextAction>
+    </action>
+    
+    <!-- 
+    REFACTOR: If the HalfConnect succeeded above, this needs to be deleted from the media server and
+    the conference that we just inserted needs to be removed. This would happen if the HalfConnect
+    succeeds but the Makecall fails. In any event, we need to remove the conference that we just
+    inserted because it is now bogus.
+    -->
+    
+    <action id="098" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Create conference request failed</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">099</nextAction>
+    </action>
+    
+    <action id="099">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+    </action>
+</function>
+
+<function id="OnParticipantJoin">
+    <eventHandler>Metreos.Providers.Http.GotRequest</eventHandler>
+    <eventParam name="url">/conference/join</eventParam>
+    
+    <variable type="Metreos.Types.Conference.WebMsg" initWith="body">createCommand</variable>
+    <variable type="Metreos.Types.Conference.WebMsgResponse">webResponse</variable>
+    <variable type="Metreos.Types.String" initWith="remoteHost">remoteHost</variable>
+    <variable type="Metreos.Types.String">mediaServerIp</variable>
+	<variable type="Metreos.Types.String">mediaServerPort</variable>
+	<variable type="Metreos.Types.String">callId</variable>
+	<variable type="Metreos.Types.String">connectionId</variable>
+	<variable type="Metreos.Types.String">locationId</variable>
+    
+    <action id="1000" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Adding a new location to the conference.</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">1005</nextAction>
+    </action>
+    
+    <!-- Create the initial media server connection -->
+    <action id="1005">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">MsHalfConnectVox</actionParam>
+        <resultDataVariable field="mediaServerIp">mediaServerIp</resultDataVariable>
+        <resultDataVariable field="mediaServerPort">mediaServerPort</resultDataVariable>
+        <resultDataVariable field="connectionId">connectionId</resultDataVariable>
+        <nextAction returnValue="success">1010</nextAction>
+        <nextAction returnValue="default">1090</nextAction>
+    </action>
+    
+    <action id="1010" type="provider">
+        <actionName>Metreos.CallControl.MakeCall</actionName>
+        <actionParam name="to" type="csharp">createCommand.GetContactAddress(0)</actionParam>
+        <actionParam name="mediaIP" type="variable">mediaServerIp</actionParam>
+        <actionParam name="mediaPort" type="variable">mediaServerPort</actionParam>
+        <resultDataVariable field="callId">callId</resultDataVariable>
+        <nextAction returnValue="success">1013</nextAction>
+        <nextAction returnValue="default">1090</nextAction>
+    </action>
+    
+    <action id="1013" type="native">
+		<actionName>Metreos.Native.ConferenceData.AddLocation</actionName>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<actionParam name="mmsConnectionId" type="variable">connectionId</actionParam>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="contactAddress" type="csharp">createCommand.GetContactAddress(0)</actionParam>
+		<actionParam name="description" type="csharp">createCommand.GetDescription(0)</actionParam>
+		<actionParam name="isHost">false</actionParam>
+		<resultDataVariable>locationId</resultDataVariable>
+		<nextAction returnValue="success">1015</nextAction>
+		<nextAction returnValue="default">1090</nextAction>
+    </action>
+    
+    <action id="1015" type="native">
+		<actionName>Metreos.Native.Conference.CreateWebResponse</actionName>
+		<actionParam name="requestType">join</actionParam>
+		<actionParam name="result">success</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<actionParam name="contactAddress" type="csharp">createCommand.GetContactAddress(0)</actionParam>
+		<actionParam name="locationId" type="variable">locationId</actionParam>
+		<resultDataVariable>webResponse</resultDataVariable>
+		<nextAction returnValue="default">1016</nextAction>
+    </action>
+    
+    <action id="1016" type="provider">
+        <actionName>Metreos.Providers.Http.SendResponse</actionName>
+        <actionParam name="responseCode">200</actionParam>
+        <actionParam name="remoteHost" type="variable">remoteHost</actionParam>
+        <actionParam name="body" type="variable">webResponse</actionParam>
+        <nextAction returnValue="default">1025</nextAction>
+    </action>
+    
+    <action id="1025" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message" type="csharp">"Call in progress: callId: " + callId + " -> connectionId: " + connectionId</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">1099</nextAction>
+    </action>
+    
+    <action id="1090" type="native">
+		<actionName>Metreos.Native.Conference.CreateWebResponse</actionName>
+		<actionParam name="requestType">join</actionParam>
+		<actionParam name="result">failure</actionParam>
+		<resultDataVariable>webResponse</resultDataVariable>
+		<nextAction returnValue="default">1091</nextAction>
+    </action>
+    
+    <action id="1091" type="provider">
+        <actionName>Metreos.Providers.Http.SendResponse</actionName>
+        <actionParam name="responseCode">200</actionParam>
+        <actionParam name="remoteHost" type="variable">remoteHost</actionParam>
+        <actionParam name="body" type="variable">webResponse</actionParam>
+        <nextAction returnValue="default">1098</nextAction>
+    </action>
+    
+    <!-- 
+    REFACTOR: If the HalfConnect succeeded above, this needs to be deleted from the media server and
+    the conference that we just inserted needs to be removed. This would happen if the HalfConnect
+    succeeds but the Makecall fails.
+    -->
+    
+    <action id="1098" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Error, Makecall failed.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">1099</nextAction>
+    </action>
+    
+    <action id="1099">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+    </action>
+</function>
+
+<function id="OnCallEstablished">
+    <eventHandler>Metreos.CallControl.CallEstablished</eventHandler>
+
+	<variable type="Metreos.Types.String" initWith="callId">callId</variable>
+	<variable type="Metreos.Types.String" initWith="mediaIP">farEndMediaIp</variable>
+	<variable type="Metreos.Types.String" initWith="mediaPort">farEndMediaPort</variable>
+	<variable type="Metreos.Types.String">mmsConnectionId</variable>
+    
+    <action id="100" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message" type="csharp">"Call established with callId: " + callId</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">105</nextAction>
+    </action>    
+    
+    <action id="105" type="native">
+		<actionName>Metreos.Native.ConferenceData.GetMmsConnectionId</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<resultDataVariable>mmsConnectionId</resultDataVariable>
+        <nextAction returnValue="success">107</nextAction>
+        <nextAction returnValue="default">197</nextAction>
+    </action>
+    
+    <action id="107" type="native">
+		<actionName>Metreos.Native.ConferenceData.LocationConnected</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<nextAction returnValue="success">110</nextAction>
+        <nextAction returnValue="default">197</nextAction>
+    </action>
+    
+    <action id="110" type="native">
+		<actionName>Metreos.Native.ConferenceData.IsHost</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+        <nextAction returnValue="host">120</nextAction>
+        <nextAction returnValue="notHost">130</nextAction>
+        <nextAction returnValue="default">197</nextAction>
+    </action>
+    
+    <action id="120">
+		<actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">HostCallEstablished</actionParam>
+        <actionParam name="connectionId" type="variable">mmsConnectionId</actionParam>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="farEndMediaIp" type="variable">farEndMediaIp</actionParam>
+		<actionParam name="farEndMediaPort" type="variable">farEndMediaPort</actionParam>
+        <nextAction returnValue="success">199</nextAction>
+        <nextAction returnValue="default">196</nextAction>
+    </action>
+    
+    <action id="130">
+		<actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">NormalCallEstablished</actionParam>
+        <actionParam name="connectionId" type="variable">mmsConnectionId</actionParam>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="farEndMediaIp" type="variable">farEndMediaIp</actionParam>
+		<actionParam name="farEndMediaPort" type="variable">farEndMediaPort</actionParam>
+        <nextAction returnValue="success">199</nextAction>
+        <nextAction returnValue="default">196</nextAction>
+    </action>
+    
+    <action id="196" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Unable to add new location to conference.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">199</nextAction>
+    </action>
+    
+    <action id="197" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Database error.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">199</nextAction>
+    </action>
+    
+    <action id="198" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Media server error.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">199</nextAction>
+    </action>
+    
+    <action id="199">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+    </action>
+</function>
+
+<!--
+Call established with the host location.
+-->
+<function id="HostCallEstablished">
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+    <variable type="Metreos.Types.String" initWith="callId">callId</variable>
+    <variable type="Metreos.Types.String" initWith="farEndMediaIp">farEndMediaIp</variable>
+    <variable type="Metreos.Types.String" initWith="farEndMediaPort">farEndMediaPort</variable>
+    
+    <!-- Finalize the connection with the media server by sending the far end media information -->
+    <action id="2000" type="provider">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">MsFullConnectVox</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="farEndMediaIp" type="variable">farEndMediaIp</actionParam>
+        <actionParam name="farEndMediaPort" type="variable">farEndMediaPort</actionParam>
+        <nextAction returnValue="success">2010</nextAction>
+        <nextAction returnValue="default">2097</nextAction>
+    </action>
+   
+    <action id="2010" type="provider">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">PlayAnnouncementToMsConnection</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="fileToPlay">thankyou.vox</actionParam>
+        <nextAction returnValue="success">2020</nextAction>
+        <nextAction returnValue="default">2097</nextAction>
+    </action>
+    
+    <!-- Move this connection into the conference -->
+    <action id="2020" type="provider">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">MsVoxToConference</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="conferenceId">0</actionParam>
+        <resultDataVariable field="conferenceId">g_mmsConferenceId</resultDataVariable>
+        <nextAction returnValue="success">2025</nextAction>
+        <nextAction returnValue="default">2097</nextAction>
+    </action>
+    
+    <action id="2025" type="native">
+		<actionName>Metreos.Native.ConferenceData.LocationAcceptConference</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<nextAction returnValue="success">2030</nextAction>
+		<nextAction returnValue="default">2196</nextAction>
+    </action>
+    
+    <action id="2030" type="native">
+        <actionName>Metreos.Native.ConferenceData.HostConnected</actionName>
+        <actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+        <actionParam name="mmsConferenceId" type="variable">g_mmsConferenceId</actionParam>
+        <actionParam name="callId" type="variable">callId</actionParam>
+        <nextAction returnValue="success">2099</nextAction>
+        <nextAction returnValue="default">2096</nextAction>
+    </action>
+    
+    <action id="2096" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Database update error.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">2098</nextAction>
+    </action>
+    
+    <action id="2097" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Media server error.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">2098</nextAction>
+    </action>
+    
+    <action id="2098">
+		<actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+		<actionParam name="returnValue">failure</actionParam>
+    </action>
+    
+    <action id="2099">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue">success</actionParam>
+    </action>
+</function>
+
+<!-- 
+Call established with a normal location. Normal locations are any locations
+that are not "host" locations.
+-->
+<function id="NormalCallEstablished">
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+    <variable type="Metreos.Types.String" initWith="callId">callId</variable>
+    <variable type="Metreos.Types.String" initWith="farEndMediaIp">farEndMediaIp</variable>
+    <variable type="Metreos.Types.String" initWith="farEndMediaPort">farEndMediaPort</variable>
+    
+    <!-- Finalize the connection with the media server by sending the far end media information -->
+    <action id="2100" type="provider">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">MsFullConnectVox</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="farEndMediaIp" type="variable">farEndMediaIp</actionParam>
+        <actionParam name="farEndMediaPort" type="variable">farEndMediaPort</actionParam>
+        <nextAction returnValue="success">2110</nextAction>
+        <nextAction returnValue="default">2197</nextAction>
+    </action>
+    
+    <action id="2110" type="provider">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">PlayAnnouncementToMsConnection</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="fileToPlay">thankyou.vox</actionParam>
+        <nextAction returnValue="success">2120</nextAction>
+        <nextAction returnValue="default">2197</nextAction>
+    </action>
+    
+    <!-- Add gathering of "accept" digit and so forth -->
+    
+    <!-- Move this connection into the conference -->
+    <action id="2120" type="provider">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">MsVoxToConference</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="conferenceId" type="variable">g_mmsConferenceId</actionParam>
+        <resultDataVariable field="conferenceId">g_mmsConferenceId</resultDataVariable>
+        <nextAction returnValue="success">2125</nextAction>
+        <nextAction returnValue="default">2197</nextAction>
+    </action>
+    
+    <action id="2125" type="native">
+		<actionName>Metreos.Native.ConferenceData.LocationAcceptConference</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<nextAction returnValue="success">2199</nextAction>
+		<nextAction returnValue="default">2196</nextAction>
+    </action>
+    
+    <action id="2196" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Database update error.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">2198</nextAction>
+    </action>
+    
+    <action id="2197" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Media server error.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">2198</nextAction>
+    </action>
+    
+    <action id="2198">
+		<actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+		<actionParam name="returnValue">failure</actionParam>
+    </action>
+    
+    <action id="2199">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue">success</actionParam>
+    </action>
+</function>
+
+<function id="OnEndCall">
+	<eventHandler>Metreos.CallControl.Hangup</eventHandler>
+	
+	<variable type="Metreos.Types.String" initWith="callId">callId</variable>
+	<variable type="Metreos.Types.String">mmsConnectionId</variable>
+	
+	<action id="300" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message" type="csharp">"Hangup received for callId: " + callId</actionParam>
+		<actionParam name="logLevel">Info</actionParam>
+		<nextAction returnValue="default">305</nextAction>
+	</action>
+	
+	<action id="305" type="native">
+		<actionName>Metreos.Native.ConferenceData.GetMmsConnectionId</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<resultDataVariable>mmsConnectionId</resultDataVariable>
+        <nextAction returnValue="success">310</nextAction>
+        <nextAction returnValue="default">399</nextAction>
+    </action>
+    
+    <!-- Destroy MS resources here -->
+	<action id="310">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">DeleteMsConnection</actionParam>
+        <actionParam name="connectionId" type="variable">mmsConnectionId</actionParam>
+        <nextAction returnValue="success">320</nextAction>
+        <nextAction returnValue="default">315</nextAction>
+    </action>
+    
+    <action id="315" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message" type="csharp">"Cannot delete media server connection: " + mmsConnectionId</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">320</nextAction>
+	</action>
+    
+    <action id="320" type="native">
+		<actionName>Metreos.Native.ConferenceData.LocationDisconnected</actionName>
+		<actionParam name="callId" type="variable">callId</actionParam>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<nextAction returnValue="success">330</nextAction>
+		<nextAction returnValue="default">325</nextAction>
+    </action>
+    
+    <action id="325" type="native">
+		<actionName>Metreos.Native.Log.Write</actionName>
+		<actionParam name="message">Error accessing database.</actionParam>
+		<actionParam name="logLevel">Error</actionParam>
+		<nextAction returnValue="default">330</nextAction>
+	</action>
+	
+	<action id="330" type="native">
+		<actionName>Metreos.Native.ConferenceData.IsConferenceEmpty</actionName>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<nextAction returnValue="no">390</nextAction>
+		<nextAction returnValue="default">398</nextAction>
+	</action>
+    
+    <action id="390">
+		<actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+    </action>
+    
+    <action id="398" type="native">
+		<actionName>Metreos.Native.ConferenceData.EndConference</actionName>
+		<actionParam name="conferenceId" type="variable">g_conferenceId</actionParam>
+		<nextAction returnValue="success">399</nextAction>
+		<nextAction returnValue="default">399</nextAction>
+    </action>
+    
+	<action id="399">
+		<actionName>Metreos.ApplicationControl.Exit</actionName>
+	</action>
+</function>
+
+<function id="MsHalfConnectVox">
+    <variable type="Metreos.Types.String">connectionId</variable>
+    <variable type="Metreos.Types.String">resultCode</variable>
+    <variable type="Metreos.Types.String">mediaServerIp</variable>
+    <variable type="Metreos.Types.String">mediaServerPort</variable>
+    
+    <action id="400">
+        <actionName>Metreos.Providers.MediaServer.CreateConnection</actionName>
+        <actionParam name="remotePort">0</actionParam>
+        <actionParam name="remoteIp">0</actionParam>
+        <resultDataVariable field="connectionId">connectionId</resultDataVariable>
+        <resultDataVariable field="ipAddress">mediaServerIp</resultDataVariable>
+        <resultDataVariable field="port">mediaServerPort</resultDataVariable>
+        <resultDataVariable field="resultCode">resultCode</resultDataVariable>
+        <nextAction returnValue="success">405</nextAction>
+        <nextAction returnValue="default">498</nextAction>
+    </action>
+    
+    <action id="405">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">LogMediaServerConnectionDetails</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="resultCode" type="variable">resultCode</actionParam>
+        <actionParam name="mediaServerPort" type="variable">mediaServerPort</actionParam>
+        <actionParam name="mediaServerIp" type="variable">mediaServerIp</actionParam>
+        <nextAction returnValue="default">499</nextAction>
+    </action>
+        
+    <action id="498" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Media server operation failed. Result code: " + resultCode</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">499</nextAction>
+    </action>
+    
+    <action id="499">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue" type="csharp">resultCode.ToString() == "0" ? "success" : "failure"</actionParam>
+        <actionParam name="mediaServerIp" type="variable">mediaServerIp</actionParam>
+        <actionParam name="mediaServerPort" type="variable">mediaServerPort</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+    </action>
+</function>
+
+<function id="MsFullConnectVox">
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+    <variable type="Metreos.Types.String">resultCode</variable>
+    <variable type="Metreos.Types.String" initWith="farEndMediaIp">farEndMediaIp</variable>
+    <variable type="Metreos.Types.String" initWith="farEndMediaPort">farEndMediaPort</variable>
+    <variable type="Metreos.Types.String">mediaServerPort</variable>
+    <variable type="Metreos.Types.String">mediaServerIp</variable>
+    
+    <!-- Create the full MS connection by passing in the far end media information -->
+    <action id="600">
+        <actionName>Metreos.Providers.MediaServer.CreateConnection</actionName>
+        <actionParam name="remoteIp" type="variable">farEndMediaIp</actionParam>
+        <actionParam name="remotePort" type="variable">farEndMediaPort</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <resultDataVariable field="resultCode">resultCode</resultDataVariable>
+        <resultDataVariable field="ipAddress">mediaServerIp</resultDataVariable>
+        <resultDataVariable field="port">mediaServerPort</resultDataVariable>
+        <nextAction returnValue="success">605</nextAction>
+        <nextAction returnValue="default">698</nextAction>
+    </action>
+    
+    <action id="605">
+        <actionName>Metreos.ApplicationControl.CallFunction</actionName>
+        <actionParam name="functionName">LogMediaServerConnectionDetails</actionParam>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="resultCode" type="variable">resultCode</actionParam>
+        <actionParam name="mediaServerPort" type="variable">mediaServerPort</actionParam>
+        <actionParam name="mediaServerIp" type="variable">mediaServerIp</actionParam>
+        <nextAction returnValue="default">699</nextAction>
+    </action>
+        
+    <action id="698" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Media server operation failed. Result code: " + resultCode</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">699</nextAction>
+    </action>
+    
+    <action id="699">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue" type="csharp">resultCode.ToString() == "0" ? "success" : "failure"</actionParam>
+    </action>
+</function>
+
+<function id="MsVoxToConference">
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+    <variable type="Metreos.Types.String" initWith="conferenceId">conferenceId</variable>
+    <variable type="Metreos.Types.String">resultCode</variable>
+    
+    <action id="900">
+        <actionName>Metreos.Providers.MediaServer.CreateConnectionConference</actionName>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="conferenceId" type="variable">conferenceId</actionParam>
+        <resultDataVariable field="resultCode">resultCode</resultDataVariable>
+        <resultDataVariable field="conferenceId">conferenceId</resultDataVariable>
+        <nextAction returnValue="success">903</nextAction>
+        <nextAction returnValue="default">998</nextAction>
+    </action>
+    
+    <action id="903" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"MsVoxToConference resultCode: " + resultCode + " conferenceId: " + conferenceId</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">999</nextAction>
+    </action>
+        
+    <action id="998" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Media server operation failed. Result code: " + resultCode</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">999</nextAction>
+    </action>
+    
+    <action id="999">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue" type="csharp">resultCode.ToString() == "0" ? "success" : "failure"</actionParam>
+        <actionParam name="conferenceId" type="variable">conferenceId</actionParam>
+    </action>
+</function>
+
+<function id="PlayAnnouncementToMsConnection">
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+    <variable type="Metreos.Types.String" initWith="fileToPlay">fileToPlay</variable>
+    <variable type="Metreos.Types.String">resultCode</variable>
+    
+    <action id="700">
+        <actionName>Metreos.Providers.MediaServer.PlayAnnouncement</actionName>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <actionParam name="filename" type="variable">fileToPlay</actionParam>
+        <resultDataVariable field="resultCode">resultCode</resultDataVariable>
+        <nextAction returnValue="success">701</nextAction>
+        <nextAction returnValue="default">710</nextAction>
+    </action>
+    
+    <action id="701" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Play complete. Result code: " + resultCode</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">799</nextAction>
+    </action>
+    
+    <action id="710" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Media server operation failed. Result code: " + resultCode</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">799</nextAction>
+    </action>
+    
+    <action id="799">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue" type="csharp">resultCode.ToString() == "0" ? "success" : "failure"</actionParam>
+    </action>    
+</function>
+
+<function id="DeleteMsConnection">
+    <variable type="Metreos.Types.String">resultCode</variable>
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+
+    <action id="800" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Deleting media server connection: " + connectionId</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">805</nextAction>
+    </action>
+    
+    <action id="805">
+        <actionName>Metreos.Providers.MediaServer.DeleteConnection</actionName>
+        <actionParam name="connectionId" type="variable">connectionId</actionParam>
+        <resultDataVariable field="resultCode">resultCode</resultDataVariable>
+        <nextAction returnValue="success">899</nextAction>
+        <nextAction returnValue="default">815</nextAction>
+    </action>
+    
+    <action id="815" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"Media server operation failed. Result code: " + resultCode</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">899</nextAction>
+    </action>
+    
+    <action id="899">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+        <actionParam name="returnValue" type="csharp">resultCode.ToString() == "0" ? "success" : "failure"</actionParam>   
+    </action>
+</function>
+
+<function id="LogMediaServerConnectionDetails">
+    <variable type="Metreos.Types.String" initWith="connectionId">connectionId</variable>
+    <variable type="Metreos.Types.String" initWith="resultCode">resultCode</variable>
+    <variable type="Metreos.Types.String" initWith="mediaServerIp">mediaServerIp</variable>
+    <variable type="Metreos.Types.String" initWith="mediaServerPort">mediaServerPort</variable>
+    
+    <action id="500" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"MS resultCode: " + resultCode + ". connectionId: " + connectionId</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">505</nextAction>
+    </action>
+    
+    <action id="505" type="native">
+        <actionName>Metreos.Native.Log.Write</actionName>
+        <actionParam name="message" type="csharp">"MS remoteIp: " + mediaServerIp + "   remotePort:" + mediaServerPort</actionParam>
+        <actionParam name="logLevel">Info</actionParam>
+        <nextAction returnValue="default">599</nextAction>
+    </action>
+    
+    <action id="599">
+        <actionName>Metreos.ApplicationControl.ExitFunction</actionName>
+    </action>
+</function>
+
+</serviceApp>

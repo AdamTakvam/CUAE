@@ -1,0 +1,119 @@
+module : World, MCE
+processor : phone1 in World, phone2 in World, AppServer in MCE, MMS in MCE
+eternal : provider in AppServer, telMan in AppServer, app in AppServer
+
+feature "P2P Media - Bridge"
+  case
+    leg "JTAPI" :
+      UnbridgeCalls(callId1) : app -> telMan
+      Hold(callId1) : telMan -> provider
+      hold : provider -> phone1
+      Hold_Success : provider -> telMan
+      telMan takes action "Deletes media server connection"
+      Hold(callId2) : telMan -> provider
+      hold : provider -> phone2
+      Hold_Success : provider -> telMan
+      telMan takes action "Deletes media server connection"
+      
+      Resume(callId1) : telMan -> provider
+      unhold : provider -> phone1
+      Resume_Success : provider -> telMan
+      startTransmit(txAddr) : phone1 -> provider
+      MediaChanged(callId1, txAddr) : provider -> telMan
+      Resume(callId2, rxAddr) : telMan -> provider
+      (*rxAddr is txAddr from other call*)
+      unhold(rxAddr) : provider -> phone2
+      Resume_Success : provider -> telMan      
+      startTransmit(txAddr) : phone2 -> provider
+      MediaChanged(callId2, txAddr) : provider -> telMan
+      SetMedia(callId1, rxAddr) : telMan -> provider
+      (*rxAddr is txAddr from other call*)
+      setRTPParams(rxAddr) : provider -> phone1
+      SetMedia_Success : provider -> telMan
+            
+      UnbridgeCalls_Success : telMan -> app
+      
+    leg "SIP":
+      UnbridgeCalls(callId1) : app -> telMan
+      Hold(callId1) : telMan -> provider
+      (*Hold action ignored*)
+      Hold_Success : provider -> telMan
+      telMan takes action "Deletes media server connection"
+      Hold(callId2) : telMan -> provider
+      (*Hold action ignored*)
+      Hold_Success : provider -> telMan
+      telMan takes action "Deletes media server connection"
+      
+      Resume(callId1) : telMan -> provider
+      INVITE : provider -> phone1
+      Resume_Success : provider -> telMan
+      OK(txAddr, remoteMediaCaps) : phone1 -> provider
+      MediaChanged(callId1, txAddr, remoteMediaCaps) : provider -> telMan      
+      Resume(callId2, localMediaCaps) : telMan -> provider
+      (*rxAddr is txAddr from other call. localMediaCaps are remoteMediaCaps from other call*)
+      INVITE(rxAddr, localMediaCaps) : provider -> phone2
+      Resume_Success : provider -> telMan
+      
+      OK(txAddr, rxCodec) : phone2 -> provider
+      ACK : provider -> phone2
+      MediaChanged(callId2, txAddr, rxCodec) : provider -> telMan      
+      SetMedia(callId1, rxAddr, txCodec) : telMan -> provider
+      (*rxAddr is txAddr from other call. txCodec is rxCodec from other call*)
+      ACK(rxAddr, txCodec) : provider -> phone1
+      SetMedia_Success : provider -> telMan
+      
+      UnbridgeCalls_Success : telMan -> app
+      
+    leg "H323":
+      UnbridgeCalls(callId1) : app -> telMan
+      Hold(callId1) : telMan -> provider
+      TCS("3rd-party pause") : provider -> phone1
+      provider takes action "Close media channels"
+      Hold_Success : provider -> telMan
+      telMan takes action "Deletes media server connection"
+      Hold(callId2) : telMan -> provider
+      TCS("3rd-party pause") : provider -> phone2
+      provider takes action "Close media channels"
+      Hold_Success : provider -> telMan
+      telMan takes action "Deletes media server connection"
+      
+      Resume(callId1) : telMan -> provider
+      TCS("original media caps") : provider -> phone1
+      Resume_Success : provider -> telMan
+      TCS(remoteMediaCaps) : phone1 -> provider
+      GotCapabilities(callId1, remoteMediaCaps) : provider -> telMan
+      OLC(rxCodec) : phone1 -> provider
+      MediaChanged(callId1, rxCodec) : provider -> telMan
+      Resume(callId2, txCodec, localMediaCaps) : telMan -> provider
+      (*txCodec is rxCodec from other call. localMediaCaps are remoteMediaCaps from other call*)
+      TCS(localMediaCaps) : provider -> phone2
+      Resume_Success : provider -> telMan
+      TCS(remoteMediaCaps) : phone2 -> provider
+      GotCapabilities(callId2, remoteMediaCaps) : provider -> telMan
+      (*Ignored by telMan*)
+      OLC(rxCodec) : phone2 -> provider
+      MediaChanged(callId2, rxCodec) : provider -> telMan
+      
+      SetMedia(callId1, txCodec) : telMan -> provider
+      OLC(txCodec) : provider -> phone1
+      SetMedia_Success : provider -> telMan
+      OLC_Ack(txAddr) : phone1 -> provider
+      MediaChanged(callId1, txAddr) : provider -> telMan
+      SetMedia(callId2, rxAddr) : telMan -> provider
+      (*rxAddr is txAddr from other call*)
+      OLC_Ack(rxAddr) : provider -> phone2
+      SetMedia_Success : provider -> telMan
+      
+      OLC(txCodec) : provider -> phone2
+      (*This OLC can be sent any time after the remote TCS is received*)
+      OLC_Ack(txAddr) : phone2 -> provider
+      MediaChanged(callId2, txAddr) : provider -> telMan
+      SetMedia(callId1, rxAddr) : telMan -> provider
+      (*rxAddr is txAddr from other call*)
+      OLC_Ack(rxAddr) : provider -> phone1
+      SetMedia_Success : provider -> telMan
+      
+      UnbridgeCalls_Success : telMan -> app
+      
+  endcase
+endfeature

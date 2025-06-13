@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstallerConverter", "InstallerConverter.csproj", "{DF88937F-CF58-4E60-959B-965E230A11E7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DF88937F-CF58-4E60-959B-965E230A11E7}.Debug.ActiveCfg = Debug|.NET
+		{DF88937F-CF58-4E60-959B-965E230A11E7}.Debug.Build.0 = Debug|.NET
+		{DF88937F-CF58-4E60-959B-965E230A11E7}.Release.ActiveCfg = Release|.NET
+		{DF88937F-CF58-4E60-959B-965E230A11E7}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

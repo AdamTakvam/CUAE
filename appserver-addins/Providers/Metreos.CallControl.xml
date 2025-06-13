@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.CallControl" description="Suite of actions and events for first-party call control" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <actionList>
+    <action name="MakeCall" type="provider" allowCustomParams="false" final="false" displayName="Make Call" description="Makes an outbound call from the application to a specified destination.">
+      <actionParam name="To" displayName="To" type="System.String" use="required" allowMultiple="false" description="The destination number for this call." />
+      <actionParam name="From" displayName="From" type="System.String" use="optional" allowMultiple="false" description="The calling number, or caller ID, for this call" />
+      <actionParam name="DisplayName" displayName="DisplayName" type="System.String" use="optional" allowMultiple="false" description="Free string which describes the initiator of the call" />
+      <actionParam name="MmsId" displayName="MmsId" type="System.UInt32" use="optional" allowMultiple="false" description="ID of the specific media server to use. Use of this field will disable media server load-balancing features for this call. If the specified ID is not valid, the AnswerCall will fail." />
+      <actionParam name="PeerCallId" displayName="PeerCallId" type="System.String" use="optional" allowMultiple="false" description="The call ID of the outstanding incoming call which will be linked to this one in a peer-to-peer fashion" />
+      <actionParam name="ProxyDTMFCallId" displayName="ProxyDTMFCallId" type="System.String" use="optional" allowMultiple="false" description="The call ID to automatically proxy any received digits to. PeerCallId will be used if this field is not set." />
+      <actionParam name="WaitForMedia" displayName="WaitForMedia" type="Metreos.AppServer.TelephonyManager.WaitMedia" use="optional" allowMultiple="false" default="TxRx" description="Indicates that the async response should not be sent until media has been established. Valid values: None, Tx, Rx, TxRx. The value of this field will affect the media values returned in the callback." />
+      <actionParam name="Conference" displayName="Conference" type="System.Boolean" use="optional" allowMultiple="false" default="false" description="Indicates that this call is to be placed in a conference." />
+      <actionParam name="ConferenceId" displayName="ConferenceId" type="System.String" use="optional" allowMultiple="false" description="The ID of the conference to add this call to. Specify 0 if this is the first party in the conference. This field is ignored if Conference=false." />
+      <actionParam name="Hairpin" displayName="Hairpin" type="System.Boolean" use="optional" allowMultiple="false" description="Indicates that the desired conference should be optimized for only two parties." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <resultData displayName="CallId" type="System.String" description="Token used to identify this call">CallId</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+      <asyncCallback>Metreos.CallControl.MakeCall_Complete</asyncCallback>
+      <asyncCallback>Metreos.CallControl.MakeCall_Failed</asyncCallback>
+      <asyncCallback>Metreos.CallControl.RemoteHangup</asyncCallback>
+    </action>
+    <action name="Barge" type="provider" allowCustomParams="false" final="false" displayName="Barge" description="Intrudes on a call established on a shared line. If IP and port are not specified, a connection will be made on the media server">
+      <actionParam name="From" displayName="Line DN" type="System.String" use="required" allowMultiple="false" description="The directory number of the shared line" />
+      <actionParam name="MediaRxIP" displayName="Rx IP" type="System.String" use="optional" allowMultiple="false" description="The local IP address that media should be sent to." />
+      <actionParam name="MediaRxPort" displayName="Rx Port" type="System.UInt32" use="optional" allowMultiple="false" description="The local port that media should be sent to." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <resultData displayName="CallId" type="System.String" description="Token used to identify this call.">CallId</resultData>
+      <resultData displayName="MmsId" type="System.UInt32" description="ID of the media server handling media for this call. Only valid if IP and port were not specified.">MmsId</resultData>
+      <resultData displayName="ConnectionId" type="System.String" description="ID of the connection to the media server handling this media for this call. Only valid if IP and port were not specified.">ConnectionId</resultData>
+      <resultData displayName="MediaTxIP" type="System.String" description="The IP address that media is being sent to.">MediaTxIP</resultData>
+      <resultData displayName="MediaTxPort" type="System.UInt32" description="The port that media is being sent to.">MediaTxPort</resultData>
+      <resultData displayName="MediaTxCodec" type="System.String" description="The codec used on the send channel.">MediaTxCodec</resultData>
+      <resultData displayName="MediaTxFramesize" type="System.UInt32" description="The framesize used on the send channel.">MediaTxFramesize</resultData>
+      <resultData displayName="MediaRxIP" type="System.String" description="The local IP address that media is being sent to. Only valid if IP and port were not specified.">MediaRxIP</resultData>
+      <resultData displayName="MediaRxPort" type="System.UInt32" description="The local port that media is being sent to. Only valid if IP and port were not specified.">MediaRxPort</resultData>
+      <resultData displayName="MediaRxCodec" type="System.String" description="The codec used on the rx channel.">MediaRxCodec</resultData>
+      <resultData displayName="MediaRxFramesize" type="System.UInt32" description="The framesize used on the rx channel.">MediaRxFramesize</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="AcceptCall" type="provider" allowCustomParams="false" final="false" displayName="Accept Call" description="Accepts the incoming call">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="Token used to identify this call" />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <resultData displayName="CallId" type="System.String" description="Token used to identify this call.">CallId</resultData>
+      <resultData displayName="MmsId" type="System.UInt32" description="ID of the media server handling media for this call. This will only populated if the application is configured to reserve media ports early.">MmsId</resultData>
+      <resultData displayName="ConnectionId" type="System.String" description="ID of the connection to the media server handling this media for this call. This will only populated if the application is configured to reserve media ports early.">ConnectionId</resultData>
+      <resultData displayName="MediaRxIP" type="System.String" description="The local IP address that media is being sent to. This will only populated if the application is configured to reserve media ports early.">MediaRxIP</resultData>
+      <resultData displayName="MediaRxPort" type="System.UInt32" description="The local port that media is being sent to. This will only populated if the application is configured to reserve media ports early.">MediaRxPort</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="AnswerCall" type="provider" allowCustomParams="false" final="false" displayName="Answer Call" description="Answers the incoming call">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="Token used to identify this call" />
+      <actionParam name="DisplayName" displayName="DisplayName" type="System.String" use="optional" allowMultiple="false" description="Free string which describes the recipient of the call" />
+      <actionParam name="MmsId" displayName="MmsId" type="System.UInt32" use="optional" allowMultiple="false" description="ID of the specific media server to use. Use of this field will disable media server load-balancing features for this call. If the specified ID is not valid, the AnswerCall will fail." />
+      <actionParam name="ProxyDTMFCallId" displayName="ProxyDTMFCallId" type="System.String" use="optional" allowMultiple="false" description="The call ID to automatically proxy any received digits to." />
+      <actionParam name="WaitForMedia" displayName="WaitForMedia" type="Metreos.AppServer.TelephonyManager.WaitMedia" use="optional" allowMultiple="false" default="TxRx" description="Indicates that the async response should not be sent until media has been established.  The value of this field will affect the media values returned in the callback." >
+        <EnumItem>None</EnumItem>
+        <EnumItem>Tx</EnumItem>
+        <EnumItem>Rx</EnumItem>
+        <EnumItem>TxRx</EnumItem>
+      </actionParam>
+      <actionParam name="Conference" displayName="Conference" type="System.Boolean" use="optional" allowMultiple="false" default="false" description="Indicates that this call is to be placed in a conference." />
+      <actionParam name="ConferenceId" displayName="ConferenceId" type="System.String" use="optional" allowMultiple="false" description="The ID of the conference to add this call to. Specify 0 if this is the first party in the conference. This field is ignored if Conference is false." />
+      <actionParam name="Hairpin" displayName="Hairpin" type="System.Boolean" use="optional" allowMultiple="false" description="Indicates that the desired conference should be optimized for only two parties." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <resultData displayName="CallId" type="System.String" description="Token used to identify this call.">CallId</resultData>
+      <resultData displayName="MmsId" type="System.UInt32" description="ID of the media server handling media for this call.">MmsId</resultData>
+      <resultData displayName="ConnectionId" type="System.String" description="ID of the connection to the media server handling this media for this call.">ConnectionId</resultData>
+      <resultData displayName="ConferenceId" type="System.String" description="ID of the media server conference that this connection was placed in.  Valid only if Conference was specified as true.">ConferenceId</resultData>
+      <resultData displayName="MediaTxIP" type="System.String" description="The IP address that media is being sent to.">MediaTxIP</resultData>
+      <resultData displayName="MediaTxPort" type="System.UInt32" description="The port that media is being sent to.">MediaTxPort</resultData>
+      <resultData displayName="MediaTxCodec" type="System.String" description="The codec used on the send channel.">MediaTxCodec</resultData>
+      <resultData displayName="MediaTxFramesize" type="System.UInt32" description="The framesize used on the send channel.">MediaTxFramesize</resultData>
+      <resultData displayName="MediaRxIP" type="System.String" description="The local IP address that media is being sent to.">MediaRxIP</resultData>
+      <resultData displayName="MediaRxPort" type="System.UInt32" description="The local port that media is being sent to.">MediaRxPort</resultData>
+      <resultData displayName="MediaRxCodec" type="System.String" description="The codec used on the rx channel.">MediaRxCodec</resultData>
+      <resultData displayName="MediaRxFramesize" type="System.UInt32" description="The framesize used on the rx channel.">MediaRxFramesize</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="RejectCall" type="provider" allowCustomParams="false" final="false" displayName="Reject Call" description="Rejects the pending incoming call with the specified ID">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="Token used to identify this call" />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="Hangup" type="provider" allowCustomParams="false" final="false" displayName="Hang up" description="Terminates the established call with the specified ID. If two calls were established as peers and they have not since been bridged through the media server, both calls will be terminated when a Hangup is issued with either of their call IDs.">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="Token used to identify this call" />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="BridgeCalls" type="provider" allowCustomParams="false" final="false" displayName="Bridge Calls" description="Renegotiates media for two calls with peer-to-peer media streams so that the media streams are hairpinned through the media server. Use the port returned to identify whether a particular channel has been established. An unestablished channel will have a port value of 0.">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="Token used to identify this call" />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <resultData displayName="MmsId" type="System.UInt32" description="ID of the media server handling media for this call.">MmsId</resultData>
+      <resultData displayName="ConnectionId" type="System.String" description="ID of the media server connection handling media for this call.">ConnectionId</resultData>
+      <resultData displayName="PeerConnectionId" type="System.String" description="The new connection ID created for the peer of the call specified.">PeerConnectionId</resultData> 
+      <resultData displayName="ConferenceId" type="System.String" description="The ID of the conference created for these two connections.">ConferenceId</resultData>     
+      <resultData displayName="MediaRxIP" type="System.String" description="The IP address that media for connection 1 is being received from.">MediaRxIP</resultData>
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="UnbridgeCalls" type="provider" allowCustomParams="false" final="false" displayName="Unbridge Calls" description="Renegotiates media for two calls which have been established with the media server so that the media path is peer-to-peer. Note that the connection IDs associated with these calls will be defunct when this operation completes successfully.">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="The call ID of either leg of the peer-to-peer call." />
+      <actionParam name="PeerCallId" displayName="PeerCallId" type="System.String" use="optional" allowMultiple="false" description="The call ID of an established call which will be linked to this one in a peer-to-peer fashion. You do not need to specify this value if a peer relationship has already been established between the two calls. Further you cannot use this value to change to a different peer if one has already been established." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="BlindTransfer" type="provider" allowCustomParams="false" final="false" displayName="Blind Transfer" description="Transfers an established call to the specified party. The specified call ID and its corresponding connection ID are defunct after this operation has completed successfully. (This feature is currently not supported for peer-to-peer calls)">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="The call ID of the call leg to transfer." />
+      <actionParam name="To" displayName="To" type="System.String" use="required" allowMultiple="false" description="The dialed number to redirect this call to." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <!-- Not surrently supported
+    <action name="BeginConsultationTransfer" type="provider" allowCustomParams="false" final="false" displayName="Begin Consultation Transfer" description="Places the specified call on hold and makes a call to a third party. (This feature is currently not supported for peer-to-peer calls)">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="The call ID of the call to place on hold." />
+      <actionParam name="To" displayName="To" type="System.String" use="required" allowMultiple="false" description="The dialed number of the person to contact regarding the transfer." />
+      <resultData displayName="TransferCallId" type="System.String" description="The call ID of the new party in the call.">TransferCallId</resultData>
+      <resultData displayName="MmsId" type="System.UInt32" description="ID of the media server handling media for this call.">MmsId</resultData>
+      <resultData displayName="ConnectionId" type="System.String" description="ID of the media server connection handling media for this call.">ConnectionId</resultData>
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="EndConsultationTransfer" type="provider" allowCustomParams="false" final="false" displayName="End Consultation Transfer" description="Completes the consultation transfer. All call IDs involved in this action and their corresponding connection IDs are defunct after this operation has completed successfully. (This feature is currently not supported for peer-to-peer calls)">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="The ID of the call established before the transfer started" />
+    <actionParam name="TransferCallId" displayName="TransferCallId" type="System.String" use="required" allowMultiple="false" description="The call ID of the party being consulted." />
+    <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    -->
+    <action name="Redirect" type="provider" allowCustomParams="false" final="false" displayName="Redirect" description="Re-routes a pending incoming call which has not yet been connected. The specified call ID is defunct after this operation has completed successfully.">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="The call ID of the call to redirect." />
+      <actionParam name="To" displayName="To" type="System.String" use="required" allowMultiple="false" description="The dialed number to redirect this call to." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before the Application Server should force the action to fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+    <action name="SendUserInput" type="provider" allowCustomParams="false" final="false" displayName="Send User Input" description="Sends the supplied digits to the call indicated.">
+      <actionParam name="CallId" displayName="CallId" type="System.String" use="required" allowMultiple="false" description="The call ID of the call to receive digits." />
+      <actionParam name="Digits" displayName="Digits" type="System.String" use="required" allowMultiple="false" description="The digits to send." />
+      <actionParam name="Timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+  </actionList>
+  <eventList>
+    <event name="IncomingCall" type="triggering" expects="Metreos.CallControl.AnswerCall" displayName="Incoming Call" description="Indicates that a call has been received by the Application Server">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="From" displayName="From" type="System.String" guaranteed="false" description="The calling number, or caller ID, for this call." />
+      <eventParam name="To" displayName="To" type="System.String" guaranteed="true" description="The dialed number for this call." />
+      <eventParam name="OriginalTo" displayName="OriginalTo" type="System.String" guaranteed="true" description="The original number which was dialed. This will be the same as the To field unless the call has been redirected." />
+      <eventParam name="DisplayName" displayName="DisplayName" type="System.String" guaranteed="true" description="The caller's friendly name." />
+      <eventParam name="StackToken" displayName="StackToken" type="System.String" guaranteed="false" description="ID of call used by underlying protocol stack" />
+    </event>
+    <event name="RemoteHangup" type="nontriggering" displayName="Remote Hang up" description="Indicates that call has been terminated by the remote party.">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+	  <eventParam name="EndReason" displayName="EndReason" type="System.String" guaranteed="true" description="Well-defined reason for call termination." />
+    </event>
+    <event name="GotDigits" type="nontriggering" displayName="Got Digits" description="Indicates that digits have been received on the signalling path.">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="Digits" displayName="Digits" type="System.String" guaranteed="true" description="Digits received." />
+    </event>
+    <event name="StartTx" type="nontriggering" displayName="Start Tx" description="Indicates that an outbound media channel has been established. This should always occur in response to a MakeCall or AnswerCall action.">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="MmsId" displayName="MmsId" type="System.UInt32" guaranteed="true" description="ID of the media server handling media for this call." />
+      <eventParam name="ConnectionId" displayName="ConnectionId" type="System.String" guaranteed="true" description="ID of the media server connection handling media for this call." />
+      <eventParam name="MediaTxIP" displayName="MediaTxIP" type="System.String" guaranteed="true" description="The IP address that media is being sent to." />
+      <eventParam name="MediaTxPort" displayName="MediaTxPort" type="System.UInt32" guaranteed="true" description="The port that media is being sent to." />
+      <eventParam name="MediaTxCodec" displayName="MediaTxCodec" type="System.String" guaranteed="true" description="The codec used on the send channel."  />
+      <eventParam name="MediaTxFramesize" displayName="MediaTxFramesize" type="System.UInt32" guaranteed="true" description="The framesize used on the send channel." />
+    </event>
+    <event name="StopTx" type="nontriggering" displayName="Stop Tx" description="Indicates that an outbound media channel has been closed. This may occur if the remote party presses 'hold', for instance.">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="MmsId" displayName="MmsId" type="System.UInt32" guaranteed="true" description="ID of the media server handling media for this call." />
+      <eventParam name="ConnectionId" displayName="ConnectionId" type="System.String" guaranteed="true" description="ID of the media server connection handling media for this call." />
+    </event>    
+    <event name="StartRx" type="nontriggering" displayName="Start Rx" description="Indicates that an inbound media channel has been established. This may, but is not guaranteed to, occur in response to a MakeCall or AnswerCall action.">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="MmsId" displayName="MmsId" type="System.UInt32" guaranteed="true" description="ID of the media server handling media for this call." />
+      <eventParam name="ConnectionId" displayName="ConnectionId" type="System.String" guaranteed="true" description="ID of the media server connection handling media for this call." />
+      <eventParam name="MediaRxIP" displayName="MediaRxIP" type="System.String" guaranteed="true" description="The IP address that media is being received on." />
+      <eventParam name="MediaRxPort" displayName="MediaRxPort" type="System.UInt32" guaranteed="true" description="The port that media is being received on." />
+      <eventParam name="MediaRxCodec" displayName="MediaRxCodec" type="System.String" guaranteed="true" description="The codec used on the receive channel." />
+      <eventParam name="MediaRxFramesize" displayName="MediaRxFramesize" type="System.UInt32" guaranteed="true" description="The framesize used on the receive channel." />
+    </event>  
+    <event name="CallChanged" type="nontriggering" displayName="Call Changed" description="Indicates that the remote party of a call has changed due to some sort of call transfer or conference.">  
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="To" displayName="To" type="System.String" guaranteed="true" description="The new dialed number for this call." />
+      <eventParam name="From" displayName="From" type="System.String" guaranteed="true" description="The new calling number, or caller ID, for this call." />
+    </event>
+    <event name="MakeCall_Complete" type="asyncCallback" displayName="Make Call Complete" description="Indicates that the requested call setup has completed successfully.">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="MmsId" displayName="MmsId" type="System.UInt32" guaranteed="true" description="ID of the media server handling media for this call." />
+      <eventParam name="To" displayName="To" type="System.String" guaranteed="true" description="The final dialed number for this call." />
+      <eventParam name="From" displayName="From" type="System.String" guaranteed="true" description="The calling number, or caller ID, for this call." />
+      <eventParam name="OriginalTo" displayName="OriginalTo" type="System.String" guaranteed="true" description="The originally dialed number for this call." />
+      <eventParam name="ConnectionId" displayName="ConnectionId" type="System.String" guaranteed="true" description="ID of the media server connection handling media for this call." />
+      <eventParam name="ConferenceId" displayName="ConferenceId" type="System.String" guaranteed="true" description="ID of the media server conference that the call was placed into (if so specified in action)" />
+      <eventParam name="MediaTxIP" displayName="MediaTxIP" type="System.String" guaranteed="true" description="The IP address that media is being sent to." />
+      <eventParam name="MediaTxPort" displayName="MediaTxPort" type="System.UInt32" guaranteed="true" description="The port that media is being sent to." />
+      <eventParam name="MediaTxCodec" displayName="MediaTxCodec" type="System.String" guaranteed="true" description="The codec used on the send channel." />
+      <eventParam name="MediaTxFramesize" displayName="MediaTxFramesize" type="System.UInt32" guaranteed="true" description="The framesize used on the send channel." />
+    </event>
+    <event name="MakeCall_Failed" type="asyncCallback" displayName="Make Call Failed" description="Indicates that the make call action did not succeed">
+      <eventParam name="CallId" displayName="CallId" type="System.String" guaranteed="true" description="Token used to identify this call." />
+      <eventParam name="To" displayName="To" type="System.String" guaranteed="true" description="The dialed number for this call." />
+      <eventParam name="From" displayName="From" type="System.String" guaranteed="true" description="The calling number, or caller ID, for this call." />
+      <eventParam name="EndReason" displayName="EndReason" type="System.String" guaranteed="true" description="Well-defined reason for call failure." />
+    </event>
+  </eventList>
+</package>

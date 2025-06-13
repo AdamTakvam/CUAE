@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashtableSerialization", "HashtableSerialization.csproj", "{F106E13A-FD8B-48D5-A8C9-701A6218546D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F106E13A-FD8B-48D5-A8C9-701A6218546D}.Debug.ActiveCfg = Debug|.NET
+		{F106E13A-FD8B-48D5-A8C9-701A6218546D}.Debug.Build.0 = Debug|.NET
+		{F106E13A-FD8B-48D5-A8C9-701A6218546D}.Release.ActiveCfg = Release|.NET
+		{F106E13A-FD8B-48D5-A8C9-701A6218546D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

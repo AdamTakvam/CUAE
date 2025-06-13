@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="docs" default="Debug" basedir=".">
+  <description>Build script for the docbook-documents.</description>
+  
+  <import file="../../autobuild/build.includes.xml" />
+  <property name="deploymentDirectory" value="../obj" />
+  <property name="buildDirectory"      value="obj" />
+  
+  <target name="do-init" >
+     <mkdir dir="${deploymentDirectory}" />
+     <mkdir dir="${buildDirectory}" />
+  </target>
+
+  <target name="do-build">
+    <ciscoDocbook docroot="cuae_dev_guide.xml" dest="${buildDirectory}/cuae-dev-guide" output="CUAE Developer Guide" type="DevBook" />
+    <copy todir="${buildDirectory}/cuae-dev-guide">
+        <fileset dir="." includes="supplements/**" excludes="**/.svn/**" />
+    </copy>
+  </target>  
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-clean" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${deploymentDirectory}/cuae-dev-guide" />
+  </target>
+
+  <target name="do-postbuild">
+     <copy todir="${deploymentDirectory}">
+         <fileset dir="${buildDirectory}" includes="**" />
+     </copy>
+  </target>
+</project>

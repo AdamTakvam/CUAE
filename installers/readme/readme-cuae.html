@@ -1,0 +1,103 @@
+<html>
+<body>
+<h1>CISCO UNIFIED APPLICATION ENVIRONMENT SOFTWARE RESTORATION</h1>
+<p>
+This document outlines the sequence of steps required to re-image a Cisco Unified Application Environment (CUAE) Server. 
+
+<h2>BEFORE YOU BEGIN</h2>
+<p>
+<span style="color:red" >Note</span>: <span style="font:bold">The Cisco Unified Application Environment Server ships from Cisco Pre-Installed with all the software required for operation. This procedure should *only* be executed if you need to re-Image the server. Executing this procedure will erase all existing data and configuration information on your server.</span>
+<p>
+This procedure requires:
+<ul>
+ <li>Cisco MCS Server 7845-H</li>
+ <li>Cisco MCS OS DVD version 2003.1.0.5002-H</li>
+ <li>Cisco Unified Application Environment restore DVD version 2.3</li>
+</ul>
+
+<h2>MCS OS DVD INSTALLATION</h2>
+<p>
+The MCS OS DVD will install the needed Windows 2003 Server OS image necessary for the CUAE. The MCS OS DVD is completely automated:
+<ol>
+ <li>Insert the DVD and reboot the unit</li>
+ <li>Acknowledge all prompts until the installation is complete</li>
+</ol>
+
+<h2>CUAE DVD INSTALLATION</h2>
+<p>
+After the MCS OS DVD has successfully installed, insert the CUAE DVD and begin the CUAE installation process. This process will install all of the necessary software for the Cisco Unified Application Server and Cisco Unified Media Engine.
+
+<h3>CORE ADDENDUM INSTALLER <span style="font-style:italic">CISCO UNIFIED MCS OS CORE ADDENDUM.EXE</span></h3>
+<p>
+Run the file to install the Core Addendum pieces. This will install the following 3rd party applications:
+<ul>
+    <li>JAVA in C:\Program Files\Java</li>
+    <li>PHP in C:\php </li>
+    <li>OpenSSL in C:\openssl</li>
+    <li>OpenSpeech Recognizer Client</li>
+    <li>Microsoft WSE 2.0 SP2 Runtime</li>
+    <li>Installs and configures the following services:</li>
+    <ul>
+        <li>Apache Webserver</li>
+        <li>Intel HMP service as ‘Dialogic’</li>
+        <li>NeoSpeech as ‘VT Server’ </li>
+        <li>Installs and disables Neospeech ‘VTAdmin Server’ service</li>
+        <li>Disables the ‘IIS Admin’ service</li>
+        <li>MySQL service and ODBC drivers</li>
+    </ul>
+</ul>
+<p>
+<span style="font:bold;color:Red">Note: At the end of this installer the user must reboot the system. </span>
+
+
+<h3>PLATFORM INSTALLER -  <span style="font-style:italic">CISCO UNIFIED APPLICATION PLATFORM SERVICE.MSI</span></h3>
+<p>
+This installer creates the CiscoUAE user for running the services. It will also install all of the common support services required for the Unified Application Server and the Unified Media Engine.
+<p>
+<ul>
+ <li>The installer will prompt for a password for the newly created CiscoUAE user. The password needs to be entered twice.</li>
+ <li>The following services are installed and configured for DB access. These services are not started automatically as part of the installation.</li>
+  <ul>
+   <li>CUAE Alarm server </li>
+   <li>CUAE Log server </li>
+   <li>CUAE Watchdog service </li>
+   <li>CUAE SFTP service </li>
+  </ul>
+</ul>
+
+<h3>APPLICATION SERVER INSTALLER - <span style="font-style:italic">CISCO UNIFIED APPLICATION SERVER.MSI</span></h3>
+<p>
+<span style="color:red" >Note</span>: This installer will not run if there is no CiscoUAE user (i.e. if the Platform Installer has never run successfully)
+
+<ul>
+ <li>The installer will ask for the CiscoUAE user password. It must be entered twice for verification.</li>
+ <li>The application server installer installs and configures:</li>
+ <ul>
+   <li>CUAE - Application server service</li>
+   <li>CUAE - JTapi Provider services </li>
+   <li>CUAE - H323 Provider service </li>
+   <li>CUAE - SIP Provider service </li>
+   <li>CUAE - SCCP Provider service </li>
+ </ul>
+</ul>
+
+<h3>CISCO UNIFIED MEDIA ENGINE INSTALLER - <span style="font-style:italic">CISCO UNIFIED MEDIA ENGINE.MSI</span></h3>
+<p>
+
+<span style="color:red" >Note</span>: This installer will not run if there is no CiscoUAE user (i.e. if the Platform installer has never run successfully)
+
+<ul>
+    <li>The installer will ask for the CiscoUAE user password. It must be entered twice for verification.</li>
+    <li>The Media Server installer installs and configures:
+    <ul>
+        <li>CUAE – Media Engine service</li>
+    </ul>
+</ul>    
+
+<h2>COMPLETE</h2>
+<p>
+ Server Re-Image is now complete.
+
+</body>
+</html>
+

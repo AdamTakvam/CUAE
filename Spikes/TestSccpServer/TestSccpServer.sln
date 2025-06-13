@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSccpServer", "TestSccpServer.csproj", "{A78847A1-264D-4A1E-BB7B-33F0DF671799}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A78847A1-264D-4A1E-BB7B-33F0DF671799}.Debug.ActiveCfg = Debug|.NET
+		{A78847A1-264D-4A1E-BB7B-33F0DF671799}.Debug.Build.0 = Debug|.NET
+		{A78847A1-264D-4A1E-BB7B-33F0DF671799}.Release.ActiveCfg = Release|.NET
+		{A78847A1-264D-4A1E-BB7B-33F0DF671799}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

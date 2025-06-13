@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<current_observation>
+	<credit>NOAA's National Weather Service</credit>
+	<credit_URL>http://weather.gov/</credit_URL>
+	<image>
+		<url>http://weather.gov/images/xml_logo.gif</url>
+		<title>NOAA's National Weather Service</title>
+		<link>http://weather.gov</link>
+	</image> 
+	<suggested_pickup>15 minutes after the hour</suggested_pickup>
+	<suggested_pickup_period>60</suggested_pickup_period><location>Kake Airport, AK</location>
+        <station_id>PAFE</station_id>
+  <latitude>NA</latitude><longitude>NA</longitude>
+	<elevation>NA</elevation> 
+	<observation_time>Last Updated on Aug 16, 6:36 pm KDT</observation_time>
+	<weather>Fair</weather>
+	<temperature_string>63 F (17 C)</temperature_string>
+	<temp_f>63</temp_f>
+	<temp_c>17</temp_c>
+	<relative_humidity>88</relative_humidity>
+	<wind_string>From the Calm</wind_string>
+	<wind_dir>North</wind_dir>
+	<wind_degrees>0</wind_degrees>
+	<wind_mph>0</wind_mph>
+	<wind_gust_mph>0</wind_gust_mph>
+	<pressure_string>30.05&quot;</pressure_string>
+  	<pressure_mb></pressure_mb>
+	<pressure_in>30.05</pressure_in> 
+	<dewpoint_string>59 F (15 C)</dewpoint_string>
+	<dewpoint_f>59</dewpoint_f>
+	<dewpoint_c>15</dewpoint_c> 
+ 
+      	<heat_index_string>Not Applicable</heat_index_string>
+      	<heat_index_f>Not Applicable</heat_index_f>
+      	<heat_index_c>Not Applicable</heat_index_c>
+      
+      	<windchill_string>Not Applicable</windchill_string>
+      	<windchill_f>Not Applicable</windchill_f>
+      	<windchill_c>Not Applicable</windchill_c>
+      
+	<visibility>10.00 mi.</visibility>
+ 
+	<two_day_history_url>http://www.weather.gov/data/obhistory/PAFE.html</two_day_history_url>
+	<ob_url>http://www.nws.noaa.gov/data/METAR/PAFE.1.txt</ob_url>
+	<disclaimer_url>http://weather.gov/disclaimer.html</disclaimer_url>
+	<copyright_url>http://weather.gov/disclaimer.html</copyright_url>
+	<privacy_policy_url>http://weather.gov/notice.html</privacy_policy_url>
+</current_observation>
+	

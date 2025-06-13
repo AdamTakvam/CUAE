@@ -1,0 +1,105 @@
+<Application name="HandleInboundCall" trigger="Metreos.CallControl.IncomingCall" version="0.8" single="false">
+  <!--//// app tree ////-->
+  <global name="HandleInboundCall">
+    <outline>
+      <treenode type="evh" id="632722533371894262" level="1" text="Metreos.CallControl.IncomingCall (trigger): OnIncomingCall">
+        <node type="function" name="OnIncomingCall" id="632722533371894259" path="Metreos.StockTools" />
+        <node type="event" name="IncomingCall" id="632722533371894258" path="Metreos.CallControl.IncomingCall" trigger="true" />
+        <Properties type="triggering">
+        </Properties>
+      </treenode>
+      <treenode type="evh" id="632722533371894272" level="2" text="Metreos.MediaControl.Play_Complete: OnPlay_Complete">
+        <node type="function" name="OnPlay_Complete" id="632722533371894269" path="Metreos.StockTools" />
+        <node type="event" name="Play_Complete" id="632722533371894268" path="Metreos.MediaControl.Play_Complete" />
+        <references>
+          <ref id="632724347332067669" actid="632722533371894278" />
+        </references>
+        <Properties type="asyncCallback">
+        </Properties>
+      </treenode>
+      <treenode type="evh" id="632722533371894277" level="2" text="Metreos.MediaControl.Play_Failed: OnPlay_Failed">
+        <node type="function" name="OnPlay_Failed" id="632722533371894274" path="Metreos.StockTools" />
+        <node type="event" name="Play_Failed" id="632722533371894273" path="Metreos.MediaControl.Play_Failed" />
+        <references>
+          <ref id="632724347332067670" actid="632722533371894278" />
+        </references>
+        <Properties type="asyncCallback">
+        </Properties>
+      </treenode>
+    </outline>
+    <variables>
+      <treenode text="g_incomingConnId" id="632724347332067663" vid="632722533371894265">
+        <Properties type="String">g_incomingConnId</Properties>
+      </treenode>
+      <treenode text="g_incomingCallId" id="632724347332067665" vid="632722533371894284">
+        <Properties type="String">g_incomingCallId</Properties>
+      </treenode>
+    </variables>
+  </global>
+  <!--//// visible canvases ////-->
+  <canvas type="Function" name="OnIncomingCall" startnode="632722533371894261" treenode="632722533371894262" appnode="632722533371894259" handlerfor="632722533371894258">
+    <node type="Start" id="632722533371894261" name="Start" class="MaxStartNode" group="Metreos.StockTools" path="Metreos.StockTools" x="37" y="369">
+      <linkto id="632722533371894264" type="Basic" style="Bezier" ortho="true" />
+    </node>
+    <node type="Action" id="632722533371894264" name="AnswerCall" class="MaxActionNode" group="" path="Metreos.CallControl" x="129" y="369">
+      <linkto id="632722533371894278" type="Labeled" style="Bezier" ortho="true" label="default" />
+      <Properties final="false" type="provider" log="On">
+        <ap name="CallId" type="variable">incomingCallId</ap>
+        <rd field="CallId">g_incomingCallId</rd>
+        <rd field="ConnectionId">g_incomingConnId</rd>
+      </Properties>
+    </node>
+    <node type="Action" id="632722533371894278" name="Play" class="MaxAsyncActionNode" group="" path="Metreos.MediaControl" x="177" y="352" mx="230" my="368">
+      <items count="2">
+        <item text="OnPlay_Complete" treenode="632722533371894272" />
+        <item text="OnPlay_Failed" treenode="632722533371894277" />
+      </items>
+      <linkto id="632722533371894281" type="Labeled" style="Bezier" ortho="true" label="default" />
+      <Properties final="false" type="provider" log="On">
+        <ap name="ConnectionId" type="variable">g_incomingConnId</ap>
+        <ap name="Prompt1" type="literal">Streaming audio is easy</ap>
+        <ap name="UserData" type="literal">none</ap>
+      </Properties>
+    </node>
+    <node type="Action" id="632722533371894281" name="EndFunction" class="MaxActionNode" group="" path="Metreos.ApplicationControl" x="345" y="369">
+      <Properties final="true" type="appControl" log="On">
+      </Properties>
+    </node>
+    <node type="Variable" id="632722533371894263" name="incomingCallId" class="MaxRecumbentVariableNode" group="Application Components" path="Metreos.StockTools" x="0" y="0">
+      <Properties type="String" initWith="CallId" refType="reference" name="Metreos.CallControl.IncomingCall">incomingCallId</Properties>
+    </node>
+  </canvas>
+  <canvas type="Function" name="OnPlay_Complete" startnode="632722533371894271" treenode="632722533371894272" appnode="632722533371894269" handlerfor="632722533371894268">
+    <node type="Start" id="632722533371894271" name="Start" class="MaxStartNode" group="Metreos.StockTools" path="Metreos.StockTools" x="32" y="370">
+      <linkto id="632722533371894286" type="Basic" style="Bezier" ortho="true" />
+    </node>
+    <node type="Action" id="632722533371894286" name="Hangup" class="MaxActionNode" group="" path="Metreos.CallControl" x="126" y="370">
+      <linkto id="632724347332067676" type="Labeled" style="Bezier" ortho="true" label="default" />
+      <Properties final="false" type="provider" log="On">
+        <ap name="CallId" type="variable">g_incomingCallId</ap>
+      </Properties>
+    </node>
+    <node type="Action" id="632724347332067676" name="EndScript" class="MaxActionNode" group="" path="Metreos.ApplicationControl" x="215" y="370">
+      <Properties final="true" type="appControl" log="On">
+      </Properties>
+    </node>
+  </canvas>
+  <canvas type="Function" name="OnPlay_Failed" activetab="true" startnode="632722533371894276" treenode="632722533371894277" appnode="632722533371894274" handlerfor="632722533371894273">
+    <node type="Start" id="632722533371894276" name="Start" class="MaxStartNode" group="Metreos.StockTools" path="Metreos.StockTools" x="32" y="381">
+      <linkto id="632724347332067677" type="Basic" style="Bezier" ortho="true" />
+    </node>
+    <node type="Action" id="632724347332067677" name="Hangup" class="MaxActionNode" group="" path="Metreos.CallControl" x="108.352859" y="381">
+      <linkto id="632724347332067678" type="Labeled" style="Bezier" ortho="true" label="default" />
+      <Properties final="false" type="provider" log="On">
+        <ap name="CallId" type="variable">g_incomingCallId</ap>
+      </Properties>
+    </node>
+    <node type="Action" id="632724347332067678" name="EndScript" class="MaxActionNode" group="" path="Metreos.ApplicationControl" x="198.352844" y="381">
+      <Properties final="true" type="appControl" log="On">
+      </Properties>
+    </node>
+  </canvas>
+  <!--//// hidden canvases ////-->
+  <Properties type="master" instanceType="multiInstance" desc="">
+  </Properties>
+</Application>

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceManager", "ServiceManager\ServiceManager.csproj", "{6989920B-9CC6-4B07-9B9F-D62A14DD34F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6989920B-9CC6-4B07-9B9F-D62A14DD34F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6989920B-9CC6-4B07-9B9F-D62A14DD34F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6989920B-9CC6-4B07-9B9F-D62A14DD34F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6989920B-9CC6-4B07-9B9F-D62A14DD34F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

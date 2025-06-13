@@ -1,0 +1,54 @@
+Follow these steps in order.
+
+* Apply the update-2.1.2.0572-DEV-Base-Sccp.upd software update
+
+* Go to Service Control and verify that at least the Application Server, Media Server, H323, and appropriate JTAPI services are up and running. Disable RTP relay and PCAP services if so desired.
+
+* From the Main Control Panel, deploy the HMP and TTS licenses. Verify that MMS starts and has proper number of ports available.
+
+* Adjust any other settings such as NTP, logging levels (for debugging the app, you may want ApplicationEnvironment at verbose, TM at Info, and SCCP provider at Info.)
+
+* Go to Telephony Servers and create a CallManager cluster for the target CallManager. Do not forget to set the correct CCM version.
+
+* Add a SCCP subscriber to the above-mentioned cluster.
+
+* Add a SCCP device pool to the cluster. One SCCP device will be required for each line that we want the application to handle.
+
+* Verify that the pool was created by viewing contents of pool - if registration was rejected, manually add a 7960 SCCP device with a fake MAC to the CallManager or re-enable Auto-registration on the CCM
+
+* In CallManager administrator, identify the IP Phone whose line you wish to configure for the application. Write down the device name, including the SEP prefix. Associate the device with the user that the JTAPI provider will use to monitor the IP phone.
+*** NOTE: make sure that the Built-In Conference Bridge on the device is enabled, otherwise the barge action will fail!
+
+* In CallManager administrator, find one of the SCCP devices in the SCCP Pool that you created under the CallManager cluster in mceadmin.
+Configure the line on the device so that it is a shared line with the IP phone.
+
+* In mceadmin, proceed to Providers->JTAPI Provider. Configure the user, server version, and other required parameters. Next, click on the Monitor Devices 'View & Edit Values' button. Specify the device name of the IP phone in one of the fields (including SEP prefix), click Add, click update.
+
+* Verify that there is a MMS configured under the Media Servers section. Scott claims that using '127.0.0.1' for the MMS address may be the 
+root cause of that MSMQ ReadQueueThreadException that we've been seeing, so you may want to specify the actual IP address of the appliance.
+However, as they say: if it ain't broke, don't fix it.
+
+* Deploy the RecordingWithBarge application. Verify that media files were deployed by looking at log or checking MediaServer\Audio directory for rwb_*.wav files.
+
+* Click on the application. Edit the 'Default' partition.
+Set the 'Call Route Group' to 'Default SCCP'
+Change the pass code by click the change password button. Leave the 'Current Password' field empty and specify the new (numeric) passcode.
+The MediaBucketIP/Port settings define where the MMS will send audio from the conference to. Default setting is fine for now, it basically throws the media away to localhost:60000. 
+
+* Configure the triggering criteria for each script. This part is IMPORTANT. 
+For the InboundCall script, specify a 'to' trigger parameter, and set the value to the DN of the line that will be recorded.
+For the OutboundCall script, specify a 'from' trigger parameter, and set the value to the DN of the line that will be recorded
+For the RecWithBargeControl script, do not specify any triggering criteria.
+For the MonitorCall script, specify a 'to' trigger parameter, and set the value to a DID that will be used to access the call monitoring/recording features. You'll need either a gateway+route pattern or some other mechanism that delivers the call to the appserver.
+
+
+
+A bit of instruction for the Monitor script:
+After dialing into the configured DID, you're prompted for the authentication code. This is the 'Pass Code' that you configured for the app.
+Enter the code, followed by #.
+Enter the extension that you wish to monitor. If there is an active call, you should be dropped into the MMS conference and hear the audio of the call.
+Otherwise, you get a message that there is no active call for that extension.
+To enable recording, hit the configured 'RecordKey' (* by default). One beep will be heard to signify that recording was enabled.
+To disable recording, hit the configured 'RecordKey' again. Two beeps will be heard to signify that recording was disabled. The filename of the
+recording will be printed in the appserver log, Info level.
+

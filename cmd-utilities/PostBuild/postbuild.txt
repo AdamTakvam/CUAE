@@ -1,0 +1,66 @@
+** PostBuild Beginning     
+** Installing files in deployment directory 
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Download cache deleted successfully
+X:\cmd-utilities\PackageGenerator\bin\Debug\pgen.exe
+1 File(s) copied
+X:\cmd-utilities\PackageGenerator\bin\Debug\pgen.exe.config
+1 File(s) copied
+X:\cmd-utilities\AppArchiver\bin\Debug\mca.exe
+1 File(s) copied
+X:\cmd-utilities\AppArchiver\bin\Debug\mca.exe.config
+1 File(s) copied
+X:\cmd-utilities\RemoteConsoleViewer\bin\Debug\rconsole.exe
+1 File(s) copied
+X:\cmd-utilities\SftpConsoleClient\bin\Debug\msftp.exe
+1 File(s) copied
+X:\cmd-utilities\WebServicesConsumer\bin\Debug\mws.exe
+1 File(s) copied
+X:\cmd-utilities\AppDeployTool\bin\Debug\mcadeploy.exe
+1 File(s) copied
+X:\cmd-utilities\CypherUtil\bin\Debug\mcypher.exe
+1 File(s) copied
+X:\cmd-utilities\InstallProvider\bin\Debug\instprov.exe
+1 File(s) copied
+X:\cmd-utilities\MibGenerator\bin\Debug\mibgen.exe
+1 File(s) copied
+X:\cmd-utilities\MibGenerator\bin\Debug\mibgen.exe.config
+1 File(s) copied
+X:\cmd-utilities\ProviderPackager\bin\Debug\mcp.exe
+1 File(s) copied
+X:\cmd-utilities\DocGenerator\bin\Debug\docgen.exe
+1 File(s) copied
+X:\cmd-utilities\DebugConsole\bin\Debug\mdbg.exe
+1 File(s) copied
+X:\cmd-utilities\LicenseValidator\bin\Debug\LicenseValidator.exe
+1 File(s) copied
+** Install debug symbols 
+X:\cmd-utilities\PackageGenerator\bin\Debug\pgen.pdb
+1 File(s) copied
+X:\cmd-utilities\AppArchiver\bin\Debug\mca.pdb
+1 File(s) copied
+X:\cmd-utilities\RemoteConsoleViewer\bin\Debug\rconsole.pdb
+1 File(s) copied
+X:\cmd-utilities\SftpConsoleClient\bin\Debug\msftp.pdb
+1 File(s) copied
+X:\cmd-utilities\WebServicesConsumer\bin\Debug\mws.pdb
+1 File(s) copied
+X:\cmd-utilities\AppDeployTool\bin\Debug\mcadeploy.pdb
+1 File(s) copied
+X:\cmd-utilities\CypherUtil\bin\Debug\mcypher.pdb
+1 File(s) copied
+X:\cmd-utilities\InstallProvider\bin\Debug\instprov.pdb
+1 File(s) copied
+X:\cmd-utilities\MibGenerator\bin\Debug\mibgen.pdb
+1 File(s) copied
+X:\cmd-utilities\ProviderPackager\bin\Debug\mcp.pdb
+1 File(s) copied
+X:\cmd-utilities\DocGenerator\bin\Debug\docgen.pdb
+1 File(s) copied
+X:\cmd-utilities\DebugConsole\bin\Debug\mdbg.pdb
+1 File(s) copied
+X:\cmd-utilities\LicenseValidator\bin\Debug\LicenseValidator.pdb
+1 File(s) copied
+** PostBuild Complete                         

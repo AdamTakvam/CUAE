@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="DN" displayName="Dialed Number" defaultValue="21001" description="Number to dial" format="String" />
+  </configuration>
+</install>

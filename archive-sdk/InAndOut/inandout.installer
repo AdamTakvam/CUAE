@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="rip" displayName="Discard Leading Digits" format="Number" description="How many leading digits to remove from the to number when dialing back out" defaultValue="0" required="true" />
+    <configValue name="to" displayName="DN to place a call to" format="String" description="DN to place a call to (ie. NONE)" defaultValue="NONE" required="true" />
+    <configValue name="useConfigDN" displayName="Use Config DN" format="Bool" description="Use the config 'to' DN, true or false (default=false)" defaultValue="FALSE" required="true" />
+  </configuration>
+</install>

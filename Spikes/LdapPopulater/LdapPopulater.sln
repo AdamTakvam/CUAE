@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LdapPopulater", "LdapPopulater.csproj", "{E447217F-5FAC-4E02-A07F-7DCB5996059B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E447217F-5FAC-4E02-A07F-7DCB5996059B}.Debug.ActiveCfg = Debug|.NET
+		{E447217F-5FAC-4E02-A07F-7DCB5996059B}.Debug.Build.0 = Debug|.NET
+		{E447217F-5FAC-4E02-A07F-7DCB5996059B}.Release.ActiveCfg = Release|.NET
+		{E447217F-5FAC-4E02-A07F-7DCB5996059B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+SERVER duffman 00111188888a
+VENDOR cisco
+FEATURE Mode cisco 1.0 permanent 1 \
+	NOTICE="<LicFileID>LicenseMode.lic</LicFileID><LicLineID>0</LicLineID> \
+	<PAK>dummyPak</PAK>" SIGN=E0F9BA5AC9EE

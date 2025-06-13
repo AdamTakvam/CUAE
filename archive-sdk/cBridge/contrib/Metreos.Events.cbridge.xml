@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Events.cBridge" description="Events used by the cBridge application" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <eventList>
+    <event name="HandleCall" type="triggering" displayName="HandleCall" description="Triggers a script that will handle the conference.">
+      <eventParam type="System.String" guaranteed="true">lineId</eventParam>
+      <eventParam type="System.Int64" guaranteed="false">timestamp</eventParam>
+      <eventParam type="System.String" guaranteed="true">callType</eventParam>
+      <eventParam type="System.String" guaranteed="false">callIdMaster</eventParam>
+      <eventParam type="System.String" guaranteed="true">callIdSlave</eventParam>
+      <eventParam type="System.Int32" guaranteed="false">connectionIdMaster</eventParam>
+      <eventParam type="System.Int32" guaranteed="true">connectionIdSlave</eventParam>
+      <eventParam type="System.String" guaranteed="false">fromNumberMaster</eventParam>
+      <eventParam type="System.String" guaranteed="true">fromNumberSlave</eventParam>
+      <eventParam type="System.String" guaranteed="true">requestingGuid</eventParam>
+    </event>
+    <event name="HandleCallResponse" type="nontriggering" displayName="HandleCallResponse" description="Sent from a CallControl script to notify sender of HandleCall of routingGuid">
+	  <eventParam type="System.String" guaranteed="true">respondingGuid</eventParam>
+    </event>
+  </eventList>
+</package>

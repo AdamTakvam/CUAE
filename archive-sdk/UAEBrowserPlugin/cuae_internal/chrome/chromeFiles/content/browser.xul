@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+
+<!-- Localization Information -->
+<!DOCTYPE overlay SYSTEM "chrome://cuae_internal/locale/cuae_internal.dtd">
+
+
+<overlay id="cuae_internal_browser_overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<!-- Include the javascript code -->
+	<script type="application/x-javascript" src="chrome://cuae_internal/content/browser.js" />
+	<script type="application/x-javascript" src="chrome://browser/content/utilityOverlay.js" />
+
+	<!-- Add listener for page load -->
+	<script type="application/x-javascript"><![CDATA[
+
+		window.addEventListener("load", cuae_internal_init, false);
+		
+	]]></script>
+
+
+	<!-- Add the CUAE Internal icon to the bottom right of screen -->
+	<statusbar id="status-bar">
+		<statusbarpanel class="statusbarpanel-iconic" id="cuae_internal_sbi"
+				tooltiptext="&statusbar.tooltip.default;"
+				onclick="openPreferences('cuae_internalPane');"
+						src="chrome://cuae_internal/content/images/cuae_internal18.png" />
+	</statusbar>
+
+
+	<!-- Create an CUAE Internal menu item -->
+	<menupopup id="menu_ToolsPopup">
+		<menuitem label="&menuitem.label;"
+			insertafter="devToolsSeparator" 
+				oncommand="openPreferences('cuae_internalPane');" />
+	</menupopup>
+
+</overlay>

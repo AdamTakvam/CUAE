@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetTest", "NetTest.csproj", "{408FE860-E51B-4F62-8902-117F77A41071}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{408FE860-E51B-4F62-8902-117F77A41071}.Debug.ActiveCfg = Debug|.NET
+		{408FE860-E51B-4F62-8902-117F77A41071}.Debug.Build.0 = Debug|.NET
+		{408FE860-E51B-4F62-8902-117F77A41071}.Release.ActiveCfg = Release|.NET
+		{408FE860-E51B-4F62-8902-117F77A41071}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

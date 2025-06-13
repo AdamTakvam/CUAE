@@ -1,0 +1,38 @@
+----------------------------------------------------------
+= Release Notes for Release 2.4.0.@BuildNumber@ (GA)
+----------------------------------------------------------
+
+<Release Description> 
+
+
+Management Improvements:
+ 
+ * Item 1
+ 
+ * Item 2
+
+
+Developer Improvements:
+
+ * Item 1
+ 
+ * Item 2
+
+
+Bug Fixes:
+ 
+ * Item 1
+ 
+ * Item 2
+ 
+
+Known Issues and Caveats:
+
+ * Item 1
+ 
+ * Item 2
+
+
+Installation Caveats:
+
+ * Currently you have to re-add Media Engines after upgrading to cause the Media Manager to redeploy the media files with the new file path convention.

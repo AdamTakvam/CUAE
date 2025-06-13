@@ -1,0 +1,48 @@
+
+
+Computer Prep:
+-----------------------
+1)  Download by clicking on the link and scrolling down to bottom of page and selecting the first download (msxml6.msi) http://www.microsoft.com/downloads/details.aspx?familyid=993c0bcf-3bcf-4009-be21-27e85e1857b1&displaylang=en 
+ 
+2)  Run the msxml6.msi
+ 
+ 
+Installation of SF Demo
+----------------------------------
+
+-1) Build CUAEAdapter Project
+
+0)  Build CUAEAdapterInstaller Project
+ 
+1)  Run the installer provided in the zip file by first downloading the attachment, and extracting all the contents to your desktop, and then running CUAEAdapterInstaller.msi.  Accept all defaults.  Install for 'Everyone'.
+ 
+ 
+2)  Open cmd window under Start > Run:
+ 
+ 
+3)  At cmd prompt, copy/paste the following:          
+ 
+regsvr32.exe "C:\Program Files\Cisco Systems, Inc\CUAEAdapterInstaller\CUAEAdapter.dll"
+ 
+A 'successful' dialog should pop up after 2-3 seconds.
+ 
+ 
+4)  At cmd prompt, copy/paste the following:
+ 
+regsvr32.exe "C:\Program Files\Cisco Systems, Inc\CUAEAdapterInstaller\SF_MSApi4.dll"
+ 
+A 'successful' dialog should pop up after 2-3 seconds.
+ 
+ 
+5)  Navigate Windows Explorer to c:\program files\Cisco Systems, Inc\CUAEAdapterInstaller\, and run the SalesforceCTI.exe file.
+ 
+ 
+6)  Open IE.  (you can actually do Step 5 and 6 in either order)
+ 
+
+7)  Go to http://aspen.salesforce.com:7921/   ( user/pass: call@cisco.com/cisco123 )
+ 
+ 
+8)  The progress bar in the top-left should show for a while ( a looong while), but it should eventually say 'Line 1 Open'.   
+ 
+

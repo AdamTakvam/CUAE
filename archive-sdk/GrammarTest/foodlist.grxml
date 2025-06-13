@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<grammar xml:lang="en-us" version="1.0" xmlns="http://www.w3.org/2001/06/grammar" 
+   root="FOODLIST">
+
+<meta name="maxspeechtimeout" content="4000"/>
+<meta name="incompletetimeout" content="2000"/>
+
+  <rule id="FOODLIST" scope="public">
+    <one-of>
+		<item> <ruleref uri='#utterance' /> Candy <ruleref uri='#kindness' /><tag>SWI_meaning='candy';</tag></item>
+		<item> <ruleref uri='#utterance' /> Hamburgers <ruleref uri='#kindness' /><tag>SWI_meaning='hamburgers';</tag></item>
+		<item> <ruleref uri='#utterance' /> Lollipops <ruleref uri='#kindness' /><tag>SWI_meaning='lollipops';</tag></item>
+		<item> <ruleref uri='#utterance' /> Steak <ruleref uri='#kindness' /><tag>SWI_meaning='steak';</tag></item>
+		<item> <ruleref uri='#utterance' /> Tikka Masala <ruleref uri='#kindness' /><tag>SWI_meaning='tikka masala';</tag></item>
+		<item> <ruleref uri='#utterance' /> Sushi <ruleref uri='#kindness' /><tag>SWI_meaning='sushi';</tag></item>
+    </one-of> 
+  </rule>
+  
+  <rule id="utterance">
+	<one-of>
+		<item repeat="0-3">uh</item>
+		<item repeat="0-3">um</item>
+		<item repeat="0-3">hum</item>
+		<item repeat="0-3">eh</item>
+	</one-of>
+  </rule>
+  
+  <rule id="kindness">
+	<item repeat="0-1">please</item>
+  </rule>
+</grammar>

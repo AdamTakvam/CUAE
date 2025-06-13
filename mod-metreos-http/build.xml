@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="mod-metreos-http" default="Debug" basedir=".">
+
+	<description>Build script for mod-metreos-http module</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/System/Apache" />
+
+    <target name="do-init">
+        <mkdir dir="${deploymentDirectory}" />
+        <mkdir dir="${deploymentDirectory}/../conf" />
+	</target>
+    
+    <target name="do-clean">
+        <metreosVsNetTask solution="mod_metreos_http" />
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/mod-metreos-http/projects" includes="**/Debug/** **/Release/**" />
+            <fileset dir="${Metreos.build.srcRoot}/mod-metreos-http" includes="**/bin/** **/obj/**" />
+
+        </delete>   
+        <delete dir="lib" />
+    </target>    
+        
+	<target name="do-build" >
+        <metreosVsNetTask solution="mod_metreos_http" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+        <copy todir="${deploymentDirectory}/conf">
+            <fileset dir="apache-1.3/conf" includes="metreos_http.conf" />
+        </copy>
+	
+    </target>
+
+</project>

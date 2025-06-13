@@ -1,0 +1,1 @@
+This is the old version of the Log Server-- check out x:\samoa\spikes\LogServer

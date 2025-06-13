@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Providers.CallControl.Sip", "Providers.CallControl.Sip.csproj", "{6AC2ED29-BB39-4425-AE5B-46A9AACE487B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{6AC2ED29-BB39-4425-AE5B-46A9AACE487B}.Debug.ActiveCfg = Debug|.NET
+		{6AC2ED29-BB39-4425-AE5B-46A9AACE487B}.Debug.Build.0 = Debug|.NET
+		{6AC2ED29-BB39-4425-AE5B-46A9AACE487B}.Release.ActiveCfg = Release|.NET
+		{6AC2ED29-BB39-4425-AE5B-46A9AACE487B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

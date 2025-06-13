@@ -1,0 +1,15 @@
+** PostBuild Beginning     
+** Installing files in deployment directory   
+0 File(s) copied
+X:\designer\MaxDesigner\bin\Debug\MaxDesigner.exe.config
+1 File(s) copied
+0 File(s) copied
+0 File(s) copied
+0 File(s) copied
+X:\designer\MaxPropertiesManager\bin\Debug\PropertyGrid.Core.dll
+1 File(s) copied
+0 File(s) copied
+X:\designer\MaxPropertiesManager\bin\Debug\PropertyGrid.Core.pdb
+1 File(s) copied
+** Installing debug symbols                   
+** PostBuild Complete                         

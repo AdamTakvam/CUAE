@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerProcess", "ServerProcess\ServerProcess.csproj", "{F04260A6-D756-4151-8A29-21DBC27960DD}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingCore", "LoggingCore\LoggingCore.csproj", "{6505C26F-7640-40EB-82B0-033ABEE02B5A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLogClient", "TestLogClient\TestLogClient.csproj", "{1BE5A9DF-FC7B-4382-AC14-8FD8F0F4D6A1}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{F04260A6-D756-4151-8A29-21DBC27960DD}.Debug.ActiveCfg = Debug|.NET
+		{F04260A6-D756-4151-8A29-21DBC27960DD}.Debug.Build.0 = Debug|.NET
+		{F04260A6-D756-4151-8A29-21DBC27960DD}.Release.ActiveCfg = Release|.NET
+		{F04260A6-D756-4151-8A29-21DBC27960DD}.Release.Build.0 = Release|.NET
+		{6505C26F-7640-40EB-82B0-033ABEE02B5A}.Debug.ActiveCfg = Debug|.NET
+		{6505C26F-7640-40EB-82B0-033ABEE02B5A}.Debug.Build.0 = Debug|.NET
+		{6505C26F-7640-40EB-82B0-033ABEE02B5A}.Release.ActiveCfg = Release|.NET
+		{6505C26F-7640-40EB-82B0-033ABEE02B5A}.Release.Build.0 = Release|.NET
+		{1BE5A9DF-FC7B-4382-AC14-8FD8F0F4D6A1}.Debug.ActiveCfg = Debug|.NET
+		{1BE5A9DF-FC7B-4382-AC14-8FD8F0F4D6A1}.Debug.Build.0 = Debug|.NET
+		{1BE5A9DF-FC7B-4382-AC14-8FD8F0F4D6A1}.Release.ActiveCfg = Release|.NET
+		{1BE5A9DF-FC7B-4382-AC14-8FD8F0F4D6A1}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

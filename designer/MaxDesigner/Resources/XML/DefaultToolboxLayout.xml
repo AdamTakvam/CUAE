@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolbox xmlns="C:\Documents and Settings\james\Desktop\toolbox.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="file:toolbox.xsd">>
+	<sidetab name="Cisco IP Phone">
+		<toolgroup name="Cisco IP Phone" type="native" package="Metreos.Native.CiscoIpPhone" all="true" />
+		<toolgroup name="Cisco Device List" type="native" package="Metreos.Native.CiscoDeviceList" all="true" />
+	</sidetab>
+	<sidetab name="Call Control">
+		<toolgroup name="Metreos Call Control" type="native" package="Metreos.CallControl" all="true" />
+	</sidetab>
+	<sidetab name="Media Control">
+		<toolgroup name="Metreos Media Control" type="native" package="Metreos.MediaControl" all="true" />
+	</sidetab>
+	<sidetab name="HTTP">
+		<toolgroup name="Metreos HTTP Provider" type="native" package="Metreos.Providers.Http" all="true" />
+	</sidetab>
+	<sidetab name="Cisco DeviceListX">
+		<toolgroup name="Metreos DVLX Provider" type="native" package="Metreos.Providers.CiscoDeviceListX" all="true" />
+		<toolgroup name="DVLX Native Actions" type="native" package="Metreos.Native.CiscoDeviceList" all="true" />
+	</sidetab>
+	<sidetab name="Tests">
+		<toolgroup name="Metreos Test Provider" type="provider" package="Metreos.Providers.FunctionalTest" all="true" />
+	</sidetab>
+    	<sidetab name="Mail">
+		<toolgroup name="Metreos Mail" type="native" package="Metreos.Native.Mail" all="true" />
+	</sidetab>
+	<sidetab name="DialPlan">
+		<toolgroup name="Metreos DialPlan" type="native" package="Metreos.Native.DialPlan" all="true" />
+	</sidetab>
+	<sidetab name="Database">
+		<toolgroup name="Metreos Database" type="native" package="Metreos.Native.Database" all="true" />
+	</sidetab>
+	<sidetab name="Directory Access">
+		<toolgroup name="Metreos Directory Access" type="native" package="Metreos.Native.DirectoryAccess" all="true" />
+	</sidetab>
+	<sidetab name="Voice Tunnel">
+	    <toolgroup name="Metreos Voice Tunnel" type="native" package="Metreos.Native.VoiceTunnel" all="true" />
+	</sidetab>
+	<sidetab name="Application Components">
+		<toolgroup name="Internal Tools">
+			<tool type="MaxVariableTool" />
+			<tool type="MaxCodeTool" />
+			<tool type="MaxCommentTool" />
+			<tool type="MaxLoopTool" />
+			<tool type="MaxLabelTool" />
+		</toolgroup>
+		<toolgroup name="Application Control" type="native" package="Metreos.ApplicationControl" all="true" />
+		<toolgroup name="Native Control" type="native" package="Metreos.Native.ApplicationControl" all="true" />
+		<toolgroup name="Conditionals" type="native" package="Metreos.Native.Conditional" all="true" />
+		<toolgroup name="Metreos Timer Facility" type="native" package="Metreos.Providers.TimerFacility" all="true" />
+		<toolgroup name="Native Logging" type="native" package="Metreos.Native.Log" all="true" />
+	</sidetab>
+</toolbox> 

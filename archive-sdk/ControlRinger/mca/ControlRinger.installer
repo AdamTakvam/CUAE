@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ccmUser" displayName="CallManager Administrator" format="String" description="CallManager AXL Username" defaultValue="Administrator" required="true" />
+    <configValue name="ccmPass" displayName="CallManager Password" format="Password" description="CallManager AXL Password" defaultValue="cisco" required="true" />
+    <configValue name="ccmIP" displayName="CallManager Host/IP Address" format="String" description="CallManager Host/IP Address" defaultValue="" required="true" />
+  </configuration>
+</install>

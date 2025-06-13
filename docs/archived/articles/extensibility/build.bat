@@ -1,0 +1,1 @@
+X:\Tools\build-scripts\docbook.bat Extensibility.xml Extensibility DevArticle

@@ -1,0 +1,1 @@
+.\bin\debug\Test.exe -t:Display -du:SEP00152BB4B716:user1:Seth:Call:2589111 -du:SEP001109F0EB27:user2:Dragon:Master:2589112 -poll:0  -url:http://10.1.14.128:8000/Display/10.1.14.29 

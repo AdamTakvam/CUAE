@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="PhoneUser" displayName="Phone Username" format="String" description="The username associated with the phone" defaultValue="metreos" required="true" />
+    <configValue name="PhonePass" displayName="Phone Password" format="String" description="The password associated with the phone" defaultValue="metreos" required="true" />
+  </configuration>
+</install>

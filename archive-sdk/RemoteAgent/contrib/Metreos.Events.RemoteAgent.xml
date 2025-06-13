@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Events.RemoteAgent" description="Events used by the RemoteAgent application" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <eventList>
+    <event name="RequestConference" type="nontriggering" displayName="RequestConference" description="Sent by a RemoteAgent Coach/Record script to the script that is handling the actual call. Requests Conference Info.">
+      <eventParam type="System.String" guaranteed="true">SenderRoutingGuid</eventParam>
+      <eventParam type="System.String" guaranteed="true">TimerId</eventParam>      
+    </event>
+    <event name="RequestConferenceResponse" type="nontriggering" displayName="RequestConferenceResponse" description="Sent by a RemoteAgent call script to a Coach/Record script, providing it with requested information.">
+      <eventParam type="System.Boolean" guaranteed="true">Success</eventParam>
+      <eventParam type="System.String" guaranteed="true">ResponseMessage</eventParam>
+      <eventParam type="System.String" guaranteed="false">ConferenceId</eventParam>
+      <eventParam type="System.String" guaranteed="true">TimerId</eventParam>
+    </event>
+    <event name="RecordingEvent" type="nontriggering" displayName="RecordingEvent" description="Sent by a RemoteAgent Coach/Record to call script to a Coach/Record script, instructing it to 'start' or 'stop' recording the call.">
+      <eventParam type="System.String" guaranteed="true">SenderRoutingGuid</eventParam>
+      <eventParam type="System.String" guaranteed="true">ActionType</eventParam>      
+      <eventParam type="System.String" guaranteed="true">TimerId</eventParam>
+    </event>    
+    <event name="RecordingEventResponse" type="nontriggering" displayName="RecordingEventResponse" description="Sent by a RemoteAgent call script to a Coach/Record script to a Coach/Record script in response to a RecordEvent, along with a success response.">
+      <eventParam type="System.Boolean" guaranteed="true">Success</eventParam>
+      <eventParam type="System.String" guaranteed="true">ResponseMessage</eventParam>
+      <eventParam type="System.String" guaranteed="false">ConferenceId</eventParam>
+      <eventParam type="System.String" guaranteed="true">TimerId</eventParam>      
+    </event>        
+  </eventList>
+</package>

@@ -1,0 +1,3 @@
+[autorun]
+ShellExecute=msiexec.exe /i "@RUNME@"
+icon=icon.ico

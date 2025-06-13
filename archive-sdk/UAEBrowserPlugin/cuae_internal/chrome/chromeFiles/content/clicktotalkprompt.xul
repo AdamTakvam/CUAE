@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE window>
+<window id="confirmation" xmlns:html="http://www.w3.org/1999/xhtml"
+		title="UAE Dialer"
+		orient="vertical"
+		width="250"
+		height="125"
+		onload="load();"
+		onunload="unload();"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<script type="text/javascript">
+<![CDATA[
+
+
+var username;
+var password;
+var phoneIP;
+var appServerIP;
+var number;
+var req;
+var state = "dialing";
+
+function load()
+{
+	username = window.arguments[0];
+	password = window.arguments[1];
+	phoneIP = window.arguments[2];
+	appServerIP = window.arguments[3];
+	number = window.arguments[4];
+	
+	numberField = document.getElementById("numberField");
+	numberField.setAttribute("value", number);
+	
+	var button = document.getElementById("cancelButton");
+	button.addEventListener("click", buttonpush, false);
+	
+	setTimeout("decrement(5)", 750);
+}
+
+function unload()
+{
+	state = "abort";
+}
+
+function statechange()
+{
+	if(req.readyState == 4)
+	{
+		var response = req.responseText;
+		var status = req.status;
+		
+		var button = document.getElementById("cancelButton");
+		button.setAttribute("label", "Call Made");
+		button.setAttribute("disabled", "true");
+		
+		setTimeout("StageHangup()", 1000);
+	}
+}
+
+function StageHangup()
+{
+		state = "hangup";
+		
+		var button = document.getElementById("cancelButton");
+		button.setAttribute("label", "Hangup");
+		button.setAttribute("disabled", "false");
+}
+
+function decrement(startValue)
+{
+    if(state == "dialing")
+    {
+		if(startValue == 0)
+		{
+			var button = document.getElementById("cancelButton");
+			button.setAttribute("disabled", "true");
+			button.setAttribute("label", "Requesting...");
+			
+			makeRequest();
+		}
+		else
+		{
+			var button = document.getElementById("cancelButton");
+			button.setAttribute("label", "Cancel (" + --startValue + ")");
+			setTimeout("decrement(" + startValue + ")", 650);
+		}
+	}
+}
+
+function makeRequest()
+{
+	var numberField = document.getElementById("numberField");
+	var number = numberField.value;
+
+	// Time to send off the request!
+	var link = "http://" + appServerIP + ":8000/CiscoDirectoryPlugin/DirectDial?username=" + username + "&password=" + password + "&phoneIP=" + phoneIP + "&number=" + number;
+	
+	req = new XMLHttpRequest();
+	req.onreadystatechange=statechange;
+	req.open("GET", link, true);
+	req.send(null);
+}
+
+function makeHangupRequest()
+{
+	var link = "http://" + appServerIP + ":8000/CiscoDirectoryPlugin/Hangup?username=" + username + "&password=" + password + "&phoneIP=" + phoneIP;
+			
+	req = new XMLHttpRequest();
+	req.onreadystatechange=statechange;
+	req.open("GET", link, true);
+	req.send(null);
+}
+
+function buttonpush()
+{
+	if(state == "dialing")
+	{	    
+		var button = document.getElementById("cancelButton");
+		button.setAttribute("disabled", "true");
+		button.setAttribute("label", "Dial (2)");
+	    
+		state = "direct";
+		
+		setTimeout("updateDirectDial(" + 2 + ")", 650);
+    }
+    else if(state == "direct")
+    {
+		makeRequest();
+    }
+    else if(state == "hangup")
+    {
+		makeHangupRequest();
+		
+		var button = document.getElementById("cancelButton");
+		button.setAttribute("disabled", "true");
+		button.setAttribute("label", "Hangup (1)");
+		
+		setTimeout("StageHangup()", 1000);
+	}
+}
+
+function updateDirectDial(startValue)
+{
+	if(startValue == 0)
+	{
+		state = "direct";
+		
+		var button = document.getElementById("cancelButton");
+		button.setAttribute("disabled", "false");
+		button.setAttribute("label", "Dial");
+	}
+	else
+	{
+		var button = document.getElementById("cancelButton");
+		button.setAttribute("label", "Dial (" + --startValue + ")");
+		setTimeout("updateDirectDial(" + startValue + ")", 650);
+	}
+}
+
+]]>
+</script>
+<groupbox id="details">
+	<caption label="Click To Dial" accesskey="C" />
+	<hbox align="center">
+		<label value="Number" control="numberField" />
+		<textbox class="padded" flex="1" id="numberField" />
+	</hbox>
+</groupbox>
+
+<button label="Cancel" id="cancelButton" />
+</window>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="application-packages" default="Help" basedir=".">
+  <description>Build script for Application Packages</description>
+
+  <import file="../autobuild/build.includes.xml" />
+  <property name="buildDirectory"      value="bin" />
+  <property name="workDirectory"       value="work" />
+  <property name="srcDirectory"        value="${Metreos.build.buildDirectory}" />
+  <property name="deploymentDirectory" value="${Metreos.build.buildDirectory}/Installers" />
+  
+  <!-- Standard Targets -->
+  <target name="do-init" >
+     <mkdir dir="${buildDirectory}" />
+     <mkdir dir="${workDirectory}" />
+  </target>
+  
+  <target name="do-clean" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${workDirectory}" />
+  </target>
+
+  <target name="do-postbuild">
+     <mkdir dir="${deploymentDirectory}" />
+     <copy todir="${deploymentDirectory}">
+        <fileset dir="${buildDirectory}" />
+     </copy>
+     <copy todir="${deploymentDirectory}" >
+        <fileset dir="${srcDirectory}/AppSuite/ClickToTalk" includes="C2T*.msi" />
+     </copy>
+  </target>
+
+  <target name="do-build" >
+    <!-- Appsuite -->
+    <mkdir dir="${workDirectory}/appsuite" />
+    <mkdir dir="${workDirectory}/appsuite/data" />
+    <!--
+    <copy todir="${workDirectory}/appsuite/data/appsuiteadmin">
+        <fileset dir="${srcDirectory}/appsuiteadmin" />
+    </copy>
+    -->
+    <mkdir dir="${workDirectory}/appsuite/data" />
+    <copy todir="${workDirectory}/appsuite/data" flatten="true">
+        <fileset dir="${srcDirectory}/AppSuite" >
+            <include name="ActiveRelay/*.mca" />
+            <include name="cBridge/*.mca" />
+            <!-- <include name="DoNotCall/*.mca" /> -->
+            <include name="ClickToTalk/*.mca" /> 
+            <include name="IntercomAndTalkback/*.mca" />
+            <include name="RapidRecord/*.mca" />
+            <include name="RemoteAgent/*.mca" />
+            <include name="ScheduledConference/*.mca" />
+            <include name="VoiceTunnel/*.mca" />
+        </fileset>
+    </copy>
+    
+    <!-- fresh install package -->
+    <zipdirectory 
+        zipfile="X:/application-packages/${buildDirectory}/appsuite-${Metreos.build.identifier}.zip" 
+        working-directory="${workDirectory}/appsuite/data" />
+    
+    <!-- updater package -->
+    <!-- TODO -->
+
+    <!-- Applications -->
+    <mkdir dir="${buildDirectory}/applications" />
+    <copy todir="${buildDirectory}/applications" flatten='true'>
+        <fileset dir="${srcDirectory}/AppSuite" includes="**/*.mca" />
+    </copy>
+    
+  </target>
+     
+</project>

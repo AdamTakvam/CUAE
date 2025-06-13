@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="MCE Application Suite" default="debug" basedir=".">
+
+	<description>Build Script for Application Suite</description>
+    <import file="build.common.xml"/>
+
+    <target name="Debug"          depends="debug" />
+    <target name="Release"        depends="release" />
+    <target name="Clean"          depends="clean" />
+    <target name="debug"          depends="init-debug,all"   />
+    <target name="release"        depends="init-release,all" />
+    <target name="clean"          depends="init-clean,all" />
+    <target name="debug-rebuild"  depends="clean,debug" />
+    <target name="all"            depends="component-application-suite" />
+
+    <target name="validate-dependencies" >
+        <!-- TODO -->
+        <mkdir dir="${Metreos.build.logDirectory}" />
+    </target>
+    
+    <target name="init-debug" depends="validate-dependencies" >
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Debug" />
+    </target>
+    
+    <target name="init-release" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Release" />
+    </target>
+   
+    <target name="init-clean" depends="validate-dependencies">
+        <!-- TODO -->
+        <property name="Metreos.build.target" value="Clean" />
+    </target>
+
+    <!-- Subtargets -->
+
+    <target name="component-appsuiteadmin" >
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="appsuiteadmin" />
+    </target>    
+    
+    <target name="component-application-core">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/database" loglabel="appsuite-core" />
+    </target>
+
+    <target name="component-applications">
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/ActiveRelay"         loglabel="ActiveRelay" />
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/cBarge"              loglabel="cBarge" /> -->
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/cBargeSccp"          loglabel="cBargeSccp" />  -->
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/cBridge"             loglabel="cBridge" /> -->
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/click-to-talk"       loglabel="click-to-talk" /> 
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/CallMonitor"       loglabel="CallMonitor" /> 
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/DoNotCall"           loglabel="DoNotCall" /> 
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/HudConcept"          loglabel="HudConcept" />
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/IntercomAndTalkback" loglabel="IntercomAndTalkback" />
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/metreos-voicemail" loglabel="metreos-voicemail" /> -->
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/RapidRecord"         loglabel="RapidRecord" />
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/RemoteAgent"         loglabel="RemoteAgent" /> 
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/RemoteAgentConcept"  loglabel="RemoteAgentConcept" /> -->
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/SccpProxy"           loglabel="SccpProxy" />
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/ScheduledConference" loglabel="ScheduledConference" />
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/UpcLookup"           loglabel="UpcLookup" />
+        <!-- <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/VoiceMail"           loglabel="VoiceMail" /> -->
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/VoiceTunnel"         loglabel="VoiceTunnel" />
+        <metreosAntTask root="${Metreos.build.srcRoot}" dir="application-suite/RecordAgent"        loglabel="RecordAgent" /> 
+    </target>
+
+    <target name="component-application-suite" depends="component-application-core,component-applications,component-appsuiteadmin">
+        <mkdir dir="${Metreos.build.buildDirectory}/Applications" />
+        <copy todir="${Metreos.build.buildDirectory}/Applications" flatten="true">
+            <fileset dir="${Metreos.build.buildDirectory}/AppSuite" >
+                <include name="**/*.mca" />
+            </fileset>
+        </copy>
+    </target>
+    
+</project>

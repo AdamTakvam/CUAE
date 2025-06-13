@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoteConsole", "RemoteConsole.csproj", "{4C6B95AD-90A0-4C95-898F-B6AC412A2DB2}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4C6B95AD-90A0-4C95-898F-B6AC412A2DB2}.Debug.ActiveCfg = Debug|.NET
+		{4C6B95AD-90A0-4C95-898F-B6AC412A2DB2}.Debug.Build.0 = Debug|.NET
+		{4C6B95AD-90A0-4C95-898F-B6AC412A2DB2}.Release.ActiveCfg = Release|.NET
+		{4C6B95AD-90A0-4C95-898F-B6AC412A2DB2}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+     <configValue name="FromEmailAddress" description="E-mails sent by this application will use this address for the 'From:' field." format="string" readOnly="false" required="true" defaultValue="voicemail@appsuite"></configValue>
+     <configValue name="MailServerHost" description="Hostname or IP address of mail server" format="string" readOnly="false" required="true" defaultValue="mail"></configValue>
+     <configValue name="MailServerUsername" description="Username to use with the mail server" format="string" readOnly="false" required="true" defaultValue="metreos"></configValue>
+     <configValue name="MailServerPassword" description="Password to use with the mail server" format="string" readOnly="false" required="true" defaultValue="metreos"></configValue>
+     <configValue name="MediaPath" description="Path to MMS media storage directory (include trailing back-slash)" format="string" readOnly="false" required="true" defaultValue="C:\Metreos\MediaServer\Audio\"></configValue>
+     <configValue name="TranslationPattern" description="VoiceMail translation pattern" format="string" readOnly="false" required="true" defaultValue="regex:55555.+"></configValue>
+     <configValue name="DbName" description="Name of the application suite database" format="string" readOnly="false" required="true" defaultValue="application_suite"></configValue>
+	 <configValue name="DbConnectionName" description="Name of the application suite database connection" format="string" readOnly="false" required="true" defaultValue="ApplicationSuite"></configValue>
+	 <configValue name="Server" description="Address of the server" format="string" readOnly="false" required="true" defaultValue="localhost"></configValue>
+	 <configValue name="Port" description="Port of the database server" format="string" readOnly="false" required="true" defaultValue="3306"></configValue>
+	 <configValue name="Username" description="The username to connect to database" format="string" readOnly="false" required="true" defaultValue="root"></configValue>
+	 <configValue name="Password" description="Password" format="password" readOnly="false" required="true" defaultValue="metreos"></configValue>
+	 <configValue name="CallManagerIP" description="The IP address of CallManager" format="string" readOnly="false" required="true" defaultValue="10.1.10.10"></configValue>
+	 <configValue name="CCM_Device_Username" description="CallManager User associated with all phone devices which will use this application" format="string" readOnly="false" required="true" defaultValue="metreos"></configValue>
+	 <configValue name="CCM_Device_Password" description="Password of CallManager user" format="password" readOnly="false" required="true" defaultValue="metreos"></configValue>
+  </configuration>
+</install>

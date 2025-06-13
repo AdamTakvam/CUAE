@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package name="Metreos.ApplicationControl" 
+         description="Application environment directives" 
+         xmlns="http://metreos.com/ActionEventPackage.xsd"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <actionList>
+        <action name="Assign" type="native" allowCustomParams="false" final="false" description="Assigns a value to a variable" displayName="Assign">
+            <actionParam name="Value" displayName="Value" type="object" use="required" description="The variable with the value to use for assignment" />
+            <actionParam name="Value2" displayName="Value2" type="object" use="optional" description="The variable with the value to use for assignment" />
+            <actionParam name="Value3" displayName="Value3" type="object" use="optional" description="The variable with the value to use for assignment" />
+            <actionParam name="Value4" displayName="Value4" type="object" use="optional" description="The variable with the value to use for assignment" />
+
+            <resultData displayName="ResultData" type="object" description="The assigned variable">ResultData</resultData>
+            <resultData displayName="ResultData2" type="object" description="The assigned variable">ResultData2</resultData>
+            <resultData displayName="ResultData3" type="object" description="The assigned variable">ResultData3</resultData>
+            <resultData displayName="ResultData4" type="object" description="The assigned variable">ResultData4</resultData>
+            <returnValue description="success">
+                <EnumItem>success</EnumItem>
+            </returnValue>
+        </action>
+        <action name="Sleep" type="appControl" allowCustomParams="false" final="false" description="Puts the script to sleep for specified number of milliseconds" displayName="Sleep">
+            <actionParam name="SleepTime" displayName="SleepTime" type="System.Int32" use="required" description="The number of milliseconds to sleep for" />
+            <returnValue description="success">
+                <EnumItem>success</EnumItem>
+                <EnumItem>failure</EnumItem>
+            </returnValue>
+        </action>
+        <action name="ChangeLocale" type="appControl" allowCustomParams="false" final="false" description="Changes the locale of this script instance.">
+            <actionParam name="Locale" displayName="Locale" type="System.String" use="required" description="The region-specific RFC-1766 locale you wish to change to. You must have strings and/or media files defined for the new locale." />
+            <actionParam name="ResetStrings" displayName="Reset Strings" type="System.Boolean" use="optional" description="Re-initializes global variables from the locale table for the new locale."/>
+        </action>
+        <action name="ConstructionComplete" type="appControl" allowCustomParams="false" final="false" description="Enables all other scripts to start handling events.">
+            <actionParam name="Success" displayName="Success" type="System.Boolean" use="optional" />
+        </action>
+        <action name="EndScript" type="appControl" allowCustomParams="false" final="true" />
+        <action name="EndFunction" type="appControl" allowCustomParams="true" final="true">
+            <actionParam name="ReturnValue" displayName="ReturnValue" type="System.String" use="optional" />
+            <returnValue description="success">
+                <EnumItem>success</EnumItem>
+                <EnumItem>failure</EnumItem>
+            </returnValue>
+        </action>
+        <action name="CallFunction" type="appControl" allowCustomParams="true" final="false">
+            <actionParam name="FunctionName" displayName="FunctionName" type="System.String" use="required" />
+            <returnValue description="success">
+                <EnumItem>success</EnumItem>
+                <EnumItem>failure</EnumItem>
+            </returnValue>
+        </action>
+        <action name="Forward" type="appControl" allowCustomParams="false" final="true">
+            <actionParam name="ToGuid" displayName="ToGuid" type="System.String" use="required" />
+        </action>
+        <action name="SendEvent" type="appControl" allowCustomParams="true" final="false">
+            <actionParam name="EventName" displayName="EventName" type="System.String" use="required" />
+            <actionParam name="ToGuid" displayName="ToGuid" type="System.String" use="optional" />
+            <resultData displayName="DestinationGuid" type="System.String" description="If the SendEvent action succeeds, this field will contain the Guid to which the event was sent to.">DestinationGuid</resultData>
+            <returnValue description="success">
+                <EnumItem>success</EnumItem>
+                <EnumItem>failure</EnumItem>
+            </returnValue>
+        </action>
+        <action name="SetSessionData" type="appControl" allowCustomParams="true" final="false">
+            <returnValue description="success">
+                <EnumItem>success</EnumItem>
+                <EnumItem>failure</EnumItem>
+            </returnValue>
+        </action>
+    </actionList>
+    <eventList>
+        <event name="StaticConstruction" type="triggering" expects="Metreos.ApplicationControl.ContructionComplete" displayName="Static Construction" description="Fired when the application is installed or the server is started" />
+        <event name="InstanceDestruction" type="nontriggering" displayName="Instance Destruction" description="Fired before script instance is unloaded. Subject to timeout conditions.">
+            <eventParam name="ErrorCode" displayName="ErrorCode" type="System.Int32" guaranteed="true" description="Error code. 0 = success." />
+            <eventParam name="ErrorText" displayName="ErrorText" type="System.String" guaranteed="true" description="Error description" />
+        </event>
+    </eventList>
+</package>

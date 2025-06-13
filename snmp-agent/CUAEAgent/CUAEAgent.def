@@ -1,0 +1,6 @@
+LIBRARY CUAEAgent
+
+EXPORTS
+  SnmpExtensionInit
+  SnmpExtensionTrap
+  SnmpExtensionQuery

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ReserveRequest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- In this case, the user joeuser must have a default device profile associated with 
+       his account for this command to work -->
+  <CcmUser>joeuser</CcmUser>
+  <DeviceName>SEP000000000000</DeviceName> 
+</ReserveRequest>

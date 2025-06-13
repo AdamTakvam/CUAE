@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSelector", "TestSelector.csproj", "{001E5D97-CDC5-4269-9849-5307188FC721}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSelector2", "TestSelector2\TestSelector2.csproj", "{D05D9227-F144-4FF0-AF76-D5B715BF6204}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{001E5D97-CDC5-4269-9849-5307188FC721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001E5D97-CDC5-4269-9849-5307188FC721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001E5D97-CDC5-4269-9849-5307188FC721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001E5D97-CDC5-4269-9849-5307188FC721}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D05D9227-F144-4FF0-AF76-D5B715BF6204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D05D9227-F144-4FF0-AF76-D5B715BF6204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D05D9227-F144-4FF0-AF76-D5B715BF6204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D05D9227-F144-4FF0-AF76-D5B715BF6204}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

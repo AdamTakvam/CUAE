@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="docs" default="Debug" basedir=".">
+  <description>Build script for the docbook-documents.</description>
+  
+  <import file="../../autobuild/build.includes.xml" />
+  <property name="deploymentDirectory" value="../obj" />
+  <property name="buildDirectory"      value="obj" />
+  <property name="projectRoot"         value="${Metreos.build.srcRoot}/docs" />
+  
+  <target name="do-init" >
+     <mkdir dir="${deploymentDirectory}" />
+     <mkdir dir="${buildDirectory}" />
+  </target>
+
+  <target name="do-build">
+    <copy file="${projectRoot}/cuae-admin-services-and-processes/cuae-admin-services-and-processes.xml" tofile="${projectRoot}/cuae-admin-services-and-processes/obj/cuae-admin-services-and-processes/cuae-admin-services-and-processes.xml"></copy>
+    <echo message="${projectRoot}/cuae-admin-services-and-processes/obj/cuae-admin-services-and-processes" />
+	  <ciscoDocbook docroot="cuae-admin-services-and-processes.xml" dir="${projectRoot}/cuae-admin-services-and-processes/obj/cuae-admin-services-and-processes" dest="${projectRoot}/cuae-admin-services-and-processes/${buildDirectory}/cuae-admin-services-and-processes" output="CUAE Services and Processes" type="AdminArticle" />
+  </target>  
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-clean" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${deploymentDirectory}/cuae-admin-services-and-processes" />
+  </target>
+
+  <target name="do-postbuild">
+     <copy todir="${deploymentDirectory}/cuae-admin-services-and-processes">
+        <fileset dir="./obj/cuae-admin-services-and-processes" />
+    </copy>
+    <copy file="../docbook/style/admin_article.css" tofile="${deploymentDirectory}/cuae-admin-services-and-processes/admin_article.css">
+    </copy>
+  </target>
+</project>

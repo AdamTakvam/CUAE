@@ -1,0 +1,7 @@
+To create db on machine, invoke the initialize_db.bat file, with setup.sql residing in the same directory
+
+UpcLookup.php connects to localhost db by default.
+
+Be sure to also edit what the dial-in number is for the webpage (in the <h1> tag)
+
+Finally, be sure to update the configuration of the application to connect to the right database when querying the table

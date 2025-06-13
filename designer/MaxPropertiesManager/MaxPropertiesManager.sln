@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core.csproj", "{5A3E037F-73E0-48F4-A504-4096DBA84A5A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontEnd", "..\FrontEnd\FrontEnd.csproj", "{107EAA61-AC15-4310-B2F0-F3AB0609D0BE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetreosPackageReader", "..\MetreosSchemaReader\MetreosPackageReader.csproj", "{B296742B-6367-4C7A-A6B4-97144D7522AE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaxPropertiesManager", "MaxPropertiesManager.csproj", "{5A3E037F-73E0-48F4-A504-4096DBA84A5A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Debug.ActiveCfg = Debug|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Debug.Build.0 = Debug|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Release.ActiveCfg = Release|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Release.Build.0 = Release|.NET
+		{107EAA61-AC15-4310-B2F0-F3AB0609D0BE}.Debug.ActiveCfg = Debug|.NET
+		{107EAA61-AC15-4310-B2F0-F3AB0609D0BE}.Debug.Build.0 = Debug|.NET
+		{107EAA61-AC15-4310-B2F0-F3AB0609D0BE}.Release.ActiveCfg = Release|.NET
+		{107EAA61-AC15-4310-B2F0-F3AB0609D0BE}.Release.Build.0 = Release|.NET
+		{B296742B-6367-4C7A-A6B4-97144D7522AE}.Debug.ActiveCfg = Debug|.NET
+		{B296742B-6367-4C7A-A6B4-97144D7522AE}.Debug.Build.0 = Debug|.NET
+		{B296742B-6367-4C7A-A6B4-97144D7522AE}.Release.ActiveCfg = Release|.NET
+		{B296742B-6367-4C7A-A6B4-97144D7522AE}.Release.Build.0 = Release|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Debug.ActiveCfg = Debug|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Debug.Build.0 = Debug|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Release.ActiveCfg = Release|.NET
+		{5A3E037F-73E0-48F4-A504-4096DBA84A5A}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

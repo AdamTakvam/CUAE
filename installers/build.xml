@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="installers" default="Help" basedir=".">
+  <description>Build script for installer packages</description>
+
+  <import file="../autobuild/build.includes.xml" />
+  <property name="buildDirectory"       value="obj" />
+  <property name="workDirectory"        value="work" />
+  <property name="baseDirectory"        value="${Metreos.build.srcRoot}\installers" />
+  <property name="src"                  value="${Metreos.build.buildDirectory}" />
+  <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}\Installers" />
+  
+
+  <!-- macros -->
+
+  <macrodef name="buildSFX" >
+    <attribute name="destDirectory" default="${buildDirectory}" />
+    <attribute name="srcDirectory"  default="." />
+    <attribute name="packageName"   default="package" />
+    <attribute name="execute"       default="setup.cmd" />
+    <sequential>
+        <zip destfile="@{destDirectory}/@{packageName}.zip" basedir="@{srcDirectory}" whenempty="create" />
+        <sfx    archive="@{destDirectory}/@{packageName}.zip"
+                mode="win32"
+                execute="${env:TEMP}/${app:absolutename}/@{execute}"
+                output="@{destDirectory}/@{packageName}.exe" />
+        <!-- The execute parameter has to explicitly point to the temporary extraction path so that Win2k3 can handle it -->
+        <!-- TODO - uncomment the follow to remove zip package from build -->
+        <!-- <delete file="@{destDirectory}/@{packageName}.zip" /> -->
+    </sequential>
+  </macrodef>
+
+  <macrodef name="buildMSI" >
+    <attribute name="root"              default="${Metreos.build.srcRoot}" />
+    <attribute name="dir"               default="installers" />
+    <attribute name="solution"          default="application" />
+    <attribute name="msiname"           default="Application" />
+    <attribute name="genname"           default="@{msiname}" />
+    <attribute name="releaseIdentifier" default="${Metreos.build.identifier}" />
+    <attribute name="releaseNumber"     default="${Metreos.build.releaseNumber}" />
+    <attribute name="buildNumber"       default="${Metreos.build.buildNumber}" />
+    <attribute name="fullmsiname"       default="@{msiname}-@{releaseIdentifier}" />
+    <attribute name="destDirectory"     default="${buildDirectory}" />
+    <attribute name="work"              default="X:\@{dir}\work" />
+    <sequential>
+
+        <mkdir dir="@{work}" />
+        <copy overwrite="true" todir="@{work}" file="@{root}\@{dir}\@{solution}.ism" />
+
+        <cuaeISMSetVersion target="@{work}\@{solution}.ism" releaseNumber="@{releaseNumber}" buildNumber="@{buildNumber}" />
+        <cuaeInstallShieldMsiTask
+            root="@{root}"
+            dir="@{dir}"
+            work="@{work}"
+            solution="@{solution}"
+            genname="@{genname} @{releaseIdentifier}"
+            msiname="@{fullmsiname}"
+            basepath="@{work}\@{solution}" />
+        <move file="@{fullmsiname}.msi" todir="@{destDirectory}" />
+
+    </sequential>
+  </macrodef>
+
+  <macrodef name="buildInstallerExe" >
+    <attribute name="root"                  default="${Metreos.build.srcRoot}" />
+    <attribute name="dir"                   default="installers" />
+    <attribute name="solution"              default="application" />
+    <attribute name="msiname"               default="Application" />
+    <attribute name="releaseIdentifier"     default="${Metreos.build.identifier}" />
+    <attribute name="releaseNumber"         default="${Metreos.build.releaseNumber}" />
+    <attribute name="buildNumber"           default="${Metreos.build.buildNumber}" />
+    <attribute name="productConfiguration"  default="MainRelease" />
+    <attribute name="releaseConfiguration"  default="SetupFile" />
+    <attribute name="fullmsiname"           default="@{msiname}-@{releaseIdentifier}" />
+    <attribute name="destDirectory"         default="${buildDirectory}" />
+    <attribute name="work"                  default="X:\@{dir}\work" />
+    <sequential>
+
+        <mkdir dir="@{work}" />
+        <copy overwrite="true" todir="@{work}" file="@{root}\@{dir}\@{solution}.ism" />
+
+        <cuaeISMSetVersion target="@{work}\@{solution}.ism" releaseNumber="@{releaseNumber}" buildNumber="@{buildNumber}" />
+        <cuaeInstallShieldExeTask
+            root="@{root}"
+            dir="@{dir}"
+            work="@{work}"
+            solution="@{solution}"
+            productConfiguration="@{productConfiguration}"
+            releaseConfiguration="@{releaseConfiguration}"
+            finalname="@{fullmsiname}"
+            basepath="@{work}\@{solution}" />
+        <move file="@{fullmsiname}.exe" todir="@{destDirectory}" />
+
+    </sequential>
+  </macrodef>
+
+  <macrodef name="buildNsisInstaller">
+    <attribute name="root"                  default="${Metreos.build.srcRoot}" />
+    <attribute name="dir"                   default="installers" />
+    <attribute name="scriptname"            default="application" />
+    <attribute name="outfilename"           default="Application" />
+    <attribute name="releaseIdentifier"     default="${Metreos.build.identifier}" />
+    <attribute name="releaseNumber"         default="${Metreos.build.releaseNumber}" />
+    <attribute name="buildNumber"           default="${Metreos.build.buildNumber}" />
+    <attribute name="finalname"             default="@{outfilename}-@{releaseIdentifier}" />
+    <attribute name="destDirectory"         default="${buildDirectory}" />
+    <attribute name="work"                  default="X:\@{dir}\work" />
+
+    <sequential>
+        <mkdir dir="@{work}" />
+        <copy overwrite="true" todir="@{work}" file="@{root}\@{dir}\@{scriptname}.nsi" />
+        <exec executable="${Metreos.build.toolsRoot}\NSIS-2.23\makensis.exe">
+            <arg value="/V4" />
+            <!-- <arg value="/DVERSION=@{releaseIdentifier}" /> -->
+            <arg value="@{work}\@{scriptname}.nsi" />
+        </exec>
+        <move file="@{work}\@{outfilename}.exe" tofile="@{destDirectory}\@{finalname}.exe" />
+    </sequential>
+  </macrodef>
+
+
+  <!-- Standard Targets -->
+    <target name="do-init" >
+        <mkdir dir="${buildDirectory}" />
+        <mkdir dir="${workDirectory}" />
+        <copy todir="${workDirectory}">
+            <fileset dir="${baseDirectory}" includes="sqlscripts/** vbscripts/** batchfiles/**" />
+            <filterset refid="Metreos.buildIdentifier" />   
+        </copy>
+    </target>
+
+
+  <target name="do-build" >
+
+    <!-- Build Visual Designer MSI -->
+    <buildInstallerExe solution="visual-designer-12" msiname="CUAD" />
+
+    <!-- Build Platform Installer -->
+    <buildInstallerExe solution="platform-services-12" msiname="CUAE-platsvc" />
+
+    <!-- Build AppServer Installer -->
+    <buildInstallerExe solution="application-server-12" msiname="CUAS" />
+
+    <!-- Build MediaServer Installer -->
+    <buildInstallerExe solution="media-server-12" msiname="CUME" />
+
+    <!-- Build legacy backup tool installer -->
+    <buildNsisInstaller scriptname="legacy-backup-tool" outfilename="CUAE-lbt" />
+
+    <!-- build FTF installer -->
+    <!--
+    <mkdir dir="${workDirectory}/ftf" />
+    <copy todir="${workDirectory}/ftf" >
+        <fileset dir="${Metreos.build.buildDirectory}/Framework/1.0/CoreAssemblies"
+            includes="Metreos.Samoa.FunctionalTestFramework.*" />
+        <fileset dir="${Metreos.build.buildDirectory}/AppServer/Providers"
+            includes="Metreos.Providers.FunctionalTest.* Metreos.Providers.TestCallControl.*" />
+        <fileset dir="${baseDirectory}" includes="ftf_install.cmd" />
+    </copy>
+    <buildSFX srcDirectory="${workDirectory}/ftf" packageName="MetreosFTFInstaller" execute="ftf_install.cmd" />
+    -->
+
+    <!-- build AppSuite Admin installer -->
+    <!-- <mkdir dir="${workDirectory}/appsuiteadmin" />
+    <copy todir="${workDirectory}/appsuiteadmin" >
+        <fileset dir="${Metreos.build.buildDirectory}/appsuiteadmin" />
+        <fileset dir="${baseDirectory}" includes="appsuiteadmin_install.cmd" />
+    </copy>
+    <buildSFX srcDirectory="${workDirectory}/appsuiteadmin" packageName="MetreosAppSuiteAdminInstaller" execute="appsuiteadmin_install.cmd" />
+    -->
+
+    <!-- Build ISO -->
+    <!-- Suppress ISO builds -->
+    <!--
+    <mkdir dir="${workDirectory}/iso-cuae" />
+    <copy todir="${workDirectory}/iso-cuae" >
+      <fileset dir="${buildDirectory}" includes="*.msi *.exe *.zip" excludes="MetreosAppSuiteAdminInstaller.* MetreosFTFInstaller.* *Designer*.msi" />
+    </copy>
+    <copy tofile="${workDirectory}/iso-cuae/autorun.inf" file="autorun/autorun.inf">
+        <filterset>
+            <filter token="RUNME" value="readme.html" />
+        </filterset>
+    </copy>
+    <copy tofile="${workDirectory}/iso-cuae/readme.html" file="readme/readme-cuae.html" />
+    <copy todir="${workDirectory}/iso-cuae" file="autorun/icon.ico" />
+
+    <metreosMkisofs   name="${buildDirectory}/CUAE-${Metreos.build.identifier}"
+                      dir="${workDirectory}/iso-cuae"
+                      volumeID="CUAE-${Metreos.build.identifier}" />
+
+    <mkdir dir="${workDirectory}/isofs-cuad" />
+    <copy todir="${workDirectory}/isofs-cuad" >
+        <fileset dir="${buildDirectory}" includes="*Designer*.msi" />
+    </copy>
+    <copy tofile="${workDirectory}/isofs-cuad/autorun.inf" file="autorun/autorun-cuad.inf" >
+        <filterset>
+            <filter token="RUNME" value="Cisco Unified Application Designer-${Metreos.build.identifier}.msi" />
+        </filterset>
+    </copy>
+    <copy tofile="${workDirectory}/isofs-cuad/readme.html" file="readme/readme-cuad.html" />
+    <copy todir="${workDirectory}/isofs-cuad" file="autorun/icon.ico" />
+
+    <metreosMkisofs   name="${buildDirectory}/CUAD-${Metreos.build.identifier}"
+                      dir="${workDirectory}/isofs-cuad"
+                      volumeID="CUAD-${Metreos.build.identifier}" />
+    -->
+  </target>
+
+  <target name="do-clean" >
+    <delete dir="${buildDirectory}" />
+    <delete dir="${workDirectory}" />
+    <delete dir="visual-designer-12" />
+    <delete dir="application-server-12" />
+    <delete dir="media-server-12" />
+    <delete dir="platform-services-12" />
+  </target>
+
+  <target name="do-postbuild">
+     <mkdir dir="${deploymentDirectory}" />
+     <copy todir="${deploymentDirectory}">
+        <fileset dir="${buildDirectory}" />
+     </copy>
+  </target>
+
+</project>

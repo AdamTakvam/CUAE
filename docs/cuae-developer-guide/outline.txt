@@ -1,0 +1,404 @@
+// Initial TOC to guide doc efforts of the CUAE Developers Guide to be released with 2.4/SDK release.
+
+Title: Developing Applications for the CUAE
+
+Preface:        
+    Ch: Introduction
+        - What is this Thing?
+        - A Brief History of the CUAE
+        - The Cisco Unified Communications Platform
+        - What about J2EE and .NET?
+        - Using this Book
+
+
+Part: CUAE Programming
+    Ch: Getting Started
+        - The Relationship Between CUAE and .NET
+        - Dev Env Requirements
+          * Installing the .NET Framework SDK v3.0 and Friends
+            1. Downloading
+            2. Installing
+          * Mono vs traditional .NET Framework SDK - stretch
+          * Installing the CUAE SDK
+            1. Downloading / Installing / OS Requirements
+            2. VMWare Components in absence of CallManager
+          * Relationship to Cisco CallManager
+        - Getting to Know the Cisco Unified Application Designer
+          * Explorer, Canvas, Property Grid, Toolbox
+          * Explain Global Canvas vs Function Canvas
+
+
+    Ch: CUAE Language Fundamentals 
+        - Introduction
+        - Hello, World! (Http with C# DateTime)
+          * Introduce what we are going to build--an HTTP-based Hello World.
+          * Show them the 'big picture' with the classic C# Hello World, which uses DateTime to do something programmatic.
+	  * Then begin building the CUAE equivalent, drawing back analogies to the C# equivalent
+          * Deploy and run it
+          * Did it work (basic troubleshooting)
+	  * NOTES: Map from C# to CUAE
+                1. Context <> Application
+                2. C# <> Script
+                3. Triggering Event <> Process Start
+                4. Triggering Event Handler <> Main
+                5. HTTP SendResponse Action >< WRiteLine
+                6. End SCript <> System.Ext()
+                7. Msg Output w/ DateTime <> C# Parameter 
+
+        - CUAE Language Elements
+           * Introduction - Draw out the big relationships, grahpically & code-analogy ideally to be ultra clear
+           * Note -- this section is all about cystralizing our concepts, which means great descriptions + images + pseudocode
+       
+          - Scripts 
+            * Describe script properties
+            * Very brief explanation of execution--i.e., they start, they live as instances, and they are killed 
+            * SegWay -- scripts always start due to an event
+
+          - Event
+            * Event types
+            * Event signature - full-qual name + parameters
+            * Segway - an event is handled by a function
+
+          - Functions
+            * Have Signature
+              * Name
+              * Incoming Parameters
+              * Return Data 
+            * Start and Terminating Functions (every function has one start node, 1 or more EndFunctions)
+            * Classes of functions--i.e, they handle events or they don't.
+            * Call other functions
+             * Segway -- functions contain actions
+          - Actions 
+            * What is an action?
+                It's a method, meaning:
+                  It does something
+                  It has inputs
+                  It has outputs
+                  It has a return code
+            * Inputs -- can be one of three types, literal, C#, and variables.
+            * Outputs --  parsing of native types
+            * Branching
+               * How to drag
+               * 'default' path
+               * case-insensitive
+            * Cursory explanation of function execution & how actions can have impact
+               * Sychronous
+               * Asynchronous actions have a contract with developer in that you will only get
+          - Variables
+            * Type 
+            * Cursory explanation of built-in type system.
+            * Scoping
+              * Local
+              * Global
+            * How they Initialize
+              * Default Values
+              * Local gets event parameters
+            * Global gets installer & locale items.
+            * Moving from local to global
+          - Comments
+            * There are 2 forms of comments.
+            * Floating Canvas Comments
+            * Annotations
+          - Conditionals
+            * If
+            * Switch
+              * Your input becomes your branch condition
+            * Compare
+              * Literal should only be used to compare strings with the other argument
+          - Loops
+              * There are 4 receptors, only one can be the start.  The other three can be exits.
+              * You have to define a single-start node before you can define exits.
+              * Continue - draw to internal node
+              * Break - draw link directly out of loop to somewhere else
+              * What Are They? Do-while
+                 * Best Practice - test for 0 count and branch around loop
+              * Loop Properties
+                 * Count
+                 * Loop Type
+                 * Loop Iteration Type
+                   * int = loopIndex (resolves to int)
+                   * enum = loopEnum (resolves to Enumerator)
+                   * dictEnum (resolves to DictionaryEnumerator)
+                 * nested loops are valid       
+	  - Labels
+              * Labels are just an organizational tool.  They allow you to create a connection between two nodes without actually having a branch visually connect the two.
+              * Labels can only be an 'in label', or an 'out label', and either type can only have one link coming to/from it.
+              * To correlate two or more labels, you have to name the labels the same, one-character value. 
+                  You can have multiple 'in-labels' reference the same 'out-label',
+                  but you can not have more than one 'out-label' for a given 'label set'.
+      
+        - Application Elements
+          * Installer
+              * What is the installer? 
+                  Allows a developer to declare, via mceadmin, what is configurable on the application.
+              * Types
+              * Default Value
+                  String, IP Address, Password, Bool, DateTime, Number 
+              * Display Name
+              * Description
+              * Max-min Value
+                  Only Number type allows use of this field
+              * Required ?
+              * Read-only ?
+              * How to tie into your script -- InitializeWith on Global Variables
+          * Localizable String
+              
+          * Resources
+             > Database Schemas
+             > Audio Files
+             > Speech Recognition Grammars
+          *References
+             > CUAE Plugins
+             > Web Services
+    
+    Ch: Application Execution
+	* How does Custom Code execute?
+    Ch: Hello, World!
+    Ch: Debugging Your Application
+	logging
+
+Part: Practical Application of the CUAE
+    Ch: Using the Features Inherent to the CUAE to the Fullest: Don't reinvent the wheel
+	* Introduce main point of inherent behavior executing 'behind' the script
+	* Partitioning
+		* Triggering critiria affecting build of application
+		* Installer
+			mceadmin tie-in 
+		* Localization
+			mceadmin tie-in
+		* Call Route Groups
+		* Media Route Groups
+		* Codec Preference
+	* Media Resources
+		* Autodeploy
+		* Localization done automatically
+	* Database 
+		* Guaranteed, auto-deployed database--don't deploy your own if your needs fit our db guidelines
+    Ch: Call Control and Media Processing
+ 	* Architectural Position of CUAE in Cisco VOIP Environment (essentially, on the edge)
+ 	* Introduce & distinguish between 1st-party and 3rd-party call control
+		- Detail difference of ownership of call control as well as media
+	* Behavior/Features in 1st-party Call Control in CUAE
+		- Auto-establishment of media to Media Engine in establishment of call
+			- Good time to point out that all media connections go to Media Engine, not CCM Conferencing bridges, routers?
+		- Auto-destruction of media to Media Engine on Hangup
+		- Discussing timing of Media Engine connection reservation
+			- Late reservation vs early reservation
+        * Receiving a call
+		- Approaches:
+			- Receiving call placed deliberately to CUAE via 1st-party
+			- Awareness of call placed to a user's phone
+			- Awareness of call placed to a user's phone and desire to control call
+			- 3rd-party JTAPI Redirect to CUAE
+			- 1st-party shared line
+		- Compare/contrast trade-offs of approaches
+			- Resource cost on AppServer
+			- Resource cost on CallManager
+			- Flexibility and features of each approach
+			- Administrative overhead of each
+	* Making a call
+		- Approaches:
+			- Application makes a call to an end point via 1st-party
+			- Special case: 2-party calls
+				- Application makes a call to and end point via 1st-party, then transfers it's end of call
+				- Dial: Command to IP Phone
+				- 3rd-party JTAPI MakeCall action
+		- Compare/contrast trade-offs of approaches
+			- Resource cost on AppServer
+			- Resource cost on CallManager
+			- Flexibility and features of each approach
+ 			- Administrative overhead of each
+	* Gaining Control of a Media Stream
+		- 1st party Call Control (Call Control API)
+                - Normal call transferred to application with 3rd-party JTAPI
+                - Normal call conferenced to application with 3rd-party JTAPI
+                - Stand-in-between calls to/from the endpoint of interest
+                - Shared-line + Barge
+                - CreateConnection action (Media Control API)
+	* Choosing the Protocol for Deployment
+		- Introduce concept of imbalance between the 4 supported CallControl APIs
+		- Feature trade-off matrix
+	* Minimizing Resource Utilization
+		- Peer-to-peer media
+			- Bridge/Unbridge: Potential media blip vs minimizing Media Engine usage
+		- Transfering away a call if connecting only 2-parties
+			- Understand that you lose control of the call and therefore can't easily 'get back in' the call.
+	* CallChanged Event
+		- Implication of media renegotation
+			- While recording
+			- While playing
+			- While doing voicerec
+		- Why it can happen? 
+			- Hold/Resume
+			- Transfer
+			- Conference
+	* Media Design Patterns
+		- DTMF Collection:  CallControl.GotDigits vs. MediaControl.GatherDigits
+		- Media termination conditions and non-deterministic event firing
+			- Natural Termination
+			- Userstop
+			- Autostop
+    Ch: Handling HTTP Requests
+	* Establishing Sessions
+		* HTTP Header
+		* Cookie
+		* Query Parameter
+		* Behavior of non-handled, script-bound HTTP request (re-attempt of HTTP Triggering request with same trigger)
+		* Ending Sessions--SessionExpired event and behavior
+	* Observable Behavior For Debugging
+		* Trigger not routed--404
+		* Script crashes before SendResponse--404
+		* Script does not crash, but never SendResponse--HTTP Timeout
+	* FormCollection & QueryParamCollection
+	* XML-over-HTTP Solutions
+		* NativeType
+		* XPath in CustomCode
+	* Draw line of competency of HTTP capabilities of CUAE
+		* GOOD IP Phone Services
+		* GOOD HTTP as a means of notification of external stimulus
+		* BAD as a web application server.    
+Ch: IP Phone Services
+	* Draw big picture of phone, service, and CUAE
+	* Explain difference between traditional, user-driven service and the only asynchronous tool available, CiscoIPPhoneExecute
+	* Explain the general design pattern of IP Phone services (the 'builder' pattern)
+	* Explain why one has to use .ToString() on the IP Phone Native Types, and can not just pass in the native type as a variable
+	* Creating sessions:  cookies vs embedded MetreosSessionId
+	* PNG-supported phones and ImageBuilding Library
+		* Explain how one deploys and uses stock PNG applications (this is actually a gap in CUAE)
+	* Dynamically generated menus and directories: loops and Add[Item] design pattern
+    Ch: Timers Using TimerFacility
+	* Fundamental function of TimerProvider is to give means of relinquishing control of script thread so other events can be processed.
+		* Distinguish vs use of sleep.
+	* Triggering timer vs NonTriggering timer
+    Ch: Interacting with Local and Remote Databases
+	* Discuss role of the embedded mysql database vs role of tradition database
+		* Embedded
+			* Not persistent between installs of the application
+			* Auto-provisioned
+			* No OpenDatabase action needed--name of database becomes name of connection for Query/Commands
+			* 
+		* External
+			* No restrictions--it's your database
+			* Ideal for redundant data solutions
+			* OpenDatabase action is required
+    Ch: Cisco AXL-SOAP
+	* Introduction of AXL-SOAP
+	* Explain the issue of no version-independence.
+		* Explain that each version implemented is actually one specific CCM version, and could possibly not work with other close ES/SR/
+	* Explain need for custom code for parsing results of the AXL response.
+	* Explain how to use .NET Reflector to determine how to determine the parse code.
+	* Explain how AXL is best practice for getting ccm user device info, since AXL will proxy to LDAP if LDAP Synched
+		* Worth discussing change of LDAP from 4.x to 5.x, and how building an app with AXL protects against that change.
+	* Explain executeSQLQuery and executeSQLUpdate as patch for missing functions and custom operations
+	
+    Ch: Cisco Device Cache
+	* Introduction
+	* Explain the common problem of correlation of device name - IP - line number - user.
+		* Common scenario - Have Call Event and know line number and/or device name, but need to push XML.
+		* Common scenario - in an IP Phone service with devicename, need to do telephony
+	* Describe how DC does not solve this problem
+		* Missing line numbers
+		* Missing user correlation
+Part: Building CUAE Plugins
+    Ch: Providers
+	* Discuss general purpose and model of providers
+		* Providers provide a service to applications in the form of abstracted implementation of a protocol
+		* Bound to .NET
+		* Loosely-bound to Applications
+			* Message queues and message passing
+	* Provider Implementation: ProviderBase
+		* [Use Current Plug-In Developer Guide as base for the low-level technical details of how you actually code up a provider]
+		* Detail each type of event, and the implication of responsibility of each on the provider:
+			* Triggering
+			* Unsolicited
+			* Asynchronous
+	* Building good script session state awareness - tradeoff of logic in app vs provider
+		* Distinguishing between use of triggering and non-triggering
+			* Why are maintaining script sessions useful?
+		* Parameterizing actions/events
+	* What can not be built with Providers
+		* Other native language extensions
+		* Services for other providers
+		* CallControl Providers
+		* MediaControl Providers
+	* Running on Multiple Application Servers
+		* Failover (hooks are not available to developers?)
+    Ch: Native Actions
+	* Discuss general purpose and model of native actions
+		* Native Actions provide way a way to create reusable code, as long as it's not blocking.
+		* Bound to .NET
+		* Tight-bound to Applications
+			* Assembly is loaded directly into the application
+	* Native Action Implementation : INativeAction
+		* [Use Current Plug-In Developer Guide as base for the low-level technical details of how you actually code up a native action]
+		* Detail AP and RD parsing parameter parsing logic
+			* AP attempts to parse and cast and convert based on incoming data types
+			* RD invokes best-fit Parse() method on a Native Type
+    Ch: Native Types
+	* Discuss general purpose and model of native types
+		* Native Types provide way to digest complex data structures
+		* Provide layer of seperation between ResultData value and container
+		* Bound to .NET
+		* Tight-bound to Applications
+			* Assembly is loaded directly into the application
+	* Native Type Implementation : INativeType
+		* Parse()
+		* Deciding what to externalize on your native type, via public methods, fields, properties
+
+Part: Integrating CUAE Applications with Friends
+    Ch: Web Services
+    Ch: .NET and ASP.NET Web Applications
+    Ch: J2EE
+    Ch: Ruby on Rails
+
+Part: Best Practices (Practical Application of the CUAE?)
+    Ch: Licensing
+    Ch: Building low-impact CCM Administrative Applications
+    Ch: Documenting your application
+    Ch: Avoiding Common Mistakes
+	* Avoid Script Memory Leak - End Script
+	* Cleanup
+		* If you create a connection, you should delete it
+		* If you make a call, you should hang it up, if not using sandbox (or if you are calling a user and leaving the call up is desired in rare cases).
+		* If you create a timer, and don't need it before it fires, delete it.
+	* Event 'race' conditions
+		* Just because you've reversed or cancelled an action that can fire an event, it doesn't mean that event isn't already sitting in the queue waiting to be processed.
+			* Ending MakeCall with a Hangup
+			* Ending Timer with RemoveTimer
+			* Stopping media operation with StopMediaOperation
+    Ch: Code Reusability
+	* CallFunction
+	* Extensions -- Native Actions, Providers, Native Types
+	* SendEvent
+
+Part: Testing
+    Ch: Sigh
+
+Appendix:
+CallManager Primer - what's it do own it's own, how does it communicate with AppServer
+Real code snippets for what we call best practices--because people will copy/paste
+
+TBD
+ - Where to find Help?
+ - Custom code blocks
+ - VoIP Fundamentals and Contextual Relationship to our Big Picture 
+ - Call Control Abstraction and the Telephony Manager
+ - Using mceadmin
+ - Application Deployment from the CUAD and mceadmin
+ - Application Configuration 
+   ** NOTE: Focus on the impact to developers and why they care
+   * Config items
+   * Partitions
+   * Triggering events & criteria
+   * Preferred Codec, Call Route Groups, Media Resource Groups
+   * Localization and Locale
+ - Redundancy, Failover, and High Availability
+   ** NOTE: Focus on the impact to developers and why they care
+ - ApplicationLoad, ApplicationUnload, ScriptUnload Events and Usage
+ - Well-document input/ouput actionparam/result value resolution
+
+
+
+
+ - file extensions, layout of CUAD designer
+ 

@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mod_metreos_http", "projects\mod_metreos_http.vcproj", "{9131DD66-2871-41E4-AECF-E600D721C0A7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7A62C73E-E17E-46B2-8CE5-4152BFBE1928} = {7A62C73E-E17E-46B2-8CE5-4152BFBE1928}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c-wrapper", "projects\c-wrapper.vcproj", "{7A62C73E-E17E-46B2-8CE5-4152BFBE1928}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostBuild", "postbuild\PostBuild.csproj", "{75C175DC-DB35-4D27-B12B-A3D54308C48B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7A62C73E-E17E-46B2-8CE5-4152BFBE1928} = {7A62C73E-E17E-46B2-8CE5-4152BFBE1928}
+		{9131DD66-2871-41E4-AECF-E600D721C0A7} = {9131DD66-2871-41E4-AECF-E600D721C0A7}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{9131DD66-2871-41E4-AECF-E600D721C0A7}.Debug.ActiveCfg = Debug|Win32
+		{9131DD66-2871-41E4-AECF-E600D721C0A7}.Debug.Build.0 = Debug|Win32
+		{9131DD66-2871-41E4-AECF-E600D721C0A7}.Release.ActiveCfg = Release|Win32
+		{9131DD66-2871-41E4-AECF-E600D721C0A7}.Release.Build.0 = Release|Win32
+		{7A62C73E-E17E-46B2-8CE5-4152BFBE1928}.Debug.ActiveCfg = Debug|Win32
+		{7A62C73E-E17E-46B2-8CE5-4152BFBE1928}.Debug.Build.0 = Debug|Win32
+		{7A62C73E-E17E-46B2-8CE5-4152BFBE1928}.Release.ActiveCfg = Release|Win32
+		{7A62C73E-E17E-46B2-8CE5-4152BFBE1928}.Release.Build.0 = Release|Win32
+		{75C175DC-DB35-4D27-B12B-A3D54308C48B}.Debug.ActiveCfg = Debug|.NET
+		{75C175DC-DB35-4D27-B12B-A3D54308C48B}.Debug.Build.0 = Debug|.NET
+		{75C175DC-DB35-4D27-B12B-A3D54308C48B}.Release.ActiveCfg = Release|.NET
+		{75C175DC-DB35-4D27-B12B-A3D54308C48B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

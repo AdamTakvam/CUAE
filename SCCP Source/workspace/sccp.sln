@@ -1,0 +1,51 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sccp", "sccp.vcproj", "{DE424DA2-55A1-45AE-9424-67E65E201E40}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sappwin", "sappwin.vcproj", "{D2644200-34FE-436F-B224-23E0ACAECDD5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SccpManagedProxy", "..\SccpManagedProxy\SccpManagedProxy.vcproj", "{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+		UNIX Debug = UNIX Debug
+		UNIX Release = UNIX Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.Debug.ActiveCfg = Debug|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.Debug.Build.0 = Debug|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.Release.ActiveCfg = Release|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.Release.Build.0 = Release|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.UNIX Debug.ActiveCfg = Debug|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.UNIX Debug.Build.0 = Debug|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.UNIX Release.ActiveCfg = Release|Win32
+		{DE424DA2-55A1-45AE-9424-67E65E201E40}.UNIX Release.Build.0 = Release|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.Debug.ActiveCfg = Debug|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.Debug.Build.0 = Debug|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.Release.ActiveCfg = Release|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.Release.Build.0 = Release|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.UNIX Debug.ActiveCfg = UNIX Debug|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.UNIX Debug.Build.0 = UNIX Debug|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.UNIX Release.ActiveCfg = UNIX Release|Win32
+		{D2644200-34FE-436F-B224-23E0ACAECDD5}.UNIX Release.Build.0 = UNIX Release|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.Debug.ActiveCfg = Debug|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.Debug.Build.0 = Debug|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.Release.ActiveCfg = Release|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.Release.Build.0 = Release|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.UNIX Debug.ActiveCfg = Debug|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.UNIX Debug.Build.0 = Debug|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.UNIX Release.ActiveCfg = Release|Win32
+		{C6837850-EA2B-4EFC-82F5-3F235EAC0AC7}.UNIX Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

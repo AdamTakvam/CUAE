@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DeviceList" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="DeviceList" msdata:IsDataSet="true">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="Device">
+          <xs:complexType>
+            <xs:attribute name="t" type="xs:string" />
+            <xs:attribute name="n" type="xs:string" />
+            <xs:attribute name="d" type="xs:string" />
+            <xs:attribute name="c" type="xs:string" />
+            <xs:attribute name="p" type="xs:string" />
+            <xs:attribute name="i" type="xs:string" />
+            <xs:attribute name="s" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

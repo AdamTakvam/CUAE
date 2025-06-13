@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="AxlDeviceProfile" default="Debug" basedir=".">
+  <description>Build script for AxlDeviceProfile SDK Application</description>
+  <import file="../../metreos-autobuild/metreos.includes.xml" />
+
+  <property name="appName"                  value="AxlDeviceProfile" />
+  <property name="deploymentDirectory"      value="${Metreos.build.buildDirectory}/AppSuite/${appName}" />
+
+  <target name="do-init">
+    <mkdir dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-clean">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/${appName}" includes="**/*.dll **/*.pdb" />
+    </delete>
+    <delete dir="mca/bin" />
+    <delete dir="mca/obj" />
+    <delete dir="${deploymentDirectory}" />
+
+  </target>
+
+  <target name="do-build">
+    <!-- build plugin -->
+    <metreosVsNetTask root="${Metreos.build.srcRoot}" dir="application-suite/${appName}/plugins" solution="${appName}" />
+    <!-- plugin-post-build -->
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="plugins/NativeActions/bin/${Metreos.build.target}" includes="Metreos.Native.${appName}.*" />
+    </copy>
+
+    <!-- build max project -->
+    <metreosMaxTask root="${Metreos.build.srcRoot}" dir="application-suite/${appName}/mca" solution="${appName}" />
+  </target>
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-postbuild">
+    <copy todir="${deploymentDirectory}">
+        <fileset dir="mca/bin" />
+    </copy>
+  </target>
+  
+</project>

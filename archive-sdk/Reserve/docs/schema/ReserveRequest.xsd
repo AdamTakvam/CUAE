@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xsd:complexType name="ReserveRequestType">
+      <xsd:sequence>
+                <!-- Required, must be a user in CallManager -->
+        <xsd:element name="CcmUser" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        
+                <!-- Required, must be of the form SEPXXXXXXXXXXXX -->
+        <xsd:element name="DeviceName" type="xsd:string" minOccurs="1" maxOccurs="1" />
+       
+                <!-- Optional:  If no device profile is specified, 
+                     the CcmUser specified must have a default DeviceProfile associated 
+                     with their account in CallManager -->
+        <xsd:element name="DeviceProfile" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        
+                <!-- Optional:  By specifying a timeout, CallManager will log the user out using an internal
+                     timer.  MSC@Metreos:  At this time I'm not sure we even want to be using this; instead 
+                     letting Trirega always explicitely sending a ReleaseRequest.  For the POC, it's good to know
+                     it is available -->
+        <xsd:element name="Timeout" type="xsd:string" minOccurs="0" maxOccurs="1" />    
+        
+                <!-- Optional:  If present, the Reserve application will present a greeting message
+                     on the phone with the display name embedded in the message -->
+        <xsd:element name="DisplayName" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+  <xsd:element name="ReserveRequest" type="ReserveRequestType"></xsd:element>
+</xsd:schema>

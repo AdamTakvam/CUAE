@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://metreos.com/AppManifest.xsd">
+  <summary>
+    <name>project10</name>
+    <version>1.0</version>
+    <frameworkVersion>1.0</frameworkVersion>
+  </summary>
+  <dependencies>
+    <dependency type="provider">Metreos.Providers.Presence</dependency>
+    <dependency type="provider">Metreos.Providers.Http</dependency>
+  </dependencies>
+  <checksums>
+    <checksum filename="installer.xml">fgNP9/DyqxMGxYqO3kU+kg==</checksum>
+    <checksum filename="scripts/script1.xml">N0HW2bkTP1VBCLPV0taeyw==</checksum>
+  </checksums>
+</manifest>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+   <configValue name="AnnounceToConf" description="If true, a tone will be played to the conference when a new participant is added" format="bool" readOnly="false">true</configValue>
+   <configValue name="BridgeCallPattern" description="Pattern used to match incoming calls" format="string" readOnly="false">regex:66.+</configValue>
+   <configValue name="UpdateConfSleep" description="The number of milliseconds that the UpdateConference action will sleep for. Must be greater than 100" format="number" readOnly="false">105</configValue>
+   <configValue name="DbName" description="Name of the application suite database" format="string" readOnly="false">application_suite</configValue>
+   <configValue name="DbConnectionName" description="Name of the application suite database connection" format="string" readOnly="false">ApplicationSuite</configValue>
+   <configValue name="DbServer" description="Address of the database server" format="string" readOnly="false">localhost</configValue>
+   <configValue name="DbPort" description="Port of the database server" format="string" readOnly="false">3306</configValue>
+   <configValue name="DbUsername" description="The username to connect to database" format="string" readOnly="false">root</configValue>
+   <configValue name="DbPassword" description="Password" format="password" readOnly="false">metreos</configValue>
+   <configValue name="CallManagerIP" description="The IP address of CallManager" format="string" readOnly="false">10.1.10.25</configValue>
+  </configuration>
+</install>

@@ -1,0 +1,6 @@
+1)  Cover Logging
+2)  Installer
+3)  Cover Web Services integration
+4)  Go through the toolbox
+5)  Do a demo IP phone building app where you take a database queury, loop over the result rows, and use those to build an IP Phone menu
+6)  Show CreateExecute/SendExecute 

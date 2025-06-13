@@ -1,0 +1,43 @@
+--bf29be85-ee83-4d26-8
+Content-Transfer-Encoding: binary
+Content-ID: <ac9b51@10.89.31.251>
+Content-Type: application/rlmi+xml;charset="UTF-8"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<list xmlns="urn:ietf:params:xml:ns:rlmi" uri="sip:hong-contacts@cisco.com" version="1" fullState="false">
+<resource uri="sip:tom@cisco.com">
+
+  <instance cid="8f7a64@10.89.31.251" id="1" state="active"/>
+
+</resource>
+</list>
+
+--bf29be85-ee83-4d26-8
+Content-Transfer-Encoding: binary
+Content-ID: <8f7a64@10.89.31.251>
+Content-Type: application/pidf+xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<presence entity="sip:tom@cisco.com" >
+<dm:person xmlns:dm="urn:ietf:params:xml:ns:pidf:data-model" id="tom">
+
+  <activities xmlns="urn:ietf:params:xml:ns:pidf:rpid">
+    <unavailable xmlns="urn:cisco:params:xml:ns:pidf:rpid"/>
+  </activities>
+
+</dm:person>
+
+    <tuple xmlns="urn:ietf:params:xml:ns:pidf" id="cmp-711002-88559sip:711002@10.89.31.46">
+      <status>
+        <basic>open</basic>
+    </status>
+      <sc:servcaps xmlns:sc="urn:ietf:params:xml:ns:pidf:servcaps">
+        <sc:audio>true</sc:audio>
+    </sc:servcaps>
+      <contact priority="0.8">sip:711002@10.89.31.46:5060</contact>
+      <timestamp>2007-06-22T16:14:46Z</timestamp>
+  </tuple>
+
+</presence>
+
+--bf29be85-ee83-4d26-8--

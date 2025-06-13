@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="cpp-framework" default="Debug" basedir=".">
+
+	<description>Build script for CPP Framework</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.frameworkDirectory}" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <metreosVsNetCleanTask dir="projects" /> 
+        <delete dir="projects/cpp-core/Debug" />
+        <delete dir="projects/cpp-core/DebugLib" />
+        <delete dir="projects/cpp-core/DebugWin" />
+        <delete dir="projects/cpp-core/Release" />
+        <delete dir="projects/cpp-core/ReleaseLib" />
+        <delete dir="projects/cpp-core/ReleaseWin" />
+
+        <delete includeEmptyDirs="true" >
+            <fileset dir="${Metreos.build.srcRoot}/cpp-framework" includes="**/bin/** **/obj/**" />
+        </delete>
+
+        <delete dir="lib" />
+    </target>    
+        
+	<target name="do-build" >
+        <updateversionstring file="include/BuildConst.h" />
+
+        <if>
+            <equals arg1="${Metreos.build.target}" arg2="Debug" />
+            <then>
+                <metreosVsNetTask dir="projects" solution="cpp-framework" target="Debug" />
+                <metreosVsNetTask dir="projects" solution="cpp-framework" target="DebugLib" />
+                <metreosVsNetTask dir="projects" solution="cpp-framework" target="DebugWin" />
+            </then>
+            <else>
+                <metreosVsNetTask dir="projects" solution="cpp-framework" target="Release" />
+                <metreosVsNetTask dir="projects" solution="cpp-framework" target="ReleaseLib" />
+                <metreosVsNetTask dir="projects" solution="cpp-framework" target="ReleaseWin" />
+            </else>
+        </if>      
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>
