@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<message xmlns="http://metreos.com/InternalMessage.xsd">
+    <messageId>MessageID</messageId>
+    <source>Metreos.Samoa.PAL.Provider.SIP</source>
+    <sourceQueue>./Private$/SomeQueueNameHere</sourceQueue>
+    <field name="name A">value A</field>
+    <field name="name B">value B</field>
+</message>
+ 

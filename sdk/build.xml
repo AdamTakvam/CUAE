@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="sdk" default="Debug" basedir=".">
+    <description>Build script for SDK Applications and docs</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="projectDirectory" value="${Metreos.build.srcRoot}/sdk" />
+    <property name="deploymentDirectory"  value="./obj" />
+    <property name="appsuiteDirectory"  value="./examples/appsuite/src" />
+    <property name="nativeActionDirectory"  value="./examples/NativeAction/src" />
+    <property name="nativeTypeDirectory"  value="./examples/NativeType/src" />
+    <property name="AnswerCallDirectory"  value="./examples/AnswerCall/src" />
+    <property name="MakeCallDirectory"  value="./examples/MakeCall/src" />
+    <property name="MakeConferenceDirectory"  value="./examples/MakeConference/src" />
+    <property name="plugin-overviewDirectory"  value="./examples/plugin-overview/src" />
+
+    <target name="do-clean" >
+        <delete dir="${deploymentDirectory}" />
+    </target>
+
+    <target name="do-init" >
+        <!-- <svn checkout url="https://cuaesdk.svn.sourceforge.net/cuaesdk/trunk/examples" working="examples" /> -->
+
+        <delete dir="${deploymentDirectory}" />
+        <mkdir dir="${deploymentDirectory}" />
+        <mkdir dir="${deploymentDirectory}/appsuite" />
+        <mkdir dir="${deploymentDirectory}/appsuite/src" />
+        <copy todir="${deploymentDirectory}/appsuite/src">
+            <fileset dir="${appsuiteDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+	<delete dir="${deploymentDirectory}/appsuite/src/designer/Click-To-Talk" />
+	<delete dir="${deploymentDirectory}/appsuite/src/designer/Intercom-And-TalkBack" />
+	<delete dir="${deploymentDirectory}/appsuite/src/designer/RapidRecord" />	
+
+        <mkdir dir="${deploymentDirectory}/appsuite/doc" />
+        <mkdir dir="${deploymentDirectory}/appsuite/doc/ActiveRelay" />
+        <mkdir dir="${deploymentDirectory}/appsuite/doc/ScheduledConference" />
+        <mkdir dir="${deploymentDirectory}/appsuite/doc/VoiceTunnel" />
+
+	<mkdir dir="${deploymentDirectory}/NativeAction" />
+        <mkdir dir="${deploymentDirectory}/NativeAction/src" />
+        <copy todir="${deploymentDirectory}/NativeAction/src">
+            <fileset dir="${nativeActionDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+	<mkdir dir="${deploymentDirectory}/NativeAction/doc" />
+
+	<mkdir dir="${deploymentDirectory}/NativeType" />
+        <mkdir dir="${deploymentDirectory}/NativeType/src" />
+        <copy todir="${deploymentDirectory}/NativeType/src">
+            <fileset dir="${nativeTypeDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+	<mkdir dir="${deploymentDirectory}/NativeType/doc" />
+
+	<mkdir dir="${deploymentDirectory}/AnswerCall" />
+        <mkdir dir="${deploymentDirectory}/AnswerCall/src" />
+        <copy todir="${deploymentDirectory}/AnswerCall/src">
+            <fileset dir="${AnswerCallDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+	<mkdir dir="${deploymentDirectory}/AnswerCall/doc" />
+
+	<mkdir dir="${deploymentDirectory}/MakeCall" />
+        <mkdir dir="${deploymentDirectory}/MakeCall/src" />
+        <copy todir="${deploymentDirectory}/MakeCall/src">
+            <fileset dir="${MakeCallDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+	<mkdir dir="${deploymentDirectory}/MakeCall/doc" />
+
+	<mkdir dir="${deploymentDirectory}/MakeConference" />
+        <mkdir dir="${deploymentDirectory}/MakeConference/src" />
+        <copy todir="${deploymentDirectory}/MakeConference/src">
+            <fileset dir="${MakeConferenceDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+	<mkdir dir="${deploymentDirectory}/MakeConference/doc" />
+	
+        
+	<mkdir dir="${deploymentDirectory}/plugin-overview" />
+        <mkdir dir="${deploymentDirectory}/plugin-overview/src" />
+        <copy todir="${deploymentDirectory}/plugin-overview/src">
+            <fileset dir="${plugin-overviewDirectory}" excludes="**/.svn/** doc" />
+        </copy>
+        <mkdir dir="${deploymentDirectory}/plugin-overview/doc" />
+
+    </target>  
+
+    <target name="do-build">
+        <exec executable="c:/WINDOWS/Microsoft.net/Framework/v2.0.50727/msbuild.exe">
+            <arg value="examples/msbuild.xml"/>
+        </exec>
+
+        <!-- <ciscoDocbook docroot="./examples/appsuite/doc/ActiveRelay/ActiveRelay.xml" dest="${deploymentDirectory}/appsuite/doc/ActiveRelay" output="ActiveRelay" type="DevArticle" /> -->
+
+        <copy todir="${deploymentDirectory}/appsuite/doc/ActiveRelay">
+            <fileset dir="./examples/appsuite/doc/ActiveRelay" includes="**.**" />
+        </copy>
+
+	<copy todir="${deploymentDirectory}/appsuite/doc/ScheduledConference">
+            <fileset dir="./examples/appsuite/doc/ScheduledConference" includes="**.**" />
+        </copy>
+
+        <copy todir="${deploymentDirectory}/appsuite/doc/VoiceTunnel">
+            <fileset dir="./examples/appsuite/doc/VoiceTunnel" includes="**.**" />
+        </copy>
+
+        <copy todir="${deploymentDirectory}/plugin-overview/doc">
+            <fileset dir="./examples/plugin-overview/doc" includes="**.**" />
+        </copy>
+
+	<copy todir="${deploymentDirectory}/MakeCall/doc">
+            <fileset dir="./examples/MakeCall/doc" includes="**.**" />
+        </copy>
+
+	<copy todir="${deploymentDirectory}/AnswerCall/doc">
+            <fileset dir="./examples/AnswerCall/doc" includes="**.**" />
+        </copy>
+
+	<copy todir="${deploymentDirectory}/MakeConference/doc">
+            <fileset dir="./examples/MakeConference/doc" includes="**.**" />
+        </copy>
+
+    </target>  
+
+    <target name="do-postbuild">
+        <delete includeEmptyDirs="true" failonerror="false">
+            <fileset dir="${Metreos.build.buildDirectory}\sdk"/>
+	    <fileset dir="${Metreos.build.buildDirectory}\Installers\SDK-${Metreos.build.identifier}.zip"/>
+        </delete>    
+        <mkdir dir="${Metreos.build.buildDirectory}\sdk" />
+	<mkdir dir="${Metreos.build.buildDirectory}\sdk\docs" />
+	<copy todir="${Metreos.build.buildDirectory}\sdk\docs">
+            <fileset dir="${projectDirectory}\docs" includes="**" excludes="**/.svn/**" />
+        </copy>
+        <mkdir dir="${Metreos.build.buildDirectory}\sdk\examples" />
+        <copy todir="${Metreos.build.buildDirectory}\sdk\examples">
+            <fileset dir="${projectDirectory}\obj" includes="**" />
+        </copy>
+        <copy todir="${Metreos.build.buildDirectory}\sdk">
+            <fileset dir="${projectDirectory}" includes="index.html cisco-eula.rtf" />
+        </copy>
+    <mkdir dir="${Metreos.build.buildDirectory}/Installers" />    
+	<zip destfile="${Metreos.build.buildDirectory}\Installers\SDK-${Metreos.build.identifier}.zip">
+	    <fileset dir="${Metreos.build.buildDirectory}\sdk" />
+	</zip>
+    </target>
+
+</project>

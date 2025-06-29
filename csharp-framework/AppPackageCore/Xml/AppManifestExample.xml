@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<manifest>
+	<summary>
+		<name>Drippy hoohoodilly</name>
+		<version>1.0</version>
+		<frameworkVersion>1.0</frameworkVersion>
+		<description>Something completely different</description>
+		<company>Louis' sex doll cleaning service</company>
+		<author>Pee Wee Herman</author>
+		<copyright>2002-2003</copyright>
+		<trademark>(|)</trademark>
+	</summary>
+	<dependencies>
+		<dependency type="provider">HTTP</requirement>
+		<dependency type="application">JellyRoll</requirement>
+	</dependencies>
+	<checksums>
+		<checksum filename="myApplication.xml">dkjfhasf7ysifh9hr8hfailsudhflasidh</checksum>
+		<checksum filename="myAppInstaller.xml">lshflishfof09wrjf09sjf09sjf0s9jf9</checksum>
+	</checksums>
+</manifest>

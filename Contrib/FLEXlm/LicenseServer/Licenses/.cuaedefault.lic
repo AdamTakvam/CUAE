@@ -1,0 +1,5 @@
+SERVER this_host ANY
+VENDOR cisco
+FEATURE CUAEDEFAULTFEATURE cisco 1 permanent 1 \
+	NOTICE="<LicFileID></LicFileID><LicLineID>0</LicLineID> \
+	<PAK>dummyPak</PAK>" SIGN=E8ECCF849012

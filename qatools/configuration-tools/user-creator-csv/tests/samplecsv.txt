@@ -1,0 +1,9 @@
+User1_First, User1_Last, user1@lehman.com, user1, lehman, 10000, 10000, Primary Desk Phone, SEP000000000000, AR Dummy, 11111, Disable, US/Eastern
+User2_First, User2_Last, user2@lehman.com, user2, lehman, 10001, 10001, Primary Desk Phone, SEP000000000001, AR Dummy, 11111, Disable, US/Eastern
+User3_First, User3_Last, user3@lehman.com, user3, lehman, 10002, 10002, Primary Desk Phone, SEP000000000002, AR Dummy, 11111, Disable, US/Eastern
+User4_First, User4_Last, user4@lehman.com, user4, lehman, 10003, 10003, Primary Desk Phone, SEP000000000003, AR Dummy, 11111, Disable, US/Eastern
+User5_First, User5_Last, user5@lehman.com, user5, lehman, 10004, 10004, Primary Desk Phone, SEP000000000004, AR Dummy, 11111, Disable, US/Eastern
+User6_First, User6_Last, user6@lehman.com, user6, lehman, 10005, 10005, Primary Desk Phone, SEP000000000005, AR Dummxy, 11111, Disable, US/Eastern
+User7_First, User7_Last, user7@lehman.com, user7, lehman, 10006, 10006, Primary Desk Phone, SEP000000000006, AR Dummy, 11111, Disable, US/Eastern
+User8_First, User8_Last, user8@lehman.com, user8, lehman, 10007, 10007, Primary Desk Phone, SEP000000000007, AR Dummy, 11111, Disable, US/Eastern
+User9_First, User9_Last, user9@lehman.com, user9, lehman, 10008, 10008, Primary Desk Phone, SEP000000000008, AR Dummy, 11111, Disable, US/Eastern

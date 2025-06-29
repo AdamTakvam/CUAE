@@ -1,0 +1,436 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Northwoods.Go.Svg</name>
+    </assembly>
+    <members>
+        <member name="T:Northwoods.Go.Svg.GoSvgWriter">
+            <summary>
+            Write SVG representing a view to a file or to a stream.
+            </summary>
+            <remarks>
+            <para>
+            Typical usage can be like:
+            <code>
+            GoSvgWriter w = new GoSvgWriter();
+            w.View = view;
+            w.Generate(@"C:\Temp\test.svg");
+            </code>
+            </para>
+            <para>
+            If you have defined your own customized painting (typically
+            by having overridden <c>GoObject.Paint</c>), you may need to
+            implement a <see cref="T:Northwoods.Go.Svg.GoSvgGenerator"/> for your class, and
+            inform this writer about it before calling <c>Generate</c>:
+            <code>
+            w.AddTransformer(new MyCustomNodeGenerator());
+            </code>
+            See the description of <see cref="T:Northwoods.Go.Svg.GoSvgGenerator"/> for an example.
+            </para>
+            <para>
+            At this time, there are some limitations in the quality of
+            the generated SVG, compared to what you can see in a <c>GoView</c>.
+            Some are due to limitations in SVG (such as PathGradientBrush
+            and support for true zero-width Pens),
+            some are due to SVG viewer implementations (the Adobe
+            viewer seems to produce better results than the Corel viewer),
+            some are just due to our incomplete implementation
+            (such as limited GoText support and some shadows), and
+            some are because we don't intend to support them (such as
+            rendering the Windows Forms Controls that are displayed by
+            instances of GoControl).
+            </para>
+            <para>
+            Except for tooltip support, this generates only static SVG.
+            This functionality has not been integrated into GoDiagram Web.
+            It is simply optional code that you can use, in either Windows
+            Forms or in Web Forms, to produce a rendering of a GoView or a
+            collection of GoObjects in SVG.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.#ctor">
+            <summary>
+            Construct a <see cref="T:Northwoods.Go.Svg.GoSvgWriter"/> that produces SVG.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.RegisterTransformers">
+            <summary>
+            This adds instances of <see cref="T:Northwoods.Go.Svg.GoSvgGenerator"/> for all the
+            standard GoDiagram classes needed to render a view.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.Generate(System.String)">
+            <summary>
+            Write an SVG file.
+            </summary>
+            <param name="path"></param>
+            <remarks>
+            This will open a file, generate SVG attributes, generate SVG definitions,
+            generate the actual rendering of the objects specified by
+            the <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/> property, and then close the file.
+            The extent of the rendering is limited by the document position and
+            extent of the <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/>.
+            The <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/> property helps determine the appearance
+            of the objects that are rendered.
+            Whether any view objects are painted, along with any view background,
+            is determined by <see cref="P:Northwoods.Go.Svg.GoSvgWriter.PaintView"/>.
+            </remarks>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateInstructions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRootAttributes"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateDefinitions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRenderings"/>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.Generate(System.Drawing.RectangleF,System.String)">
+            <summary>
+            Write an SVG file, showing a particular area.
+            </summary>
+            <param name="clipRect">a <c>RectangleF</c> in document coordinates</param>
+            <param name="path"></param>
+            <remarks>
+            This will generate SVG attributes, generate SVG definitions,
+            and then generate the actual rendering of the objects specified by
+            the <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/> property.
+            The extent of the rendering is determined by the <paramref name="clipRect"/>
+            parameter.
+            The <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/> property helps determine the appearance
+            of the objects that are rendered.
+            Whether any view objects are painted, along with any view background,
+            is determined by <see cref="P:Northwoods.Go.Svg.GoSvgWriter.PaintView"/>.
+            </remarks>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateInstructions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRootAttributes"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateDefinitions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRenderings"/>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.Generate(System.IO.Stream)">
+            <summary>
+            Write SVG to a stream.
+            </summary>
+            <param name="stream"></param>
+            <remarks>
+            This will generate SVG attributes, generate SVG definitions,
+            and then generate the actual rendering of the objects specified by
+            the <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/> property.
+            The extent of the rendering is limited by the document position and
+            extent of the <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/>.
+            The <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/> property helps determine the appearance
+            of the objects that are rendered.
+            Whether any view objects are painted, along with any view background,
+            is determined by <see cref="P:Northwoods.Go.Svg.GoSvgWriter.PaintView"/>.
+            </remarks>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateInstructions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRootAttributes"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateDefinitions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRenderings"/>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.Generate(System.Drawing.RectangleF,System.IO.Stream)">
+            <summary>
+            Write SVG to a stream, showing a particular area.
+            </summary>
+            <param name="clipRect">a <c>RectangleF</c> in document coordinates</param>
+            <param name="stream"></param>
+            <remarks>
+            This will generate SVG attributes, generate SVG definitions,
+            and then generate the actual rendering of the objects specified by
+            the <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/> property.
+            The extent of the rendering is determined by the <paramref name="clipRect"/>
+            parameter.
+            The <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/> property helps determine the appearance
+            of the objects that are rendered.
+            Whether any view objects are painted, along with any view background,
+            is determined by <see cref="P:Northwoods.Go.Svg.GoSvgWriter.PaintView"/>.
+            </remarks>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateInstructions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRootAttributes"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateDefinitions"/>
+            <seealso cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRenderings"/>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateInstructions">
+            <summary>
+            Produce any XML instructions that precede the "svg" root element.
+            </summary>
+            <remarks>
+            If <see cref="P:Northwoods.Go.Svg.GoSvgWriter.Fragment"/> is false, produce an XML version instruction
+            and a DOCTYPE declaration.
+            This does nothing if <see cref="P:Northwoods.Go.Svg.GoSvgWriter.Fragment"/> is true.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRootElement">
+            <summary>
+            Start the "svg" root element.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRootAttributes">
+            <summary>
+            Produce attributes for the "svg" root element.
+            </summary>
+            <remarks>
+            If <see cref="P:Northwoods.Go.Svg.GoSvgWriter.FixedSizeDisplay"/> is false, this produces "viewBox" and "preserveAspectRatio" properties.
+            This also calls <see cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateTooltipInitialization"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateDefinitions">
+            <summary>
+            Produce the "title" and "defs" elements.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateRenderings">
+            <summary>
+            Produce the elements that actually represent the objects being rendered by this writer.
+            </summary>
+            <remarks>
+            This just starts a "g" element for the <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/>,
+            calls <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateAttributes(System.Type,System.Object)"/> on the view to produce
+            any view-wide attributes, and then calls <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateBody(System.Type,System.Object)"/>
+            on the view to actually produce all the rendering elements such as "path" and "rect".
+            It also calls <see cref="M:Northwoods.Go.Svg.GoSvgWriter.RenderTooltip"/> and <see cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateTooltipScript"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.RenderTooltip">
+            <summary>
+            Produce an element that represents the tooltip to be displayed.
+            </summary>
+            <remarks>
+            This produces a simple group with a rectangle element and a text element that
+            have IDs used by the ECMAscript generated by <see cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateTooltipScript"/>
+            to simulate simple tooltips.
+            <code>
+            <g id="GoSvgTooltip" display="none" onmouseover="ShowTooltip(evt)" onmouseout="HideTooltip(evt)">
+              <rect id="GoSvgTooltipRect" fill="rgb(255,255,220)" stroke="rgb(0,0,0)" height="20"/>
+              <text id="GoSvgTooltipText" x="5" y="14"/>
+            </g>
+            </code>
+            This method does nothing if <see cref="P:Northwoods.Go.Svg.GoSvgWriter.Tooltips"/> is false.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateTooltipInitialization">
+            <summary>
+            Add an "onload" event attribute on the SVG root element for initializing tooltip support.
+            </summary>
+            <remarks>
+            This method does nothing if <see cref="P:Northwoods.Go.Svg.GoSvgWriter.Tooltips"/> is false.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgWriter.GenerateTooltipScript">
+            <summary>
+            Produce a script element that implements tooltip functionality.
+            </summary>
+            <remarks>
+            This method does nothing if <see cref="P:Northwoods.Go.Svg.GoSvgWriter.Tooltips"/> is false.
+            A tooltip string is assumed to be in a <c>title</c> element that is
+            the immediate child of the object displaying the tooltip.
+            The code also assumes that there exists an SVG object that was rendered last,
+            and that has an id of "GoSvgTooltip", and that the tooltip rectangle
+            has an id of "GoSvgTooltipRect", and that the tooltip text element
+            has an id of "GoSvgTooltipText".
+            The implementation could be improved to handle multiple lines of text,
+            to position and size the tooltip in a smarter manner, and to use timers.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Svg.GoSvgWriter.View">
+            <summary>
+            Gets or sets the view used to limit the rendering extent and
+            provide a background and view objects such as selection handles.
+            </summary>
+            <value>This defaults to null and is normally set before generating any SVG</value>
+            <remarks>
+            The view is sometimes needed to customize the painting of document
+            objects, such as a shadow.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Svg.GoSvgWriter.PaintView">
+            <summary>
+            Gets or sets whether to paint the view's background and draw any view objects.
+            </summary>
+            <value>The default is true</value>
+        </member>
+        <member name="P:Northwoods.Go.Svg.GoSvgWriter.FixedSizeDisplay">
+            <summary>
+            Gets or sets whether the SVG should always be rendered at a constant scale.
+            </summary>
+            <value>The default is false</value>
+        </member>
+        <member name="P:Northwoods.Go.Svg.GoSvgWriter.Fragment">
+            <summary>
+            Gets or sets whether to exclude any XML instructions before the root element.
+            </summary>
+            <value>
+            The default value is false, which causes <see cref="M:Northwoods.Go.Svg.GoSvgWriter.GenerateInstructions"/>
+            to be called to produce a self-contained XML document.
+            A value of true only produces the root element.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Svg.GoSvgWriter.Tooltips">
+            <summary>
+            Gets or sets whether to generate script for handling tooltips.
+            </summary>
+            <value>
+            The default value is true.
+            </value>
+            <remarks>
+            The default implementation assumes tooltip strings are held in <c>title</c> elements.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Svg.GoSvgGenerator">
+            <summary>
+            Inherit from this abstract base class to hold the specific SVG generator
+            methods for each particular class that needs customized SVG output.
+            </summary>
+            <remarks>
+            <para>
+            Let's say you have defined a class where you have overridden the <c>Paint</c> method:
+            <code>
+            public class TriangleTextNode : GoTextNode {
+              . . .
+              public override void Paint(Graphics g, GoView view) {
+                base.Paint(g, view);
+                RectangleF r = this.Bounds;
+                PointF[] pts = new PointF[3];
+                pts[0] = new PointF(r.X+3, r.Y+3);
+                pts[1] = new PointF(r.X+13, r.Y+3);
+                pts[2] = new PointF(r.X+8, r.Y+13);
+                g.FillPolygon(Brushes.Yellow, pts);
+                g.DrawPolygon(Pens.Black, pts);
+              }
+            }
+            </code>
+            </para>
+            <para>
+            If you want to get the same results in the generated SVG, you would need to define
+            a generator as follows:
+            <code>
+            public class GeneratorTriangleTextNode: GoSvgGenerator {
+              public GeneratorTriangleTextNode() {
+                this.TransformerType = typeof(TriangleTextNode);
+              }
+            
+              public override void GenerateBody(Object obj) {
+                BaseGenerateBody(obj);
+                TriangleTextNode ttn = (TriangleTextNode)obj;
+                RectangleF r = ttn.Bounds;
+                PointF[] pts = new PointF[3];
+                pts[0] = new PointF(r.X+3, r.Y+3);
+                pts[1] = new PointF(r.X+13, r.Y+3);
+                pts[2] = new PointF(r.X+8, r.Y+13);
+                WritePolygon(Pens.Black, Brushes.Yellow, pts);
+              }
+            }
+            </code>
+            Note how the call to <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateBody(System.Object)"/> corresponds to
+            a call to <c>base.Paint</c>, and how the call to <see cref="M:Northwoods.Go.Svg.GoSvgGenerator.WritePolygon(System.Drawing.Pen,System.Drawing.Brush,System.Drawing.PointF[])"/>
+            corresponds to calls to <c>Graphics.FillPolygon</c> and <c>Graphics.DrawPolygon</c>.
+            </para>
+            <para>
+            Then you would need to add an instance of this custom SVG generator
+            to the GoSvgWriter that you are using:
+            <code>
+            GoSvgWriter w = new GoSvgWriter();
+            w.AddTransformer(new GeneratorTriangleTextNode());
+            w.View = goView1;
+            w.Generate(. . .);
+            </code>
+            </para>
+            </remarks>
+            <seealso cref="T:Northwoods.Go.Svg.GoSvgWriter"/>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.#ctor">
+            <summary>
+            This constructor is protected because the class is abstract.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.GenerateElement(System.Object)">
+            <summary>
+            Every object is represented using a "g" element.
+            </summary>
+            <param name="obj"></param>
+            <returns>true if it generated a new element</returns>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WriteLine(System.Drawing.Pen,System.Drawing.PointF,System.Drawing.PointF)">
+            <summary>
+            Produce a "line" SVG element.
+            </summary>
+            <param name="p"></param>
+            <param name="a"></param>
+            <param name="b"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WriteLines(System.Drawing.Pen,System.Drawing.PointF[])">
+            <summary>
+            Produce a "polyline" SVG element.
+            </summary>
+            <param name="p"></param>
+            <param name="v"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WriteRectangle(System.Drawing.Pen,System.Drawing.Brush,System.Drawing.RectangleF,System.Drawing.SizeF)">
+            <summary>
+            Produce a "rect" SVG element.
+            </summary>
+            <param name="p"></param>
+            <param name="b"></param>
+            <param name="r"></param>
+            <param name="corner"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WriteEllipse(System.Drawing.Pen,System.Drawing.Brush,System.Drawing.RectangleF)">
+            <summary>
+            Produce an "ellipse" SVG element.
+            </summary>
+            <param name="p"></param>
+            <param name="b"></param>
+            <param name="r"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WritePolygon(System.Drawing.Pen,System.Drawing.Brush,System.Drawing.PointF[])">
+            <summary>
+            Produce a "path" SVG element from an array of points.
+            </summary>
+            <param name="p"></param>
+            <param name="b"></param>
+            <param name="poly"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WritePath(System.Drawing.Pen,System.Drawing.Brush,System.String)">
+            <summary>
+            Produce a "path" SVG element given an SVG path description.
+            </summary>
+            <param name="p"></param>
+            <param name="b"></param>
+            <param name="pathdesc"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WriteBrushAttributes(System.Drawing.Brush)">
+            <summary>
+            Produce attributes for implementing a <c>Brush</c>.
+            </summary>
+            <param name="b"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.WritePenAttributes(System.Drawing.Pen)">
+            <summary>
+            Produce attributes for implementing a <c>Pen</c>.
+            </summary>
+            <param name="p"></param>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.TranslateColor(System.Drawing.Color)">
+            <summary>
+            Returns an SVG "fill" or "stroke" color expression.
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.TranslateAlpha(System.Drawing.Color)">
+            <summary>
+            Returns an expression representing an SVG "fill-opacity" or "stroke-opacity" value for a <c>Color</c>.
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Svg.GoSvgGenerator.TranslateGraphicsPath(System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Returns an SVG path description from a <c>GraphicsPath</c>.
+            </summary>
+            <param name="path"></param>
+            <returns>a string, such as "M82 383.9271 L90 387.9271 82 391.9271 Z"</returns>
+        </member>
+        <member name="P:Northwoods.Go.Svg.GoSvgGenerator.View">
+            <summary>
+            Get the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Writer"/>'s <see cref="P:Northwoods.Go.Svg.GoSvgWriter.View"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

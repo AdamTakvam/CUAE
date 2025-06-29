@@ -1,0 +1,9 @@
+Record Agent Beta installer is created by NullSoft's NSIS install system.
+
+1) Install NSIS from S:\Engineering\NSIS\nsis-2.09.exe
+
+2) Copy X:\application-suite\RecordAgent\NSIS\nsSCM.dll and X:\application-suite\RecordAgent\NSIS\Processes.dll to C:\Program Files\NSIS\Plugins.
+
+3) Run "MakeNSISW" from NSIS's program group and compile X:\application-suite\RecordAgent\NSIS\RecordAgent.nsi.
+
+4) Find the generated installer from X:\application-suite\RecordAgent\NSIS\RecordAgentSetup.exe.

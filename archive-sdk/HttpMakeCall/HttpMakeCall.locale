@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<LocaleTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cisco.com/LocaleTable.xsd">
+  <Locales readonly="false">
+    <Locale name="fr-FR" devmode="false" width="100">
+      <PromptInfo ref="Hello">
+        <Value><![CDATA[Salut]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Bye">
+        <Value><![CDATA[Bon Soir]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-US" devmode="false" width="100">
+      <PromptInfo ref="Hello">
+        <Value><![CDATA[Hi]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Bye">
+        <Value><![CDATA[Bye]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="pl-PL" devmode="false" width="100">
+      <PromptInfo ref="Hello">
+        <Value><![CDATA[Cześć]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Bye">
+        <Value><![CDATA[Zdunczyk]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-ES" devmode="false" width="100">
+      <PromptInfo ref="Hello">
+        <Value><![CDATA[Hola]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Bye">
+        <Value><![CDATA[Adios]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="it-IT" devmode="false" width="100">
+      <PromptInfo ref="Hello">
+        <Value><![CDATA[Ciao]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Bye">
+        <Value><![CDATA[Ciao]]></Value>
+      </PromptInfo>
+    </Locale>
+  </Locales>
+  <Prompts>
+    <Prompt name="Hello" height="20" />
+    <Prompt name="Bye" height="20" />
+  </Prompts>
+</LocaleTable>

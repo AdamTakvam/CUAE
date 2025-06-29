@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="App_AnswerCall_script1" displayName="" format="string" defaultValue="App.AnswerCall.script1" readOnly="true" required="true" />
+    <configValue name="S_IncomingCall" format="String" defaultValue="App.AnswerCall.script1.S_IncomingCall" />
+    <configValue name="S_AnswerCall" format="String" defaultValue="App.AnswerCall.script1.S_AnswerCall" />
+    <configValue name="S_Hangup" format="String" defaultValue="App.AnswerCall.script1.S_Hangup" />
+    <configValue name="E_AnswerCallAck" displayName="" format="String" defaultValue="App.AnswerCall.script1.E_AnswerCallAck" />
+    <configValue name="E_Hangup" displayName="" format="String" defaultValue="App.AnswerCall.script1.E_Hangup" />
+    <configValue name="E_SendConfirmDigit" displayName="" format="String" defaultValue="App.AnswerCall.script1.E_SendConfirmDigit" />
+  </configuration>
+</install>

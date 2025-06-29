@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+  <configValue name="appServerDn" description="A number which is used to call the application server" format="string" readOnly="false">50000</configValue>
+	<configValue name="authCode" description="The authorization code to use with this app" format="string" readOnly="false">1234</configValue>	
+  <configValue name="callManagerIp" description="The IP address of Call Manager" format="string" readOnly="false">192.168.1.250</configValue>
+</configuration>
+</install>

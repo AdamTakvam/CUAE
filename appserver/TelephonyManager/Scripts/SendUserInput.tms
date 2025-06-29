@@ -1,0 +1,17 @@
+trigger:Metreos.CallControl.SendUserInput
+
+1
+a:ForwardActionToProvider
+rns:*->5
+timeout:5->10
+
+5
+a:ForwardResponseToApp
+def->1000
+
+10
+a:SendActionFailureToApp
+def->1000
+
+1000
+a:EndScript

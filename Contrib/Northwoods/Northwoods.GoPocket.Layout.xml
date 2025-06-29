@@ -1,0 +1,2034 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Northwoods.GoPocket.Layout</name>
+    </assembly>
+    <members>
+        <member name="T:Northwoods.Go.Layout.GoLayoutDirection">
+            <summary>
+            This enumeration specifies the general direction in which the automatic
+            layout algorithm will position nodes.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutDirection.Right">
+            <summary>
+            Start on the left side and proceed toward the right.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutDirection.Down">
+            <summary>
+            Start at the top and proceed downwards.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutDirection.Left">
+            <summary>
+            Start at the right side and proceed toward the left.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutDirection.Up">
+            <summary>
+            Start at the bottom and proceed upwards.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutProgressEventHandler">
+            <summary>
+            Represents methods that handle <see cref="T:Northwoods.Go.Layout.GoLayoutProgressEventArgs"/>.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutProgressEventArgs">
+            <summary>
+            Holds information for the <see cref="E:Northwoods.Go.Layout.GoLayout.Progress"/> event.
+            </summary>
+            <remarks>
+            This class passes ratio done and an optional message to <see cref="E:Northwoods.Go.Layout.GoLayout.Progress"/>
+            event handlers.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutProgressEventArgs.#ctor(System.Single,System.String)">
+            <summary>
+            This constructor creates an <c>EventArgs</c> with no
+            particular progress information.
+            </summary>
+            <param name="done"></param>
+            <param name="msg"></param>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutProgressEventArgs.Progress">
+            <summary>
+            Gets or sets the ratio that <see cref="M:Northwoods.Go.Layout.GoLayout.PerformLayout"/> is done.
+            </summary>
+            <value>
+            This is a single float between zero and one.  The default value is zero.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutProgressEventArgs.Message">
+            <summary>
+            Gets or sets an optional message string that describes the current state
+            of the call to <see cref="M:Northwoods.Go.Layout.GoLayout.PerformLayout"/>.
+            </summary>
+            <value>
+            This defaults to null.
+            </value>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayout">
+            <summary>
+            GoLayout provides a common super-class for auto-layout algorithms.
+            The key aspects of an auto-layout algorithm are an input <see cref="T:Northwoods.Go.GoDocument"/>,
+            an input <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/> and a PerformLayout method.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayout.#ctor">
+            <summary>
+            Constructs a layout performer with null values for its network, and document.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayout.PerformLayout">
+            <summary>
+            Performs auto-layout.  You should set the <see cref="P:Northwoods.Go.Layout.GoLayout.Document"/>
+            and <see cref="P:Northwoods.Go.Layout.GoLayout.Network"/> properties before calling this method.
+            </summary>
+            <remarks>
+            This method is overridden by 
+            sub-classes to provide a particular kind of auto-layout algorithm.
+            Occasionally during this method there may be <see cref="E:Northwoods.Go.Layout.GoLayout.Progress"/>
+            events indicating how much of the layout has been done.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayout.OnProgress(Northwoods.Go.Layout.GoLayoutProgressEventArgs)">
+            <summary>
+            Invoke all Progress event handlers.
+            </summary>
+            <param name="evt"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayout.RaiseProgress(System.Single,System.String)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Layout.GoLayout.OnProgress(Northwoods.Go.Layout.GoLayoutProgressEventArgs)"/> with an appropriate <see cref="T:Northwoods.Go.Layout.GoLayoutProgressEventArgs"/>.
+            </summary>
+            <param name="done">a ratio between 0 and 1</param>
+            <param name="msg">an optional message string describing the state of the layout algorithm</param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayout.RaiseProgress(System.Single)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Layout.GoLayout.OnProgress(Northwoods.Go.Layout.GoLayoutProgressEventArgs)"/> with an empty message string.
+            </summary>
+            <param name="done">a ratio between 0 and 1</param>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayout.Version">
+            <summary>
+            Return the version of GoLayout being used.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayout.VersionName">
+            <summary>
+            Return the name of the version of GoLayout being used.
+            </summary>
+        </member>
+        <member name="E:Northwoods.Go.Layout.GoLayout.Progress">
+            <summary>
+            The Progress event is raised at various times during the <see cref="M:Northwoods.Go.Layout.GoLayout.PerformLayout"/>
+            routine to indicate progress.
+            In particular, a Progress event should be raised at the start of the layout 
+            with a progress of 0.0 and at the end of the layout with a progress of 1.0.
+            Other calls with progress values should be layout routine specific.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayout.Document">
+            <summary>
+            Gets or sets the <see cref="T:Northwoods.Go.GoDocument"/> that the layout will be performed on.
+            </summary>
+            <value>
+            The initial value is null.
+            Changing this value will also set <see cref="P:Northwoods.Go.Layout.GoLayout.Network"/> to null.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayout.Network">
+            <summary>
+            Gets or sets the <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/> that the layout will be performed on.
+            </summary>
+            <value>
+            The initial value is null.
+            This is automatically set to null when the <see cref="P:Northwoods.Go.Layout.GoLayout.Document"/> property changes.
+            </value>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutForceDirected">
+            <summary>
+            GoLayoutForceDirected provides an auto-layout algorithm for
+            graphs which utilizes a force-directed method.  The graph is viewed as
+            a system of bodies with forces acting between the bodies.  The algorithm
+            seeks a configuration of the bodies with locally minimal energy, i.e.,
+            a position such that the sum of the forces on each body is zero.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.#ctor">
+            <summary>
+            Constucts a ForceDirected layout class with null network, document.
+            PerformLayout() will be a no-op until the document has been set.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.PerformLayout">
+            <summary>
+            Performs force-directed auto-layout.
+            </summary>
+            <remarks>
+            This method can be overridden to customize the layout algorithm,
+            but care should be taken to ensure that each node and link in the
+            input network are properly initialized and terminated.
+            If <see cref="P:Northwoods.Go.Layout.GoLayout.Network"/> is null, one is automatically allocated
+            and initialized with the graph that is in the <see cref="P:Northwoods.Go.Layout.GoLayout.Document"/>.
+            After all of the computations are completed, this calls
+            <see cref="M:Northwoods.Go.Layout.GoLayoutForceDirected.LayoutNodesAndLinks"/> in order to commit the positions
+            of all of the nodes.
+            No undo/redo transaction is started or finished by this method.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.GetNodeDistance(Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Returns the distance between two nodes.
+            The default implementation considers the shortest distance between the two nodes.
+            If the nodes correspond to top-level Go objects, the width and height of the
+            GoObject is factored into the distance between the nodes.  If the nodes do not
+            correspond to top-level Go objects, then the nodes implicitly have a width and
+            height of zero, and the distance is calculated.
+            </summary>
+            <param name="nodeA"></param>
+            <param name="nodeB"></param>
+            <returns>Returns the distance between two nodes.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.SpringStiffness(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Returns the stiffness of the spring representing the GoLayoutNetworkLink link.  The
+            to and from nodes of link are acted upon by a force of magnitude
+            <c>SpringStiffness(link) * (GetNodeDistance(link.from, link.to) - SpringLength(link))</c>.
+            </summary>
+            <param name="link"></param>
+            <returns>Returns the stiffness of the spring representing link</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.SpringLength(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Returns the length of the spring representing the GoLayoutNetworkLink link.  The
+            to and from nodes of a link L are acted upon by a force of magnitude
+            <c>SpringStiffness(L) * (GetNodeDistance(L.from, L.to) - SpringLength(L))</c>.
+            </summary>
+            <param name="link"></param>
+            <returns>Returns the length of the spring representing link</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.ElectricalCharge(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Returns the charge of the point representing the GoLayoutNetworkNode node.  A node U
+            and a node V are acted upon by a force of magnitude
+             <c>(ElectricalCharge(U) * ElectricalCharge(V)) / (GetNodeDistance(U,V) * GetNodeDistance(U,V))</c>.
+            A node U is acted upon by forces in the X and Y directions of magnitude
+             <c>ElectricalFieldX(U.position) * ElectricalCharge(U)</c> and
+             <c>ElectricalFieldY(U.position) * ElectricalCharge(U)</c>.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns the charge of the point representing node</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.ElectricalFieldX(Northwoods.Go.PointF)">
+            <summary>
+            Returns the electrical field in the X direction
+            acting on a node at the logical point PointF xy.  A node U
+            is acted upon by a force in the X direction of magnitude
+             <c>ElectricalFieldX(U.position) * ElectricalCharge(U)</c>.
+            </summary>
+            <param name="xy"></param>
+            <returns>Returns the electrical field in the X direction</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.ElectricalFieldY(Northwoods.Go.PointF)">
+            <summary>
+            Returns the electrical field in the Y direction
+            acting on a node at the logical point <c>PointF</c> xy.  A node U
+            is acted upon by a force in the Y direction of magnitude
+             <c>ElectricalFieldY(U.position) * ElectricalCharge(U)</c>.
+            </summary>
+            <param name="xy"></param>
+            <returns>Returns the electrical field in the Y direction</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.GravitationalMass(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            The function GravitationalMass returns the mass of the point
+            representing the GoLayoutNetworkNode node.  A node U
+            is acted upon by forces in the X and Y directions of magnitude
+             <c>GravitationalFieldX(U.position) * GravitationalMass(U)</c> and
+             <c>GravitationalFieldY(U.position) * GravitationalMass(U)</c>.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns the mass of node</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.GravitationalFieldX(Northwoods.Go.PointF)">
+            <summary>
+            The function GravitationalFieldX returns the graviational field
+            in the X direction acting on a node at the logical point <c>PointF</c> xy.  A node U
+            is acted upon by a force in the X direction of magnitude
+             <c>GravitationalFieldX(U.position) * GravitationalMass(U)</c>.
+            </summary>
+            <param name="xy"></param>
+            <returns>Returns the gravitational field in the X direction at point xy</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.GravitationalFieldY(Northwoods.Go.PointF)">
+            <summary>
+            The function GravitationalFieldY returns the graviational field
+            in the Y direction acting on a node at the logical point <c>PointF</c> xy.  A node U
+            is acted upon by a force in the Y direction of magnitude
+             <c>GravitationalFieldY(U.position) * GravitationalMass(U)</c>.
+            </summary>
+            <param name="xy"></param>
+            <returns>Returns the gravitational field in the Y direction at point xy</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.IsFixed(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            The protected function IsFixed returns true if the node should not be moved
+            by the layout algorithm.
+            The default implementation returns false on all nodes.
+            This function can be overridden to provide "fine-tuning" of the layout.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns true if node should not be moved by the layout algorithm</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.UpdatePositions">
+            <summary>
+            Peforms one iteration of the ForceDirected algorithm and updates the positions of
+            the nodes.  Returns true if additional iterations are needed to find a solution.
+            </summary>
+            <returns>Returns true if additional iterations are needed to find a solution.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutForceDirected.LayoutNodesAndLinks">
+            <summary>
+            Updates the physical location of "real" nodes and links to reflect
+            the layout.
+            </summary>
+            <remarks>
+            Although this method does not start or finish an undo manager
+            transaction, it is compliant with undo and redo by calling
+            <see cref="M:Northwoods.Go.GoDocument.RaiseChanging(System.Int32,System.Int32,System.Object)"/> and <see cref="M:Northwoods.Go.GoDocument.RaiseChanged(System.Int32,System.Int32,System.Object,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/>
+            with a hint of <see cref="F:Northwoods.Go.GoDocument.AllArranged"/>.
+            This also updates the <see cref="P:Northwoods.Go.Layout.GoLayout.Document"/>'s <see cref="P:Northwoods.Go.GoDocument.TopLeft"/>
+            and <see cref="P:Northwoods.Go.GoDocument.Size"/> properties to account for objects that
+            have moved and potentially increased the extent of the document.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirected.MaxIterations">
+            <summary>
+            Gets or sets the maximum number of iterations to perform when doing the
+            force directed auto layout.
+            </summary>
+            <value>The value must be positive.  The initial value is 1000.</value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirected.CurrentIteration">
+            <summary>
+            Gets the current iteration count, valid during a call to <see cref="M:Northwoods.Go.Layout.GoLayoutForceDirected.PerformLayout"/>.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutForceDirectedLinkData">
+            <summary>
+            Holds force-directed auto-layout specific data associated with each
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> in the <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedLinkData.Stiffness">
+            <summary>
+            stiffness of the link; see the <see cref="M:Northwoods.Go.Layout.GoLayoutForceDirected.SpringStiffness(Northwoods.Go.Layout.GoLayoutNetworkLink)"/> method
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedLinkData.Length">
+            <summary>
+            length of the link; see the <see cref="M:Northwoods.Go.Layout.GoLayoutForceDirected.SpringLength(Northwoods.Go.Layout.GoLayoutNetworkLink)"/> method
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData">
+            <summary>
+            Holds force-directed auto-layout specific data associated with each
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/> in the <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData.ChangeX">
+            <summary>
+            total change in the X coordinate of the node over 10 iterations
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData.ChangeY">
+            <summary>
+            total change in the Y coordinate of the node over 10 iterations
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData.ForceX">
+            <summary>
+            cumulative force on the node in the X-direction
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData.ForceY">
+            <summary>
+            cumulative force on the node in the Y-direction
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData.Charge">
+            <summary>
+            charge of the node.  See the <see cref="M:Northwoods.Go.Layout.GoLayoutForceDirected.ElectricalCharge(Northwoods.Go.Layout.GoLayoutNetworkNode)"/> method
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutForceDirectedNodeData.Mass">
+            <summary>
+            mass of the node.  See the <see cref="M:Northwoods.Go.Layout.GoLayoutForceDirected.GravitationalMass(Northwoods.Go.Layout.GoLayoutNetworkNode)"/> method
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraphCycleRemove">
+            <summary>
+            This enumeration controls how <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.RemoveCycles"/> changes the graph
+            to make sure it contains no cycles or loops.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphCycleRemove.DepthFirst">
+            <summary>
+            Remove cycles using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemoval"/>
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphCycleRemove.Greedy">
+            <summary>
+            Remove cycles using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemoval"/>
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraphLayering">
+            <summary>
+            This enumeration controls how <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.AssignLayers"/>
+            assigns each node of the graph to a layer.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphLayering.OptimalLinkLength">
+            <summary>
+            Assign layers using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayering"/>
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphLayering.LongestPathSink">
+            <summary>
+            Assign layers using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSinkLayering"/>
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphLayering.LongestPathSource">
+            <summary>
+            Assign layers using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSourceLayering"/>
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraphInitIndices">
+            <summary>
+            This enumeration controls how <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeIndices"/>
+            determines the array of indices for each layer.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphInitIndices.DepthFirstOut">
+            <summary>
+            Initialize using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstOutInitializeIndices"/>
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphInitIndices.DepthFirstIn">
+            <summary>
+            Initialize using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstInInitializeIndices"/>
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphInitIndices.Naive">
+            <summary>
+            Initialize using <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.NaiveInitializeIndices"/>
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraphAggressive">
+            <summary>
+            This enumeration controls how much effort <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ReduceCrossings"/>
+            puts into trying to look for link crossings.
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphAggressive.Less">
+            <summary>
+            The faster, less agressive crossing reduction algorithm
+            </summary>
+        </member>
+        <member name="F:Northwoods.Go.Layout.GoLayoutLayeredDigraphAggressive.More">
+            <summary>
+            The slower, more agressive crossing reduction algorithm
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraph">
+            <summary>
+            GoLayoutLayeredDigraph provides an auto-layout for layered drawings
+            of directed graphs.  The method uses a hierarchical approach
+            for creating drawings of digraphs with nodes arranged in layers.
+            The layout algorithm consists of four-major steps: Cycle Removal,
+            Layer Assignment, Crossing Reduction, and Straightening and Packing.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.#ctor">
+            <summary>
+            Constructs a LayeredDigraph with null network and document.
+            PerformLayout() will be a no-op until the network has been set.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.PerformLayout">
+            <summary>
+            Performs a layered-digraph auto-layout.
+            </summary>
+            <remarks>
+            This method can be overridden to customize the layout algorithm,
+            but care should be taken to ensure that each node and link in the
+            input network are properly initialized and terminated.
+            If <see cref="P:Northwoods.Go.Layout.GoLayout.Network"/> is null, one is automatically allocated
+            and initialized with the graph that is in the <see cref="P:Northwoods.Go.Layout.GoLayout.Document"/>.
+            After all of the computations are completed, this calls
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodesAndLinks"/> in order to commit the positions
+            of all of the nodes.
+            No undo/redo transaction is started or finished by this method.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LinkMinLength(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            The function LinkMinLength returns the minimum length of the
+            link represented by the GoLayoutNetworkLink link.
+            The default implementation gives multi-links a minimum length of 2,
+            and all other links a minimum length of 1.
+            This function can be overridden to provide "fine-tuning" of the layout.
+            </summary>
+            <param name="link"></param>
+            <returns>Returns the minimum length of the link represented by link</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LinkLengthWeight(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            The function LinkLengthWeight returns the weight of the link
+            represented by the GoLayoutNetworkLink link.  This weight is used by
+            OptimalLinkLengthLayering to minimize weighted link lengths.
+            The default implementation gives all links a length weight of 1.
+            This function can be overridden to provide "fine-tuning" of the layout.
+            </summary>
+            <param name="link"></param>
+            <returns>Returns the weight of the link represented by link</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LinkStraightenWeight(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            The function LinkStraightenWeight returns the weight of the link
+            represented by the GoLayoutNetworkLink link.  This weight is used by
+            the straightening methods to give priority straightening to those links
+            with higher weights.
+            The default implementation gives links between two "real" nodes a weight of 1,
+            links between a "real" node and an "artifical" node a weight of 4,
+            and links between two "artificial" nodes a weight of 8.
+            This function can be overridden to provide "fine-tuning" of the layout.
+            </summary>
+            <param name="link"></param>
+            <returns>Returns the weight of the link represented by link</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.NodeMinLayerSpace(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            The function NodeMinLayerSpace returns the minimum space
+            reserved above and below this node.
+            The default implementation returns 0 for nodes that do not
+            correspond to top-level Go objects.  For nodes that do correspond
+            to top-level Go objects, the layer space is determined by the
+            width and height of the object.
+            Note: all sub-classes that override this method should ensure that
+            nodes that do not correspond to top-level Go objects have a minimum
+            layer space of 0.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns the minimum space reserved above and below this node</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.NodeMinColumnSpace(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            The function NodeMinColumnSpace returns the minimum space
+            reserved to either side of this node.
+            The default implementation returns 0 for nodes that do not
+            correspond to top-level Go objects.  For nodes that do correspond
+            to top-level Go objects, the column space is determined by the
+            width and height of the object.
+            Note: all sub-classes that override this method should ensure that
+            nodes that do not correspond to top-level Go objects have a minimum
+            column space of 0.
+            This function can be overridden to provide "fine-tuning" of the layout.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns the minimum space reserved to either side of this node</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.SaveLayout">
+            <summary>
+            The function SaveLayout stores the layer, column, and index of all
+            nodes in an array of integers.
+            </summary>
+            <returns>Returns an integer array representation of the current layout</returns>
+            <remarks>See also <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.RestoreLayout(System.Int32[])"/>
+            and <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.EqualLayout(System.Int32[],System.Int32[])"/></remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.RestoreLayout(System.Int32[])">
+            <summary>
+            The function RestoreLayout restores the layer, column, and index of all
+            nodes from an array of integers.
+            </summary>
+            <param name="layout"></param>
+            <remarks>See also <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.SaveLayout"/>
+            and <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.EqualLayout(System.Int32[],System.Int32[])"/></remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.EqualLayout(System.Int32[],System.Int32[])">
+            <summary>
+            The function EqualLayout compares two layouts and determines if they
+            are equal.
+            </summary>
+            <param name="layoutA"></param>
+            <param name="layoutB"></param>
+            <returns>Returns true if layoutA and layoutB are equal and false otherwise.</returns>
+            <remarks>See also <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.SaveLayout"/>
+            and <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.RestoreLayout(System.Int32[])"/></remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.CrossingMatrix(System.Int32,System.Int32)">
+            <summary>
+            Computes the crossing matrix between the unfixedLayer and its adjacent layers.
+            The direction argument indicates which adjacent layers should be taken into
+            consideration when computing the crossing matrix:
+            <code>
+            direction == 0  --  use unfixedLayer - 1 and unfixedLayer + 1
+            direction > 0  --  use unfixedLayer - 1 (sweeping away from layer 0)
+            direction &lt; 0  --  use unfixedLayer + 1 (sweeping towards layer 0)
+            </code>
+            The resulting integer array can be used as follows:
+            if index1 and index2 are the indices corresponding to two nodes on the
+            unfixedLayer and crossmat is the crossing matrix, then
+            <c>crossmat[index1 * indices[unfixedLayer] + index2]</c>
+            is the number of crossing that occur if the node corresponding to index1 is
+            placed to the left of the node corresponding to index2.  If <c>index1 == index2</c>,
+            then <c>crossmat[index1 * indices[unfixedLayer] + index2]</c> is the number of crossings
+            between links to and from the node corresponding to index1.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Returns the crossing matrix</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.CountCrossings">
+            <summary>
+            Returns the total number of crossings in the network.
+            Internal method used by <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ReduceCrossings"/>.
+            </summary>
+            <returns>Returns the total number of crossings in the network.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.Bends(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Computes the bends between the unfixedLayer and its adjacent layers.
+            The "bend" between a node U and a node V connected by a link L is calcluated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset))</c>
+            The "weighted bend" between a node U and a node V connected by link L is calculated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset)) * LinkStraightenWeight(L)</c>
+            The LinkStraightenWeight attempts to give higher priority to links between
+            "artificial" nodes; i.e., long links in the final layout will be straighter.
+            The direction argument indicates which adjacent layers should be taken into
+            consideration when computing the crossing matrix:
+            <c>direction == 0  --  use unfixedLayer - 1 and unfixedLayer + 1</c>
+            <c>direction > 0  --  use unfixedLayer - 1 (sweeping away from layer 0)</c>
+            <c>direction &lt; 0  --  use unfixedLayer + 1 (sweepeing towards layer 0)</c>
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <param name="weighted"></param>
+            <returns>Returns the bends between the unfixedLayer and its adjacent layers.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.CountBends(System.Boolean)">
+            <summary>
+            Returns the total number of bends in the network.
+            The "bend" between a node U and a node V connected by a link L is calcluated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset))</c>
+            The "weighted bend" between a node U and a node V connected by link L is calculated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset)) * LinkStraightenWeight(L)</c>
+            The LinkStraightenWeight attempts to give higher priority to links between
+            "artificial" nodes; i.e., long links in the final layout will be straighter.
+            </summary>
+            <param name="weighted"></param>
+            <returns>Returns the total number of bends in the network.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.Normalize">
+            <summary>
+            Adjusts the columns of all nodes such that the leftmost column will be
+            column 0 and maxColumn is updated appropriately.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.Barycenters(System.Int32,System.Int32)">
+            <summary>
+            Computes the array of barycenters (average) columns for the nodes in the 
+            unfixedLayer based on the columns of predecessors (direction &lt; 0),
+            successors (direction > 0), or both predecessors and successors (direction == 0)
+            Elements without a defined barycenter will have an entry of -1.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Returns the array of barycenters (average) columns for the nodes in
+            the unfixedLayer</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.Medians(System.Int32,System.Int32)">
+            <summary>
+            Computes the array of median columns for the nodes in the
+            unfixedLayer based on the columns of predecessors (direction &lt; 0),
+            successors (direction > 0), or both predecessors and successors (direction == 0).
+            Elements without a defined median will have an entry of -1.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Returns the array of median columns for the nodes in
+            the unfixedLayer</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.TightComponent(Northwoods.Go.Layout.GoLayoutNetworkNode,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Uses a depth first search algorithm to set the component of all nodes in a component.
+            The forward and backward bools indicate the direction to use for a
+            directed depth first search from node.
+            **Unset functions only set the component and recurse on nodes whose component is currently
+            set to the unset value.
+            Tight** functions only set the component and recurse on nodes which are "tight",
+            in the sense that the nodes are separated by a link which corresponds to the
+            minumum link length of the link between the two nodes.
+            </summary>
+            <param name="node"></param>
+            <param name="component"></param>
+            <param name="forward"></param>
+            <param name="backward"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.TightComponentUnset(Northwoods.Go.Layout.GoLayoutNetworkNode,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Uses a depth first search algorithm to set the component of all nodes in a component.
+            Tight** functions only set the component and recurse on nodes which are "tight",
+            in the sense that the nodes are separated by a link which corresponds to the
+            minumum link length of the link between the two nodes.
+            **Unset functions only set the component and recurse on nodes whose component is currently
+            set to the unset value.
+            The forward and backward bools indicate the direction to use for a
+            directed depth first search from node.
+            </summary>
+            <param name="node"></param>
+            <param name="component"></param>
+            <param name="unset"></param>
+            <param name="forward"></param>
+            <param name="backward"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.SetComponents(Northwoods.Go.Layout.GoLayoutNetworkNode,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Uses a depth first search algorithm to set the component of all nodes in a component.
+            The forward and backward bools indicate the direction to use for a
+            directed depth first search from node.
+            </summary>
+            <param name="node"></param>
+            <param name="component"></param>
+            <param name="forward"></param>
+            <param name="backward"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ComponentUnset(Northwoods.Go.Layout.GoLayoutNetworkNode,System.Int32,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Uses a depth first search algorithm to set the component of all nodes in a component.
+            **Unset functions only set the component and recurse on nodes whose component is currently
+            set to the unset value.
+            The forward and backward bools indicate the direction to use for a
+            directed depth first search from node.
+            </summary>
+            <param name="node"></param>
+            <param name="component"></param>
+            <param name="unset"></param>
+            <param name="forward"></param>
+            <param name="backward"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.RemoveCycles">
+            <summary>
+            Removes cycles from the input network by reversing some number of links.
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            </summary>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemoval"/>
+            or <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemoval"/>, as appropriate
+            given the value of <see cref="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.CycleRemoveOption"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemoval">
+            <summary>
+            Removes cycles from the input network using a Greedy-Cycle-Removal algorithm.
+            The idea is to induce an order on all nodes
+            in the network (U1, U2, U3, ..., Uk) such that for the majority of links L = (Ui, Uj)
+            it is true that i &lt; j.  All links L = (Ui, Uj) such that i > j are reversed.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemovalFindNode(Northwoods.Go.Layout.GoLayoutNetwork)">
+            <summary>
+            Finds a valid node in the network.
+            Returns null if no valid node exists.
+            Used by GreedyCycleRemoval.
+            </summary>
+            <param name="network"></param>
+            <returns>Returns a valid node in the network or null if no valid nodes exist</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemovalFindSink(Northwoods.Go.Layout.GoLayoutNetwork)">
+            <summary>
+            Finds a sink node in the network.  A node is considered a sink node if it is
+            valid and all of its predecessors are invalid.  A valid node with no predecessors
+            is vacously a sink.
+            Returns null if no valid sink node exists.
+            Used by GreedyCycleRemoval.
+            </summary>
+            <param name="network"></param>
+            <returns>Returns a sink node in the network, or null if no valid sink node exists</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemovalFindSource(Northwoods.Go.Layout.GoLayoutNetwork)">
+            <summary>
+            Finds a source node in the network.  A node is considered a sink node if it is
+            valid and all of its successors are invalid.  A valid node with no successors
+            is vacously a source.
+            Returns null if no valid source node exists.
+            Used by GreedyCycleRemoval.
+            </summary>
+            <param name="network"></param>
+            <returns>Returns a source node in the network or null if no sources exist</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemovalFindNodeMaxDegDiff(Northwoods.Go.Layout.GoLayoutNetwork)">
+            <summary>
+            Finds a valid node in the network that maximizes outdeg - indeg.
+            The degree difference is computed using valid successors and predecessors.
+            Returns null if no valid node exists.
+            Used by GreedyCycleRemoval.
+            </summary>
+            <param name="network"></param>
+            <returns>Returns a valid node in the network that maximized outdeg-indeg or null
+            if no valid node exists</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemoval">
+            <summary>
+            Removes cycles from the input network using a depth first search.
+            A link not in the depth first forest is reversed if the from-node was discovered
+            and finished by the depth first search after the to-node was discovered but before
+            the to-node was finished.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemovalVisit(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Peforms the recursive step of the depth first search on node.
+            Updates the discover and finish time of node.
+            Updates the forest flag of followed links.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.AssignLayers">
+            <summary>
+            Assigns every node in the input network to a layer.
+            The layering satisfies the following:
+            if L is a link from node U to node V,
+            then U.layer &gt; V.layer;
+            further, U.layer - V.layer &gt;= LinkMinLength(L).
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            </summary>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSinkLayering"/>,
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSourceLayering"/>, or
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayering"/> as appropriate given
+            the <see cref="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayeringOption"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSinkLayering">
+            <summary>
+            Assigns every node in the input network to a layer.
+            In addition to the requirements described in AssignLayers(),
+            LongestPathSinkLayering ensures that every sink appears in layer 0
+            and every node is as close to a sink as possible.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSinkLayeringLength(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Computes the length of the longest path from node to a sink node and sets the
+            layer of node to that length.
+            Returns the length of the longest path from node to a sink node.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns the length of the longest path from node to a sink node.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSourceLayering">
+            <summary>
+            Assigns every node in the input network to a layer.
+            In addition to the requirements described in <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.AssignLayers"/>,
+            LongestPathSourceLayering ensures that every source appears in layer maxLayer
+            and every node is as close to a source as possible.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LongestPathSourceLayeringLength(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Computes the length of the longest path from node to a source node and sets the
+            layer of node to that length.
+            Returns the length of the longest path from node to a source node.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns the length of the longest path from node to a source node.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayering">
+            <summary>
+            Assigns every node in the input network to a layer.
+            In addition to the requirements described in AssignLayers(),
+            OptimalLinkLengthLayering ensures that nodes are set in layers
+            to minimize the total weighted link length.
+            Hence, OptimalLinkLengthLayering minimizes the sum
+            (U.layer - V.layer) * LinkLengthWeight(L)
+            over all links L = (U,V).
+            </summary>
+            <remarks>See also <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LinkMinLength(Northwoods.Go.Layout.GoLayoutNetworkLink)"/>
+            and <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LinkLengthWeight(Northwoods.Go.Layout.GoLayoutNetworkLink)"/></remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayeringDepthFirstSearch(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Peforms the depth first search of the network.
+            After traversing all decendents, the node is "pull"-ed into
+            the appropriate layer.
+            </summary>
+            <param name="node"></param>
+            <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayeringPull(Northwoods.Go.Layout.GoLayoutNetworkNode)"/>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayeringPull(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Attempts to move node and it's tight component to a higher layer.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayeringPush(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Attempts to move node and it's tight component to a lower layer.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MakeProper">
+            <summary>
+            Converts the input network into a proper digraph; i.e., artificial nodes and links
+            are introduced into the network such that every link is between nodes in adjacent
+            layers.  This has the effect of breaking up long links into a sequence of artificial
+            nodes.
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeIndices">
+            <summary>
+            Assigns every node in the input network an index number,
+            such that nodes in the same layer will be labeled with
+            consecutive indices in left to right order.
+            All consecutive layout operations will preserve or update
+            the indices.
+            In addition, the indices array is initialized such that
+            indices[layer] indicates the number of nodes in the layer.
+            Finally, the variables minIndexLayer and maxIndexLayer record
+            the layers that correspond to the minimum and maximum nodes
+            in a layer.
+            </summary>
+            <remarks>
+            By default this will just call <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.NaiveInitializeIndices"/>,
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstOutInitializeIndices"/>, or
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstInInitializeIndices"/>, as appropriate
+            given the value of <see cref="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeOption"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.NaiveInitializeIndices">
+            <summary>
+            Assigns every node in the input network an index number,
+            such that nodes in the same layer will be labeled with
+            consecutive indices in left to right order.
+            Uses a naive implementation that assigns indices to nodes as they
+            are encountered in a sweep of the network.  Because of the way
+            networks are stored, this has the effect of initialy placing all
+            "artificial" nodes to the right of all "real" nodes.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstOutInitializeIndices">
+            <summary>
+            Assigns every node in the input network an index number,
+            such that nodes in the same layer will be labeled with 
+            consecutive indices in left to right order.
+            Uses a depth first "outward" (i.e., following links from "from-node" to "to-node")
+            traversal of the network, assigning indices to nodes as they are discovered.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstOutInitializeIndicesVisit(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Assigns node the appropriate index and updates the indices array.
+            Implements the recursive portion of a depth first search.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstInInitializeIndices">
+            <summary>
+            Assigns every node in the input network an index number,
+            such that nodes in the same layer will be labeled with
+            consecutive indices in left to right order.
+            Uses a depth first "inward" (i.e., following links from "to-node" to "from-node")
+            traversal of the network, assigning indices to nodes as they are discovered.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstInInitializeIndicesVisit(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Assigns node the appropriate index and updates the indices array.
+            Implements the recursive portion of a depth first search.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeColumns">
+            <summary>
+            Assigns every node in the input network a column number,
+            such that nodes in the same layer will be labeled with
+            increasing indices in left to right order.
+            In addition, a node U is assigned to a column such that
+            2 * MinColumnSpace(U) + 1 columns are "allocated" to node U,
+            and no two nodes have overlapping "allocations" of columns.
+            All consecutive layout operations will preserve or update
+            the columns.
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ReduceCrossings">
+            <summary>
+            Reorders nodes within layers to reduce the total number of link
+            crossings in the network.
+            There are many, many possible implementations of this function.
+            Basically, some iteration of MedianBarycenterCrossingReduction
+            and AdjacentExchangeCrossingReductionBendStraighten
+            sweeping back and forth over the layers is needed.
+            The default implementation has performed favorably on a large number
+            of networks, but other options are available.
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MedianBarycenterCrossingReduction(System.Int32,System.Int32)">
+            <summary>
+            Reorders nodes within the unfixedLayer to reduce the number of link crossings between
+            the unfixedLayer and its adjacent layers.  The direction argument indicates which of the
+            adjacent layers should be taken into consideration when reducing the number of crossings.
+            <c>direction == 0  --  use unfixedLayer - 1 and unfixedLayer + 1</c>
+            <c>direction > 0  --  use unfixedLayer - 1 (sweeping away from layer 0)</c>
+            <c>direction &lt; 0  --  use unfixedLayer + 1 (sweepeing towards layer 0)</c>
+            The idea is to calculate the median and barycenter for each node in the unfixedLayer,
+            and to sort the nodes in the unfixedLayer by their median and barycenter values.
+            Returns true if some change was made to the layer.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Returns true if some change was made to the layer and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.AdjacentExchangeCrossingReductionBendStraighten(System.Int32,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            Adjusts the columns of nodes within the unfixedLayer to simultaneously reduce the
+            number of link crossings and the number of "bends" between the unfixedLayer and its
+            adjacent layers between the unfixedLayer and its adjacent layers.
+            The directionCR argument indicates which of the adjacent layers should be taken
+            into consideration when reducing the number of link crossings.
+            <code>
+            direction == 0  --  use unfixedLayer - 1 and unfixedLayer + 1
+            direction > 0  --  use unfixedLayer - 1 (sweeping away from layer 0)
+            direction &lt; 0  --  use unfixedLayer + 1 (sweepeing towards layer 0)
+            </code>
+            The directionBS argument indicates which of the adjacent layers should be taken
+            into consideration when reducing the number of bends.
+            <code>
+            direction == 0  --  use unfixedLayer - 1 and unfixedLayer + 1
+            direction > 0  --  use unfixedLayer - 1 (sweeping away from layer 0)
+            direction &lt; 0  --  use unfixedLayer + 1 (sweepeing towards layer 0)
+            </code>
+            The "weighted bend" between a node U and a node V connected by link L is calculated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset)) * LinkStraightenWeight(L)</c>
+            The LinkStraightenWeight attempts to give higher priority to links between
+            "artificial" nodes; i.e., long links in the final layout will be straighter.
+            The idea is to use a bubble-sort technique to exchange adjacent nodes whenever
+            doing so reduces the number of link crossings or the number of bends.
+            This function is used in both crossing reduction and bend straightening.
+            Returns true if some change was made to the layer.
+            </summary>
+            <param name="unfixedLayer">the layer to be reordered</param>
+            <param name="directionCR">indicates which adjacent layers should be taken into consideration when calculating the crossing matrix</param>
+            <param name="straighten">indicates whether or not to reorder to nodes to straighten links</param>
+            <param name="directionBS">indicates which adjacent layers should be taken into consideration when calculating the bends of a link</param>
+            <returns>Returns true if some change was made to the layer and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.StraightenAndPack">
+            <summary>
+            Adjusts the columns of nodes in the network to produce a layout which reduces
+            the number of bends and is tightly packed.
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.BendStraighten(System.Int32,System.Int32)">
+            <summary>
+            Adjusts the columns of nodes within the unfixedLayer to reduce the number of "bends"
+            between the unfixedLayer and its adjacent layers.  The direction argument indicates
+            which of the adjacent layers should be taken into consideration when reducing the number
+            of bends.
+            The "weighted bend" between a node U and a node V connected by link L is calculated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset)) * LinkStraightenWeight(L)</c>
+            The LinkStraightenWeight attempts to give higher priority to links between
+            "artificial" nodes; i.e., long links in the final layout will be straighter.
+            The idea is to iterate the ShiftBendStraighten and adjacentExchangeBendStraighten
+            methods until no improvements are made.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Returns true if an improvement was made.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ShiftBendStraighten(System.Int32,System.Int32)">
+            <summary>
+            Adjusts the columns of nodes within the unfixedLayer to reduce the number of "bends"
+            between the unfixedLayer and its adjacent layers.  The direction argument indicates
+            which of the adjacent layers should be taken into consideration when reducing the number
+            of bends.
+            The "weighted bend" between a node U and a node V connected by link L is calculated by
+            <c>abs((U.column + L.portFromColOffset) - (V.column + L.portToColOffset)) * LinkStraightenWeight(L)</c>
+            The LinkStraightenWeight attempts to give higher priority to links between
+            "artificial" nodes; i.e., long links in the final layout will be straighter.
+            The idea is shift nodes to the left and to the right to reduce the bends
+            ensuring that no two nodes have overlapping "allocations" of columns.
+            Return true if some change was made to the layer.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Return true if some change was made to the layer and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MedianStraighten(System.Int32,System.Int32)">
+            <summary>
+            Adjusts the columns of nodes within the unfixedLayer in order to move nodes towards
+            their median columns.  The direction argument indicates which of the adjacent layers
+            should be taken into consideration when computing the median column.
+            The idea is shift nodes to the left and to the right to move nodes towards their
+            median columns, ensuring that no two nodes have overlapping "allocations" of columns.
+            Returns true if some change was made to the layer.
+            </summary>
+            <param name="unfixedLayer"></param>
+            <param name="direction"></param>
+            <returns>Returns true if some change was made to the layer and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.Pack">
+            <summary>
+            Adjusts the columns of nodes in the network to produce a layout which is tightly packed.
+            The idea is that columns which are "un-allocated" through all layers can be eliminated
+            and the nodes can be shifted into that space.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.PackAux(System.Int32,System.Int32)">
+            <summary>
+            Attempts to remove the argument column by shifting columns into from the argument direction.
+              direction > 0 -- columns > argument column are shifted
+              direction &lt; 0 -- columns &lt; argument column are shifted
+            Returns true if the argument column was removed.
+            </summary>
+            <param name="column"></param>
+            <param name="direction"></param>
+            <returns>Returns true if the argument column was removed and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.TightPack">
+            <summary>
+            Adjusts the columns of nodes in the network to produce a layout which is tightly packed.
+            The idea is that two adjacent columns can be "merged" if each layer has at most one of
+            the two columns "allocated" to a node.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.TightPackAux(System.Int32,System.Int32)">
+            <summary>
+            Attempts to augment the argument column by merging columns into from the argument direction.
+            direction > 0 -- columns > the argument column are shifted
+            direction &lt; 0 -- columns &lt; the argument column are shifted
+            Returns true if the argument column was changed.
+            </summary>
+            <param name="column"></param>
+            <param name="direction"></param>
+            <returns>Returns true if the argument column was changed and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ComponentPack(System.Int32)">
+            <summary>
+            Adjusts the columns of nodes in the network to produce a layout which is tightly packed.
+            The idea is that the network can be fragmented from a given column in the following way:
+            all nodes "behind" the column are placed into a single component, and the remainder of
+            the network is divided into connected components.  Each of these new components can be
+            examined, and those that can be merged with the given column do so.
+            </summary>
+            <param name="direction"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ComponentPackAux(System.Int32,System.Int32)">
+            <summary>
+            Attempts to augment the argument column by merging components into from the argument direction.
+            direction > 0 -- columns > the argument column are shifted
+            direction &lt; 0 -- columns &lt; the argument column are shifted
+            Returns true if the argument column was changed.
+            </summary>
+            <param name="column"></param>
+            <param name="direction"></param>
+            <returns>Returns true if the argument column was changed and false otherwise.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodesAndLinks">
+            <summary>
+            Updates the physical location of "real" nodes and links to reflect
+            the layout.
+            </summary>
+            <remarks>
+            This method can be overridden to customize the layout algorithm, but care
+            should be taken to ensure proper initialization and termination.
+            One reason to override this method would be to take advantage of
+            added functionality of sub-classes of IGoLink, for example, a sub-class
+            that tracked bend points and allowed them to be repositioned
+            by the application.
+            See also <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodes"/>
+            and <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutLinks"/>.
+            Although this method does not start or finish an undo manager
+            transaction, it is compliant with undo and redo by calling
+            <see cref="M:Northwoods.Go.GoDocument.RaiseChanging(System.Int32,System.Int32,System.Object)"/> and <see cref="M:Northwoods.Go.GoDocument.RaiseChanged(System.Int32,System.Int32,System.Object,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)"/>
+            with a hint of <see cref="F:Northwoods.Go.GoDocument.AllArranged"/>.
+            This also updates the <see cref="P:Northwoods.Go.Layout.GoLayout.Document"/>'s <see cref="P:Northwoods.Go.GoDocument.TopLeft"/>
+            and <see cref="P:Northwoods.Go.GoDocument.Size"/> properties to account for objects that
+            have moved and potentially increased the extent of the document.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodes">
+            <summary>
+            Lays out the nodes.  Called by <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodesAndLinks"/>
+            Made into a seperate function so that it can be overwritten.
+            </summary>
+            <remarks>
+            See also <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodesAndLinks"/>
+            and <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutLinks"/>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutLinks">
+            <summary>
+            Lays out the links.  Called by <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodesAndLinks"/>
+            Made into a seperate function so that it can be overwritten.
+            </summary>
+            <remarks>
+            See also <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodesAndLinks"/>
+            and <seealso cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayoutNodes"/>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.PrintNetworkData">
+            <summary>
+            Prints out the contents LinkData and NodeData for all nodes and links in the network.
+            Used as a debuging tool.  Appends the results to csout.txt.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GetIndices">
+            <summary>
+            Returns the indices array.
+            </summary>
+            <value>
+            The value must not be modified.
+            </value>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.NodeData(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Gets node's Node Data
+            </summary>
+            <returns>Returns node's Node Data</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LinkData(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Gets link's Link Data
+            </summary>
+            <returns>Returns link's Link Data</returns>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayerSpacing">
+            <summary>
+            Gets or sets the size of each layer
+            </summary>
+            <value>The value must be positive.  It defaults to 25.</value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ColumnSpacing">
+            <summary>
+            Gets or sets the size of each column
+            </summary>
+            <value>The value must be positive.  It defaults to 25.</value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DirectionOption">
+            <summary>
+            Gets or sets which Direction Option is being used.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.CycleRemoveOption">
+            <summary>
+            Gets or sets which cycle removal option is being used.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.LayeringOption">
+            <summary>
+            Gets or sets which layering option is being used.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeOption">
+            <summary>
+            Gets or sets which indices initialization option is being used.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.Iterations">
+            <summary>
+            Gets or sets the number of iterations are to be done.
+            </summary>
+            <value>The value must be non-negative.  The default value is 4.</value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.AggressiveOption">
+            <summary>
+            Gets or sets which Aggressive Option is being used to look for link crossings.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MaxLayer">
+            <summary>
+            Gets the largest layer value.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MaxIndex">
+            <summary>
+            Gets the largest index value.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MaxColumn">
+            <summary>
+            Gets the largest column value.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MinIndexLayer">
+            <summary>
+            Gets the smallest index layer
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MaxIndexLayer">
+            <summary>
+            Gets the largest index layer.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData">
+            <summary>
+            Holds layered-digraph auto-layout specific data associated with each
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> in the <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.Valid">
+            <summary>
+            true if the link is part of the proper digraph; see <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.MakeProper"/> for details
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.Rev">
+            <summary>
+            true if the link was reversed during cycle removal
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.Forest">
+            <summary>
+            true if the link is part of depth first forest; used in <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemoval"/>
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.PortFromPos">
+            <summary>
+            location of the port at the from node of the link; allows the crossing matrix to correctly calculate the crossings for nodes with multiple ports
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.PortToPos">
+            <summary>
+            location of the port at the to node of the link; allows the crossing matrix to correctly calculate the crossings for nodes with multiple ports
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.PortFromColOffset">
+            <summary>
+            approximate column offset of the from port of the link from the from node column used in straightening
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphLinkData.PortToColOffset">
+            <summary>
+            approximate column offset of the to port of the link from the to node column used in straightening
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData">
+            <summary>
+            Holds layered-digraph auto-layout specific data associated with each
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/> in the <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Layer">
+            <summary>
+            the layer to which the node is assigned; see <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.AssignLayers"/> for details
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Column">
+            <summary>
+            the column to which the node is assigned; see <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeColumns"/> for details
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Index">
+            <summary>
+            the index to which the node is assigned; see <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.InitializeIndices"/> for details
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Valid">
+            <summary>
+            a flag; used in <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.GreedyCycleRemoval"/>
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Discover">
+            <summary>
+            time of discovery in depth first search; used in
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemoval"/>
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Finish">
+            <summary>
+            time of finishing in depth first search; used in
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.DepthFirstSearchCycleRemoval"/>
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLayeredDigraphNodeData.Component">
+            <summary>
+            the connected component to which the node is assigned; used by
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.OptimalLinkLengthLayering"/> and
+            <see cref="M:Northwoods.Go.Layout.GoLayoutLayeredDigraph.ComponentPack(System.Int32)"/>
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutNetwork">
+            <summary>
+            GoLayoutNetwork provides an abstract view of a <see cref="T:Northwoods.Go.IGoCollection"/> as a
+            network (graph) of nodes and directed links.  These nodes and links correspond to
+            <see cref="T:Northwoods.Go.GoObject"/>s provided in the <see cref="T:Northwoods.Go.IGoCollection"/>.  The
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/> class provides a framework for manipulating the
+            state of nodes and links without modifying the structure of the original document.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.#ctor">
+            <summary>
+            Constructs an empty network.
+            </summary>
+            <remarks>
+            Use this default constructor to create an empty network.
+            Call <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.AddNodesAndLinksFromCollection(Northwoods.Go.IGoCollection,System.Boolean)"/> to automatically add
+            network nodes and links, or call <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.AddNode(Northwoods.Go.Layout.GoLayoutNetworkNode)"/> and <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.LinkNodes(Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.GoObject)"/>
+            explicitly to have more detailed control over the exact graph that is laid out.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.#ctor(Northwoods.Go.IGoCollection)">
+            <summary>
+            Constructs a network from a collection of GoObjects, by also calling
+            <c>AddNodesAndLinksFromCollection(collection, true)</c>
+            </summary>
+            <param name="collection">the <see cref="T:Northwoods.Go.IGoCollection"/> containing the <see cref="T:Northwoods.Go.GoObject"/>s to add to the network.</param>
+            <remarks>
+            If you want an automatic layout of all the objects in a collection,
+            you'll want to do something like the following code:
+            <code>
+            GoLayoutNetwork network = new GoLayoutNetwork();
+            network.AddNodesAndLinksFromCollection(...collection..., false);
+            GoLayoutLayeredDigraph layout = new GoLayoutLayeredDigraph();
+            layout.Document = ...document...;
+            layout.Network = network;
+            ...maybe set other properties...
+            layout.PerformLayout();
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.AddNodesAndLinksFromCollection(Northwoods.Go.IGoCollection,System.Boolean)">
+            <summary>
+            Adds the objects in an IGoCollection to the network.
+            </summary>
+            <param name="collection"></param>
+            <param name="onlytruenodes">
+            If true, only those objects that implement <see cref="T:Northwoods.Go.IGoNode"/> will get
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>s created for them.
+            If false, each (non-link) object in the collection will be represented by a
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>.
+            If you want the layout to ignore groups such as <see cref="T:Northwoods.Go.GoComment"/>s
+            in your graph, provide a value of true here.
+            </param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.RemoveAllNodesAndLinks">
+            <summary>
+            Removes all nodes and links from the network, resulting in an empty network.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.AddNode(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Adds a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/> to the Network.
+            </summary>
+            <param name="node"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.AddNode(Northwoods.Go.GoObject)">
+            <summary>
+            This convenience method makes sure there is a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            in this network corresponding to a <see cref="T:Northwoods.Go.GoObject"/>.
+            </summary>
+            <param name="node">a GoObject, normally an instance of a subclass of GoNode</param>
+            <returns>a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/> in this network</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteNode(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            Deletes the input node from the network.
+            </summary>
+            <param name="node"></param>
+            <remarks>
+            This function also deletes all links to or from the node.
+            Performs a no-op if the node is not in the network.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteNode(Northwoods.Go.GoObject)">
+            <summary>
+            This convenience method removes any <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            corresponding to a <see cref="T:Northwoods.Go.GoObject"/>.
+            </summary>
+            <param name="node">a GoObject</param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.FindNode(Northwoods.Go.GoObject)">
+            <summary>
+            Returns the GoLayoutNetworkNode which was constructed for the GoObject.
+            </summary>
+            <param name="obj"></param>
+            <returns>Returns the Network Node associated with the go object or null
+            if no such node exists.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.AddLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Adds a GoLayoutNetworkLink to the GoLayoutNetwork.
+            Although this method is provided for completeness,
+            <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.LinkNodes(Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.GoObject)"/> provides a more efficient manner of linking
+            nodes already in the network.
+            </summary>
+            <param name="link"></param>
+            <remarks>
+            This adds the link to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkLink.ToNode"/>'s
+            source links list, and to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkLink.FromNode"/>'s
+            destination links list.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.AddLink(Northwoods.Go.IGoLink)">
+            <summary>
+            This convenience method takes a <see cref="T:Northwoods.Go.GoObject"/> implementing <see cref="T:Northwoods.Go.IGoLink"/>,
+            and returns a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> that has been added to this network.
+            </summary>
+            <param name="ilink"></param>
+            <returns>a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> in this network</returns>
+            <remarks>
+            If <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.FindLink(Northwoods.Go.GoObject)"/> returns null, this method creates a new <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/>,
+            makes sure the <see cref="P:Northwoods.Go.IGoLink.FromNode"/> and <see cref="P:Northwoods.Go.IGoLink.ToNode"/> have
+            corresponding <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>s in the network, and adds the link itself
+            to the network.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Deletes the input link from the network.
+            </summary>
+            <param name="link"></param>
+            <remarks>
+            Also removes the link from its to node's predecessor list
+            and from its from node's successor list.
+            Performs a no-op if the link is not in the network.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteLink(Northwoods.Go.IGoLink)">
+            <summary>
+            This convenience method makes sure a <see cref="T:Northwoods.Go.GoObject"/> implementing <see cref="T:Northwoods.Go.IGoLink"/>
+            does not have a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> in this network.
+            </summary>
+            <param name="ilink"></param>
+            <remarks>
+            This just calls <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteLink(Northwoods.Go.Layout.GoLayoutNetworkLink)"/> if
+            <see cref="M:Northwoods.Go.Layout.GoLayoutNetwork.FindLink(Northwoods.Go.GoObject)"/> finds a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.FindLink(Northwoods.Go.GoObject)">
+            <summary>
+            Returns the GoLayoutNetworkLink which was constructed for the GoObject.
+            </summary>
+            <param name="obj"></param>
+            <returns>Returns the Network Link which was constructed with the obj or
+            null if no such link exists.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.LinkNodes(Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.Layout.GoLayoutNetworkNode,Northwoods.Go.GoObject)">
+            <summary>
+            Links two nodes already in the network and returns the created link.
+            </summary>
+            <param name="fromNode"></param>
+            <param name="toNode"></param>
+            <param name="obj"> the GoObject to which the created link should correspond (may be null)</param>
+            <returns>Returns the link created when fromNode and toNode are linked.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.ReverseLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Reverses the direction of a link in the network.
+            </summary>
+            <param name="link"></param>
+            <remarks>
+            This calls <see cref="M:Northwoods.Go.Layout.GoLayoutNetworkLink.ReverseLink"/> and also adjusts the
+            source links and destination links of both connected nodes.
+            If either <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkLink.FromNode"/> or 
+            <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkLink.ToNode"/> are null, this method does nothing.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteSelfLinks">
+            <summary>
+            Deletes all links whose "to node" and "from node" are the same node.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.DeleteArtificialNodes">
+            <summary>
+            Delete all nodes and links that have no <see cref="T:Northwoods.Go.GoObject"/>
+            associated with them.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.CommitNodes">
+            <summary>
+            Commits the positions of all nodes in the network to their corresponding
+            GoObjects.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.CommitLinks">
+            <summary>
+            Commits the positions of all links in the network to their corresponding
+            GoObjects.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetwork.CommitNodesAndLinks">
+            <summary>
+            Commits the positions of all nodes and links in the network to their corresponding
+            GoObjects.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetwork.NodeCount">
+            <summary>
+            Gets the number of Nodes in the Network.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetwork.LinkCount">
+            <summary>
+            Gets the number of Links in the Network.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetwork.GoObjToNodeMap">
+            <summary>
+            Gets the Hashtable that maps GoObjects to GoLayoutNetworkNodes
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetwork.GoObjToLinkMap">
+            <summary>
+            Gets the Hashtable that maps GoObjects to GoLayoutNetworkLinks
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetwork.Nodes">
+            <summary>
+            Gets an enumerator for the network's nodes.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetwork.Links">
+            <summary>
+            Gets an enumerator for the network's links.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutNodeEnumerator">
+            <summary>
+            GoLayoutNodeEnumerator implements both <c>IEnumerator</c> and <c>IEnumerable</c>.
+            It should be used to enumerate through all the GoLayoutNetworkNodes.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNodeEnumerator.#ctor(System.Collections.ArrayList)">
+            <summary>
+            Creates a GoLayoutNodeEnumerator.
+            </summary>
+            <param name="a">The ArrayList of nodes to enumerate over.</param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNodeEnumerator.GetEnumerator">
+            <summary>
+            Gets an enumerator for iterating over the Nodes.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNodeEnumerator.MoveNext">
+            <summary>
+            Advance the enumerator to the next Node.
+            </summary>
+            <returns>True if there is a next Node; false if it has finished iterating over the collection.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNodeEnumerator.Reset">
+            <summary>
+            Reset the enumerator to its original position.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNodeEnumerator.Current">
+            <summary>
+             Gets the current node in the collection of nodes.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutLinkEnumerator">
+            <summary>
+            GoLayoutLinkEnumerator implements both <c>IEnumerator</c> and <c>IEnumerable</c>.
+            It should be used to enumerate through all the GoLayoutNetworkLinks.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLinkEnumerator.GetEnumerator">
+            <summary>
+            Gets an enumerator for iterating over the Links
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLinkEnumerator.MoveNext">
+            <summary>
+            Advance the enumerator to the next Link.
+            </summary>
+            <returns>True if there is a next Link; false if it has finished iterating over the collection.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutLinkEnumerator.Reset">
+            <summary>
+            Reset the enumerator to its original position.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutLinkEnumerator.Current">
+            <summary>
+             Gets the current node in the collection of links.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutNetworkLink">
+            <summary>
+            GoLayoutNetworkLink provides an abstract view of a <see cref="T:Northwoods.Go.IGoLink"/> as a link
+            in a network (graph) of nodes and directed links.  Links can also be created which
+            do not correspond to any top-level <see cref="T:Northwoods.Go.IGoLink"/> in a <see cref="T:Northwoods.Go.GoDocument"/>.
+            The GoLayoutNetworkLink class provides a framework for manipulating the state of links
+            without corrupting the GoDocument objects.  See also <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/> and
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.#ctor">
+            <summary>
+            Constructs a GoLayoutNetworkLink with null values.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.OnPortChanged(Northwoods.Go.IGoPort,System.Int32,System.Int32,System.Object,System.Drawing.RectangleF,System.Int32,System.Object,System.Drawing.RectangleF)">
+            <summary>
+            Don't need to do anything.
+            </summary>
+            <param name="port"></param>
+            <param name="subhint"></param>
+            <param name="oldI"></param>
+            <param name="oldVal"></param>
+            <param name="oldRect"></param>
+            <param name="newI"></param>
+            <param name="newVal"></param>
+            <param name="newRect"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.Unlink">
+            <summary>
+            Remove this network link from the <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.ReverseLink">
+            <summary>
+            Reverses the link; i.e., reverses the from and to nodes.
+            </summary>
+            <remarks>
+            Setting this property does not modify any <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            by adding or removing a link to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.SourceLinksList"/>
+            or <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.DestinationLinksList"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.CommitPosition">
+            <summary>
+            Commits the position of the link to the corresponding GoObject.
+            </summary>
+            <remarks>
+            Note: Currently this method does nothing, because the knowledge of how to
+            convert the dummy GoLayoutNetworkNodes into bend points in the stroke
+            of the real link is embedded in the layout algorithms.
+            Future developments or sub-classes
+            could expand the functionality of the GoLayoutNetworkLink class to
+            include more sophisticated link routing which would need to be
+            committed to the top-level GoObjects.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.GetOtherNode(Northwoods.Go.IGoNode)">
+            <summary>
+            Finds and returns the link's node other than n.  Returns null if
+            n is neither the from node or to node.
+            </summary>
+            <param name="n"></param>
+            <returns>Finds and returns the link's node other than n.  Returns null if
+            n is neither the from node or to node.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkLink.GetOtherPort(Northwoods.Go.IGoPort)">
+            <summary>
+            Finds and returns the link's port other than p.  Returns null if
+            p is neither the from port or to port.
+            </summary>
+            <param name="p"></param>
+            <returns>Finds and returns the link's port other than p.  Returns null if
+            p is neither the from port or to port.</returns>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.GoObject">
+            <summary>
+            Gets or sets this link's associated GoObject.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.Network">
+            <summary>
+            Gets or sets the GoLayoutNetwork that this link is part of.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.FromNode">
+            <summary>
+            Gets this link's From GoLayoutNetworkNode.
+            </summary>
+            <remarks>
+            Setting this property does not modify the <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            by adding a link to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.DestinationLinksList"/>
+            or removing it from another node's list.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.FromPort">
+            <summary>
+            Gets this link's From GoLayoutNetworkNode.
+            </summary>
+            <remarks>
+            Setting this property does not modify the <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            by adding a link to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.DestinationLinksList"/>
+            or removing it from another node's list.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.ToNode">
+            <summary>
+            Gets or sets the To GoLayoutNetworkNode for this link.
+            </summary>
+            <remarks>
+            Setting this property does not modify the <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            by adding a link to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.SourceLinksList"/>.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.ToPort">
+            <summary>
+            Gets or sets the To GoLayoutNetworkNode for the link.
+            </summary>
+            <remarks>
+            Setting this property does not modify the <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkNode"/>
+            by adding a link to its <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.SourceLinksList"/>.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.Stroke">
+            <summary>
+            Gets the GoStroke associated with the Network Link.  This
+            is needed by the Layered Digraph algorithm to add bends to
+            the link.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.LinkData">
+            <summary>
+            Gets or Sets the Link's Data
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.UserObject">
+            <summary>
+            Gets or Sets an Object associated with the link
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkLink.UserFlags">
+            <summary>
+            Gets or Sets an integer associated with the link
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutNetworkNode">
+            <summary>
+            GoLayoutNetworkNode provides an abstract view of a <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.GoObject"/> as a node
+            in a network (graph) of nodes and directed links.  Nodes can also be created which
+            do not correspond to any top-level <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.GoObject"/>s in a <see cref="T:Northwoods.Go.GoDocument"/>.
+            The GoLayoutNetworkNode class provides a framework for manipulating the state of nodes
+            without corrupting the <see cref="T:Northwoods.Go.GoDocument"/> objects. See also
+            <see cref="T:Northwoods.Go.Layout.GoLayoutNetwork"/> and <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/>
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkNode.#ctor">
+            <summary>
+            Constructs a GoLayoutNetworkNode with a Center of (0,0) and all other values as null.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkNode.AddSourceLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Adds a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> to the list predecessors
+            (i.e., the link will be coming into this node).
+            </summary>
+            <param name="sourceLink"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkNode.DeleteSourceLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Deletes a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> from the list of predecessors
+            (i.e., the link was to this node).
+            </summary>
+            <param name="sourceLink"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkNode.AddDestinationLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Adds a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> to the list successors
+            (i.e., the link will be going out from this node).
+            </summary>
+            <param name="destinationLink"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkNode.DeleteDestinationLink(Northwoods.Go.Layout.GoLayoutNetworkLink)">
+            <summary>
+            Deletes a <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/> from the list of successors
+            (i.e., the link was going out from this node).
+            </summary>
+            <param name="destinationLink"></param>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutNetworkNode.CommitPosition">
+            <summary>
+            Moves the corresponding GoObject to the center point of the node in the
+            document.
+            </summary>
+            <remarks>
+            To make the most common cases look right, the object's <see cref="!:GoObject.SelectionObject"/>
+            is centered.  Thus iconic nodes will have the center of the icon be positioned
+            according to the <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Center"/> of this GoLayoutNetworkNode, ignoring any labels.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.GoObject">
+            <summary>
+            Gets or sets the GoObject associated with this network node.
+            </summary>
+            <remarks>
+            Setting this value to an object will also set the <see cref="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Center"/>
+            property to that object's <see cref="!:GoObject.SelectionObject"/> center position.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Network">
+            <summary>
+            Gets or sets the GoLayoutNetwork that this node is part of.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.SourceLinksList">
+            <summary>
+            Returns the list of predecessor links (i.e., the links are coming into this node).
+            </summary>
+            <value>
+            An <c>ArrayList</c> of <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/>s.
+            This list should not be modified directly; use <see cref="M:Northwoods.Go.Layout.GoLayoutNetworkNode.AddSourceLink(Northwoods.Go.Layout.GoLayoutNetworkLink)"/>
+            and <see cref="M:Northwoods.Go.Layout.GoLayoutNetworkNode.DeleteSourceLink(Northwoods.Go.Layout.GoLayoutNetworkLink)"/> instead.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.DestinationLinksList">
+            <summary>
+            Returns the list of successor links (i.e., the links are going out from this node).
+            </summary>
+            <value>
+            An <c>ArrayList</c> of <see cref="T:Northwoods.Go.Layout.GoLayoutNetworkLink"/>s.
+            This list should not be modified directly; use <see cref="M:Northwoods.Go.Layout.GoLayoutNetworkNode.AddDestinationLink(Northwoods.Go.Layout.GoLayoutNetworkLink)"/>
+            and <see cref="M:Northwoods.Go.Layout.GoLayoutNetworkNode.DeleteDestinationLink(Northwoods.Go.Layout.GoLayoutNetworkLink)"/> instead.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Center">
+            <summary>
+            Gets or sets the Center Point of this node.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.NodeData">
+            <summary>
+            Gets or sets the node's Data
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.UserObject">
+            <summary>
+            Gets or sets an Object associated with the node
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.UserFlags">
+            <summary>
+            Gets or sets the node's flags
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Sources">
+            <summary>
+            Gets an enumerator over all of the nodes that have links coming into this node.
+            </summary>
+            <remarks>
+            The enumerator iterates over the set of all nodes that have ports that have any
+            destination links coming into any port of this node.
+            </remarks>
+            <seealso cref="P:Northwoods.Go.IGoNode.Sources"/>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Destinations">
+            <summary>
+            Gets an enumerator over all of the nodes that have links going out of this node.
+            </summary>
+            <remarks>
+            The enumerator iterates over the set of all nodes that have ports that have any
+            source links going out of any port of this node.
+            </remarks>
+            <seealso cref="P:Northwoods.Go.IGoNode.Destinations"/>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Nodes">
+            <summary>
+            Gets an enumerator over all of the nodes that are connected to this node.
+            </summary>
+            <remarks>
+            The enumerator iterates over the set of all nodes that have ports that have any
+            links connected to any port of this node.
+            </remarks>
+            <seealso cref="P:Northwoods.Go.IGoNode.Sources"/>
+            <seealso cref="P:Northwoods.Go.IGoNode.Destinations"/>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.SourceLinks">
+            <summary>
+            Gets an enumerator over all of the links coming into this node.
+            </summary>
+            <remarks>
+            The enumerator iterates over the set of all links that come into
+            any port of this node.
+            </remarks>
+            <seealso cref="P:Northwoods.Go.IGoNode.SourceLinks"/>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.DestinationLinks">
+            <summary>
+            Gets an enumerator over all of the links going out of this node.
+            </summary>
+            <remarks>
+            The enumerator iterates over the set of all links that go out of
+            any port of this node.
+            </remarks>
+            <seealso cref="P:Northwoods.Go.IGoNode.DestinationLinks"/>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutNetworkNode.Links">
+            <summary>
+            Gets an enumerator over all of the links going out of or coming into this node.
+            </summary>
+            <remarks>
+            The enumerator iterates over the set of all links that are connected to
+            port of this node.
+            </remarks>
+            <seealso cref="P:Northwoods.Go.IGoNode.SourceLinks"/>
+            <seealso cref="P:Northwoods.Go.IGoNode.DestinationLinks"/>
+        </member>
+        <member name="T:Northwoods.Go.Layout.GoLayoutRandom">
+            <summary>
+            GoLayoutRandom provides an auto-layout algorithm which randomly
+            positions nodes in the document.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutRandom.#ctor">
+            <summary>
+            Constructs a Random Layout with null values for it's Network and Document.
+            PerformLayout() will be a no-op until the document has been set. 
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutRandom.PerformLayout">
+            <summary>
+            Performs random positioning auto-layout.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Layout.GoLayoutRandom.IsFixed(Northwoods.Go.Layout.GoLayoutNetworkNode)">
+            <summary>
+            The function IsFixed returns true if the node should not be moved
+            by the layout algorithm.
+            The default implementation returns false on all inputs.
+            This function can be overridden to "fix" particular nodes.
+            </summary>
+            <param name="node"></param>
+            <returns>Returns whether or not node is immovable.</returns>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutRandom.MinX">
+            <summary>
+            Gets and Sets the minimum allowed x value for a node.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutRandom.MaxX">
+            <summary>
+            Gets and Sets the maximum allowed x value for a node.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutRandom.MinY">
+            <summary>
+            Gets and Sets the minimum allowed y value for a node.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Layout.GoLayoutRandom.MaxY">
+            <summary>
+            Gets and Sets the maximum allowed y value for a node.
+            </summary>
+        </member>
+    </members>
+</doc>

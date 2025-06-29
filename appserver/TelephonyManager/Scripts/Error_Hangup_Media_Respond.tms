@@ -1,0 +1,16 @@
+900
+a:DeleteConnection
+rns:*->905
+timeout:5->905
+
+905
+a:HangupCall
+rns:*->910
+timeout:5->910
+
+910
+a:SendActionFailureToApp
+def->1000
+
+1000
+a:EndCall

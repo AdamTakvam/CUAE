@@ -1,0 +1,302 @@
+<!--Substituted ParentClass for Unsupported derivation MSC-->
+<xsd:complexType name="StandardResponse">
+<xsd:sequence>
+    <xsd:element name="return">
+    <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+        <xsd:pattern value="(true)|(false)|(\{........-....-....-....-............\})" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    </xsd:element>
+</xsd:sequence>
+<!--APIResponse Extension-->
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+</xsd:complexType>
+  
+<!--Substituted ParentClass for Unsupported derivation MSC-->
+<xsd:complexType name="APIRequest" abstract="true">
+	<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+</xsd:complexType>
+
+<!--Substituted ParentClass for Unsupported derivation MSC-->
+<xsd:complexType name="APIResponse" abstract="true">
+	<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+</xsd:complexType>
+
+<!-- GetNumPlanPatternRequest -->
+<xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="uuid" type="axl:XUUID" />
+        <xsd:sequence>
+          <xsd:element name="pattern" type="xsd:string" />
+          <xsd:choice>
+            <xsd:element name="routePartitionId" type="axl:XUUID" />
+            <xsd:element name="routePartitionName" type="axl:String50" />
+          </xsd:choice>
+          <xsd:choice>
+            <xsd:annotation>
+              <xsd:documentation>Some NumPlans do not require a Route Filter, thus these elements can be null.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:element name="routeFilterId" type="axl:XUUID" />
+            <xsd:element name="routeFilterName" type="axl:String50" />
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:choice>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- UpdateNumPlanPatternRequest -->
+<xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="uuid" type="axl:XUUID" />
+        <xsd:sequence>
+          <xsd:element name="pattern" type="xsd:string" />
+          <xsd:choice>
+            <xsd:element name="routePartitionId" type="axl:XUUID" />
+            <xsd:element name="routePartitionName" type="axl:String50" />
+          </xsd:choice>
+          <xsd:choice>
+            <xsd:annotation>
+              <xsd:documentation>Some NumPlans do not require a Route Filter, thus these elements can be null.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:element name="routeFilterId" type="axl:XUUID" />
+            <xsd:element name="routeFilterName" type="axl:String50" />
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:choice>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- NameAndGUIDRequest -->
+    <xsd:annotation>
+      <xsd:documentation>This is a utility object that created because many of the Get, Remove, and Update methods allow the user to specify either the name or the uuid.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="name" type="axl:String128" nillable="false">
+          <xsd:annotation>
+            <xsd:documentation>Not nullable.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="uuid" type="axl:XUUID" nillable="false">
+          <xsd:annotation>
+            <xsd:documentation>Not nullable.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:choice>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!--GetCallPickupGroup -->
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="uuid" type="axl:XUUID">
+          <xsd:annotation>
+            <xsd:documentation>This is the uuid of CallPickupGroup</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="name" type="axl:String50" />
+        <xsd:sequence>
+          <xsd:element name="pattern" type="xsd:string" />
+          <xsd:choice>
+            <xsd:element name="routePartitionId" type="axl:XUUID" />
+            <xsd:element name="routePartitionName" type="axl:String50" />
+          </xsd:choice>
+          <xsd:choice>
+            <xsd:annotation>
+              <xsd:documentation>Some NumPlans do not require a Route Filter, thus these elements can be null.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:element name="routeFilterId" type="axl:XUUID" />
+            <xsd:element name="routeFilterName" type="axl:String50" />
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:choice>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- ListBySearchString -->
+    <xsd:sequence>
+      <xsd:element name="searchString" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The string to search for.  Can contain SQL wildcard characters.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- ListPhoneResponse -->
+    <xsd:sequence>
+      <xsd:element name="return">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="phone" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="name" type="axl:String50" nillable="false" />
+                  <xsd:element name="product" type="axl:XProduct" nillable="false" />
+                  <xsd:element name="model" type="axl:XModel" nillable="false" />
+                </xsd:sequence>
+                <xsd:attribute name="uuid" type="axl:XUUID" use="required" />
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <!--APIResponse Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- ListCSSResponse -->
+    <xsd:sequence>
+      <xsd:element name="return">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="callingSearchSpace" type="axl:XCallingSearchSpace" minOccurs="0" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <!--APIResponse Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- GetServiceParameterReq -->
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="uuid" type="axl:XUUID">
+          <xsd:annotation>
+            <xsd:documentation>The pkid of the service parameter in the ProcessConfig table.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:sequence>
+          <xsd:element name="name" type="axl:String50">
+            <xsd:annotation>
+              <xsd:documentation>Name of the service parameter. Not nullable.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:choice>
+            <xsd:annotation>
+              <xsd:documentation>The process Node that this the service parameter belongs to. Not nullable.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:element name="processNodeId" type="axl:XUUID" />
+            <xsd:element name="processNodeName" type="axl:String50" />
+          </xsd:choice>
+          <xsd:element name="service" type="axl:XService">
+            <xsd:annotation>
+              <xsd:documentation>The service that this service parameter belongs to.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:choice>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- GetProcessNodeServiceReq -->
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="uuid" type="axl:XUUID">
+          <xsd:annotation>
+            <xsd:documentation>The pkid of the Process Node Service you wish to retrieve.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:annotation>
+              <xsd:documentation>The process Node that this the process node service belongs to. Not nullable.</xsd:documentation>
+            </xsd:annotation>
+            <xsd:element name="processNodeId" type="axl:XUUID" />
+            <xsd:element name="processNodeName" type="axl:String50" />
+          </xsd:choice>
+          <xsd:element name="service" type="axl:XService">
+            <xsd:annotation>
+              <xsd:documentation>The service that this process node service belongs to.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:choice>
+    </xsd:sequence>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- GetMOHAudioSourceByIDAndSourceReq -->
+    <xsd:choice>
+      <xsd:element name="uuid" type="axl:XUUID" nillable="false" />
+      <xsd:element name="sourceId" type="axl:XMOHAudioSourceId" nillable="false" />
+    </xsd:choice>
+    <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />
+    
+    <!-- UpdateH323DeviceReq -->
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="name" type="axl:String128" nillable="false">
+          <xsd:annotation>
+            <xsd:documentation>Not nullable.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="uuid" type="axl:XUUID" nillable="false">
+          <xsd:annotation>
+            <xsd:documentation>Not nullable.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:choice>
+          <xsd:element name="newName" type="axl:String50" nillable="false" minOccurs="0" />
+          <xsd:element name="description" type="axl:String128" minOccurs="0" />
+          <xsd:choice minOccurs="0">
+            <xsd:element name="callingSearchSpaceId" type="axl:XUUID" minOccurs="0" />
+            <xsd:element name="callingSearchSpaceName" type="axl:String50" minOccurs="0" />
+          </xsd:choice>
+          <xsd:choice minOccurs="0">
+            <xsd:element name="devicePoolId" type="axl:XUUID" nillable="false" minOccurs="0" />
+            <xsd:element name="devicePoolName" type="axl:String50" nillable="false" minOccurs="0" />
+          </xsd:choice>
+          <xsd:element name="networkLocation" type="axl:XNetworkLocation" nillable="false" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>The new Device Destination flag for Trunk to Trunk Transfer and Drop Conference Feature is required for H323 Gateways and Trunks.  Not Nullable.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:choice minOccurs="0">
+            <xsd:element name="locationId" type="axl:XUUID" minOccurs="0" />
+            <xsd:element name="locationName" type="axl:String50" minOccurs="0" />
+          </xsd:choice>
+          <xsd:choice minOccurs="0">
+            <xsd:element name="mediaResourceListId" type="axl:XUUID" minOccurs="0" />
+            <xsd:element name="mediaResourceListName" type="axl:String50" minOccurs="0" />
+          </xsd:choice>
+          <xsd:element name="networkHoldMOHAudioSourceId" type="axl:XMOHAudioSourceId" nillable="false" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Not nullable.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element name="userHoldMOHAudioSourceId" type="axl:XMOHAudioSourceId" nillable="false" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Not nullable.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:choice minOccurs="0">
+            <xsd:element name="automatedAlternateRoutingCSSId" type="axl:XUUID" minOccurs="0" />
+            <xsd:element name="automatedAlternateRoutingCSSName" type="axl:String50" minOccurs="0" />
+          </xsd:choice>
+          <xsd:choice minOccurs="0">
+            <xsd:element name="aarNeighborhoodId" type="axl:XUUID" minOccurs="0" />
+            <xsd:element name="aarNeighborhoodName" type="axl:String50" minOccurs="0" />
+          </xsd:choice>
+          <xsd:element name="retryVideoCallAsAudio" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="waitForFarEndH245TerminalSet" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="mtpRequired" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="callerIdDN" type="axl:String50" minOccurs="0" />
+          <xsd:element name="callingPartySelection" type="axl:XCallingPartySelection" nillable="false" minOccurs="0" />
+          <xsd:element name="callingLineIdPresentation" type="axl:XPresentationBit" nillable="false" minOccurs="0" />
+          <xsd:element name="displayIEDelivery" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="redirectOutboundNumberIE" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="redirectInboundNumberIE" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="enableInboundFaststart" type="xsd:boolean" nillable="false" minOccurs="0" />
+          <xsd:element name="enableOutboundFaststart" type="xsd:boolean" nillable="false" minOccurs="0" />
+        </xsd:sequence>
+        <!--APIRequest Extension-->
+    <xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional" />

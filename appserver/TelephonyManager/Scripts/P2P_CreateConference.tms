@@ -1,0 +1,18 @@
+trigger:Metreos.CallControl.P2P.CreateConference
+
+1
+a:CreateConference
+rns:success->5
+rns:*->900
+timeout:5->900
+
+5
+a:SendActionSuccessToPeer     // TM doesn't hold on to MMS responses
+def->1000
+
+900
+a:SendActionFailureToPeer
+def->1000
+
+1000
+a:EndScript

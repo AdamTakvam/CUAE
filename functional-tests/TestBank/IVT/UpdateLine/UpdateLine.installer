@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_UpdateLine_script1" displayName="" format="String" defaultValue="IVT.UpdateLine.script1" />
+    <configValue name="S_UpdateLineResponse" format="String" defaultValue="IVT.UpdateLine.script1.S_UpdateLineResponse" readOnly="false" />
+  </configuration>
+</install>

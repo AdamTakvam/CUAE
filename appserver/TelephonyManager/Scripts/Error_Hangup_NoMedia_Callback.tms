@@ -1,0 +1,11 @@
+900
+a:HangupCall
+rns:*->905
+timeout:5->905
+
+905
+a:SendMakeCallFailedToApp
+def->1000
+
+1000
+a:EndCall

@@ -1,0 +1,29 @@
+Hi Stu,
+
+The major steps to be done, to get a bird's eye view of what we will do:
+
+
+1)  The users to be added must first exist in appsuiteadmin.  If they do not yet exist in appsuiteadmin, you will need to import them from your LDAP/AD server using the file Import_AR_Users.doc.   It is important to note that this LDAP synchronization should happen on the appsuiteadmin publisher.
+   
+2)  You must use BAT to export all users and their associated devicenames.  The 'tool' will later use this exported file.   The necessary steps are detailed in Export_All_CCM_users.doc.
+
+3)  Run activerelay-verify.exe.  The necessary steps to run it in detailed in activerelay-verify.doc.  This will do all the actual heavy lifting of creating virtual SCCP phones and associating that virtual SCCP phone with the user's real desk phone.
+
+4)  You then need to decide on which Application Server these user's will have their phones hosted.  Each Application Server should host up to two device pools, both of up to 750 devices each, for a total of 1500. Each Application Server device pool should have it's own unique device prefix (CCCCCC, CDCDCD, FFFFFF, etc etc).   After the devices are all created (i.e., after activerelay-verify.exe has been run), then you can create the device pools in the appropriate AppServer once you've decided which Application Server will host the phones.
+
+
+Important Caveats:  
+
+* The activerelay-verify tool will process every single user it can find in appsuiteadmin.   You can't say, 'Only do these 100 users'.  It will try and synchronize every user found in appsuiteadmin.  However, if a user is found to be already synchronized, then it will just leave that user alone.  (no significant processing on AppServer or CCM will happen)
+
+* It is ultra important to specify all the existing device ranges in use by ActiveRelay accounts (CCCCCC, FFFFFF, etc).  This is described in further detail in the activerelay-verify.doc file.
+
+* The tool will prompt you very every SCCP phone it creates or updates.  I strongly recommend you not use the 'yesall' feature (which will stop all prompting) and do some manual checks in CCM to make sure the devices are being created as you expect. (right CSS, line in right partition and right CSS, media resource group on device)  I'd recommend doing quite a few to get a feel-good before using 'yesall'.
+
+
+
+
+
+
+
+Seth

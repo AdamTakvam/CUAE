@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE HelpAttributes SYSTEM "MS-Help://Hx/Resources/HelpAttributes.dtd">
+<HelpAttributes
+   DTDVersion = "1.0"
+   FileVersion = ""
+>
+
+<AttName
+	Name = "MLHelpProject"
+		Display = "Yes"
+		UIString = "Project name"
+		AttType = "Enum"
+>
+	<AttVal 
+		Name = "SecureBlackbox.NET"
+			Display = "Yes"
+			UIString = "Project name"
+   	/>
+</AttName>
+</HelpAttributes>

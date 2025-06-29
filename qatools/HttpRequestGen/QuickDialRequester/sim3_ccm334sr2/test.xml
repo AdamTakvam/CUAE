@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<test>
+	<pairs>
+		<pair to="2025" confereeTo="2031" />
+		<pair to="2039" confereeTo="2045" />
+		<pair to="2034" confereeTo="2005" />
+		<pair to="2011" confereeTo="2017" />
+		<pair to="2024" confereeTo="2032" />
+		<pair to="2040" confereeTo="2049" />
+		<pair to="2035" confereeTo="2006" />
+		<pair to="2012" confereeTo="2018" />
+		<pair to="2026" confereeTo="2033" />
+		<pair to="2041" confereeTo="2050" />
+		<pair to="2001" confereeTo="2007" />
+		<pair to="2013" confereeTo="2019" />
+	</pairs>
+</test>

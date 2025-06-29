@@ -1,0 +1,16 @@
+MakeConference:
+
+Basic Function:
+---------------
+Receive three number to call through http request. Make calls to each and put them in one conference. Idea is to use CreateConference action with first call completing and use 2 subsequent JoinConference actions to let the other two calls join the first call's conference. Since these are asynchronous actions, we do not know which one completes first. One easy way is to use a global flag and set it to true whenever first call is completed. Use CreateConference with this first call's completion as well. The two subsequent call completions will find the flag already set to true, thus using JoinConference to simply join an exisiting conference.
+
+Script By Script:
+-----------------
+
+OnGotRequest: Create 3 MakeCalls. If any call fails, end the application.
+OnMakeCall_Completes (1,2,3): If first call is alreayd complete, join the conference. If not, create the conference. Go to wait state.
+OnMakeCall_Fails (1,2,3): End application.
+OnRemoteHangup: Hangup 3 calls. End application. A more sophisticated way is to check for which call hung-up and hangup the other two. Just use a switch action with two branches to implement this if desired.
+
+
+

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_MasterSlaveControlNegative_master1" displayName="ARE_MasterSlaveControlNegative_master1" format="string" defaultValue="ARE.MasterSlaveControlNegative.master1" readOnly="true" required="true" />
+    <configValue name="ARE_MasterSlaveControlNegative_slave1" displayName="ARE_MasterSlaveControlNegative_slave1" format="string" defaultValue="ARE.MasterSlaveControlNegative.slave1" readOnly="true" required="true" />
+    <configValue name="S_Enabled" displayName="S_Enabled" format="string" defaultValue="ARE.MasterSlaveControlNegative.master1.S_Enabled" readOnly="true" required="true" />
+    <configValue name="S_Simple" displayName="S_Simple" format="string" defaultValue="ARE.MasterSlaveControlNegative.slave1.S_Simple" readOnly="true" required="true" />
+    <configValue name="E_Event1" displayName="E_Event1" format="string" defaultValue="ARE.MasterSlaveControlNegative.master1.E_Event1" readOnly="true" required="true" />
+  </configuration>
+</install>

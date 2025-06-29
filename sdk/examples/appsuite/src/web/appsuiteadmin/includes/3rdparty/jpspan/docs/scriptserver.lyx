@@ -1,0 +1,2860 @@
+#LyX 1.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 221
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme helvet
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize a4paper
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language swedish
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+
+\layout Title
+
+ScriptServer
+\layout Author
+
+Harry Fuecks
+\layout Standard
+
+
+\begin_inset Minipage
+position 1
+inner_position 0
+height "0pt"
+width "100col%"
+collapsed false
+
+\layout Standard
+
+Version: $Id: scriptserver.lyx,v 1.1.1.1 2004/10/30 22:40:31 harryf Exp $
+\layout Standard
+
+Permission is granted to copy, distribute and/or modify this document under
+ the terms of the GNU Free Documentation License, Version 1.2 or any later
+ version published by the Free Software Foundation; with no Invariant Sections,
+ no Front-Cover Texts, and no Back-Cover Texts.
+ A copy of the license is available at http://www.gnu.org/copyleft/fdl.html
+\end_inset 
+
+
+\layout Standard
+
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+Overview
+\layout Standard
+
+ScriptServer provides tools to "hook up" PHP and Javascript, for the purpose
+ of fetching data from PHP into a web page which has already loaded, without
+ reloading the entire page.
+\layout Standard
+
+The objective is to make connecting a Javascript client with a PHP server
+ as painless and error-free as possible.
+ To this end ScriptServer allows you to define a class in PHP and call it's
+ methods directly (and remotely) from Javascript.
+ That means if you have a PHP class like;
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+//...
+\layout LyX-Code
+
+class Math {
+\layout LyX-Code
+
+    function add($x, $y) {
+\layout LyX-Code
+
+        return $x + $y;
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+//...
+\layout LyX-Code
+
+?>
+\layout Standard
+
+You can use this class 
+\begin_inset Quotes sld
+\end_inset 
+
+natively
+\begin_inset Quotes srd
+\end_inset 
+
+ from JavaScript on the 
+\emph on 
+client-side
+\emph default 
+, calling it like;
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+alert( m.add(2,2) );
+\layout Standard
+
+The intent is to make building 
+\begin_inset Quotes sld
+\end_inset 
+
+sticky
+\begin_inset Quotes srd
+\end_inset 
+
+ DHTML or web-based 
+\begin_inset LatexCommand \htmlurl[XUL]{http://www.mozilla.org/projects/xul/}
+
+\end_inset 
+
+ applications, where the user interface remains static (not reloaded) in
+ the users web browser, while data can be fetched dynamically from a remote
+ web server, in response to user events.
+\layout Standard
+
+
+\emph on 
+Note:
+\emph default 
+ this is not an XML-RPC implementation.
+ In fact it's completely XML-free.
+ See 
+\begin_inset LatexCommand \ref{sub:Hybrid}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \htmlurl[Keith on ScriptServer]{http://keithdevens.com/weblog/archive/2004/Oct/06/ScriptServer}
+
+\end_inset 
+
+ for details.
+\layout Subsection
+
+This Document
+\layout Standard
+
+Head to the Introduction (
+\begin_inset LatexCommand \ref{sec:Introduction}
+
+\end_inset 
+
+) if you want the theory.
+ Head to Developing with ScriptServer (
+\begin_inset LatexCommand \ref{sec:Developing-with-ScriptServer}
+
+\end_inset 
+
+) for the hands on stuff.
+\layout Section
+
+
+\begin_inset LatexCommand \label{sec:Introduction}
+
+\end_inset 
+
+Introduction
+\layout Standard
+
+Considering the 
+\begin_inset Quotes sld
+\end_inset 
+
+application stack
+\begin_inset Quotes srd
+\end_inset 
+
+ required to exchange data between a static web interface and remote server,
+ one loose way to break it down is, from the perspective of the client,
+ is;
+\layout Itemize
+
+Mechanism: the HTTP client used to establish connectivity
+\layout Itemize
+
+Payload: the format of the data used in a client request and a server response
+\layout Itemize
+
+Binding and Population: how the Javascript client 
+\begin_inset Quotes sld
+\end_inset 
+
+binds
+\begin_inset Quotes srd
+\end_inset 
+
+ to the remote server (what developer effort is required to configure mechanism
+ / payload for a specific application) then how data is taken from the user
+ interface and packaged into a request to the server then how the server
+ response populates the user interface.
+\layout Standard
+
+Each of the areas constitutes a decision point in the design of a library
+ or implementation, different approaches being available at each level.
+\layout Subsection
+
+Mechanism
+\layout Standard
+
+There are two basic approaches to get a static (no reloads) web client to
+ talk to a server;
+\layout Subsubsection
+
+XmlHttpRequest
+\layout Standard
+
+XmlHttpRequest is the mechanism used by ScriptServer to exchange data between
+ Javascript, running on the client and PHP, running on the server.
+\layout Standard
+
+The XmlHttpRequest API is currently available in recent versions of Internet
+ Explorer (5.0+ ? : not supported IE on MAC), as an ActiveX object, and Mozilla
+ (1.4+ ? and derivatives e.g.
+ Firefox).
+ This already accounts for 90%+ of browsers, based on sites publishing browser
+ usage stats.
+ Support in Opera should begin with v7.60+ and a workaround already exists,
+ for Opera users with Java support (see 
+\begin_inset LatexCommand \htmlurl[Cross Browser XmlHttpRequest]{http://www.scss.com.au/family/andrew/webdesign/xmlhttprequest/}
+
+\end_inset 
+
+).
+ Support is also available in Safari on MAC OSX.
+\layout Standard
+
+XmlHttpRequest provides an HTTP client which can be used from Javascript
+ to make requests to a remote server.
+ It supports both synchronous and asynchronous calling
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+When making a synchronous call to XmlHttpRequest, all execution halts and
+ waits to the response to complete (generally bad for users as it locks
+ their browser).
+ Asynchronous calls allow the application's execution to continue after
+ a request has been placed with XmlHttpRequest - once the response is received
+ from the remote server, it is delivered to a callback function / object.
+ 
+\emph on 
+Asynchronous calls should be preferred
+\emph default 
+.
+\end_inset 
+
+ and offers an API which makes simple requests easy to implement while provided
+ enough fine grained control to cope with some of the 
+\begin_inset Quotes sld
+\end_inset 
+
+trickier
+\begin_inset Quotes srd
+\end_inset 
+
+ aspects of HTTP (e.g.
+ caching, char-sets etc.).
+ Note: the XmlHttpRequest implementations used by Mozilla and IE are aware
+ of a users browser settings such as proxy servers; there's no need for
+ an application using XmlHttpRequest to worry about this.
+\layout Standard
+
+Some relevant resources on XmlHttpRequest;
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[XulPlanet on XmlHttpRequest]{http://xulplanet.com/references/objref/XMLHttpRequest.html}
+
+\end_inset 
+
+: reference to the Mozilla implementation (best reference)
+\layout Itemize
+
+
+\begin_inset LatexCommand \url[Mozilla XML Extras]{http://www.mozilla.org/xmlextras/}
+
+\end_inset 
+
+: reference but unfocused.
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[MSDN on MSXML]{http://msdn.microsoft.com/library/en-us/xmlsdk30/htm/xmobjpmexmlhttprequest.asp}
+
+\end_inset 
+
+: reference in there somewhere
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Dynamic HTML and XML: The XMLHttpRequest Object]{http://developer.apple.com/internet/webcontent/xmlhttpreq.html}
+
+\end_inset 
+
+: tutorial
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Using the XML HTTP Request object]{http://jibbering.com/2002/4/httprequest.html}
+
+\end_inset 
+
+: tutorial
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Client Side Validation Using the XMLHTTPRequest Object]{http://www.15seconds.com/issue/020606.htm}
+
+\end_inset 
+
+: tutorial
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Connecting XUL Applications with PHP]{http://www.phppatterns.com/index.php/article/articleview/82/1/2/}
+
+\end_inset 
+
+: tutorial
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[LiveSearch]{http://blog.bitflux.ch/archive/livesearch_got_keyboard_access.html}
+
+\end_inset 
+
+: example use for search autocompletion
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Mozblog XML-RPC client]{http://mozblog.mozdev.org/nsXmlRpcClient.js}
+
+\end_inset 
+
+: built on XmlHttpRequest
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Burst Project]{http://burstproject.org/}
+
+\end_inset 
+
+: JavaScript library using XmlHttpRequest
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[JavaScript o lait]{http://jsolait.net/}
+
+\end_inset 
+
+: JavaScript library with XML-RPC client built on XmlHttpRequest.
+ Nice trick in there, building a client on Adobe's SVG plugin - may be the
+ best alternative for older browsers.
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Sarissa]{http://sarissa.sourceforge.net/}
+
+\end_inset 
+
+: JavaScript library with HTTP client built on XmlHttpRequest
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[vcXMLRPC]{http://www.vcdn.org/Public/XMLRPC/}
+
+\end_inset 
+
+: JavaScript XML-RPC client using XmlHttpRequest
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[libXmlRequest]{http://www.whitefrost.com/servlet/connector?file=reference/2003/06/17/libXmlRequest.html}
+
+\end_inset 
+
+: primed as REST client for exchanging XML documents, building on XmlHttpRequest.
+ Uses interesting approach to handling multiple requests, building a pool
+ of clients.
+\layout Subsubsection
+
+HTML Tag Manipulation as HTTP Client
+\layout Standard
+
+The alternative and older approach is to use HTML tags which provide a src
+ attribute, referring to a remote document to be loaded, such as <frame
+ />, <iframe /> or <script /> (technically <object />, <img /> and <style
+ /> may also be usable, but haven't seen this done).
+ The are differing variations on this approach but the all boil down to
+ the same idea; manipulate the tag(s) with JavaScript to invoke remote requests.
+\layout Standard
+
+This approach has the advantage of being supportable (with significant effort
+ in writing a cross browser implementation) on older browsers but provides
+ only basic implementation as far as an HTTP client is concerned.
+\layout Standard
+
+Most projects which have used this approach define a local, JavaScript callback
+ function in the static document and have this triggered by the remote document,
+ as it loads, allowing a response to be passed asychronously to the calling
+ client.
+ Although effective, this has the disadvantage that the remote server is
+ required to 
+\begin_inset Quotes sld
+\end_inset 
+
+know
+\begin_inset Quotes srd
+\end_inset 
+
+ about the client; the content of the response must contain Javascript which
+ triggers the clients callback function.
+\layout Standard
+
+The request may use either the HTTP GET or POST method, typically manipulating
+ the src URL in the case of GET while dynamically generating a form and
+ submitting it in the case of POST.
+\layout Standard
+
+An attempt (currently incomplete and basically a dead end for lack of time
+ / interest in resolving browser compatibility issues) has been made, in
+ ScriptServer, to use tag manipulation to provide an adapted XmlHttpRequest
+ for older browsers (pseudoxmlhttp.js in source).
+ This implementation attempts to use two hidden iframes combined with a
+ JavaScript generated form, the 
+\begin_inset Quotes sld
+\end_inset 
+
+request
+\begin_inset Quotes srd
+\end_inset 
+
+ iframe using the 
+\begin_inset Quotes sld
+\end_inset 
+
+response
+\begin_inset Quotes srd
+\end_inset 
+
+ iframe as it's submit target.
+ Instead of having the server generate JavaScript to trigger a callback
+ in the client, this implementation attempts to 
+\begin_inset Quotes sld
+\end_inset 
+
+poll
+\begin_inset Quotes srd
+\end_inset 
+
+ the response frame (via window.setInterval()) for the response.
+\layout Standard
+
+Relevant resources on tag manipulation;
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Remote Scripting with IFrame]{http://developer.apple.com/internet/webcontent/iframe.html}
+
+\end_inset 
+
+: tutorial (an older version of same tutorial exists on O'Reilly)
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Remote Scripting with Javascript, IFrames and PHP]{http://www.phpbuilder.com/columns/vance20040507.php3}
+
+\end_inset 
+
+: tutorial extending the previous tutorial
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Remote scripting with javascript]{http://www.dotvoid.com/view.php?id=13}
+
+\end_inset 
+
+: tutorial using <script/> and DOM manipulation
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[JavaScript based RPC]{http://www.dynarch.com/mishoo/rpc.epl}
+
+\end_inset 
+
+: tutorial plus sample implementation - uses <iframe />
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[JSRS]{http://www.ashleyit.com/rs/}
+
+\end_inset 
+
+: implementation using <iframe/>.
+ Probably the best known library of this type, with good support for older
+ browsers but seems to stuggle with others (e.g.
+ newer Opera versions).
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[BlueShoes JSRS]{http://www.blueshoes.org/en/javascript/jsrs/}
+
+\end_inset 
+
+: expands on JSRS, using WDDX for encoding messages
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[DOMRS]{http://timmorgan.info/experiments/domrs}
+
+\end_inset 
+
+: implementation using <script/> and DOM manipulation
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[XML for Script: Server-Side Proxies]{http://xmljs.sourceforge.net/website/documentation-xmlproxies.html}
+
+\end_inset 
+
+: (serious) implementation using <script /> tags, as part of a significant
+ JavaScript library.
+\layout Subsection
+
+Payload
+\layout Standard
+
+Given the mechanism, the next question is what should the client and server
+ exchange? To be more precise, how should information exchanged by the client
+ and server be 
+\emph on 
+encoded
+\emph default 
+.
+\layout Standard
+
+Breaking down the available approaches (and ignoring stuff like 
+\begin_inset LatexCommand \htmlurl[YAML]{http://www.yaml.org/}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \htmlurl[MIME-RPC]{http://www.mime-rpc.com/}
+
+\end_inset 
+
+) into loose categorization, they can be summarized as;
+\layout Subsubsection
+
+XML Based
+\layout Standard
+
+A number of different data serialization formats exist including SOAP, XML-RPC
+ and WDDX, which provide rules for describing data types in XML, in a platform
+ independent manner.
+ Some relevant resources and implementations (not already mentioned above)
+ include;
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Mozilla Web Services]{http://www.mozilla.org/projects/webservices/}
+
+\end_inset 
+
+: references on Mozilla SOAP / WSDL.
+ Be warned SOAP in Mozilla (today) means navigating minimal documentation
+ and the permissions minefield.
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Using the Amazon SOAP API]{http://www.oreillynet.com/pub/a/javascript/synd/2002/08/30/mozillasoapapi.html}
+
+\end_inset 
+
+: tutorial
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[JavaScript XML-RPC Message Builder]{http://www.scottandrew.com/xml-rpc/}
+
+\end_inset 
+
+: builds XML-RPC messages: up to you what to do with them.
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[XUL and XML-RPC]{http://www.phppatterns.com/index.php/article/articleview/86/1/2/}
+
+\end_inset 
+
+: using the MozBlog XML-RPC implementation
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[Web Service Objects]{http://xulplanet.com/references/objref/}
+
+\end_inset 
+
+: reference to the Mozilla web service objects (scroll down)
+\layout Itemize
+
+
+\begin_inset LatexCommand \htmlurl[JavaScript WDDX Implementation]{http://www.openwddx.org/downloads/}
+
+\end_inset 
+
+: it's in the download.
+\layout Standard
+
+Whether a specialized encoding format is actually necessary is a question
+ best summarized by SOAP vs.
+ 
+\begin_inset LatexCommand \htmlurl[REST]{http://www.xfront.com/REST-Web-Services.html}
+
+\end_inset 
+
+ (summary of most of the arguments 
+\begin_inset LatexCommand \htmlurl[here]{http://www.advogato.org/article/464.html}
+
+\end_inset 
+
+).
+ You could simply provide XML or even XHTML and manipulate it with DOM in
+ JavaScript; XMLHttpRequest comes in very handy working this way - 
+\begin_inset LatexCommand \htmlurl[Quick tip: XMLHttpRequest and innerHTML]{http://www.sitepoint.com/blog-post-view.php?id=185942}
+
+\end_inset 
+
+.
+ This approach has been most successfully employed by 
+\begin_inset LatexCommand \htmlurl[Amazon's REST API]{http://www.onlamp.com/pub/a/php/2003/10/30/amazon_rest.html}
+
+\end_inset 
+
+ while a hybrid form of XHTML is used by 
+\begin_inset LatexCommand \htmlurl[LiveSearch]{http://blog.bitflux.ch/archive/livesearch_got_keyboard_access.html}
+
+\end_inset 
+
+ and inserted directly into the client user interface.
+ The 
+\begin_inset LatexCommand \htmlurl[Mozilla Amazon Browser]{http://www.faser.net/mab/}
+
+\end_inset 
+
+ is an XUL client that demonstrates the possibilities.
+\layout Standard
+
+A kind of middle ground between the two is using RDF (at least in the server
+ response) to encode data and this approach is well supported by Mozilla
+ / XUL - see the
+\begin_inset LatexCommand \htmlurl[RDF Datasources]{http://xulplanet.com/tutorials/xultu/datasrc.html}
+
+\end_inset 
+
+ tutorial on XULPlanet.
+\layout Standard
+
+In general XML is fine as a choice as a 
+\emph on 
+platform independent
+\emph default 
+ data format, but introduces processing overhead, particularily in some
+ of the more complex encodings such as SOAP plus needs appropriate client
+ / server implementations.
+\layout Standard
+
+ScriptServer has chosen to avoid the use of XML, given it targets PHP and
+ JavaScript specifically, where 
+\begin_inset Quotes sld
+\end_inset 
+
+native
+\begin_inset Quotes srd
+\end_inset 
+
+ alternatives exist offering better performance and reducing complexity
+ (see below).
+\layout Subsubsection
+
+URL Encoded (Requests)
+\layout Standard
+
+A more down to earth approach, when sending data from client to server,
+ is to use what already works with HTTP, namely encoding the URL encoding
+ (see 
+\begin_inset LatexCommand \htmlurl[RFC 1738]{http://www.rfc-editor.org/rfc/rfc1738.txt}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \htmlurl[URL Encoding]{http://www.blooberry.com/indexdot/html/topics/urlencoding.htm}
+
+\end_inset 
+
+).
+ Data (up to some limit in size, depending on browser and server) can be
+ passed in the URL using a GET request or provided in the request body of
+ a form POST (generally no size limit with POSTs), making sure the request
+ contains the header;
+\layout LyX-Code
+
+Content-Type: application/x-www-form-urlencoded
+\layout Standard
+
+For example a URL like;
+\layout LyX-Code
+
+http://localhost/index.php?x=1&y=2
+\layout Standard
+
+Would (likely) correspond to two variables x (= 1) and y (= 2).
+\layout Standard
+
+While easy to implement, there are three issues here.
+ First this is (generally) a request-only encoding - what does the server
+ respond with? Second, clients must be careful to escape values correctly
+ (according to RFC 1738).
+ Finally there's the issue of how complex data structures, such as arrays
+ and objects, are represented; although it's 
+\emph on 
+possible
+\emph default 
+ to represent arrays and objects using encoded URLs, it requires either
+ self-imposed rules on the exact manner URL encoding will be used or some
+ additional encoding mechanism for values which contain complex types.
+\layout Subsubsection
+
+
+\begin_inset LatexCommand \label{sub:Hybrid}
+
+\end_inset 
+
+Hybrid
+\layout Standard
+
+As a catch-all for everything else, a hybrid payload may be a mix of the
+ previous two approaches.
+ ScriptServer uses a hybrid approach which is what the discussion will focus
+ on here
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+Long term ScriptServer may support different encodings / RPC styles to that
+ described here.
+\end_inset 
+
+.
+\layout Standard
+
+A ScriptServer request, (from a JavaScript client) combines a URL encoded
+ HTTP POST with the byte stream data representation used by PHP's 
+\begin_inset LatexCommand \htmlurl[serialize()]{http://www.php.net/serialize}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \htmlurl[unserialize()]{http://www.php.net/unserialize}
+
+\end_inset 
+
+ functions.
+\layout Standard
+
+Each encoded key / value pair in the URL encoded POST data represents an
+ argument to the remote method being called.
+ The names of the keys are unimportant; the order in which the pairs apprear
+ in the encoded URL is important, and corresponds to the order of parameters
+ in the remote method.
+\layout Standard
+
+Each 
+\emph on 
+value
+\emph default 
+ in the URL encoded string is serialized according to PHP's serializated
+ data representation.
+ This means a value could be either a scalar of complex type, containing
+ perhaps just a string or an array of objects
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+Recursive references are not supported and will result in JavaScript exceptions.
+\end_inset 
+
+.
+\layout Standard
+
+For the time being, objects are encoded with the class name 
+\begin_inset Quotes sld
+\end_inset 
+
+ScriptServer_Object
+\begin_inset Quotes srd
+\end_inset 
+
+ (for which a PHP definition is provided, server-side, by ScriptServer).
+ Future ScriptServer implementations may allow translations of JavaScript
+ classes to PHP classes (e.g.
+ JavaScript Date to some PHP equivalent or JavaScript DOM to PHP DOM).
+\layout Standard
+
+The response from the server is encoded as JavaScript itself, the data structure
+ defined as JavaScript variables and wrapped in an anonymous function.
+ The structure is provided as a string for use with JavaScripts eval() function.
+ For any other platform that Javascript in a web browser, exchanging data
+ as eval()able code would be a serious security risk but because we trust
+ the browser to execute Javascript securely (don't we ;)), ScriptServer
+ can get away with it.
+\layout Standard
+
+For example this is an array inside an array, generated as a ScriptServer
+ response (whitespace formatted for readability);
+\layout LyX-Code
+
+new Function("
+\layout LyX-Code
+
+    var t1 = new Array();
+\layout LyX-Code
+
+    var t2 = new Array();
+\layout LyX-Code
+
+    var t3 = 
+\backslash 
+'maroon
+\backslash 
+';
+\layout LyX-Code
+
+    t2[
+\backslash 
+'name
+\backslash 
+'] = t3;
+\layout LyX-Code
+
+    var t4 = 
+\backslash 
+'80
+\backslash 
+';
+\layout LyX-Code
+
+    t2[
+\backslash 
+'r
+\backslash 
+'] = t4;
+\layout LyX-Code
+
+    var t5 = 
+\backslash 
+'00
+\backslash 
+';
+\layout LyX-Code
+
+    t2[
+\backslash 
+'g
+\backslash 
+'] = t5;
+\layout LyX-Code
+
+    var t6 = 
+\backslash 
+'00
+\backslash 
+';
+\layout LyX-Code
+
+    t2[
+\backslash 
+'b
+\backslash 
+'] = t6;
+\layout LyX-Code
+
+    t1[0] = t2;
+\layout LyX-Code
+
+    return t1;
+\layout LyX-Code
+
+");
+\layout Standard
+
+Using this response in JavaScript, having fetched it using XmlHttpRequest,
+ might look like this (exception handling omitted for example);
+\layout LyX-Code
+
+# resp variable contains response from server
+\layout LyX-Code
+
+// Evaluate the string
+\layout LyX-Code
+
+var datafunc = eval(resp);
+\layout LyX-Code
+
+\layout LyX-Code
+
+// datafunc now contains the anonymous function
+\layout LyX-Code
+
+// execute the function to get the data
+\layout LyX-Code
+
+var data = datafunc();
+\layout Standard
+
+The reason for the anonymous function is to provide two stages of error
+ checking as well as allowing the response payload to be assigned to a local
+ variable (vs.
+ creating new variables directly from the response).
+ The call to eval() could fail if the server simply returned garbage (a
+ server error).
+ Once the anonymous function has been evaluated, it itself may contain an
+ exception, generated by the server (an application error).
+ These two possible error conditions need handling seperately.
+\layout Standard
+
+The following is an example exception, contained in the anonymous function
+ (formatted again for readability);
+\layout LyX-Code
+
+new Function("
+\layout LyX-Code
+
+    try {
+\layout LyX-Code
+
+       throw new Server_Error(
+\backslash 
+'Invalid call syntax
+\backslash 
+');
+\layout LyX-Code
+
+    } catch(e) {
+\layout LyX-Code
+
+       function Server_Error(message){
+\layout LyX-Code
+
+          this.name = 
+\backslash 
+'Server_Error
+\backslash 
+';
+\layout LyX-Code
+
+          this.message = message;
+\layout LyX-Code
+
+       };
+\layout LyX-Code
+
+       Server_Error.prototype = new Error();
+\layout LyX-Code
+
+       Server_Error.constructor = Server_Error;
+\layout LyX-Code
+
+       throw new Server_Error(
+\backslash 
+'Invalid call syntax
+\backslash 
+');
+\layout LyX-Code
+
+    };
+\layout LyX-Code
+
+");
+\layout Standard
+
+In other words ScriptServer uses two encodings.
+ PHP byte stream format for client requests and evalable Javascript for
+ server responses.
+ At first glance it may seem strange to use two types of encoding but the
+ advantage is both formats have native parsers on the receiving end.
+ In general it's alot easier to generate some kind of encoded data than
+ it is to parse (consider how easy it is to generate HTML vs.
+ parsing HTML) it so avoiding writing custom parsers significantly reduces
+ coding effort (and bugs) and reduces performance overheads.
+\layout Subsection
+
+Binding and Population
+\layout Standard
+
+The remaining areas of the 
+\begin_inset Quotes sld
+\end_inset 
+
+application stack
+\begin_inset Quotes srd
+\end_inset 
+
+ relate to how a JavaScript client 
+\begin_inset Quotes sld
+\end_inset 
+
+binds
+\begin_inset Quotes srd
+\end_inset 
+
+ to a remote server then how data from the UI populates a request and how
+ the corresponding response populates the UI.
+\layout Subsubsection
+
+Binding
+\layout Standard
+
+Publishing some service for a remote system to use introduces considerable
+ complexity for developers, the processes of debugging and resolving errors
+ involving, effectively, three environments; the remote server, the intervening
+ network and the client accessing the server.
+ What's more, the division of logic between client and server can make changes
+ hard to manage; a modification to the service running on the server has
+ to be reflected in the client.
+\layout Standard
+
+Although debugging remains difficult, it is possible to reduce the effort
+ required by developers by adopting approaches pioneered with 
+\begin_inset LatexCommand \htmlurl[interface description languages]{http://en.wikipedia.org/wiki/Interface_description_language}
+
+\end_inset 
+
+ which describe how the service can be located and the procedures it makes
+ public.
+\layout Standard
+
+Inspiration for ScriptServer was taken from 
+\begin_inset LatexCommand \htmlurl[WSDL]{http://en.wikipedia.org/wiki/WSDL}
+
+\end_inset 
+
+ which can be summarized most easily be example.
+ Using the 
+\begin_inset LatexCommand \htmlurl[WhoIsGoingToBePresident]{http://dietrich.ganx4.com/president/}
+
+\end_inset 
+
+ service, hand coding a PHP client using 
+\begin_inset LatexCommand \htmlurl[PEAR::SOAP]{http://pear.php.net/packages/SOAP}
+
+\end_inset 
+
+ would look something like this;
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+require_once 'SOAP/Client.php';
+\layout LyX-Code
+
+\layout LyX-Code
+
+class Predictor {
+\layout LyX-Code
+
+\layout LyX-Code
+
+   var $client;
+\layout LyX-Code
+
+\layout LyX-Code
+
+   function Predictor() {
+\layout LyX-Code
+
+      $url = 'http://dietrich.ganx4.com/president/server.php';
+\layout LyX-Code
+
+      $this->client = & new SOAP_Client($url);
+\layout LyX-Code
+
+   }
+\layout LyX-Code
+
+   
+\layout LyX-Code
+
+   function whoisgoingtobepresident() {
+\layout LyX-Code
+
+      $params = array();
+\layout LyX-Code
+
+      return $this->client->call(
+\layout LyX-Code
+
+          'whoisgoingtobepresident', $params
+\layout LyX-Code
+
+      );
+\layout LyX-Code
+
+   }
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+\layout LyX-Code
+
+$Predictor = & new Predictor();
+\layout LyX-Code
+
+\layout LyX-Code
+
+$prediction = $Predictor->whoisgoingtobepresident();
+\layout LyX-Code
+
+\layout LyX-Code
+
+echo 'Kerry: '.$prediction->kerry.'<br>';
+\layout LyX-Code
+
+echo 'Bush: '.$prediction->bush.'<br>';
+\layout LyX-Code
+
+?>
+\layout Standard
+
+By contrast, accessing this service using it's WSDL description looks like
+ this;
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+require_once 'SOAP/Client.php';
+\layout LyX-Code
+
+\layout LyX-Code
+
+$WSDL = & new SOAP_WSDL('http://dietrich.ganx4.com/president/server.php?wsdl');
+\layout LyX-Code
+
+\layout LyX-Code
+
+$Predictor = $WSDL->getProxy();
+\layout LyX-Code
+
+\layout LyX-Code
+
+$prediction = $Predictor->whoisgoingtobepresident();
+\layout LyX-Code
+
+\layout LyX-Code
+
+echo 'Kerry: '.$prediction->kerry.'<br>';
+\layout LyX-Code
+
+echo 'Bush: '.$prediction->bush.'<br>';
+\layout LyX-Code
+
+?>
+\layout Standard
+
+Simply from a lines of code count, the second example looks like less work.
+ The client is generated automatically from the WSDL description of the
+ service, in the latter case.
+\layout Standard
+
+When dealing with more complex services, where published methods may take
+ a number of arguments and the result is itself a complex variable, hand-coding
+ the client is error prone and wasteful.
+\layout Standard
+
+The range of remote JavaScript scripting solutions (indentified above),
+ which represent the state of the art, generally leave it up to the developer
+ to manual bind the client to the server.
+\layout Standard
+
+The exception is the Mozilla SOAP / WSDL implementation which, in theory,
+ solves the problem but it practice leaves much to be desired.
+ What's more, specific to PHP, is generating WSDL from a SOAP server is
+ not as easy as it should be, WSDL being strongly typed and requiring an
+ additional layer of (hand coded) description in PHP to translate to it.
+\layout Standard
+
+SOAP / WSDL are designed to be platform independent; in the case of a service
+ like Google's, clients have been constructed is most all popular platforms
+ that exist, including Java, .NET, Perl, Python and PHP.
+ By contrast, we're talking here about a JavaScript-only client primed to
+ access a single server (in this case written in PHP).
+ The need for platform independence is less critical; performance can be
+ increased and layers of abstract removed by using a platform specific solution.
+\layout Standard
+
+The approach adopted by ScriptServer is simple.
+ Instead of an intermediate description, such as WSDL, the server is capable
+ of generating a JavaScript client automatically, primed to access the published
+ services.
+ Developers building the user interface simply need to load the generated
+ client using a tag like <script src=
+\begin_inset Quotes srd
+\end_inset 
+
+http://localhost/server.php?jsclient
+\begin_inset Quotes srd
+\end_inset 
+
+/> and begin using it.
+\layout Standard
+
+In practical terms, the current implementation allows PHP classes to be
+ 
+\begin_inset Quotes sld
+\end_inset 
+
+registered
+\begin_inset Quotes srd
+\end_inset 
+
+ with ScriptServer then 
+\begin_inset LatexCommand \htmlurl[reflection]{http://en.wikipedia.org/wiki/Reflection_%28computer_science%29}
+
+\end_inset 
+
+ is used to generate a corresponding JavaScript client; an object providing
+ methods with the same names / signatures as those on the server.
+ The generated client primed to use the server, placing no requirement on
+ the developer to manage the networking, data encoding etc.
+ required to access the service.
+\layout Subsubsection
+
+Population
+\layout Standard
+
+Given a client and server able to communicate with each other, how is data
+ passed from the client UI to the server and how is a response from the
+ server display to the client's user?
+\layout Standard
+
+In practical terms, with JavaScript, the first part is typically just a
+ matter of working with the available APIs e.g.
+\layout LyX-Code
+
+<script type='text/javascript'>
+\layout LyX-Code
+
+<!--
+\layout LyX-Code
+
+function showValue() {
+\layout LyX-Code
+
+   alert( document.getElementById('example').value );
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+-->
+\layout LyX-Code
+
+</script>
+\layout LyX-Code
+
+<form ...
+ >
+\layout LyX-Code
+
+<input id='example' type='text' ...>
+\layout LyX-Code
+
+<input type='button' onclick='showValue()'>
+\layout LyX-Code
+
+</form>
+\layout Standard
+
+With access to values defined in forms etc., these can be packaged into a
+ request for the server.
+\layout Standard
+
+An interesting variation of this theme is the 
+\begin_inset LatexCommand \htmlurl[Kupu]{http://kupu.oscom.org/}
+
+\end_inset 
+
+ editor which uses a 
+\emph on 
+document 
+\emph default 
+oriented approach; the client sends documents to the server.
+ To an extent this approach is specific to Kupu, as an editing tool, but
+ in theory it could be applied more broadly, particurily where 
+\begin_inset LatexCommand \htmlurl[webdav]{http://en.wikipedia.org/wiki/Webdav}
+
+\end_inset 
+
+ is available, fitting with the general notions of REST.
+\layout Standard
+
+With the exception of Kupu, it's worth noting that the client will typically
+ send less data than it receives.
+\layout Standard
+
+How the client uses responses it receives from the server depends largely
+ on the nature of the data in the response.
+\layout Standard
+
+The 
+\begin_inset LatexCommand \htmlurl[LiveSearch]{http://blog.bitflux.ch/wiki/LiveSearch}
+
+\end_inset 
+
+ approach involves generating XHTML 
+\begin_inset Quotes sld
+\end_inset 
+
+snippets
+\begin_inset Quotes srd
+\end_inset 
+
+, as can be seen 
+\begin_inset LatexCommand \htmlurl[here]{http://blog.bitflux.ch/livesearch.php?q=php}
+
+\end_inset 
+
+; not true XHTML but something which can be dropped directly into the user
+ interface using minimal DOM manipulation.
+ This certainly makes light work on the client side but requires, at least
+ to an extent, some awareness on the server side of how the client will
+ use the response.
+ That can quickly lead to violating the notions of seperation of concerns
+ and layering, meaning logic for the client side user interface gets mixed
+ up with server side application logic; in other words a mess which is difficult
+ to maintain.
+\layout Standard
+
+Another approach is to have the server generate 
+\begin_inset LatexCommand \htmlurl[RDF]{http://en.wikipedia.org/wiki/Resource_Description_Framework}
+
+\end_inset 
+
+.
+ This approach is used by Mozilla / XUL - see 
+\begin_inset LatexCommand \htmlurl[XUL and RDF: The Implementation of the Application Object Model]{http://www.mozilla.org/xpfe/xulrdf.htm}
+
+\end_inset 
+
+.
+ When building XUL applications, this has some distinct advantages, components
+ like the 
+\begin_inset LatexCommand \htmlurl[<tree />]{http://xulplanet.com/references/elemref/ref_tree.html}
+
+\end_inset 
+
+ being 
+\begin_inset Quotes sld
+\end_inset 
+
+RDF aware
+\begin_inset Quotes srd
+\end_inset 
+
+.
+ PHP also has an excellent RDF library in the form of 
+\begin_inset LatexCommand \htmlurl[RAP - RDF API for PHP]{http://www.wiwiss.fu-berlin.de/suhl/bizer/rdfapi/}
+
+\end_inset 
+
+.
+ The downsides are it's Mozilla specific and RDF is, generally, not widely
+ understood.
+ Also, the general sense I get of using RDF in Mozilla with an application
+ that's launch directly from a web site (vs.
+ locally installed) is it takes you into the greyer, undocumented areas
+ of Mozilla.
+\layout Standard
+
+ScriptServer responses are packaged as native JavaScript types.
+ This means populating the user interface with a response will typically
+ involve either document.write() calls (see 
+\begin_inset LatexCommand \htmlurl[Client-Side JavaScript templates]{http://www.fishwasher.com/jst/page1.html}
+
+\end_inset 
+
+) or DOM manipulation.
+ While this can be painful, it should suit the 
+\begin_inset LatexCommand \htmlurl[luddites]{http://en.wikipedia.org/wiki/Luddite}
+
+\end_inset 
+
+ (like me) and is well charted territory.
+\layout Standard
+
+Server responses are not restricted to native JavaScript types; it's possible
+ for the response to contain JavaScript function and class definitions,
+ allowing both data and 
+\emph on 
+behaviour
+\emph default 
+ to be contained in the response.
+ This allows for some interesting possibilities such as a response which
+ contains a list of data as well as function definition which expects, say,
+ an 
+\begin_inset LatexCommand \htmlurl[HTMLSelectElement]{http://xulplanet.com/references/objref/HTMLSelectElement.html}
+
+\end_inset 
+
+ as an argument and takes care of attaching the items in the list to it,
+ as 
+\begin_inset LatexCommand \htmlurl[HTMLOptionElements]{http://xulplanet.com/references/objref/HTMLOptionElement.html}
+
+\end_inset 
+
+.
+ Whether this constitutes correct seperation between client and server is
+ a matter for debate but an example is provided with ScriptServer in 
+\begin_inset Quotes sld
+\end_inset 
+
+sfsearch_server.php
+\begin_inset Quotes srd
+\end_inset 
+
+.
+\layout Section
+
+
+\begin_inset LatexCommand \label{sec:Developing-with-ScriptServer}
+
+\end_inset 
+
+Developing with ScriptServer
+\layout Subsection
+
+In a Hurry
+\layout Subsubsection
+
+Server side
+\layout Standard
+
+The following file is deployed (for example) to http://localhost/server.php
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+// Including this sets up the SCRIPT_SERVER constant
+\layout LyX-Code
+
+require_once '/path/to/ScriptServer.php';
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Load the PostOffice server
+\layout LyX-Code
+
+require_once SCRIPT_SERVER .
+ 'Server/PostOffice.php';
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Some class you've written...
+\layout LyX-Code
+
+class HelloWorld {
+\layout LyX-Code
+
+    function sayHello($name) {
+\layout LyX-Code
+
+        return 'Hello '.$name;
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Create the PostOffice server
+\layout LyX-Code
+
+$S = & new ScriptServer_Server_PostOffice();
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Register your class with it...
+\layout LyX-Code
+
+$S->addHandler(new HelloWorld());
+\layout LyX-Code
+
+\layout LyX-Code
+
+// This allows the JavaScript to be seen by
+\layout LyX-Code
+
+// just adding ?client to the end of the
+\layout LyX-Code
+
+// server's URL
+\layout LyX-Code
+
+if (isset($_SERVER['QUERY_STRING']) &&
+\layout LyX-Code
+
+        strcasecmp($_SERVER['QUERY_STRING'], 'client')==0) {
+\layout LyX-Code
+
+    
+\layout LyX-Code
+
+    // Compress the output Javascript (strip whitespace)
+\layout LyX-Code
+
+    define('SCRIPT_SERVER_RENDER_FORMATTING',FALSE);
+\layout LyX-Code
+
+    
+\layout LyX-Code
+
+    // Utility to help with displaying ScriptServer
+\layout LyX-Code
+
+    // JavaScript files and generated code
+\layout LyX-Code
+
+    require_once SCRIPT_SERVER .
+ 'Renderer.php';
+\layout LyX-Code
+
+    $R = & ScriptServer_Renderer::load();
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // Add serializer.js
+\layout LyX-Code
+
+    $R->addSerializer();
+\layout LyX-Code
+
+    // Add xmlhttp.js
+\layout LyX-Code
+
+    $R->addXmlHttp();
+\layout LyX-Code
+
+    // Add post.js
+\layout LyX-Code
+
+    $R->addPost();
+\layout LyX-Code
+
+\layout LyX-Code
+
+    
+\begin_inset LatexCommand \label{Using the Generator}
+
+\end_inset 
+
+// Get the client code generator from the server
+\layout LyX-Code
+
+    $G = & $S->getGenerator();
+\layout LyX-Code
+
+    // Add the generated code for display
+\layout LyX-Code
+
+    $R->addScript($G->getClient());
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // Display the JavaScript client
+\layout LyX-Code
+
+    $script = $R->toString();
+\layout LyX-Code
+
+    header('Content-Length: '.strlen($script));
+\layout LyX-Code
+
+    header('Content-Type: text/javascript');
+\layout LyX-Code
+
+    echo $script;
+\layout LyX-Code
+
+\layout LyX-Code
+
+} else {
+\layout LyX-Code
+
+    // This is where the real serving happens...
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // Include error handler
+\layout LyX-Code
+
+    // PHP errors, warnings and notices serialized to JS
+\layout LyX-Code
+
+    require_once SCRIPT_SERVER .
+ 'ErrorHandler.php';
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // IE's XMLHttpRequest caches unless told not to...
+\layout LyX-Code
+
+    header( "Expires: Mon, 26 Jul 1997 05:00:00 GMT" ); 
+\layout LyX-Code
+
+    header( "Last-Modified: " .
+ gmdate( "D, d M Y H:i:s" ) .
+ "GMT" ); 
+\layout LyX-Code
+
+    header( "Cache-Control: no-cache, must-revalidate" ); 
+\layout LyX-Code
+
+    header( "Pragma: no-cache" );
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // Start serving requests...
+\layout LyX-Code
+
+    $S->serve();
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+?>
+\layout Subsubsection
+
+The Client Side
+\layout Standard
+
+Given the above server, deployed to http://localhost/server.php and this
+ (snippet of) client deployed to http://localhost/client.html;
+\layout LyX-Code
+
+<html>
+\layout LyX-Code
+
+<head>
+\layout LyX-Code
+
+<!-- Load the generated client side code...
+ -->
+\layout LyX-Code
+
+<script type='text/javascript' src='http://localhost/server.php?client'></script>
+\layout LyX-Code
+
+<script type='text/javascript'>
+\layout LyX-Code
+
+<!--
+\layout LyX-Code
+
+// Some function perhaps called onclick of a button
+\layout LyX-Code
+
+function doSayHello(name) {
+\layout LyX-Code
+
+    // Create the client object, passing the async
+\layout LyX-Code
+
+    // handler
+\layout LyX-Code
+
+    var h = new helloworld(HelloWorldHandler);
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // Call the remote method
+\layout LyX-Code
+
+    H.sayHello(name);
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+\layout LyX-Code
+
+// A handler is required to accept the response
+\layout LyX-Code
+
+// of asychronous calls...
+\layout LyX-Code
+
+var HelloWorldHandler = {
+\layout LyX-Code
+
+    // Function must have same name as remote method
+\layout LyX-Code
+
+    sayHello: function(result) {
+\layout LyX-Code
+
+        alert(result);
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+-->
+\layout LyX-Code
+
+</script>
+\layout Subsection
+
+Library Walk Through
+\layout Subsubsection
+
+Requirements
+\layout Itemize
+
+PHP: tested with PHP 4.1.2 up to 5.0.2 without problems.
+ No special requirements for ini settings and only needs the PCRE extension
+ which is usually on by default.
+\layout Itemize
+
+Javascript: Needs a Javascript 1.5+ implementation plus XmlHttpRequest support.
+ Tested with Firefox 9.x+ and Internet Explorer 6.x (should work with IE 5.x
+ also).
+ Should work with recent versions of Safari.
+ Opera should be getting an XmlHttpRequest implementation any time now.
+\layout Subsubsection
+
+Loading the Library in PHP
+\layout Standard
+
+The directory structure found in the zipped ScriptServer archive should
+ be preserved.
+ Given this structure;
+\layout LyX-Code
+
+./ScriptServer.php
+\layout LyX-Code
+
+./ScriptServer/[files here]
+\layout Standard
+
+It is possible to load the library by including the file ScriptServer.php,
+ which sets up the PHP constant SCRIPT_SERVER that points at the full path
+ to the ScriptServer subdirectory.
+ This allows you to load ScriptServer classes like;
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+require_once '/full/path/to/ScriptServer.php';
+\layout LyX-Code
+
+require_once SCRIPT_SERVER .
+ 'Server/PostOffice.php';
+\layout Standard
+
+If you place ScriptServer somewhere in your include_path, ScriptServer.php
+ being in the root of one of the identified include_path directories, you
+ should be able to use it like;
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+require_once 'ScriptServer.php';
+\layout LyX-Code
+
+require_once SCRIPT_SERVER .
+ 'Server/PostOffice.php';
+\layout Subsubsection
+
+Overview of Files in ScriptServer subdirectory
+\layout Itemize
+
+CodeWriter.php - provides an API for writing JavaScript to, when generating
+ it from PHP.
+ You should only need to worry about this if you are generating your own
+ JavaScript types.
+\layout Itemize
+
+
+\begin_inset LatexCommand \label{ite:ErrorHandler.php}
+
+\end_inset 
+
+ErrorHandler.php - remaps PHP's error handling to generate valid ScriptServer
+ responses that contain JavaScript exceptions.
+ This helps make errors in PHP visible to the JavaScript client.
+ This won't work for fatal and parse errors (PHP lacks a means to support
+ this - see 
+\begin_inset LatexCommand \htmlurl[Handling fatal and parse errors]{http://www.webkreator.com/php/configuration/handling-fatal-and-parse-errors.html}
+
+\end_inset 
+
+ for discussion and workarounds).
+ You should include this file if you want this behaviour.
+\layout Itemize
+
+Generator.php - deals with generating JavaScript clients primed to use a
+ ScriptServer server.
+ The only method you're interested in here is the getClient() method.
+ Selection of the generator should be handled by the servers' getGenerator()
+ method (see 
+\begin_inset LatexCommand \ref{Using the Generator}
+
+\end_inset 
+
+ above).
+\layout Itemize
+
+Handle.php - provides a mechanism to register classes with the server without
+ creating an object from them (or even include them), reducing the overhead
+ when many classes are registered with a single server.
+ See 
+\begin_inset LatexCommand \htmlurl{http://wact.sourceforge.net/index.php/Handle}
+
+\end_inset 
+
+ and 
+\begin_inset LatexCommand \htmlurl{http://wact.sourceforge.net/index.php/ResolveHandle}
+
+\end_inset 
+
+ (the concept is borrowed from 
+\begin_inset LatexCommand \htmlurl[WACT]{http://wact.sourceforge.net}
+
+\end_inset 
+
+).
+ Note also the definition of ScriptServer_HandleDescription - if you wish
+ to register a class without actually including it, you will need to use
+ ScriptServer_HandleDescription to inform the server what the class contains.
+\layout Itemize
+
+Listener.php - used collect incoming request data.
+ Able to detect the type of request (GET or POST / raw POST).
+ Not actually used by the PostOffice Server (see 
+\begin_inset LatexCommand \ref{sub:PostOffice-Server}
+
+\end_inset 
+
+) as this requires requests to be made as POSTs.
+ Some of the basic examples use it but generally you should not have to.
+\layout Itemize
+
+Renderer.php - used to simplify display of JavaScript from PHP.
+ This will you will likely use alot.
+\layout Itemize
+
+RequestData.php - provides classes for reading incoming requests and unserializin
+g their contents.
+ You should not need to work directly with this.
+\layout Itemize
+
+
+\begin_inset LatexCommand \label{Serializer.php}
+
+\end_inset 
+
+Serializer.php - deals with serializing PHP data structures into a JavaScript
+ representation, used for server responses.
+ For basic use of ScriptServer you should not need to worry about this but
+ if you want to implement your own mappings between PHP classes and JavaScript,
+ you should create a class extending ScriptServer_SerializedElement and
+ then register it with ScriptServer_Serializer::addType().
+\layout Itemize
+
+Server.php - base class for specific ScriptServer servers, such as the PostOffice
+ Server (see 
+\begin_inset LatexCommand \ref{sub:PostOffice-Server}
+
+\end_inset 
+
+).
+ You should familiarize yourself with the public API it provides.
+\layout Itemize
+
+
+\begin_inset LatexCommand \label{ite:Types.php}
+
+\end_inset 
+
+Types.php - contains class definitions which are used when objects are sent
+ in a client request.
+ You can also use the ScriptServer_Error definition here if you want to
+ transmit an exception to the JavaScript client - the Serializer (see 
+\begin_inset LatexCommand \ref{Serializer.php}
+
+\end_inset 
+
+) recognizes this and generates the necessary JavaScript for an exception.
+\layout Itemize
+
+Unserializer.php - deals with unserializing requests from the client (requests
+ use PHP's native serialization format).
+ Generally you should not have to worry about this but if you wish to map
+ JavaScript types to your own PHP classes, the ScriptServer_Unserializer::regist
+er() method will be interesting (note to self - this should be changed to
+ addType() for consistency with the Serializer).
+ Note that it temporarily registers an unserialize callback function, replacing
+ anything already defined, but restores the existing callback function once
+ complete.
+\layout Itemize
+
+Server/PostOffice.php - provides a specific server implementation (see 
+\begin_inset LatexCommand \ref{sub:PostOffice-Server}
+
+\end_inset 
+
+).
+\layout Itemize
+
+js/get.js - provides JavaScript class GetRequest for parameterizing requests
+ using HTTP GET
+\layout Itemize
+
+js/mockxmlhttp.js - used for unit testing
+\layout Itemize
+
+js/post.js - provides JavaScript class PostRequest for parameterizing requests
+ using HTTP POST with url encoding
+\layout Itemize
+
+js/pseudoxmlhttp.js - (failed) attempt to provide some kind of XmlHttpRequest
+ implementation for older browsers (anyone want to complete it?)
+\layout Itemize
+
+js/rawpost.js - provides JavaScript class RawPostRequest for parameterizing
+ requests using HTTP POST without url encoding
+\layout Itemize
+
+js/serializer.js - serializes JavaScript data structures into PHP serialized
+ strings.
+ This will need modification if you want to map JavaScript objects to your
+ own PHP classes
+\layout Itemize
+
+js/tophp.js - does essentially the same thing as serializer.js but extends
+ JavaScripts native types with a function called toPHP().
+ Only problem here is it shows up when looping through the properties of
+ an object hence serializer.js is preferred.
+\layout Itemize
+
+js/var_dump.js - something like PHP's var_dump() function - again extends
+ native JavaScript types - that needs to change.
+\layout Itemize
+
+js/xmlhttp.js - wraps XmlHttpRequest, taking care of it's creation and providing
+ an API to make requests and handle responses.
+ Note that it prevents you from attempting to make multiple requests using
+ the same XmlHttpRequest, while an exist request is still in progress.
+\layout Subsubsection
+
+
+\begin_inset LatexCommand \label{sub:PostOffice-Server}
+
+\end_inset 
+
+PostOffice Server
+\layout Standard
+
+The class ScriptServer_Server_PostOffice (require_once SCRIPT_SERVER .
+ 'Server/PostOffice.php';) provides a server implementation the defines how
+ clients should interact with it.
+ Currently it is the only implementation ScriptServer provides - others
+ may develop later to take into account notions like REST.
+\layout Standard
+
+It is primarily RPC based, each class and method registered with it being
+ available via the URL while arguments to methods are provided as URL encoded
+ POST data.
+\layout Standard
+
+For example if you register a class like the following with it;
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+//...
+\layout LyX-Code
+
+class Math {
+\layout LyX-Code
+
+    function add($x, $y) {
+\layout LyX-Code
+
+        return $x + $y;
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+    function subtract($x, $y) {
+\layout LyX-Code
+
+        return $x - $y;
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+//...
+\layout LyX-Code
+
+?>
+\layout Standard
+
+If the server is deployed to http://localhost/server.php, the method are
+ exposed like;
+\layout Itemize
+
+http://localhost/server.php/math/add
+\layout Itemize
+
+http://localhost/server.php/math/subtract
+\layout Standard
+
+The arguments to these methods are provided 
+\begin_inset Quotes sld
+\end_inset 
+
+invisibly
+\begin_inset Quotes srd
+\end_inset 
+
+ as HTTP POST data.
+ When using a generated client you should not have to worry about how this
+ happens but, behind the scenes, the JavaScript PostRequest class is used,
+ which adds parameters to a url encoded POST request as a list.
+ Although the parameters can be named (so it is in fact a hash not a list),
+ the PostOffice server is only interested in the order in which they appear.
+\layout Subsection
+
+Client Side Issues
+\layout Subsubsection
+
+Case Sensitivity
+\layout Standard
+
+PHP classes are, registered with a server like the PostOffice server automatical
+ly have their name and methods registered in lower case.
+ The reason for this is the way PHP reflection functions like get_class_methods(
+) work.
+ With PHP4 these return all the method names in lower case.
+ With PHP5 the case it preserved.
+ Meanwhile, in all PHP versions, when you call a method (or create an object)
+ it's case-insensitive while Javascript is case-sensitive.
+ Forcing everything to lower case allows ScriptServer to work without problems
+ under PHP4 and 5.
+\layout Standard
+
+It also has the advantage that it reduces the chances of conflicting with
+ native Javascript classes, which always use studly caps naming.
+ For example registering a PHP class Math results in a generated JavaScript
+ class called 'math' - if case sensitivity was preserved it would clash
+ with the native Math class in Javascript.
+\layout Standard
+
+Addressing via the URL is also done in lower case.
+\layout Subsubsection
+
+Synchronous vs.
+ Asynchronous Requests
+\layout Standard
+
+XmlHttpRequest allows you to make synchronous and asynchronous requests.
+ You have the option to use either with a generated client but you should
+ generally avoid synchronous requests - they lock the client's browser until
+ the request completes and there is no mechanism for controlling their timeout.
+ The client needs to have it's state altered to switch between sync and
+ async modes.
+\layout Standard
+
+Some JavaScript examples, given the Math class above;
+\layout LyX-Code
+
+// Defaults to sync mode
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+// sync call
+\layout LyX-Code
+
+var result = m.add(1,1);
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Pass a handler to the constructor - now in async mode
+\layout LyX-Code
+
+var m = new math(MathHandler);
+\layout LyX-Code
+
+// Result passed to MathHandler
+\layout LyX-Code
+
+m.add(1,1);
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Default sync mode
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+// Switch to async mode, passing the handler
+\layout LyX-Code
+
+m.Async(MathHandler);
+\layout LyX-Code
+
+m.add(1,1);
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Start with async mode
+\layout LyX-Code
+
+var m = new math(MathHandler);
+\layout LyX-Code
+
+// Switch to sync mode
+\layout LyX-Code
+
+m.Sync();
+\layout LyX-Code
+
+m.add(1,1);
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Possible definition of the MathHandler used above
+\layout LyX-Code
+
+var MathHandler = {
+\layout LyX-Code
+
+    add: function(result) {
+\layout LyX-Code
+
+        alert(result);
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+};
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Another way to do it
+\layout LyX-Code
+
+var MathHandler = new Object();
+\layout LyX-Code
+
+MathHandler.add = function(result) {
+\layout LyX-Code
+
+   alert(result);
+\layout LyX-Code
+
+};
+\layout Subsubsection
+
+Communicating the Context with Async Calls
+\layout Standard
+
+To allow the context of a call to be available to the handler of the call,
+ it's currently recommended to attach information to the handler itself,
+ before placing the call e.g.;
+\layout LyX-Code
+
+function doAdd(x,y) {
+\layout LyX-Code
+
+    // Define a local handler
+\layout LyX-Code
+
+    var MathHandler = new Object();
+\layout LyX-Code
+
+    MathHandler.x = x;
+\layout LyX-Code
+
+    MathHandler.y = y;
+\layout LyX-Code
+
+    MathHandler.add = function(result) {
+\layout LyX-Code
+
+       document.write(this.x+' plus '+this.y+' is '+result);
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+\layout LyX-Code
+
+    var m = new math(MathHandler);
+\layout LyX-Code
+
+    m.add(x,y);
+\layout LyX-Code
+
+}
+\layout Subsubsection
+
+Timeouts
+\layout Standard
+
+You can set a timeout for asynchronous (only!) requests like;
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+// Timeout in milliseconds (1 second)
+\layout LyX-Code
+
+m.timeout = 1000;
+\layout Standard
+
+If a request times out, a client error is generated (see 
+\begin_inset LatexCommand \ref{sub:Error-Handling}
+
+\end_inset 
+
+).
+\layout Subsubsection
+
+Multiple Requests using Same Client
+\layout Standard
+
+A single generated client (like the math class in these examples) using
+ a single instance of XmlHttpRequest (via XmlHttpClient defined in xmlhttp.js).
+ A single client cannot be used to make further calls until existing calls
+ have been completed.
+ The simple way to keep this fact away from users it to create a new instance
+ of the client each time it's needed e.g.
+\layout LyX-Code
+
+function doAdd(x,y) {
+\layout LyX-Code
+
+    // Create a new instance
+\layout LyX-Code
+
+    var m = new math(MathHandler);
+\layout LyX-Code
+
+    m.add(x,y);
+\layout LyX-Code
+
+}
+\layout Standard
+
+This may result is excessive numbers of objects (plus I've heard stories
+ of wierd bugs that start showing up when more than a certain number of
+ XmlHttpRequest objects are in use).
+ A smart approach might be to use a of pool clients - right now the API
+ doesn't help you much with this unless you access 
+\begin_inset Quotes sld
+\end_inset 
+
+private
+\begin_inset Quotes srd
+\end_inset 
+
+ members but that should change in future.
+\layout Standard
+
+Each generated client has a __client property which refers an instance of
+ XmlHttpClient (defined in xmlhttp.js).
+ It need initializing first using the __initClient() function.
+ A simple example implementation of pooling might be;
+\layout LyX-Code
+
+// Global for simple example
+\layout LyX-Code
+
+var clientPool = null;
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Builds five math clients
+\layout LyX-Code
+
+function buildPool() {
+\layout LyX-Code
+
+   clientPool = new Array();
+\layout LyX-Code
+
+   for(var i=0;i<5;i++) {
+\layout LyX-Code
+
+       var m = new math();
+\layout LyX-Code
+
+       m.__initClient();
+\layout LyX-Code
+
+       clientPool.push(m);
+\layout LyX-Code
+
+   }
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+\layout LyX-Code
+
+function getMath() {
+\layout LyX-Code
+
+    // Initialize if needed
+\layout LyX-Code
+
+    if (!clientPool) {
+\layout LyX-Code
+
+        buildPool();
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+\layout LyX-Code
+
+    // Find an available client
+\layout LyX-Code
+
+    for(var i = 0; i < clientPool.length; i++) {
+\layout LyX-Code
+
+       if ( !clientPool[i].__client.callInProgress() ) {
+\layout LyX-Code
+
+           return clientPool[i];
+\layout LyX-Code
+
+       }
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+    return false;
+\layout LyX-Code
+
+}
+\layout LyX-Code
+
+\layout LyX-Code
+
+function doAdd() {
+\layout LyX-Code
+
+   var m = getMath();
+\layout LyX-Code
+
+   if ( m ) {
+\layout LyX-Code
+
+       m.Async(MathHandler);
+\layout LyX-Code
+
+       m.add(1,1);
+\layout LyX-Code
+
+   } else {
+\layout LyX-Code
+
+       alert('Busy! Try again later');
+\layout LyX-Code
+
+   }
+\layout LyX-Code
+
+}
+\layout Subsection
+
+
+\begin_inset LatexCommand \label{sub:Error-Handling}
+
+\end_inset 
+
+Error Handling
+\layout Standard
+
+By default generated clients will report all errors directly to the end
+ user, using JavaScript alerts - in other words generated clients announce
+ all errors loudly unless you specifically tell them not to.
+\layout Standard
+
+Errors are seperated into three types;
+\layout Subsubsection
+
+Client Errors
+\layout Standard
+
+These are errors which occur before a request is made (e.g.
+ the browser does not support XmlHttpRequest or the client already has a
+ call in progress) or related to basic HTTP connectivity (e.g.
+ the server failed to return a HTTP 200 OK status code or the request timed
+ out).
+\layout Standard
+
+You can override client error handling like;
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+m.clientErrorFunc = function(e) {
+\layout LyX-Code
+
+    document.write(e.name+': '.e.message);
+\layout LyX-Code
+
+}
+\layout Subsubsection
+
+Server Errors
+\layout Standard
+
+Server errors occur when either the response returned by the server is not
+ valid JavaScript syntax (cannot be eval()ed) or when a PHP error occurred,
+ when the server has ErrorHandler loaded (see 
+\begin_inset LatexCommand \ref{ite:ErrorHandler.php}
+
+\end_inset 
+
+).
+ This also means if you use PHP's trigger_error() function, it will generate
+ a Server Error on the client side.
+\layout Standard
+
+Handling of server errors can be overridden like;
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+m.serverErrorFunc = function(e) {
+\layout LyX-Code
+
+    document.write(e.name+': '.e.message);
+\layout LyX-Code
+
+}
+\layout Standard
+
+If a Server error occurs, it is generated immediately, halting all further
+ execution (so the response from the called method is discarded).
+\layout Subsubsection
+
+Application Errors
+\layout Standard
+
+Application errors occur when your PHP server returns an instance of ScriptServe
+r_Error (see 
+\begin_inset LatexCommand \ref{ite:Types.php}
+
+\end_inset 
+
+).
+ For example the following in PHP;
+\layout LyX-Code
+
+class Math {
+\layout LyX-Code
+
+   
+\layout LyX-Code
+
+    function divide($x,$y) {
+\layout LyX-Code
+
+        if ( $y == 0 ) {
+\layout LyX-Code
+
+            require_once SCRIPT_SERVER .
+ 'Types.php';
+\layout LyX-Code
+
+            $Error = & new ScriptServer_Error();
+\layout LyX-Code
+
+            $Error->setError(
+\layout LyX-Code
+
+                'ZeroDivisionError',
+\layout LyX-Code
+
+                'Cannot divide by zero'
+\layout LyX-Code
+
+            );
+\layout LyX-Code
+
+            return $Error;
+\layout LyX-Code
+
+        } else {
+\layout LyX-Code
+
+            return $x / $y;
+\layout LyX-Code
+
+        }
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+\layout LyX-Code
+
+}
+\layout Standard
+
+If an application error is returned, all other returned data is discarded;
+ so if the error is nested inside a complex PHP data structure, only the
+ error is returned - the rest of the data structure is discarded.
+\layout Standard
+
+Application errors are handled in two different ways.
+ If the handler you provide for an async call provides a function with the
+ same name as the called method + 'Error', this will be called, e.g.;
+\layout LyX-Code
+
+var MathHandler = {
+\layout LyX-Code
+
+    divide: function(result) {
+\layout LyX-Code
+
+        document.write('The result is: '+result);
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+    // Application errors for math.divide sent here
+\layout LyX-Code
+
+    divideError: function(e) {
+\layout LyX-Code
+
+       document.write(e.name+': '+e.message);
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+}
+\layout Standard
+
+If a correctly named error handling function is not defined in the handler,
+ the error is handled by the .applicationErrorFunc property of the generated
+ client.
+ This can be overridden like;
+\layout LyX-Code
+
+var m = new math();
+\layout LyX-Code
+
+m.applicationErrorFunc = function(e) {
+\layout LyX-Code
+
+    document.write(e.name+': '.e.message);
+\layout LyX-Code
+
+}
+\layout Subsubsection
+
+Error Codes
+\layout Standard
+
+The following error codes have been implemented in ScriptServer;
+\layout LyX-Code
+
+[Client_Error]
+\layout LyX-Code
+
+; Client Errors (range 1000 - 1999)
+\layout LyX-Code
+
+; Range 1000 - 1199 is reserved - avoid using them in your code!
+\layout LyX-Code
+
+1000 = "Unable to create XmlHttpRequest: not supported"
+\layout LyX-Code
+
+1001 = "Call in progress.
+ XmlHttpClient cannot be until current request is completed"
+\layout LyX-Code
+
+1002 = "Invalid HTTP status code in server response: must by 200 OK"
+\layout LyX-Code
+
+1003 = "Request timed out: asychronous requests only"
+\layout LyX-Code
+
+1004 = "Invalid request parameter name: contains non-word characters - must
+ match [^A-Za-z0-9_]"
+\layout LyX-Code
+
+1005 = "Call type not defined: request.type must have value = 'async' ||
+ 'sync'"
+\layout LyX-Code
+
+1006 = "Javascript to PHP serialization error e.g.
+ recursive references in data structure"
+\layout LyX-Code
+
+1007 = "Problem calling XmlHttpRequest.open() e.g.
+ permission denied to access URL in different domain"
+\layout LyX-Code
+
+\layout LyX-Code
+
+[Server_Error]
+\layout LyX-Code
+
+; Server Errors (range 2000 - 2999): see ErrorHandler.php
+\layout LyX-Code
+
+; Range 2000 - 2199 is reserved - avoid using them in your code!
+\layout LyX-Code
+
+2000 = "Internal Server Error" ; Covers PHP E_NOTICE and E_WARNING messages
+\layout LyX-Code
+
+2001 = "Server Notice" ; Results from trigger_error() with E_USER_NOTICE
+\layout LyX-Code
+
+2002 = "Server Warning" ; Results from trigger_error() with E_USER_WARNING
+\layout LyX-Code
+
+2003 = "Server Error" ; Results from trigger_error() with E_USER_ERROR
+\layout LyX-Code
+
+2004 = "Internal Server Alert" ; From E_STRICT errors in PHP5
+\layout LyX-Code
+
+2005 = "Internal Server Exception" ; Uncaught PHP5 exception
+\layout LyX-Code
+
+2006 = "Junk from server.
+ Response not well formed"; Javascript eval() failed - note e.response contains
+ what was evaled
+\layout LyX-Code
+
+\layout LyX-Code
+
+[Application_Error]
+\layout LyX-Code
+
+;Application Errors (range 3000+) - nothing reserved
+\layout Standard
+
+These can be found in the file ScriptServer/errors/errors.en.ini.
+ The codes are 
+\begin_inset Quotes sld
+\end_inset 
+
+attached
+\begin_inset Quotes srd
+\end_inset 
+
+ to exceptions using the property Error.code e.g.;
+\layout LyX-Code
+
+var m = new math(MathHandler);
+\layout LyX-Code
+
+m.timeout = 200;
+\layout LyX-Code
+
+m.clientErrorFunc = function(e) {
+\layout LyX-Code
+
+    if ( e.code == 1003 ) {
+\layout LyX-Code
+
+        // Ignore this because it's a timeout
+\layout LyX-Code
+
+    }
+\layout LyX-Code
+
+}
+\layout Standard
+
+For some errors, further properties are used to return useful information
+ for troubleshooting.
+ For example error code 1002 (invalid HTTP status) adds the property .headers
+ to the exception, which contains all the HTTP response headers received
+ from the server.
+ Also error code 2006 adds a property .response which contains the text response
+ body from the server.
+\layout Standard
+
+If you wish to implement your own errors codes, typically these will be
+ in the 3000+ range (application errors).
+ It's a good idea to use error codes as it allows the client side to respond
+ accurately to different problems it may encounter plus allows delivery
+ of localised error messages in languages other than English (see below).
+ The ranges 1000-1199 and 2000-2199 are reserved as possible future ScriptServer
+ error codes (avoid defining them in your own code).
+\layout Subsubsection*
+
+Localised Error Messages
+\layout Standard
+
+As a basic mechanism to allow localised error messages to be displayed to
+ users, the ScriptServer_Renderer class provides the method addErrorReader()
+ which generates a client side Javascript function called ScriptServer_ErrorRead
+er, containing a dictionary of error codes and their messages.
+ The error codes are read, server side, from a file parallel to the errors.en.ini
+ file (currently there are no translations).
+ In principle this could be used like;
+\layout Standard
+
+Server Side:
+\layout LyX-Code
+
+<?php
+\layout LyX-Code
+
+//...
+\layout LyX-Code
+
+require_once SCRIPT_SERVER .
+ 'Renderer.php';
+\layout LyX-Code
+
+$R = & new ScriptServer_Renderer();
+\layout LyX-Code
+
+\layout LyX-Code
+
+// Note this function accepts a second argument; a hash
+\layout LyX-Code
+
+// of application errors - see the source
+\layout LyX-Code
+
+$R->addErrorReader('de'); // Load the German error messages
+\layout LyX-Code
+
+\layout LyX-Code
+
+$R->render();
+\layout LyX-Code
+
+?>
+\layout Standard
+
+On the client side the generated ScriptServer_ErrorReader function could
+ be used like;
+\layout LyX-Code
+
+var MathHandler = {
+\layout LyX-Code
+
+   divideError: function(e) {
+\layout LyX-Code
+
+       // Display the German error message
+\layout LyX-Code
+
+       alert( ScriptServer_ErrorReader(e.code) );
+\layout LyX-Code
+
+   }
+\layout LyX-Code
+
+}
+\the_end

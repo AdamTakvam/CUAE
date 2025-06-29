@@ -1,0 +1,481 @@
+Title:        Schema for Samoa Config Database 
+Author:       Robby Slaughter
+Last Updated: 1:23 PM 10/13/2003
+
+================================================================================================================================================
+
+==================
+1.0 OVERVIEW
+==================
+
+
+1.1 Purpose
+
+This document defines the database schema and supporting queries and functions for the Samoa configuration database. The target
+database is SQLite 2.8.6, which is embedded within the Samoa framework.
+
+
+1.2 Origin of this Feature
+
+This database structure replaces the use of Registry keys as the primary configuration method for Samoa.
+
+
+1.3 Database Structure
+
+The structure of the database relates five key entities in the configuration and use of Samoa: these are users, components, configValues,
+statistics, and extensions. The schema recognizes any number of users with distinct permissions in their use and access to components, and, 
+correspondingly, configValues for these components. Furthermore, the schema identifies a relationship between configValues and particular 
+components, so that any defined component can have any number of configuration values. 
+
+Supporting tables track the use of a variety of formatTypes for the configValues. FormatTypes indicate specific interpretations of 
+data, so, for example, strings can be read as file paths or descriptive names, and validating accordingly.
+
+A statistics table permits general system statistics, as well as those relating to a particular component, to be stored and tracked by 
+the system.
+
+An additional pair of tables permits extensions to be added to components. This is done to provide a mechanism for third-party providers to 
+expose additional programmable functionality to application developers. The extensionsParameters table allows these functions to have a 
+variable number of parameters, with accompanying descriptions.
+
+
+================================================================================================================================================
+
+
+===========================================
+2.0 DOCUMENT CONVENTIONS AND DATABASE CODES
+===========================================
+
+2.1 Document Conventions
+
+This document contains SQL code intermingled with pseudocode, as instructions to the programmer. Variables specified using an __underline__ are 
+intended as input parameters or values stored by the programmer between SQL calls. All SQL commands are written in UPPERCASE, with table names
+specified using "camel case".
+
+2.2 Database Codes
+
+Several of the database fields are integer numbers which represent specific meanings. These are listed as follows:
+
+  componentType: Integer value indicating the type of component
+     0 / NULL = Core component
+     1        = Provider
+     2        = Application
+     3        = Media Server
+     4        = Native Action
+     
+  accessLevel: Integer field indicating an overall permission level for users
+
+     0 = System admistrator. Complete power over the system
+     1 = Power user. Can do anything except modify level 0 or other
+         level 1 accounts created by the System Administrator. Can create 
+         level 1, 2 or 3 subaccounts with no more power than itself.
+     2 = Regular Account. Created by level 0 or 1. Only has the power to modify / view 
+         config values and perform actions as specified by the creator. Can create 
+         subaccounts with no more power than itself, of access level 2 or 3.
+     3 = Limited Account. Created by 0, 1 or 2. Can only view data.
+
+  accessControl: This is an integer indicating the type of access control:
+
+     NULL = Access is undefined
+     0    = All Access is prohibited
+     1    = User may view the data or status, but not edit/change it
+     2    = User may view and edit this data/or view/modify status
+
+     * Note: If no record is defined, access is presumed to be level 0.
+
+
+  status: An integer value for provider/application/mediaserver status
+     NULL = Status is unknown
+     0    = Not currently installed
+     1    = Installed, but disabled
+     2    = Installed and enabled
+     3    = Unresponsive/offline
+
+2.3 Access Permission Assumption
+
+The interepration of this database is that all access permission is PERMITTED unless otherwise stated. That is, if there are no records in the
+usersProvidersAccessControl table for a given user, then they are assumed to have total access to all providers. The same is the case for 
+application control.
+
+,m================================================================================================================================================
+
+=====================
+3.0 DATABASE CREATION
+=====================
+
+3.1 Database Script
+
+The creation of the empty database can be accomplished with the following SQL script:
+
+
+
+-- 
+-- TABLE: components 
+--
+
+CREATE TABLE components(
+    componentsID     INTEGER        PRIMARY KEY,
+    name             CHAR(50),
+    componentType    INTEGER,
+    description      VARCHAR(10),
+    status           INTEGER,
+    version          CHAR(10),
+    path             CHAR(100)
+) 
+;
+
+
+
+-- 
+-- TABLE: configValues 
+--
+
+CREATE TABLE configValues(
+    configValuesID     INTEGER      PRIMARY KEY,
+    formatTypesID      INTEGER,
+    name               CHAR(255),
+    componentsID       INTEGER,
+    value              CHAR(255),
+    description        CHAR(10),
+    minValue           INTEGER,
+    maxValue           INTEGER,
+    diagnostic         BIT,
+    requiresRestart    BIT,
+    readOnly           BIT
+) 
+;
+
+
+
+-- 
+-- TABLE: extensions 
+--
+
+CREATE TABLE extensions(
+    extensionsID    INTEGER      PRIMARY KEY,
+    componentsID    INTEGER,
+    name            CHAR(100),
+    description     CHAR(500)
+) 
+;
+
+
+
+-- 
+-- TABLE: extensionsParameters 
+--
+
+CREATE TABLE extensionsParameters(
+    extensionsParametersID    INTEGER      PRIMARY KEY,
+    extensionsID              INTEGER,
+    name                      CHAR(100),
+    description               CHAR(100)
+) 
+;
+
+
+
+-- 
+-- TABLE: formatTypes 
+--
+
+CREATE TABLE formatTypes(
+    formatTypesID    INTEGER ,
+    name             CHAR(50),
+    description      CHAR(50)
+) 
+;
+
+
+
+-- 
+-- TABLE: statistics 
+--
+
+CREATE TABLE statistics(
+    statisticsID    INTEGER     PRIMARY KEY,
+    componentsID    INTEGER ,
+    name            CHAR(50),
+    value           INTEGER
+) 
+;
+
+
+
+-- 
+-- TABLE: users 
+--
+
+CREATE TABLE users(
+    usersID             INTEGER     PRIMARY KEY,
+    userName            CHAR(20),
+    password            CHAR(20),
+    accessLevel         INTEGER,
+    createdByUsersID    INTEGER,
+    dateCreated         DATETIME,
+    dateLastUpdated     DATETIME
+) 
+;
+
+
+
+-- 
+-- TABLE: usersComponentsAccessControl 
+--
+
+CREATE TABLE usersComponentsAccessControl(
+    usersComponentsAccessControlID    INTEGER    PRIMARY KEY,
+    usersID                           INTEGER,
+    componentsID                      INTEGER,
+    accessControl                     INTEGER
+) 
+;
+
+
+
+
+
+3.2 Installation Process
+
+The database needs to be created as part of the Samoa installation, or at least, as a step during the first runtime.
+After the database is created, some basic records need to be added.
+
+Format Types need to be inserted so that integers and strings can be handled and validated properly:
+
+
+    INSERT INTO formatTypes(formatTypesID,name,description)
+      VALUES (NULL,"String","Text format");
+
+    INSERT INTO formatTypes(formatTypesID,name,description)
+      VALUES (NULL,"Integer","Whole number");
+
+    INSERT INTO formatTypes(formatTypesID,name,description)
+      VALUES (NULL,"Directory","UNC path to a particular folder");
+
+    INSERT INTO formatTypes(formatTypesID,name,description)
+      VALUES (NULL,"Filename","UNC path to a particular file");
+
+    INSERT INTO formatTypes(formatTypesID,name,description)
+     VALUES (NULL,"Boolean","True/False value");
+
+A master administrator user must be created. The password in this user should be set as part of the installation process 
+so that all installs do not have a default password.
+
+   INSERT INTO users(usersID,username, password, accessLevel, createdByUsersID)
+      VALUES (NULL,"Administrator","ilovemetreos",0,NULL, NULL, NULL)
+
+
+3.3 Initial Data Population
+
+The installation of providers and default applications may require some data population. This should be done with 
+interal calls that implement the SQL commands described in the next section
+
+================================================================================================================================================
+
+
+=========================
+4.0 MANAGING THE DATABASE
+=========================
+
+
+4.1 Code Accessing the Database
+
+
+Since the database is wholly embedded into Samoa, all management of data must occur through internal structures. As of 1.0, these APIs are
+defined in the Samoa project Interfaces in the file IManagement.cs. Implementation of this database should only require changes to the
+file referenced by this interface, which is RemotingInterface.cs in the OAM project.
+
+4.2 User Management Functions
+
+The database presents a variety of user management functions, not all of which need to be implemented in the initial beta release of
+Samoa. These include 
+
+4.2.1 Create A New User
+
+
+Values needed:
+  __Username__        - String for the username. Should be all lowercase, alphanumeric
+
+  __Password__        - String for the password. 6-20 characters, alphanumeric + symbols
+
+  __AccessLevel__     
+  __CreatedByUsersID__ - The UsersID of the account creating this one. This is so 
+                        the administrator can know where accounts came from.
+
+Step 1: Retrieve the AccessLevel of the current user (if not already cached)
+  
+ SELECT AccessLevel FROM users WHERE UsersID = __CreatedByUsersID__;
+
+Step 2: Only if the record returned by the previous step is less than the __AccessLevel__
+requested, and that record is less than or equal to 2, create the new user:
+
+ INSERT INTO users(usersID,username, password, accessLevel, createdByUsersID)
+    VALUES (NULL, __Username__ , __Password__ , __AccessLevel__, __CreatedByUsersID__,
+            now(), now())
+
+Step 3: (OPTIONAL). If you want to copy all permissions from the current user onto the subuser, 
+than you'll need to do this step:
+
+    INSERT INTO usersConfigValuesAccessControl SELECT NULL,last_insert_rowid(),configValuesID,
+     accessControl,now(),now();
+
+
+4.2.1 Delete an Existing User
+
+
+Values needed:
+
+  __usersID__         - The usersID for the user to be deleted
+
+
+Note that you cannot delete the Administrator user.
+
+Remove all access control to applications
+
+  DELETE FROM usersApplicationsAccessControl WHERE usersID = __usersID__;
+
+Remove all access control to components
+
+  DELETE FROM usersComponentsAccessControl WHERE usersID = __usersID__;
+
+Find the parent user for this user:
+
+  SELECT createdByUsersID FROM users WHERE usersID = __usersID__;
+
+Delete the this user
+
+  DELETE FROM users WHERE usersID = __usersID__;
+
+Update all children of the (now deleted) user to refer to it's parent, repairing the chain:
+
+  UPDATE users SET createdByUsersID = __createdByUsersID__ WHERE createdByUsersID = __usersID__;
+     
+          
+4.3 Component Management
+
+
+These sets of SQL commands enable Samoa to manage components
+
+
+4.3.1 Adding a Provider
+
+
+Values needed:
+
+  __name__         - The name of the new component
+  __componentType  - The type code of the component
+  __description__  - A brief description of the purpose or nature of the component
+  __status__ 	   - A status code for the component
+  __version__      - The version number for this component
+  __path__	   - A serialized System.URI object indicating the location of the component
+ 
+  
+
+It's wise to check if an existing component of the same name is already in the database:
+
+   SELECT name FROM component WHERE name = __name__;
+
+If so, then exit with an appropriate error messsage. Otherwise, insert the new provider:
+
+   INSERT INTO providers(name,componentType,description,status,version,path) 
+     VALUES (__name__,__description__,__status__,__version__,__path__);
+
+
+4.3.2 Removing a Component
+
+Values needed:
+  __componetnsID__   - The id of the component to delete
+
+
+(Note: SQLite has limited support for cascading delete, so we must manually adjust each table)
+
+Step 1: Delete any configValues that are unique to this component
+
+   DELETE FROM configValues WHERE componentsID = __componentID__;
+
+Step 3: Delete the component itself
+
+   DELETE FROM components WHERE componentsID = __componentsID__;
+  
+ 
+4.4 Modifying config values for Components
+
+
+
+4.4.1 Create or Modify Config Values for a component
+
+Values needed:
+
+   __componentID__  - The id of the component to modify
+   __name__            - The name of the configuration setting
+   __value__           - The actual value, coded as a string
+   __description__     - A description of the meaning of this config setting
+   __minvalue__        - For numeric fields, a minimum permissable value. Otherwise, NULL
+   __maxValue__        - For numeric fields, a maximum permissable value. Otherwise, NULL
+   __diagnostic__      - True if this config setting is for diagnostic purposes only
+   __requiresRestart__ - True if changing this setting requires a restart of Samoa 
+   __readOnly__        - True if this setting CANNOT be changed.
+
+
+  INSERT OR REPLACE INTO 
+     configValues(componentid,name,value,description,minValue,
+       maxValue,diagnostic,requiresRestart,readOnly)
+       VALUES
+     (__componentsID__,__name__,__value__,__description__,__minValue__,
+        __maxValue__,__diagnostic__,__requiresRestart__,__readOnly__)
+
+4.5 Changing user permissions for Components
+
+User permissions are assumed to be ENABLED for all components, unless otherwise specified. 
+(See section 2.3). To give user access to an application or a provider, change the database 
+using one of the following functions.
+
+
+4.5.1 Change User Permissions for a Component
+
+Values needed:
+   __usersID__           The user you want to grant/deny access
+   __componentID__       The component you want to give access to
+   __accessControl__     The access control 
+
+
+  Note: We cannot do a INSERT OR REPLACE since no incoming fields is individually
+  unique. So we, have to break it out into two queries:
+
+  Step 1:
+    SELECT usersComponentsAccessControlID FROM usersComponentsAccessControl
+      WHERE usersID = __usersID__ AND componentID = __componentsID__;
+   
+  Step 2: 
+    If the result of the previous select was no records, then
+      INSERT INTO
+         usersComponentsAccessControl(usersID,componentsID,accessControl)
+           VALUES
+         (__usersID__,__componentsID__,__accessControl__);
+      
+    -otherwise-      
+      UPDATE usersComponentsAccessControl
+         SET accessControl = __accessControl__
+      WHERE
+         usersComponentsAccessControlID = __usersComponentsAccessControlID__;
+
+
+
+   
+================================================================================================================================================
+
+
+===========================================
+5.0 APPENDIX
+===========================================
+
+5.1 Datamodel Diagram
+
+A visual representation of the datamodel is stored with this file, using a the same name with the extension GIF.
+
+5.2 ER Studio File
+
+A ER Studio 6.0 File is stored with this file, using the same name with the extension DM1
+
+
+
+

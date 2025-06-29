@@ -1,0 +1,63 @@
+1
+a:SyncPeerMedia                     // Links the calls internally
+def->5
+
+5
+a:AcceptPeerCall
+rns:success->10
+rns:*->[Error_P2P_Callback]
+timeout:5->[Error_P2P_Callback]
+
+10
+a:ForwardActionToProvider           // Forwards MakeCall
+rns:success->15
+rns:*->900
+timeout:5->[Error_P2P_Respond]
+
+15
+a:ForwardResponseToApp
+def->20
+
+20
+a:Wait
+ens:GotCapabilities->25				// May or may not be empty
+ens:MediaEstablished->30
+ens:CallEstablished->40
+ens:CallSetupFailed->[Error_P2P_Callback]
+ens:RemoteHangup->[RemoteHangup_P2P]
+ans:Hangup->[Error_P2P_Hangup_Callback]
+timeout:90->[Error_P2P_Hangup_Callback]
+
+25
+a:Wait
+dns:remoteMediaCaps=null->35
+def->30
+
+30
+a:SetPeerMedia                      // Proxy caps and/or media to peer call
+rns:success->20
+rns:*->[Error_P2P_Callback]
+timeout:5->[Error_P2P_Callback]
+
+35
+a:SetMedia                          // Providers which do not exchange caps expect
+rns:success->20                     //  a SetMedia before initiating the MakeCall
+rns:*->[Error_P2P_Callback]
+timeout:5->[Error_P2P_Callback]
+
+40
+a:Wait                              // TODO: Support NoWaitTxRx
+def->[OutboundCall_P2P_WaitTxRx]
+
+900
+a:ForwardResponseToApp
+def->905
+
+905
+a:HangupPeerCall
+rns:*->1000
+timeout:5->1000
+
+1000
+a:EndCall
+

@@ -1,0 +1,732 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\froman\fcharset0 Times New Roman;}{\f1\fmodern\fprq1\fcharset0 Courier New;}{\f2\froman\fprq2\fcharset0 Times New Roman;}{\f3\fswiss\fcharset0 Arial;}{\f4\fswiss\fprq2\fcharset0 Arial;}{\f5\fnil\fprq1\fcharset0 Courier New;}{\f6\fnil\fcharset2 Symbol;}}
+{\*\generator Msftedit 5.41.15.1507;}\viewkind4\uc1\pard\sb100\sa100\f0\fs44 Metreos Media Server API\fs48  \fs40\par
+\pard\fs20 31  October 2005\par
+\par
+\par
+\pard\sb100\sa100\b\fs28 Connect (to server)\par
+\b0\fs20 The server  \b connect \b0 command directs the media server to begin accepting commands from a client, and to start sending heartbeat pulses; and specifies the queue at which the client expects to receive messages from the media server. This command is distinguished from a session connect by the absence of session-oriented parameters \i connection ID \i0 and \i conference ID\i0 . \b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Machine name of queue on which client will receive messages from server\fs24\par
+\fs20{\pntext\f6\'B7\tab}Queue name of  queue on which client will receive messages from server\fs24\line\i\fs20 The \i0 Client.permitDefaultAppQueue \i configuration permits omission of these entries during a deprecation period.\i0\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\fs20 Heartbeat interval  (seconds)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Heartbeat payload specifications\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Server ID (uniquely identifying server in media server cluster, 1-255)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (zero, see \i Appendix VII\i0 ))\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b connect\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b machineName\b0 ">user-one</field>\line\tab <field name="\b queueName\b0 ">queue-one</field>\line\tab <field name="\b heartbeatInterval\b0 ">10</field>\line\tab <field name="\b heartbeatPayload\b0 ">mediaResources</field>\line\tab <field name="\b serverId\b0 ">1</field>\line\tab <field name="\b transactionId\b0 ">1</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\b0 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Server ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID  (\i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b connect\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b transactionId\b0 ">1</field>\line\tab <field name="\b clientId\b0 ">500</field>\line\tab <field name="\b resultCode\b0 ">0</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard\sb100\sa100        \f0\fs20 Note that complete resource counts are also returned with the server connect result. See Heartbeat event section for example.\par
+\fs36\par
+\b\fs28 Connect (session and/or conference)\par
+\b0\fs20 The \b connect \b0 command directs the media server to establish an IP session, and/or to start the IP session, and/or to move the session into a new or existing conference. A session so connected is identified by a \i connection ID\i0 , generated and returned by the media server. A media server conference is similarly identified by returned \i conference ID\i0 . \par
+Notes on connection and conference IDs\par
+A session in conference is not monitored for timeout.\par
+\b Optional\b0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\fs20 ipAddress (string) \fs24\par
+\fs20{\pntext\f6\'B7\tab}port (integer)\fs24\par
+\fs20{\pntext\f6\'B7\tab}connectionId  (integer) [see \i Appendix VIII\i0 ,\i  IDs in a clustered scenario\i0 ]\fs24\par
+\fs20{\pntext\f6\'B7\tab}conferenceId  (integer) [see \i Appendix VIII\i0 ,\i  IDs in a clustered scenario\i0 ]\par
+{\pntext\f6\'B7\tab}sessionTimeout (seconds) \fs24\par
+\fs20{\pntext\f6\'B7\tab}commandTimeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}modify flag (boolean integer)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Remote Attributes (remoteCoder, remoteFramesize, remoteVadEnable, coder/redundancy payload types) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Local Attributes (localCoder, localFramesize, localVadEnable, etc) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Conference attributes (soundTone, noTone, soundToneWhenReceiveOnly, noToneWhenReceiveOnly) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Conferee attributes (monitor, receiveOnly, tariffTone, coach, pupil)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID (integer)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b connect\b0 </messageId>\line\pard\li360\sb100\sa100\tab <field name="\b ipAddress\b0 ">66.69.231.245</field>\line\tab <field name="\b port\b0 ">8002</field>\line    <field name="\b modify\b0 ">0</field>\line\tab <field name="\b connectionAttribute\b0 ">coderTypeRemote 1</field>\line\tab <field name="\b connectionAttribute\b0 ">framesizeRemote 20</field>\line\tab <field name="\b connectionAttribute\b0 ">dataflowDirection multicastServer</field>\line\tab <field name="\b sessionTimeout\b0 ">180</field>\line\tab <field name="\b commandTimeout\b0 ">5000</field>\line\tab <field name="\b conferenceID\b0 ">0</field>\line\tab <field name="\b conferenceAttribute\b0 ">noToneWhenReceiveOnly</field>\line\tab <field name="\b confereeAttribute\b0 ">receiveOnly</field>\line\tab </message>\f0\fs24\par
+\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Connection ID  \fs24\par
+\fs20{\pntext\f6\'B7\tab}Conference ID if applicable\fs24\par
+\fs20{\pntext\f6\'B7\tab}Port if applicable\fs24\par
+\fs20{\pntext\f6\'B7\tab}IP address if applicable\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b connect\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b conferenceId\b0 ">40010001</field>\line\pard\li360\sb100\sa100\tab </message>\line\line\pard\sb100\sa100\f0\fs20                 Note that \i available media port, conference and LBR \i0 resource counts are also returned with the result. See \i Heartbeat \i0 event section for example.\par
+\pard\li360\sb100\sa100\par
+\pard\sb100\sa100 The decision table in figure 1 illustrates valid connect parameter combinations and the media server actions taken for a particular parameter mix. Legend: "Z" means zero, "-" means not specified, "+" means non-zero. (we do not make the distinction between zero and not specified for connection ID)\par
+\pard\b\f1\fs18 Figure 1: Connect parameter combinations\par
+\par
+ ##  ConxID  ConfID  Port  Action\par
+\b0   0.    Z       -      -   Error: too few parameters\par
+  1.    Z       -      Z   Initial connect, no start session, no conference\par
+  2.    Z       -      +   Initial connect, start IP session, no conference\par
+   \par
+  3.    Z       Z      -   Error: must start session to create conference            \par
+  4.    Z       Z      Z   Error: must start session to create conference\par
+  5.    Z       Z      +   Initial connect, start IP session, create conference\par
+  \par
+  6.    Z       +      -   Error: must start session to join conference\par
+  7.    Z       +      Z   Error: must start session to join conference\par
+  8.    Z       +      +   Initial connect, start IP session, join conference\par
+   \par
+  9.    +       -      -   Error: already connected\par
+ 10.    +       -      Z   Error: already connected\par
+ 11.    +       -      +   Remote connect, start IP session, no conference\par
+   \par
+ 12.    +       Z      -   Existing connect, create conference\par
+ 13.    +       Z      Z   Error: port must be - or +\par
+ 14.    +       Z      +   Remote connect, start IP session, create conference \par
+  \par
+ 15.    +       +      -   Existing connect; join conference;\par
+ 16.    +       +      Z   Error: already connected\par
+ 17.    +       +      +   Remote connect, start IP session, join conference\line\par
+\pard\sb100\sa100\b\f0\fs24 Remarks\fs20\line\b0 If a \i connect \i0 command is received on a \i connection ID \i0 identifying an active remote IP session,  and the supplied remote port and/or IP address differs from those currently in use for the session, media server will stop the IP session and attempt to reconnect and restart the remote session, using all supplied connection parameters. If successful, and if the session is in conference, session will be reconnected to conference. If the session in question has a command pending, such as a voice command, the \i connect \i0 command will fail with a \i session busy \i0 error.\par
+\b\fs24 Hairpin Conferences\b0\fs20\line A conference of one or two parties may exist as a pair of hairpinned connections, if so configured.  A hairpin conference is created and operated upon in the same manner as other conferences; however it uses no HMP conference resources. See \i Appendix XII: Hairpin Conferences \i0 for pertinent information.\line\b\fs28\par
+Disconnect (application)\par
+\b0\fs20 The server  \b disconnect \b0 is a notification from an application that it wishes to disconnect from the media server. It is distinguished from a session \b disconnect \b0 by the absence of connection ID and other session-oriented parameters.  Any active sessions and/or conferences created by the disconnecting client are closed. \par
+\b Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 None   \fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code  \fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\line\line\pard\sb100\sa100\b\fs28\par
+Disconnect (session and/or conference)\b0\fs20\par
+\b Disconnect \b0 directs the media to close an IP session, and/or move the IP session out of a conference, and/or to close a conference.\par
+If both connection ID and conference ID are specified, the session is removed from conference, but the session remains live and session timeout monitoring commences. If connection ID is specified and conference ID is not specified, and the session is currently in conference, the session is both removed from conference and closed. If conference ID is specified and connection ID is not specified, all sessions in the indicated confererence are closed along with the conference.\par
+If a \i disconnect \i0 is received on a session which is currently playing or recording voice, media server immediately cancels the voice operation. In such a case, client receives no termination event notification for the canceled operation.\par
+When a session leaves conference, if the session is the sole remaining party in the conference, that conference is implicitly closed.\b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Conference ID and/or connection ID\fs24\par
+\pard\sb100\sa100\b\fs20 OptionalS\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID\par
+{\pntext\f6\'B7\tab}Conference ID \tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\par
+\fs20{\pntext\f6\'B7\tab}Command timeout (ms)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b disconnect\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b conferenceId">\b0 10013</field>\line\pard\li360\sb100\sa100\tab <field name="\b commandTimeout\b0 ">5000</field>\line\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Connection ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b disconnect\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b conferenceId\b0 ">40010001</field>\line\pard\li360\sb100\sa100\tab </message>\line\line\pard\sb100\sa100\f0\fs20                 Note that \i available media port, conference and LBR \i0 resource counts are also returned with the result. See \i Heartbeat \i0 event section for example.\f1\fs18\line\pard\li360\sb100\sa100\b\f0\fs28\par
+\pard\sb100\sa100 Play announcement\b0\fs20\par
+The \b play \b0 command directs the media server to play one or more audio files on the indicated IP session, or to the indicated conference. \i If the filespec does not specify a valid voice file extension, and text-to-speech services are enabled, the filespec contents will be interpreted as a text string to be converted to wave format by the configured text to speech engine\i0 .\par
+Audio file paths are interpreted as relative to the media server configuration \b Server.audioBasePath\b0 .\par
+If the first file in the playlist was recorded by the media server, it may be associated with a Metreos audio parameter descriptor. If this is the case, the information contained in the descriptor (format, encoding, bitrate, samplesize), will override any such parameters supplied with the play command or in the server configuration.\b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID; OR\fs24\par
+\fs20{\pntext\f6\'B7\tab}Conference ID\tab  [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\line\line\fs20 Connection ID and conference ID are mutually exclusive.  When playing to a conference, specify conference ID; when playing to single session, specify connection ID.\fs24\par
+\fs20{\pntext\f6\'B7\tab}Paths to one or more audio files \fs24\par
+\pard\sb100\sa100\b\fs20 Optional\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\b0 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Termination conditions (digit, maxtime, maxdigits, silence) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Audio parameters (format, encoding, bitrate, samplesize)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Volume and speed adjustments (volume, speed)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b play\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\pard\li360\sb100\sa100\tab <field name="\b commandTimeout\b0 ">60000</field>\line\tab <field name="\b filename\b0 ">example.vox</field>\line\tab <field name="\b audioFileAttribute\b0 ">encoding alaw</field>\line\tab <field name="\b audioFileAttribute\b0 ">bitrate 30</field>\line\tab <field name="\b terminationCondition\b0 ">maxtime 30000</field>  \line\tab <field name="\b terminationCondition\b0 ">digit #</field>\line\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code \fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Terminating conditions\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}OperationID\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b play\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\tab <field name="\b transactionId">\b0 1</field>       \line\tab <field name="\b terminationCondition\b0 ">eod</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\f2\fs20 An intermediate result may be returned. See \i Appendix VI: Provisional result messages\i0\f0\fs24\par
+\pard\sb100\sa100\b Remarks\fs20\line\b0 Volume and/or speed adjustments may be specified on the \i play \i0 command, via parameters \i volume \i0 and \i speed\i0 .  Valid values for either are -10 through +10, with zero being the default or neutral setting. Adjustments specified are by default relative to zero, but will however \i assume the adjustment type of the most recent \i0 adjustPlay \i command, \i0 if any, on the channel.  So, for example, if an adjustPlay had been issued with adjustmentType "rel" on connection 1, and a play command with a volume parameter of -2 was subsequently issued on connection 1, then session 1's voice channel volume would be adjusted two ticks down from the \i current volume setting\i0 .  See discussion of \i adjustPlay \i0 later in this document.\par
+\b\fs28\par
+Play tone\par
+\b0\fs20 The \b playTone \b0 command plays a one or two-frequency tone to be generated and played on the indicated IP or conference channel. \b\fs28\par
+\fs20 Required\b0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\fs20 Connection ID; OR\fs24\par
+\fs20{\pntext\f6\'B7\tab}Conference ID\tab  [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\line\line\fs20 Connection ID and conference ID are mutually exclusive.  When playing a tone to a conference, specify conference ID; when playing a tone to single session, specify connection ID.\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Termination conditions (digit, timeout, silence, non-silence) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Duration of the tone in milliseconds. If not specified, duration defaults to one second. If the value is specified as less than 1, duration becomes infinite and will terminate only upon the occurrence of an external terminating condition. If the duration is infinite, a termination condition must be specified or an error condition results.\fs24\par
+\fs20{\pntext\f6\'B7\tab}Zero to two tone specifications (frequency1, amplitude1, frequency2, amplitude 2)\fs24\line\fs20 A tone is comprised of one or two components.  If the second component is not specified, the tone will consist of one component only. If the first component is not specified, the first component will assume default values. Frequency range is 200 to 3000 (Hz). If not specified, frequency defaults to Config.defaultToneFrequency. Amplitude range is 0 to -40 (dB). If not specified, amplitude defaults to -10.  If any value is specified outside these ranges, an error condition results.\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII)\i0\fs24\par
+\pard\li360\sb100\sa100\tab\i\fs20 Example\i0\fs24 : \f1\fs18 <message><messageId>\b playTone\b0 </messageId>\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 <field name="\b connectionId">\b0 1</field>\line\pard\li360\sb100\sa100\tab <field name="\b audioToneAttribute\b0 ">frequency1 400</field>\line\tab <field name="\b audioToneAttribute\b0 ">amplitude1 -10</field>\line\tab <field name="\b audioToneAttribute\b0 ">frequency2 620</field>\line\tab <field name="\b audioToneAttribute\b0 ">amplitude2 -8</field>\line\tab <field name="\b audioToneAttribute\b0 ">duration 1500</field>\line\tab <field name="\b terminationCondition\b0 ">digit #</field>\line\tab </message>\f0\fs24\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code \fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Terminating conditions\fs24\par
+\f2\fs20{\pntext\f6\'B7\tab}An intermediate result may be returned. See \i Appendix VI: Provisional result messages\i0 .\f0\par
+\pard\sb100\sa100\b Notes\b0\line Generating a tone with a high frequency component (around 700 Hz or higher) will cause the amplitude of the tone to increase. The increase will be approximately 1 dB at 1000 Hz.\fs24\par
+\b\fs28\par
+Record audio\par
+\b0\fs20 The \b record \b0 command causes voice media to be recorded to a file. \b\fs28\par
+\fs20 Required\b0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\fs20 Connection ID; OR\fs24\par
+\fs20{\pntext\f6\'B7\tab}Conference ID \tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\line\line\fs20 Connection ID and conference ID are mutually exclusive.  When recording a conference, specify conference ID; when recording a single session, specify connection ID.\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Termination conditions (digit, timeout, silence, non-silence) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Audio parameters (format, encoding, bitrate, samplesize) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Relative path to, and optionally name of, record file\fs24\par
+\fs20{\pntext\f6\'B7\tab}Expiration of recorded file (days)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b record\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\pard\li360\sb100\sa100\tab <field name="\b commandTimeout\b0 ">60000</field>\line\tab <field name="\b audioFileAttribute\b0 ">format vox</field>\line\tab <field name="\b audioFileAttribute\b0 ">encoding ulaw</field>\line\tab <field name="\b audioFileAttribute\b0 ">bitrate 20</field>\line\tab <field name="\b expires\b0 ">3</field>\line\tab <field name="\b terminationCondition\b0 ">silence 10000</field>\line\tab <field name="\b terminationCondition\b0 ">maxtime 60000</field>  \line\tab <field name="\b terminationCondition\b0 ">digit #</field>\line\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code \fs24\par
+\fs20{\pntext\f6\'B7\tab}operationID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Connection ID of the utility session if recording a conference\fs24\par
+\fs20{\pntext\f6\'B7\tab}Terminating conditions \fs24\par
+\fs20{\pntext\f6\'B7\tab}Path to recorded file\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b record\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\tab <field name="\b transactionId">\b0 1</field>\line\tab <field name="\b terminationCondition\b0 ">digit</field>\line\tab <field name="\b filename\b0 ">B4F0A90C.vox</field>\line\pard\li360\sb100\sa100\tab </message>\f0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\f2\fs20 An intermediate result may be returned. See \i Appendix VI: Provisional result messag\i0\f0\fs24\par
+\pard\sb100\sa100\b\fs28\par
+Record transaction\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \fs24\par
+\fs20{\pntext\f6\'B7\tab}Second connection ID\tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Termination conditions (digit, timeout, silence, non-silence) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Audio parameters (format, encoding, bitrate, sample size) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Relative path to, and optionally name of, record file\fs24\par
+\fs20{\pntext\f6\'B7\tab}Expiration of record file (days)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code \fs24\par
+\fs20{\pntext\f6\'B7\tab}Terminating conditions \fs24\par
+\fs20{\pntext\f6\'B7\tab}File path\fs24\par
+\f2\fs20{\pntext\f6\'B7\tab}An intermediate result may be returned. See \i Appendix VI: Provisional result messages\i0\f0  \fs24\par
+\pard\sb100\sa100\b\fs28\par
+Receive DTMF \par
+\b0\fs20 The \b reciveDigits \b0 command causes DTMF events to be captured in-band. The digit string is returned to client upon termination. \b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Termination conditions (digit, digit list, timeout, max digits)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b receiveDigits\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\pard\li360\sb100\sa100\tab <field name="\b commandTimeout\b0 ">60000</field>\line\tab <field name="\b terminationCondition\b0 ">maxTime 60000</field>  \line\tab <field name="\b terminationCondition\b0 ">maxDigits 4</field>\line\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code \fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}operationID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Terminating conditions \fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Digit string\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b receiveDigits\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b digits">\b0 123#</field>\line\tab <field name="\b terminationCondition\b0 ">maxdigits</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\f2\fs20 An intermediate result may be returned. See \i Appendix VI: Provisional result messages.\i0\f0  \fs24\par
+\pard\sb100\sa100\b\fs20 Notes\b0\par
+This command may be terminated on a digit \i pattern\i0 . The termination condition will be "digitpattern xxxx", where xxx is a string of 1 to 15 characters chosen from the set of digits \{0-9,#,*\}. This termination condition is defined by Metreos, and is handled internal to the media server. Termination is effected by internally generating a stopMediaOperation when the pattern is matched by incoming digits within the alotted time interval\f2\fs18 .\fs20  The time interval within which all digits must be entered in order to be recognized as a pattern match, is defined by server configuration \i Server.digitSequenceIntervalSeconds \i0 .\i Example\i0 : <field name="terminationCondition">digitpattern ##</field>\f0\fs24\par
+\pard\li360\sb100\sa100\f2\fs18\par
+\pard\sb100\sa100\b\f0\fs28 Send DTMF \par
+\b0\fs20 The \b sendDigits \b0 command forwards external digit events to an active IP session. \par
+\b Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\par
+\fs20{\pntext\f6\'B7\tab}Digit list \fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b sendDigits\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\pard\li360\sb100\sa100\tab <field name="\b digits\b0 ">#*</field>  \line\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\line\pard\sb100\sa100\b\fs28\par
+Stop media operation\par
+\b0\fs20 The \b stopMediaOperation \b0 command cancels an ongoing voice media operation, such as the playing of an announcement. \par
+The application should be prepared to receive two messages after execution of \i stopMediaOperation\i0 : the standard command result, followed by a termination event result from the canceled operation (for example, \b play)\b0 , which will have a returned terminating condition of  \i userstop\i0 .  In other words, the second message occurs as if stopMediaOperation had not been sent, and the media event had terminated without intervention, except that the termination condition is \i userstop\i0 .\b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b stopMediaOperation\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b transactionId">2\b0 </field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\par
+\fs20{\pntext\f6\'B7\tab}operationID, if one of possibly multiple operations is to be stopped\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\b0 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b stopMediaOperation\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line\pard\li360\sb100\sa100\tab <field name="\b transactionId\b0 ">\b 2\b0 </field>  \line\tab </message>\f0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\fs20 Termination event message for the stopped operation \fs24\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b play\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\tab <field name="\b transactionId">1\b0 </field>\line\tab <field name="\b terminationCondition\b0 ">userstop</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\par
+\pard\sb100\sa100\b\f0\fs28 Monitor call state\par
+\b0\fs20 The \b monitorCallState \b0 command directs the media server to report the occurrence of a specified event on a voice channel. The command returns an OK result, if the specified call state was observed, or command timeout error (13), if the specified call state was not observed within the specified time interval.\par
+The application is advised to include a \i commandTimeout \i0 parameter with this command, or if not, to be aware of the default command timeout. For example, if state being monitored is silence, and the specified silence interval does not occur prior to the command timeout interval, the command terminates with timeout error 13.  If silence/nonsilence interval is not specified with the command, it is taken from configuration Server.callStateDurationMsecs.\b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \tab [see \i Appendix VIII, IDs in a clustered scenario\i0 ]\fs24\par
+\fs20{\pntext\f6\'B7\tab}Call state\fs24\line\line\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b monitorCallState\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b commandTimeout\b0 ">30000</field>\line\tab <field name="\b callState\b0 ">silence 2000</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Call state duration, when call state is \i silence \i0 or \i nonsilence\i0\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\b0 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b monitorCallState\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b resultCode\b0 ">0</field>\line        <field name="\b reasonCode\b0 ">0</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\f2\fs20 An intermediate result may be returned. See \i Appendix VI: Provisional result messages\i0\f0\fs24\line\pard\sb100\sa100\b\fs28\par
+Recognize voice\par
+\b0\fs20 The \b VoiceRec \b0 command directs the media server to play 0 or more audio files on the indicated IP session then streaming user's voice input into voice recognition engine. \i A "VoiceBargeIn" parameter can be used to terminate voice prompt and start streaming process.\i0\par
+Audio file paths are interpreted as relative to the media server configuration \b Server.audioBasePath\b0 .\par
+Grammar and other voice recognition resources are stored under "Grammar" directory under media server's install path.\par
+User can use "CancelOnDigit" parameter to terminate a voice recognition command when a digit is entered.\par
+\b Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID; \fs24\par
+\fs20{\pntext\f6\'B7\tab}Paths to one or more grammar files \fs24\par
+\pard\sb100\sa100\b\fs20 Optional\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\b0 Command timeout (ms) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\par
+\fs20{\pntext\f6\'B7\tab}One or more audio files\fs24\par
+\fs20{\pntext\f6\'B7\tab}Termination conditions (digit, maxtime, maxdigits, silence) \fs24\par
+\fs20{\pntext\f6\'B7\tab}Audio parameters (format, encoding, bitrate, sample size)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Volume and speed adjustments (volume, speed)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\line\pard\li360\sb100\sa100\line\pard\li360\i\fs20 Example\i0 :  \f1\fs18   \f3\fs20   <messageId>\b voiceRec\b0 </messageId>\par
+  <field name="filename">\b pr_welcome.wav\b0 </field>\par
+  <field name="filename">\b pr_enterid.wav\b0 </field>\par
+  <field name="grammarName">\b digits.grxml\b0 </field>\par
+  <field name="grammarName">\b help.grxml\b0 </field>\par
+  <field name="connectionId">\b 16777217\b0 </field>\par
+  <field name="audioFileAttribute">\b format wav\b0 </field>\par
+  <field name="voiceBargeIn">\b 1\b0 </field>\par
+  <field name="transactionId">\b 353\b0 </field>\par
+  <field name="clientId">\b 1\b0 </field>\par
+</message>\par
+\pard\f1\fs18\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code \fs24\par
+\fs20{\pntext\f6\'B7\tab}Reason code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Terminating conditions\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}OperationID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Meaning\fs24\par
+\fs20{\pntext\f6\'B7\tab}Score\fs24\line\line\pard\li360\i\f1\fs18 Example\i0 :   <message xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\par
+  <messageId>\b voiceRec\b0 </messageId>\par
+  <field name="transactionId">\b 343\b0 </field>\par
+  <field name="connectionId">\b 16777217\b0 </field>\par
+  <field name="operationId">\b 16777220\b0 </field>\par
+  <field name="terminationCondition">\b autostop\b0 </field>\par
+  <field name="mediaElapsedTime">\b 15656\b0 </field>\par
+  <field name="vrMeaning">\b 12345\b0 </field>\par
+  <field name="vrScore">\b 890\b0 </field>\par
+  <field name="clientId">\b 1\b0 </field>\par
+  <field name="resultCode">\b 0\b0 </field>\par
+  <field name="reasonCode">\b 0\b0 </field>\par
+</message>\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\f2\fs20 An intermediate result may be returned. See \i Appendix VI: Provisional result messages\i0\f0\fs24\par
+\pard\sb100\sa100\b Remarks\fs20\line\fs28\par
+Server query and control\par
+\b0\fs20 The \b server \b0 command requests actions of the media server unrelated to media operations. \par
+\b Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 One or more field parameters identifying actions to be taken\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b server\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b query">\b0 mediaResources</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\pard\sb100\sa100\b\f0\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code (zero)\fs24\par
+\fs20{\pntext\f6\'B7\tab}Transaction ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Field parameters specific to the requested action(s)\fs24\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b server\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b mediaResources\b0 ">ipResourcesInstalled 64</field>\line\tab <field name="\b mediaResources\b0 ">ipResourcesAvailable 60</field>\line\tab <field name="\b mediaResources\b0 ">voiceResourcesInstalled 64</field>\line\tab <field name="\b mediaResources\b0 ">voiceResourcesAvailable 63</field>\line\tab <field name="\b mediaResources\b0 ">conferenceResourcesInstalled 64</field>\line\tab <field name="\b mediaResources\b0 ">conferenceResourcesAvailable 60</field>\line\tab <field name="\b resultCode\b0 ">0</field>\line\tab <field name="\b transactionId">\b0 1</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\f0\fs24\par
+\pard\sb100\sa100\b\fs28 Conference resources remaining\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Conference ID\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\fs20{\pntext\f6\'B7\tab}Number of available conference resources remaining \fs24\par
+\pard\sb100\sa100\b\fs28\par
+Conference enable volume control\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID  \fs24\par
+\fs20{\pntext\f6\'B7\tab}On/Off, digit up, digit reset, digit down\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\pard\sb100\sa100\b\fs28\par
+Conferee set attribute\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \fs24\par
+\fs20{\pntext\f6\'B7\tab}Conference ID\fs24\par
+\fs20{\pntext\f6\'B7\tab}Attribute (receive only, tariff tone, coach, pupil)\f1\fs18\line\line\pard\sb100\sa100\b\f0\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b confereeSetAttribute\b0 </messageId>\line <field name="\b connectionId">\b0 1</field>\line <field name="\b conferenceId">\b0 10013</field>\line\pard\sb100\sa100\tab <field name="\b receiveOnly">\b0 1</field>\line\pard\li360\sb100\sa100\tab </message>\f0\fs24\par
+\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\pard\li360\sb100\sa100\fs20\par
+\pard\sb100\sa100\b\fs28 Adjust play\par
+\b0\fs20 The \b adjustPlay \b0 command directs the media server to adjust the volume and/or speed settings on the voice channel associated with a media server session. The command can be issued at any time, regardless of whether another command is active. So, for example, adjustPlay could be executed over a concurrent play command, to change play volume while the play is occuring. The volume and/or speed change remains in effect until changed or until the session is closed.\par
+volume and speed parameters can assume integral values between -10 and +10.  Zero is the default or neutral setting.  If no modifying parameter is included, the adjustment is relative to zero, that is, absolute. The \i adjustmentType \i0 parameter can be specified to indicate adjustments other than absolute. Valid values for adjustmentType are "abs". "rel", and "tog".  The default is "abs", or absolute.  Relative adjustment is indicated by adjustmentType "rel", indicating that the volume or speed change is relative to the current volume or speed setting. \par
+Toggling adjustment is indicated by adjustmentType "tog". When set thusly. an additional parameter can be supplied to indicate the type of toggling desired, \i toggleType\i0 . toggleType can assume integral values from zero to 4, as follows:\line\tab 0:  Same as not specified\line\tab 1:  Toggle between zero and last modification\line\tab 2:  Reset to zero\line\tab 3:  Set to last modification\line\tab 4: Reset to zero, and reset last modification to zero\par
+\b Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \fs24\par
+\fs20{\pntext\f6\'B7\tab}volume (-10 to +10) and/or\fs24\par
+\fs20{\pntext\f6\'B7\tab}speed (-10 to +10)\f1\fs18\line\pard\li360\sb100\sa100\line\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\i\f0\fs20 Example\i0 :  \f1\fs18 <message><messageId>\b adjustPlay<\b0 messageId>\line\pard\sb100\sa100\tab <field name="\b connectionId">\b0 1</field>\line\tab <field name="\b volume\b0 ">-1</field>\line\tab <field name="\b adjustmentType\b0 ">rel</field>\line\pard\li360\sb100\sa100\tab </message>\f0\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\par
+\fs20{\pntext\f6\'B7\tab}adjustmentType\fs24\par
+\fs20{\pntext\f6\'B7\tab}toggleType\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\b\fs28\line\pard\li360\sb100\sa100\line\pard\sb100\sa100\par
+Assign volume adjustment digit\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID  \fs24\par
+\fs20{\pntext\f6\'B7\tab}Digit \fs24\par
+\fs20{\pntext\f6\'B7\tab}Value (number of 2dB ticks up or down)\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\pard\sb100\sa100\b\fs28\par
+Assign speed adjustment digit\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \fs24\par
+\fs20{\pntext\f6\'B7\tab}Digit \fs24\par
+\fs20{\pntext\f6\'B7\tab}Value (number of 10% increments up or down)\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\pard\li360\sb100\sa100\line\b\fs28\par
+\pard\sb100\sa100 Clear volume/speed adjustments\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Connection ID \fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Result code\fs24\par
+\pard\li360\sb100\sa100\par
+\pard\sb100\sa100\b\fs28 Heartbeat (event)\par
+\b0\fs20 The \b heartbeat \b0 event is sent to client by media server.\b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Heartbeat ID \fs24\par
+\fs20{\pntext\f6\'B7\tab}Server ID\fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Payload  requested at media server connect, e.g. media resource statistics\fs24\par
+\fs20{\pntext\f6\'B7\tab}Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b heartbeat\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b heartbeatId">\b0 1</field>\line\tab <field name="\b serverId">\b0 1000</field>\line\tab <field name="\b mediaResources\b0 ">ipResourcesInstalled 64</field>\line\tab <field name="\b mediaResources\b0 ">ipResourcesAvailable 60</field>\line\tab <field name="\b mediaResources\b0 ">voiceResourcesInstalled 64</field>\line        <field name="\b mediaResources\b0 ">lowBitrateResourcesInstalled 64</field>\line\tab <field name="\b mediaResources\b0 ">voiceResourcesAvailable 63</field>\line\tab <field name="\b mediaResources\b0 ">conferenceResourcesInstalled 64</field>\line\tab <field name="\b mediaResources\b0 ">conferenceResourcesAvailable 60</field>\line        <field name="\b mediaResources\b0 ">lowBitrateResourcesAvailable 64</field>\line\pard\li360\sb100\sa100\tab </message>\f0\fs24\par
+\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Heartbeat ID\fs24\par
+\pard\li360\sb100\sa100\fs20\tab\i Example\i0 : \f1\fs18  <message><messageId>\b heartbeat\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b heartbeatId">\b0 1</field>\line\pard\li360\sb100\sa100\tab </message>\par
+\par
+\pard\sb100\sa100\b\f0\fs28 Heartbeat (acknowledgement)\par
+\b0\fs20 The \b heartbeat \b0 command is sent by client in response to a \i heartbeat \i0 event.\b\fs28\par
+\fs20 Required\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Heartbeat ID \fs24\par
+\pard\sb100\sa100\b\fs20 Optional\b0\fs24\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100\fs20 Client ID (integer, see \i Appendix VII\i0 )\fs24\line\line\i\fs20 Example\i0 : \f1\fs18  <message><messageId>\b heartbeat\b0 </messageId>\line\pard\sb100\sa100\tab <field name="\b heartbeatId">\b0 1</field>\line\tab <field name="\b clientId\b0 ">1000</field>\line\pard\li360\sb100\sa100\tab </message>\f0\fs24\par
+\pard\sb100\sa100\b\fs20 Returns\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 None\fs24\par
+\pard\sb100\sa100\b\fs20 Notes\b0\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent360{\pntxtb\'B7}}\fi-360\li720\sb100\sa100 Both whether or not a return heartbeat is expected by media server, and the number of missed such acknowledgements prior to disconnection of client, are configurable properties of the media server.\fs24\par
+\pard\f3\fs20\par
+\par
+\par
+\pard\sb100\sa100\f0\fs36 Appendix I: MediaServer constants and identifiers\fs40\par
+\pard\fs20\par
+\par
+\pard\sb100\sa100\b\fs28 Commands\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 connect\par
+{\pntext\f6\'B7\tab}disconnect\par
+{\pntext\f6\'B7\tab}play\par
+{\pntext\f6\'B7\tab}receiveDigits\par
+{\pntext\f6\'B7\tab}sendDigits\par
+{\pntext\f6\'B7\tab}stopMediaOperation\par
+{\pntext\f6\'B7\tab}record\par
+{\pntext\f6\'B7\tab}server\par
+{\pntext\f6\'B7\tab}recordTransaction\par
+{\pntext\f6\'B7\tab}conferenceReourcesRemaining\par
+{\pntext\f6\'B7\tab}confereeEnableVolumeControl\par
+{\pntext\f6\'B7\tab}confereeSetAttribute\par
+{\pntext\f6\'B7\tab}assignVolumeAdjustmentDigit\par
+{\pntext\f6\'B7\tab}assignSpeedAdjustmentDigit\par
+{\pntext\f6\'B7\tab}adjustPlay\par
+{\pntext\f6\'B7\tab}adjustVolume\par
+{\pntext\f6\'B7\tab}adjustSpeed\par
+{\pntext\f6\'B7\tab}clearVolSpeedAdjustments\par
+{\pntext\f6\'B7\tab}heartbeat\par
+\pard\sb100\sa100\par
+\b\fs28 Parameter names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 transactionId\par
+{\pntext\f6\'B7\tab}connectionId\par
+{\pntext\f6\'B7\tab}conferenceId\par
+{\pntext\f6\'B7\tab}operationId\par
+{\pntext\f6\'B7\tab}clientId\par
+{\pntext\f6\'B7\tab}serverId\par
+{\pntext\f6\'B7\tab}heartbeatID\par
+{\pntext\f6\'B7\tab}commandTimeout\par
+{\pntext\f6\'B7\tab}sessionTimeout\par
+{\pntext\f6\'B7\tab}ipAddress\par
+{\pntext\f6\'B7\tab}port\par
+{\pntext\f6\'B7\tab}connectionAttribute\par
+{\pntext\f6\'B7\tab}conferenceAttribute\par
+{\pntext\f6\'B7\tab}confereeAttribute\par
+{\pntext\f6\'B7\tab}audioFileAttribute\par
+{\pntext\f6\'B7\tab}terminationCondition\par
+{\pntext\f6\'B7\tab}mediaElapsedTime\par
+{\pntext\f6\'B7\tab}filename\par
+{\pntext\f6\'B7\tab}heartbeatInterval\par
+{\pntext\f6\'B7\tab}heartbeatPayload\par
+{\pntext\f6\'B7\tab}machineName\par
+{\pntext\f6\'B7\tab}queueName\par
+{\pntext\f6\'B7\tab}callState\par
+{\pntext\f6\'B7\tab}expires\par
+{\pntext\f6\'B7\tab}digits\par
+{\pntext\f6\'B7\tab}query\par
+{\pntext\f6\'B7\tab}modify\par
+{\pntext\f6\'B7\tab}hairpin\par
+{\pntext\f6\'B7\tab}hairpinPromote\par
+{\pntext\f6\'B7\tab}canceledTransID\par
+{\pntext\f6\'B7\tab}volume\par
+{\pntext\f6\'B7\tab}speed\par
+{\pntext\f6\'B7\tab}adjustmentType\par
+{\pntext\f6\'B7\tab}toggleType\par
+\pard\sb100\sa100\par
+\b\fs28 Termination condition names (inbound)\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 maxtime\par
+{\pntext\f6\'B7\tab}digit\par
+{\pntext\f6\'B7\tab}digitlist\par
+{\pntext\f6\'B7\tab}maxdigits\par
+{\pntext\f6\'B7\tab}silence\par
+{\pntext\f6\'B7\tab}nonsilence\par
+{\pntext\f6\'B7\tab}digitdelay\par
+{\pntext\f6\'B7\tab}digitpattern \par
+\pard\sb100\sa100\par
+\b\fs28 Terminating condition names (outbound)\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 maxtime\par
+{\pntext\f6\'B7\tab}maxdigits\par
+{\pntext\f6\'B7\tab}silence\par
+{\pntext\f6\'B7\tab}nonsilence\par
+{\pntext\f6\'B7\tab}digit\par
+{\pntext\f6\'B7\tab}loopcurrent\par
+{\pntext\f6\'B7\tab}interdigdelay\par
+{\pntext\f6\'B7\tab}userstop\par
+{\pntext\f6\'B7\tab}autostop\par
+{\pntext\f6\'B7\tab}eod\par
+{\pntext\f6\'B7\tab}tone\par
+{\pntext\f6\'B7\tab}deviceerror\par
+{\pntext\f6\'B7\tab}maxdata\par
+\pard\sb100\sa100\par
+\b\fs28 Connection attribute names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 coderTypeRemote\par
+{\pntext\f6\'B7\tab}framesizeRemote\par
+{\pntext\f6\'B7\tab}vadEnableRemote\par
+{\pntext\f6\'B7\tab}dataflowDirection\par
+{\pntext\f6\'B7\tab}coderTypeLocal\par
+{\pntext\f6\'B7\tab}framesizeLocal\par
+{\pntext\f6\'B7\tab}vadEnableLocal\par
+\pard\sb100\sa100\par
+\b\fs28 Data flow direction names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 ipBidirectional\par
+{\pntext\f6\'B7\tab}ipReceiveOnly\par
+{\pntext\f6\'B7\tab}ipSendOnly\par
+{\pntext\f6\'B7\tab}multicastServer\par
+{\pntext\f6\'B7\tab}multicastClient\par
+\pard\sb100\sa100\par
+\b\fs28 Media resource names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 ipResourcesInstalled\par
+{\pntext\f6\'B7\tab}ipResourcesAvailable\par
+{\pntext\f6\'B7\tab}voiceResourcesInstalled\par
+{\pntext\f6\'B7\tab}voiceResourcesAvailable\par
+{\pntext\f6\'B7\tab}conferenceReourcesInstalled\par
+{\pntext\f6\'B7\tab}conferenceResourcesAvailable\par
+\pard\sb100\sa100\par
+\b\fs28 Server query names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 mediaResources\par
+\pard\sb100\sa100\par
+\b\fs28 Call state names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 silence\par
+{\pntext\f6\'B7\tab}nonsilence\par
+{\pntext\f6\'B7\tab}digits\par
+\pard\sb100\sa100\par
+ \b\fs28 Audio attribute names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 format\par
+{\pntext\f6\'B7\tab}encoding\par
+{\pntext\f6\'B7\tab}bitrate\par
+{\pntext\f6\'B7\tab}samplesize\par
+\pard\sb100\sa100\par
+\b\fs28 Conference attribute names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 soundTone\par
+{\pntext\f6\'B7\tab}noTone\par
+{\pntext\f6\'B7\tab}soundToneWhenReceiveOnly\par
+{\pntext\f6\'B7\tab}noToneWhenReceiveOnly\par
+\pard\sb100\sa100\par
+\b\fs28 Conferee attribute names\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\b0\fs20 monitor\par
+{\pntext\f6\'B7\tab}receiveOnly\par
+{\pntext\f6\'B7\tab}tariffTone\par
+{\pntext\f6\'B7\tab}coach\par
+{\pntext\f6\'B7\tab}pupil\par
+\pard\sb100\sa100\par
+\par
+\fs36 Appendix II: Audio descriptor file format\par
+\f1\fs20 0         1         2         3         4         5\line 012345678901234567890123456789012345678901234567890 ...\par
+AAA BBB CCCCDDDDEEEE FF GGGGGGGG HHHHHH IIII JJJJKK ...\par
+MMS AFD vox ulaw   8 00 20030515 182035 0030    8\par
+\f2 A.\tab File ID 1 (MMS)\line B.\tab File ID 2 (AFD)\line C.\tab File type (vox, wav)\line D.\tab Encoding (ulaw, alaw, pcm, apcm)\line E.\tab Bitrate (6, 8, 11)\line F.\tab File schema version (NN)\line G.\tab Timestamp YYYYMMDD\line H.\tab Timestamp HHMMSS\line\pard I.\tab File expiration (days NNNN)\par
+J.\tab Sample Size (4, 8, 11)\par
+K.\tab Unused (binary zeros)\par
+\pard\sb100\sa100\f4\par
+\f0\fs36 Appendix III: Registry entries\par
+\fs28 Server Control GUI Registry Entries\par
+\b\fs20 Launch tray GUI at OS boot\fs24\par
+\fs20 Key\b0\line HKLM/Software/Microsoft/Windows/CurrentVersion/Run\par
+\b Name\b0\tab\tab\b Value\b0\line MMS GUI \tab c:\\workspace\\metreos-mediaserver\\bin\\mmswin.exe\par
+\par
+\b Media server path, configuration file path\par
+Key\b0\line HKLM/Software/Metreos/MediaServer\par
+\b Name\b0\tab\tab\b Value\b0\line ComandLine\tab c:\\workspace\\metreos-mediaserver\\bin\\mmsserver.exe\line ConfigPath\tab c:\\Metreos\\MediaServer\\mmsconfig.properties\par
+\par
+\par
+\fs36 Appendix IV: Configuration entries\line\fs20\par
+\pard\f1\fs16 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #\par
+# \par
+# Metreos MediaServer configuration file mmsconfig.properties\par
+#\par
+\par
+Hmp.maxConnections = 8                         # max concurrent ip sessions\par
+\par
+ServerLogger.globalMessageLevel = 3            # 3-debug 4-info 5-notice 6-warn\par
+ServerLogger.numThreads = 2                    # threads devoted to logging\par
+ServerLogger.timestamp  = 1                    # boolean: timestamp logrecs\par
+ServerLogger.destStdout = 1                    # boolean: log to console\par
+ServerLogger.destDebug  = 1                    # boolean: log to debugger\par
+ServerLogger.destOther  = 0                    # boolean: log to (tba)\par
+ServerLogger.destFile   = 1                    # boolean: log to file\par
+ServerLogger.isFullpath = 1                    # boolean: is path a full path\par
+ServerLogger.filepath = "c:\\Metreos\\MediaServer\\mms.log" \par
+ServerLogger.backup     = 1                    # Backup existing log on boot\par
+ServerLogger.maxlines   = 4000                 # max lines in a server log\par
+\par
+ServerLogger.destSocket    = 0                 # boolean: install socket logger\par
+ServerLogger.remoteAddress = "192.168.1.100"   # socket logger destination ip\par
+ServerLogger.remotePort    = 5554              # socket logger destination port\par
+ServerLogger.socketConnectIntervalSeconds = 30 # attempt connect every n seconds\par
+\par
+Media.remoteCoderFramesize = 20      \par
+\par
+Server.commandTimeoutMsecsConnect = 20000      # give it more time in debugger \par
+                                               \par
+Client.msmqAppMachineName = "jldw2k"           # app server receive queue\par
+Client.msmqAppQueueName   = "mmsTestQueue"\par
+\par
+Client.msmqMmsMachineName = "jldw2k"           # media server receive queue\par
+Client.msmqMmsQueueName   = "mmsLocalQueue"\par
+\par
+Client.respondOnAsyncExecute = 0\par
+\par
+Diagnostics.logResourceStatus = 0              # show resource stats 1/0\par
+Diagnostics.flags = 0                          # engineering diagnostics\par
+\par
+\par
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #\par
+#\par
+# Configurable properties currently not overridden, showing embedded defaults\par
+#\par
+# Server.defaultBitRatePlay    = 8             # default bit rate for playback\par
+# Server.defaultSampleSizePlay = 8             # default sample size for playback\par
+# Server.defaultFormatPlay     = "ulaw"        # default coder for playback             \par
+# Server.defaultFileTypePlay   = "vox"         # default file type for playback\par
+              \par
+# Server.defaultBitRateRecord  = 8             # default record sample rate in khz \par
+# Server.defaultSampleSizeRecord = 8           # default sample size for record\par
+# Server.defaultFormatRecord   = "ulaw"        # default coder for record        \par
+# Server.defaultFileTypeRecord = "vox"         # default file type for record  \par
+\par
+# Media.remoteCoderType        = "g711ulaw"    # codec defaults may be overridden\par
+# Media.remoteCoderFramesize   = 30            # via connect command parameters\par
+# Media.remoteCoderVadEnable   = 0  \par
+\par
+# Media.localCoderType         = "g711ulaw"    # to force a local property to\par
+# Media.localCoderFramesize    = 30            # mirror the remote property, \par
+# Media.localCoderVadEnable    = 0             # do not configure the property\par
+\par
+# Media.recordFileExpirationDays = 10          # How many days to keep recording\par
+# Media.pcmSampleSize = 8                      # PCM sample size, default is 8 but 16 is required for Persay VocalPassword integration\par
+\f5 # Media.voiceBargeinThreshold = -30            # Prompt bargein threshold, HMP default is -40, valid range is -45 ~ +3\par
+\f1\par
+# Media.asrEnable = 0                          # Enable ASR integration on this server (1/0)\par
+# Media.asrEngine = "speechworks"              # ASR engine to use for ASR requests\par
+\par
+# Server.reassignIdleVoiceResources  = 1       # can reassign resources 1/0 \par
+# Server.waitForVoiceResourceSeconds = 3       # timeout for vox resource acquire\par
+# Server.waitForVoiceResourceMsecs   = 0       # timeout for vox resource acquire\par
+# Server.idleDeviceSelectionStrategy = 0       # 0 = most recent, 1 = idle longest  \par
+\par
+# Server.sessionTimeoutSecondsDefault = 180    # Non-conference session inactivity\par
+\par
+# Following are service thread timeouts, not media termination conditions:\par
+# Server.commandTimeoutMsecsDefault = 60000    # general command timeout default \par
+# Server.commandTimeoutMsecsConnect = 10000    # default timeout on start media \par
+# Server.commandTimeoutMsecsPlay    = 60000    # default timeout on play audio      \par
+# Server.commandTimeoutMsecsRecord  = 60000    # default timeout on record audio \par
+# Server.commandTimeoutMsecsGetDigits = 90000  # default timeout on get dtmf     \par
+# Server.commandTimeoutMsecsRecordTrans = 300000 # default timeout record transact  \par
+\par
+# Following are values used for termination conditions generated by media server:\par
+# Server.defaultMaxSilenceSecondsPlay   = 20   # failsafe media termination play         \par
+# Server.defaultMaxSilenceSecondsRecord = 30   # failsafe media termination record     \par
+# Server.defaultMaxDelaySecondsReceive  = 15   # failsafe media termination dtmf  \par
+# Server.defaultMaxSecsTone = 10               # failsafe media termination tone  \par
+       \par
+# Server.postProvisionalresult = 1             # post OK msg on async execute 1/0\par
+# Server.connectAsync = 1                      # start media asynchronously 1/0                 \par
+# Server.sessionMonitorIntervalSeconds = 5     # how often to police session pool  \par
+                                               # play/rec paths are relative to:\par
+# Server.audioBasePath = "c:\\Metreos\\MediaServer\\audio" \par
+\par
+# Hmp.maxInitialResourcesIP    = 64            # Default min(maxconnect,ipavail)\par
+# Hmp.maxInitialResourcesVoice = 64            # Default min(maxconnect,voxavail)\par
+# Hmp.maxInitialResourcesConference = 1        # Default uses all available\par
+# Hmp.rtpPortBase = 20480                      # RTP portbase, HMP default is 41952, supported by HMP 1.3 SU54 and up.\par
+                                               # Pool size zero means use size =\par
+# Server.serviceThreadPoolSize = 0             # max(4, 0.25 * ipResourceCount)\par
+\par
+# Client.maxMqMessageAgeSecs = 60                \par
+# Client.heartbeatIntervalSecs = 10            # Default - client can override \par
+# Client.msmqTimeoutMsecs = 3000               # Wakeup interval for mq listener\par
+# Client.protocolAdapters = 1800000            # Adapters mask: do not change\par
+\par
+\pard\sb100\sa100\f0\fs20\par
+\line  \fs36 Appendix V: Engineering diagnostics switches\par
+\f2\fs20 To cause a particular diagnostic to appear in the server log, logically OR the indicated switch value with the value for config entry \i Diagnostics.flags \i0 (Windows calculator, scientific view, hexadecimal mode, is useful), and set config entry \i Diagnostics.flags \i0 to that value. For example, \i Diagnostics.flags = c0 \i0 asks to log listen activity plus timeslots (hex 80 + 40).\par
+Note that some diagnostics may require the presence of other config entries.   \line\line\b Hex value\b0\tab\b Log entries generated\b0\line 1\tab\tab Coder attributes in use for connect \line 2\tab\tab File and data formats in use for record/playback\line 4\tab\tab Media termination condition table entries\line 8\tab\tab Async event table contents\line 10\tab\tab Media device state detail after each operation (*)\line\f0 20\tab\tab Session state detail after each operation (*)\line 40\tab\tab Bus timeslots in use for operation\line 80\tab\tab Timeslot listen/unlisten activity\line 100\tab\tab Conference descriptor table (CDT)\line 200\tab\tab Call state transitions (silence/nonsilence)\line 400\tab\tab Digit buffer state\line 800\tab\tab Parameter map session assign and free memory\line 1000                        Conference and conferee attributes at join\line\line (*)\i  requires \f2  Diagnostics.logResourceStatus = 1\f0\line\i0\par
+\par
+\fs36 Appendix VI: Provisional result messages\par
+\fs20 The media server can generate intermediate results for voice media commands,  indicating that media has started "playing". Configuration entry \i Client.respondOnAsyncExecute \i0 enables/disables this feature. A provisional response is identified by \b resultCode 1\b0 , which indicates that the command has successfully started in asynchronous mode. \par
+A media server client must therefore be prepared to handle two return messages for async voice commands, the first being the provisional OK, and the second being the media termination result. Of course, if the media operation cannot be started, only the one error return message is generated.\par
+Provisional responses are generated only upon sussessful lauch of asynchronous voice commands. These commands are:\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100 play\par
+{\pntext\f6\'B7\tab}playTone\par
+{\pntext\f6\'B7\tab}record\par
+{\pntext\f6\'B7\tab}recordTransaction\par
+{\pntext\f6\'B7\tab}receiveDigits \par
+{\pntext\f6\'B7\tab}voiceRec\par
+\pard\sb100\sa100 Parameter operationID will be returned with the provisional result. If a subsequent stopMediaOperation is intended to stop a particular operation on a connection, as opposed to all operations on a connection, this operationID is the key which will identify the operation to stop.\par
+\par
+\par
+\fs36 Appendix VII: Multiple client token passing\par
+\fs20 If multiple clients intend to simultaneously access a media server over a single Metreos MediaServer XML MQ adapter, the \b clientId \b0 token must be included with each server command, with the possible exception of the initial server \b connect \b0 request.\par
+In order to maintain backward compatibility with existing application and test code, \i clientId \i0 can be omitted if there is to be but a single client of the adapter.\par
+A successful \b connect \b0 (to server) command \i returns clientId\i0 , a number uniquely identifying that client, or more precisely, the queue upon which that client will receive messaging from the media server. If it is the case that only one application client will be contacting the media server, this \i clientId \i0 can be ignored. Otherwise, the application must save this number and include it with each media server command submitted by that client.\par
+If a second client attempts to \i connect \i0 to media server, and the initial client has not initiated \i clientId \i0 token passing, the connect command will fail with a resource unavailable error. The exception is that if this server \i connect \i0 command includes a dummy (zero) clientId, this will establish the multi-client environment. The caveat here is that from that point on, the \i clientId \i0 token will be expected on all server communication, including that from the initial client.\par
+A useful convention when a multi-client situation is anticipated, such as when simultaneously connecting multiple clients to a media server, is to always include the \i zero clientId \i0 with the server \i connect \i0 command, and to plan to always include the \i actual clientId \i0 as \i returned \i0 from the server connect, on all other commands. \par
+To summarize,\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100 A single media server client may ignore \i clientId\i0\par
+{\pntext\f6\'B7\tab}If multiple clients wish to connect, they must include \i clientId \i0 with their media server commands\par
+{\pntext\f6\'B7\tab}Once a client includes \i clientId \i0 in a media server command, all subsequent commands from \i all clients \i0 must include \i clientId\i0 .\par
+\pard\sb100\sa100\line\par
+\fs36 Appendix VIII: IDs in a Clustered Media Server Scenario\par
+\fs20 If a media server if operating in a cluster, client must advise each media server in the cluster of its unique identifier in the cluster, via parameter \b serverId\b0 , supplied with the server connect message. A server ID is an integral number in the range 1 to 255. A server operating in a single media server environment is assumed as serverID zero, which need not be specified by client.\par
+Once a clustered environment is established as described above, each media server will attach its \i serverId \i0 to each \i connectionId \i0 and \i conferenceId \i0 it returns to client, in the high byte of the ID doubleword. The actual value of the connection and conference IDs, then, is represented by the lower three bytes of the ID doubleword.\par
+Note also that each server heartbeat event includes the \i serverId \i0 as a message parameter.\par
+To summarize,\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100 When a client is to operate multiple media servers, client will give each server a unique \i serverId \i0 on the intial connect message.\par
+{\pntext\f6\'B7\tab}Each media server will subsequently attach its \i serverId \i0 to each \i connectionId \i0 and \i conferenceId\i0  returned to client.\par
+\pard\sb100\sa100\line\par
+\fs36 Appendix IX: Command Line Switches\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\fs20 /noprompt\line Indicates that no keypress will be required to dismiss the media server console window\par
+{\pntext\f6\'B7\tab}/prompt\line Indicates that a keypress will be required to dismiss the media server console window\par
+{\pntext\f6\'B7\tab}/fA\line Always start media firmware service\par
+{\pntext\f6\'B7\tab}/fN\line Never start media firmware service (default)\par
+{\pntext\f6\'B7\tab}/fV\line Start media firmware service if not currently started\par
+{\pntext\f6\'B7\tab}/sI\line Install media server as Windows service\par
+{\pntext\f6\'B7\tab}/sD\line Remove media server from Windows service list\par
+{\pntext\f6\'B7\tab}/sS\line Run media server as Windows service, must install it using /sI option first\par
+\pard\sb100\sa100 To request that media server \b stop \b0 the media firmware service on shutdown, append "X" to any of the /f parameters: fAX,  /fNX,  fVX.\line\par
+\par
+\fs36 Appendix X: Server Timeout Parameters\fs20\par
+A media server may be directed to force itself stopped if any server component appears unresponsive to the server. The pertinent configuration parameters are:\par
+\pard{\pntext\f6\'B7\tab}{\*\pn\pnlvlblt\pnf6\pnindent0{\pntxtb\'B7}}\fi-720\li720\sb100\sa100\i Server.serverTimeoutSeconds \i0\line The number of seconds a component may be nonresponsive before the server forces a stop.\par
+\i{\pntext\f6\'B7\tab}Server.threadMonitorIntervalSeconds\i0\line The frequency at which the server polls its components.\par
+\pard\sb100\sa100\par
+\fs36 Appendix XI: Coder Parameters\fs20\par
+\pard\li360\sb100\sa100 Coder parameters are passed on the connect command as \line\f1\fs18 <field name="\b connectionAttribute\b0 ">coderTypeRemote \b n\b0 </field>\f0\fs20\par
+The value of n above will be one of the following:\par
+\b n\tab Meaning\b0\line 1\tab G.711uLaw\line 2\tab G.711aLaw\line 4\tab G.723\line 8\tab G.729\par
+The particular flavor of G.723 or G.729 is specified in the media server configuration file, as follows:\line\f1\fs18 Media.G723kbps = "5.3"       # G.723 kbps "5.3" default, or "6.3"\line Media.G729type = "a"         # G.729 annex: "a" default, or "ab"\par
+\f0\fs20 If it is desired that the media server use a low bit rate coder if one is available, otherwise use a G.711 coder, combine the low bit rate value with the G.711 value, for example:\line\f1\fs18 <field name="\b connectionAttribute\b0 ">coderTypeRemote \b 9\b0 </field>\par
+\f0\fs20\par
+\pard\sb100\sa100\fs36 Appendix XII: Hairpin Conferences\fs20\par
+\pard\li360\sb100\sa100 A conference of one or two parties may exist as a pair of hairpinned connections, if so configured.  A hairpin conference is created and operated upon in the same manner as other conferences; however it uses no HMP conference resources. A hairpin is used in place of a standard conference when media server is configured or asked to do so, and when not otherwise configured to never hairpin. Configuration is via both the media server configuration file \i mmsconfig.properties\i0 , and/or via parameters on the connect command when a conference is involved; that is, when \i conferenceID \i0 is also a connect parameter. \par
+\b\fs24 Client Parameters\b0\fs20\line Media server looks for two optional parameters on the connect command, when conferenceID is also specified:\line\f1\fs18 <field name="\b hairpin\b0 ">\b 1\b0 <field>\line <field name="\b hairpinPromote\b0 ">\b 1\b0 <field>\f0\fs20\par
+Valid values for \b hairpin \b0 are 1 and 0.\par
+\b\fs24 Config Options\b0\fs20\line\b hairpinPromote \b0 indicates if media server should promote hairpins to HMP conferences, and if so, whether to subsequently demote HMP conferences to hairpins. Valid values for \b hairpinPromote \b0 are:\line 0: same as not specified\line 1: indicates \i promote\i0\line 2: indicates \i promote and demote\i0\line 4: indicates \i never promote \i0 regardless of config file settings\par
+Hairpin-related media server config file settings are as follows:\line\f1\fs18 Server.hairpinPromotionOpts = 0 # promotion off unless overridden by client param\line Server.hairpinPromotionOpts = 1 # promotion on  unless overridden by client param\line Server.hairpinPromotionOpts = 2 # demotion  on  unless overridden by client param\line Server.hairpinPromotionOpts = 4 # promotion off regardless of client param\line Server.hairpinPromotionOpts = 8 # demotion  off regardless of client param \line\f2\fs20 Note that \f1\fs18 hairpinPromotionOpts \f2\fs20 options can be combined when it makes sense to do so.\f1\fs18\par
+Server.hairpinOpts = 0 # do not hairpin unless overridden by client param\line Server.hairpinOpts = 1 # always hairpin unless overridden by client param  \par
+\f2\fs20 In the absence of config settings and client parameters, defaults are:\line\f1\fs18 Server.hairpinOpts = 0\line Server.hairpinPromotionOpts = 1\par
+\b\f2\fs24 Remarks\b0\fs20\line When any operation is made on an existing or potential hairpin conference which cannot be implemented  in a hairpin (such as setting the coach or pupil flag on a conferee), or when an attempt is made to join a third party to a hairpin conference, media server attempts to promote the conference to an HMP conference. If no conference resource is available, the join will fail with a resource not available error.\par
+\par
+\pard\sb100\sa100\par
+}
+ 

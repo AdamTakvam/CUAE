@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+
+<CommandDescriptionCollection>
+	
+	<!-- The Connect <CommandDescription -->
+	<CommandDescription name="connect" asynchronous="false">
+		<parameters>
+			<parameter>connectionId</parameter>		
+			<parameter>conferenceId</parameter>		
+			<parameter>transactionId</parameter>		
+			<parameter>clientId</parameter>		
+			<parameter>sessionTimeout</parameter> 		
+			<parameter>commandTimeout</parameter>		
+			<parameter>port</parameter>		
+			<parameter>ipAddress</parameter>		
+			<parameter>coderTypeRemote</parameter>		
+			<parameter>framesizeRemote</parameter>		
+			<parameter>vadEnableRemote</parameter>		
+			<parameter>dataflowDirection</parameter>		
+			<parameter>coderTypeLocal</parameter>		
+			<parameter>framesizeLocal</parameter>		
+			<parameter>vadEnableLocal</parameter>		
+			<parameter>soundTone</parameter>		
+			<parameter>noTone</parameter>		
+			<parameter>soundToneWhenReceiveOnly</parameter>		
+			<parameter>noToneWhenReceiveOnly</parameter>		
+			<parameter>monitor</parameter>		
+			<parameter>receiveOnly</parameter>		
+			<parameter>tariffTone</parameter>		
+			<parameter>coach</parameter>		
+			<parameter>pupil</parameter>		
+		</parameters>
+		
+		<asserts>
+			<assert>resultCode</assert>		
+			<assert>connectionId</assert>		
+			<assert>conferenceId</assert>		
+			<assert>port</assert>		
+			<assert>ipAddress</assert>		
+			<assert>transactionId</assert>		
+		</asserts>
+		
+	</CommandDescription>
+
+	<!-- The Disconnect <CommandDescription -->
+	<CommandDescription name="disconnect" asynchronous="false">
+
+		<!--the next two lines mean that both conferenceId and connectionId are required
+			parameters, but they form a decision matrix (and/or) -->
+		<parameters>
+			<parameter required="true" andOrWith="conferenceId">connectionId</parameter>		
+			<parameter required="true" andOrWith="connectionId">conferenceId</parameter>		
+			<parameter>commandTimeout</parameter>		
+			<parameter>transactionId</parameter>		
+			<parameter>clientId</parameter>		
+		</parameters>
+		
+		<asserts>
+			<assert>resultCode</assert>		
+			<assert>transactionId</assert>		
+		</asserts>			
+		
+	</CommandDescription>
+
+
+	<CommandDescription name="play" asynchronous="true">
+
+		<parameters>
+			<parameter required="true">connectionId<excludes>conferenceId</excludes> </parameter>		
+			<parameter required="true">conferenceId<excludes>connectionId</excludes> </parameter>		
+			<parameter required="true" allowMultiple="true">filename</parameter>		
+			
+			<parameter>commandTimeout</parameter>		
+			<parameter>transactionId</parameter>		
+			<parameter>clientId</parameter>		
+			<parameter>maxtime</parameter>		
+			
+			<!-- inbound (to MMS) termination conditions -->		
+			<parameter allowMultiple="true">terminatingCondition</parameter>		
+
+			<!-- audio format parameters -->		
+			<parameter allowMultiple="true">audioFileAttribute</parameter>		
+		</parameters>
+
+		<asserts>
+			<assert provisional="true">resultCode</assert>		
+			<assert>transactionId</assert>		
+			<!--inbound (from MMS) terminating conditions-->
+			<assert>maxtime</assert>
+			<assert>maxdigits</assert>		
+			<assert>silence</assert>		
+			<assert>nonsilence</assert>		
+			<assert>digit</assert>		
+			<assert>loopcurrent</assert>		
+			<assert>interdigdelay</assert>		
+			<assert>userstop</assert>		
+			<assert>eod</assert>		
+			<assert>tone</assert>		
+			<assert>deviceerror</assert>		
+			<assert>maxdata</assert>	
+		</asserts>		
+		
+	</CommandDescription>
+	
+	<!--playTone is not yet exposed to the user.
+	<<CommandDescription name="playTone" asynchronous="true">
+
+			
+	</CommandDescription>
+	-->
+	
+	<CommandDescription name="record" asynchronous="true">
+
+		<parameters>
+			<parameter required="true" allowMultiple="true">connectionId</parameter>
+			
+			<parameter>commandTimeout</parameter>		
+			<parameter>clientId</parameter>		
+			<parameter>expires</parameter>		
+			<parameter allowMultiple="true">filename</parameter>
+			
+			<!-- inbound (to MMS) termination conditions -->		
+			<parameter>terminatingCondition</parameter>		
+
+			<!-- audio format parameters -->		
+			<parameter>audioFileAttribute</parameter>		
+		</parameters>	
+			
+		<asserts>
+			<assert provisional="true">resultCode</assert>		
+			<assert>connectionId</assert>		
+			<assert>filename</assert>
+			
+			<!--inbound (from MMS) terminating conditions-->
+			<assert>maxtime</assert>
+			<assert>maxdigits</assert>		
+			<assert>silence</assert>		
+			<assert>nonsilence</assert>		
+			<assert>digit</assert>		
+			<assert>loopcurrent</assert>		
+			<assert>interdigdelay</assert>		
+			<assert>userstop</assert>		
+			<assert>eod</assert>		
+			<assert>tone</assert>		
+			<assert>deviceerror</assert>		
+			<assert>maxdata</assert>			
+		</asserts>	
+		
+	</CommandDescription>
+	
+	
+	<!--recordTransaction command-->
+	<CommandDescription name="recordTransaction" asynchronous="true">
+		
+		<parameters>
+			<parameter required="true" allowMultiple="true">connectionId</parameter>
+			
+			<parameter>commandTimeout</parameter>		
+			<parameter>clientId</parameter>		
+			<parameter>expires</parameter>		
+			<parameter allowMultiple="true">filename</parameter>
+			
+			<!-- inbound (to MMS) termination conditions -->		
+			<parameter>digit</parameter>
+			<parameter>digitlist</parameter>		
+			<parameter>maxdigits</parameter>		
+			<parameter>silence</parameter>		
+			<parameter>nonsilence</parameter>		
+			<parameter>digitdelay</parameter>		
+			<parameter>digitpattern</parameter> 		
+			
+			<!-- audio format parameters -->		
+			<parameter>format</parameter>		
+			<parameter>encoding</parameter>		
+			<parameter>bitrate</parameter>		
+		</parameters>
+			
+		<asserts>
+			<assert provisional="true">resultCode</assert>		
+			<assert>connectionId</assert>		
+			<assert>filename</assert>
+			
+			<!--inbound (from MMS) terminating conditions-->
+			<assert>maxtime</assert>
+			<assert>maxdigits</assert>		
+			<assert>silence</assert>		
+			<assert>nonsilence</assert>		
+			<assert>digit</assert>		
+			<assert>loopcurrent</assert>		
+			<assert>interdigdelay</assert>		
+			<assert>userstop</assert>		
+			<assert>eod</assert>		
+			<assert>tone</assert>		
+			<assert>deviceerror</assert>		
+			<assert>maxdata</assert>		
+		</asserts>
+		
+	</CommandDescription>	
+	
+	
+	
+	<!--receiveDigits command-->
+	<CommandDescription name="receiveDigits" asynchronous="true">
+
+		<parameters>
+			<parameter required="true">connectionId</parameter>
+			
+			<parameter>commandTimeout</parameter>		
+			<parameter>clientId</parameter>		
+			<parameter>transactionId</parameter>
+					
+			<!-- inbound (to MMS) termination conditions -->		
+			<parameter>digit</parameter>		
+			<parameter>digitlist</parameter>		
+			<parameter>maxdigits</parameter>		
+			<parameter>silence</parameter>		
+			<parameter>nonsilence</parameter>		
+			<parameter>digitdelay</parameter>		
+			<parameter>digitpattern</parameter> 		
+		</parameters>		
+
+		<asserts>
+			<assert provisional="true">resultCode</assert>		
+			<assert>transactionId</assert>		
+			<assert>digits</assert>
+			
+			<!--inbound (from MMS) terminating conditions-->
+			<assert>maxtime</assert>
+			<assert>maxdigits</assert>		
+			<assert>silence</assert>		
+			<assert>nonsilence</assert>		
+			<assert>digit</assert>		
+			<assert>loopcurrent</assert>		
+			<assert>interdigdelay</assert>		
+			<assert>userstop</assert>		
+			<assert>eod</assert>		
+			<assert>tone</assert>		
+			<assert>deviceerror</assert>		
+			<assert>maxdata</assert>		
+		</asserts>
+		
+	</CommandDescription>	
+	
+	<CommandDescription name="sendDigits" asynchronous="false">
+
+		<parameters>
+			<parameter required="true">connectionId</parameter>
+			<parameter required="true">digits</parameter>
+			
+			<parameter>commandTimeout</parameter>
+			<parameter>transactionId</parameter>
+			<parameter>clientId</parameter>
+		</parameters>		
+		
+		<asserts>
+			<assert>resultCode</assert>
+			<assert>transactionId</assert>
+		</asserts>
+		
+	</CommandDescription>	
+	
+	<CommandDescription name="stopMediaOperation" asynchronous="false">
+	
+		<parameters>
+			<parameter required="true">connectionID</parameter>
+			<parameter>clientId</parameter>
+			<parameter>transactionId</parameter>
+		</parameters>
+		
+		<asserts>
+			<assert>resultCode</assert>
+			<assert>transactionId</assert>
+			
+			<!--inbound (from MMS) terminating conditions-->
+			<assert>maxtime</assert>
+			<assert>maxdigits</assert>		
+			<assert>silence</assert>		
+			<assert>nonsilence</assert>		
+			<assert>digit</assert>		
+			<assert>loopcurrent</assert>		
+			<assert>interdigdelay</assert>		
+			<assert>userstop</assert>		
+			<assert>eod</assert>		
+			<assert>tone</assert>		
+			<assert>deviceerror</assert>		
+			<assert>maxdata</assert>	
+		</asserts>	
+		
+	</CommandDescription>
+	
+	<CommandDescription name="monitorCallState" asynchronous="true">
+		
+		<parameters>
+			<parameter required="true">connectionId</parameter>
+			<parameter required="true">callState</parameter>
+			
+			<parameter>clientId</parameter>
+			<parameter>transactionId</parameter>
+		</parameters>
+		
+			<!-- Call state duration, is not specified in the documentation. Ask Jim about what this is.
+			<parameter></parameter>
+			-->
+		<asserts>
+			<assert required="true" provisional="true">resultCode</assert>
+			<assert>transactionId</assert>
+		</asserts>	
+	</CommandDescription>
+	
+</CommandDescriptionCollection>

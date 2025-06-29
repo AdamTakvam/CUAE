@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="Settings" 
+                  targetNamespace="http://tempuri.org/XMLSchema1.xsd"
+                  elementFormDefault="qualified"
+                  xmlns="http://tempuri.org/XMLSchema1.xsd"
+                  xmlns:mstns="http://tempuri.org/XMLSchema1.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:simpleType name="SamoaIP">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>  
+<xs:simpleType name="SamoaPort">
+    <xs:restriction base="xs:integer" />
+</xs:simpleType> 
+<xs:simpleType name="TestPort">
+    <xs:restriction base="xs:integer" />
+</xs:simpleType> 
+<xs:simpleType name="Username">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="Password">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="ScriptDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="LogLevel">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="FrameworkDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="InstallerScriptsDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="DatabaseScriptsDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="OutputDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="NativeTypesDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="NativeActionsDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:simpleType name="DllDir">
+    <xs:restriction base="xs:string" />
+</xs:simpleType>
+<xs:complexType name="Settings">
+    <xs:sequence>
+        <xs:element name="ScriptDir" type="ScriptDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="FrameworkDir" type="FrameworkDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="InstallerScriptsDir" type="InstallerScriptsDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="DatabaseScriptsDir" type="DatabaseScriptsDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="OutputDir" type="OutputDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="NativeTypesDir" type="NativeTypesDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="NativeActionsDir" type="NativeActionsDir" minOccurs="1" maxOccurs="1" />
+        <xs:element name="LogLevel" type="LogLevel" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SamoaIP" type="SamoaIP" minOccurs="1" maxOccurs="1" />
+        <xs:element name="SamoaPort" type="SamoaPort" minOccurs="1" maxOccurs="1" />
+        <xs:element name="TestPort" type="TestPort" minOccurs="1" maxOccurs="1" />
+        <xs:element name="Username" type="Username" minOccurs="1" maxOccurs="1" />
+        <xs:element name="Password" type="Password" minOccurs="1" maxOccurs="1" />
+        <xs:element name="DllDir" type="DllDir" minOccurs="1" maxOccurs="1" />
+    </xs:sequence>
+</xs:complexType>    
+
+<xs:element name="Settings" type="Settings"></xs:element>            
+</xs:schema>

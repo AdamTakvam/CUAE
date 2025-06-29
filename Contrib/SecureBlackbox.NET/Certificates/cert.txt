@@ -1,0 +1,2 @@
+Password for PFX format is "password" (without quotes).
+PEM file is not password-protected.

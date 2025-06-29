@@ -1,0 +1,1561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="urn:sobject.partner.soap.sforce.com" xmlns:s2="urn:fault.partner.soap.sforce.com" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:partner.soap.sforce.com" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="urn:partner.soap.sforce.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sobject.partner.soap.sforce.com">
+      <s:import namespace="urn:partner.soap.sforce.com" />
+      <s:complexType name="sObject">
+        <s:sequence>
+          <s:element name="type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="fieldsToNull" nillable="true" type="s:string" />
+          <s:element name="Id" nillable="true" type="tns:ID" />
+          <s:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:partner.soap.sforce.com">
+      <s:import namespace="urn:sobject.partner.soap.sforce.com" />
+      <s:simpleType name="ID">
+        <s:restriction base="s:string">
+          <s:length value="18" />
+          <s:pattern value="[a-zA-Z0-9]{18}" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="QueryLocator">
+        <s:restriction base="s:string" />
+      </s:simpleType>
+      <s:complexType name="QueryResult">
+        <s:sequence>
+          <s:element name="done" type="s:boolean" />
+          <s:element name="queryLocator" nillable="true" type="tns:QueryLocator" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="records" nillable="true" type="s0:sObject" />
+          <s:element name="size" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="searchRecords" type="tns:SearchRecord" />
+          <s:element minOccurs="0" maxOccurs="1" name="sforceReserved" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchRecord">
+        <s:sequence>
+          <s:element name="record" type="s0:sObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GetUpdatedResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ids" type="tns:ID" />
+          <s:element minOccurs="0" maxOccurs="1" name="sforceReserved" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GetDeletedResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="deletedRecords" type="tns:DeletedRecord" />
+          <s:element minOccurs="0" maxOccurs="1" name="sforceReserved" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeletedRecord">
+        <s:sequence>
+          <s:element name="deletedDate" type="s:dateTime" />
+          <s:element name="id" type="tns:ID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GetServerTimestampResult">
+        <s:sequence>
+          <s:element name="timestamp" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SetPasswordResult" />
+      <s:complexType name="ResetPasswordResult">
+        <s:sequence>
+          <s:element name="password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GetUserInfoResult">
+        <s:sequence>
+          <s:element name="currencySymbol" nillable="true" type="s:string" />
+          <s:element name="organizationId" type="tns:ID" />
+          <s:element name="organizationMultiCurrency" type="s:boolean" />
+          <s:element name="organizationName" type="s:string" />
+          <s:element name="userDefaultCurrencyIsoCode" nillable="true" type="s:string" />
+          <s:element name="userEmail" type="s:string" />
+          <s:element name="userFullName" type="s:string" />
+          <s:element name="userId" type="tns:ID" />
+          <s:element name="userLanguage" type="s:string" />
+          <s:element name="userLocale" type="s:string" />
+          <s:element name="userTimeZone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginResult">
+        <s:sequence>
+          <s:element name="passwordExpired" type="s:boolean" />
+          <s:element name="serverUrl" nillable="true" type="s:string" />
+          <s:element name="sessionId" nillable="true" type="s:string" />
+          <s:element name="userId" nillable="true" type="tns:ID" />
+          <s:element name="userInfo" type="tns:GetUserInfoResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="StatusCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="ASSIGNEE_TYPE_REQUIRED" />
+          <s:enumeration value="BAD_CUSTOM_ENTITY_PARENT_DOMAIN" />
+          <s:enumeration value="CANNOT_CASCADE_PRODUCT_ACTIVE" />
+          <s:enumeration value="CANNOT_DEACTIVATE_DIVISION" />
+          <s:enumeration value="CANNOT_INSERT_UPDATE_ACTIVATE_ENTITY" />
+          <s:enumeration value="CANNOT_REPARENT_RECORD" />
+          <s:enumeration value="CANNOT_RESOLVE_NAME" />
+          <s:enumeration value="CANNOT_UPDATE_CONVERTED_LEAD" />
+          <s:enumeration value="CANT_DISABLE_CORP_CURRENCY" />
+          <s:enumeration value="CANT_UNSET_CORP_CURRENCY" />
+          <s:enumeration value="CHILD_SHARE_FAILS_PARENT" />
+          <s:enumeration value="CIRCULAR_DEPENDENCY" />
+          <s:enumeration value="CUSTOM_ENTITY_OR_FIELD_LIMIT" />
+          <s:enumeration value="CUSTOM_FIELD_INDEX_LIMIT_EXCEEDED" />
+          <s:enumeration value="CUSTOM_INDEX_EXISTS" />
+          <s:enumeration value="DELETE_FAILED" />
+          <s:enumeration value="DELETE_REQUIRED_ON_CASCADE" />
+          <s:enumeration value="DEPENDENCY_EXISTS" />
+          <s:enumeration value="DUPLICATE_CASE_SOLUTION" />
+          <s:enumeration value="DUPLICATE_CUSTOM_TAB_MOTIF" />
+          <s:enumeration value="DUPLICATE_DEVELOPER_NAME" />
+          <s:enumeration value="DUPLICATE_MASTER_LABEL" />
+          <s:enumeration value="DUPLICATE_USERNAME" />
+          <s:enumeration value="DUPLICATE_VALUE" />
+          <s:enumeration value="ENTITY_FAILED_IFLASTMODIFIED_ON_UPDATE" />
+          <s:enumeration value="ENTITY_IS_ARCHIVED" />
+          <s:enumeration value="ENTITY_IS_DELETED" />
+          <s:enumeration value="ENTITY_IS_LOCKED" />
+          <s:enumeration value="FAILED_ACTIVATION" />
+          <s:enumeration value="FIELD_INTEGRITY_EXCEPTION" />
+          <s:enumeration value="INACTIVE_OWNER_OR_USER" />
+          <s:enumeration value="INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY" />
+          <s:enumeration value="INSUFFICIENT_ACCESS_OR_READONLY" />
+          <s:enumeration value="INVALID_ACCESS_LEVEL" />
+          <s:enumeration value="INVALID_ARGUMENT_TYPE" />
+          <s:enumeration value="INVALID_ASSIGNEE_TYPE" />
+          <s:enumeration value="INVALID_ASSIGNMENT_RULE" />
+          <s:enumeration value="INVALID_BATCH_OPERATION" />
+          <s:enumeration value="INVALID_CREDIT_CARD_INFO" />
+          <s:enumeration value="INVALID_CROSS_REFERENCE_KEY" />
+          <s:enumeration value="INVALID_CROSS_REFERENCE_TYPE_FOR_FIELD" />
+          <s:enumeration value="INVALID_CURRENCY_CONV_RATE" />
+          <s:enumeration value="INVALID_CURRENCY_ISO" />
+          <s:enumeration value="INVALID_EMAIL_ADDRESS" />
+          <s:enumeration value="INVALID_EMPTY_KEY_OWNER" />
+          <s:enumeration value="INVALID_FIELD" />
+          <s:enumeration value="INVALID_FIELD_FOR_INSERT_UPDATE" />
+          <s:enumeration value="INVALID_FILTER_ACTION" />
+          <s:enumeration value="INVALID_ID_FIELD" />
+          <s:enumeration value="INVALID_INET_ADDRESS" />
+          <s:enumeration value="INVALID_LINEITEM_CLONE_STATE" />
+          <s:enumeration value="INVALID_OPERATION" />
+          <s:enumeration value="INVALID_OPERATOR" />
+          <s:enumeration value="INVALID_OR_NULL_FOR_RESTRICTED_PICKLIST" />
+          <s:enumeration value="INVALID_STATUS" />
+          <s:enumeration value="INVALID_TYPE" />
+          <s:enumeration value="INVALID_TYPE_FOR_OPERATION" />
+          <s:enumeration value="INVALID_TYPE_ON_FIELD_IN_RECORD" />
+          <s:enumeration value="LAST_MODIFIED_SINCE_TOO_OLD" />
+          <s:enumeration value="LICENSE_LIMIT_EXCEEDED" />
+          <s:enumeration value="MALFORMED_ID" />
+          <s:enumeration value="MAXIMUM_CCEMAILS_EXCEEDED" />
+          <s:enumeration value="MAXIMUM_DASHBOARD_COMPONENTS_EXCEEDED" />
+          <s:enumeration value="MAXIMUM_SIZE_OF_ATTACHMENT" />
+          <s:enumeration value="MAXIMUM_SIZE_OF_DOCUMENT" />
+          <s:enumeration value="MAX_ACTIONS_PER_RULE_EXCEEDED" />
+          <s:enumeration value="MAX_ACTIVE_RULES_EXCEEDED" />
+          <s:enumeration value="MAX_TASK_DESCRIPTION_EXCEEEDED" />
+          <s:enumeration value="MISSING_ARGUMENT" />
+          <s:enumeration value="NONUNIQUE_SHIPPING_ADDRESS" />
+          <s:enumeration value="NUMBER_OUTSIDE_VALID_RANGE" />
+          <s:enumeration value="PRIVATE_CONTACT_ON_ASSET" />
+          <s:enumeration value="REQUIRED_FIELD_MISSING" />
+          <s:enumeration value="SHARE_NEEDED_FOR_CHILD_OWNER" />
+          <s:enumeration value="STANDARD_PRICE_NOT_DEFINED" />
+          <s:enumeration value="STORAGE_LIMIT_EXCEEDED" />
+          <s:enumeration value="TEXT_DATA_OUTSIDE_SUPPORTED_CHARSET" />
+          <s:enumeration value="TOO_MANY_ENUM_VALUE" />
+          <s:enumeration value="TRANSFER_REQUIRES_READ" />
+          <s:enumeration value="UNKNOWN_EXCEPTION" />
+          <s:enumeration value="UNSPECIFIED_EMAIL_ADDRESS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Error">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="fields" nillable="true" type="s:string" />
+          <s:element name="message" type="s:string" />
+          <s:element name="statusCode" type="tns:StatusCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SaveResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="errors" nillable="true" type="tns:Error" />
+          <s:element name="id" nillable="true" type="tns:ID" />
+          <s:element name="success" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeleteResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="errors" nillable="true" type="tns:Error" />
+          <s:element name="id" nillable="true" type="tns:ID" />
+          <s:element name="success" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LeadConvert">
+        <s:sequence>
+          <s:element name="accountId" nillable="true" type="tns:ID" />
+          <s:element name="contactId" nillable="true" type="tns:ID" />
+          <s:element name="convertedStatus" type="s:string" />
+          <s:element name="doNotCreateOpportunity" type="s:boolean" />
+          <s:element name="leadId" type="tns:ID" />
+          <s:element name="opportunityName" nillable="true" type="s:string" />
+          <s:element name="overwriteLeadSource" type="s:boolean" />
+          <s:element name="ownerId" nillable="true" type="tns:ID" />
+          <s:element name="sendNotificationEmail" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LeadConvertResult">
+        <s:sequence>
+          <s:element name="accountId" nillable="true" type="tns:ID" />
+          <s:element name="contactId" nillable="true" type="tns:ID" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="errors" nillable="true" type="tns:Error" />
+          <s:element name="leadId" nillable="true" type="tns:ID" />
+          <s:element name="opportunityId" nillable="true" type="tns:ID" />
+          <s:element name="success" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeSObjectResult">
+        <s:sequence>
+          <s:element name="activateable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="childRelationships" type="tns:ChildRelationship" />
+          <s:element name="createable" type="s:boolean" />
+          <s:element name="custom" type="s:boolean" />
+          <s:element name="deletable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="fields" nillable="true" type="tns:Field" />
+          <s:element name="keyPrefix" nillable="true" type="s:string" />
+          <s:element name="label" type="s:string" />
+          <s:element name="labelPlural" type="s:string" />
+          <s:element name="layoutable" type="s:boolean" />
+          <s:element name="name" type="s:string" />
+          <s:element name="queryable" type="s:boolean" />
+          <s:element name="replicateable" type="s:boolean" />
+          <s:element name="retrieveable" type="s:boolean" />
+          <s:element name="searchable" type="s:boolean" />
+          <s:element name="undeletable" type="s:boolean" />
+          <s:element name="updateable" type="s:boolean" />
+          <s:element name="urlDetail" nillable="true" type="s:string" />
+          <s:element name="urlEdit" nillable="true" type="s:string" />
+          <s:element name="urlNew" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChildRelationship">
+        <s:sequence>
+          <s:element name="cascadeDelete" type="s:boolean" />
+          <s:element name="childSObject" type="s:string" />
+          <s:element name="field" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeGlobalResult">
+        <s:sequence>
+          <s:element name="encoding" nillable="true" type="s:string" />
+          <s:element name="maxBatchSize" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="types" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="fieldType">
+        <s:restriction base="s:string">
+          <s:enumeration value="string" />
+          <s:enumeration value="picklist" />
+          <s:enumeration value="multipicklist" />
+          <s:enumeration value="combobox" />
+          <s:enumeration value="reference" />
+          <s:enumeration value="base64" />
+          <s:enumeration value="boolean" />
+          <s:enumeration value="currency" />
+          <s:enumeration value="textarea" />
+          <s:enumeration value="int" />
+          <s:enumeration value="double" />
+          <s:enumeration value="percent" />
+          <s:enumeration value="phone" />
+          <s:enumeration value="id" />
+          <s:enumeration value="date" />
+          <s:enumeration value="datetime" />
+          <s:enumeration value="url" />
+          <s:enumeration value="email" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="soapType">
+        <s:restriction base="s:string">
+          <s:enumeration value="tns:ID" />
+          <s:enumeration value="xsd:base64Binary" />
+          <s:enumeration value="xsd:boolean" />
+          <s:enumeration value="xsd:double" />
+          <s:enumeration value="xsd:int" />
+          <s:enumeration value="xsd:string" />
+          <s:enumeration value="xsd:date" />
+          <s:enumeration value="xsd:dateTime" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Field">
+        <s:sequence>
+          <s:element name="autoNumber" type="s:boolean" />
+          <s:element name="byteLength" type="s:int" />
+          <s:element name="calculated" type="s:boolean" />
+          <s:element name="createable" type="s:boolean" />
+          <s:element name="custom" type="s:boolean" />
+          <s:element name="defaultedOnCreate" type="s:boolean" />
+          <s:element name="digits" type="s:int" />
+          <s:element name="filterable" type="s:boolean" />
+          <s:element name="label" type="s:string" />
+          <s:element name="length" type="s:int" />
+          <s:element name="name" type="s:string" />
+          <s:element name="nameField" type="s:boolean" />
+          <s:element name="nillable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="picklistValues" nillable="true" type="tns:PicklistEntry" />
+          <s:element name="precision" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="referenceTo" nillable="true" type="s:string" />
+          <s:element name="restrictedPicklist" type="s:boolean" />
+          <s:element name="scale" type="s:int" />
+          <s:element name="soapType" type="tns:soapType" />
+          <s:element name="type" type="tns:fieldType" />
+          <s:element name="updateable" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PicklistEntry">
+        <s:sequence>
+          <s:element name="active" type="s:boolean" />
+          <s:element name="defaultValue" type="s:boolean" />
+          <s:element name="label" nillable="true" type="s:string" />
+          <s:element name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeLayoutResult">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" name="layouts" type="tns:DescribeLayout" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="recordTypeMappings" type="tns:RecordTypeMapping" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeLayout">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="detailLayoutSections" type="tns:DescribeLayoutSection" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="editLayoutSections" type="tns:DescribeLayoutSection" />
+          <s:element name="id" type="tns:ID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeLayoutSection">
+        <s:sequence>
+          <s:element name="columns" type="s:int" />
+          <s:element name="heading" type="s:string" />
+          <s:element maxOccurs="unbounded" name="layoutRows" type="tns:DescribeLayoutRow" />
+          <s:element name="rows" type="s:int" />
+          <s:element name="useCollapsibleSection" type="s:boolean" />
+          <s:element name="useHeading" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeLayoutRow">
+        <s:sequence>
+          <s:element maxOccurs="unbounded" name="layoutItems" type="tns:DescribeLayoutItem" />
+          <s:element name="numItems" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeLayoutItem">
+        <s:sequence>
+          <s:element name="editable" type="s:boolean" />
+          <s:element name="label" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="layoutComponents" type="tns:DescribeLayoutComponent" />
+          <s:element name="placeholder" type="s:boolean" />
+          <s:element name="required" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeLayoutComponent">
+        <s:sequence>
+          <s:element name="tabOrder" type="s:int" />
+          <s:element name="type" type="tns:layoutComponentType" />
+          <s:element name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="layoutComponentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Field" />
+          <s:enumeration value="Separator" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="RecordTypeMapping">
+        <s:sequence>
+          <s:element name="available" type="s:boolean" />
+          <s:element name="defaultRecordTypeMapping" type="s:boolean" />
+          <s:element name="layoutId" type="tns:ID" />
+          <s:element name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="picklistsForRecordType" nillable="true" type="tns:PicklistForRecordType" />
+          <s:element name="recordTypeId" nillable="true" type="tns:ID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PicklistForRecordType">
+        <s:sequence>
+          <s:element name="picklistName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="picklistValues" nillable="true" type="tns:PicklistEntry" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeTabSetResult">
+        <s:sequence>
+          <s:element name="label" type="s:string" />
+          <s:element name="logoUrl" type="s:string" />
+          <s:element name="selected" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tabs" type="tns:DescribeTab" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DescribeTab">
+        <s:sequence>
+          <s:element name="custom" type="s:boolean" />
+          <s:element name="label" type="s:string" />
+          <s:element name="sobjectName" nillable="true" type="s:string" />
+          <s:element name="url" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="login">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="username" type="s:string" />
+            <s:element name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="loginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:LoginResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeSObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="sObjectType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeSObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:DescribeSObjectResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeSObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="100" name="sObjectType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeSObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="100" name="result" type="tns:DescribeSObjectResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeGlobal">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="describeGlobalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:DescribeGlobalResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeLayout">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="sObjectType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeLayoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:DescribeLayoutResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="describeTabs">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="describeTabsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="result" type="tns:DescribeTabSetResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="sObjects" type="s0:sObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="result" type="tns:SaveResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="sObjects" type="s0:sObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="result" type="tns:SaveResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="delete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="ids" type="tns:ID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deleteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="result" type="tns:DeleteResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="retrieve">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="fieldList" type="s:string" />
+            <s:element name="sObjectType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="unbounded" name="ids" type="tns:ID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="retrieveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="s0:sObject" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="convertLead">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="leadConverts" type="tns:LeadConvert" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="convertLeadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="unbounded" name="result" type="tns:LeadConvertResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUpdated">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="sObjectType" type="s:string" />
+            <s:element name="startDate" type="s:dateTime" />
+            <s:element name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUpdatedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:GetUpdatedResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeleted">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="sObjectType" type="s:string" />
+            <s:element name="startDate" type="s:dateTime" />
+            <s:element name="endDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDeletedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:GetDeletedResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="query">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="queryString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:QueryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryMore">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="queryLocator" type="tns:QueryLocator" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="queryMoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:QueryResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="search">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="searchString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="searchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:SearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerTimestamp">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="getServerTimestampResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:GetServerTimestampResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="userId" type="tns:ID" />
+            <s:element name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:SetPasswordResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="userId" type="tns:ID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="resetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:ResetPasswordResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInfo">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="getUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="result" type="tns:GetUserInfoResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SessionHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="sessionId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CallOptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="client" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryOptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" name="batchSize" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AssignmentRuleHeader">
+        <s:complexType>
+          <s:sequence>
+            <s:element name="assignmentRuleId" nillable="true" type="tns:ID" />
+            <s:element name="useDefaultRule" nillable="true" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:fault.partner.soap.sforce.com">
+      <s:simpleType name="ExceptionCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="API_CURRENTLY_DISABLED" />
+          <s:enumeration value="API_DISABLED_FOR_ORG" />
+          <s:enumeration value="EMAIL_TO_CASE_LIMIT_EXCEEDED" />
+          <s:enumeration value="EMAIL_TO_CASE_NOT_ENABLED" />
+          <s:enumeration value="EXCEEDED_ID_LIMIT" />
+          <s:enumeration value="EXCEEDED_LEAD_CONVERT_LIMIT" />
+          <s:enumeration value="EXCEEDED_MAX_SIZE_REQUEST" />
+          <s:enumeration value="EXCEEDED_MAX_TYPES_LIMIT" />
+          <s:enumeration value="EXCEEDED_QUOTA" />
+          <s:enumeration value="EXCEEDED_RATE_LIMIT" />
+          <s:enumeration value="FUNCTIONALITY_NOT_ENABLED" />
+          <s:enumeration value="IMAGE_TOO_LARGE" />
+          <s:enumeration value="INACTIVE_OWNER_OR_USER" />
+          <s:enumeration value="INSUFFICIENT_ACCESS" />
+          <s:enumeration value="INVALID_ASSIGNMENT_RULE" />
+          <s:enumeration value="INVALID_BATCH_SIZE" />
+          <s:enumeration value="INVALID_CLIENT" />
+          <s:enumeration value="INVALID_CROSS_REFERENCE_KEY" />
+          <s:enumeration value="INVALID_FIELD" />
+          <s:enumeration value="INVALID_ID_FIELD" />
+          <s:enumeration value="INVALID_LOGIN" />
+          <s:enumeration value="INVALID_NEW_PASSWORD" />
+          <s:enumeration value="INVALID_OPERATION" />
+          <s:enumeration value="INVALID_OPERATION_WITH_EXPIRED_PASSWORD" />
+          <s:enumeration value="INVALID_QUERY_FILTER_OPERATOR" />
+          <s:enumeration value="INVALID_QUERY_LOCATOR" />
+          <s:enumeration value="INVALID_QUERY_SCOPE" />
+          <s:enumeration value="INVALID_REPLICATION_DATE" />
+          <s:enumeration value="INVALID_SEARCH" />
+          <s:enumeration value="INVALID_SEARCH_SCOPE" />
+          <s:enumeration value="INVALID_SESSION_ID" />
+          <s:enumeration value="INVALID_SOAP_HEADER" />
+          <s:enumeration value="INVALID_SSO_GATEWAY_URL" />
+          <s:enumeration value="INVALID_TYPE" />
+          <s:enumeration value="INVALID_TYPE_FOR_OPERATION" />
+          <s:enumeration value="LOGIN_DURING_RESTRICTED_DOMAIN" />
+          <s:enumeration value="LOGIN_DURING_RESTRICTED_TIME" />
+          <s:enumeration value="MALFORMED_ID" />
+          <s:enumeration value="MALFORMED_QUERY" />
+          <s:enumeration value="MALFORMED_SEARCH" />
+          <s:enumeration value="MISSING_ARGUMENT" />
+          <s:enumeration value="OPERATION_TOO_LARGE" />
+          <s:enumeration value="ORG_LOCKED" />
+          <s:enumeration value="PASSWORD_LOCKOUT" />
+          <s:enumeration value="QUERY_TIMEOUT" />
+          <s:enumeration value="QUERY_TOO_COMPLICATED" />
+          <s:enumeration value="SERVER_UNAVAILABLE" />
+          <s:enumeration value="SSO_SERVICE_DOWN" />
+          <s:enumeration value="TRIAL_EXPIRED" />
+          <s:enumeration value="UNKNOWN_EXCEPTION" />
+          <s:enumeration value="UNSUPPORTED_API_VERSION" />
+          <s:enumeration value="UNSUPPORTED_CLIENT" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="FaultCode">
+        <s:restriction base="s:QName">
+          <s:enumeration value="fns:API_CURRENTLY_DISABLED" />
+          <s:enumeration value="fns:API_DISABLED_FOR_ORG" />
+          <s:enumeration value="fns:EMAIL_TO_CASE_LIMIT_EXCEEDED" />
+          <s:enumeration value="fns:EMAIL_TO_CASE_NOT_ENABLED" />
+          <s:enumeration value="fns:EXCEEDED_ID_LIMIT" />
+          <s:enumeration value="fns:EXCEEDED_LEAD_CONVERT_LIMIT" />
+          <s:enumeration value="fns:EXCEEDED_MAX_SIZE_REQUEST" />
+          <s:enumeration value="fns:EXCEEDED_MAX_TYPES_LIMIT" />
+          <s:enumeration value="fns:EXCEEDED_QUOTA" />
+          <s:enumeration value="fns:EXCEEDED_RATE_LIMIT" />
+          <s:enumeration value="fns:FUNCTIONALITY_NOT_ENABLED" />
+          <s:enumeration value="fns:IMAGE_TOO_LARGE" />
+          <s:enumeration value="fns:INACTIVE_OWNER_OR_USER" />
+          <s:enumeration value="fns:INSUFFICIENT_ACCESS" />
+          <s:enumeration value="fns:INVALID_ASSIGNMENT_RULE" />
+          <s:enumeration value="fns:INVALID_BATCH_SIZE" />
+          <s:enumeration value="fns:INVALID_CLIENT" />
+          <s:enumeration value="fns:INVALID_CROSS_REFERENCE_KEY" />
+          <s:enumeration value="fns:INVALID_FIELD" />
+          <s:enumeration value="fns:INVALID_ID_FIELD" />
+          <s:enumeration value="fns:INVALID_LOGIN" />
+          <s:enumeration value="fns:INVALID_NEW_PASSWORD" />
+          <s:enumeration value="fns:INVALID_OPERATION" />
+          <s:enumeration value="fns:INVALID_OPERATION_WITH_EXPIRED_PASSWORD" />
+          <s:enumeration value="fns:INVALID_QUERY_FILTER_OPERATOR" />
+          <s:enumeration value="fns:INVALID_QUERY_LOCATOR" />
+          <s:enumeration value="fns:INVALID_QUERY_SCOPE" />
+          <s:enumeration value="fns:INVALID_REPLICATION_DATE" />
+          <s:enumeration value="fns:INVALID_SEARCH" />
+          <s:enumeration value="fns:INVALID_SEARCH_SCOPE" />
+          <s:enumeration value="fns:INVALID_SESSION_ID" />
+          <s:enumeration value="fns:INVALID_SOAP_HEADER" />
+          <s:enumeration value="fns:INVALID_SSO_GATEWAY_URL" />
+          <s:enumeration value="fns:INVALID_TYPE" />
+          <s:enumeration value="fns:INVALID_TYPE_FOR_OPERATION" />
+          <s:enumeration value="fns:LOGIN_DURING_RESTRICTED_DOMAIN" />
+          <s:enumeration value="fns:LOGIN_DURING_RESTRICTED_TIME" />
+          <s:enumeration value="fns:MALFORMED_ID" />
+          <s:enumeration value="fns:MALFORMED_QUERY" />
+          <s:enumeration value="fns:MALFORMED_SEARCH" />
+          <s:enumeration value="fns:MISSING_ARGUMENT" />
+          <s:enumeration value="fns:OPERATION_TOO_LARGE" />
+          <s:enumeration value="fns:ORG_LOCKED" />
+          <s:enumeration value="fns:PASSWORD_LOCKOUT" />
+          <s:enumeration value="fns:QUERY_TIMEOUT" />
+          <s:enumeration value="fns:QUERY_TOO_COMPLICATED" />
+          <s:enumeration value="fns:SERVER_UNAVAILABLE" />
+          <s:enumeration value="fns:SSO_SERVICE_DOWN" />
+          <s:enumeration value="fns:TRIAL_EXPIRED" />
+          <s:enumeration value="fns:UNKNOWN_EXCEPTION" />
+          <s:enumeration value="fns:UNSUPPORTED_API_VERSION" />
+          <s:enumeration value="fns:UNSUPPORTED_CLIENT" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ApiFault">
+        <s:sequence>
+          <s:element name="exceptionCode" type="s2:ExceptionCode" />
+          <s:element name="exceptionMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApiQueryFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiFault">
+            <s:sequence>
+              <s:element name="row" type="s:int" />
+              <s:element name="column" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LoginFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="LoginFault" type="s2:LoginFault" />
+      <s:complexType name="InvalidQueryLocatorFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InvalidQueryLocatorFault" type="s2:InvalidQueryLocatorFault" />
+      <s:complexType name="InvalidNewPasswordFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InvalidNewPasswordFault" type="s2:InvalidNewPasswordFault" />
+      <s:complexType name="InvalidIdFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InvalidIdFault" type="s2:InvalidIdFault" />
+      <s:complexType name="UnexpectedErrorFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="UnexpectedErrorFault" type="s2:UnexpectedErrorFault" />
+      <s:complexType name="InvalidFieldFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiQueryFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InvalidFieldFault" type="s2:InvalidFieldFault" />
+      <s:complexType name="InvalidSObjectFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiQueryFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="InvalidSObjectFault" type="s2:InvalidSObjectFault" />
+      <s:complexType name="MalformedQueryFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiQueryFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="MalformedQueryFault" type="s2:MalformedQueryFault" />
+      <s:complexType name="MalformedSearchFault">
+        <s:complexContent mixed="false">
+          <s:extension base="s2:ApiQueryFault" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="MalformedSearchFault" type="s2:MalformedSearchFault" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Header">
+    <wsdl:part name="SessionHeader" element="tns:SessionHeader" />
+    <wsdl:part name="CallOptions" element="tns:CallOptions" />
+    <wsdl:part name="QueryOptions" element="tns:QueryOptions" />
+    <wsdl:part name="AssignmentRuleHeader" element="tns:AssignmentRuleHeader" />
+  </wsdl:message>
+  <wsdl:message name="ApiFault">
+    <wsdl:part name="fault" type="s2:ApiFault" />
+  </wsdl:message>
+  <wsdl:message name="LoginFault">
+    <wsdl:part name="fault" element="s2:LoginFault" />
+  </wsdl:message>
+  <wsdl:message name="InvalidQueryLocatorFault">
+    <wsdl:part name="fault" element="s2:InvalidQueryLocatorFault" />
+  </wsdl:message>
+  <wsdl:message name="InvalidNewPasswordFault">
+    <wsdl:part name="fault" element="s2:InvalidNewPasswordFault" />
+  </wsdl:message>
+  <wsdl:message name="InvalidIdFault">
+    <wsdl:part name="fault" element="s2:InvalidIdFault" />
+  </wsdl:message>
+  <wsdl:message name="UnexpectedErrorFault">
+    <wsdl:part name="fault" element="s2:UnexpectedErrorFault" />
+  </wsdl:message>
+  <wsdl:message name="InvalidFieldFault">
+    <wsdl:part name="fault" element="s2:InvalidFieldFault" />
+  </wsdl:message>
+  <wsdl:message name="InvalidSObjectFault">
+    <wsdl:part name="fault" element="s2:InvalidSObjectFault" />
+  </wsdl:message>
+  <wsdl:message name="MalformedQueryFault">
+    <wsdl:part name="fault" element="s2:MalformedQueryFault" />
+  </wsdl:message>
+  <wsdl:message name="MalformedSearchFault">
+    <wsdl:part name="fault" element="s2:MalformedSearchFault" />
+  </wsdl:message>
+  <wsdl:message name="loginRequest">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="loginResponse">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
+  <wsdl:message name="describeSObjectRequest">
+    <wsdl:part name="parameters" element="tns:describeSObject" />
+  </wsdl:message>
+  <wsdl:message name="describeSObjectResponse">
+    <wsdl:part name="parameters" element="tns:describeSObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="describeSObjectsRequest">
+    <wsdl:part name="parameters" element="tns:describeSObjects" />
+  </wsdl:message>
+  <wsdl:message name="describeSObjectsResponse">
+    <wsdl:part name="parameters" element="tns:describeSObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="describeGlobalRequest">
+    <wsdl:part name="parameters" element="tns:describeGlobal" />
+  </wsdl:message>
+  <wsdl:message name="describeGlobalResponse">
+    <wsdl:part name="parameters" element="tns:describeGlobalResponse" />
+  </wsdl:message>
+  <wsdl:message name="describeLayoutRequest">
+    <wsdl:part name="parameters" element="tns:describeLayout" />
+  </wsdl:message>
+  <wsdl:message name="describeLayoutResponse">
+    <wsdl:part name="parameters" element="tns:describeLayoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="describeTabsRequest">
+    <wsdl:part name="parameters" element="tns:describeTabs" />
+  </wsdl:message>
+  <wsdl:message name="describeTabsResponse">
+    <wsdl:part name="parameters" element="tns:describeTabsResponse" />
+  </wsdl:message>
+  <wsdl:message name="createRequest">
+    <wsdl:part name="parameters" element="tns:create" />
+  </wsdl:message>
+  <wsdl:message name="createResponse">
+    <wsdl:part name="parameters" element="tns:createResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRequest">
+    <wsdl:part name="parameters" element="tns:update" />
+  </wsdl:message>
+  <wsdl:message name="updateResponse">
+    <wsdl:part name="parameters" element="tns:updateResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteRequest">
+    <wsdl:part name="parameters" element="tns:delete" />
+  </wsdl:message>
+  <wsdl:message name="deleteResponse">
+    <wsdl:part name="parameters" element="tns:deleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="retrieveRequest">
+    <wsdl:part name="parameters" element="tns:retrieve" />
+  </wsdl:message>
+  <wsdl:message name="retrieveResponse">
+    <wsdl:part name="parameters" element="tns:retrieveResponse" />
+  </wsdl:message>
+  <wsdl:message name="convertLeadRequest">
+    <wsdl:part name="parameters" element="tns:convertLead" />
+  </wsdl:message>
+  <wsdl:message name="convertLeadResponse">
+    <wsdl:part name="parameters" element="tns:convertLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDeletedRequest">
+    <wsdl:part name="parameters" element="tns:getDeleted" />
+  </wsdl:message>
+  <wsdl:message name="getDeletedResponse">
+    <wsdl:part name="parameters" element="tns:getDeletedResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedRequest">
+    <wsdl:part name="parameters" element="tns:getUpdated" />
+  </wsdl:message>
+  <wsdl:message name="getUpdatedResponse">
+    <wsdl:part name="parameters" element="tns:getUpdatedResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryRequest">
+    <wsdl:part name="parameters" element="tns:query" />
+  </wsdl:message>
+  <wsdl:message name="queryResponse">
+    <wsdl:part name="parameters" element="tns:queryResponse" />
+  </wsdl:message>
+  <wsdl:message name="queryMoreRequest">
+    <wsdl:part name="parameters" element="tns:queryMore" />
+  </wsdl:message>
+  <wsdl:message name="queryMoreResponse">
+    <wsdl:part name="parameters" element="tns:queryMoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="searchRequest">
+    <wsdl:part name="parameters" element="tns:search" />
+  </wsdl:message>
+  <wsdl:message name="searchResponse">
+    <wsdl:part name="parameters" element="tns:searchResponse" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimestampRequest">
+    <wsdl:part name="parameters" element="tns:getServerTimestamp" />
+  </wsdl:message>
+  <wsdl:message name="getServerTimestampResponse">
+    <wsdl:part name="parameters" element="tns:getServerTimestampResponse" />
+  </wsdl:message>
+  <wsdl:message name="setPasswordRequest">
+    <wsdl:part name="parameters" element="tns:setPassword" />
+  </wsdl:message>
+  <wsdl:message name="setPasswordResponse">
+    <wsdl:part name="parameters" element="tns:setPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="resetPasswordRequest">
+    <wsdl:part name="parameters" element="tns:resetPassword" />
+  </wsdl:message>
+  <wsdl:message name="resetPasswordResponse">
+    <wsdl:part name="parameters" element="tns:resetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoRequest">
+    <wsdl:part name="parameters" element="tns:getUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="getUserInfoResponse">
+    <wsdl:part name="parameters" element="tns:getUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Soap">
+    <wsdl:operation name="login">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Login to the Salesforce.com SOAP Api.</documentation>
+      <wsdl:input message="tns:loginRequest" />
+      <wsdl:output message="tns:loginResponse" />
+      <wsdl:fault name="LoginFault" message="tns:LoginFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="describeSObject">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Describe an sObject</documentation>
+      <wsdl:input message="tns:describeSObjectRequest" />
+      <wsdl:output message="tns:describeSObjectResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="describeSObjects">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Describe a number sObjects</documentation>
+      <wsdl:input message="tns:describeSObjectsRequest" />
+      <wsdl:output message="tns:describeSObjectsResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="describeGlobal">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Describe the Global state</documentation>
+      <wsdl:input message="tns:describeGlobalRequest" />
+      <wsdl:output message="tns:describeGlobalResponse" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="describeLayout">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Describe the layout of an sObject</documentation>
+      <wsdl:input message="tns:describeLayoutRequest" />
+      <wsdl:output message="tns:describeLayoutResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="describeTabs">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Describe the tabs that appear on a users page</documentation>
+      <wsdl:input message="tns:describeTabsRequest" />
+      <wsdl:output message="tns:describeTabsResponse" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Create a set of new sObjects</documentation>
+      <wsdl:input message="tns:createRequest" />
+      <wsdl:output message="tns:createResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Update a set of sObjects</documentation>
+      <wsdl:input message="tns:updateRequest" />
+      <wsdl:output message="tns:updateResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Delete a set of sObjects</documentation>
+      <wsdl:input message="tns:deleteRequest" />
+      <wsdl:output message="tns:deleteResponse" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="retrieve">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get a set of sObjects</documentation>
+      <wsdl:input message="tns:retrieveRequest" />
+      <wsdl:output message="tns:retrieveResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="InvalidFieldFault" message="tns:InvalidFieldFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="convertLead">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">convert a set of leads</documentation>
+      <wsdl:input message="tns:convertLeadRequest" />
+      <wsdl:output message="tns:convertLeadResponse" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="getDeleted">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the IDs for deleted sObjects</documentation>
+      <wsdl:input message="tns:getDeletedRequest" />
+      <wsdl:output message="tns:getDeletedResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="getUpdated">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Get the IDs for updated sObjects</documentation>
+      <wsdl:input message="tns:getUpdatedRequest" />
+      <wsdl:output message="tns:getUpdatedResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="query">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Create a Query Cursor</documentation>
+      <wsdl:input message="tns:queryRequest" />
+      <wsdl:output message="tns:queryResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="InvalidFieldFault" message="tns:InvalidFieldFault" />
+      <wsdl:fault name="MalformedQueryFault" message="tns:MalformedQueryFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="queryMore">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the next batch of sObjects from a query</documentation>
+      <wsdl:input message="tns:queryMoreRequest" />
+      <wsdl:output message="tns:queryMoreResponse" />
+      <wsdl:fault name="InvalidQueryLocatorFault" message="tns:InvalidQueryLocatorFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Search for sObjects</documentation>
+      <wsdl:input message="tns:searchRequest" />
+      <wsdl:output message="tns:searchResponse" />
+      <wsdl:fault name="InvalidSObjectFault" message="tns:InvalidSObjectFault" />
+      <wsdl:fault name="InvalidFieldFault" message="tns:InvalidFieldFault" />
+      <wsdl:fault name="MalformedSearchFault" message="tns:MalformedSearchFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimestamp">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets server timestamp</documentation>
+      <wsdl:input message="tns:getServerTimestampRequest" />
+      <wsdl:output message="tns:getServerTimestampResponse" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="setPassword">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Set a user's password</documentation>
+      <wsdl:input message="tns:setPasswordRequest" />
+      <wsdl:output message="tns:setPasswordResponse" />
+      <wsdl:fault name="InvalidIdFault" message="tns:InvalidIdFault" />
+      <wsdl:fault name="InvalidNewPasswordFault" message="tns:InvalidNewPasswordFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Reset a user's password</documentation>
+      <wsdl:input message="tns:resetPasswordRequest" />
+      <wsdl:output message="tns:resetPasswordResponse" />
+      <wsdl:fault name="InvalidIdFault" message="tns:InvalidIdFault" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Returns standard information relevant to the current user</documentation>
+      <wsdl:input message="tns:getUserInfoRequest" />
+      <wsdl:output message="tns:getUserInfoResponse" />
+      <wsdl:fault name="UnexpectedErrorFault" message="tns:UnexpectedErrorFault" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapBinding" type="tns:Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document" />
+    <wsdl:operation name="login">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="LoginFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="describeSObject">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="describeSObjects">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="describeGlobal">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="describeLayout">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="describeTabs">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="AssignmentRuleHeader" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="AssignmentRuleHeader" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="retrieve">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="QueryOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidFieldFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="convertLead">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getDeleted">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUpdated">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="query">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="QueryOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidFieldFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="MalformedQueryFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="queryMore">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:header message="tns:Header" part="QueryOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidQueryLocatorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="search">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidSObjectFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidFieldFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="MalformedSearchFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getServerTimestamp">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="setPassword">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidIdFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="InvalidNewPasswordFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="resetPassword">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidIdFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getUserInfo">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:header message="tns:Header" part="SessionHeader" use="literal" />
+        <soap:header message="tns:Header" part="CallOptions" use="literal" />
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnexpectedErrorFault">
+        <soap:fault use="literal" namespace="" encodingStyle="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SforceService">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Sforce SOAP API</documentation>
+    <wsdl:port name="Soap" binding="tns:SoapBinding">
+      <soap:address location="https://www.salesforce.com/services/Soap/u/6.0" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

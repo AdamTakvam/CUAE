@@ -1,0 +1,26 @@
+1
+a:ForwardActionToProvider
+rns:*->5
+timeout:2->5
+
+5
+a:ForwardResponseToPeer     // If the peer did not send the Hangup action
+def->10                     //   it will simply ignore this response
+
+10
+a:HangupPeerCall
+rns:*->15
+timeout:2->15
+
+15
+a:Wait
+dns:connectionId=null->1000
+def->20
+
+20
+a:DeleteConnection
+rns:*->1000
+timeout:5->1000
+
+1000
+a:EndCall

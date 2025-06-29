@@ -1,0 +1,1 @@
+Jabber-net.dl, Org.Mentalis.Security.dll, and stringprep.dll are all released under GPL.  The license should be found in the same directory.

@@ -1,0 +1,14 @@
+* Completely non-existent user
+* Existing user with no device or find me number that is in CSV
+* Existing user with device not matching specified in CSV --
+* Existing user with device matching specified in CSV, no line numbers defined
+* Existing user with device matching CSV with existing 1 line number in CSV
+* Existing user with device matching CSV with existing 2 line numbers in CSV
+* Existing user with device matching CSV with matching line number in CSV
+* Existing user with device that dups another new user in the CSV // can't do this one without breaking entire CSV because of dup checks
+* Existing user with line that dups another new user in the CSV // can't do this one either
+* Existing user with existing Dummy AR number
+* Existing user with non-dummy AR number
+
+// special -- must add change to code to cause error
+* introduce unhandled exception to prove rollback

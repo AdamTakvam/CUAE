@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_RegexMatch_script1" displayName="ARE_RegexMatch_script1" format="string" defaultValue="ARE.RegexMatch.script1" readOnly="true" required="true" />
+    <configValue name="ARE_RegexMatch_script2" displayName="ARE_RegexMatch_script2" format="string" defaultValue="ARE.RegexMatch.script2" readOnly="true" required="true" />
+    <configValue name="S_One" displayName="S_One" format="string" defaultValue="ARE.RegexMatch.script1.S_One" readOnly="true" required="true" />
+    <configValue name="S_Two" displayName="S_Two" format="string" defaultValue="ARE.RegexMatch.script2.S_Two" readOnly="true" required="true" />
+  </configuration>
+</install>

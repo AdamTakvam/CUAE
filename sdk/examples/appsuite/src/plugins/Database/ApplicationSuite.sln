@@ -1,0 +1,41 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actions", "Actions\Actions.csproj", "{69306007-E02A-4872-BAC2-174CD22ECAF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationSuiteTestTool", "ApplicationSuiteTestTool\ApplicationSuiteTestTool.csproj", "{4A582887-987C-4616-A4E0-EE83527BAE34}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69306007-E02A-4872-BAC2-174CD22ECAF5} = {69306007-E02A-4872-BAC2-174CD22ECAF5}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Storage\Storage.csproj", "{B5714DDA-7603-4CE0-8F92-426514DB3125}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21D68729-BD0B-499E-804E-81860BA3F48C}"
+	ProjectSection(SolutionItems) = preProject
+		CreateDatabase.sql = CreateDatabase.sql
+		..\CreateDeployDirectoryStructure.bat = ..\CreateDeployDirectoryStructure.bat
+		..\SetBuildVariables.bat = ..\SetBuildVariables.bat
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69306007-E02A-4872-BAC2-174CD22ECAF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69306007-E02A-4872-BAC2-174CD22ECAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69306007-E02A-4872-BAC2-174CD22ECAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69306007-E02A-4872-BAC2-174CD22ECAF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A582887-987C-4616-A4E0-EE83527BAE34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A582887-987C-4616-A4E0-EE83527BAE34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A582887-987C-4616-A4E0-EE83527BAE34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A582887-987C-4616-A4E0-EE83527BAE34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5714DDA-7603-4CE0-8F92-426514DB3125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5714DDA-7603-4CE0-8F92-426514DB3125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5714DDA-7603-4CE0-8F92-426514DB3125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5714DDA-7603-4CE0-8F92-426514DB3125}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

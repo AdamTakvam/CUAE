@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConnectionDemo", "ClientConnectionDemo\ClientConnectionDemo.csproj", "{61162660-7068-4B42-A3FA-589DFE63992C}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerConnectionDemo", "ServerConnectionDemo\ServerConnectionDemo.csproj", "{64299606-D7DA-4D11-B620-0FF7A5BB44B0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{61162660-7068-4B42-A3FA-589DFE63992C}.Debug.ActiveCfg = Debug|.NET
+		{61162660-7068-4B42-A3FA-589DFE63992C}.Debug.Build.0 = Debug|.NET
+		{61162660-7068-4B42-A3FA-589DFE63992C}.Release.ActiveCfg = Release|.NET
+		{61162660-7068-4B42-A3FA-589DFE63992C}.Release.Build.0 = Release|.NET
+		{64299606-D7DA-4D11-B620-0FF7A5BB44B0}.Debug.ActiveCfg = Debug|.NET
+		{64299606-D7DA-4D11-B620-0FF7A5BB44B0}.Debug.Build.0 = Debug|.NET
+		{64299606-D7DA-4D11-B620-0FF7A5BB44B0}.Release.ActiveCfg = Release|.NET
+		{64299606-D7DA-4D11-B620-0FF7A5BB44B0}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

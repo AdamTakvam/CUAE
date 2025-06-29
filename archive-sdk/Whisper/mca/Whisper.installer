@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="PhoneUsername" displayName="Phone Username" format="String" description="This user should be associated with all phones used by this application." defaultValue="cisco" required="true" />
+    <configValue name="PhonePassword" displayName="Phone Password" format="Password" description="The password of the Phone Username user." defaultValue="cisco" required="true" />
+    <configValue name="PageList" displayName="List of Pageable Devices" format="Array" description="A list of all devices that can be paged by a user of this service." defaultValue="" required="true" />
+    <configValue name="AssociateService" displayName="Associate Service?" format="Bool" description="Should one show a panel with the whisper?" defaultValue="true" required="true" />
+    <configValue name="DelayService" displayName="Delay Service" format="Bool" description="If Associate Services is true, then should the service push be delayed?" defaultValue="true" required="true" />
+  </configuration>
+</install>

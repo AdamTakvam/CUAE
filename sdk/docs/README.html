@@ -1,0 +1,256 @@
+<h1>NOTES:</h1>
+
+<ul>
+<li><p>ACCEPT AND RESTART EVERYTIME A SOFTWARE MODULE SUGGESTS TO RESTART THE MACHINE</p></li>
+<li><p>Software versions under TESTED heading were used in our testing. Latest versions could be used except where specified under RECOMMENDED headings.</p></li>
+</ul>
+
+<h1>DOWNLOADS:</h1>
+
+<p>01: Install Windows 2003 Standard Edition</p>
+
+<pre><code>- TESTED: Service Pack 1
+- RECOMMENDED: Any latest Service Pack
+- SOURCE: www.microsoft.com
+</code></pre>
+
+<p>02: Download .NET Framework 3.0</p>
+
+<pre><code>- TESTED: dotnetfx3setup.exe
+- RECOMMENDED: 3.0
+- SOURCE: www.microsoft.com/downloads
+</code></pre>
+
+<p>03: Download PHP Windows binaries</p>
+
+<pre><code>- TESTED: php-5.2.2-win32-installer.msi
+- RECOMMENDED: Any latest
+- SOURCE: www.php.net/downloads.php
+</code></pre>
+
+<p>04: Download Apache Windows binaries</p>
+
+<pre><code>- TESTED: apache_1.1.37-win32-x86-no_src.msi
+- RECOMMENDED: DO NOT USE APACHE 2.0
+- SOURCE: http://archive.apache.org/dist/httpd/binaries/win32
+</code></pre>
+
+<p>05: Download MySQL</p>
+
+<pre><code>- TESTED: mysql-5.0.41-win32
+- RECOMMENDED: Any latest 5.X
+- SOURCE: http://dev.mysql.com/downloads/mysql
+</code></pre>
+
+<p>06: Download JDK</p>
+
+<pre><code>- TESTED: JDK-1_5_0_11-windows-i586-p.exe
+- RECOMMENDED: DO NOT USE JDK 1.6
+- SOURCE: http://java.sun.com/javase/downloads
+</code></pre>
+
+<p>07: Download WSE for Microsoft Windows</p>
+
+<pre><code>- TESTED: 2.0 for Microsoft .NET SP1
+- RECOMMENDED: WSE 2.0 &amp; uP compatible with the Service Pack used
+- SOURCE: www.microsoft.com/downloads
+</code></pre>
+
+<p>08: Download MySQL ODBC connector</p>
+
+<pre><code>- TESTED: mysql-connector-odbc-3.5.15-win32.msi 
+- RECOMMENDED: Any compatible one
+- SOURCE: http://dev.mysql.com/downloads/connector/odbc
+</code></pre>
+
+<p>09: Download HMP 3.0</p>
+
+<pre><code>- TESTED: SU128
+- RECOMMENDED: SU128
+- SOURCE:
+</code></pre>
+
+<p>10: Download NeoSpeech</p>
+
+<p>Download Kate and TTS_Server from following links</p>
+
+<p>http://www.pentaxneospeech.com/Products/custom/cisco/TYT2HDQVRGHRRJQ4RGT4/3.7/20070328_Voicetext-Kate-L08 Master-RamIO.zip</p>
+
+<p>http://www.pentaxneospeech.com/Products/custom/cisco/TYT2HDQVRGHRRJQ4RGT4/3.7/20061228<em>TTS</em>Server_3.7.1.0.zip</p>
+
+<p>11: Download 3 CUAE Installers: Services, Server, Media Engine.</p>
+
+<pre><code>- SOURCE:
+</code></pre>
+
+<p>12: Download SDK Examples: SDK.zip</p>
+
+<pre><code>- SOURCE:
+</code></pre>
+
+<p>13: Download MySQL time zone tables</p>
+
+<pre><code>- SOURCE: http://dev.mysql.com/downloads/timezones.html
+</code></pre>
+
+<h1>INSTALLATION:</h1>
+
+<p>NOTE: With new installations, you might be asked to activate Windows and download and execute Windows Installer 3.0 etc.</p>
+
+<p>01: Execute dotnetfx3setup.exe and accept all defaults.</p>
+
+<p>02: Execute Microsoft WSE Runtime and accept all defaults.</p>
+
+<p>03: Execute apache<em>1.1.37-win32-x86-no</em>src.msi and accept all defaults.</p>
+
+<p>04: Execute JDK-1<em>5</em>0_11-windows-i586-p.exe and accept all defaults.</p>
+
+<p>05: Execute mysql-connector-odbc-3.5.15-win32.msi and accept all defaults.</p>
+
+<p>06: Execute mysql-5.0.41-win32 and accept all defaults for the installation part. At the end of installation part, it will start MySQL Server Configuration process. Select defaults except for following options (select the following choices when presented):</p>
+
+<pre><code>a) Detailed Configuration
+b) Developer Machine (Recommended)
+c) Transactional Database Only
+d) Best Support For Multilingualism
+e) Install As Windows Service (automatic launch)
+f) Enter root password and WRITE IT DOWN as you will need it later.
+</code></pre>
+
+<p>07: Extract and copy all time zone tables in Program Files\mysql\mysql server\data\mysql.</p>
+
+<p>08: Execute php-5.2.2-win32-installer.msi. Accept defaults except following options:</p>
+
+<p>NOTE: If any step is missed or incorrect, use this installer to uninstall and install correctly.</p>
+
+<p>a) Select Apache 1.3.x Module</p>
+
+<p>b) Specify Apache Configuration Directory which is typically: c:\Program Files\Apache Group\Apache\conf</p>
+
+<p>c) Under the "Choose Items to Install"</p>
+
+<pre><code>i) Under Program menu, select CLI Executable and Script Executable
+ii) Under Extensions menu, select:
+    - bzip2
+    - LDAP
+    - MySQL
+    - MySQLi
+    - Sockets
+    - XML- RPC (If available)
+iii) Under Extras menu, select PEAR
+</code></pre>
+
+<p>09: Execute C:\Program Files\PHP\go-pear.bat and select following options:</p>
+
+<pre><code>- system Wide or local: system
+- all or Enter to continue: Hit Enter
+- alter php.ini: Y
+- accept others as default or hit enter to continue
+- if this process suggests, run the registry file it creates.
+</code></pre>
+
+<p>10: Run the command "pear install --alldeps <package_name>" till all the following packages are installed. Please note --aldeps option will install one or more of the following packages at one go (for example, it will auto download and install Net<em>URL and Net</em>Socket as these are required for the HTTP_Request). Sometime it will specify a specific package name - simply reissue the "pear install" command with specified packege name:</p>
+
+<pre><code>- HTTP_Request
+- Mail
+- Mail_Mime
+- Net_DIME
+- Net_Socket
+- Net_URL
+- PEAR
+- SOAP(-beta)
+- XML_Parser
+- XML_RPC
+- Net_SMTP
+
+Issuing the command "pear list" should show the following:
+
+- Archive_Tar
+- Console_Getopt
+- HTTP_Request
+- Mail
+- Mail_Mime
+- Net_DIME
+- Net_Socket
+- Net_URL
+- PEAR
+- SOAP
+- XML_Parser
+- XML_RPC
+- Net_SMTP
+</code></pre>
+
+<p>11: HMP: Execute setup.exe from HMP directory. Accept defaults and select top 4 installation checkboxes.</p>
+
+<p>12: NEOSPEECH: </p>
+
+<p>Extract the MASTER and TTS_SERVER zips downloaded earlier and run two Setup.exe files and accept all defaults. After the installation edit c:\ttssrv.ini file to change NfsDir path to match CUME path - C:/Program Files/Cisco Systems/Unified Application Environment/MediaServer. Also, verify following two lines are present:</p>
+
+<p>KATE SELECT 1</p>
+
+<p>YUMI SELECT 0</p>
+
+<p>Restart your machine.</p>
+
+<p>(A CUAE application might fail to play TTS first time, but plays on second time onwards)</p>
+
+<p>13: [VERIFY] Comment out the line starting with "PHPIniDir" in C:\Program Files\Apache Group\Apache\conf\httpd.conf file (Or use your apache installation specific path). This step applies to Apache 1.3.X versions.</p>
+
+<p>14: [VERIFY] Uncomment "AddModule mod<em>unique</em>id.c" and "LoadModule unique<em>id</em>module modules/mod<em>unique</em>id.so" in  C:\Program Files\Apache Group\Apache\conf\httpd.conf file (Or use your apache installation specific path).</p>
+
+<p>15: [VERIFY] In C:\Program Files\PHP\php.ini file uncomment "error<em>reporting = E</em>ALL &amp; ~E<em>NOTICE" line and comment out "error</em>reporting = E_ALL" line.</p>
+
+<p>16: At the bottom of C:\Program Files\Apache Group\Apache\conf\httpd.conf file add the following line:</p>
+
+<p>Include "c:\Program Files\Cisco Sysems\Unified Application Environment\System\Apache\conf"</p>
+
+<p>17: Restart apache (net stop apache &amp;&amp; net start apache).</p>
+
+<p>NOTE: FOLLOWING 3 STEPS WOULD NEED ROOT/PASSWORD FROM STEP 6f above.</p>
+
+<p>18: Install CUAE Platform Services. Accept defaults.</p>
+
+<p>19: Install CUAE Application Server. Accept defaults.</p>
+
+<p>20: Install CUAE Media Engine. Accept defaults.</p>
+
+<p>21: RESTART MACHINE.</p>
+
+<p>NOTE: FOLLOWING STEPS ARE SPECIFIC TO APPSUITEADMIN EXAMPLES INSTALLATION</p>
+
+<p>22: Install CUAE SDK installer and accept defaults.</p>
+
+<p>23: Edit initialize_db.bat from C:\Program Files\Cisco Unified Application Environment SDK\sdk\examples\appsuite\src\web\appsuiteadmin\install directory to indicate correct MySQL installation path info and  user/password info. It uses root\metreos as default user/pass, but it accepts these as arguments if there is a need to override. After modification, save and run it. </p>
+
+<p>24: Copy C:\Program Files\Cisco Unified Application Environment SDK\sdk\examples\appsuite\src\web\appsuiteadmin\install\apache\conf\appsuite.conf to c:\Program Files\Cisco Sysems\Unified Application Environment\System\Apache\conf. Edit this appsuite.conf file 
+to indicate correct appsuiteadmin direcotry locations in multiple places in this file, which by 
+default is C:\Program Files\Cisco Unified Application Environment SDK\sdk\examples\appsuite\src\web\appsuiteadmin. Also, edit to indicate correct PEAR location which is C:\Program Files\PHP\PEAR. NOTE: USE FORWARD SLASHES.</p>
+
+<p>25: Edit C:\Program Files\Cisco Unified Application Environment SDK\sdk\examples\appsuite\src\web\appsuiteadmin\includes\class.ReplicationSettingsManagement.php 
+file and change the first <? to <?php</p>
+
+<p>26: Make sure C:\Program Files\PHP\php.ini file's session.save_path variable is pointing to a valid path and uncommented.</p>
+
+<p>27: RESTART MACHINE.</p>
+
+<h1>ENVIRONMENT VARIABLES:</h1>
+
+<p>01: Add Java and JRE path to PATH Environment Variable (example: C:\Program Files\Java\jdk1.5.0<em>06\bin;C:\Program Files\Java\jdk1.5.0</em>06\jre\bin)</p>
+
+<p>02: [OPTIONAL] Add MySQL path to PATH Environment Variable (example: C:\Program Files\MySQL\MySQL Server 5.0\bin)</p>
+
+<h1>RECOMMENDATIONS:</h1>
+
+<p>01: Install MS VS 2005 to use with Provider and plugin development.</p>
+
+<p>02: IIS should not be running.</p>
+
+<p>03: Optional suggested performance tweaks in the registry:</p>
+
+<h2>KEY - NAME - VALUE</h2>
+
+<p>HKLM\SYSTEM\CurrentControlSet\Control\Lsa "fipsalgorithmpolicy" 0x00000000 HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters "MaxUserPort" 0x00005000 HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters "TcpNumConnections" 0x00010000 HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters "MaxHashTableSize" 0x00010000</p>
+
+<h1>LICENSE:</h1>
+
+<p>SDK Mode comes with a set of default licenses.</p>

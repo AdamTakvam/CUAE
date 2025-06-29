@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_JTapiOutgoingCallControlPanel_script1" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1" />
+    <configValue name="S_MakeCallComplete" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_MakeCallComplete" />
+    <configValue name="E_Hangup" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.E_Hangup" />
+    <configValue name="S_Hangup" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_Hangup" />
+    <configValue name="E_Blind" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.E_Blind" />
+    <configValue name="S_BlindSuccess" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_BlindSuccess" />
+    <configValue name="S_BlindFail" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_BlindFail" />
+    <configValue name="S_MakeCallFail" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_MakeCallFail" />
+    <configValue name="S_Conference" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_Conference" />
+    <configValue name="E_Conference" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.E_Conference" />
+    <configValue name="S_ConferenceSuccess" format="String" description="" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_ConferenceSuccess" />
+    <configValue name="S_ConferenceFail" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_ConferenceFail" />
+    <configValue name="ReversionTime" displayName="Reversion Time" format="Number" description="Number of seconds that a held " minValue="0" maxValue="1200" defaultValue="0" />
+    <configValue name="Username" displayName="Username" format="String" description="Name of CCM user with rights to control all phone devices which will be used with this application" defaultValue="metreos" />
+    <configValue name="Password" displayName="Password" format="Password" description="Password Password of CCM user" defaultValue="metreos" />
+    <configValue name="Filename" displayName="Filename" format="String" description="File to play as the tariff tone" defaultValue="chime.raw" />
+    <configValue name="S_CallActive" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_CallActive" />
+    <configValue name="E_UpdateGlobals" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.E_UpdateGlobals" />
+    <configValue name="E_OutgoingCall" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.E_OutgoingCall" />
+    <configValue name="S_OutGoingCall" format="String" defaultValue="IVT.JTapiOutgoingCallControlPanel.script1.S_OutgoingCall" />
+  </configuration>
+</install>

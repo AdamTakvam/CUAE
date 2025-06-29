@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ManString" displayName="Mandatory String Changed3" format="String" description="Mandatory string config value" defaultValue="ManStringValue" required="true" />
+    <configValue name="OptString" displayName="Optional String" format="String" description="Optional string config value" defaultValue="OptStringVal" />
+    <configValue name="ManNumber" displayName="Mandatory Number" format="Number" description="Mandatory number config value" minValue="0" maxValue="100" defaultValue="42" required="true" />
+    <configValue name="OptNumber" displayName="Optional Number" format="Number" description="Optional number config value" minValue="0" maxValue="100" defaultValue="43" />
+    <configValue name="ManAddress" displayName="Mandatory IP Address" format="IP_Address" description="Mandatory IP Address config value" defaultValue="127.0.0.1" required="true" />
+    <configValue name="OptAddress" displayName="Optional IP Address" format="IP_Address" description="Optional IP Address config value" defaultValue="127.0.0.2" />
+    <configValue name="ManBool" displayName="Mandatory Boolean" format="Bool" description="Mandatory boolean config value" defaultValue="true" required="true" />
+    <configValue name="OptBool" displayName="Optional Boolean" format="Bool" description="Optional boolean config value" defaultValue="false" />
+    <configValue name="Array" displayName="Array Value" format="Array" description="Array config value" defaultValue="" />
+    <configValue name="Hash" displayName="Hashtable Value" format="HashTable" description="Hashtable config value" defaultValue="" />
+    <configValue name="DataTable" displayName="Datatable config value" format="DataTable" description="Datatable config value" defaultValue="" />
+    <configValue name="Password" displayName="Password Value" format="Password" description="Password config value" defaultValue="" />
+    <configValue name="DateTime" displayName="DateTime Value" format="DateTime" description="DateTime config value" defaultValue="11/15/2005 01:12:25" />
+    <configValue name="EnumConfig" displayName="Enum Value" format="TraceLevel" description="Enumerated config value" defaultValue="Verbose" />
+  </configuration>
+</install>

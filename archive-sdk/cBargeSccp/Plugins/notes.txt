@@ -1,0 +1,21 @@
+information we have available:
+device name - sid
+callReference - constant through the duration of the call on the same line.
+
+messages we care about:
+CallInfoMessage - CCM->Client; CallingParty, CallingPartyName, CalledParty, Call Identifier, LastRedirectingParty, CallType, LastRedirectingReason, Line Instance
+CallStateMessage - CCM->Client; Call Identifier, CallState, LineInstance
+OpenReceiveChannel - CCM->Client; CallReference/ConferenceId, 'PassThruPartyID'
+OpenReceiveChannelAck - Client->CCM; IP Address, Port, 'PassThruPartyID'
+StartMediaTransmission - CCM->Client; ConferenceID, 'PassThruPartyID', Remote IP, remote Port
+StopMediaTransmission - CCM->Client; conferenceId, 'PassThruPartyID'
+
+
+
+We call the state machine function, passing in call identifier and line instance, that way the FSM function can retrieve and operate
+on the correct set of data.
+
+
+we must first look at line instance, then we must look at callrefid
+have some sort of parameter that will tell us whether we can or can't accept barges in that particular session.
+                         

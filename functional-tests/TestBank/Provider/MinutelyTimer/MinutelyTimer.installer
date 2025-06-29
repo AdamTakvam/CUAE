@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_MinutelyTimer_script2" displayName="Provider_MinutelyTimer_script2" format="string" defaultValue="Provider.MinutelyTimer.script2" readOnly="true" required="true" />
+    <configValue name="S_Fired" displayName="S_Fired" format="string" defaultValue="Provider.MinutelyTimer.script1.S_Fired" readOnly="true" required="true" />
+  </configuration>
+</install>

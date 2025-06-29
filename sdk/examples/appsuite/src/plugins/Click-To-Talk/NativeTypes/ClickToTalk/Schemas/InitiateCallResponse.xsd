@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="InitiateCallResponse" targetNamespace="http://metreos.com/InitiateCallResponse.xsd" elementFormDefault="qualified" xmlns="http://metreos.com/InitiateCallResponse.xsd" xmlns:mstns="http://metreos.com/InitiateCallResponse.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:complexType name="initCallResponseType">
+		<xs:sequence>
+			<xs:element name="resultCode" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>    
+	<xs:element name="initiateCallResponse" type="initCallResponseType" />
+</xs:schema>

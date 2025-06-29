@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="InternalMessage" targetNamespace="http://metreos.com/InternalMessage.xsd" elementFormDefault="qualified" xmlns="http://metreos.com/InternalMessage.xsd" xmlns:mstns="http://metreos.com/InternalMessage.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Definition of simple types -->
+	<xs:simpleType name="sourceTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Core" />
+			<xs:enumeration value="Provider" />
+			<xs:enumeration value="WhateverElse" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definition of complex types -->
+	<xs:complexType name="sourceType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="sourceTypeType" use="required" />
+				<xs:attribute name="queue" type="xs:string" use="optional" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+    <xs:complexType name="fieldType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="messageType">
+        <xs:sequence>
+            <xs:element name="messageId" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1" />
+            <xs:element name="source" type="sourceType" nillable="true" maxOccurs="1" minOccurs="0" />
+            <xs:element name="field" type="fieldType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Put it together -->
+    <xs:element name="message" type="messageType" />
+</xs:schema>

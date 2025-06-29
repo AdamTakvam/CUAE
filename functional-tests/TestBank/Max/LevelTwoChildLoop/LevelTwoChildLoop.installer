@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Max_LevelTwoChildLoop_script1" displayName="Max_LevelTwoChildLoop_script1" format="string" defaultValue="Max.LevelTwoChildLoop.script1" readOnly="true" required="true" />
+    <configValue name="S_LevelTwo" displayName="S_LevelTwo" format="string" defaultValue="Max.LevelTwoChildLoop.script1.S_LevelTwo" readOnly="true" required="true" />
+  </configuration>
+</install>

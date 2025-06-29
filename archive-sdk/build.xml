@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="SDK" default="debug" basedir=".">
+  <description>Build script for the entire SDK</description>
+
+  <!-- do not modify this file, modify ../metreos-autobuild/build.sdk.xml instead -->
+  <import file="../autobuild/build.sdk.xml" />
+</project>

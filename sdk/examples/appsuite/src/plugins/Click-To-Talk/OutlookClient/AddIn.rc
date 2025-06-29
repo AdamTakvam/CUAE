@@ -1,0 +1,333 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""AddIn.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,1,0,0
+ PRODUCTVERSION 2,1,0,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Metreos Corporation"
+            VALUE "FileDescription", "Metreos Click-To-Talk Outlook Plug In "
+            VALUE "FileVersion", "2.1.0.0"
+            VALUE "InternalName", "OutlookClient.dll"
+            VALUE "LegalCopyright", "(c) Metreos Corporation.  All rights reserved."
+            VALUE "OriginalFilename", "OutlookClient.dll"
+            VALUE "ProductName", "Metreos Click-To-Talk"
+            VALUE "ProductVersion", "2.1.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_ADDIN               REGISTRY                "AddIn.rgs"
+IDR_METREOSPROPPAGE     REGISTRY                "MetreosPropPage.rgs"
+IDR_METREOSTOOLBAR      REGISTRY                "MetreosToolbar.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BMP_DIALBUTTON      BITMAP                  "Resources\\DialButton.bmp"
+IDB_BMP_METREOSCIRCLE   BITMAP                  "Resources\\MetreosCircle.bmp"
+IDB_METREOSPROPPAGE     BITMAP                  "MetreosPropPage.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_METREOSPROPPAGE DIALOGEX 0, 0, 278, 229
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    GROUPBOX        "User Settings",IDC_STATIC,12,24,252,52
+    EDITTEXT        IDC_CM_USERNAME,150,36,103,14,ES_AUTOHSCROLL | WS_GROUP
+    LTEXT           "Username:",IDC_STATIC,27,39,36,8,NOT WS_GROUP
+    LTEXT           "Password:",IDC_STATIC,27,58,34,8,NOT WS_GROUP
+    EDITTEXT        IDC_CM_PASSWORD,150,54,103,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    GROUPBOX        "Server Settings",IDC_STATIC,12,82,252,76
+    EDITTEXT        IDC_APPSERVER,150,94,103,14,ES_AUTOHSCROLL
+    LTEXT           "Application Server IP:",IDC_STATIC,27,97,70,8,NOT 
+                    WS_GROUP
+    PUSHBUTTON      "Validate",IDC_BUTTON_VALIDATE,150,133,50,14
+    GROUPBOX        "Call Preferences",IDC_STATIC,12,160,252,51
+    CONTROL         "Always record calls",IDC_ALWAYS_RECORD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,150,194,77,10
+    LTEXT           "Email Address for Recorded Calls:",IDC_STATIC,27,176,
+                    108,8,NOT WS_GROUP
+    EDITTEXT        IDC_USEREMAILADDR,150,173,103,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_APPSERVER_PORT,150,113,103,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    LTEXT           "Port Number:",IDC_STATIC,27,116,44,8,NOT WS_GROUP
+END
+
+IDD_DIALSINGLEDIALOG DIALOGEX 0, 0, 243, 118
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "New Call"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Start Call",IDOK,122,80,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,64,80,50,16
+    COMBOBOX        IDC_COMBO_NUMBERS,68,37,162,81,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    LTEXT           "Number:",IDC_STATIC,17,39,39,8
+    CONTROL         "Record this call",IDC_CHECK_RECORDCALL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,67,55,65,10
+    EDITTEXT        IDC_EDIT_CONTACTNAME,69,21,156,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+    LTEXT           "Contact:",IDC_STATIC,17,21,49,8
+    GROUPBOX        "Call Details",IDC_STATIC,6,8,230,64
+    PUSHBUTTON      "Stop Recording",IDC_BTN_STOP_RECORD,178,80,58,16
+    EDITTEXT        IDC_STATUSBAR_DSD,5,101,232,14,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_STATICEDGE
+END
+
+IDD_DIALMULTIPLEDIALOG DIALOGEX 0, 0, 296, 158
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "New Conference Call"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "Start Call",IDOK,171,123,50,16
+    PUSHBUTTON      "Cancel",IDCANCEL,110,123,50,16
+    GROUPBOX        "Conference Call Details",IDC_STATIC,7,6,282,110
+    EDITTEXT        IDC_EDIT_CONTACTNAME1,16,23,102,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_DISABLED | NOT WS_BORDER | NOT 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_NUMBERS1,122,21,159,81,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CONTACTNAME2,16,42,102,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_DISABLED | NOT WS_BORDER | NOT 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_NUMBERS2,122,40,159,81,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CONTACTNAME3,16,61,102,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_DISABLED | NOT WS_BORDER | NOT 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_NUMBERS3,122,59,160,81,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_CONTACTNAME4,16,82,102,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | WS_DISABLED | NOT WS_BORDER | NOT 
+                    WS_TABSTOP
+    CONTROL         "Record this call",IDC_CHECK_RECORDCALL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,122,99,65,10
+    COMBOBOX        IDC_COMBO_NUMBERS4,122,80,159,81,CBS_DROPDOWN | CBS_SORT | 
+                    WS_DISABLED | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Stop Recording",IDC_BTN_STOP_RECORD,231,123,58,16
+    EDITTEXT        IDC_STATUSBAR_DSD,6,143,284,13,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP,
+                    WS_EX_STATICEDGE
+END
+
+IDD_METREOSPROPDIALOG DIALOGEX 0, 0, 267, 215
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Metreos ClickToTalk Settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_CM_USERNAME,146,19,103,14,ES_AUTOHSCROLL | WS_GROUP
+    EDITTEXT        IDC_CM_PASSWORD,146,37,103,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_APPSERVER,146,77,103,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_APPSERVER_PORT,146,96,103,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "Validate",IDC_BUTTON_VALIDATE,199,114,50,14
+    EDITTEXT        IDC_USEREMAILADDR,146,156,103,14,ES_AUTOHSCROLL
+    CONTROL         "Always record calls",IDC_ALWAYS_RECORD,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,146,173,77,10
+    DEFPUSHBUTTON   "OK",IDOK,95,195,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,152,195,50,14
+    DEFPUSHBUTTON   "Apply",IDAPPLY,209,195,50,14
+    GROUPBOX        "User Settings",IDC_STATIC,8,7,252,52
+    LTEXT           "Username:",IDC_STATIC,23,22,36,8
+    LTEXT           "Password:",IDC_STATIC,23,41,34,8
+    GROUPBOX        "Server Settings",IDC_STATIC,8,65,252,70
+    LTEXT           "Application Server IP:",IDC_STATIC,23,80,70,8
+    GROUPBOX        "Call Preferences",IDC_STATIC,8,141,252,48
+    LTEXT           "Email Address for Recorded Calls:",IDC_STATIC,23,159,
+                    108,8
+    LTEXT           "Port Number:",IDC_STATIC,23,99,44,8,NOT WS_GROUP
+END
+
+IDD_VALIDATE DIALOGEX 0, 0, 186, 62
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Validating Application Server"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,65,27,50,14
+    CONTROL         "",IDC_PROGRESS1,"msctls_progress32",WS_BORDER,15,6,151,
+                    14
+    EDITTEXT        IDC_STATUSBAR,0,50,186,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP,WS_EX_STATICEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_METREOSPROPPAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 222
+    END
+
+    IDD_DIALSINGLEDIALOG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 106
+    END
+
+    IDD_DIALMULTIPLEDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        TOPMARGIN, 9
+        BOTTOMMARGIN, 145
+    END
+
+    IDD_METREOSPROPDIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 260
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+    END
+
+    IDD_VALIDATE, DIALOG
+    BEGIN
+        TOPMARGIN, 6
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "AddIn"
+    IDS_INVALID_SETTINGS    "Could not validate ClickToTalk user settings.\nPlease verify that user name and password, and\napplication server IP address and port, are correct."
+    IDS_INVALID_USERNAME    "Could not validate ClickToTalk user settings."
+    IDS_INVALID_SERVERADDRESS 
+                            "Application server network address missing or invalid."
+    IDS_INVALID_SERVERPORT  "Application server port number missing or invalid."
+    IDS_ERROR_ADDIN_PP      "Failed addin propertypage"
+    IDS_ERROR_ADDIN_PP_TITLE "OnOptionsAddPages"
+    IDS_ERROR_MAKE_CALL     "Your call could not be initiated.  Please verify your settings and try again."
+    IDS_ERROR_MAKE_CALL_TITLE "Unable to Initiate Call"
+    IDS_STATUS_DIALING      "Dialing..."
+    IDS_STATUS_ERROR_MAKE_CALL "ERROR: Unable to initiate call"
+    IDS_STATUS_CALL_INPROGRESS "Call in progress..."
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_STATUS_STOP_RECORDING "Attempting to stop the recording..."
+    IDS_STATUS_ERROR_STOP_RECORDING 
+                            "Unable to stop recording. The call may no longer be active."
+    IDS_STATUS_RECORDING_STOPPED 
+                            "Recording stopped, call still in progress..."
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "AddIn.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

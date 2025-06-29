@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_BadParamInNativeAction_script1" displayName="ARE_BadParamInNativeAction_script1" format="string" defaultValue="ARE.BadParamInNativeAction.script1" readOnly="true" required="true" />
+    <configValue name="S_Success" displayName="S_Success" format="string" defaultValue="ARE.BadParamInNativeAction.script1.S_Success" readOnly="true" required="true" />
+    <configValue name="S_Failure" displayName="S_Failure" format="string" defaultValue="ARE.BadParamInNativeAction.script1.S_Failure" readOnly="true" required="true" />
+  </configuration>
+</install>

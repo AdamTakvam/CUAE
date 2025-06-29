@@ -1,0 +1,45 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmazonWebService", "AmazonWebService\AmazonWebService.csproj", "{25EB2B07-44C4-4F62-A6AD-5577ED3B0412}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeActions", "NativeActions\NativeActions.csproj", "{E822831F-C2B2-48D2-A85F-651D986DF76A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeTypes", "NativeTypes\NativeTypes.csproj", "{3EDF85EC-00C2-45B2-BEDC-F726E58232BC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Postbuild", "Postbuild\Postbuild.csproj", "{3809D6D9-8607-413B-B79F-573FBF2F43D4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{25EB2B07-44C4-4F62-A6AD-5577ED3B0412}.Debug.ActiveCfg = Debug|.NET
+		{25EB2B07-44C4-4F62-A6AD-5577ED3B0412}.Debug.Build.0 = Debug|.NET
+		{25EB2B07-44C4-4F62-A6AD-5577ED3B0412}.Release.ActiveCfg = Release|.NET
+		{25EB2B07-44C4-4F62-A6AD-5577ED3B0412}.Release.Build.0 = Release|.NET
+		{E822831F-C2B2-48D2-A85F-651D986DF76A}.Debug.ActiveCfg = Debug|.NET
+		{E822831F-C2B2-48D2-A85F-651D986DF76A}.Debug.Build.0 = Debug|.NET
+		{E822831F-C2B2-48D2-A85F-651D986DF76A}.Release.ActiveCfg = Release|.NET
+		{E822831F-C2B2-48D2-A85F-651D986DF76A}.Release.Build.0 = Release|.NET
+		{3EDF85EC-00C2-45B2-BEDC-F726E58232BC}.Debug.ActiveCfg = Debug|.NET
+		{3EDF85EC-00C2-45B2-BEDC-F726E58232BC}.Debug.Build.0 = Debug|.NET
+		{3EDF85EC-00C2-45B2-BEDC-F726E58232BC}.Release.ActiveCfg = Release|.NET
+		{3EDF85EC-00C2-45B2-BEDC-F726E58232BC}.Release.Build.0 = Release|.NET
+		{3809D6D9-8607-413B-B79F-573FBF2F43D4}.Debug.ActiveCfg = Debug|.NET
+		{3809D6D9-8607-413B-B79F-573FBF2F43D4}.Debug.Build.0 = Debug|.NET
+		{3809D6D9-8607-413B-B79F-573FBF2F43D4}.Release.ActiveCfg = Release|.NET
+		{3809D6D9-8607-413B-B79F-573FBF2F43D4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

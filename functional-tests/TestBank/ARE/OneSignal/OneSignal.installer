@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_OneSignal_script1" displayName="ARE_OneSignal_script1" format="string" defaultValue="ARE.OneSignal.script1" readOnly="true" required="true" />
+    <configValue name="S_Simple" displayName="S_Simple" format="string" defaultValue="ARE.OneSignal.script1.S_Simple" readOnly="true" required="true" />
+    <configValue name="E_Event" format="string" defaultValue="ARE.OneSignal.script1.E_Event" />
+</configuration>
+</install>

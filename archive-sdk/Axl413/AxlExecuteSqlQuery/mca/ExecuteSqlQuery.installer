@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Username" displayName="Administrator Username" format="String" description="Administrative Username" defaultValue="CCMAdministrator" required="true" />
+    <configValue name="Password" displayName="Administrator Password" format="Password" description="Administrative password" defaultValue="cisco" required="true" />
+    <configValue name="CallManagerIP" displayName="IP Address of the Publisher" format="String" description="The IP address of the Publisher node of the CallManager cluster" defaultValue="10.10.10.10" required="true" />
+    <configValue name="query" displayName="SQL Query" format="String" description="The SQL Query to execute" defaultValue="" required="true" />
+  </configuration>
+</install>

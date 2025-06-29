@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="db-migration" default="Debug" basedir=".">
+
+	<description>Build script for DB Migration</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.frameworkDirectory}" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <!-- <metreosVsNetCleanTask root="${Metreos.build.srcRoot}" dir="db-migration" /> -->
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/db-migration" includes="**/bin/** **/obj/**" />
+        </delete>
+        <delete>
+            <fileset dir="PostBuild" includes="postbuild.txt" />
+            <fileset dir="UnitTest" includes="unittest.txt" />
+        </delete>
+    </target>    
+        
+	<target name="do-build" >
+        <metreosMSBuildTask solution="DbMigration" />
+        <!-- <metreosVsNetTask solution="db-migration" /> -->
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

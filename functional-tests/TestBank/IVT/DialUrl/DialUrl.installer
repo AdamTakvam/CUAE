@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_DialUrl_script1" displayName="" format="String" defaultValue="IVT.DialUrl.script1" required="false" />
+    <configValue name="S_Signal" displayName="" format="String" description="" defaultValue="IVT.DialUrl.script1.S_Signal" required="false" />
+  </configuration>
+</install>

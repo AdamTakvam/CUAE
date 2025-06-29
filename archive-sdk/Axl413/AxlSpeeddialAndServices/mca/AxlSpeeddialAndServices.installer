@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="devicename" displayName="DeviceName" format="String" description="The device name to use for this simple AXL example" defaultValue="" />
+    <configValue name="callManagerIP" displayName="CallManager IP" format="String" description="The IP address of CallManager" defaultValue="" />
+    <configValue name="ccmUsername" displayName="CallManager Administrator" format="String" description="The administrative username of CallManager" defaultValue="Administrator" />
+    <configValue name="ccmPassword" displayName="CallManager Admin Password" format="String" description="The administrative password of CallManager" defaultValue="metreos" />
+    <configValue name="Name1" displayName="" format="String" description="" defaultValue="NONE" />
+    <configValue name="Url1" displayName="" format="String" description="" defaultValue="NONE" />
+    <configValue name="UrlLabel1" displayName="" format="String" description="" defaultValue="NONE" />
+    <configValue name="TelecasterName1" displayName="" format="String" description="" defaultValue="NONE" />
+    <configValue name="Index1" displayName="" format="String" defaultValue="NONE" />
+    <configValue name="Name2" displayName="" format="String" description="" defaultValue="NONE" />
+    <configValue name="Url2" format="String" description="" defaultValue="NONE" />
+    <configValue name="UrlLabel2" format="String" defaultValue="NONE" />
+    <configValue name="TelecasterName2" format="String" defaultValue="NONE" />
+    <configValue name="Index2" format="String" defaultValue="NONE" />
+    <configValue name="TeleId1" displayName="" format="String" defaultValue="NONE" />
+    <configValue name="TeleId2" format="String" defaultValue="NONE" />
+  </configuration>
+</install>

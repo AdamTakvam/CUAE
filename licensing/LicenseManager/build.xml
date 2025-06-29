@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="licensing" default="Debug" basedir=".">
+
+	<description>Build script for LicenseServer component</description>
+    <import file="../../autobuild/build.includes.xml" />
+
+    <property name="licManDirectory"        location="${Metreos.build.contribRoot}/FLEXlm/LicenseServer" />
+    <property name="deploymentAppServerDirectory"    value="${Metreos.build.buildDirectory}/AppServer" />
+    <property name="deploymentMediaServerDirectory"    value="${Metreos.build.buildDirectory}/MediaServer" />
+    <property name="deploymentLicenseServerDirectory"    value="${Metreos.build.buildDirectory}/LicenseServer" />
+    <property name="symbolDirectory"    value="${Metreos.build.buildDirectory}/LicenseServer/Symbols" />
+
+    <target name="do-init">
+    </target>
+
+    <target name="do-clean">
+        <delete dir="Debug" />
+        <delete dir="Release" />
+    </target>
+
+    <target name="do-build" >
+    	<mkdir dir="${deploymentLicenseServerDirectory}" />
+        <mkdir dir="${deploymentLicenseServerDirectory}/Licenses" />
+        <copy todir="${deploymentLicenseServerDirectory}" >
+            <fileset dir="${licManDirectory}" excludes="*.h *.lib *.obj" />
+    	</copy>
+        <metreosVsNetTask dir="." solution="CUAELicMgr" />
+        <metreosVsNetTask dir="." solution="./GetLicenseInfo/GetLicenseInfo" />
+    </target>
+
+    <target name="do-test" >
+    </target>
+
+    <target name="do-postbuild">
+    	<copy todir="${deploymentAppServerDirectory}">
+    		<fileset dir="${Metreos.build.target}" includes="CUAELicMgr.dll" />
+    	</copy>
+    	<copy todir="${deploymentMediaServerDirectory}">
+    		<fileset dir="${Metreos.build.target}" includes="CUAELicMgr.dll" />
+    	</copy>
+
+    	<copy todir="${Metreos.build.frameworkDirectory}">
+    		<fileset dir="${Metreos.build.target}" includes="CUAELicMgr.dll" />
+    	</copy>
+    	
+          <copy todir="${Metreos.build.frameworkDirectory}">
+    		<fileset dir="./GetLicenseInfo/${Metreos.build.target}" includes="GetLicenseInfo.exe" />
+    	</copy>
+
+    	<copy todir="${symbolDirectory}">
+    		<fileset dir="${Metreos.build.target}" includes="CUAELicMgr.pdb" />
+    	</copy>
+
+        <copy todir="${symbolDirectory}">
+    		<fileset dir="./GetLicenseInfo/${Metreos.build.target}" includes="GetLicenseInfo.pdb" />
+    	</copy>
+    </target>
+</project>

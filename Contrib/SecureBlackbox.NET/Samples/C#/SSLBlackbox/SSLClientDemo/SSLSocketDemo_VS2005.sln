@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSLSocketDemo_VS2005", "SSLSocketDemo_VS2005.csproj", "{D0B86269-8D3E-473A-B714-CB79F4ABCD9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0B86269-8D3E-473A-B714-CB79F4ABCD9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B86269-8D3E-473A-B714-CB79F4ABCD9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B86269-8D3E-473A-B714-CB79F4ABCD9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B86269-8D3E-473A-B714-CB79F4ABCD9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

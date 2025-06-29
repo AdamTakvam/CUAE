@@ -1,0 +1,186 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1FAABFCC-21E7-4BAE-8877-42C58E55901B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>MimeViewer</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MimeViewer</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SecureBlackbox">
+      <Name>SecureBlackbox</Name>
+    </Reference>
+    <Reference Include="SecureBlackbox.Charsets">
+      <Name>SecureBlackbox.Charsets</Name>
+    </Reference>
+    <Reference Include="SecureBlackbox.MIME">
+      <Name>SecureBlackbox.MIME</Name>
+    </Reference>
+    <Reference Include="SecureBlackbox.PGP">
+      <Name>SecureBlackbox.PGP</Name>
+    </Reference>
+    <Reference Include="SecureBlackbox.PGPMIME">
+      <Name>SecureBlackbox.PGPMIME</Name>
+    </Reference>
+    <Reference Include="SecureBlackbox.PKI">
+      <Name>SecureBlackbox.PKI</Name>
+    </Reference>
+    <Reference Include="SecureBlackbox.SMIME">
+      <Name>SecureBlackbox.SMIME</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.ico" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MimeViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_Binary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_CertDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_Options.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_OptionsPGPMime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_OptionsSMime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_PlugControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MimeViewer_SMime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PassRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StringQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="MimeViewer.resx">
+      <DependentUpon>MimeViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_Binary.resx">
+      <DependentUpon>MimeViewer_Binary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_CertDetails.resx">
+      <DependentUpon>MimeViewer_CertDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_Options.resx">
+      <DependentUpon>MimeViewer_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_OptionsPGPMime.resx">
+      <DependentUpon>MimeViewer_OptionsPGPMime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_OptionsSMime.resx">
+      <DependentUpon>MimeViewer_OptionsSMime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_PlugControl.resx">
+      <DependentUpon>MimeViewer_PlugControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MimeViewer_SMime.resx">
+      <DependentUpon>MimeViewer_SMime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassRequestForm.resx">
+      <DependentUpon>PassRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringQueryForm.resx">
+      <DependentUpon>StringQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

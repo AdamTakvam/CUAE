@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<nativeTypePackage name="Metreos.Types" xmlns="http://metreos.com/NativeTypePackage.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="file:NativeTypePackage.xsd">
+	<type name="String" serializable="true">
+		<inputType description="Any string">string</inputType>
+		<customProperty returnType="int" description="Length of string">Length</customProperty>
+	</type>
+	<type name="Integer" serializable="true">
+		<inputType description="String representation of an integer">string</inputType>
+		<inputType description="Any integer">int</inputType>
+		<customMethod name="ToNativeInt" returnType="int" description="Converts native type object to a .NET object for use in inline code" />
+		<customMethod name="Add" returnType="int" description="Returns the sum of this integer and the value supplied. The value of the variable remains unchanged">
+			<parameter description="addValue">int</parameter>
+		</customMethod>
+	</type>
+</nativeTypePackage>

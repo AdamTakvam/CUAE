@@ -1,0 +1,299 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD08117C-D983-49BD-9A34-6AC69A3BD938}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.FunctionalTests.IVT2.0</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.FunctionalTests.IVT2._0</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Metreos.ApplicationFramework">
+      <Name>Metreos.ApplicationFramework</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Core">
+      <Name>Metreos.Core</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Interfaces">
+      <Name>Metreos.Interfaces</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.LoggingFramework">
+      <Name>Metreos.LoggingFramework</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Messaging">
+      <Name>Metreos.Messaging</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Messaging.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Samoa.FunctionalTestFramework, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\FunctionalTest\Metreos.Samoa.FunctionalTestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.TestBank.IVT, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\work\TestNamingAssemblies\Metreos.TestBank.IVT.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.Utilities">
+      <Name>Metreos.Utilities</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfoCommon.cs">
+      <Link>AssemblyInfoCommon.cs</Link>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\GetDeviceProfile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\GetLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\GetPhone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\GetTranslationPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\UpdateDeviceProfile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\UpdateLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\UpdatePhone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AXLSoap\UpdateTranslationPattern.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExtensionMobility\Login.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExtensionMobility\Logout.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ExtensionMobility\QueryDevices.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\AnswerCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\CompleteCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\EndMakeCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\MakeCallExternal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\MakeCallInternal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\MakeMultipleCalls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\QueryByDeviceName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\QueryByDeviceStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\QueryByDeviceType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\QueryByIPAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="H323\SimultaneousHangup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateDirectory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateGraphicFileMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateGraphicMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateIconMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateImage.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateImageFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateInput.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateStatusFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\CreateText.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\DialUrl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\SpecificMenu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPPhoneServices\SpecificText.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JTAPICallControl\AnswerCall.cs" />
+    <Compile Include="JTAPICallControl\IncomingCallControlPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JTAPICallControl\LineHandling.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JTAPICallControl\MakeCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="JTAPICallControl\OutgoingCallControlPanel.cs" />
+    <Compile Include="JTAPICallControl\TerminateCall.cs" />
+    <Compile Include="MediaControl\HandlePhoneHold.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MediaControl\HandlePhoneTransfer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MediaControl\Play.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MediaControl\Record.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MediaControl\SimpleConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NegativeTests\MediaServerUnhook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NegativeTests\UnhookCallmanager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Performance\BHCC.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Performance\MaxSimultaneousCalls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Performance\MultipleRoute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Performance\QueryStressTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

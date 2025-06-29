@@ -1,0 +1,48 @@
+The Action-Event package schema defines the format for Action-Event package declarations. This information is for the benefit of the visual application creation environment. The following is a collection of important points regarding that schema.
+
+* Actions *
+
+1. The package name must be fully-qualified (i.e. "Metreos.CallControl" not "CallControl").
+
+2. Action names may or may not be fully-qualified. If they are, the namespace provided must match the package namespace.
+
+3. The action type should be copied directly into the resultant application XML with the exception of "appControl", which should cause no action type attribute to be generated.
+
+4. Action attribute asyncCallback specifies a nontriggering or hybrid event which will be received at some time in the future as a result of this action. This name must not be fully-qualified unless, for some odd reason, it exists in a different package.
+
+5. The default value for the action attribute allowCustomParams is "false". If this value is set to true, it means that additional optional parameters are allowed in addition to those listed.
+
+6. Action attribute final indicates that this action has no return values or return data (but could have parameters) and ends the current series of actions. The default value is obviously "false".
+
+6. The type attribute for action parameters specifies the type of data which is expected to be *serialized* into that parameter. The default value is "string". The visual tool is not expected to use this information for strong type-checking. Instead, it should just be displayed to the user for reference.
+
+7. The default value for the use attribute of the actionParam tag is "required".
+
+8. The returnValue type attribute can be any of the following defined values:
+	I. "success" - String value which is either "success" or "failure".
+	II. "boolean" - String value which is either "true" or "false".
+	III. "yes_no" - String value which is either "yes" or "no".
+	IV. "custom" - Any string value.
+
+8a. Possible return values for provider actions must always include "timeout".
+
+8b. If no returnValue tag is specified, type "success" should be assumed.
+
+9. The type of the resultData tag indicates the variable type that data is expected to be cast to in the application. This value must be a fully-qualified native type. The default value is "Metreos.Types.String". If multiple types are equally valid, they must all be present in a pipe "|" delimited list.
+
+10. If no value is specified in the resultData tag, "returnValue" should be assumed. This can only occur for native actions and it can only occur once per action.
+
+* Events *
+
+1. Event names must not be fully-qualified.
+
+2. Event types are defined as follows:
+	I. "triggering" - This event can only be used to trigger a new instance of an application.
+	II. "nontriggering" - This event can only be received in response to some action.
+	III. "hybrid" - This event can take either of the above forms depending on context.
+
+3. The event attribute "expects" identifies an action which this event expects to be called in order for normal processing to continue. This name must not be fully-qualified unless, for some odd reason, it exists in a different package.
+
+4. The type of the eventParam tag indicates the variable type that data is expected to be cast to in the application. This value must be a fully-qualified native type. The default value is "Metreos.Types.String". If multiple types are equally valid, they must all be present in a pipe "|" delimited list.
+
+5. The guaranteed attribute of the eventParam tag indicates whether or not a valid value will always be passed in this parameter. Do not use any parameter with this attribute set to false as triggering criteria. Values with guaranteed set to false should only be used in debug output or some other non-critical role. The default value is "true".

@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MaxProject name="SimpleLoopTest" version="0.2" current="script1" type="app">
+  <MaxIDE>
+    <MaxTools>
+      <!--//// begin packages list ////-->
+      <Packages version="0.1">
+        <package name="Metreos.ApplicationControl" />
+        <package name="Metreos.Native.ApplicationControl" />
+        <package name="Metreos.Native.CiscoDeviceList" />
+        <package name="Metreos.Native.CiscoIpPhone" />
+        <package name="Metreos.Native.Conditional" />
+        <package name="Metreos.Native.DialPlan" />
+        <package name="Metreos.Native.Log" />
+        <package name="Metreos.Native.Mail" />
+        <package name="Metreos.Providers.CiscoDeviceListX" />
+        <package name="Metreos.Providers.FunctionalTest" />
+        <package name="Metreos.CallControl" />
+        <package name="Metreos.Providers.Http" />
+        <package name="Metreos.Providers.MediaServer" />
+        <package name="Metreos.Providers.TimerFacility" />
+      </Packages>
+      <!--//// begin toolbox layout ////-->
+      <Toolbox activetab="Application Components" version="0.1">
+        <sidetab text="Cisco IP Phone">
+          <sidetabitem text="AddDirectoryEntry" name="AddDirectoryEntry" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="AddIconItem" name="AddIconItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="AddInputItem" name="AddInputItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="AddMenuItem" name="AddMenuItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="AddSoftKeyItem" name="AddSoftKeyItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateDirectory" name="CreateDirectory" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateExecute" name="CreateExecute" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateGraphicFileMenu" name="CreateGraphicFileMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateGraphicMenu" name="CreateGraphicMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateIconMenu" name="CreateIconMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateImage" name="CreateImage" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateImageFile" name="CreateImageFile" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateInput" name="CreateInput" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateMenu" name="CreateMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="CreateText" name="CreateText" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="SendExecute" name="SendExecute" type="Action" group="Metreos.Native.CiscoIpPhone" />
+          <sidetabitem text="Query" name="Query" type="Action" group="Metreos.Native.CiscoDeviceList" />
+        </sidetab>
+        <sidetab text="Call Control">
+          <sidetabitem text="MakeCall" name="MakeCall" type="Action" group="Metreos.CallControl" />
+          <sidetabitem text="SetMedia" name="SetMedia" type="Action" group="Metreos.CallControl" />
+          <sidetabitem text="AnswerCall" name="AnswerCall" type="Action" group="Metreos.CallControl" />
+          <sidetabitem text="Hangup" name="Hangup" type="Action" group="Metreos.CallControl" />
+          <sidetabitem text="SignallingChange" name="SignallingChange" type="Event" group="Metreos.CallControl" />
+          <sidetabitem text="GotDigits" name="GotDigits" type="Event" group="Metreos.CallControl" />
+        </sidetab>
+        <sidetab text="Media Control">
+          <sidetabitem text="CreateConnection" name="CreateConnection" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="CreateConnectionConference" name="CreateConnectionConference" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="DeleteConnection" name="DeleteConnection" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="PlayAnnouncement" name="PlayAnnouncement" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="RecordAudio" name="RecordAudio" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="ReceiveDigits" name="ReceiveDigits" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="SendDigits" name="SendDigits" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="MuteConferenceConnection" name="MuteConferenceConnection" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="UnMuteConferenceConnection" name="UnMuteConferenceConnection" type="Action" group="Metreos.Providers.MediaServer" />
+          <sidetabitem text="StopMediaOperation" name="StopMediaOperation" type="Action" group="Metreos.Providers.MediaServer" />
+        </sidetab>
+        <sidetab text="HTTP">
+          <sidetabitem text="SendResponse" name="SendResponse" type="Action" group="Metreos.Providers.Http" />
+        </sidetab>
+        <sidetab text="Cisco DeviceListX">
+          <sidetabitem text="Refresh" name="Refresh" type="Action" group="Metreos.Providers.CiscoDeviceListX" />
+          <sidetabitem text="Query" name="Query" type="Action" group="Metreos.Native.CiscoDeviceList" />
+        </sidetab>
+        <sidetab text="Mail">
+          <sidetabitem text="Send" name="Send" type="Action" group="Metreos.Native.Mail" />
+        </sidetab>
+        <sidetab text="DialPlan">
+          <sidetabitem text="FormatAddress" name="FormatAddress" type="Action" group="Metreos.Native.DialPlan" />
+        </sidetab>
+        <sidetab text="Application Components">
+          <sidetabitem text="Variable" name="Variable" type="Variable" group="Metreos.StockTools" />
+          <sidetabitem text="Comment" name="Comment" type="Comment" group="Metreos.StockTools" />
+          <sidetabitem text="Loop" name="Loop" type="Loop" group="Metreos.StockTools" />
+          <sidetabitem text="Label" name="Label" type="Label" group="Metreos.StockTools" />
+          <sidetabitem text="CallFunction" name="CallFunction" type="Action" group="Metreos.ApplicationControl" />
+          <sidetabitem text="Forward" name="Forward" type="Action" group="Metreos.ApplicationControl" />
+          <sidetabitem text="SendEvent" name="SendEvent" type="Action" group="Metreos.ApplicationControl" />
+          <sidetabitem text="EvaluateExpression" name="EvaluateExpression" type="Action" group="Metreos.Native.ApplicationControl" />
+          <sidetabitem text="Sleep" name="Sleep" type="Action" group="Metreos.Native.ApplicationControl" />
+          <sidetabitem text="Compare" name="Compare" type="Action" group="Metreos.Native.Conditional" />
+          <sidetabitem text="Switch" name="Switch" type="Action" group="Metreos.Native.Conditional" />
+          <sidetabitem text="AddTimer" name="AddTimer" type="Action" group="Metreos.Providers.TimerFacility" />
+          <sidetabitem text="RemoveTimer" name="RemoveTimer" type="Action" group="Metreos.Providers.TimerFacility" />
+          <sidetabitem text="TimerFire" name="TimerFire" type="Event" group="Metreos.Providers.TimerFacility" />
+          <sidetabitem text="Write" name="Write" type="Action" group="Metreos.Native.Log" />
+          <sidetabitem text="EndScript" name="EndScript" type="Action" group="Metreos.ApplicationControl" />
+          <sidetabitem text="EndFunction" name="EndFunction" type="Action" group="Metreos.ApplicationControl" />
+        </sidetab>
+        <sidetab text="Test">
+          <sidetabitem text="Signal" name="Signal" type="Action" group="Metreos.Providers.FunctionalTest" />
+          <sidetabitem text="Event" name="Event" type="Event" group="Metreos.Providers.FunctionalTest" />
+        </sidetab>
+      </Toolbox>
+      <!--//// begin triggers list ////-->
+      <Triggers>
+        <trigger name="Metreos.Providers.FunctionalTest.TriggerApp" />
+        <trigger name="Metreos.CallControl.IncomingCall" />
+        <trigger name="Metreos.Providers.Http.GotRequest" />
+        <trigger name="Metreos.Providers.TimerFacility.TimerFire" />
+      </Triggers>
+    </MaxTools>
+    <!--//// begin IDE layout ////-->
+    <DockingConfig FormatVersion="5" InsideFill="False" InnerMinimum="20, 20">
+      <Content Name="Explorer" Visible="True" Docked="True" AutoHidden="False" CaptionBar="True" CloseButton="True" DisplaySize="150, 150" DisplayLocation="150, 150" AutoHideSize="150, 150" FloatingSize="150, 150" FullTitle="Explorer">
+        <DefaultRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Explorer" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </DefaultRestore>
+        <AutoHideRestore Type="Crownwood.Magic.Docking.RestoreAutoHideState">
+          <Content Name="Explorer" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </AutoHideRestore>
+        <DockingRestore Type="Crownwood.Magic.Docking.RestoreContentDockingAffinity">
+          <Content Name="Explorer" />
+          <State Value="DockLeft" />
+          <Position Size="150, 150" Location="150, 150" />
+          <Best Count="2">
+            <Item Name="Explorer" />
+            <Item Name="Overview" />
+          </Best>
+          <Next Count="0" />
+          <Previous Count="0" />
+          <NextAll Count="3">
+            <Item Name="Output" />
+            <Item Name="Toolbox" />
+            <Item Name="Properties" />
+          </NextAll>
+          <PreviousAll Count="0" />
+          <Child Type="Crownwood.Magic.Docking.RestoreZoneAffinity">
+            <Content Name="Explorer" />
+            <Space Value="50" />
+            <Best Count="1">
+              <Item Name="Explorer" />
+            </Best>
+            <Next Count="1">
+              <Item Name="Overview" />
+            </Next>
+            <Previous Count="0" />
+            <Child Type="Crownwood.Magic.Docking.RestoreWindowContent">
+              <Content Name="Explorer" />
+              <Next Count="0" />
+              <Previous Count="0" />
+              <Selected Value="True" />
+              <Child Type="null" />
+            </Child>
+          </Child>
+        </DockingRestore>
+        <FloatingRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Explorer" />
+          <State Value="Floating" />
+          <Child Type="null" />
+        </FloatingRestore>
+      </Content>
+      <Content Name="Overview" Visible="True" Docked="True" AutoHidden="False" CaptionBar="True" CloseButton="True" DisplaySize="150, 150" DisplayLocation="150, 150" AutoHideSize="150, 150" FloatingSize="150, 150" FullTitle="Overview">
+        <DefaultRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Overview" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </DefaultRestore>
+        <AutoHideRestore Type="Crownwood.Magic.Docking.RestoreAutoHideState">
+          <Content Name="Overview" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </AutoHideRestore>
+        <DockingRestore Type="Crownwood.Magic.Docking.RestoreContentDockingAffinity">
+          <Content Name="Overview" />
+          <State Value="DockLeft" />
+          <Position Size="150, 150" Location="150, 150" />
+          <Best Count="1">
+            <Item Name="Overview" />
+          </Best>
+          <Next Count="0" />
+          <Previous Count="0" />
+          <NextAll Count="3">
+            <Item Name="Output" />
+            <Item Name="Toolbox" />
+            <Item Name="Properties" />
+          </NextAll>
+          <PreviousAll Count="0" />
+          <Child Type="Crownwood.Magic.Docking.RestoreZoneAffinity">
+            <Content Name="Overview" />
+            <Space Value="100" />
+            <Best Count="1">
+              <Item Name="Overview" />
+            </Best>
+            <Next Count="0" />
+            <Previous Count="0" />
+            <Child Type="Crownwood.Magic.Docking.RestoreWindowContent">
+              <Content Name="Overview" />
+              <Next Count="0" />
+              <Previous Count="0" />
+              <Selected Value="True" />
+              <Child Type="null" />
+            </Child>
+          </Child>
+        </DockingRestore>
+        <FloatingRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Overview" />
+          <State Value="Floating" />
+          <Child Type="null" />
+        </FloatingRestore>
+      </Content>
+      <Content Name="Output" Visible="True" Docked="True" AutoHidden="False" CaptionBar="True" CloseButton="True" DisplaySize="150, 150" DisplayLocation="150, 150" AutoHideSize="150, 150" FloatingSize="150, 150" FullTitle="Output">
+        <DefaultRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Output" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </DefaultRestore>
+        <AutoHideRestore Type="Crownwood.Magic.Docking.RestoreAutoHideState">
+          <Content Name="Output" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </AutoHideRestore>
+        <DockingRestore Type="Crownwood.Magic.Docking.RestoreContentDockingAffinity">
+          <Content Name="Output" />
+          <State Value="DockBottom" />
+          <Position Size="150, 150" Location="150, 150" />
+          <Best Count="1">
+            <Item Name="Output" />
+          </Best>
+          <Next Count="0" />
+          <Previous Count="0" />
+          <NextAll Count="2">
+            <Item Name="Toolbox" />
+            <Item Name="Properties" />
+          </NextAll>
+          <PreviousAll Count="0" />
+          <Child Type="Crownwood.Magic.Docking.RestoreZoneAffinity">
+            <Content Name="Output" />
+            <Space Value="100" />
+            <Best Count="1">
+              <Item Name="Output" />
+            </Best>
+            <Next Count="0" />
+            <Previous Count="0" />
+            <Child Type="Crownwood.Magic.Docking.RestoreWindowContent">
+              <Content Name="Output" />
+              <Next Count="0" />
+              <Previous Count="0" />
+              <Selected Value="True" />
+              <Child Type="null" />
+            </Child>
+          </Child>
+        </DockingRestore>
+        <FloatingRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Output" />
+          <State Value="Floating" />
+          <Child Type="null" />
+        </FloatingRestore>
+      </Content>
+      <Content Name="Toolbox" Visible="True" Docked="True" AutoHidden="False" CaptionBar="True" CloseButton="True" DisplaySize="277, 150" DisplayLocation="150, 150" AutoHideSize="150, 150" FloatingSize="150, 150" FullTitle="Toolbox">
+        <DefaultRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Toolbox" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </DefaultRestore>
+        <AutoHideRestore Type="Crownwood.Magic.Docking.RestoreAutoHideState">
+          <Content Name="Toolbox" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </AutoHideRestore>
+        <DockingRestore Type="Crownwood.Magic.Docking.RestoreContentDockingAffinity">
+          <Content Name="Toolbox" />
+          <State Value="DockRight" />
+          <Position Size="277, 150" Location="150, 150" />
+          <Best Count="2">
+            <Item Name="Toolbox" />
+            <Item Name="Properties" />
+          </Best>
+          <Next Count="0" />
+          <Previous Count="0" />
+          <NextAll Count="0" />
+          <PreviousAll Count="0" />
+          <Child Type="Crownwood.Magic.Docking.RestoreZoneAffinity">
+            <Content Name="Toolbox" />
+            <Space Value="50" />
+            <Best Count="1">
+              <Item Name="Toolbox" />
+            </Best>
+            <Next Count="1">
+              <Item Name="Properties" />
+            </Next>
+            <Previous Count="0" />
+            <Child Type="Crownwood.Magic.Docking.RestoreWindowContent">
+              <Content Name="Toolbox" />
+              <Next Count="0" />
+              <Previous Count="0" />
+              <Selected Value="True" />
+              <Child Type="null" />
+            </Child>
+          </Child>
+        </DockingRestore>
+        <FloatingRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Toolbox" />
+          <State Value="Floating" />
+          <Child Type="null" />
+        </FloatingRestore>
+      </Content>
+      <Content Name="Properties" Visible="True" Docked="True" AutoHidden="False" CaptionBar="True" CloseButton="True" DisplaySize="277, 150" DisplayLocation="150, 150" AutoHideSize="150, 150" FloatingSize="150, 150" FullTitle="Properties">
+        <DefaultRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Properties" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </DefaultRestore>
+        <AutoHideRestore Type="Crownwood.Magic.Docking.RestoreAutoHideState">
+          <Content Name="Properties" />
+          <State Value="DockLeft" />
+          <Child Type="null" />
+        </AutoHideRestore>
+        <DockingRestore Type="Crownwood.Magic.Docking.RestoreContentDockingAffinity">
+          <Content Name="Properties" />
+          <State Value="DockRight" />
+          <Position Size="277, 150" Location="150, 150" />
+          <Best Count="1">
+            <Item Name="Properties" />
+          </Best>
+          <Next Count="0" />
+          <Previous Count="0" />
+          <NextAll Count="0" />
+          <PreviousAll Count="0" />
+          <Child Type="Crownwood.Magic.Docking.RestoreZoneAffinity">
+            <Content Name="Properties" />
+            <Space Value="100" />
+            <Best Count="1">
+              <Item Name="Properties" />
+            </Best>
+            <Next Count="0" />
+            <Previous Count="0" />
+            <Child Type="Crownwood.Magic.Docking.RestoreWindowContent">
+              <Content Name="Properties" />
+              <Next Count="0" />
+              <Previous Count="0" />
+              <Selected Value="True" />
+              <Child Type="null" />
+            </Child>
+          </Child>
+        </DockingRestore>
+        <FloatingRestore Type="Crownwood.Magic.Docking.RestoreContentState">
+          <Content Name="Properties" />
+          <State Value="Floating" />
+          <Child Type="null" />
+        </FloatingRestore>
+      </Content>
+    </DockingConfig>
+  </MaxIDE>
+  <Files>
+    <Include>
+      <File relpath="script1.app" subtype="app" />
+      <File relpath="SimpleLoopTest.installer" subtype="installer" />
+    </Include>
+  </Files>
+</MaxProject>

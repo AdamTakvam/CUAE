@@ -1,0 +1,391 @@
+body {
+    background-color: #bed8dc;
+    font: 70% Verdana, Arial, Sans-Serif;
+    color: #666;
+    margin: 0;
+    padding: 0;
+}
+
+#header {
+    background-color: #036c76;
+    background-image: url("img/header_bg.gif");
+    background-position: top left;
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 80px;
+}
+
+#header div.search {
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 10px;
+    color: #fff;
+    font: 1em Verdana, Arial, Sans-Serif;
+    float: right;
+}
+
+#nav {
+    background-color: #bed8dc;
+    width: 100%;
+    height: auto;
+}
+
+#nav div.navbox {
+    background-color: #E3F0F0;
+	margin: 6px 6px 6px 6px;
+	padding: 6px 6px 6px 6px;
+	border: 1px solid #96BFC5;
+	color: #900;
+}
+
+#nav a, a:visited {
+	color: #900;
+	text-decoration: underline;
+	text-align: left;
+}
+
+#nav a:hover {
+	color: #900;
+	text-decoration: none;
+}
+
+#promo {
+    background-color: #fff;
+    background-image: url("img/promo_bg.gif");
+    background-position: top left;
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 194px;
+}
+
+#promo div.promobox {
+    width: 60%;
+    line-height: 1.5;
+    border: solid 1px #fff; /**/
+    float: left;
+}
+
+
+#content {
+    background-color: #bed8dc;
+    border: 1px solid #bed8dc;
+    position: relative;
+}
+
+
+#left {
+    width: 170px;
+    float: left;
+    height: 100%;
+}
+
+#left div.menu {
+    background-color: #058d9a;
+    height: 20px;
+    font: bold 1em Tahoma, Arial, Sans-Serif;
+    color: #fff;
+    text-align: right;
+    margin: 5px 5px 5px 5px;
+    padding: 6px 6px 0px 6px;
+}
+
+#left div.menuoff {
+    background-color: #96bfc5;
+    height: 20px;
+    font: bold 1em Tahoma, Arial, Sans-Serif;
+    color: #fff;
+    text-align: right;
+    margin: 5px 5px 5px 5px;
+    padding: 6px 6px 0px 6px;
+}
+
+#left div.submenu {
+    height: 20px;
+    font: bold 1em Tahoma, Arial, Sans-Serif;
+    color: #666;
+    text-align: right;
+    line-height: 2;
+    margin: 5px 5px 5px 5px;
+    padding: 6px 6px 6px 6px;
+    height: auto;
+}
+
+#left div.submenu2 {
+    height: 20px;
+    font: normal 1em Tahoma, Arial, Sans-Serif;
+    color: #666;
+    text-align: right;
+    line-height: 2;
+    height: auto;
+}
+
+
+#left a  {
+    color: #666;
+    text-decoration: underline;
+}
+
+#left a:visited  {
+    color: #666;
+    text-decoration: underline;
+}
+
+#left a:hover  {
+    color: #058d9a;
+    text-decoration: none;
+}
+
+#right {
+    margin-left: 170px;
+    height: 100%;
+}
+
+#right2 {
+    height: 100%;
+}
+
+#featured {
+    background-color: #bed8dc;
+    margin: 5px 5px 5px 5px;
+    padding: 0px 0px 0px 0px;
+    height: 100%;
+}
+
+#featured div.featbox {
+    background-color: #fff;
+    height: 200px;
+    padding: 10px 10px 10px 10px;
+    margin-right: 165px;
+    line-height: 1.5;
+}
+
+#featured div.smallbox {
+    background-color: #fff;
+    width: 140px;
+    height: 200px;
+    padding: 10px 10px 10px 10px;
+    line-height: 1.5;
+    float: right;
+}
+
+#mainbox {
+    background-color: #e3f0f0;
+    margin: 5px 5px 5px 5px;
+    padding: 10px 10px 10px 10px;
+    line-height: 1.5;
+    height: 100%;
+    border: 1px solid #96BFC5;
+}
+
+#mainbox div.leftcol {
+    width: 45%;
+    height: auto;
+    float: left;
+    line-height: 1.5;
+    padding-right: 10px;
+}
+
+#mainbox div.rightcol {
+    margin-left: 50%;
+    height: auto;
+    line-height: 1.5;
+}
+
+
+#mainbox table {
+    font: 100%;
+}
+
+#clean {
+    clear: both;
+}
+
+#footer {
+    background-color: #BDD8DB;
+    background-image: url("img/footer_bg.gif");
+    background-position: top left;
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 80px;
+    position: bottom;
+}
+
+#footer div.copyright{
+	font-size: smaller;
+    text-align: center;
+    padding: 10px 0px 0px 0px;
+    line-height: 1.5;
+    color: #fff;
+}
+
+
+#footer a  {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#footer a:visited  {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+h1, h2, h3, h4, .mainLarge, .TopicTitle, .TopicTitle1, .TopicTitle2 {
+    font: bold 200%/1.1 "Trebuchet MS", Arial, Sans-Serif;
+    margin: 0 0 0.5em 0;
+    padding: 0;
+    color: #900;
+}
+
+h2 {
+    font-size: 167%
+}
+
+h3, .TopicTitle {
+    font-size: 140%
+}
+
+h4, .mainLarge, .TopicTitle1, .TopicTitle2 {
+    font-size: 115%
+}
+
+.TopicTitle2 {
+    font-style: italic;
+}
+
+.mainBold {
+    font-weight: bold;
+}
+
+a {
+    color: #900;
+    text-decoration: underline;
+}
+
+a:link {
+}
+
+a:visited {
+    color: #999;
+    text-decoration: underline;
+}
+
+a:active {
+}
+
+a:hover {
+    color: #900;
+    text-decoration: none;
+}
+
+span.topic {
+    color: #099;
+    margin-left: 3px;
+    font-weight: bold;
+}
+
+span.topic2 {
+    font: bold 200%/1.1 "Trebuchet MS", Arial, Sans-Serif;
+    font-size: 115%;
+    color: #900;
+    margin-left: 3px;
+    font-weight: bold;
+}
+
+span.grey {
+    color: #666;
+}
+
+span.italic {
+    color: #999;
+    font-style: italic;
+}
+
+span.ws {
+    margin: 0px 12px 0px 12px;
+}
+
+table.maintable {
+	background-color: #8DBEC6;
+	width: 100%;
+	padding: 5px;
+}
+
+td.maintablecaption {
+	padding: 5px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+td.maintablecell {
+	padding: 5px;
+	background-color: #e3f0f0;
+}
+
+table.tableborder {
+	background-color: #8DBEC6;
+	width: 100%;
+}
+
+td.tablehead {
+	background-color: #8DBEC6;
+	padding: 5px;
+}
+
+font.tableheadtext {
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+td.tablebody {
+	padding: 5px;
+	background-color: #e3f0f0;
+}
+
+font.tablebodytext {
+}
+
+.toptext {
+	font-weight: bold;
+}
+
+.inputfield{height:15px; font-size:11px; color:black; border: solid 1px}
+.inputfieldcode{height:55px; font-size:11px; color:black; border: solid 1px}
+.inputbutton{width:120px; height:22px; font-size:11px; color:black; background-color:#96bfc5; border: solid 1px black;}
+.supportbutton{width:190px; height:22px; font-size:11px; color:black; background-color:#96bfc5; border: solid 1px black;}
+/*.inputcheckbox{height:15px; font-size:11px; color:black; border: solid 0px}
+*/
+.inputtext{height:15px; font-size:11px; color:black; border: solid 1px}
+.inputtextarea{height:95px; font-size:11px; color:black; border: solid 1px}
+
+.newspartitioncolor {background-color:#96bfc5;}
+.newsfoldercolor {background-color: #96bfc5;}
+
+.righthead {font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px; font-weight: bold; color: #4D6ADF; text-decoration:none;}
+.rightlinks {font-family:Verdana,Arial,Helvetica,sans-serif; font-size:11px;}
+
+.small {font-family: Arial, Helvetica, sans-serif; font-size:12px;}/*Основной текст*/
+.smalltext {font-size:11px; font-weight:normal;}/*Мелкий текст*/
+.newssecttitle {font-size:12px; font-weight: bold; color: #5E8596; text-decoration:none;}/*Секция новости*/
+.newstext {font-size:11px; font-weight:normal; text-decoration:none;}/*Текст новости*/
+.newsdata {font-size:11px; font-weight:normal; text-decoration:none;}/*Дата новости мал.*/
+.newsdatab {font-size:12px; font-weight:normal; text-decoration:none;}/*Дата новости бол.*/
+
+.titletext {font-size:15px; font-weight:bold; line-height: 18px;}/*Текст заголовка*/
+.slogan {font-size:15px; font-weight:normal; line-height: 18px;}/*Текст слогана*/
+.subtitletext {color:#000000; font-size:11pt; font-weight:bold;}/*Текст подзаголовка*/
+.errortext {font-size:10pt; color:red; font-weight:bold;}/*Сообщение об ошибке*/
+
+.oktext {font-size:10pt; font-weight:bold;}
+.required {color:red; font-size:smaller; }
+
+.copy {font-size: 11px; font-weight: normal; text-decoration: none; color: #FFFFFF;}
+
+.smalltxtw {font-size: 10px; line-height: 12px; text-decoration: none}
+a.smalltxtw:hover {text-decoration: underline;}
+.smalltxtws {font-size: 10px; line-height: 12px; text-decoration: none}
+a.smalltxtws:hover {text-decoration: underline;}
+
+.tableheads {background-color:#F4FDF9;}
+.tableborders {background-color:#C7DAE4;}
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="AppInstaller" targetNamespace="http://metreos.com/AppInstaller.xsd" elementFormDefault="qualified"
+    xmlns="http://metreos.com/AppInstaller.xsd" xmlns:mstns="http://metreos.com/AppInstaller.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="configValueType">
+		<xs:sequence>
+			<xs:element name="EnumItem" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+        <!-- Defaults are NULL and false, respectively -->
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="displayName" type="xs:string" use="optional" />
+        <xs:attribute name="format" type="xs:string" use="required" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+        <xs:attribute name="minValue" type="xs:int" use="optional" />
+        <xs:attribute name="maxValue" type="xs:int" use="optional" />
+        <xs:attribute name="defaultValue" type="xs:string" use="optional" />
+        <xs:attribute name="readOnly" type="xs:boolean" use="optional" />
+        <xs:attribute name="required" type="xs:boolean" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="configurationType">
+        <xs:sequence>
+            <xs:element name="configValue" type="configValueType" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="unused" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="installType">
+        <xs:sequence>
+            <xs:element name="configuration" type="configurationType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <!-- Lay the smack down -->
+    <xs:element name="install" type="installType" />
+</xs:schema>

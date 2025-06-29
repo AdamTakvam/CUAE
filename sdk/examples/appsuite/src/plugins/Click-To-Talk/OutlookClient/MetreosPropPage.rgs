@@ -1,0 +1,33 @@
+HKCR
+{
+	OutlookClient.MetreosPropPage.1 = s 'MetreosPropPage Class'
+	{
+		CLSID = s '{AAA18667-3166-438F-8056-A3DF63480550}'
+	}
+	OutlookClient.MetreosPropPage = s 'MetreosPropPage Class'
+	{
+		CLSID = s '{AAA18667-3166-438F-8056-A3DF63480550}'
+		CurVer = s 'OutlookClient.MetreosPropPage.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AAA18667-3166-438F-8056-A3DF63480550} = s 'MetreosPropPage Class'
+		{
+			ProgID = s 'OutlookClient.MetreosPropPage.1'
+			VersionIndependentProgID = s 'OutlookClient.MetreosPropPage'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 112'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{7D42B0A7-AAFE-4CFD-9172-F237103BC25F}'
+			'Version' = s '1.0'
+		}
+	}
+}

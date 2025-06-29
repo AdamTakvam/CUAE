@@ -1,0 +1,331 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{69306007-E02A-4872-BAC2-174CD22ECAF5}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.ApplicationSuite.Actions</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.ApplicationSuite.Actions</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Metreos.ApplicationFramework">
+      <Name>Metreos.ApplicationFramework</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Core">
+      <Name>Metreos.Core</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Interfaces">
+      <Name>Metreos.Interfaces</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.LoggingFramework">
+      <Name>Metreos.LoggingFramework</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.PackageGeneratorCore">
+      <Name>Metreos.PackageGeneratorCore</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.PackageGeneratorCore.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Utilities">
+      <Name>Metreos.Utilities</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\Storage\Storage.csproj">
+      <Name>Storage</Name>
+      <Project>{B5714DDA-7603-4CE0-8F92-426514DB3125}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ChangePinCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conferencing\AddToQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conferencing\GetConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conferencing\IsConferenceReadyToStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conferencing\RemoveFromQueue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conferencing\SchedConfIdIntoCallRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Conferencing\UpdateConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetActiveRelayFiltersForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetActiveRelayNumbers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetConfigValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetCorporateNumberForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetDeviceByDn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetDevicesForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetEmailAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetExternalNumbersForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetPrimaryDeviceForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetPrimaryDnForDevice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetPrimaryDnForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserByDeviceMac.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserByDn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserByPrimaryDN.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserByUsername.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserCurrentDateTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserCurrentTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserGmtOffset.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GetUserTimeZone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Intercom\GetIntercomGroup.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Intercom\GetIntercomGroupMembers.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Intercom\GetIntercomGroupsForUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IsSessionAllowed.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mec\AddParticipant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mec\CreateConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mec\EndConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mec\GetParticipant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mec\SetParticipantStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mec\StartConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MoveMediaToAppServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhoneLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Recording\DeleteRecordingRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Recording\RecordingsIdIntoCallRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Recording\ShouldUserBeRecorded.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Recording\WriteRecordingStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Recording\WriteRecordingStop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RemoteAgent\GetRemoteAgentByDevice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RemoteAgent\GetRemoteAgentLevel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SccpProxy\WriteRegistrationStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SccpProxy\WriteRegistrationStop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SetFindMeStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UpdateCallRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValidateAccountAcl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValidateClientMatterCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ValidateProjectCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceMail\AddRecordToCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceMail\CreateVoiceMailRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceMail\GetVoiceMailRecords.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceMail\GetVoiceMailSettings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceMail\UpdateVoiceMailGreeting.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VoiceMail\UpdateVoiceMailRecordStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WebLogin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WriteCallRecordStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WriteCallRecordStop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WriteFindMeCallRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WriteSessionStart.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WriteSessionStop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

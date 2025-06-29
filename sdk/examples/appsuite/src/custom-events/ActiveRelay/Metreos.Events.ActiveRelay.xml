@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Events.ActiveRelay" description="Events used by the Active Relay application" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <eventList>
+    <event name="SwapRequest" type="nontriggering" displayName="SwapRequest" description="Fired by the CiscoIP script to the call control app to initiate call swap">
+      <eventParam type="System.UInt32" name="userId" guaranteed="true" displayName="userId" />
+      <eventParam type="System.String" name="directoryNumber" guaranteed="true" displayName="directoryNumber" />
+      <eventParam type="System.String" name="senderRoutingGuid" guaranteed="true" displayName="senderRoutingGuid" />
+      <eventParam type="System.String" name="ciscoPhoneIp" guaranteed="true" displayName="ciscoPhoneIp" />
+      <eventParam type="System.String" name="responseUrl" guaranteed="true" displayName="responseUrl" />
+    </event>
+    <event name="SwapRequestResponse" type="nontriggering" displayName="SwapRequestResponse" description="Fired by the call control application in response to a SwapRequest">
+      <eventParam type="System.String" name="response" guaranteed="true" displayName="response" />
+    </event>
+    <event name="FindMeServiceRequest" type="triggering" displayName="FindMeServiceRequest" description="Event that is used to trigger the ActiveRelay Service for FindMe numbers.">
+      <eventParam type="System.UInt32" name="UserId" guaranteed="true" displayName="UserId" />
+      <eventParam type="System.String" name="SenderRoutingGuid" guaranteed="true" displayName="SenderRoutingGuid" />
+      <eventParam type="System.String" name="OperationType" guaranteed="true" displayName="OperationType" />
+      <eventParam type="System.String" name="TimerId" guaranteed="true" displayName="TimerId" />
+    </event>
+    <event name="FindMeServiceRequestResp" type="nontriggering" displayName="FindMeServiceRequestResp" description="Event that contains the response from the AR FindMe service.">
+     <eventParam type="System.String" name="Response" guaranteed="true" displayName="Response" />
+     <eventParam type="System.String" name="TimerId" guaranteed="true" displayName="TimerId" />
+    </event>  
+  </eventList>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>            <!-- XML version -->
+
+<!-- *************** CONFIG PARAMETERS ************* -->
+
+<SWIrecConfig version="1.0.0">
+<lang name="default">
+
+  <param name="SWIsvcRootGrammarDirectory">
+     <value>$SWISRSDK/grammar</value>
+  </param>
+
+</lang>
+
+</SWIrecConfig>

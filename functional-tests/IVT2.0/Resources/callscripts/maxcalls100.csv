@@ -1,0 +1,200 @@
+  1,set:lwait=5 wait:1 ofhk dial:7000 wait:240 onhk
+  2,
+  3,set:lwait=5 wait:2 ofhk dial:7000 wait:240 onhk
+  4,
+  5,set:lwait=5 wait:3 ofhk dial:7000 wait:240 onhk
+  6,
+  7,set:lwait=5 wait:4 ofhk dial:7000 wait:240 onhk
+  8,
+  9,set:lwait=5 wait:5 ofhk dial:7000 wait:240 onhk
+ 10,
+ 11,set:lwait=5 wait:6 ofhk dial:7000 wait:240 onhk
+ 12,
+ 13,set:lwait=5 wait:7 ofhk dial:7000 wait:240 onhk
+ 14,
+ 15,set:lwait=5 wait:8 ofhk dial:7000 wait:240 onhk
+ 16,
+ 17,set:lwait=5 wait:9 ofhk dial:7000 wait:240 onhk
+ 18,
+ 19,set:lwait=5 wait:10 ofhk dial:7000 wait:240 onhk
+ 20,
+ 21,set:lwait=5 wait:11 ofhk dial:7000 wait:240 onhk
+ 22,
+ 23,set:lwait=5 wait:12 ofhk dial:7000 wait:240 onhk
+ 24,
+ 25,set:lwait=5 wait:13 ofhk dial:7000 wait:240 onhk
+ 26,
+ 27,set:lwait=5 wait:14 ofhk dial:7000 wait:240 onhk
+ 28,
+ 29,set:lwait=5 wait:15 ofhk dial:7000 wait:240 onhk
+ 30,
+ 31,set:lwait=5 wait:16 ofhk dial:7000 wait:240 onhk
+ 32,
+ 33,set:lwait=5 wait:17 ofhk dial:7000 wait:240 onhk
+ 34,
+ 35,set:lwait=5 wait:18 ofhk dial:7000 wait:240 onhk
+ 36,
+ 37,set:lwait=5 wait:19 ofhk dial:7000 wait:240 onhk
+ 38,
+ 39,set:lwait=5 wait:20 ofhk dial:7000 wait:240 onhk
+ 40,
+ 41,set:lwait=5 wait:21 ofhk dial:7000 wait:240 onhk
+ 42,
+ 43,set:lwait=5 wait:22 ofhk dial:7000 wait:240 onhk
+ 44,
+ 45,set:lwait=5 wait:23 ofhk dial:7000 wait:240 onhk
+ 46,
+ 47,set:lwait=5 wait:24 ofhk dial:7000 wait:240 onhk
+ 48,
+ 49,set:lwait=5 wait:25 ofhk dial:7000 wait:240 onhk
+ 50,
+ 51,set:lwait=5 wait:26 ofhk dial:7000 wait:240 onhk
+ 52,
+ 53,set:lwait=5 wait:27 ofhk dial:7000 wait:240 onhk
+ 54,
+ 55,set:lwait=5 wait:28 ofhk dial:7000 wait:240 onhk
+ 56,
+ 57,set:lwait=5 wait:28 ofhk dial:7000 wait:240 onhk
+ 58,
+ 59,set:lwait=5 wait:29 ofhk dial:7000 wait:240 onhk
+ 60,
+ 61,set:lwait=5 wait:30 ofhk dial:7000 wait:240 onhk
+ 62,
+ 63,set:lwait=5 wait:31 ofhk dial:7000 wait:240 onhk
+ 64,
+ 65,set:lwait=5 wait:32 ofhk dial:7000 wait:240 onhk
+ 66,
+ 67,set:lwait=5 wait:33 ofhk dial:7000 wait:240 onhk
+ 68,
+ 69,set:lwait=5 wait:34 ofhk dial:7000 wait:240 onhk
+ 70,
+ 71,set:lwait=5 wait:35 ofhk dial:7000 wait:240 onhk
+ 72,
+ 73,set:lwait=5 wait:36 ofhk dial:7000 wait:240 onhk
+ 74,
+ 75,set:lwait=5 wait:37 ofhk dial:7000 wait:240 onhk
+ 76,
+ 77,set:lwait=5 wait:38 ofhk dial:7000 wait:240 onhk
+ 78,
+ 79,set:lwait=5 wait:39 ofhk dial:7000 wait:240 onhk
+ 80,
+ 81,set:lwait=5 wait:40 ofhk dial:7000 wait:240 onhk
+ 82,
+ 83,set:lwait=5 wait:41 ofhk dial:7000 wait:240 onhk
+ 84,
+ 85,set:lwait=5 wait:42 ofhk dial:7000 wait:240 onhk
+ 86,
+ 87,set:lwait=5 wait:43 ofhk dial:7000 wait:240 onhk
+ 88,
+ 89,set:lwait=5 wait:44 ofhk dial:7000 wait:240 onhk
+ 90,
+ 91,set:lwait=5 wait:45 ofhk dial:7000 wait:240 onhk
+ 92,
+ 93,set:lwait=5 wait:46 ofhk dial:7000 wait:240 onhk
+ 94,
+ 95,set:lwait=5 wait:47 ofhk dial:7000 wait:240 onhk
+ 96,
+ 97,set:lwait=5 wait:48 ofhk dial:7000 wait:240 onhk
+ 98,
+ 99,set:lwait=5 wait:49 ofhk dial:7000 wait:240 onhk
+100,
+101,set:lwait=5 wait:50 ofhk dial:7000 wait:240 onhk
+102,
+103,set:lwait=5 wait:51 ofhk dial:7000 wait:240 onhk
+104,
+105,set:lwait=5 wait:52 ofhk dial:7000 wait:240 onhk
+106,
+107,set:lwait=5 wait:53 ofhk dial:7000 wait:240 onhk
+108,
+109,set:lwait=5 wait:54 ofhk dial:7000 wait:240 onhk
+110,
+111,set:lwait=5 wait:55 ofhk dial:7000 wait:240 onhk
+112,
+113,set:lwait=5 wait:56 ofhk dial:7000 wait:240 onhk
+114,
+115,set:lwait=5 wait:57 ofhk dial:7000 wait:240 onhk
+116,
+117,set:lwait=5 wait:58 ofhk dial:7000 wait:240 onhk
+118,
+119,set:lwait=5 wait:59 ofhk dial:7000 wait:240 onhk
+120,
+121,set:lwait=5 wait:60 ofhk dial:7000 wait:240 onhk
+122,
+123,set:lwait=5 wait:61 ofhk dial:7000 wait:240 onhk
+124,
+125,set:lwait=5 wait:62 ofhk dial:7000 wait:240 onhk
+126,
+127,set:lwait=5 wait:63 ofhk dial:7000 wait:240 onhk
+128,
+129,set:lwait=5 wait:64 ofhk dial:7000 wait:240 onhk
+130,
+131,set:lwait=5 wait:65 ofhk dial:7000 wait:240 onhk
+132,
+133,set:lwait=5 wait:66 ofhk dial:7000 wait:240 onhk
+134,
+135,set:lwait=5 wait:67 ofhk dial:7000 wait:240 onhk
+136,
+137,set:lwait=5 wait:68 ofhk dial:7000 wait:240 onhk
+138,
+139,set:lwait=5 wait:69 ofhk dial:7000 wait:240 onhk
+140,
+141,set:lwait=5 wait:70 ofhk dial:7000 wait:240 onhk
+142,
+143,set:lwait=5 wait:71 ofhk dial:7000 wait:240 onhk
+144,
+145,set:lwait=5 wait:72 ofhk dial:7000 wait:240 onhk
+146,
+147,set:lwait=5 wait:73 ofhk dial:7000 wait:240 onhk
+148,
+149,set:lwait=5 wait:74 ofhk dial:7000 wait:240 onhk
+150,
+151,set:lwait=5 wait:75 ofhk dial:7000 wait:240 onhk
+152,
+153,set:lwait=5 wait:76 ofhk dial:7000 wait:240 onhk
+154,
+155,set:lwait=5 wait:77 ofhk dial:7000 wait:240 onhk
+156,
+157,set:lwait=5 wait:78 ofhk dial:7000 wait:240 onhk
+158,
+159,set:lwait=5 wait:79 ofhk dial:7000 wait:240 onhk
+160,
+161,set:lwait=5 wait:80 ofhk dial:7000 wait:240 onhk
+162,
+163,set:lwait=5 wait:81 ofhk dial:7000 wait:240 onhk
+164,
+165,set:lwait=5 wait:82 ofhk dial:7000 wait:240 onhk
+166,
+167,set:lwait=5 wait:83 ofhk dial:7000 wait:240 onhk
+168,
+169,set:lwait=5 wait:84 ofhk dial:7000 wait:240 onhk
+170,
+171,set:lwait=5 wait:85 ofhk dial:7000 wait:240 onhk
+172,
+173,set:lwait=5 wait:86 ofhk dial:7000 wait:240 onhk
+174,
+175,set:lwait=5 wait:87 ofhk dial:7000 wait:240 onhk
+176,
+177,set:lwait=5 wait:88 ofhk dial:7000 wait:240 onhk
+178,
+179,set:lwait=5 wait:89 ofhk dial:7000 wait:240 onhk
+180,
+181,set:lwait=5 wait:90 ofhk dial:7000 wait:240 onhk
+182,
+183,set:lwait=5 wait:91 ofhk dial:7000 wait:240 onhk
+184,
+185,set:lwait=5 wait:92 ofhk dial:7000 wait:240 onhk
+186,
+187,set:lwait=5 wait:93 ofhk dial:7000 wait:240 onhk
+188,
+189,set:lwait=5 wait:94 ofhk dial:7000 wait:240 onhk
+190,
+191,set:lwait=5 wait:95 ofhk dial:7000 wait:240 onhk
+192,
+193,set:lwait=5 wait:96 ofhk dial:7000 wait:240 onhk
+194,
+195,set:lwait=5 wait:97 ofhk dial:7000 wait:240 onhk
+196,
+197,set:lwait=5 wait:98 ofhk dial:7000 wait:240 onhk
+198,
+199,set:lwait=5 wait:99 ofhk dial:7000 wait:240 onhk
+200,

@@ -1,0 +1,28 @@
+****** Copying files ******                                        
+X:\Contrib\resiprocate\contrib\ares\Debug\ares.lib
+1 File(s) copied
+X:\Contrib\resiprocate\contrib\ares\Debug\ares.pdb
+1 File(s) copied
+X:\Contrib\resiprocate\rutil\Debug\rutil.lib
+1 File(s) copied
+X:\Contrib\resiprocate\rutil\Debug\rutil.pdb
+1 File(s) copied
+X:\Contrib\resiprocate\resip\stack\Debug\resiprocate.lib
+1 File(s) copied
+X:\Contrib\resiprocate\resip\stack\Debug\resiprocate.pdb
+1 File(s) copied
+X:\Contrib\resiprocate\resip\dum\Debug\dum.lib
+1 File(s) copied
+X:\Contrib\resiprocate\resip\dum\Debug\dum.pdb
+1 File(s) copied
+X:\Contrib\resiprocate\lib\ares.lib
+X:\Contrib\resiprocate\lib\ares.pdb
+X:\Contrib\resiprocate\lib\dum.lib
+X:\Contrib\resiprocate\lib\dum.pdb
+X:\Contrib\resiprocate\lib\resiprocate.lib
+X:\Contrib\resiprocate\lib\resiprocate.pdb
+X:\Contrib\resiprocate\lib\rutil.lib
+X:\Contrib\resiprocate\lib\rutil.pdb
+8 File(s) copied
+                                                      
+****** DONE ******                                    

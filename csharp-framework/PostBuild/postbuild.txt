@@ -1,0 +1,531 @@
+** PostBuild Beginning     
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Download cache deleted successfully
+****** Removing framework assemblies from GAC ****** 
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.StatsClient, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.StatsClient, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.LogSinks, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.LogSinks, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.AppArchiveCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.AppArchiveCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.ApplicationFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.ApplicationFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.Configuration, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.Configuration, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.Core, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.DocGeneratorCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.DocGeneratorCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.Interfaces, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.Interfaces, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.LicensingFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.LicensingFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.LoggingFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.LoggingFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.Messaging, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.Messaging, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.PackageGeneratorCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.PackageGeneratorCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.ProviderPackagerCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.ProviderPackagerCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.ProviderFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.ProviderFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.DebugFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.DebugFramework, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.Utilities, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.Utilities, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.WebServicesConsumerCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.WebServicesConsumerCore, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+No assemblies found matching: Metreos.AxlSoap
+Number of assemblies uninstalled = 0 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Metreos.SccpStack, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Uninstalled: Metreos.SccpStack, Version=2.4.0.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.PKI, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.PKI, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.SFTP, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.SFTP, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.SFTPCommon, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.SFTPCommon, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.SFTPServer, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.SFTPServer, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.SSHCommon, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.SSHCommon, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.SSHClient, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.SSHClient, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: SecureBlackbox.SSHServer, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Uninstalled: SecureBlackbox.SSHServer, Version=4.4.0.94, Culture=neutral, PublicKeyToken=c45703f7b09c3fa9
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: Novell.Directory.Ldap, Version=2.1.3.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1
+Uninstalled: Novell.Directory.Ldap, Version=2.1.3.0, Culture=neutral, PublicKeyToken=f5c449a9231c16f1
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: MySql.Data, Version=1.0.6.15336, Culture=neutral, PublicKeyToken=c5687fc88969c44d
+Uninstalled: MySql.Data, Version=1.0.6.15336, Culture=neutral, PublicKeyToken=c5687fc88969c44d
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: nsoftware.System, Version=1.0.1425.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Uninstalled: nsoftware.System, Version=1.0.1425.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: nsoftware.IPWorks, Version=6.0.1826.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Uninstalled: nsoftware.IPWorks, Version=6.0.1826.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: nsoftware.IPWorksSSL, Version=6.2.2561.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Uninstalled: nsoftware.IPWorksSSL, Version=6.2.2561.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: nsoftware.IPWorksZip, Version=7.2.2561.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Uninstalled: nsoftware.IPWorksZip, Version=7.2.2561.0, Culture=neutral, PublicKeyToken=cdc168f89cffe9cf
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+Assembly: ICSharpCode.SharpZipLib, Version=0.85.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL
+Uninstalled: ICSharpCode.SharpZipLib, Version=0.85.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL
+Number of assemblies uninstalled = 1 
+Number of failures = 0
+****** Installing common Framework assemblies ****** 
+X:\csharp-framework\StatsClient\bin\Debug\Metreos.StatsClient.dll
+1 File(s) copied
+X:\csharp-framework\LogSinks\bin\Debug\Metreos.LogSinks.dll
+1 File(s) copied
+X:\csharp-framework\AppPackageCore\bin\Debug\Metreos.AppArchiveCore.dll
+1 File(s) copied
+X:\csharp-framework\ApplicationFramework\bin\Debug\Metreos.ApplicationFramework.dll
+1 File(s) copied
+X:\csharp-framework\Configuration\bin\Debug\Metreos.Configuration.dll
+1 File(s) copied
+X:\csharp-framework\Core\bin\Debug\Metreos.Core.dll
+1 File(s) copied
+X:\csharp-framework\DocGeneratorCore\bin\Debug\Metreos.DocGeneratorCore.dll
+1 File(s) copied
+X:\csharp-framework\Interfaces\bin\Debug\Metreos.Interfaces.dll
+1 File(s) copied
+X:\csharp-framework\LicensingFramework\bin\Debug\Metreos.LicensingFramework.dll
+1 File(s) copied
+X:\csharp-framework\LoggingFramework\bin\Debug\Metreos.LoggingFramework.dll
+1 File(s) copied
+X:\csharp-framework\Messaging\bin\Debug\Metreos.Messaging.dll
+1 File(s) copied
+X:\csharp-framework\PackageGeneratorCore\bin\Debug\Metreos.PackageGeneratorCore.dll
+1 File(s) copied
+X:\csharp-framework\ProviderPackagerCore\bin\Debug\Metreos.ProviderPackagerCore.dll
+1 File(s) copied
+X:\csharp-framework\ProviderFramework\bin\Debug\Metreos.ProviderFramework.dll
+1 File(s) copied
+X:\csharp-framework\DebugFramework\bin\Debug\Metreos.DebugFramework.dll
+1 File(s) copied
+X:\csharp-framework\Utilities\bin\Debug\Metreos.Utilities.dll
+1 File(s) copied
+X:\csharp-framework\WebServicesConsumerCore\bin\Debug\Metreos.WebServicesConsumerCore.dll
+1 File(s) copied
+X:\csharp-framework\AxlSoap\bin\Debug\Metreos.AxlSoap.dll
+1 File(s) copied
+X:\csharp-framework\SccpStack\bin\Debug\Metreos.SccpStack.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.PKI.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.SFTP.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.SFTPCommon.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.SFTPServer.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.SSHCommon.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.SSHClient.dll
+1 File(s) copied
+X:\Contrib\SecureBlackbox.NET\SecureBlackbox.SSHServer.dll
+1 File(s) copied
+X:\Contrib\Novell\Novell.Directory.Ldap.dll
+1 File(s) copied
+X:\Contrib\MySQL\MySql.Data.dll
+1 File(s) copied
+X:\Contrib\IPWorks\nsoftware.System.dll
+1 File(s) copied
+X:\Contrib\IPWorks\nsoftware.IPWorks.dll
+1 File(s) copied
+X:\Contrib\IPWorks\nsoftware.IPWorksSSL.dll
+1 File(s) copied
+X:\Contrib\IPWorks\nsoftware.IPWorksZip.dll
+1 File(s) copied
+X:\Contrib\SharpZipLib\ICSharpCode.SharpZipLib.dll
+1 File(s) copied
+0 File(s) copied
+X:\csharp-framework\StatsClient\bin\Debug\Metreos.StatsClient.pdb
+1 File(s) copied
+X:\csharp-framework\LogSinks\bin\Debug\Metreos.LogSinks.pdb
+1 File(s) copied
+X:\csharp-framework\AppPackageCore\bin\Debug\Metreos.AppArchiveCore.pdb
+1 File(s) copied
+X:\csharp-framework\ApplicationFramework\bin\Debug\Metreos.ApplicationFramework.pdb
+1 File(s) copied
+X:\csharp-framework\Configuration\bin\Debug\Metreos.Configuration.pdb
+1 File(s) copied
+X:\csharp-framework\Core\bin\Debug\Metreos.Core.pdb
+1 File(s) copied
+X:\csharp-framework\DocGeneratorCore\bin\Debug\Metreos.DocGeneratorCore.pdb
+1 File(s) copied
+X:\csharp-framework\Interfaces\bin\Debug\Metreos.Interfaces.pdb
+1 File(s) copied
+X:\csharp-framework\LicensingFramework\bin\Debug\Metreos.LicensingFramework.pdb
+1 File(s) copied
+X:\csharp-framework\LoggingFramework\bin\Debug\Metreos.LoggingFramework.pdb
+1 File(s) copied
+X:\csharp-framework\Messaging\bin\Debug\Metreos.Messaging.pdb
+1 File(s) copied
+X:\csharp-framework\PackageGeneratorCore\bin\Debug\Metreos.PackageGeneratorCore.pdb
+1 File(s) copied
+X:\csharp-framework\ProviderPackagerCore\bin\Debug\Metreos.ProviderPackagerCore.pdb
+1 File(s) copied
+X:\csharp-framework\ProviderFramework\bin\Debug\Metreos.ProviderFramework.pdb
+1 File(s) copied
+X:\csharp-framework\DebugFramework\bin\Debug\Metreos.DebugFramework.pdb
+1 File(s) copied
+X:\csharp-framework\Utilities\bin\Debug\Metreos.Utilities.pdb
+1 File(s) copied
+X:\csharp-framework\WebServicesConsumerCore\bin\Debug\Metreos.WebServicesConsumerCore.pdb
+1 File(s) copied
+X:\csharp-framework\AxlSoap\bin\Debug\Metreos.AxlSoap.pdb
+1 File(s) copied
+X:\csharp-framework\SccpStack\bin\Debug\Metreos.SccpStack.pdb
+1 File(s) copied
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Failure adding assembly to the cache:   The system cannot find the file specified.
+
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Assembly successfully added to the cache
+** Installing debug symbols                   
+** PostBuild Complete                         

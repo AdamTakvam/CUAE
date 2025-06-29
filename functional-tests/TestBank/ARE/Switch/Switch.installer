@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_Switch_script1" displayName="ARE_Switch_script1" format="string" defaultValue="ARE.Switch.script1" readOnly="true" required="true" />
+    <configValue name="S_Load" displayName="S_Load" format="string" defaultValue="ARE.Switch.script1.S_Load" readOnly="true" required="true" />
+    <configValue name="S_One" displayName="S_One" format="string" defaultValue="ARE.Switch.script1.S_One" readOnly="true" required="true" />
+    <configValue name="S_Two" displayName="S_Two" format="string" defaultValue="ARE.Switch.script1.S_Two" readOnly="true" required="true" />
+    <configValue name="S_Three" displayName="S_Three" format="string" defaultValue="ARE.Switch.script1.S_Three" readOnly="true" required="true" />
+    <configValue name="E_Switch" displayName="E_Switch" format="string" defaultValue="ARE.Switch.script1.E_Switch" readOnly="true" required="true" />
+  </configuration>
+</install>

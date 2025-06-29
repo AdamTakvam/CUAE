@@ -1,0 +1,20 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <ItemGroup>
+	<ProjectReferences Include="appsuite/msbuild.xml" />
+	<ProjectReferences Include="NativeAction/msbuild.xml" />
+	<ProjectReferences Include="NativeType/msbuild.xml" />
+	<ProjectReferences Include="MakeCall/msbuild.xml" />
+	<ProjectReferences Include="AnswerCall/msbuild.xml" />
+	<ProjectReferences Include="MakeConference/msbuild.xml" />
+	<ProjectReferences Include="plugin-overview/msbuild.xml" />
+    </ItemGroup>
+
+    <Target Name="Build">
+        <MSBuild Projects="@(ProjectReferences)" Targets="Build">
+            <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+        </MSBuild>
+    </Target>
+</Project>
+
+

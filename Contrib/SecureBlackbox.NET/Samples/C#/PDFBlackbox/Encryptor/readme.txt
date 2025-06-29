@@ -1,0 +1,1 @@
+This sample demonstrates how to encrypt the PDF file. For decryption see TinyProcessor sample.

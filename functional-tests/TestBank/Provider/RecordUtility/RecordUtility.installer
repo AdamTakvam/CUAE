@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_RecordUtility_script1" displayName="Provider_RecordUtility_script1" format="string" defaultValue="Provider.RecordUtility.script1" readOnly="true" required="true" />
+    <configValue name="S_MakeCallFailed" displayName="S_MakeCallFailed" format="string" defaultValue="Provider.RecordUtility.script1.S_MakeCallFailed" readOnly="true" required="true" />
+    <configValue name="S_ExternalHangup" displayName="S_ExternalHangup" format="string" defaultValue="Provider.RecordUtility.script1.S_ExternalHangup" readOnly="true" required="true" />
+    <configValue name="S_RecordFailed" displayName="S_RecordFailed" format="string" defaultValue="Provider.RecordUtility.script1.S_RecordFailed" readOnly="true" required="true" />
+    <configValue name="S_RecordSucceeded" displayName="S_RecordSucceeded" format="string" defaultValue="Provider.RecordUtility.script1.S_RecordSucceeded" readOnly="true" required="true" />
+  </configuration>
+</install>

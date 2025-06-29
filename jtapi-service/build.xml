@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="jtapi-service" default="Debug" basedir=".">
+
+	<description>Build script for JTAPI-Service</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="buildDirectory"         location="bin" />
+    <property name="src"                    location="src" />
+    <property name="deploymentDirectory"    value="${Metreos.build.buildDirectory}/JTAPIService" />
+    <property name="javaframeworkJar"       value="Metreos.javaframework.jar" />
+    <property name="javaframeworkClasspath" location="${Metreos.build.frameworkDirectory}/${javaframeworkJar}" />
+    
+    <target name="do-init">
+        <tstamp />
+        <property name="classesDirectory" value="${buildDirectory}/${Metreos.build.target}/classes" />
+        <property name="jarDirectory"     value="${buildDirectory}/${Metreos.build.target}/jar" />
+        <property name="svcDirectory"     value="${buildDirectory}/${Metreos.build.target}/svc" />
+
+        <!-- Create the destination directory -->
+        <mkdir dir="${classesDirectory}" />
+        <mkdir dir="${jarDirectory}" />
+        <mkdir dir="${svcDirectory}" />
+    </target>
+
+    <macrodef name="jtapiSvcBuild">
+      <attribute name="src"              default="${src}" />
+      <attribute name="version"          default="4-0"  />
+      <attribute name="ciscoJtapiJar"    default="cisco_jtapi-@{version}.jar" />
+      <attribute name="classesDirectory" default="${classesDirectory}" />
+      <attribute name="jarDirectory"     default="${jarDirectory}" />
+      <attribute name="jarFileName"      default="Metreos.jtapiservice-ccm-@{version}.jar" />
+      <attribute name="svcDirectory"     default="${svcDirectory}" />
+      <attribute name="port"             default="9100" />
+      <attribute name="svcName"          default="MetreosJTAPIStack_CCM-@{version}" />
+      <attribute name="excludes"         default="**/test/** **/makecall/**" />
+      
+      <sequential>
+        <echo message="Building JTAPI Service for CCM @{version}" />
+        <!-- Prep directories -->
+        <mkdir dir="@{classesDirectory}/@{version}" />
+        <mkdir dir="@{jarDirectory}/@{version}" />
+        <!-- <mkdir dir="${svcDirectory}/${version}" /> -->
+        
+        <!-- Compile source -->
+        <javac debug="${Metreos.javac.debug}" optimize="${Metreos.javac.optimize}" srcdir="@{src}" destdir="@{classesDirectory}/@{version}">
+            <classpath>
+                <pathelement location="lib/@{ciscoJtapiJar}" />
+                <pathelement location="${javaframeworkClasspath}" />
+            </classpath>
+        </javac> 
+
+        <!-- Generate Jar File -->
+        <jar jarfile="@{jarDirectory}/@{jarFileName}" basedir="@{classesDirectory}/@{version}" excludes="@{excludes}" />
+
+        <!-- Copy jar to svc build directory -->
+        <copy file="@{jarDirectory}/@{jarFileName}" todir="@{svcDirectory}" />
+        <copy file="lib/@{ciscoJtapiJar}"           todir="@{svcDirectory}" />
+
+        <!-- Generate service wrapper configuration -->
+        <copy file="servicewrapper/wrapper.conf"  tofile="@{svcDirectory}/wrapper-@{version}.conf">
+            <filterset>
+                <filter token="MetreosJtapiServiceJar"    value="@{jarFileName}" />
+                <filter token="CiscoJtapiJar"             value="@{ciscoJtapiJar}" />
+                <filter token="MetreosJtapiServiceDirectory" value="C:\Program Files\Cisco Systems\Unified Application Environment\JTAPIService" />
+                <filter token="MetreosFrameworkDirectory" value="C:\Program Files\Cisco Systems\Unified Application Environment\Framework\${Metreos.build.frameworkVersion}" />
+                <filter token="MetreosJavaFrameworkJar"   value="${javaframeworkJar}" />
+                <filter token="MetreosJtapiServicePort"   value="@{port}" />
+                <filter token="CiscoJtapiVersion"         value="@{version}" />
+                <filter token="MetreosJtapiServiceName"   value="@{svcName}" />
+            </filterset>
+        </copy>
+      </sequential>
+    </macrodef>
+
+	<target name="do-build" >
+        <!-- build a JTAPIService Jar for each supported CCM version -->
+        <!-- <jtapiSvcBuild version="3-3" port="9120" ciscoJtapiJar="cisco_jtapi_3.3.3.jar" /> -->
+        <jtapiSvcBuild version="4-0" port="9100" ciscoJtapiJar="cisco_jtapi_4.0.2.jar" />
+        <jtapiSvcBuild version="4-1" port="9110" ciscoJtapiJar="cisco_jtapi_4.1.3.jar" />
+        <jtapiSvcBuild version="4-2" port="9130" ciscoJtapiJar="cisco_jtapi_4.2.1.jar" />
+        <jtapiSvcBuild version="5-0" port="9140" ciscoJtapiJar="cisco_jtapi_5.0.1.jar" />
+        <jtapiSvcBuild version="5-1" port="9150" ciscoJtapiJar="cisco_jtapi_5.1.1.jar" />
+        <jtapiSvcBuild version="6-0" port="9160" ciscoJtapiJar="cisco_jtapi_6.0.1.jar" />
+
+        <!-- Copy service control script -->
+        <copy file="servicewrapper/jtapisvc_ctrl.cmd" todir="${svcDirectory}">
+            <filterset>
+                <filter token="MetreosFrameworkDirectory" value="C:\Program Files\Cisco Systems\Unified Application Environment\Framework\${Metreos.build.frameworkVersion}" />
+                <filter token="MetreosJtapiServiceDirectory" value="C:\Program Files\Cisco Systems\Unified Application Environment\JTAPIService" />
+            </filterset>
+        </copy>
+	</target>
+
+	<target name="do-clean">
+		<delete dir="${buildDirectory}" />
+		<delete dir="${deploymentDirectory}" />
+	</target>
+
+    <target name="do-test" >
+    </target>
+
+	<target name="do-postbuild">
+		<mkdir dir="${deploymentDirectory}" />
+        <mkdir dir="${deploymentDirectory}/logs" />
+		<copy todir="${deploymentDirectory}" >
+			<fileset dir="${svcDirectory}" />
+		</copy>
+	</target>
+
+</project>

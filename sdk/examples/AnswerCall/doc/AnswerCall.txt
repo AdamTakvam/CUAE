@@ -1,0 +1,14 @@
+AnswerCall:
+
+Basic Function:
+---------------
+Answer an incoming call. Play a message and end the call.
+
+Script By Script:
+-----------------
+
+OnIncomingCall: Answer the incoming call. Play the message. Go to wait state.
+OnPlay_Complete: If message autostops, end the application. If the receiving party hangs up during the play, end the application.
+OnPlay_Failed: End the application.
+OnRemoteHangup: If calling party hung up, end the application.
+

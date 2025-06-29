@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<install>
+	<configuration scriptName="Waldo">
+		<configValue name="gatewayAddress" description="Address of gateway" format="hostname" diagnostic="false" requiresRestart="true" readOnly="false" />
+		<configValue name="numIterations" format="ushort" minValue="1" maxValue="42">5</configValue>
+	</configuration>
+	<configuration scriptName="Yentil">
+		<configValue name="pimpName" description="Street alias of pimp" format="string" diagnostic="false" requiresRestart="true" readOnly="false" />
+		<configValue name="numHoes" format="ushort" minValue="1" maxValue="42">5</configValue>
+	</configuration>
+</install>

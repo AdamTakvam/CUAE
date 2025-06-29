@@ -1,0 +1,115 @@
+Metreos Management Console
+Robby Slaughter
+Updated 10:03 AM 10/6/2003
+
+===============================================================================================
+
+============
+1.0 OVERVIEW
+============
+
+The Metreos Management Console will serve as the primary interface for managing the Metreos 
+platform. Authorized users will have the power to install providers, applications, and tweak
+configuration values. They will be able to review system status and troubleshoot problems. 
+The scope of these capabilities will include control over the Metreos Media Server, the Metreos 
+Application Server (Samoa), any installed providers and applications, as well as application
+instances.
+
+The implementation of the Metreos Management Console will be done through a web-based interface
+using a series of web forms. This implementation will be completed using Microsoft Internet
+Information Services and ASP.NET.
+
+====================
+2.0 USERS AND ACCESS
+====================
+
+The configuration database for Samoa permits a variety of users with varying permissions. The 
+Management Console mirrors this capability by allowing a user to login using secure credentials
+and then access only the corresponding configuration settings and interface options provided for 
+that user. 
+
+========================
+3.0 CONSOLE ARCHITECTURE
+========================
+
+The Management Console will be divided into the following sections:
+
+  Entry Page - This is the first section all users see when they invoke the Management Console.
+  This page challenges them to enter an appropriate username and password to enter the system.
+ 
+  Main Status Page - This section serves as a homepage for users of the Management Console. It 
+  provides statistics regarding the current status of the Application Server and Media Server
+  and provides links to the subsequent sections
+ 
+  User Management - Interface for managing users and user permissions, and changing passwords.
+  This section may be only partially implemented, since the Administrator account is sufficient 
+  for controlling the system, and only the ability to change one's own password is strictly 
+  necessary.
+
+  Application Server Management - Section for modifying configuration values and performing actions
+  on Samoa. This includes installing and removing providers and applications.
+
+  Media Server Management - Section for configuring and maintaining the Media server. Note: It is
+  not known what services the Media server provides for remote management or configuration.
+
+3.1 Entry Page
+
+The entry page will contain the requisite username and password form, with supporting text 
+explaining the purpose of this entry form. The layout and physical design of the entry page 
+will set the standard for the remainder of the interface.
+
+3.2 Main Status Page
+
+The main status page will contain some basic statistics about the status of the Application Server 
+and the Media Console. (Note: Future versions could potentailly include activity graphs and 
+more complex, time-based statistics.) A subsection within this page will permit users to stop and
+restart the entire Metreos platform. Links will lead to Application Server and Media Server 
+management respectively, as well as the User Management feature.
+
+3.3 User Management
+
+This section provides several distinct features for handling user: changing ones own password, 
+creating and deleting new users, and changing the permissions for existing users. Permissions
+include access to individual configuration settings as well as the providers and applications 
+themsevelves.
+
+3.4 Application Server Management
+
+This feature provides all the application server access defined for this user in the User 
+Management section. This includes the ability to install, start, stop and uninstall applications,
+to kill active instances of applications, and to install and uninstall providers. Additionally
+the user may access any and all configuration settings for which they have the appropdiate 
+permissions.
+
+
+3.5 Media Server Management
+
+NOTE: It is not known what level of remote configuration and control of the Media server is
+available. Thus, the capabilities of this section are not yet defined.
+
+======================
+4.0 DESIGN REQUIRMENTS
+======================
+
+4.1 Standards-Based Implementation
+
+The system will be implemented using XHTML 1.0 (strict) and CSS 2.0. 
+
+4.2 Accessibility
+
+The site will meet the W3C Checklist of Checkpoints for Web Content Accessibility Guidelines 1.0 
+(See: http://www.w3.org/TR/WCAG10/full-checklist.html)
+
+4.3 Usability
+
+The site will be tested and revised using a small group of users through a traditional 
+usability test.
+
+4.4 Branding
+
+The site will make heavy use of the Metreos logo and taglines.
+
+
+
+
+  

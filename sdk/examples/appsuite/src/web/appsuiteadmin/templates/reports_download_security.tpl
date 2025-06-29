@@ -1,0 +1,4 @@
+"Account","Login Type","Login Information","Login Time","Application","Partition","Status"
+{foreach from=$auths item=auth}
+"{$auth.name}","{if $auth.originating_number}Phone{elseif $auth.source_ip_address}Web{else}Call{/if}","{if $auth.originating_number}Originating Number: {$auth.originating_number}{if $auth.invalid_pin}/ Entered PIN: {$auth.pin}{/if}{elseif $auth.source_ip_address}Source IP: {$auth.source_ip_address} / Username: {$auth.username}{else}Unknown{/if}","{$auth.auth_timestamp|date_format:"%D %I:%M:%S %p"}","{$auth.application_name}","{$auth.partition_name}","{$auth.status_display}"
+{/foreach}

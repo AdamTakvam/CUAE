@@ -1,0 +1,30 @@
+Manual Intervention Required:
+
+*  Virtual SCCP Phone has two lines
+*  Two users have same device
+*  Two users have same line
+
+Prompted If:
+
+*  If appsuiteadmin configured device and device file configured device is different.
+*  No more devices in any device ranges left
+
+
+* The tool
+
+The tool needs to be provided only a few things:
+
+1)  device ranges chosen for your deployment, and the max size of such device ranges.   By default this maximum size is 625, or half of 1250. 
+ This is very much on purpose, because by having 625-sized device range allows for easy mceadmin configuration of recripical,  master/slave SCCP device pools.
+The device ranges are provided as 'CCCCCC' and 'FFFFFF', for instance.  The tool will manage which devices are in each range are used and not used, and will accordingly use up the device range.
+
+If all the device ranges specified by the administrator get used up, the tool will prompt the administrator for a new 6-character, device range.
+
+
+2)  The tool will use the configured device name in appsuiteadmin or a device configured in the 'devices file', and prompt administrator to choose if both are specified and not the same device name.
+
+3) 
+
+
+*  Reporting
+

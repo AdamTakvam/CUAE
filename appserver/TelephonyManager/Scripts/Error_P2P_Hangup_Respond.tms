@@ -1,0 +1,4 @@
+900
+a:HangupCall
+rns:*->[Error_P2P_Respond]
+timeout:5->[Error_P2P_Respond]

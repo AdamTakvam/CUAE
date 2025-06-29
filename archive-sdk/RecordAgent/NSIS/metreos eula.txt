@@ -1,0 +1,70 @@
+Metreos Corporation
+
+End User License
+
+Important – Use of this Software is subject to license restrictions.
+Carefully read this license agreement before using the software.
+
+ 
+This End User License Agreement (the “Agreement”) is a legal agreement between you, either individually or as an authorized representative of the company or organization acquiring the license, and Metreos Corporation (“Metreos”).  USE OF SOFTWARE INDICATES YOUR COMPLETE AND UNCONDITIONAL ACCEPTANCE OF THE TERMS AND CONDITIONS SET FORTH IN THIS AGREEMENT.  If you do not agree to these terms and conditions, promptly return or, if electronically received, certify destruction of the Software and all accompanying items within five days after receipt of Software and you will receive a full refund of the applicable license fees paid.	 
+
+
+1.  	License Grant
+
+a.	The software programs you are installing, downloading, or have acquired with this Agreement, including any related equipment or hardware, documentation, updates, upgrades, modifications, revisions, copies and design data (“Software”) are copyrighted, trade secret and confidential information of Metreos and its licensors who maintain exclusive title to all Software and retain all rights not expressly granted by this Agreement.  Metreos grants to you, subject to payment of appropriate license fees, a non-exclusive, non-transferable, internal-use only, term license to use the Software owned or distributed by Metreos in machine readable, object-code form on the computer hardware or at the site(s) for which an applicable license fee has been paid, as authorized by Metreos.  
+
+b.	To the extent that you design applications that operate on the Metreos Communications Environment (the “MCE”), Metreos grants you a non-exclusive, non-transferable, internal-use only, term license to use the Software, including the MCE, for the purposes of operating such programs, subject to payment of appropriate license fees.
+
+c.	The license granted herein is contingent on your (or your organization’s) continued acceptance and subscription to the maintenance and support terms provided by Metreos.  Termination by you or your organization of ongoing maintenance and support requirements terminates the license granted herein.
+
+2.	Restrictions and Intellectual Property Ownership
+
+a.	You may not (i) remove or modify any notice of Metreos’ proprietary rights, (ii) re-license, rent, lease, timeshare, or act as a service bureau or provide subscription services for the Software, (iii) use the Software to provide third-party training, except for training agents and contractors authorized under this Agreement; (iv) assign this Agreement or give the Software or an interest in the Software to another individual or entity; (v) cause or permit reverse engineering or decompilation of the Software; (vi) disclose results of any Software benchwork tests without Metreos’ prior written consent; or (vii) modify the Software or any portions thereof without Metreos’ prior written consent.
+
+b.	The Software, which is copyrighted, and any modifications, upgrades, or updates thereto, is the sole and exclusive property of Metreos and is a valuable asset and trade secret of Metreos.  Metreos retains all ownership and intellectual property rights to the Software and to any modifications, upgrades, or updates thereto.  Except for the rights granted in herein above, you shall have no right, title, or interest of any kind in or to the Software.
+
+c.	Metreos may audit your use of the Software.  If Metreos gives you or your organization reasonable advance written notice, you agree to cooperate with the audit, and to provide reasonable assistance and access to information.  You agree to immediately remit any underpaid license and technical support fees determined as the result of such audit.
+
+3.	Term and Termination.
+
+a. 	This Agreement remains effective until expiration or termination.  This Agreement will immediately terminate upon notice if you exceed the scope of the license granted or otherwise fail to comply with the provisions in sections 1 and 2 above.  For any other material breach of the Agreement, Metreos may terminate this Agreement if you are in breach and fail to cure the breach within thirty (30) days of written notification.  If Software is provided for a limited term use, this Agreement will automatically expire at the end of the authorized term.  
+
+b.	Upon termination of this Agreement for any reason, you shall within ten (10) business days return to Metreos all Software.  Additionally, you agree to delete from any  permanent machine storage (i.e., hard disk) previously loaded copies of the Software in all forms.  Upon request of Metreos, you shall certify in writing that all copies of the Software and associated documentation have been destroyed or returned to Metreos.  The indemnity and limitation of liability obligations hereunder, as well as your obligations with respect to confidential treatment of the Software and Metreos’ trade secrets, other intellectual property, and proprietary information, shall survive the termination of this Agreement.
+
+4. 	Limited Warranty.
+
+a.	Metreos warrants that the Software will substantially operate as described in the applicable Software documentation for ninety (90) days after Metreos delivers it to you.  THE WARRANTY HEREIN IS EXCLUSIVE AND IN LIEU OF ALL OTHER WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  METREOS MAKES NO WARRANTY THAT ANY SOFTWARE WILL PERFORM ERROR-FREE OR UNINTERRUPTED, OR THAT ALL ERRORS THEREIN CAN OR WILL BE CORRECTED.  METREOS FURTHER DISCLAIMS ANY IMPLIED WARRANTIES ARISING FROM COURSE OF PERFORMANCE, COURSE OF DEALING OR USAGE OF TRADE.
+
+b.	For any breach of the above warranty, Metreos’ entire liability and your exclusive remedy shall be, at Metreos’ option, either (1) refund of the fees paid upon return of the Software to Metreos, or (2) correction or replacement of the Software that does not meet this limited warranty, provided you have complied with the terms of this Agreement.  
+
+5.	Indemnity
+
+a.	Metreos will defend and indemnify you against a claim that any Software, infringes a patent or copyright, provided that: (i) you notify Metreos in writing within thirty (30) days of the claim; (ii) Metreos has sole control of the defense and all related settlement negotiations; and (iii) you provide Metreos with the assistance, information, and authority reasonably necessary to perform the above; reasonable out-of-pocket expenses incurred by you in providing such assistance will be reimbursed by Metreos.
+b.	Metreos shall have no liability for any claim of infringement resulting from: (i) your use of a superseded or altered release of the Software if infringement would have been avoided by the use of a subsequent unaltered release of the Software which Metreos provides to you; or (ii) any information, design, specification, instruction, software, data, or material not furnished by Metreos or (iii) any combination of the Software with other hardware, software or processes that, but for the combination, the Software would not be infringing.
+c.	In the event that some or all of the Software is held or is believed by Metreos to infringe, Metreos shall have the option, at its expense: (i) to modify the Software to be non-infringing; or (ii) to obtain for you a license to continue using the Software.  If it is not commercially feasible to perform either of the above options, then Metreos may require from you return of the infringing Software and all rights thereto.  Upon return of the infringing Software to Metreos, you may terminate the Agreement with ten (10) days’ written notice and you shall be entitled to a pro-rata refund of the fees paid for the infringing Software.  This subsection sets forth Metreos’ entire liability and exclusive remedy for infringement.
+d.	You will defend and indemnify Metreos and its licensors against any claim incurred by, borne by or asserted against Metreos or its licensors that relates to or results from (i) your use of the Software, (ii) any intentional or willful conduct or negligence by you or (iii) any breach of an applicable representation, covenant or warranty contained herein.
+e.	Should the party seeking indemnification (“Indemnitee”) reasonably determine that the party from whom indemnity is sought (“Indemnitor”) has failed to assume the defense of any claim referenced herein, Indemnitee shall have the right to assume such defense and have all expense and cost of the defense reimbursed by Indemnitor, including reasonable attorneys fees.
+
+6.	Confidentiality
+
+The Software contains proprietary and confidential information of Metreos as well as trade secrets owned by Metreos.  You agree to hold the Software in strict confidence and not to disclose the Software in any way except as expressly permitted hereunder.  You agree to protect the Software at least to the same extent that you protect your similar confidential information, but in no event less than reasonable care.  You further agree that you will not, directly or indirectly, copy the structure, sequence, or organization of the Software, nor will you copy any portion of the Software or related documentation to produce software programs that are substantially similar to the Software.
+
+7. LIMITATION OF LIABILITY
+
+EXCEPT WHERE THIS EXCLUSION OR RESTRICTION OF LIABILITY WOULD BE VOID OR INEFFECTIVE UNDER APPLICABLE LAW, IN NO EVENT WILL METREOS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, OR DAMAGES FOR LOSS OF PROFITS, REVENUE, DATA, OR USE, INCURRED BY YOU OR ANY THIRD PARTY, WHETHER IN AN ACTION IN CONTRACT OR TORT, EVEN IF METREOS OR ANY OTHER PERSON HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  METREOS’ LIABILITY FOR DAMAGES HEREUNDER SHALL IN NO EVENT EXCEED THE AMOUNT OF FEES PAID BY YOU FOR THE SOFTWARE OR SERVICE GIVING RISE TO THE CLAIM.  IN THE CASE WHERE NO AMOUNT WAS PAID, METREOS SHALL HAVE NO LIABILITY FOR ANY DAMAGES WHATSOEVER.
+
+8.	Assignment; Jurisdiction.	
+
+This Agreement will be binding upon, and will inure to the benefit of, the permitted successors and assigns of each party hereto.  You may not assign, delegate, transfer, or otherwise convey this Agreement, or any of its rights hereunder, to any entity without the prior written consent of Metreos, and any attempted assignment or delegation without such consent shall be void.  This Agreement, and all matters arising out of or relating to this Agreement, shall be governed by the laws of the State of Texas, United States of America.  Any legal action or proceeding relating to this Agreement shall be instituted in any state or federal court in Travis or Dallas County, Texas, United States of America.  Metreos and you agree to submit to the jurisdiction of, and agree that venue is proper in, the aforesaid courts in any such legal action or proceeding.  
+
+9.	Severability; Waiver
+
+In the event any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions of this Agreement will remain in full force.  The waiver by either party of any default or breach of this Agreement shall not constitute a waiver of any other or subsequent default or breach.  Except for actions for nonpayment or breach of either party’s intellectual property rights, no action, regardless of form, arising out of this Agreement may be brought by either party more than two years after the cause of action has accrued.  The headings appearing in this Agreement are inserted for convenience only, and will not be used to define, limit or enlarge the scope of this Agreement or any of the obligations herein.  
+
+10.	Restricted Rights Notice.
+
+The Software is commercial in nature and developed solely at private expense.  The Software is delivered as "Commercial Computer Software" as defined in DFARS  252.227-7014 (June 1995) or as a commercial item as defined in FAR 2.101(a) and as provided with only such rights as are provided in this Agreement, which is Metreos’ standard commercial license for the Software.  Technical data is provided with limited rights only as provided in DFAR 252.227-7015 (Nov. 1995) or FAR 52.227-14 (June 1987), whichever is applicable.
+
+11.	Payment; Interpretation; Compliance.  
+
+You will pay all amounts invoiced, in the currency specified on the invoice, within 30 days from the date of such invoice. This Agreement constitutes the complete agreement between the Parties and supersedes all previous and contemporaneous agreements, proposals, or representations, written or oral, concerning the subject matter of this Agreement.  This Agreement may not be modified or amended except in a writing signed by a you and Metreos; no other act, document, usage, or custom shall be deemed to amend or modify this Agreement.  It is expressly agreed that the terms and conditions of this Agreement supersede the terms of any purchase order.  Each party agrees to comply with all relevant export laws and regulations of the United States and the country or territory in which the Services are provided (“Export Laws”) to assure that neither any deliverable, if any, nor any direct product thereof is (a) exported, directly or indirectly, in violation of Export Laws or (b) intended to be used for any purposes prohibited by the Export Laws, including without limitation nuclear, chemical, or biological weapons proliferation.  Each party agrees to comply with all federal, state and local laws and regulations applicable to this Agreement.  Each party represents and warrants that it is qualified to do business in the geographies in which it will perform its obligations under this Agreement, and will obtain all necessary licenses and permits, and satisfy any other legal, regulatory and administrative requirements, necessary to its performance hereunder.

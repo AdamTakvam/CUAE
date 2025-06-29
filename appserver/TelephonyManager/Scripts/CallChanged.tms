@@ -1,0 +1,8 @@
+trigger:Metreos.CallControl.CallChanged
+
+1
+a:ForwardEventToApp
+def->1000
+
+1000
+a:EndScript

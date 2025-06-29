@@ -1,0 +1,2 @@
+use application_suite;
+INSERT INTO `as_configs` (`as_applications_id`, `name`, `value`, `description`, `groupname`, `required`) VALUES (NULL,'ldap_username_attribute','cn','Attribute to use for the username when importing users from LDAP servers','System',0)

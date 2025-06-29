@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{B4923188-232C-4262-BB78-73CEC9F9122A}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H323IpcClient", "H323IpcClient\H323IpcClient.csproj", "{8CD203B2-7E34-43CD-BAE2-3F9D1AB046D4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{B4923188-232C-4262-BB78-73CEC9F9122A}.Debug.ActiveCfg = Debug|.NET
+		{B4923188-232C-4262-BB78-73CEC9F9122A}.Debug.Build.0 = Debug|.NET
+		{B4923188-232C-4262-BB78-73CEC9F9122A}.Release.ActiveCfg = Release|.NET
+		{B4923188-232C-4262-BB78-73CEC9F9122A}.Release.Build.0 = Release|.NET
+		{8CD203B2-7E34-43CD-BAE2-3F9D1AB046D4}.Debug.ActiveCfg = Debug|.NET
+		{8CD203B2-7E34-43CD-BAE2-3F9D1AB046D4}.Debug.Build.0 = Debug|.NET
+		{8CD203B2-7E34-43CD-BAE2-3F9D1AB046D4}.Release.ActiveCfg = Release|.NET
+		{8CD203B2-7E34-43CD-BAE2-3F9D1AB046D4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,43 @@
+Outstanding Issues / Questions / Todo
+-------------------------------------
+
+1.  ARE.ScriptLogic.Forward: 
+    When a forward occurs, does the script which forwarded end?
+    If it does end, are there any conflicts created next time that instance is used?
+    
+    
+2.  OAM UpdateConfig does not take affect very fast. Currently, I set a 2 second wait after calling it for safety's sake.
+   
+
+Undealt-with exceptions
+-----------------------
+
+1.  Error: Application: Error creating action GUID for action: 1 with routing GUID:
+
+Action not processed
+
+This exception appeared after an exiting application received an event: which, though processing a 
+Exit, still accepted the event.
+
+
+2.  Invalid Regex causes unhandled exception, and subsequent scripts can not be triggered.
+(for example, use '*')
+
+
+
+
+Media Server Issues
+--------------------
+1.  Scenario: Playing to a conference.  Recording on a connection in that conference.  An attempt to mute that connection returns 14 (connection busy). 
+
+
+
+
+
+
+
+Max Bugs
+-----------------------------
+1.  When a package has a new action, it will not show up in its tab, even though when one goes to add/remove items, it shows it as checked, 
+indicating that it is present.  The action will show up, however, if one unchecks/applies, then checks/applies.
+

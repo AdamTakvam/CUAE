@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hmputil", "hmputil.vcproj", "{71C0B395-4A9E-419F-A7EA-0DA59CFF614D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{71C0B395-4A9E-419F-A7EA-0DA59CFF614D}.Debug.ActiveCfg = Debug|Win32
+		{71C0B395-4A9E-419F-A7EA-0DA59CFF614D}.Debug.Build.0 = Debug|Win32
+		{71C0B395-4A9E-419F-A7EA-0DA59CFF614D}.Release.ActiveCfg = Release|Win32
+		{71C0B395-4A9E-419F-A7EA-0DA59CFF614D}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

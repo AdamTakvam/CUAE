@@ -1,0 +1,105 @@
+<MaxTools>
+  <!--//// begin packages list ////-->
+  <Packages version="0.1">
+    <package name="Metreos.ApplicationControl" />
+    <package name="Metreos.Native.ApplicationControl" />
+    <package name="Metreos.Native.CiscoDeviceList" />
+    <package name="Metreos.Native.CiscoIpPhone" />
+    <package name="Metreos.Native.Conditional" />
+    <package name="Metreos.Native.DialPlan" />
+    <package name="Metreos.Native.Log" />
+    <package name="Metreos.Native.Mail" />
+    <package name="Metreos.Providers.CiscoDeviceListX" />
+    <package name="Metreos.CallControl" />
+    <package name="Metreos.Providers.Http" />
+    <package name="Metreos.Providers.MediaServer" />
+    <package name="Metreos.Providers.Tapi" />
+    <package name="Metreos.Providers.TimerFacility" />
+  </Packages>
+  <!--//// begin toolbox layout ////-->
+  <Toolbox activetab="Application Components" version="0.1">
+    <sidetab text="Cisco IP Phone">
+      <sidetabitem text="AddDirectoryEntry" name="AddDirectoryEntry" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="AddIconItem" name="AddIconItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="AddInputItem" name="AddInputItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="AddMenuItem" name="AddMenuItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="AddSoftKeyItem" name="AddSoftKeyItem" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateDirectory" name="CreateDirectory" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateExecute" name="CreateExecute" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateGraphicFileMenu" name="CreateGraphicFileMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateGraphicMenu" name="CreateGraphicMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateIconMenu" name="CreateIconMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateImage" name="CreateImage" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateImageFile" name="CreateImageFile" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateInput" name="CreateInput" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateMenu" name="CreateMenu" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="CreateText" name="CreateText" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="SendExecute" name="SendExecute" type="Action" group="Metreos.Native.CiscoIpPhone" />
+      <sidetabitem text="Query" name="Query" type="Action" group="Metreos.Native.CiscoDeviceList" />
+    </sidetab>
+    <sidetab text="Call Control">
+      <sidetabitem text="MakeCall" name="MakeCall" type="Action" group="Metreos.CallControl" />
+      <sidetabitem text="SetMedia" name="SetMedia" type="Action" group="Metreos.CallControl" />
+      <sidetabitem text="AnswerCall" name="AnswerCall" type="Action" group="Metreos.CallControl" />
+      <sidetabitem text="Hangup" name="Hangup" type="Action" group="Metreos.CallControl" />
+      <sidetabitem text="SignallingChange" name="SignallingChange" type="Event" group="Metreos.CallControl" />
+      <sidetabitem text="GotDigits" name="GotDigits" type="Event" group="Metreos.CallControl" />
+    </sidetab>
+    <sidetab text="Media Control">
+      <sidetabitem text="CreateConnection" name="CreateConnection" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="CreateConnectionConference" name="CreateConnectionConference" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="DeleteConnection" name="DeleteConnection" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="PlayAnnouncement" name="PlayAnnouncement" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="RecordAudio" name="RecordAudio" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="ReceiveDigits" name="ReceiveDigits" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="SendDigits" name="SendDigits" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="MuteConferenceConnection" name="MuteConferenceConnection" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="UnMuteConferenceConnection" name="UnMuteConferenceConnection" type="Action" group="Metreos.Providers.MediaServer" />
+      <sidetabitem text="StopMediaOperation" name="StopMediaOperation" type="Action" group="Metreos.Providers.MediaServer" />
+    </sidetab>
+    <sidetab text="HTTP">
+      <sidetabitem text="SendResponse" name="SendResponse" type="Action" group="Metreos.Providers.Http" />
+    </sidetab>
+    <sidetab text="Cisco DeviceListX">
+      <sidetabitem text="Refresh" name="Refresh" type="Action" group="Metreos.Providers.CiscoDeviceListX" />
+      <sidetabitem text="Query" name="Query" type="Action" group="Metreos.Native.CiscoDeviceList" />
+    </sidetab>
+    <sidetab text="Mail">
+      <sidetabitem text="Send" name="Send" type="Action" group="Metreos.Native.Mail" />
+    </sidetab>
+    <sidetab text="DialPlan">
+      <sidetabitem text="FormatAddress" name="FormatAddress" type="Action" group="Metreos.Native.DialPlan" />
+    </sidetab>
+    <sidetab text="Application Components">
+      <sidetabitem text="Variable" name="Variable" type="Variable" group="Metreos.StockTools" />
+      <sidetabitem text="Comment" name="Comment" type="Comment" group="Metreos.StockTools" />
+      <sidetabitem text="Loop" name="Loop" type="Loop" group="Metreos.StockTools" />
+      <sidetabitem text="Label" name="Label" type="Label" group="Metreos.StockTools" />
+      <sidetabitem text="CallFunction" name="CallFunction" type="Action" group="Metreos.ApplicationControl" />
+      <sidetabitem text="Forward" name="Forward" type="Action" group="Metreos.ApplicationControl" />
+      <sidetabitem text="SendEvent" name="SendEvent" type="Action" group="Metreos.ApplicationControl" />
+      <sidetabitem text="EvaluateExpression" name="EvaluateExpression" type="Action" group="Metreos.Native.ApplicationControl" />
+      <sidetabitem text="Sleep" name="Sleep" type="Action" group="Metreos.Native.ApplicationControl" />
+      <sidetabitem text="Compare" name="Compare" type="Action" group="Metreos.Native.Conditional" />
+      <sidetabitem text="Switch" name="Switch" type="Action" group="Metreos.Native.Conditional" />
+      <sidetabitem text="AddTimer" name="AddTimer" type="Action" group="Metreos.Providers.TimerFacility" />
+      <sidetabitem text="AddScriptTimer" name="AddScriptTimer" type="Action" group="Metreos.Providers.TimerFacility" />
+      <sidetabitem text="RemoveTimer" name="RemoveTimer" type="Action" group="Metreos.Providers.TimerFacility" />
+      <sidetabitem text="TimerFire" name="TimerFire" type="Event" group="Metreos.Providers.TimerFacility" />
+      <sidetabitem text="Write" name="Write" type="Action" group="Metreos.Native.Log" />
+    </sidetab>
+    <sidetab text="Test">
+      <sidetabitem text="Signal" name="Signal" type="Action" group="Metreos.Providers.FunctionalTestFramework" />
+      <sidetabitem text="Event" name="Event" type="Event" group="Metreos.Providers.FunctionalTestFramework" />
+    </sidetab>
+  </Toolbox>
+  <!--//// begin triggers list ////-->
+  <Triggers>
+    <trigger name="Metreos.CallControl.IncomingCall" />
+    <trigger name="Metreos.Providers.Http.GotRequest" />
+    <trigger name="Metreos.Providers.Tapi.IncomingCall" />
+    <trigger name="Metreos.Providers.Tapi.CallEstablished" />
+    <trigger name="Metreos.Providers.Tapi.Hangup" />
+    <trigger name="Metreos.Providers.TimerFacility.TimerFire" />
+  </Triggers>
+</MaxTools>

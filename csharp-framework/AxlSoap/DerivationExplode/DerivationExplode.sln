@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DerivationExplode", "DerivationExplode.csproj", "{237241D4-F245-4F51-8AE5-755655BD3B09}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{237241D4-F245-4F51-8AE5-755655BD3B09}.Debug.ActiveCfg = Debug|.NET
+		{237241D4-F245-4F51-8AE5-755655BD3B09}.Debug.Build.0 = Debug|.NET
+		{237241D4-F245-4F51-8AE5-755655BD3B09}.Release.ActiveCfg = Release|.NET
+		{237241D4-F245-4F51-8AE5-755655BD3B09}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

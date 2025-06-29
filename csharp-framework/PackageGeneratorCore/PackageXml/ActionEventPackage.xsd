@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ActionEventPackage" targetNamespace="http://cisco.com/cuae/ActionEventPackage.xsd" elementFormDefault="qualified" xmlns="http://cisco.com/cuae/ActionEventPackage.xsd" xmlns:mstns="http://cisco.com/cuae/ActionEventPackage.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+    <!-- Definition of simple types -->
+    <xs:simpleType name="useType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="required" />
+            <xs:enumeration value="optional" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="eventTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="triggering" />
+            <xs:enumeration value="nontriggering" />
+            <xs:enumeration value="hybrid" />
+            <xs:enumeration value="asyncCallback" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="actionTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="provider" />
+            <xs:enumeration value="native" />
+            <xs:enumeration value="appControl" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="iconTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="16x16x8" />
+            <xs:enumeration value="16x16x32" />
+            <xs:enumeration value="32x32x8" />
+            <xs:enumeration value="32x32x32" />
+        </xs:restriction>
+    </xs:simpleType>
+    <!-- Definition of complex types -->
+    <xs:complexType name="resultDataType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <!-- type default is "Metreos.Types.String" -->
+                <xs:attribute name="type" type="xs:string" use="required" />
+                <xs:attribute name="displayName" type="xs:string" use="optional" />
+                <xs:attribute name="description" type="xs:string" use="optional" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="returnValueType">
+		<xs:sequence>
+			<xs:element name="EnumItem" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+        <xs:attribute name="description" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="actionParamType">
+		<xs:sequence>
+			<xs:element name="EnumItem" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="type" type="xs:string" use="required" />
+        <xs:attribute name="displayName" type="xs:string" use="optional" />
+        <!-- use default is "required" -->
+        <xs:attribute name="use" type="useType" use="required" />
+        <xs:attribute name="allowMultiple" type="xs:boolean" use="optional" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="iconType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="type" type="iconTypeType" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="eventParamType">
+		<xs:sequence>
+			<xs:element name="EnumItem" type="xs:string" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="type" type="xs:string" use="required" />
+        <xs:attribute name="displayName" type="xs:string" use="optional" />
+        <!-- guaranteed default is "true" -->
+        <xs:attribute name="guaranteed" type="xs:boolean" use="required" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="actionType">
+        <xs:sequence>
+            <xs:element name="actionParam" type="actionParamType" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="resultData" type="resultDataType" minOccurs="0" maxOccurs="unbounded" />
+            <!-- returnValue default is "success" -->
+            <xs:element name="returnValue" type="returnValueType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="asyncCallback" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="icon" type="iconType" minOccurs="0" maxOccurs="2" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="type" type="actionTypeType" use="required" />
+        <!-- allowCustomParams default is "false" -->
+        <xs:attribute name="allowCustomParams" type="xs:boolean" use="required" />
+        <!-- final default is "false" -->
+        <xs:attribute name="final" type="xs:boolean" use="required" />
+        <xs:attribute name="displayName" type="xs:string" use="optional" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="eventType">
+        <xs:sequence>
+            <xs:element name="eventParam" type="eventParamType" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="icon" type="iconType" minOccurs="0" maxOccurs="2" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="type" type="eventTypeType" use="required" />
+        <xs:attribute name="expects" type="xs:string" use="optional" />
+        <xs:attribute name="displayName" type="xs:string" use="optional" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+    </xs:complexType>
+    <xs:complexType name="actionListType">
+        <xs:sequence>
+            <xs:element name="action" type="actionType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="eventListType">
+        <xs:sequence>
+            <xs:element name="event" type="eventType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="packageType">
+        <xs:sequence>
+            <xs:element name="actionList" type="actionListType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="eventList" type="eventListType" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+        <xs:attribute name="name" type="xs:string" use="required" />
+        <xs:attribute name="description" type="xs:string" use="optional" />
+    </xs:complexType>
+    <!-- Unleash the fury -->
+    <xs:element name="package" type="packageType" />
+</xs:schema>

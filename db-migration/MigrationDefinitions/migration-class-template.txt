@@ -1,0 +1,63 @@
+// This is a template to give you an idea of what a migration definition class
+// should look like.  What's shown in the class and method definition is required,
+// but you can add anything extra within the class to your liking.
+
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Data;
+
+using Metreos.Utilities;
+using Metreos.Utilities.DbBuilders;
+
+
+namespace MigrationDefinitions
+{
+    /// <summary>
+    /// {summary here}
+    /// </summary>
+    [MigrationCore.Version ({starting version})]
+    public class {ClassName} : MigrationCore.MigrationDefinition
+    {
+
+        // Optionally define constants, particularly useful for database names
+        // You can use the constants defined in the framework, but if they ever change,
+        // then so does the behavior of the migration, which is bad.
+
+
+        public {ClassName}(Database.DbType dbtype, ref IDbConnection dbObj)
+            : base(dbtype, ref dbObj)
+        {
+            // If you are still developing this but need to commit it to the repository,
+            // MAKE SURE that this is false.
+            this.ready = {true | false};
+            this.currentVersion = "{starting version}";
+            // This next line is optional if the next version is not an next integer.
+            // This is used for branch development.
+            this.nextVersion = "{version}.{minor}";
+        }
+
+        public override bool DoUpgrade()
+        {
+            // Use Metreos.Utilities.SqlBuilder/SqlConditions for modifying row data
+            // Use Metreos.Utilities.DbBuilders (invoked through this.GetTableBuilder(), etc.) for creating
+            // and modifying table schema
+            // Execute SQL with this.ExecuteQuery() or this.ExecuteNonQuery()
+            // You may find some help with the helper methods defined in the base class
+            return true;
+        }
+
+        public override bool DoRollback()
+        {
+            // Try to do what you can to rollback changes
+            return true;
+        }
+        
+        
+        // I like to define private methods for each task and then call them from one of the public ones
+        // just to stay organized, to have more variable name space and, of course, for repeating
+        // similar tasks.
+
+    }
+
+}

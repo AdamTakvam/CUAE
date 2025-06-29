@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_SessionDataDatabaseCreation_master1" displayName="ARE_SessionDataDatabaseCreation_master1" format="string" defaultValue="ARE.SessionDataDatabaseCreation.master1" readOnly="true" required="true" />
+    <configValue name="S_SuccessInsert" displayName="S_SuccessInsert" format="string" defaultValue="ARE.SessionDataDatabaseCreation.master1.S_SuccessInsert" readOnly="true" required="true" />
+    <configValue name="S_FailureInsert" displayName="S_FailureInsert" format="string" defaultValue="ARE.SessionDataDatabaseCreation.master1.S_FailureInsert" readOnly="true" required="true" />
+    <configValue name="S_SuccessQuery" displayName="S_SuccessQuery" format="string" defaultValue="ARE.SessionDataDatabaseCreation.master1.S_SuccessQuery" readOnly="true" required="true" />
+    <configValue name="S_FailureQuery" displayName="S_FailureQuery" format="string" defaultValue="ARE.SessionDataDatabaseCreation.master1.S_FailureQuery" readOnly="true" required="true" />
+  </configuration>
+</install>

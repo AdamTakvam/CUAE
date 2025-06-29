@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="AS_DatabaseName" displayName="AS_DatabaseName" format="string" description="The name of the application suite database" defaultValue="application_suite" readOnly="false" required="true" />
+    <configValue name="SC_DatabaseName" displayName="SC_DatabaseName" format="string" description="The name of the scheduled conference database" defaultValue="ScheduledConference" readOnly="true" required="true" />
+    <configValue name="Server" displayName="Server" format="string" description="Address of the server" defaultValue="localhost" readOnly="false" required="true" />
+    <configValue name="Port" displayName="Port" format="string" description="Port of the database server" defaultValue="3306" readOnly="false" required="true" />
+    <configValue name="Username" displayName="Username" format="string" description="The username to connect to database" defaultValue="root" readOnly="false" required="true" />
+    <configValue name="Password" displayName="Password" format="password" description="Password" defaultValue="metreos" readOnly="false" required="true" />
+    <configValue name="LoginTolerance" displayName="LoginTolerance" format="uint" description="Number of minutes before the scheduled time in which people can join." defaultValue="10" readOnly="false" required="true" />
+    <configValue name="UseTTS" displayName="Use Text-to-Speech" format="String" description="Uses TTS on dynamic prompts " defaultValue="false" required="true" />
+  </configuration>
+</install>

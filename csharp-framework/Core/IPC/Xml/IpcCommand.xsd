@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="IpcCommand" 
+                  targetNamespace="http://metreos.com/IpcCommand.xsd"
+                  elementFormDefault="qualified"
+                  xmlns="http://metreos.com/IpcCommand.xsd"
+                  xmlns:mstns="http://metreos.com/IpcCommand.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="commandNameType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LogIn" />
+			<xs:enumeration value="RefreshConfiguration" />
+			<xs:enumeration value="EnableProvider" />
+			<xs:enumeration value="DisableProvider" />
+			<xs:enumeration value="InvokeExtension" />
+			<xs:enumeration value="UninstallProvider" />
+			<xs:enumeration value="InstallApplication" />
+			<xs:enumeration value="EnableApplication" />
+			<xs:enumeration value="DisableApplication" />
+			<xs:enumeration value="UninstallApplication" />
+			<xs:enumeration value="AddMediaServer" />
+			<xs:enumeration value="RemoveMediaServer" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="paramType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="commandType">
+		<xs:sequence>
+			<xs:element name="param" type="paramType" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+			<xs:element name="data" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="name" type="commandNameType" />
+	</xs:complexType>
+	
+	<xs:element name="command" type="commandType" />
+</xs:schema>

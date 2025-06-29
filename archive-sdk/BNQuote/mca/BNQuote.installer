@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="RequestISBNPrompt" displayName="Request ISBN Prompt" format="String" description="String that will be played back in order to request the ISBN number to look up." defaultValue="Please enter the ISBN number, followed by the pound key." required="true" />
+  </configuration>
+</install>

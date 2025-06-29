@@ -1,0 +1,1 @@
+x:\samoa-framework\AxlSoap\5.0.4\modified_schema\axl.xsd   x:\samoa-framework\AxlSoap\5.0.4\modified_schema\axl2.xsd

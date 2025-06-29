@@ -1,0 +1,53 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HmpLicMgr", "HmpLicMgr.vcproj", "{0F9DAF3C-23C7-44DE-B347-3A704DAB484C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D} = {A6DF8288-191C-4D22-8062-FAEE145CE00D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LicKeyDll", "..\LicKeyDll\LicKeyDll.vcproj", "{A6DF8288-191C-4D22-8062-FAEE145CE00D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qatool", "tools\qatool\qatool.vcproj", "{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F9DAF3C-23C7-44DE-B347-3A704DAB484C} = {0F9DAF3C-23C7-44DE-B347-3A704DAB484C}
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D} = {A6DF8288-191C-4D22-8062-FAEE145CE00D}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qatool2", "tools\qatool2\qatool2.vcproj", "{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F9DAF3C-23C7-44DE-B347-3A704DAB484C} = {0F9DAF3C-23C7-44DE-B347-3A704DAB484C}
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9} = {5A4CC96B-DFDD-4463-B318-6EFFB29416D9}
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D} = {A6DF8288-191C-4D22-8062-FAEE145CE00D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0F9DAF3C-23C7-44DE-B347-3A704DAB484C}.Debug.ActiveCfg = Debug|Win32
+		{0F9DAF3C-23C7-44DE-B347-3A704DAB484C}.Debug.Build.0 = Debug|Win32
+		{0F9DAF3C-23C7-44DE-B347-3A704DAB484C}.Release.ActiveCfg = Release|Win32
+		{0F9DAF3C-23C7-44DE-B347-3A704DAB484C}.Release.Build.0 = Release|Win32
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D}.Debug.ActiveCfg = Debug|Win32
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D}.Debug.Build.0 = Debug|Win32
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D}.Release.ActiveCfg = Release|Win32
+		{A6DF8288-191C-4D22-8062-FAEE145CE00D}.Release.Build.0 = Release|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Debug.ActiveCfg = Debug|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Debug.Build.0 = Debug|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Release.ActiveCfg = Release|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Release.Build.0 = Release|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Debug.ActiveCfg = Debug|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Debug.Build.0 = Debug|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Release.ActiveCfg = Release|Win32
+		{5A4CC96B-DFDD-4463-B318-6EFFB29416D9}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

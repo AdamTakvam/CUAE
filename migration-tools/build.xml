@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="migration-tools" default="Debug" basedir=".">
+
+	<description>Build script for Migration Tools</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.frameworkDirectory}" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/migration-tools" includes="**/bin/** **/obj/**" />
+            <fileset dir="${Metreos.build.srcRoot}/migration-tools/PostBuild" includes="postbuild.txt" />
+        </delete>          
+    </target>    
+        
+	<target name="do-build" >
+        <metreosMSBuildTask solution="migration-tools" />
+        <metreosVsNetTask solution="cuae-legacy-backup/cuae-legacy-backup" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

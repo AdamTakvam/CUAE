@@ -1,0 +1,47 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchdogService", "WatchdogService\WatchdogService.csproj", "{9A8736BB-1627-4B15-BD78-1D0B069AFA18}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6672EA3A-E6D6-4358-B75D-2BEC8976E22B} = {6672EA3A-E6D6-4358-B75D-2BEC8976E22B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Watchdog", "Watchdog\Watchdog.csproj", "{6672EA3A-E6D6-4358-B75D-2BEC8976E22B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostBuild", "PostBuild\PostBuild.csproj", "{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9A8736BB-1627-4B15-BD78-1D0B069AFA18} = {9A8736BB-1627-4B15-BD78-1D0B069AFA18}
+		{6672EA3A-E6D6-4358-B75D-2BEC8976E22B} = {6672EA3A-E6D6-4358-B75D-2BEC8976E22B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "X:\watchdog-service\UnitTest\UnitTest.csproj", "{0964F20A-3769-4481-930B-0A3A8197C205}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2} = {EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A8736BB-1627-4B15-BD78-1D0B069AFA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A8736BB-1627-4B15-BD78-1D0B069AFA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A8736BB-1627-4B15-BD78-1D0B069AFA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A8736BB-1627-4B15-BD78-1D0B069AFA18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6672EA3A-E6D6-4358-B75D-2BEC8976E22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6672EA3A-E6D6-4358-B75D-2BEC8976E22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6672EA3A-E6D6-4358-B75D-2BEC8976E22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6672EA3A-E6D6-4358-B75D-2BEC8976E22B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE63AB81-B406-4D80-ACF3-0EB36DB2AAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0964F20A-3769-4481-930B-0A3A8197C205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0964F20A-3769-4481-930B-0A3A8197C205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0964F20A-3769-4481-930B-0A3A8197C205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0964F20A-3769-4481-930B-0A3A8197C205}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

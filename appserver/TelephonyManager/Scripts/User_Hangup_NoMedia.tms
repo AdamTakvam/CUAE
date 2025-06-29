@@ -1,0 +1,15 @@
+1
+a:ForwardActionToProvider
+rns:*->5
+timeout:5->100
+
+5
+a:ForwardResponseToApp  // Hangup response
+def->1000
+
+100
+a:SendActionFailureToApp
+def->1000
+
+1000
+a:EndCall

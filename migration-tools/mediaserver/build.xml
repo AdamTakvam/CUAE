@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Media Server" default="Debug" basedir=".">
+
+	<description>Build script for Media Server Service</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/MediaServer" />
+
+    <target name="do-init">
+    </target>
+    
+    <target name="do-clean">
+        <metreosVsNetTask dir="projects" solution="mms" />
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/mediaserver/utils" includes="**/Debug/** **/Release/**" />
+            <fileset dir="${Metreos.build.srcRoot}/mediaserver/projects" includes="**/Debug/** **/Release/**" />
+            <fileset dir="${Metreos.build.srcRoot}/mediaserver/win" includes="**/Debug/** **/Release/**" />
+            <fileset dir="${Metreos.build.srcRoot}/mediaserver" includes="**/bin/** **/obj/**" />
+
+        </delete>   
+        <delete dir="lib" />
+        <delete dir="bin" />
+    </target>    
+        
+    <target name="do-build" >
+        <metreosVsNetTask dir="projects" solution="mms" />
+    </target>
+
+    <target name="do-test" >
+    </target>    
+
+    <target name="do-postbuild">
+        <copy todir="${deploymentDirectory}">
+            <fileset dir="bin" includes="**/dcmutil.exe" />
+        </copy>
+    </target>
+
+</project>

@@ -1,0 +1,17 @@
+1
+a:AcceptCall
+rns:success->5
+rns:*->[Error_Reject_NoMedia_Respond]
+timeout:5->[Error_Reject_NoMedia_Respond]
+
+5
+a:ForwardActionToProvider	// Redirect
+rns:*->10
+timeout:5->[Error_Hangup_NoMedia_Respond]
+
+10
+a:ForwardResponseToApp
+def->1000
+
+1000
+a:EndCall

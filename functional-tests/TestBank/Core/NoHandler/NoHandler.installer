@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Core_NoHandler_script1" displayName="Core_NoHandler_script1" format="string" defaultValue="Core.NoHandler.script1" readOnly="true" required="true" />
+    <configValue name="S_Simple" displayName="S_Simple" format="string" defaultValue="Core.NoHandler.script1.S_Simple" readOnly="true" required="true" />
+    <configValue name="E_NonTrigger" displayName="E_NonTrigger" format="String" description="" defaultValue="Core.NoHandler.script1.E_NonTrigger" readOnly="true" required="true" />
+    <configValue name="E_Shutdown" displayName="E_Shutdown" format="String" description="" defaultValue="Core.NoHandler.script1.E_Shutdown" readOnly="true" required="true" />
+  </configuration>
+</install>

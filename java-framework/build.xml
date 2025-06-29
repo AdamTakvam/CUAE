@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="java-framework" default="Debug" basedir=".">
+
+	<description>Build script for Java-Framework</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="buildDirectory"   location="bin" />
+    <property name="src"              location="src" />
+    
+    <target name="do-init">
+        <property name="classesDirectory" value="${buildDirectory}/${Metreos.build.target}/classes" />
+        <property name="jarDirectory"     value="${buildDirectory}/${Metreos.build.target}/jar" />
+		<property name="mySqlJar"         value="mysql-connector-java-3.1.8-bin.jar" />
+    	
+        <mkdir dir="${classesDirectory}" />
+        <mkdir dir="${jarDirectory}" />
+    </target>
+
+    <target name="do-clean">
+        <delete dir="${buildDirectory}" />
+        <delete file="${Metreos.build.frameworkDirectory}/Metreos.javaframework.jar" />
+    </target>
+
+    <target name="do-build">
+		<!--Compile source-->
+		<javac
+      	    debug="${Metreos.javac.debug}"
+      	    optimize="${Metreos.javac.optimize}"
+      	    srcdir="${src}"
+      	    destdir="${classesDirectory}" />
+
+		<!--Generate Jar file-->
+		<jar jarfile="${jarDirectory}/Metreos.javaframework.jar"
+      	    basedir="${classesDirectory}"
+            excludes="**/test/**" />
+	</target>
+
+    <target name="do-test">
+    </target>
+    
+	<target name="do-postbuild">
+		<mkdir dir="${Metreos.build.frameworkDirectory}" />
+        <!-- Copy framework jar -->
+		<copy file="${jarDirectory}/Metreos.javaframework.jar" todir="${Metreos.build.frameworkDirectory}" />
+
+        <!-- Copy Java Service Wrapper Utility -->
+        <copy todir="${Metreos.build.frameworkDirectory}">
+            <fileset dir="${Metreos.build.contribRoot}/JavaSvcWrapper" includes="wrapper.exe wrapper.jar wrapper.dll" />
+        </copy>
+		
+		<copy file="lib/${mySqlJar}" todir="${Metreos.build.frameworkDirectory}" />
+	</target>
+
+</project>

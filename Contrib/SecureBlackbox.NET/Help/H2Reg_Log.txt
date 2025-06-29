@@ -1,0 +1,160 @@
+===============================================================================
+Log File:             	C:\SECURE~1.NET\Help\H2Reg_Log.txt
+Date:                 	6/19/2006 11:43:57 AM
+Operating System:      	Windows XP 5.1 (Build 2600) Service Pack 2
+SysLocale.DefaultLCID: 	0x0409 (1033)
+SysLocale.PriLangID:   	0x0009 (9)
+SysLocale.SubLangID:   	0x0001 (1)
+DecimalSeparator:      	.
+-------------------------------------------------------------------------------
+EXE Path =          	C:\SECURE~1.NET\Help\H2Reg.exe
+EXE Version =       	1.3.6.0
+Cmdline Param(s) =  	-r | cmdfile=C:\SecureBlackbox.NET\Help\H2reg.ini
+Actual CmdLine =  	"C:\SECURE~1.NET\Help\H2Reg.exe" -r "cmdfile=C:\SecureBlackbox.NET\Help\H2reg.ini"
+_RunDir =           	C:\SECURE~1.NET\Help
+_ModuleName =       	H2Reg.exe
+_ModuleDir =        	C:\SECURE~1.NET\Help
+-------------------------------------------------------------------------------
+_hhInstalled =      	YES
+_hhVerStr =         	5.2.3790.2453
+_hhFriendlyVerStr = 	> 1.4a
+-------------------------------------------------------------------------------
+_ieInstalled =      	YES
+_ieVerStr =         	6.0.2900.2919
+_ieFriendlyVerStr = 	> Internet Explorer 6 SP1
+===============================================================================
+MS Help 2.x Runtime Found: YES
+    2.2.3077.0, C:\Program Files\Common Files\Microsoft Shared\Help\hxds.dll
+    2.2.3077.0, C:\Program Files\Common Files\Microsoft Shared\Help\hxvz.dll
+NT Admin Log On: YES
+PC Language ID = en
+-------------------------------------------------------------------------------
+Quiet Mode (-Q): No
+Registration Mode (-R): Yes
+UnRegistration Mode (-U): No
+Append Log Mode (-A): No
+No NT Admin Check (-N): No
+Merge Indexes Mode (-M): No
+Cmd Script File (CmdFile=): C:\SecureBlackbox.NET\Help\H2reg.ini
+User Dir 1 (UserDir1=): 
+User Dir 2 (UserDir2=): 
+User Dir 3 (UserDir3=): 
+User Dir 4 (UserDir4=): 
+===============================================================================
+CmdFile = C:\SecureBlackbox.NET\Help\H2reg.ini
+<windir> = C:\WINDOWS
+<winsysdir> = C:\WINDOWS\system32
+<programfilesdir> = C:\Program Files
+<exedir> = C:\SECURE~1.NET\Help
+<exedirparent> = C:\SECURE~1.NET
+<cmdfiledir> = C:\SecureBlackbox.NET\Help
+<cmdfiledirparent> = C:\SecureBlackbox.NET
+<userdir1> = 
+<userdir1parent> = 
+<userdir2> = 
+<userdir2parent> = 
+<userdir3> = 
+<userdir3parent> = 
+<userdir4> = 
+<userdir4parent> = 
+-------------------------------------------------------------------------------
+[Reg_Namespace]
+SecureBlackbox.NET|SecureBlackbox.hxc|SecureBlackbox
+
+[Reg_Title]
+SecureBlackbox.NET|SBB.NET|1033|SecureBlackbox.HxS|SecureBlackbox.HxI
+
+[Reg_Plugin]
+MS.VSCC+|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds2|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds3|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds4|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+
+[Reg_Filter]
+SecureBlackbox.NET|EldoS SecureBlackbox|"MLHelpProject"="SecureBlackbox.NET"
+
+[UnReg_Namespace]
+SecureBlackbox.NET
+
+[UnReg_Title]
+SecureBlackbox.NET|SBB.NET|1033
+
+[UnReg_Plugin]
+MS.VSCC+|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds2|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds3|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+borland.bds4|_DEFAULT|SecureBlackbox.NET|_DEFAULT|SecureBlackbox.HxA
+
+[UnReg_Filter]
+SecureBlackbox.NET|EldoS SecureBlackbox
+-------------------------------------------------------------------------------
+11:43:58 AM   [Reg_Namespace] - Lines To Process = 1
+11:43:58 AM     <nsName>="SecureBlackbox.NET"
+11:43:58 AM     <nsColfile>="C:\SecureBlackbox.NET\Help\SecureBlackbox.hxc"
+11:43:58 AM     <nsDesc>="SecureBlackbox"
+11:43:58 AM     +Mode = Not Enabled
+11:43:59 AM    -->Registered OK
+-------------------------------------------------------------------------------
+11:43:59 AM   [Reg_Title] - Lines To Process = 1
+11:43:59 AM     <nsName>="SecureBlackbox.NET"
+11:43:59 AM     <TitleID>="SBB.NET"
+11:43:59 AM     <LangID>="1033"
+11:43:59 AM     <HxS_HelpFile>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxS"
+11:43:59 AM     <HxI_IndexFile>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxI"
+11:43:59 AM     <HxQ_QueryFile>=""
+11:43:59 AM     <HxR_AttrQueryFile>=""
+11:43:59 AM     <HxsMediaLoc>=""
+11:43:59 AM     <HxqMediaLoc>=""
+11:43:59 AM     <HxrMediaLoc>=""
+11:43:59 AM     <SampleMediaLoc>=""
+11:43:59 AM    -->Registered OK
+-------------------------------------------------------------------------------
+11:43:59 AM   [Reg_Plugin] - Lines To Process = 5
+11:43:59 AM     <nsName_Parent>="MS.VSCC+"
+11:43:59 AM     <HxT_Parent>="_DEFAULT"
+11:43:59 AM     <nsName_Child>="SecureBlackbox.NET"
+11:43:59 AM     <HxT_Child>="_DEFAULT"
+11:43:59 AM     <HxA_Child>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxA"
+11:43:59 AM     NS Wild Card "MS.VSCC+" matches = 1 item(s): MS.VSCC.2003
+11:43:59 AM   Plug Child "SecureBlackbox.NET" into "MS.VSCC.2003"
+11:43:59 AM    -->Registered OK
+11:43:59 AM   
+11:43:59 AM     <nsName_Parent>="borland.bds"
+11:43:59 AM     <HxT_Parent>="_DEFAULT"
+11:43:59 AM     <nsName_Child>="SecureBlackbox.NET"
+11:43:59 AM     <HxT_Child>="_DEFAULT"
+11:43:59 AM     <HxA_Child>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxA"
+11:43:59 AM   ** Reg Error **: Parent Namespace - Matching Namespace name(s) not found: "borland.bds"
+11:43:59 AM   
+11:43:59 AM     <nsName_Parent>="borland.bds2"
+11:43:59 AM     <HxT_Parent>="_DEFAULT"
+11:43:59 AM     <nsName_Child>="SecureBlackbox.NET"
+11:43:59 AM     <HxT_Child>="_DEFAULT"
+11:43:59 AM     <HxA_Child>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxA"
+11:43:59 AM   ** Reg Error **: Parent Namespace - Matching Namespace name(s) not found: "borland.bds2"
+11:43:59 AM   
+11:43:59 AM     <nsName_Parent>="borland.bds3"
+11:43:59 AM     <HxT_Parent>="_DEFAULT"
+11:43:59 AM     <nsName_Child>="SecureBlackbox.NET"
+11:43:59 AM     <HxT_Child>="_DEFAULT"
+11:43:59 AM     <HxA_Child>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxA"
+11:43:59 AM   ** Reg Error **: Parent Namespace - Matching Namespace name(s) not found: "borland.bds3"
+11:43:59 AM   
+11:43:59 AM     <nsName_Parent>="borland.bds4"
+11:43:59 AM     <HxT_Parent>="_DEFAULT"
+11:43:59 AM     <nsName_Child>="SecureBlackbox.NET"
+11:43:59 AM     <HxT_Child>="_DEFAULT"
+11:43:59 AM     <HxA_Child>="C:\SecureBlackbox.NET\Help\SecureBlackbox.HxA"
+11:43:59 AM   ** Reg Error **: Parent Namespace - Matching Namespace name(s) not found: "borland.bds4"
+-------------------------------------------------------------------------------
+11:43:59 AM   [Reg_Filter] - Lines To Process = 1
+11:43:59 AM     <nsName>="SecureBlackbox.NET"
+11:43:59 AM     <FilterName>="EldoS SecureBlackbox"
+11:43:59 AM     <FilterQueryStr>=""MLHelpProject"="SecureBlackbox.NET""
+11:44:00 AM    -->Registered OK
+===============================================================================
+
+--END OF FILE--
+

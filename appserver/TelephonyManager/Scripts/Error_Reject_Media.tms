@@ -1,0 +1,4 @@
+900
+a:DeleteConnection
+rns:*->[Error_Reject_NoMedia]
+timeout:5->[Error_Reject_NoMedia]

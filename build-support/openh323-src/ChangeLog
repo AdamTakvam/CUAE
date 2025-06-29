@@ -1,0 +1,30 @@
+2005-03-02 18:45  csoutheren
+
+	* src/h261codec.cxx: Backported H.261 fix from Atlas
+
+2005-02-14 18:50  csoutheren
+
+	* include/h323.h, src/h323ep.cxx: Added OSP access token to allow
+	  source code compatibility with Atlas code
+
+2005-02-06 18:48  csoutheren
+
+	* src/h323pluginmgr.cxx: Disable wideband codecs for Mimas
+
+2005-02-06 18:41  csoutheren
+
+	* version.h, include/h323pluginmgr.h, include/opalplugin.h,
+	  include/q931.h, include/transports.h,
+	  plugins/audio/G726/g726codec.c,
+	  plugins/audio/GSM0610/gsm06_10_codec.c,
+	  plugins/audio/IMA_ADPCM/ima_adpcm.c,
+	  plugins/audio/LPC_10/lpc_10_codec.c,
+	  plugins/audio/Speex/speexcodec.cxx,
+	  plugins/audio/iLBC/ilbccodec.c, src/codecs.cxx,
+	  src/ffh263codec.cxx, src/gkclient.cxx, src/gkserver.cxx,
+	  src/h235auth.cxx, src/h235auth1.cxx, src/h261codec.cxx,
+	  src/h323.cxx, src/h323caps.cxx, src/h323ep.cxx, src/h323pdu.cxx,
+	  src/h323pluginmgr.cxx, src/h323trans.cxx, src/q931.cxx,
+	  src/rfc2190avcodec.cxx, src/rtp.cxx, src/transports.cxx:
+	  Backported patches from Atlas-devel
+

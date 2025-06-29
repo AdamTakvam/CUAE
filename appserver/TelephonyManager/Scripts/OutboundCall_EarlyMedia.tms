@@ -1,0 +1,27 @@
+1
+a:AssumePreferredTxCodec
+def->5
+
+5
+a:ReserveConnection
+rns:success->10
+rns:*->[Error_Respond_NoMedia]
+timeout:5->[Error_Respond_NoMedia]
+
+10
+a:ForwardActionToProvider  // MakeCall
+rns:success->15
+rns:*->[Error_Respond_Media]
+timeout:5->[Error_Hangup_Media_Respond]
+
+15
+a:ForwardResponseToApp
+def->20
+
+20
+a:Wait
+dns:waitForMedia=None->[OutboundCall_NoWaitTxRx]
+def->[OutboundCall_WaitTxRx]
+
+1000
+a:EndCall

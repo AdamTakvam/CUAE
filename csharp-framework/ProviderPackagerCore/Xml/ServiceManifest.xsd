@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="ServiceManifest" targetNamespace="http://cisco.com/ServiceManifest.xsd" elementFormDefault="qualified" xmlns="http://cisco.com/ServiceManifest.xsd" xmlns:mstns="http://cisco.com/ServiceManifest.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="argType">
+        <xs:restriction base="xs:string" />
+    </xs:simpleType>
+    
+    <xs:complexType name="ServiceType">
+        <xs:sequence>
+            <xs:element name="Argument" type="argType" minOccurs="0" maxOccurs="unbounded" nillable="false">
+                <xs:annotation>
+                    <xs:documentation>
+                        Any arguments needed by the service are specified with this element.
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="Filename" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    This attribute should be equal to the filename of the service that is being described.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    This will be the Windows-keyable name of the service.  Used when installing the service on Windows.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="DisplayName" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    This will be the display name of the service (shown for instance in the Administrative Tools > Services control panel in Windows).
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Description" type="xs:string" use="optional">
+                <xs:annotation>
+                    <xs:documentation>
+                        This will be the description of the service (shown for instance in the Administrative Tools > Services control panel in Windows).
+                    </xs:documentation>
+                </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Username" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    If the service should be run as a user instead of run under 'Local System account', then specify the name of that user here.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="Password" type="xs:string" use="optional">
+            <xs:annotation>
+                <xs:documentation>
+                    The password of the user, if the Username element is specified.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="ServiceManifestType">
+        <xs:sequence>
+            <xs:element name="Service" type="ServiceType" nillable="false" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="ServiceManifest" type="ServiceManifestType" nillable="false" />
+</xs:schema>
+

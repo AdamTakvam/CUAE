@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalPortForwarding", "LocalPortForwarding.csproj", "{45B7568B-C4C9-4698-97AC-49F5A8EBD3BA}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{45B7568B-C4C9-4698-97AC-49F5A8EBD3BA}.Debug.ActiveCfg = Debug|.NET
+		{45B7568B-C4C9-4698-97AC-49F5A8EBD3BA}.Debug.Build.0 = Debug|.NET
+		{45B7568B-C4C9-4698-97AC-49F5A8EBD3BA}.Release.ActiveCfg = Release|.NET
+		{45B7568B-C4C9-4698-97AC-49F5A8EBD3BA}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

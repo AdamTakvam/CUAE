@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="authCode" displayName="Authorization Code" format="String" description="The code needed to call out through this application" defaultValue="1234" required="true" />
+    <configValue name="leadingDigits" displayName="Leading Digits" format="Number" description="The number of leading digits to remove" defaultValue="1" required="true" />
+  </configuration>
+</install>

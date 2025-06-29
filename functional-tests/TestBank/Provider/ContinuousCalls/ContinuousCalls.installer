@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_ContinuousCalls_script1" displayName="Provider_ContinuousCalls_script1" format="string" defaultValue="Provider.ContinuousCalls.script1" readOnly="true" required="true" />
+    <configValue name="S_Trigger" displayName="S_Trigger" format="string" defaultValue="Provider.ContinuousCalls.script1.S_Trigger" readOnly="true" required="true" />
+    <configValue name="S_MadeCall" displayName="S_MadeCall" format="string" defaultValue="Provider.ContinuousCalls.script1.S_MadeCall" readOnly="true" required="true" />
+    <configValue name="S_ReceivedCall" displayName="S_ReceivedCall" format="string" defaultValue="Provider.ContinuousCalls.script2.S_ReceivedCall" readOnly="true" required="true" />
+    <configValue name="E_StopTimer" displayName="E_StopTimer" format="string" defaultValue="Provider.ContinuousCalls.script1.E_StopTimer" readOnly="true" required="true" />
+  </configuration>
+</install>

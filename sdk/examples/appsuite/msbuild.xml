@@ -1,0 +1,35 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <ItemGroup>
+        <ProjectReferences Include="..\..\obj\appsuite\src\plugins\Database\msbuild.xml" />
+	<ActiveRelayReferences Include="..\..\obj\appsuite\src\plugins\ActiveRelay\msbuild.xml" />
+	<ScheduledConferenceReferences Include="..\..\obj\appsuite\src\plugins\ScheduledConference\msbuild.xml" />
+    </ItemGroup>
+
+    <Target Name="Build">	 
+	
+	<MSBuild Projects="@(ProjectReferences)" Targets="Build">
+            <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+        </MSBuild> 
+
+	<MSBuild Projects="@(ActiveRelayReferences)" Targets="Build">
+            <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+        </MSBuild>
+
+
+	<MSBuild Projects="@(ScheduledConferenceReferences)" Targets="Build">
+            <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+        </MSBuild>
+
+	
+	<!-- <Exec Command="..\..\..\Build\MaxDesigner\MaxDesigner.exe ..\..\obj\appsuite\src\designer\ActiveRelay\ActiveRelay.max /b"/> -->
+	
+	<Exec Command="..\..\..\Build\MaxDesigner\MaxDesigner.exe ..\..\obj\appsuite\src\designer\ScheduledConference\ScheduledConference.max /b"/>
+
+	<Exec Command="..\..\..\Build\MaxDesigner\MaxDesigner.exe ..\..\obj\appsuite\src\designer\VoiceTunnel\VoiceTunnel.max /b"/>
+
+    </Target>
+      
+</Project>
+
+

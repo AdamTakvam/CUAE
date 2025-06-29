@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+   <configValue name="CallManagerIP" description="The IP address of CallManager we're relaying to" format="string" defaultValue="10.1.10.25" readOnly="false" required="true"></configValue>
+   <configValue name="CallManagerPort" description="The CallManager port number to which we should relay" format="number" defaultValue="2000" readOnly="false" required="true"></configValue>
+   <configValue name="ConnPoolSize" description="The number of MMS Conferences the script will pre-cache. If zero, cBarge feature will be disabled" format="number" defaultValue="1" readOnly="false" required="true"><EnumItem>0</EnumItem><EnumItem>1</EnumItem><EnumItem>2</EnumItem><EnumItem>3</EnumItem></configValue>
+   <configValue name="ConnAttemptNumber" description="If caching of a conference connection fails, the script will re-try to create it the specified number of times" format="number" defaultValue="1" readOnly="false" required="true"><EnumItem>0</EnumItem><EnumItem>1</EnumItem><EnumItem>2</EnumItem><EnumItem>3</EnumItem></configValue>
+   <configValue name="PlayBeepTo" description="When a party is barged, a beep will be played to the selected party." format="string" defaultValue="Conference" readOnly="false" required="true"><EnumItem>NoOne</EnumItem><EnumItem>Conference</EnumItem><EnumItem>NewPartyOnly</EnumItem></configValue>
+   <configValue name="Amplitude1" description="Amplitude for first tone in dB. Valid values are [-40..0]" format="number" defaultValue="-10" readOnly="false" required="true"></configValue>
+   <configValue name="Frequency1" description="Frequency for the first tone in hertz. Valid values are [200.3000]" format="number" defaultValue="1000" readOnly="false" required="true"></configValue>   
+   <configValue name="Amplitude2" description="Amplitude for second tone in dB. Valid values are [-40..0]" format="number" defaultValue="-10" readOnly="false" required="true"></configValue>
+   <configValue name="Frequency2" description="Frequency for the second tone in hertz. Valid values are [200..3000]" format="number" defaultValue="600" readOnly="false" required="true"></configValue>
+   <configValue name="ToneDuration" description="Duration of tone in ms" format="number" defaultValue="1200" readOnly="false" required="true"></configValue>
+  </configuration>
+</install>

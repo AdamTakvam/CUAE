@@ -1,0 +1,31 @@
+Ok, a call has arrived on a monitored line.
+
+Here are the messages:
+
+--> IncomingCall (sent when CallCtlConnOfferedEv received)
+     *    InterimCallId
+	 *    DeviceType
+	 *    DeviceName
+	 *    To
+	 *    From
+	 *    OriginalTo
+
+<-- Accept (causes accept)
+     *    InterimCallId
+	 *    CallId
+
+--> GotCapabilities (sent when CallCtlTermConnRingingEv received)
+	 *    CallId
+	 *    Codec
+	 *    Framesize
+	 *    TxIP
+	 *    TxPort
+
+<-- AnswerCall (causes answer)
+	 *    CallId
+	 *    DisplayName
+	 *    RxIP
+	 *    RxPort
+
+--> CallEstablished (sent when CallCtlConnEstablishedEv)
+	 *    CallId

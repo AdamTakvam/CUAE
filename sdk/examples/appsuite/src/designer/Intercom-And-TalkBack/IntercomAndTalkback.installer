@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+  <configValue name="Server" displayName="Server" defaultValue="localhost" description="Address of the server" format="string" readOnly="false" />
+	<configValue name="Port" displayName="Port" defaultValue="3306" description="Port of the database server" format="string" readOnly="false" />
+	<configValue name="Username" displayName="Username" defaultValue="root" description="The username to connect to database" format="string" readOnly="false" />
+	<configValue name="Password" displayName="Password" defaultValue="metreos" description="Password" format="password" readOnly="false" />
+	<configValue name="CCM_Device_Username" displayName="CCM_Device_Username" defaultValue="metreos" description="CallManager User associated with all phone devices which will use this application" format="string" readOnly="false" />
+	<configValue name="CCM_Device_Password" displayName="CCM_Device_Password" defaultValue="metreos" description="Password of CallManager user" format="password" readOnly="false" />
+  </configuration>
+</install>

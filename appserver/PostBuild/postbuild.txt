@@ -1,0 +1,119 @@
+** PostBuild Beginning     
+** Installing files in deployment directory   
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 2.0.50727.42
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Download cache deleted successfully
+** Installing core assemblies ** 
+X:\appserver\ARE\bin\Debug\Metreos.AppServer.ARE.dll
+1 File(s) copied
+X:\appserver\CommonRuntime\bin\Debug\Metreos.AppServer.CommonRuntime.dll
+1 File(s) copied
+X:\appserver\ApplicationManager\bin\Debug\Metreos.AppServer.ApplicationManager.dll
+1 File(s) copied
+X:\appserver\EventRouter\bin\Debug\Metreos.AppServer.EventRouter.dll
+1 File(s) copied
+X:\appserver\ProviderManager\bin\Debug\Metreos.AppServer.ProviderManager.dll
+1 File(s) copied
+X:\appserver\TelephonyManager\bin\Debug\Metreos.AppServer.TelephonyManager.dll
+1 File(s) copied
+X:\appserver\Clustering\bin\Debug\Metreos.AppServer.Clustering.dll
+1 File(s) copied
+X:\appserver\IPC\bin\Debug\Metreos.AppServer.Management.dll
+1 File(s) copied
+X:\Contrib\FLEXlm\LicenseServer\lmgr10.dll
+1 File(s) copied
+** Installing TelephonyManager Scripts ** 
+X:\appserver\TelephonyManager\Scripts\AcceptCall.tms
+X:\appserver\TelephonyManager\Scripts\AcceptCall_EarlyMedia.tms
+X:\appserver\TelephonyManager\Scripts\AcceptCall_H323.tms
+X:\appserver\TelephonyManager\Scripts\AcceptCall_P2P.tms
+X:\appserver\TelephonyManager\Scripts\Barge.tms
+X:\appserver\TelephonyManager\Scripts\Barge_Media.tms
+X:\appserver\TelephonyManager\Scripts\BlindTransfer.tms
+X:\appserver\TelephonyManager\Scripts\BridgeCalls.tms
+X:\appserver\TelephonyManager\Scripts\CallChanged.tms
+X:\appserver\TelephonyManager\Scripts\Caps_ReNeg.tms
+X:\appserver\TelephonyManager\Scripts\Caps_ReNeg_P2P.tms
+X:\appserver\TelephonyManager\Scripts\Error_Hangup_Media.tms
+X:\appserver\TelephonyManager\Scripts\Error_Hangup_Media_Callback.tms
+X:\appserver\TelephonyManager\Scripts\Error_Hangup_Media_Respond.tms
+X:\appserver\TelephonyManager\Scripts\Error_Hangup_NoMedia.tms
+X:\appserver\TelephonyManager\Scripts\Error_Hangup_NoMedia_Callback.tms
+X:\appserver\TelephonyManager\Scripts\Error_Hangup_NoMedia_Respond.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_Callback.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_Hangup.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_HangupPeer.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_Hangup_Callback.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_Hangup_Respond.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_Respond.tms
+X:\appserver\TelephonyManager\Scripts\Error_P2P_RespondToPeer.tms
+X:\appserver\TelephonyManager\Scripts\Error_Reject_Media.tms
+X:\appserver\TelephonyManager\Scripts\Error_Reject_Media_Respond.tms
+X:\appserver\TelephonyManager\Scripts\Error_Reject_NoMedia.tms
+X:\appserver\TelephonyManager\Scripts\Error_Reject_NoMedia_Respond.tms
+X:\appserver\TelephonyManager\Scripts\Error_Respond_Media.tms
+X:\appserver\TelephonyManager\Scripts\Error_Respond_NoMedia.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall_EarlyMedia.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall_H323.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall_LateMedia.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall_NoWaitTxRx.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall_P2P_WaitTxRx.tms
+X:\appserver\TelephonyManager\Scripts\IncomingCall_WaitTxRx.tms
+X:\appserver\TelephonyManager\Scripts\MediaChanged.tms
+X:\appserver\TelephonyManager\Scripts\MediaChanged_P2P.tms
+X:\appserver\TelephonyManager\Scripts\OutboundCall.tms
+X:\appserver\TelephonyManager\Scripts\OutboundCall_EarlyMedia.tms
+X:\appserver\TelephonyManager\Scripts\OutboundCall_NoWaitTxRx.tms
+X:\appserver\TelephonyManager\Scripts\OutboundCall_P2P.tms
+X:\appserver\TelephonyManager\Scripts\OutboundCall_P2P_WaitTxRx.tms
+X:\appserver\TelephonyManager\Scripts\OutboundCall_WaitTxRx.tms
+X:\appserver\TelephonyManager\Scripts\P2P_CreateConference.tms
+X:\appserver\TelephonyManager\Scripts\P2P_DeleteConnection.tms
+X:\appserver\TelephonyManager\Scripts\P2P_Hold.tms
+X:\appserver\TelephonyManager\Scripts\P2P_Resume.tms
+X:\appserver\TelephonyManager\Scripts\Redirect.tms
+X:\appserver\TelephonyManager\Scripts\RemoteHangup.tms
+X:\appserver\TelephonyManager\Scripts\RemoteHangup_P2P.tms
+X:\appserver\TelephonyManager\Scripts\RemoteHold.tms
+X:\appserver\TelephonyManager\Scripts\RemoteResume.tms
+X:\appserver\TelephonyManager\Scripts\RemoteResume_P2P.tms
+X:\appserver\TelephonyManager\Scripts\SendUserInput.tms
+X:\appserver\TelephonyManager\Scripts\UnbridgeCalls.tms
+X:\appserver\TelephonyManager\Scripts\User_Hangup_Media.tms
+X:\appserver\TelephonyManager\Scripts\User_Hangup_NoMedia.tms
+X:\appserver\TelephonyManager\Scripts\User_Hangup_P2P.tms
+X:\appserver\TelephonyManager\Scripts\User_Reject_NoMedia.tms
+61 File(s) copied
+** Installing executables ** 
+X:\appserver\ConsoleRuntime\bin\Debug\AppServer.exe
+1 File(s) copied
+X:\appserver\ConsoleRuntime\bin\Debug\AppServer.exe.config
+1 File(s) copied
+X:\appserver\ServiceRuntime\bin\Debug\AppServerService.exe
+1 File(s) copied
+X:\appserver\ServiceRuntime\bin\Debug\AppServerService.exe.config
+1 File(s) copied
+X:\appserver\ARE\bin\Debug\Metreos.AppServer.ARE.pdb
+1 File(s) copied
+X:\appserver\CommonRuntime\bin\Debug\Metreos.AppServer.CommonRuntime.pdb
+1 File(s) copied
+X:\appserver\ApplicationManager\bin\Debug\Metreos.AppServer.ApplicationManager.pdb
+1 File(s) copied
+X:\appserver\EventRouter\bin\Debug\Metreos.AppServer.EventRouter.pdb
+1 File(s) copied
+X:\appserver\ProviderManager\bin\Debug\Metreos.AppServer.ProviderManager.pdb
+1 File(s) copied
+X:\appserver\TelephonyManager\bin\Debug\Metreos.AppServer.TelephonyManager.pdb
+1 File(s) copied
+X:\appserver\Clustering\bin\Debug\Metreos.AppServer.Clustering.pdb
+1 File(s) copied
+X:\appserver\IPC\bin\Debug\Metreos.AppServer.Management.pdb
+1 File(s) copied
+X:\appserver\ConsoleRuntime\bin\Debug\AppServer.pdb
+1 File(s) copied
+X:\appserver\ServiceRuntime\bin\Debug\AppServerService.pdb
+1 File(s) copied
+** Installing debug symbols                   
+** PostBuild Complete                         

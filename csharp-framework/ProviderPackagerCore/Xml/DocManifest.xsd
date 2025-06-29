@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="DocManifest" targetNamespace="http://cisco.com/DocManifest.xsd" elementFormDefault="qualified" xmlns="http://cisco.com/DocManifest.xsd" xmlns:mstns="http://cisco.com/DocManifest.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="DocumentType">
+        <xs:attribute name="Filename" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    This attribute should be equal to the filename of the document that is being described.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="DisplayName" type="xs:string" use="optional" />
+        <xs:attribute name="Size" type="xs:long" use="optional" />
+        <xs:attribute name="Description" type="xs:string" use="optional" />
+    </xs:complexType>
+    
+    <xs:complexType name="DocumentsType">
+        <xs:sequence>
+            <xs:element name="Documents" type="DocumentType" minOccurs="1" maxOccurs="unbounded" nillable="false" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="DocManifest" type="DocumentsType" nillable="false" />
+    
+</xs:schema>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="Application Suite Admin Console" default="Help" basedir=".">
+  <description>Build script for appsuiteadmin</description>
+
+  <import file="../autobuild/build.includes.xml" />
+  <property name="buildDirectory"      value="obj" />
+  <property name="deploymentDirectory" value="${Metreos.build.buildDirectory}\appsuiteadmin" />
+
+  <target name="do-init" >
+     <mkdir dir="${buildDirectory}" />
+     <mkdir dir="${Metreos.build.buildDirectory}/System/Apache/conf" />
+  </target>
+  
+  <target name="do-build" >
+     <copy todir="${buildDirectory}">
+        <fileset dir="." includes="includes/**,public/**,templates/**" excludes="CVS,.cvsignore,templates_c/**" />
+     </copy>
+     <copy todir="${buildDirectory}">
+        <fileset dir="." includes="install/**" excludes="CVS,.cvsignore" />
+        <filterset refid="Metreos.buildIdentifier" />   
+     </copy>
+     <mkdir dir="${buildDirectory}/templates_c" />
+  </target>
+  
+  <target name="do-clean" >
+     <delete dir="${buildDirectory}" />
+     <delete dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-postbuild">
+     <mkdir dir="${deploymentDirectory}" />
+     <copy todir="${deploymentDirectory}">
+        <fileset dir="${buildDirectory}" />
+     </copy> 
+     <copy todir="${Metreos.build.buildDirectory}/System/Apache/conf" >
+        <fileset dir="${buildDirectory}/install/apache/conf" >
+           <exclude name="appsuite-dev.conf" />
+        </fileset>   
+     </copy>
+     
+     <delete dir="${buildDirectory}" />
+  </target>
+
+</project>
+

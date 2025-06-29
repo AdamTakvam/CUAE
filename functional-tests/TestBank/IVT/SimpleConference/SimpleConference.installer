@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_SimpleConference_script1" displayName="" format="String" description="" defaultValue="IVT.SimpleConference.script1" readOnly="false" />
+    <configValue name="S_MakeCallComplete" displayName="" format="String" defaultValue="IVT.SimpleConference.script1.S_MakeCallComplete" />
+    <configValue name="S_AllHangup" displayName="" format="String" defaultValue="IVT.SimpleConference.script1.S_AllHangup" />
+  </configuration>
+</install>

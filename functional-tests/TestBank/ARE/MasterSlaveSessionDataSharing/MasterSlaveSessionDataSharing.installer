@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_MasterSlaveSessionDataSharing_master1" displayName="ARE_MasterSlaveSessionDataSharing_master1" format="string" defaultValue="ARE.MasterSlaveSessionDataSharing.master1" readOnly="true" required="true" />
+    <configValue name="ARE_MasterSlaveSessionDataSharing_slave1" displayName="ARE_MasterSlaveSessionDataSharing_slave1" format="string" defaultValue="ARE.MasterSlaveSessionDataSharing.slave1" readOnly="true" required="true" />
+    <configValue name="S_Inserted" displayName="S_Inserted" format="string" defaultValue="ARE.MasterSlaveSessionDataSharing.master1.S_Inserted" readOnly="true" required="true" />
+    <configValue name="S_QuerySuccess" displayName="S_QuerySuccess" format="string" defaultValue="ARE.MasterSlaveSessionDataSharing.slave1.S_QuerySuccess" readOnly="true" required="true" />
+    <configValue name="S_QueryFailure" displayName="S_QueryFailure" format="string" defaultValue="ARE.MasterSlaveSessionDataSharing.slave1.S_QueryFailure" readOnly="true" required="true" />
+    <configValue name="E_Event" displayName="E_Event" format="string" defaultValue="ARE.MasterSlaveSessionDataSharing.master1.E_Event" readOnly="true" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="db-migration" default="Debug" basedir=".">
+
+	<description>Build script for QA Tools</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/Tools" />
+	<property name="appsSourceDirectory"  value="${Metreos.build.srcRoot}/qatools/test-apps/IntegrationApps" />
+	<property name="appsDeployDirectory"  value="${deploymentDirectory}/Apps" />
+	
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${appsSourceDirectory}" includes="**/bin/** **/obj/**" />
+        </delete>
+		<!--
+		<delete>
+            <fileset dir="PostBuild" includes="postbuild.txt" />
+            <fileset dir="UnitTest" includes="unittest.txt" />
+        </delete>
+		-->
+    </target>    
+        
+	<target name="do-build" >
+		<metreosMaxTask root="${appsSourceDirectory}" dir="MakeCall" />
+		<metreosMaxTask root="${appsSourceDirectory}" dir="AnswerCall" />
+		<copy todir="${appsDeployDirectory}">
+			<fileset dir="${appsSourceDirectory}" excludes="**/obj/**" />
+		</copy>
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

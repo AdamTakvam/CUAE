@@ -1,0 +1,325 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E97429BC-CFA0-49D1-B26C-60576CA0942A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>RecordAgent</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Metreos.RecordAgent</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <WebReference_EnableProperties>true</WebReference_EnableProperties>
+    <WebReference_EnableSQLTypes>false</WebReference_EnableSQLTypes>
+    <WebReference_EnableLegacyEventingModel>true</WebReference_EnableLegacyEventingModel>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <Name>ICSharpCode.SharpZipLib</Name>
+      <HintPath>Contrib\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Core">
+      <Name>Metreos.Core</Name>
+      <HintPath>..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.ServiceProcess">
+      <Name>System.ServiceProcess</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="Toolset\ChatBox\ChatBox.csproj">
+      <Name>ChatBox</Name>
+      <Project>{27EA9E0E-2954-4EA6-B3B5-C21151AFE310}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\Commoni18n\Commoni18n.csproj">
+      <Name>Commoni18n</Name>
+      <Project>{349856D0-CE48-472A-9274-AE1365F4DBC9}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\CommonUtility\CommonUtility.csproj">
+      <Name>CommonUtility</Name>
+      <Project>{07E5D58B-FF67-45BA-BFD4-5DAF851CF768}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\GraphicMenu\GraphicMenu.vbproj">
+      <Name>GraphicMenu</Name>
+      <Project>{4D137B33-8BF1-4654-8793-7C0EDE1DDBD3}</Project>
+      <Package>{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\ImageButton\ImageButton.csproj">
+      <Name>ImageButton</Name>
+      <Project>{B6166F96-6ED2-41DD-A8EA-72719CCFD34E}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\ImageListPopup\ImageListPopup.csproj">
+      <Name>ImageListPopup</Name>
+      <Project>{89748A25-E238-406E-8D64-19A17C9503E5}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\Interfaces\Interfaces.csproj">
+      <Name>Interfaces</Name>
+      <Project>{6E791598-4008-479B-BCFF-D336CC3B77AA}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\NotifyWindow\NotifyWindow.csproj">
+      <Name>NotifyWindow</Name>
+      <Project>{93FD7AF7-02FC-48CC-A1FC-BF5605818331}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\RichTextBoxEx\RichTextBoxEx.csproj">
+      <Name>RichTextBoxEx</Name>
+      <Project>{1A63B1D0-D2F0-4F8C-B242-863E83E1419C}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\TenarySearchTree\TenarySearchTree.csproj">
+      <Name>TenarySearchTree</Name>
+      <Project>{FCE5E684-7BFD-461E-BD8B-A3458045AEDD}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\XPPanel\XPPanel.csproj">
+      <Name>XPPanel</Name>
+      <Project>{8B656A5B-3371-461B-86BA-61F5EA96DBB2}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="Toolset\XPTable\XPTable.csproj">
+      <Name>XPTable</Name>
+      <Project>{1ADD2ECB-2B24-4162-8965-3EFAA9BB041E}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Web References\sforce\partner.wsdl" />
+    <None Include="Web References\sforce\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="App.ico" />
+    <Content Include="Resources\BluePhone.ico" />
+    <Content Include="Resources\GrayPhone.ico" />
+    <Content Include="Resources\GreenPhone.ico" />
+    <Content Include="Resources\phoneinc.ico" />
+    <Content Include="Resources\phoneout.ico" />
+    <Content Include="Resources\Play.ico" />
+    <Content Include="Resources\RedPhone.ico" />
+    <Content Include="Resources\Save.ico" />
+    <Content Include="Resources\StartRecord.ico" />
+    <Content Include="Resources\StartRecordNow.ico" />
+    <Content Include="Resources\StopRecord.ico" />
+    <Content Include="Resources\TakeNote.ico" />
+    <Content Include="Resources\YellowPhone.ico" />
+    <Content Include="WSDL\enterprise.wsdl" />
+    <Content Include="WSDL\partner.wsdl" />
+    <Compile Include="ActiveCallPanel\ActiveCallPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Agent\ActiveCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Agent\Agent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Agent\CallData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Config\Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IPC\Messages.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPC\RecordAgentIpcClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MetaData\MetaDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notifier\Notifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notifier\NotifierManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Player\Player.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Player\ReplayPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecordList\RecordList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecordList\SearchRecord.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RecordList\StarCellRenderer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Record\Record.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Record\RecordManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SalesForce\CallerInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SalesForce\SforceLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesForce\SforceManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SalesForce\SforceServiceWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service\ServiceManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web References\sforce\Reference.cs">
+      <DependentUpon>Reference.map</DependentUpon>
+      <SubType>code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MetaData\MetaDataForm.resx">
+      <DependentUpon>MetaDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notifier\Notifier.resx">
+      <DependentUpon>Notifier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\Player.resx">
+      <DependentUpon>Player.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Player\ReplayPanel.resx">
+      <DependentUpon>ReplayPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecordList\Images.resX" />
+    <EmbeddedResource Include="RecordList\RecordList.resx">
+      <DependentUpon>RecordList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesForce\SforceLogin.resx">
+      <DependentUpon>SforceLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <WebReferenceUrl Include="X:\application-suite\RecordAgent\WSDL\partner.wsdl">
+      <RelPath>Web References\sforce\</RelPath>
+      <UrlBehavior>Static</UrlBehavior>
+    </WebReferenceUrl>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,3170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2002 Cisco Systems, Inc. -->
+<definitions  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.cisco.com/AXLAPIService/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" targetNamespace="http://www.cisco.com/AXLAPIService/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd1="http://www.cisco.com/AXL/API/1.0">
+<import  namespace="http://www.cisco.com/AXL/API/1.0" location="axlsoap.xsd"></import>
+<message  name="addPhoneIn">
+<part  name="parameters" element="xsd1:addPhone"></part>
+</message>
+<message  name="addPhoneOut">
+<part  name="parameters" element="xsd1:addPhoneResponse"></part>
+</message>
+<message  name="removePhoneIn">
+<part  name="parameters" element="xsd1:removePhone"></part>
+</message>
+<message  name="removePhoneOut">
+<part  name="parameters" element="xsd1:removePhoneResponse"></part>
+</message>
+<message  name="updatePhoneIn">
+<part  name="parameters" element="xsd1:updatePhone"></part>
+</message>
+<message  name="updatePhoneOut">
+<part  name="parameters" element="xsd1:updatePhoneResponse"></part>
+</message>
+<message  name="getPhoneIn">
+<part  name="parameters" element="xsd1:getPhone"></part>
+</message>
+<message  name="getPhoneOut">
+<part  name="parameters" element="xsd1:getPhoneResponse"></part>
+</message>
+<message  name="doDeviceLoginIn">
+<part  name="parameters" element="xsd1:doDeviceLogin"></part>
+</message>
+<message  name="doDeviceLoginOut">
+<part  name="parameters" element="xsd1:doDeviceLoginResponse"></part>
+</message>
+<message  name="doDeviceLogoutIn">
+<part  name="parameters" element="xsd1:doDeviceLogout"></part>
+</message>
+<message  name="doDeviceLogoutOut">
+<part  name="parameters" element="xsd1:doDeviceLogoutResponse"></part>
+</message>
+<message  name="doDeviceResetIn">
+<part  name="parameters" element="xsd1:doDeviceReset"></part>
+</message>
+<message  name="doDeviceResetOut">
+<part  name="parameters" element="xsd1:doDeviceResetResponse"></part>
+</message>
+<message  name="addLineIn">
+<part  name="parameters" element="xsd1:addLine"></part>
+</message>
+<message  name="addLineOut">
+<part  name="parameters" element="xsd1:addLineResponse"></part>
+</message>
+<message  name="removeLineIn">
+<part  name="parameters" element="xsd1:removeLine"></part>
+</message>
+<message  name="removeLineOut">
+<part  name="parameters" element="xsd1:removeLineResponse"></part>
+</message>
+<message  name="updateLineIn">
+<part  name="parameters" element="xsd1:updateLine"></part>
+</message>
+<message  name="updateLineOut">
+<part  name="parameters" element="xsd1:updateLineResponse"></part>
+</message>
+<message  name="getLineIn">
+<part  name="parameters" element="xsd1:getLine"></part>
+</message>
+<message  name="getLineOut">
+<part  name="parameters" element="xsd1:getLineResponse"></part>
+</message>
+<message  name="addUserIn">
+<part  name="parameters" element="xsd1:addUser"></part>
+</message>
+<message  name="addUserOut">
+<part  name="parameters" element="xsd1:addUserResponse"></part>
+</message>
+<message  name="removeUserIn">
+<part  name="parameters" element="xsd1:removeUser"></part>
+</message>
+<message  name="removeUserOut">
+<part  name="parameters" element="xsd1:removeUserResponse"></part>
+</message>
+<message  name="updateUserIn">
+<part  name="parameters" element="xsd1:updateUser"></part>
+</message>
+<message  name="updateUserOut">
+<part  name="parameters" element="xsd1:updateUserResponse"></part>
+</message>
+<message  name="getUserIn">
+<part  name="parameters" element="xsd1:getUser"></part>
+</message>
+<message  name="getUserOut">
+<part  name="parameters" element="xsd1:getUserResponse"></part>
+</message>
+<message  name="addDeviceProfileIn">
+<part  name="parameters" element="xsd1:addDeviceProfile"></part>
+</message>
+<message  name="addDeviceProfileOut">
+<part  name="parameters" element="xsd1:addDeviceProfileResponse"></part>
+</message>
+<message  name="removeDeviceProfileIn">
+<part  name="parameters" element="xsd1:removeDeviceProfile"></part>
+</message>
+<message  name="removeDeviceProfileOut">
+<part  name="parameters" element="xsd1:removeDeviceProfileResponse"></part>
+</message>
+<message  name="updateDeviceProfileIn">
+<part  name="parameters" element="xsd1:updateDeviceProfile"></part>
+</message>
+<message  name="updateDeviceProfileOut">
+<part  name="parameters" element="xsd1:updateDeviceProfileResponse"></part>
+</message>
+<message  name="getDeviceProfileIn">
+<part  name="parameters" element="xsd1:getDeviceProfile"></part>
+</message>
+<message  name="getDeviceProfileOut">
+<part  name="parameters" element="xsd1:getDeviceProfileResponse"></part>
+</message>
+<message  name="addRoutePartitionIn">
+<part  name="parameters" element="xsd1:addRoutePartition"></part>
+</message>
+<message  name="addRoutePartitionOut">
+<part  name="parameters" element="xsd1:addRoutePartitionResponse"></part>
+</message>
+<message  name="updateRoutePartitionIn">
+<part  name="parameters" element="xsd1:updateRoutePartition"></part>
+</message>
+<message  name="updateRoutePartitionOut">
+<part  name="parameters" element="xsd1:updateRoutePartitionResponse"></part>
+</message>
+<message  name="removeRoutePartitionIn">
+<part  name="parameters" element="xsd1:removeRoutePartition"></part>
+</message>
+<message  name="removeRoutePartitionOut">
+<part  name="parameters" element="xsd1:removeRoutePartitionResponse"></part>
+</message>
+<message  name="getRoutePartitionIn">
+<part  name="parameters" element="xsd1:getRoutePartition"></part>
+</message>
+<message  name="getRoutePartitionOut">
+<part  name="parameters" element="xsd1:getRoutePartitionResponse"></part>
+</message>
+<message  name="getCSSIn">
+<part  name="parameters" element="xsd1:getCSS"></part>
+</message>
+<message  name="getCSSOut">
+<part  name="parameters" element="xsd1:getCSSResponse"></part>
+</message>
+<message  name="removeCSSIn">
+<part  name="parameters" element="xsd1:removeCSS"></part>
+</message>
+<message  name="removeCSSOut">
+<part  name="parameters" element="xsd1:removeCSSResponse"></part>
+</message>
+<message  name="addCSSIn">
+<part  name="parameters" element="xsd1:addCSS"></part>
+</message>
+<message  name="addCSSOut">
+<part  name="parameters" element="xsd1:addCSSResponse"></part>
+</message>
+<message  name="updateCSSIn">
+<part  name="parameters" element="xsd1:updateCSS"></part>
+</message>
+<message  name="updateCSSOut">
+<part  name="parameters" element="xsd1:updateCSSResponse"></part>
+</message>
+<message  name="getTransPatternIn">
+<part  name="parameters" element="xsd1:getTransPattern"></part>
+</message>
+<message  name="getTransPatternOut">
+<part  name="parameters" element="xsd1:getTransPatternResponse"></part>
+</message>
+<message  name="removeTransPatternIn">
+<part  name="parameters" element="xsd1:removeTransPattern"></part>
+</message>
+<message  name="removeTransPatternOut">
+<part  name="parameters" element="xsd1:removeTransPatternResponse"></part>
+</message>
+<message  name="addTransPatternIn">
+<part  name="parameters" element="xsd1:addTransPattern"></part>
+</message>
+<message  name="addTransPatternOut">
+<part  name="parameters" element="xsd1:addTransPatternResponse"></part>
+</message>
+<message  name="updateTransPatternIn">
+<part  name="parameters" element="xsd1:updateTransPattern"></part>
+</message>
+<message  name="updateTransPatternOut">
+<part  name="parameters" element="xsd1:updateTransPatternResponse"></part>
+</message>
+<message  name="getRoutePatternIn">
+<part  name="parameters" element="xsd1:getRoutePattern"></part>
+</message>
+<message  name="getRoutePatternOut">
+<part  name="parameters" element="xsd1:getRoutePatternResponse"></part>
+</message>
+<message  name="removeRoutePatternIn">
+<part  name="parameters" element="xsd1:removeRoutePattern"></part>
+</message>
+<message  name="removeRoutePatternOut">
+<part  name="parameters" element="xsd1:removeRoutePatternResponse"></part>
+</message>
+<message  name="addRoutePatternIn">
+<part  name="parameters" element="xsd1:addRoutePattern"></part>
+</message>
+<message  name="addRoutePatternOut">
+<part  name="parameters" element="xsd1:addRoutePatternResponse"></part>
+</message>
+<message  name="updateRoutePatternIn">
+<part  name="parameters" element="xsd1:updateRoutePattern"></part>
+</message>
+<message  name="updateRoutePatternOut">
+<part  name="parameters" element="xsd1:updateRoutePatternResponse"></part>
+</message>
+<message  name="addRouteGroupIn">
+<part  name="parameters" element="xsd1:addRouteGroup"></part>
+</message>
+<message  name="addRouteGroupOut">
+<part  name="parameters" element="xsd1:addRouteGroupResponse"></part>
+</message>
+<message  name="updateRouteGroupIn">
+<part  name="parameters" element="xsd1:updateRouteGroup"></part>
+</message>
+<message  name="updateRouteGroupOut">
+<part  name="parameters" element="xsd1:updateRouteGroupResponse"></part>
+</message>
+<message  name="getRouteGroupIn">
+<part  name="parameters" element="xsd1:getRouteGroup"></part>
+</message>
+<message  name="getRouteGroupOut">
+<part  name="parameters" element="xsd1:getRouteGroupResponse"></part>
+</message>
+<message  name="removeRouteGroupIn">
+<part  name="parameters" element="xsd1:removeRouteGroup"></part>
+</message>
+<message  name="removeRouteGroupOut">
+<part  name="parameters" element="xsd1:removeRouteGroupResponse"></part>
+</message>
+<message  name="addRouteListIn">
+<part  name="parameters" element="xsd1:addRouteList"></part>
+</message>
+<message  name="addRouteListOut">
+<part  name="parameters" element="xsd1:addRouteListResponse"></part>
+</message>
+<message  name="updateRouteListIn">
+<part  name="parameters" element="xsd1:updateRouteList"></part>
+</message>
+<message  name="updateRouteListOut">
+<part  name="parameters" element="xsd1:updateRouteListResponse"></part>
+</message>
+<message  name="getRouteListIn">
+<part  name="parameters" element="xsd1:getRouteList"></part>
+</message>
+<message  name="getRouteListOut">
+<part  name="parameters" element="xsd1:getRouteListResponse"></part>
+</message>
+<message  name="removeRouteListIn">
+<part  name="parameters" element="xsd1:removeRouteList"></part>
+</message>
+<message  name="removeRouteListOut">
+<part  name="parameters" element="xsd1:removeRouteListResponse"></part>
+</message>
+<message  name="addCTIRoutePointIn">
+<part  name="parameters" element="xsd1:addCTIRoutePoint"></part>
+</message>
+<message  name="addCTIRoutePointOut">
+<part  name="parameters" element="xsd1:addCTIRoutePointResponse"></part>
+</message>
+<message  name="updateCTIRoutePointIn">
+<part  name="parameters" element="xsd1:updateCTIRoutePoint"></part>
+</message>
+<message  name="updateCTIRoutePointOut">
+<part  name="parameters" element="xsd1:updateCTIRoutePointResponse"></part>
+</message>
+<message  name="getCTIRoutePointIn">
+<part  name="parameters" element="xsd1:getCTIRoutePoint"></part>
+</message>
+<message  name="getCTIRoutePointOut">
+<part  name="parameters" element="xsd1:getCTIRoutePointResponse"></part>
+</message>
+<message  name="removeCTIRoutePointIn">
+<part  name="parameters" element="xsd1:removeCTIRoutePoint"></part>
+</message>
+<message  name="removeCTIRoutePointOut">
+<part  name="parameters" element="xsd1:removeCTIRoutePointResponse"></part>
+</message>
+<message  name="addDialPlanIn">
+<part  name="parameters" element="xsd1:addDialPlan"></part>
+</message>
+<message  name="addDialPlanOut">
+<part  name="parameters" element="xsd1:addDialPlanResponse"></part>
+</message>
+<message  name="updateDialPlanIn">
+<part  name="parameters" element="xsd1:updateDialPlan"></part>
+</message>
+<message  name="updateDialPlanOut">
+<part  name="parameters" element="xsd1:updateDialPlanResponse"></part>
+</message>
+<message  name="getDialPlanIn">
+<part  name="parameters" element="xsd1:getDialPlan"></part>
+</message>
+<message  name="getDialPlanOut">
+<part  name="parameters" element="xsd1:getDialPlanResponse"></part>
+</message>
+<message  name="removeDialPlanIn">
+<part  name="parameters" element="xsd1:removeDialPlan"></part>
+</message>
+<message  name="removeDialPlanOut">
+<part  name="parameters" element="xsd1:removeDialPlanResponse"></part>
+</message>
+<message  name="addDialPlanTagIn">
+<part  name="parameters" element="xsd1:addDialPlanTag"></part>
+</message>
+<message  name="addDialPlanTagOut">
+<part  name="parameters" element="xsd1:addDialPlanTagResponse"></part>
+</message>
+<message  name="updateDialPlanTagIn">
+<part  name="parameters" element="xsd1:updateDialPlanTag"></part>
+</message>
+<message  name="updateDialPlanTagOut">
+<part  name="parameters" element="xsd1:updateDialPlanTagResponse"></part>
+</message>
+<message  name="getDialPlanTagIn">
+<part  name="parameters" element="xsd1:getDialPlanTag"></part>
+</message>
+<message  name="getDialPlanTagOut">
+<part  name="parameters" element="xsd1:getDialPlanTagResponse"></part>
+</message>
+<message  name="removeDialPlanTagIn">
+<part  name="parameters" element="xsd1:removeDialPlanTag"></part>
+</message>
+<message  name="removeDialPlanTagOut">
+<part  name="parameters" element="xsd1:removeDialPlanTagResponse"></part>
+</message>
+<message  name="addCallParkIn">
+<part  name="parameters" element="xsd1:addCallPark"></part>
+</message>
+<message  name="addCallParkOut">
+<part  name="parameters" element="xsd1:addCallParkResponse"></part>
+</message>
+<message  name="updateCallParkIn">
+<part  name="parameters" element="xsd1:updateCallPark"></part>
+</message>
+<message  name="updateCallParkOut">
+<part  name="parameters" element="xsd1:updateCallParkResponse"></part>
+</message>
+<message  name="getCallParkIn">
+<part  name="parameters" element="xsd1:getCallPark"></part>
+</message>
+<message  name="getCallParkOut">
+<part  name="parameters" element="xsd1:getCallParkResponse"></part>
+</message>
+<message  name="removeCallParkIn">
+<part  name="parameters" element="xsd1:removeCallPark"></part>
+</message>
+<message  name="removeCallParkOut">
+<part  name="parameters" element="xsd1:removeCallParkResponse"></part>
+</message>
+<message  name="addCallPickupGroupIn">
+<part  name="parameters" element="xsd1:addCallPickupGroup"></part>
+</message>
+<message  name="addCallPickupGroupOut">
+<part  name="parameters" element="xsd1:addCallPickupGroupResponse"></part>
+</message>
+<message  name="updateCallPickupGroupIn">
+<part  name="parameters" element="xsd1:updateCallPickupGroup"></part>
+</message>
+<message  name="updateCallPickupGroupOut">
+<part  name="parameters" element="xsd1:updateCallPickupGroupResponse"></part>
+</message>
+<message  name="getCallPickupGroupIn">
+<part  name="parameters" element="xsd1:getCallPickupGroup"></part>
+</message>
+<message  name="getCallPickupGroupOut">
+<part  name="parameters" element="xsd1:getCallPickupGroupResponse"></part>
+</message>
+<message  name="removeCallPickupGroupIn">
+<part  name="parameters" element="xsd1:removeCallPickupGroup"></part>
+</message>
+<message  name="removeCallPickupGroupOut">
+<part  name="parameters" element="xsd1:removeCallPickupGroupResponse"></part>
+</message>
+<message  name="addDDIIn">
+<part  name="parameters" element="xsd1:addDDI"></part>
+</message>
+<message  name="addDDIOut">
+<part  name="parameters" element="xsd1:addDDIResponse"></part>
+</message>
+<message  name="updateDDIIn">
+<part  name="parameters" element="xsd1:updateDDI"></part>
+</message>
+<message  name="updateDDIOut">
+<part  name="parameters" element="xsd1:updateDDIResponse"></part>
+</message>
+<message  name="getDDIIn">
+<part  name="parameters" element="xsd1:getDDI"></part>
+</message>
+<message  name="getDDIOut">
+<part  name="parameters" element="xsd1:getDDIResponse"></part>
+</message>
+<message  name="removeDDIIn">
+<part  name="parameters" element="xsd1:removeDDI"></part>
+</message>
+<message  name="removeDDIOut">
+<part  name="parameters" element="xsd1:removeDDIResponse"></part>
+</message>
+<message  name="createAutogeneratedProfileIn">
+<part  name="parameters" element="xsd1:createAutogeneratedProfile"></part>
+</message>
+<message  name="createAutogeneratedProfileOut">
+<part  name="parameters" element="xsd1:createAutogeneratedProfileResponse"></part>
+</message>
+<message  name="listPhoneByNameIn">
+<part  name="parameters" element="xsd1:listPhoneByName"></part>
+</message>
+<message  name="listPhoneByNameOut">
+<part  name="parameters" element="xsd1:listPhoneByNameResponse"></part>
+</message>
+<message  name="listPhoneByDescriptionIn">
+<part  name="parameters" element="xsd1:listPhoneByDescription"></part>
+</message>
+<message  name="listPhoneByDescriptionOut">
+<part  name="parameters" element="xsd1:listPhoneByDescriptionResponse"></part>
+</message>
+<message  name="listUserByNameIn">
+<part  name="parameters" element="xsd1:listUserByName"></part>
+</message>
+<message  name="listUserByNameOut">
+<part  name="parameters" element="xsd1:listUserByNameResponse"></part>
+</message>
+<message  name="listRoutePlanByTypeIn">
+<part  name="parameters" element="xsd1:listRoutePlanByType"></part>
+</message>
+<message  name="listRoutePlanByTypeOut">
+<part  name="parameters" element="xsd1:listRoutePlanByTypeResponse"></part>
+</message>
+<message  name="getNumDevicesIn">
+<part  name="parameters" element="xsd1:getNumDevices"></part>
+</message>
+<message  name="getNumDevicesOut">
+<part  name="parameters" element="xsd1:getNumDevicesResponse"></part>
+</message>
+<message  name="listServiceParametersIn">
+<part  name="parameters" element="xsd1:listServiceParameters"></part>
+</message>
+<message  name="listServiceParametersOut">
+<part  name="parameters" element="xsd1:listServiceParametersResponse"></part>
+</message>
+<message  name="listCSSByNameIn">
+<part  name="parameters" element="xsd1:listCSSByName"></part>
+</message>
+<message  name="listCSSByNameOut">
+<part  name="parameters" element="xsd1:listCSSByNameResponse"></part>
+</message>
+<message  name="addDevicePoolIn">
+<part  name="parameters" element="xsd1:addDevicePool"></part>
+</message>
+<message  name="addDevicePoolOut">
+<part  name="parameters" element="xsd1:addDevicePoolResponse"></part>
+</message>
+<message  name="updateDevicePoolIn">
+<part  name="parameters" element="xsd1:updateDevicePool"></part>
+</message>
+<message  name="updateDevicePoolOut">
+<part  name="parameters" element="xsd1:updateDevicePoolResponse"></part>
+</message>
+<message  name="getDevicePoolIn">
+<part  name="parameters" element="xsd1:getDevicePool"></part>
+</message>
+<message  name="getDevicePoolOut">
+<part  name="parameters" element="xsd1:getDevicePoolResponse"></part>
+</message>
+<message  name="removeDevicePoolIn">
+<part  name="parameters" element="xsd1:removeDevicePool"></part>
+</message>
+<message  name="removeDevicePoolOut">
+<part  name="parameters" element="xsd1:removeDevicePoolResponse"></part>
+</message>
+<message  name="addCallManagerGroupIn">
+<part  name="parameters" element="xsd1:addCallManagerGroup"></part>
+</message>
+<message  name="addCallManagerGroupOut">
+<part  name="parameters" element="xsd1:addCallManagerGroupResponse"></part>
+</message>
+<message  name="updateCallManagerGroupIn">
+<part  name="parameters" element="xsd1:updateCallManagerGroup"></part>
+</message>
+<message  name="updateCallManagerGroupOut">
+<part  name="parameters" element="xsd1:updateCallManagerGroupResponse"></part>
+</message>
+<message  name="getCallManagerGroupIn">
+<part  name="parameters" element="xsd1:getCallManagerGroup"></part>
+</message>
+<message  name="getCallManagerGroupOut">
+<part  name="parameters" element="xsd1:getCallManagerGroupResponse"></part>
+</message>
+<message  name="removeCallManagerGroupIn">
+<part  name="parameters" element="xsd1:removeCallManagerGroup"></part>
+</message>
+<message  name="removeCallManagerGroupOut">
+<part  name="parameters" element="xsd1:removeCallManagerGroupResponse"></part>
+</message>
+<message  name="addVoiceMailPortIn">
+<part  name="parameters" element="xsd1:addVoiceMailPort"></part>
+</message>
+<message  name="addVoiceMailPortOut">
+<part  name="parameters" element="xsd1:addVoiceMailPortResponse"></part>
+</message>
+<message  name="updateVoiceMailPortIn">
+<part  name="parameters" element="xsd1:updateVoiceMailPort"></part>
+</message>
+<message  name="updateVoiceMailPortOut">
+<part  name="parameters" element="xsd1:updateVoiceMailPortResponse"></part>
+</message>
+<message  name="getVoiceMailPortIn">
+<part  name="parameters" element="xsd1:getVoiceMailPort"></part>
+</message>
+<message  name="getVoiceMailPortOut">
+<part  name="parameters" element="xsd1:getVoiceMailPortResponse"></part>
+</message>
+<message  name="removeVoiceMailPortIn">
+<part  name="parameters" element="xsd1:removeVoiceMailPort"></part>
+</message>
+<message  name="removeVoiceMailPortOut">
+<part  name="parameters" element="xsd1:removeVoiceMailPortResponse"></part>
+</message>
+<message  name="addGatewayEndpointIn">
+<part  name="parameters" element="xsd1:addGatewayEndpoint"></part>
+</message>
+<message  name="addGatewayEndpointOut">
+<part  name="parameters" element="xsd1:addGatewayEndpointResponse"></part>
+</message>
+<message  name="updateGatewayEndpointIn">
+<part  name="parameters" element="xsd1:updateGatewayEndpoint"></part>
+</message>
+<message  name="updateGatewayEndpointOut">
+<part  name="parameters" element="xsd1:updateGatewayEndpointResponse"></part>
+</message>
+<message  name="getGatewayEndpointIn">
+<part  name="parameters" element="xsd1:getGatewayEndpoint"></part>
+</message>
+<message  name="getGatewayEndpointOut">
+<part  name="parameters" element="xsd1:getGatewayEndpointResponse"></part>
+</message>
+<message  name="removeGatewayEndpointIn">
+<part  name="parameters" element="xsd1:removeGatewayEndpoint"></part>
+</message>
+<message  name="removeGatewayEndpointOut">
+<part  name="parameters" element="xsd1:removeGatewayEndpointResponse"></part>
+</message>
+<message  name="addRouteFilterIn">
+<part  name="parameters" element="xsd1:addRouteFilter"></part>
+</message>
+<message  name="addRouteFilterOut">
+<part  name="parameters" element="xsd1:addRouteFilterResponse"></part>
+</message>
+<message  name="updateRouteFilterIn">
+<part  name="parameters" element="xsd1:updateRouteFilter"></part>
+</message>
+<message  name="updateRouteFilterOut">
+<part  name="parameters" element="xsd1:updateRouteFilterResponse"></part>
+</message>
+<message  name="getRouteFilterIn">
+<part  name="parameters" element="xsd1:getRouteFilter"></part>
+</message>
+<message  name="getRouteFilterOut">
+<part  name="parameters" element="xsd1:getRouteFilterResponse"></part>
+</message>
+<message  name="removeRouteFilterIn">
+<part  name="parameters" element="xsd1:removeRouteFilter"></part>
+</message>
+<message  name="removeRouteFilterOut">
+<part  name="parameters" element="xsd1:removeRouteFilterResponse"></part>
+</message>
+<message  name="getServiceParameterIn">
+<part  name="parameters" element="xsd1:getServiceParameter"></part>
+</message>
+<message  name="getServiceParameterOut">
+<part  name="parameters" element="xsd1:getServiceParameterResponse"></part>
+</message>
+<message  name="updateServiceParameterIn">
+<part  name="parameters" element="xsd1:updateServiceParameter"></part>
+</message>
+<message  name="updateServiceParameterOut">
+<part  name="parameters" element="xsd1:updateServiceParameterResponse"></part>
+</message>
+<message  name="addLocationIn">
+<part  name="parameters" element="xsd1:addLocation"></part>
+</message>
+<message  name="addLocationOut">
+<part  name="parameters" element="xsd1:addLocationResponse"></part>
+</message>
+<message  name="updateLocationIn">
+<part  name="parameters" element="xsd1:updateLocation"></part>
+</message>
+<message  name="updateLocationOut">
+<part  name="parameters" element="xsd1:updateLocationResponse"></part>
+</message>
+<message  name="getLocationIn">
+<part  name="parameters" element="xsd1:getLocation"></part>
+</message>
+<message  name="getLocationOut">
+<part  name="parameters" element="xsd1:getLocationResponse"></part>
+</message>
+<message  name="removeLocationIn">
+<part  name="parameters" element="xsd1:removeLocation"></part>
+</message>
+<message  name="removeLocationOut">
+<part  name="parameters" element="xsd1:removeLocationResponse"></part>
+</message>
+<message  name="addRegionIn">
+<part  name="parameters" element="xsd1:addRegion"></part>
+</message>
+<message  name="addRegionOut">
+<part  name="parameters" element="xsd1:addRegionResponse"></part>
+</message>
+<message  name="removeRegionIn">
+<part  name="parameters" element="xsd1:removeRegion"></part>
+</message>
+<message  name="removeRegionOut">
+<part  name="parameters" element="xsd1:removeRegionResponse"></part>
+</message>
+<message  name="getRegionIn">
+<part  name="parameters" element="xsd1:getRegion"></part>
+</message>
+<message  name="getRegionOut">
+<part  name="parameters" element="xsd1:getRegionResponse"></part>
+</message>
+<message  name="updateRegionMatrixIn">
+<part  name="parameters" element="xsd1:updateRegionMatrix"></part>
+</message>
+<message  name="updateRegionMatrixOut">
+<part  name="parameters" element="xsd1:updateRegionMatrixResponse"></part>
+</message>
+<message  name="addMGCPIn">
+<part  name="parameters" element="xsd1:addMGCP"></part>
+</message>
+<message  name="addMGCPOut">
+<part  name="parameters" element="xsd1:addMGCPResponse"></part>
+</message>
+<message  name="addMGCPUnitIn">
+<part  name="parameters" element="xsd1:addMGCPUnit"></part>
+</message>
+<message  name="addMGCPUnitOut">
+<part  name="parameters" element="xsd1:addMGCPUnitResponse"></part>
+</message>
+<message  name="addMGCPSubunitIn">
+<part  name="parameters" element="xsd1:addMGCPSubunit"></part>
+</message>
+<message  name="addMGCPSubunitOut">
+<part  name="parameters" element="xsd1:addMGCPSubunitResponse"></part>
+</message>
+<message  name="addMGCPEndpointIn">
+<part  name="parameters" element="xsd1:addMGCPEndpoint"></part>
+</message>
+<message  name="addMGCPEndpointOut">
+<part  name="parameters" element="xsd1:addMGCPEndpointResponse"></part>
+</message>
+<message  name="getMGCPIn">
+<part  name="parameters" element="xsd1:getMGCP"></part>
+</message>
+<message  name="getMGCPOut">
+<part  name="parameters" element="xsd1:getMGCPResponse"></part>
+</message>
+<message  name="removeMGCPIn">
+<part  name="parameters" element="xsd1:removeMGCP"></part>
+</message>
+<message  name="removeMGCPOut">
+<part  name="parameters" element="xsd1:removeMGCPResponse"></part>
+</message>
+<message  name="removeMGCPUnitIn">
+<part  name="parameters" element="xsd1:removeMGCPUnit"></part>
+</message>
+<message  name="removeMGCPUnitOut">
+<part  name="parameters" element="xsd1:removeMGCPUnitResponse"></part>
+</message>
+<message  name="removeMGCPSubunitIn">
+<part  name="parameters" element="xsd1:removeMGCPSubunit"></part>
+</message>
+<message  name="removeMGCPSubunitOut">
+<part  name="parameters" element="xsd1:removeMGCPSubunitResponse"></part>
+</message>
+<message  name="removeMGCPEndpointIn">
+<part  name="parameters" element="xsd1:removeMGCPEndpoint"></part>
+</message>
+<message  name="removeMGCPEndpointOut">
+<part  name="parameters" element="xsd1:removeMGCPEndpointResponse"></part>
+</message>
+<message  name="updateMGCPIn">
+<part  name="parameters" element="xsd1:updateMGCP"></part>
+</message>
+<message  name="updateMGCPOut">
+<part  name="parameters" element="xsd1:updateMGCPResponse"></part>
+</message>
+<message  name="addCallManagerIn">
+<part  name="parameters" element="xsd1:addCallManager"></part>
+</message>
+<message  name="addCallManagerOut">
+<part  name="parameters" element="xsd1:addCallManagerResponse"></part>
+</message>
+<message  name="updateCallManagerIn">
+<part  name="parameters" element="xsd1:updateCallManager"></part>
+</message>
+<message  name="updateCallManagerOut">
+<part  name="parameters" element="xsd1:updateCallManagerResponse"></part>
+</message>
+<message  name="getCallManagerIn">
+<part  name="parameters" element="xsd1:getCallManager"></part>
+</message>
+<message  name="getCallManagerOut">
+<part  name="parameters" element="xsd1:getCallManagerResponse"></part>
+</message>
+<message  name="removeCallManagerIn">
+<part  name="parameters" element="xsd1:removeCallManager"></part>
+</message>
+<message  name="removeCallManagerOut">
+<part  name="parameters" element="xsd1:removeCallManagerResponse"></part>
+</message>
+<message  name="addProcessNodeIn">
+<part  name="parameters" element="xsd1:addProcessNode"></part>
+</message>
+<message  name="addProcessNodeOut">
+<part  name="parameters" element="xsd1:addProcessNodeResponse"></part>
+</message>
+<message  name="updateProcessNodeIn">
+<part  name="parameters" element="xsd1:updateProcessNode"></part>
+</message>
+<message  name="updateProcessNodeOut">
+<part  name="parameters" element="xsd1:updateProcessNodeResponse"></part>
+</message>
+<message  name="getProcessNodeIn">
+<part  name="parameters" element="xsd1:getProcessNode"></part>
+</message>
+<message  name="getProcessNodeOut">
+<part  name="parameters" element="xsd1:getProcessNodeResponse"></part>
+</message>
+<message  name="removeProcessNodeIn">
+<part  name="parameters" element="xsd1:removeProcessNode"></part>
+</message>
+<message  name="removeProcessNodeOut">
+<part  name="parameters" element="xsd1:removeProcessNodeResponse"></part>
+</message>
+<message  name="listAllProcessNodesIn">
+<part  name="parameters" element="xsd1:listAllProcessNodes"></part>
+</message>
+<message  name="listAllProcessNodesOut">
+<part  name="parameters" element="xsd1:listAllProcessNodesResponse"></part>
+</message>
+<message  name="listProcessNodesByServiceIn">
+<part  name="parameters" element="xsd1:listProcessNodesByService"></part>
+</message>
+<message  name="listProcessNodesByServiceOut">
+<part  name="parameters" element="xsd1:listProcessNodesByServiceResponse"></part>
+</message>
+<message  name="getProcessNodeServiceIn">
+<part  name="parameters" element="xsd1:getProcessNodeService"></part>
+</message>
+<message  name="getProcessNodeServiceOut">
+<part  name="parameters" element="xsd1:getProcessNodeServiceResponse"></part>
+</message>
+<message  name="updateProcessNodeServiceIn">
+<part  name="parameters" element="xsd1:updateProcessNodeService"></part>
+</message>
+<message  name="updateProcessNodeServiceOut">
+<part  name="parameters" element="xsd1:updateProcessNodeServiceResponse"></part>
+</message>
+<message  name="listRoutePartitionByNameIn">
+<part  name="parameters" element="xsd1:listRoutePartitionByName"></part>
+</message>
+<message  name="listRoutePartitionByNameOut">
+<part  name="parameters" element="xsd1:listRoutePartitionByNameResponse"></part>
+</message>
+<message  name="listDevicePoolByNameIn">
+<part  name="parameters" element="xsd1:listDevicePoolByName"></part>
+</message>
+<message  name="listDevicePoolByNameOut">
+<part  name="parameters" element="xsd1:listDevicePoolByNameResponse"></part>
+</message>
+<message  name="listPhoneTemplateByNameIn">
+<part  name="parameters" element="xsd1:listPhoneTemplateByName"></part>
+</message>
+<message  name="listPhoneTemplateByNameOut">
+<part  name="parameters" element="xsd1:listPhoneTemplateByNameResponse"></part>
+</message>
+<message  name="listDeviceByNameAndClassIn">
+<part  name="parameters" element="xsd1:listDeviceByNameAndClass"></part>
+</message>
+<message  name="listDeviceByNameAndClassOut">
+<part  name="parameters" element="xsd1:listDeviceByNameAndClassResponse"></part>
+</message>
+<message  name="listMOHAudioSourceByNameIn">
+<part  name="parameters" element="xsd1:listMOHAudioSourceByName"></part>
+</message>
+<message  name="listMOHAudioSourceByNameOut">
+<part  name="parameters" element="xsd1:listMOHAudioSourceByNameResponse"></part>
+</message>
+<message  name="updateMOHAudioSourceIn">
+<part  name="parameters" element="xsd1:updateMOHAudioSource"></part>
+</message>
+<message  name="updateMOHAudioSourceOut">
+<part  name="parameters" element="xsd1:updateMOHAudioSourceResponse"></part>
+</message>
+<message  name="getMOHAudioSourceIn">
+<part  name="parameters" element="xsd1:getMOHAudioSource"></part>
+</message>
+<message  name="getMOHAudioSourceOut">
+<part  name="parameters" element="xsd1:getMOHAudioSourceResponse"></part>
+</message>
+<message  name="removeMOHAudioSourceIn">
+<part  name="parameters" element="xsd1:removeMOHAudioSource"></part>
+</message>
+<message  name="removeMOHAudioSourceOut">
+<part  name="parameters" element="xsd1:removeMOHAudioSourceResponse"></part>
+</message>
+<message  name="listMediaResourceListByNameIn">
+<part  name="parameters" element="xsd1:listMediaResourceListByName"></part>
+</message>
+<message  name="listMediaResourceListByNameOut">
+<part  name="parameters" element="xsd1:listMediaResourceListByNameResponse"></part>
+</message>
+<message  name="addMediaResourceListIn">
+<part  name="parameters" element="xsd1:addMediaResourceList"></part>
+</message>
+<message  name="addMediaResourceListOut">
+<part  name="parameters" element="xsd1:addMediaResourceListResponse"></part>
+</message>
+<message  name="getMediaResourceListIn">
+<part  name="parameters" element="xsd1:getMediaResourceList"></part>
+</message>
+<message  name="getMediaResourceListOut">
+<part  name="parameters" element="xsd1:getMediaResourceListResponse"></part>
+</message>
+<message  name="removeMediaResourceListIn">
+<part  name="parameters" element="xsd1:removeMediaResourceList"></part>
+</message>
+<message  name="removeMediaResourceListOut">
+<part  name="parameters" element="xsd1:removeMediaResourceListResponse"></part>
+</message>
+<message  name="updateMediaResourceListIn">
+<part  name="parameters" element="xsd1:updateMediaResourceList"></part>
+</message>
+<message  name="updateMediaResourceListOut">
+<part  name="parameters" element="xsd1:updateMediaResourceListResponse"></part>
+</message>
+<message  name="listMediaResourceGroupByNameIn">
+<part  name="parameters" element="xsd1:listMediaResourceGroupByName"></part>
+</message>
+<message  name="listMediaResourceGroupByNameOut">
+<part  name="parameters" element="xsd1:listMediaResourceGroupByNameResponse"></part>
+</message>
+<message  name="addMediaResourceGroupIn">
+<part  name="parameters" element="xsd1:addMediaResourceGroup"></part>
+</message>
+<message  name="addMediaResourceGroupOut">
+<part  name="parameters" element="xsd1:addMediaResourceGroupResponse"></part>
+</message>
+<message  name="getMediaResourceGroupIn">
+<part  name="parameters" element="xsd1:getMediaResourceGroup"></part>
+</message>
+<message  name="getMediaResourceGroupOut">
+<part  name="parameters" element="xsd1:getMediaResourceGroupResponse"></part>
+</message>
+<message  name="removeMediaResourceGroupIn">
+<part  name="parameters" element="xsd1:removeMediaResourceGroup"></part>
+</message>
+<message  name="removeMediaResourceGroupOut">
+<part  name="parameters" element="xsd1:removeMediaResourceGroupResponse"></part>
+</message>
+<message  name="updateMediaResourceGroupIn">
+<part  name="parameters" element="xsd1:updateMediaResourceGroup"></part>
+</message>
+<message  name="updateMediaResourceGroupOut">
+<part  name="parameters" element="xsd1:updateMediaResourceGroupResponse"></part>
+</message>
+<message  name="listLocationByNameIn">
+<part  name="parameters" element="xsd1:listLocationByName"></part>
+</message>
+<message  name="listLocationByNameOut">
+<part  name="parameters" element="xsd1:listLocationByNameResponse"></part>
+</message>
+<message  name="listAARGroupByNameIn">
+<part  name="parameters" element="xsd1:listAARGroupByName"></part>
+</message>
+<message  name="listAARGroupByNameOut">
+<part  name="parameters" element="xsd1:listAARGroupByNameResponse"></part>
+</message>
+<message  name="listVoiceMailProfileByNameIn">
+<part  name="parameters" element="xsd1:listVoiceMailProfileByName"></part>
+</message>
+<message  name="listVoiceMailProfileByNameOut">
+<part  name="parameters" element="xsd1:listVoiceMailProfileByNameResponse"></part>
+</message>
+<message  name="listGatekeeperByNameIn">
+<part  name="parameters" element="xsd1:listGatekeeperByName"></part>
+</message>
+<message  name="listGatekeeperByNameOut">
+<part  name="parameters" element="xsd1:listGatekeeperByNameResponse"></part>
+</message>
+<message  name="addGatekeeperIn">
+<part  name="parameters" element="xsd1:addGatekeeper"></part>
+</message>
+<message  name="addGatekeeperOut">
+<part  name="parameters" element="xsd1:addGatekeeperResponse"></part>
+</message>
+<message  name="getGatekeeperIn">
+<part  name="parameters" element="xsd1:getGatekeeper"></part>
+</message>
+<message  name="getGatekeeperOut">
+<part  name="parameters" element="xsd1:getGatekeeperResponse"></part>
+</message>
+<message  name="removeGatekeeperIn">
+<part  name="parameters" element="xsd1:removeGatekeeper"></part>
+</message>
+<message  name="removeGatekeeperOut">
+<part  name="parameters" element="xsd1:removeGatekeeperResponse"></part>
+</message>
+<message  name="updateGatekeeperIn">
+<part  name="parameters" element="xsd1:updateGatekeeper"></part>
+</message>
+<message  name="updateGatekeeperOut">
+<part  name="parameters" element="xsd1:updateGatekeeperResponse"></part>
+</message>
+<message  name="addH323PhoneIn">
+<part  name="parameters" element="xsd1:addH323Phone"></part>
+</message>
+<message  name="addH323PhoneOut">
+<part  name="parameters" element="xsd1:addH323PhoneResponse"></part>
+</message>
+<message  name="addH323GatewayIn">
+<part  name="parameters" element="xsd1:addH323Gateway"></part>
+</message>
+<message  name="addH323GatewayOut">
+<part  name="parameters" element="xsd1:addH323GatewayResponse"></part>
+</message>
+<message  name="addH323TrunkIn">
+<part  name="parameters" element="xsd1:addH323Trunk"></part>
+</message>
+<message  name="addH323TrunkOut">
+<part  name="parameters" element="xsd1:addH323TrunkResponse"></part>
+</message>
+<message  name="getH323PhoneIn">
+<part  name="parameters" element="xsd1:getH323Phone"></part>
+</message>
+<message  name="getH323PhoneOut">
+<part  name="parameters" element="xsd1:getH323PhoneResponse"></part>
+</message>
+<message  name="getH323GatewayIn">
+<part  name="parameters" element="xsd1:getH323Gateway"></part>
+</message>
+<message  name="getH323GatewayOut">
+<part  name="parameters" element="xsd1:getH323GatewayResponse"></part>
+</message>
+<message  name="getH323TrunkIn">
+<part  name="parameters" element="xsd1:getH323Trunk"></part>
+</message>
+<message  name="getH323TrunkOut">
+<part  name="parameters" element="xsd1:getH323TrunkResponse"></part>
+</message>
+<message  name="removeH323PhoneIn">
+<part  name="parameters" element="xsd1:removeH323Phone"></part>
+</message>
+<message  name="removeH323PhoneOut">
+<part  name="parameters" element="xsd1:removeH323PhoneResponse"></part>
+</message>
+<message  name="removeH323GatewayIn">
+<part  name="parameters" element="xsd1:removeH323Gateway"></part>
+</message>
+<message  name="removeH323GatewayOut">
+<part  name="parameters" element="xsd1:removeH323GatewayResponse"></part>
+</message>
+<message  name="removeH323TrunkIn">
+<part  name="parameters" element="xsd1:removeH323Trunk"></part>
+</message>
+<message  name="removeH323TrunkOut">
+<part  name="parameters" element="xsd1:removeH323TrunkResponse"></part>
+</message>
+<message  name="updateH323PhoneIn">
+<part  name="parameters" element="xsd1:updateH323Phone"></part>
+</message>
+<message  name="updateH323PhoneOut">
+<part  name="parameters" element="xsd1:updateH323PhoneResponse"></part>
+</message>
+<message  name="updateH323GatewayIn">
+<part  name="parameters" element="xsd1:updateH323Gateway"></part>
+</message>
+<message  name="updateH323GatewayOut">
+<part  name="parameters" element="xsd1:updateH323GatewayResponse"></part>
+</message>
+<message  name="updateH323TrunkIn">
+<part  name="parameters" element="xsd1:updateH323Trunk"></part>
+</message>
+<message  name="updateH323TrunkOut">
+<part  name="parameters" element="xsd1:updateH323TrunkResponse"></part>
+</message>
+<message  name="executeSQLQueryIn">
+<part  name="parameters" element="xsd1:executeSQLQuery"></part>
+</message>
+<message  name="executeSQLQueryOut">
+<part  name="parameters" element="xsd1:executeSQLQueryResponse"></part>
+</message>
+<portType  name="AXLPort">
+<operation  name="addPhone">
+<input  message="s0:addPhoneIn"></input>
+<output  message="s0:addPhoneOut"></output>
+</operation>
+<operation  name="removePhone">
+<input  message="s0:removePhoneIn"></input>
+<output  message="s0:removePhoneOut"></output>
+</operation>
+<operation  name="updatePhone">
+<input  message="s0:updatePhoneIn"></input>
+<output  message="s0:updatePhoneOut"></output>
+</operation>
+<operation  name="getPhone">
+<input  message="s0:getPhoneIn"></input>
+<output  message="s0:getPhoneOut"></output>
+</operation>
+<operation  name="doDeviceLogin">
+<input  message="s0:doDeviceLoginIn"></input>
+<output  message="s0:doDeviceLoginOut"></output>
+</operation>
+<operation  name="doDeviceLogout">
+<input  message="s0:doDeviceLogoutIn"></input>
+<output  message="s0:doDeviceLogoutOut"></output>
+</operation>
+<operation  name="doDeviceReset">
+<input  message="s0:doDeviceResetIn"></input>
+<output  message="s0:doDeviceResetOut"></output>
+</operation>
+<operation  name="addLine">
+<input  message="s0:addLineIn"></input>
+<output  message="s0:addLineOut"></output>
+</operation>
+<operation  name="removeLine">
+<input  message="s0:removeLineIn"></input>
+<output  message="s0:removeLineOut"></output>
+</operation>
+<operation  name="updateLine">
+<input  message="s0:updateLineIn"></input>
+<output  message="s0:updateLineOut"></output>
+</operation>
+<operation  name="getLine">
+<input  message="s0:getLineIn"></input>
+<output  message="s0:getLineOut"></output>
+</operation>
+<operation  name="addUser">
+<input  message="s0:addUserIn"></input>
+<output  message="s0:addUserOut"></output>
+</operation>
+<operation  name="removeUser">
+<input  message="s0:removeUserIn"></input>
+<output  message="s0:removeUserOut"></output>
+</operation>
+<operation  name="updateUser">
+<input  message="s0:updateUserIn"></input>
+<output  message="s0:updateUserOut"></output>
+</operation>
+<operation  name="getUser">
+<input  message="s0:getUserIn"></input>
+<output  message="s0:getUserOut"></output>
+</operation>
+<operation  name="addDeviceProfile">
+<input  message="s0:addDeviceProfileIn"></input>
+<output  message="s0:addDeviceProfileOut"></output>
+</operation>
+<operation  name="removeDeviceProfile">
+<input  message="s0:removeDeviceProfileIn"></input>
+<output  message="s0:removeDeviceProfileOut"></output>
+</operation>
+<operation  name="updateDeviceProfile">
+<input  message="s0:updateDeviceProfileIn"></input>
+<output  message="s0:updateDeviceProfileOut"></output>
+</operation>
+<operation  name="getDeviceProfile">
+<input  message="s0:getDeviceProfileIn"></input>
+<output  message="s0:getDeviceProfileOut"></output>
+</operation>
+<operation  name="addRoutePartition">
+<input  message="s0:addRoutePartitionIn"></input>
+<output  message="s0:addRoutePartitionOut"></output>
+</operation>
+<operation  name="updateRoutePartition">
+<input  message="s0:updateRoutePartitionIn"></input>
+<output  message="s0:updateRoutePartitionOut"></output>
+</operation>
+<operation  name="removeRoutePartition">
+<input  message="s0:removeRoutePartitionIn"></input>
+<output  message="s0:removeRoutePartitionOut"></output>
+</operation>
+<operation  name="getRoutePartition">
+<input  message="s0:getRoutePartitionIn"></input>
+<output  message="s0:getRoutePartitionOut"></output>
+</operation>
+<operation  name="getCSS">
+<input  message="s0:getCSSIn"></input>
+<output  message="s0:getCSSOut"></output>
+</operation>
+<operation  name="removeCSS">
+<input  message="s0:removeCSSIn"></input>
+<output  message="s0:removeCSSOut"></output>
+</operation>
+<operation  name="addCSS">
+<input  message="s0:addCSSIn"></input>
+<output  message="s0:addCSSOut"></output>
+</operation>
+<operation  name="updateCSS">
+<input  message="s0:updateCSSIn"></input>
+<output  message="s0:updateCSSOut"></output>
+</operation>
+<operation  name="getTransPattern">
+<input  message="s0:getTransPatternIn"></input>
+<output  message="s0:getTransPatternOut"></output>
+</operation>
+<operation  name="removeTransPattern">
+<input  message="s0:removeTransPatternIn"></input>
+<output  message="s0:removeTransPatternOut"></output>
+</operation>
+<operation  name="addTransPattern">
+<input  message="s0:addTransPatternIn"></input>
+<output  message="s0:addTransPatternOut"></output>
+</operation>
+<operation  name="updateTransPattern">
+<input  message="s0:updateTransPatternIn"></input>
+<output  message="s0:updateTransPatternOut"></output>
+</operation>
+<operation  name="getRoutePattern">
+<input  message="s0:getRoutePatternIn"></input>
+<output  message="s0:getRoutePatternOut"></output>
+</operation>
+<operation  name="removeRoutePattern">
+<input  message="s0:removeRoutePatternIn"></input>
+<output  message="s0:removeRoutePatternOut"></output>
+</operation>
+<operation  name="addRoutePattern">
+<input  message="s0:addRoutePatternIn"></input>
+<output  message="s0:addRoutePatternOut"></output>
+</operation>
+<operation  name="updateRoutePattern">
+<input  message="s0:updateRoutePatternIn"></input>
+<output  message="s0:updateRoutePatternOut"></output>
+</operation>
+<operation  name="addRouteGroup">
+<input  message="s0:addRouteGroupIn"></input>
+<output  message="s0:addRouteGroupOut"></output>
+</operation>
+<operation  name="updateRouteGroup">
+<input  message="s0:updateRouteGroupIn"></input>
+<output  message="s0:updateRouteGroupOut"></output>
+</operation>
+<operation  name="getRouteGroup">
+<input  message="s0:getRouteGroupIn"></input>
+<output  message="s0:getRouteGroupOut"></output>
+</operation>
+<operation  name="removeRouteGroup">
+<input  message="s0:removeRouteGroupIn"></input>
+<output  message="s0:removeRouteGroupOut"></output>
+</operation>
+<operation  name="addRouteList">
+<input  message="s0:addRouteListIn"></input>
+<output  message="s0:addRouteListOut"></output>
+</operation>
+<operation  name="updateRouteList">
+<input  message="s0:updateRouteListIn"></input>
+<output  message="s0:updateRouteListOut"></output>
+</operation>
+<operation  name="getRouteList">
+<input  message="s0:getRouteListIn"></input>
+<output  message="s0:getRouteListOut"></output>
+</operation>
+<operation  name="removeRouteList">
+<input  message="s0:removeRouteListIn"></input>
+<output  message="s0:removeRouteListOut"></output>
+</operation>
+<operation  name="addCTIRoutePoint">
+<input  message="s0:addCTIRoutePointIn"></input>
+<output  message="s0:addCTIRoutePointOut"></output>
+</operation>
+<operation  name="updateCTIRoutePoint">
+<input  message="s0:updateCTIRoutePointIn"></input>
+<output  message="s0:updateCTIRoutePointOut"></output>
+</operation>
+<operation  name="getCTIRoutePoint">
+<input  message="s0:getCTIRoutePointIn"></input>
+<output  message="s0:getCTIRoutePointOut"></output>
+</operation>
+<operation  name="removeCTIRoutePoint">
+<input  message="s0:removeCTIRoutePointIn"></input>
+<output  message="s0:removeCTIRoutePointOut"></output>
+</operation>
+<operation  name="addDialPlan">
+<input  message="s0:addDialPlanIn"></input>
+<output  message="s0:addDialPlanOut"></output>
+</operation>
+<operation  name="updateDialPlan">
+<input  message="s0:updateDialPlanIn"></input>
+<output  message="s0:updateDialPlanOut"></output>
+</operation>
+<operation  name="getDialPlan">
+<input  message="s0:getDialPlanIn"></input>
+<output  message="s0:getDialPlanOut"></output>
+</operation>
+<operation  name="removeDialPlan">
+<input  message="s0:removeDialPlanIn"></input>
+<output  message="s0:removeDialPlanOut"></output>
+</operation>
+<operation  name="addDialPlanTag">
+<input  message="s0:addDialPlanTagIn"></input>
+<output  message="s0:addDialPlanTagOut"></output>
+</operation>
+<operation  name="updateDialPlanTag">
+<input  message="s0:updateDialPlanTagIn"></input>
+<output  message="s0:updateDialPlanTagOut"></output>
+</operation>
+<operation  name="getDialPlanTag">
+<input  message="s0:getDialPlanTagIn"></input>
+<output  message="s0:getDialPlanTagOut"></output>
+</operation>
+<operation  name="removeDialPlanTag">
+<input  message="s0:removeDialPlanTagIn"></input>
+<output  message="s0:removeDialPlanTagOut"></output>
+</operation>
+<operation  name="addCallPark">
+<input  message="s0:addCallParkIn"></input>
+<output  message="s0:addCallParkOut"></output>
+</operation>
+<operation  name="updateCallPark">
+<input  message="s0:updateCallParkIn"></input>
+<output  message="s0:updateCallParkOut"></output>
+</operation>
+<operation  name="getCallPark">
+<input  message="s0:getCallParkIn"></input>
+<output  message="s0:getCallParkOut"></output>
+</operation>
+<operation  name="removeCallPark">
+<input  message="s0:removeCallParkIn"></input>
+<output  message="s0:removeCallParkOut"></output>
+</operation>
+<operation  name="addCallPickupGroup">
+<input  message="s0:addCallPickupGroupIn"></input>
+<output  message="s0:addCallPickupGroupOut"></output>
+</operation>
+<operation  name="updateCallPickupGroup">
+<input  message="s0:updateCallPickupGroupIn"></input>
+<output  message="s0:updateCallPickupGroupOut"></output>
+</operation>
+<operation  name="getCallPickupGroup">
+<input  message="s0:getCallPickupGroupIn"></input>
+<output  message="s0:getCallPickupGroupOut"></output>
+</operation>
+<operation  name="removeCallPickupGroup">
+<input  message="s0:removeCallPickupGroupIn"></input>
+<output  message="s0:removeCallPickupGroupOut"></output>
+</operation>
+<operation  name="addDDI">
+<input  message="s0:addDDIIn"></input>
+<output  message="s0:addDDIOut"></output>
+</operation>
+<operation  name="updateDDI">
+<input  message="s0:updateDDIIn"></input>
+<output  message="s0:updateDDIOut"></output>
+</operation>
+<operation  name="getDDI">
+<input  message="s0:getDDIIn"></input>
+<output  message="s0:getDDIOut"></output>
+</operation>
+<operation  name="removeDDI">
+<input  message="s0:removeDDIIn"></input>
+<output  message="s0:removeDDIOut"></output>
+</operation>
+<operation  name="createAutogeneratedProfile">
+<input  message="s0:createAutogeneratedProfileIn"></input>
+<output  message="s0:createAutogeneratedProfileOut"></output>
+</operation>
+<operation  name="listPhoneByName">
+<input  message="s0:listPhoneByNameIn"></input>
+<output  message="s0:listPhoneByNameOut"></output>
+</operation>
+<operation  name="listPhoneByDescription">
+<input  message="s0:listPhoneByDescriptionIn"></input>
+<output  message="s0:listPhoneByDescriptionOut"></output>
+</operation>
+<operation  name="listUserByName">
+<input  message="s0:listUserByNameIn"></input>
+<output  message="s0:listUserByNameOut"></output>
+</operation>
+<operation  name="listRoutePlanByType">
+<input  message="s0:listRoutePlanByTypeIn"></input>
+<output  message="s0:listRoutePlanByTypeOut"></output>
+</operation>
+<operation  name="getNumDevices">
+<input  message="s0:getNumDevicesIn"></input>
+<output  message="s0:getNumDevicesOut"></output>
+</operation>
+<operation  name="listServiceParameters">
+<input  message="s0:listServiceParametersIn"></input>
+<output  message="s0:listServiceParametersOut"></output>
+</operation>
+<operation  name="listCSSByName">
+<input  message="s0:listCSSByNameIn"></input>
+<output  message="s0:listCSSByNameOut"></output>
+</operation>
+<operation  name="addDevicePool">
+<input  message="s0:addDevicePoolIn"></input>
+<output  message="s0:addDevicePoolOut"></output>
+</operation>
+<operation  name="updateDevicePool">
+<input  message="s0:updateDevicePoolIn"></input>
+<output  message="s0:updateDevicePoolOut"></output>
+</operation>
+<operation  name="getDevicePool">
+<input  message="s0:getDevicePoolIn"></input>
+<output  message="s0:getDevicePoolOut"></output>
+</operation>
+<operation  name="removeDevicePool">
+<input  message="s0:removeDevicePoolIn"></input>
+<output  message="s0:removeDevicePoolOut"></output>
+</operation>
+<operation  name="addCallManagerGroup">
+<input  message="s0:addCallManagerGroupIn"></input>
+<output  message="s0:addCallManagerGroupOut"></output>
+</operation>
+<operation  name="updateCallManagerGroup">
+<input  message="s0:updateCallManagerGroupIn"></input>
+<output  message="s0:updateCallManagerGroupOut"></output>
+</operation>
+<operation  name="getCallManagerGroup">
+<input  message="s0:getCallManagerGroupIn"></input>
+<output  message="s0:getCallManagerGroupOut"></output>
+</operation>
+<operation  name="removeCallManagerGroup">
+<input  message="s0:removeCallManagerGroupIn"></input>
+<output  message="s0:removeCallManagerGroupOut"></output>
+</operation>
+<operation  name="addVoiceMailPort">
+<input  message="s0:addVoiceMailPortIn"></input>
+<output  message="s0:addVoiceMailPortOut"></output>
+</operation>
+<operation  name="updateVoiceMailPort">
+<input  message="s0:updateVoiceMailPortIn"></input>
+<output  message="s0:updateVoiceMailPortOut"></output>
+</operation>
+<operation  name="getVoiceMailPort">
+<input  message="s0:getVoiceMailPortIn"></input>
+<output  message="s0:getVoiceMailPortOut"></output>
+</operation>
+<operation  name="removeVoiceMailPort">
+<input  message="s0:removeVoiceMailPortIn"></input>
+<output  message="s0:removeVoiceMailPortOut"></output>
+</operation>
+<operation  name="addGatewayEndpoint">
+<input  message="s0:addGatewayEndpointIn"></input>
+<output  message="s0:addGatewayEndpointOut"></output>
+</operation>
+<operation  name="updateGatewayEndpoint">
+<input  message="s0:updateGatewayEndpointIn"></input>
+<output  message="s0:updateGatewayEndpointOut"></output>
+</operation>
+<operation  name="getGatewayEndpoint">
+<input  message="s0:getGatewayEndpointIn"></input>
+<output  message="s0:getGatewayEndpointOut"></output>
+</operation>
+<operation  name="removeGatewayEndpoint">
+<input  message="s0:removeGatewayEndpointIn"></input>
+<output  message="s0:removeGatewayEndpointOut"></output>
+</operation>
+<operation  name="addRouteFilter">
+<input  message="s0:addRouteFilterIn"></input>
+<output  message="s0:addRouteFilterOut"></output>
+</operation>
+<operation  name="updateRouteFilter">
+<input  message="s0:updateRouteFilterIn"></input>
+<output  message="s0:updateRouteFilterOut"></output>
+</operation>
+<operation  name="getRouteFilter">
+<input  message="s0:getRouteFilterIn"></input>
+<output  message="s0:getRouteFilterOut"></output>
+</operation>
+<operation  name="removeRouteFilter">
+<input  message="s0:removeRouteFilterIn"></input>
+<output  message="s0:removeRouteFilterOut"></output>
+</operation>
+<operation  name="getServiceParameter">
+<input  message="s0:getServiceParameterIn"></input>
+<output  message="s0:getServiceParameterOut"></output>
+</operation>
+<operation  name="updateServiceParameter">
+<input  message="s0:updateServiceParameterIn"></input>
+<output  message="s0:updateServiceParameterOut"></output>
+</operation>
+<operation  name="addLocation">
+<input  message="s0:addLocationIn"></input>
+<output  message="s0:addLocationOut"></output>
+</operation>
+<operation  name="updateLocation">
+<input  message="s0:updateLocationIn"></input>
+<output  message="s0:updateLocationOut"></output>
+</operation>
+<operation  name="getLocation">
+<input  message="s0:getLocationIn"></input>
+<output  message="s0:getLocationOut"></output>
+</operation>
+<operation  name="removeLocation">
+<input  message="s0:removeLocationIn"></input>
+<output  message="s0:removeLocationOut"></output>
+</operation>
+<operation  name="addRegion">
+<input  message="s0:addRegionIn"></input>
+<output  message="s0:addRegionOut"></output>
+</operation>
+<operation  name="removeRegion">
+<input  message="s0:removeRegionIn"></input>
+<output  message="s0:removeRegionOut"></output>
+</operation>
+<operation  name="getRegion">
+<input  message="s0:getRegionIn"></input>
+<output  message="s0:getRegionOut"></output>
+</operation>
+<operation  name="updateRegionMatrix">
+<input  message="s0:updateRegionMatrixIn"></input>
+<output  message="s0:updateRegionMatrixOut"></output>
+</operation>
+<operation  name="addMGCP">
+<input  message="s0:addMGCPIn"></input>
+<output  message="s0:addMGCPOut"></output>
+</operation>
+<operation  name="addMGCPUnit">
+<input  message="s0:addMGCPUnitIn"></input>
+<output  message="s0:addMGCPUnitOut"></output>
+</operation>
+<operation  name="addMGCPSubunit">
+<input  message="s0:addMGCPSubunitIn"></input>
+<output  message="s0:addMGCPSubunitOut"></output>
+</operation>
+<operation  name="addMGCPEndpoint">
+<input  message="s0:addMGCPEndpointIn"></input>
+<output  message="s0:addMGCPEndpointOut"></output>
+</operation>
+<operation  name="getMGCP">
+<input  message="s0:getMGCPIn"></input>
+<output  message="s0:getMGCPOut"></output>
+</operation>
+<operation  name="removeMGCP">
+<input  message="s0:removeMGCPIn"></input>
+<output  message="s0:removeMGCPOut"></output>
+</operation>
+<operation  name="removeMGCPUnit">
+<input  message="s0:removeMGCPUnitIn"></input>
+<output  message="s0:removeMGCPUnitOut"></output>
+</operation>
+<operation  name="removeMGCPSubunit">
+<input  message="s0:removeMGCPSubunitIn"></input>
+<output  message="s0:removeMGCPSubunitOut"></output>
+</operation>
+<operation  name="removeMGCPEndpoint">
+<input  message="s0:removeMGCPEndpointIn"></input>
+<output  message="s0:removeMGCPEndpointOut"></output>
+</operation>
+<operation  name="updateMGCP">
+<input  message="s0:updateMGCPIn"></input>
+<output  message="s0:updateMGCPOut"></output>
+</operation>
+<operation  name="addCallManager">
+<input  message="s0:addCallManagerIn"></input>
+<output  message="s0:addCallManagerOut"></output>
+</operation>
+<operation  name="updateCallManager">
+<input  message="s0:updateCallManagerIn"></input>
+<output  message="s0:updateCallManagerOut"></output>
+</operation>
+<operation  name="getCallManager">
+<input  message="s0:getCallManagerIn"></input>
+<output  message="s0:getCallManagerOut"></output>
+</operation>
+<operation  name="removeCallManager">
+<input  message="s0:removeCallManagerIn"></input>
+<output  message="s0:removeCallManagerOut"></output>
+</operation>
+<operation  name="addProcessNode">
+<input  message="s0:addProcessNodeIn"></input>
+<output  message="s0:addProcessNodeOut"></output>
+</operation>
+<operation  name="updateProcessNode">
+<input  message="s0:updateProcessNodeIn"></input>
+<output  message="s0:updateProcessNodeOut"></output>
+</operation>
+<operation  name="getProcessNode">
+<input  message="s0:getProcessNodeIn"></input>
+<output  message="s0:getProcessNodeOut"></output>
+</operation>
+<operation  name="removeProcessNode">
+<input  message="s0:removeProcessNodeIn"></input>
+<output  message="s0:removeProcessNodeOut"></output>
+</operation>
+<operation  name="listAllProcessNodes">
+<input  message="s0:listAllProcessNodesIn"></input>
+<output  message="s0:listAllProcessNodesOut"></output>
+</operation>
+<operation  name="listProcessNodesByService">
+<input  message="s0:listProcessNodesByServiceIn"></input>
+<output  message="s0:listProcessNodesByServiceOut"></output>
+</operation>
+<operation  name="getProcessNodeService">
+<input  message="s0:getProcessNodeServiceIn"></input>
+<output  message="s0:getProcessNodeServiceOut"></output>
+</operation>
+<operation  name="updateProcessNodeService">
+<input  message="s0:updateProcessNodeServiceIn"></input>
+<output  message="s0:updateProcessNodeServiceOut"></output>
+</operation>
+<operation  name="listRoutePartitionByName">
+<input  message="s0:listRoutePartitionByNameIn"></input>
+<output  message="s0:listRoutePartitionByNameOut"></output>
+</operation>
+<operation  name="listDevicePoolByName">
+<input  message="s0:listDevicePoolByNameIn"></input>
+<output  message="s0:listDevicePoolByNameOut"></output>
+</operation>
+<operation  name="listPhoneTemplateByName">
+<input  message="s0:listPhoneTemplateByNameIn"></input>
+<output  message="s0:listPhoneTemplateByNameOut"></output>
+</operation>
+<operation  name="listDeviceByNameAndClass">
+<input  message="s0:listDeviceByNameAndClassIn"></input>
+<output  message="s0:listDeviceByNameAndClassOut"></output>
+</operation>
+<operation  name="listMOHAudioSourceByName">
+<input  message="s0:listMOHAudioSourceByNameIn"></input>
+<output  message="s0:listMOHAudioSourceByNameOut"></output>
+</operation>
+<operation  name="updateMOHAudioSource">
+<input  message="s0:updateMOHAudioSourceIn"></input>
+<output  message="s0:updateMOHAudioSourceOut"></output>
+</operation>
+<operation  name="getMOHAudioSource">
+<input  message="s0:getMOHAudioSourceIn"></input>
+<output  message="s0:getMOHAudioSourceOut"></output>
+</operation>
+<operation  name="removeMOHAudioSource">
+<input  message="s0:removeMOHAudioSourceIn"></input>
+<output  message="s0:removeMOHAudioSourceOut"></output>
+</operation>
+<operation  name="listMediaResourceListByName">
+<input  message="s0:listMediaResourceListByNameIn"></input>
+<output  message="s0:listMediaResourceListByNameOut"></output>
+</operation>
+<operation  name="addMediaResourceList">
+<input  message="s0:addMediaResourceListIn"></input>
+<output  message="s0:addMediaResourceListOut"></output>
+</operation>
+<operation  name="getMediaResourceList">
+<input  message="s0:getMediaResourceListIn"></input>
+<output  message="s0:getMediaResourceListOut"></output>
+</operation>
+<operation  name="removeMediaResourceList">
+<input  message="s0:removeMediaResourceListIn"></input>
+<output  message="s0:removeMediaResourceListOut"></output>
+</operation>
+<operation  name="updateMediaResourceList">
+<input  message="s0:updateMediaResourceListIn"></input>
+<output  message="s0:updateMediaResourceListOut"></output>
+</operation>
+<operation  name="listMediaResourceGroupByName">
+<input  message="s0:listMediaResourceGroupByNameIn"></input>
+<output  message="s0:listMediaResourceGroupByNameOut"></output>
+</operation>
+<operation  name="addMediaResourceGroup">
+<input  message="s0:addMediaResourceGroupIn"></input>
+<output  message="s0:addMediaResourceGroupOut"></output>
+</operation>
+<operation  name="getMediaResourceGroup">
+<input  message="s0:getMediaResourceGroupIn"></input>
+<output  message="s0:getMediaResourceGroupOut"></output>
+</operation>
+<operation  name="removeMediaResourceGroup">
+<input  message="s0:removeMediaResourceGroupIn"></input>
+<output  message="s0:removeMediaResourceGroupOut"></output>
+</operation>
+<operation  name="updateMediaResourceGroup">
+<input  message="s0:updateMediaResourceGroupIn"></input>
+<output  message="s0:updateMediaResourceGroupOut"></output>
+</operation>
+<operation  name="listLocationByName">
+<input  message="s0:listLocationByNameIn"></input>
+<output  message="s0:listLocationByNameOut"></output>
+</operation>
+<operation  name="listAARGroupByName">
+<input  message="s0:listAARGroupByNameIn"></input>
+<output  message="s0:listAARGroupByNameOut"></output>
+</operation>
+<operation  name="listVoiceMailProfileByName">
+<input  message="s0:listVoiceMailProfileByNameIn"></input>
+<output  message="s0:listVoiceMailProfileByNameOut"></output>
+</operation>
+<operation  name="listGatekeeperByName">
+<input  message="s0:listGatekeeperByNameIn"></input>
+<output  message="s0:listGatekeeperByNameOut"></output>
+</operation>
+<operation  name="addGatekeeper">
+<input  message="s0:addGatekeeperIn"></input>
+<output  message="s0:addGatekeeperOut"></output>
+</operation>
+<operation  name="getGatekeeper">
+<input  message="s0:getGatekeeperIn"></input>
+<output  message="s0:getGatekeeperOut"></output>
+</operation>
+<operation  name="removeGatekeeper">
+<input  message="s0:removeGatekeeperIn"></input>
+<output  message="s0:removeGatekeeperOut"></output>
+</operation>
+<operation  name="updateGatekeeper">
+<input  message="s0:updateGatekeeperIn"></input>
+<output  message="s0:updateGatekeeperOut"></output>
+</operation>
+<operation  name="addH323Phone">
+<input  message="s0:addH323PhoneIn"></input>
+<output  message="s0:addH323PhoneOut"></output>
+</operation>
+<operation  name="addH323Gateway">
+<input  message="s0:addH323GatewayIn"></input>
+<output  message="s0:addH323GatewayOut"></output>
+</operation>
+<operation  name="addH323Trunk">
+<input  message="s0:addH323TrunkIn"></input>
+<output  message="s0:addH323TrunkOut"></output>
+</operation>
+<operation  name="getH323Phone">
+<input  message="s0:getH323PhoneIn"></input>
+<output  message="s0:getH323PhoneOut"></output>
+</operation>
+<operation  name="getH323Gateway">
+<input  message="s0:getH323GatewayIn"></input>
+<output  message="s0:getH323GatewayOut"></output>
+</operation>
+<operation  name="getH323Trunk">
+<input  message="s0:getH323TrunkIn"></input>
+<output  message="s0:getH323TrunkOut"></output>
+</operation>
+<operation  name="removeH323Phone">
+<input  message="s0:removeH323PhoneIn"></input>
+<output  message="s0:removeH323PhoneOut"></output>
+</operation>
+<operation  name="removeH323Gateway">
+<input  message="s0:removeH323GatewayIn"></input>
+<output  message="s0:removeH323GatewayOut"></output>
+</operation>
+<operation  name="removeH323Trunk">
+<input  message="s0:removeH323TrunkIn"></input>
+<output  message="s0:removeH323TrunkOut"></output>
+</operation>
+<operation  name="updateH323Phone">
+<input  message="s0:updateH323PhoneIn"></input>
+<output  message="s0:updateH323PhoneOut"></output>
+</operation>
+<operation  name="updateH323Gateway">
+<input  message="s0:updateH323GatewayIn"></input>
+<output  message="s0:updateH323GatewayOut"></output>
+</operation>
+<operation  name="updateH323Trunk">
+<input  message="s0:updateH323TrunkIn"></input>
+<output  message="s0:updateH323TrunkOut"></output>
+</operation>
+<operation  name="executeSQLQuery">
+<input  message="s0:executeSQLQueryIn"></input>
+<output  message="s0:executeSQLQueryOut"></output>
+</operation>
+</portType>
+<binding  name="AXLAPIBinding" type="s0:AXLPort">
+<soap:binding  transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+<operation  name="addPhone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addPhone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removePhone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removePhone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updatePhone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updatePhone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getPhone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getPhone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="doDeviceLogin">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/doDeviceLogin" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="doDeviceLogout">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/doDeviceLogout" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="doDeviceReset">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/doDeviceReset" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addLine">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addLine" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeLine">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeLine" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateLine">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateLine" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getLine">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getLine" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addUser">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addUser" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeUser">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeUser" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateUser">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateUser" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getUser">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getUser" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addDeviceProfile">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addDeviceProfile" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeDeviceProfile">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeDeviceProfile" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateDeviceProfile">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateDeviceProfile" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getDeviceProfile">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getDeviceProfile" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addRoutePartition">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addRoutePartition" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateRoutePartition">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateRoutePartition" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeRoutePartition">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeRoutePartition" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getRoutePartition">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getRoutePartition" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getCSS">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getCSS" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeCSS">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeCSS" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addCSS">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addCSS" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateCSS">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateCSS" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getTransPattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getTransPattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeTransPattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeTransPattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addTransPattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addTransPattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateTransPattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateTransPattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getRoutePattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getRoutePattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeRoutePattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeRoutePattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addRoutePattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addRoutePattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateRoutePattern">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateRoutePattern" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addRouteGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addRouteGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateRouteGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateRouteGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getRouteGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getRouteGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeRouteGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeRouteGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addRouteList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addRouteList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateRouteList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateRouteList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getRouteList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getRouteList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeRouteList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeRouteList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addCTIRoutePoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addCTIRoutePoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateCTIRoutePoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateCTIRoutePoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getCTIRoutePoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getCTIRoutePoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeCTIRoutePoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeCTIRoutePoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addDialPlan">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addDialPlan" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateDialPlan">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateDialPlan" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getDialPlan">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getDialPlan" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeDialPlan">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeDialPlan" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addDialPlanTag">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addDialPlanTag" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateDialPlanTag">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateDialPlanTag" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getDialPlanTag">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getDialPlanTag" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeDialPlanTag">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeDialPlanTag" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addCallPark">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addCallPark" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateCallPark">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateCallPark" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getCallPark">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getCallPark" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeCallPark">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeCallPark" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addCallPickupGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addCallPickupGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateCallPickupGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateCallPickupGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getCallPickupGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getCallPickupGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeCallPickupGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeCallPickupGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addDDI">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addDDI" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateDDI">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateDDI" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getDDI">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getDDI" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeDDI">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeDDI" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="createAutogeneratedProfile">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/createAutogeneratedProfile" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listPhoneByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listPhoneByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listPhoneByDescription">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listPhoneByDescription" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listUserByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listUserByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listRoutePlanByType">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listRoutePlanByType" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getNumDevices">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getNumDevices" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listServiceParameters">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listServiceParameters" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listCSSByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listCSSByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addDevicePool">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addDevicePool" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateDevicePool">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateDevicePool" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getDevicePool">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getDevicePool" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeDevicePool">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeDevicePool" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addCallManagerGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addCallManagerGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateCallManagerGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateCallManagerGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getCallManagerGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getCallManagerGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeCallManagerGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeCallManagerGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addVoiceMailPort">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addVoiceMailPort" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateVoiceMailPort">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateVoiceMailPort" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getVoiceMailPort">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getVoiceMailPort" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeVoiceMailPort">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeVoiceMailPort" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addGatewayEndpoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addGatewayEndpoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateGatewayEndpoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateGatewayEndpoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getGatewayEndpoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getGatewayEndpoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeGatewayEndpoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeGatewayEndpoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addRouteFilter">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addRouteFilter" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateRouteFilter">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateRouteFilter" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getRouteFilter">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getRouteFilter" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeRouteFilter">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeRouteFilter" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getServiceParameter">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getServiceParameter" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateServiceParameter">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateServiceParameter" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addLocation">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addLocation" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateLocation">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateLocation" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getLocation">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getLocation" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeLocation">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeLocation" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addRegion">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addRegion" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeRegion">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeRegion" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getRegion">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getRegion" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateRegionMatrix">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateRegionMatrix" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addMGCP">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addMGCP" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addMGCPUnit">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addMGCPUnit" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addMGCPSubunit">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addMGCPSubunit" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addMGCPEndpoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addMGCPEndpoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getMGCP">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getMGCP" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMGCP">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMGCP" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMGCPUnit">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMGCPUnit" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMGCPSubunit">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMGCPSubunit" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMGCPEndpoint">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMGCPEndpoint" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateMGCP">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateMGCP" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addCallManager">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addCallManager" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateCallManager">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateCallManager" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getCallManager">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getCallManager" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeCallManager">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeCallManager" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addProcessNode">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addProcessNode" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateProcessNode">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateProcessNode" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getProcessNode">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getProcessNode" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeProcessNode">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeProcessNode" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listAllProcessNodes">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listAllProcessNodes" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listProcessNodesByService">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listProcessNodesByService" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getProcessNodeService">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getProcessNodeService" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateProcessNodeService">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateProcessNodeService" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listRoutePartitionByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listRoutePartitionByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listDevicePoolByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listDevicePoolByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listPhoneTemplateByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listPhoneTemplateByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listDeviceByNameAndClass">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listDeviceByNameAndClass" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listMOHAudioSourceByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listMOHAudioSourceByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateMOHAudioSource">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateMOHAudioSource" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getMOHAudioSource">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getMOHAudioSource" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMOHAudioSource">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMOHAudioSource" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listMediaResourceListByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listMediaResourceListByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addMediaResourceList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addMediaResourceList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getMediaResourceList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getMediaResourceList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMediaResourceList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMediaResourceList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateMediaResourceList">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateMediaResourceList" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listMediaResourceGroupByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listMediaResourceGroupByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addMediaResourceGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addMediaResourceGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getMediaResourceGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getMediaResourceGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeMediaResourceGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeMediaResourceGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateMediaResourceGroup">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateMediaResourceGroup" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listLocationByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listLocationByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listAARGroupByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listAARGroupByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listVoiceMailProfileByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listVoiceMailProfileByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="listGatekeeperByName">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/listGatekeeperByName" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addGatekeeper">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addGatekeeper" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getGatekeeper">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getGatekeeper" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeGatekeeper">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeGatekeeper" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateGatekeeper">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateGatekeeper" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addH323Phone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addH323Phone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addH323Gateway">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addH323Gateway" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="addH323Trunk">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/addH323Trunk" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getH323Phone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getH323Phone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getH323Gateway">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getH323Gateway" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="getH323Trunk">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/getH323Trunk" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeH323Phone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeH323Phone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeH323Gateway">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeH323Gateway" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="removeH323Trunk">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/removeH323Trunk" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateH323Phone">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateH323Phone" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateH323Gateway">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateH323Gateway" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="updateH323Trunk">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/updateH323Trunk" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+<operation  name="executeSQLQuery">
+<soap:operation  soapAction="http://www.cisco.com/AXLPort/executeSQLQuery" style="document"></soap:operation>
+<input>
+<soap:body  use="literal"></soap:body>
+</input>
+<output>
+<soap:body  use="literal"></soap:body>
+</output>
+</operation>
+</binding>
+<service  name="AXLAPIService">
+<documentation>The AVVID XML Layer.</documentation>
+<port  name="AXLPort" binding="s0:AXLAPIBinding">
+<soap:address  location="http://CCMSERVERNAME/CCMApi/AXL/V1/SOAPISAPI.dll"></soap:address>
+</port>
+</service>
+</definitions>

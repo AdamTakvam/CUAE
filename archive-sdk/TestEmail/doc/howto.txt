@@ -1,0 +1,11 @@
+The purpose of the test email application is to provide a simple application which allows one to rapidly test the 'Send' email action.
+
+Steps:
+
+1) Build the application using the Cisco Unified Application Designer
+2) Install the application on a Cisco Unified Application Server
+3) Configure the application with the proper values for an email server available in your deployment
+4) Open a web browser to http://<AppServerIP>:8000/testemail
+5) If an email is received, then you can use these same values in your own application!
+6) If an email is not received, check Server Logs > AppServer for any errors in the log.
+

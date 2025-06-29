@@ -1,0 +1,19 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <ItemGroup>
+        <ProjectReferences Include="NativeAction/*.*proj" />
+    </ItemGroup>
+
+    <Target Name="Build">
+        <MSBuild Projects="@(ProjectReferences)" Targets="Build">
+            <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+        </MSBuild>
+    </Target>
+    
+    <Target Name="Clean">
+        <MSBuild Projects="@(ProjectReferences)" Targets="Clean">
+            <Output TaskParameter="TargetOutputs" ItemName="AssembliesBuiltByChildProjects" />
+        </MSBuild>
+    </Target>
+    
+</Project>

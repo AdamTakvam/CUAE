@@ -1,0 +1,56 @@
+.iframe_shim {
+	position:absolute; 
+	top:0px; 
+	left:0px; 
+	display:none;
+}
+.actb_table {
+    border-right: 1px solid;
+    padding-right: 2px;
+    border-top: 1px solid;
+    padding-left: 2px;
+    font-size: 11px;
+    padding-bottom: 2px;
+    border-left: 1px solid;
+    cursor: hand;
+    padding-top: 2px;
+    border-bottom: 1px solid;
+    font-family: Verdana;
+    position: absolute;
+    background-color: #EEE;
+    border-spacing: 1px;
+}
+
+.actb_table td:hover {
+    background-color: #55D;
+}
+
+.actb_active {
+    background-color: #00F;
+    color: EEE;
+}
+
+.actb_regex_match { /* text-decoration:underline; */
+		color: #FA8;
+                    font-weight:bold;
+}
+
+.actb_arrow_down,
+.actb_arrow_up {
+    padding-right: 0px;
+    background-position: center center;
+    padding-left: 0em;
+    z-index: 4;
+    background-image: url(img/arrowDown.gif);
+    padding-bottom: 0px;
+    margin: 0px 1em;
+    cursor: hand;
+    padding-top: 0px;
+    background-repeat: no-repeat;
+    height: 2em;
+    background-color: transparent;
+}
+
+.actb_arrow_up {
+    background-image: url(img/arrowUp.gif);
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="h323-service" default="Debug" basedir=".">
+
+	<description>Build script for H323 Service</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/H323Service" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <metreosVsNetTask dir="projects" solution="h323-service" />
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/h323-service/projects/" includes="**/Debug/** **/Release/**" />
+            <fileset dir="${Metreos.build.srcRoot}/h323-service" includes="**/bin/** **/obj/**" />
+
+        </delete>   
+    </target>    
+        
+	<target name="do-build" >
+        <metreosVsNetTask dir="projects" solution="h323-service" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

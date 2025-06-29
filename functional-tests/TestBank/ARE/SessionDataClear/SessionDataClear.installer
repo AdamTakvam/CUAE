@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_SessionDataClear_master1" format="String" defaultValue="ARE.SessionDataClear.master1" />
+    <configValue name="S_EnabledSlaves" format="String" defaultValue="ARE.SessionDataClear.master1.S_EnabledSlaves" />
+    <configValue name="E_Shutdown" format="String" defaultValue="ARE.SessionDataClear.master1.E_Shutdown" />
+    <configValue name="ARE_SessionDataClear_slave1" format="String" defaultValue="ARE.SessionDataClear.slave1" />
+    <configValue name="S_Triggered" format="String" defaultValue="ARE.SessionDataClear.slave1.S_Triggered" />
+    <configValue name="S_CheckData" format="String" defaultValue="ARE.SessionDataClear.slave1.S_CheckData" />
+    <configValue name="E_CheckData" format="String" defaultValue="ARE.SessionDataClear.slave1.E_CheckData" />
+    <configValue name="S_Shutdown" format="String" defaultValue="ARE.SessionDataClear.master1.S_Shutdown" />
+    <configValue name="S_Shutdown2" format="String" defaultValue="ARE.SessionDataClear.slave1.S_Shutdown2" />
+    <configValue name="E_Shutdown2" displayName="" format="String" defaultValue="ARE.SessionDataClear.slave1.E_Shutdown2" />
+  </configuration>
+</install>

@@ -1,0 +1,171 @@
+<VisualStudioProject>
+    <CSHARP
+        ProjectType = "Local"
+        ProductVersion = "7.10.3077"
+        SchemaVersion = "2.0"
+        ProjectGuid = "{525EFA5B-81FD-4B5E-B53A-96252C1C7A3D}"
+    >
+        <Build>
+            <Settings
+                ApplicationIcon = ""
+                AssemblyKeyContainerName = ""
+                AssemblyName = "bit"
+                AssemblyOriginatorKeyFile = ""
+                DefaultClientScript = "JScript"
+                DefaultHTMLPageLayout = "Grid"
+                DefaultTargetSchema = "IE50"
+                DelaySign = "false"
+                OutputType = "Exe"
+                PreBuildEvent = ""
+                PostBuildEvent = ""
+                RootNamespace = "Metreos.Import"
+                RunPostBuildEvent = "OnBuildSuccess"
+                StartupObject = ""
+            >
+                <Config
+                    Name = "Debug"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "DEBUG;TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "true"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "false"
+                    OutputPath = "bin\Debug\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+                <Config
+                    Name = "Release"
+                    AllowUnsafeBlocks = "false"
+                    BaseAddress = "285212672"
+                    CheckForOverflowUnderflow = "false"
+                    ConfigurationOverrideFile = ""
+                    DefineConstants = "TRACE"
+                    DocumentationFile = ""
+                    DebugSymbols = "false"
+                    FileAlignment = "4096"
+                    IncrementalBuild = "false"
+                    NoStdLib = "false"
+                    NoWarn = ""
+                    Optimize = "true"
+                    OutputPath = "bin\Release\"
+                    RegisterForComInterop = "false"
+                    RemoveIntegerChecks = "false"
+                    TreatWarningsAsErrors = "false"
+                    WarningLevel = "4"
+                />
+            </Settings>
+            <References>
+                <Reference
+                    Name = "System"
+                    AssemblyName = "System"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.dll"
+                />
+                <Reference
+                    Name = "System.Data"
+                    AssemblyName = "System.Data"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.Data.dll"
+                />
+                <Reference
+                    Name = "System.XML"
+                    AssemblyName = "System.Xml"
+                    HintPath = "C:\WINDOWS\Microsoft.NET\Framework\v1.1.4322\System.XML.dll"
+                />
+                <Reference
+                    Name = "Metreos.Utilities"
+                    AssemblyName = "Metreos.Utilities"
+                    HintPath = "..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll"
+                    AssemblyFolderKey = "hklm\dn\metreos"
+                    Private = "True"
+                />
+            </References>
+        </Build>
+        <Files>
+            <Include>
+                <File
+                    RelPath = "AssemblyInfo.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Main.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Samples\baddevicenumber.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\bademail.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\badgmtoffset.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\badpassword.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\badusername.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\dupdevicenumber.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\dupemail.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\dupusername.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\nodevicenumber.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\noemail.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\nofirstname.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\nogmtoffset.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\nolastname.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\nopassword.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\nousername.csv"
+                    BuildAction = "None"
+                />
+                <File
+                    RelPath = "Samples\test1.csv"
+                    BuildAction = "None"
+                />
+            </Include>
+        </Files>
+    </CSHARP>
+</VisualStudioProject>
+

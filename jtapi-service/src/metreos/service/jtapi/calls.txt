@@ -1,0 +1,20 @@
+A call is incoming on a monitored line:
+
+(two cases for the device making the call or receiving
+the call. CTI is a cti terminal (cti port, route point),
+EQUIP is some physical device like a computer or a
+phone)
+ 
+ -> IncomingCall
+ <- AcceptCall (CTI) or SetCallId (EQUIP)
+ -> RingingCall
+ <- [AnswerCall]
+ -> EstablishedCall
+ -> [TalkingCall] (CTI)
+ 
+ A call is outgoing on a monitored line:
+ 
+ <- [MakeCall]
+ -> MadeCall (~MakeCall) or EstablishedCall (MakeCall)
+ -> [TalkingCall] (CTI)
+ 

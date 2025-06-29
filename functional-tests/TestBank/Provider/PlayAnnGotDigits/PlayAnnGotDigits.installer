@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_PlayAnnGotDigits_script1" displayName="Provider_PlayAnnGotDigits_script1" format="string" defaultValue="Provider.PlayAnnGotDigits.script1" readOnly="true" required="true" />
+    <configValue name="S_FailureToStart" displayName="S_FailureToStart" format="string" defaultValue="Provider.PlayAnnGotDigits.script1.S_FailureToStart" readOnly="true" required="true" />
+    <configValue name="S_Started" displayName="S_Started" format="string" defaultValue="Provider.PlayAnnGotDigits.script1.S_Started" readOnly="true" required="true" />
+    <configValue name="S_PlayFailed" displayName="S_PlayFailed" format="string" defaultValue="Provider.PlayAnnGotDigits.script1.S_PlayFailed" readOnly="true" required="true" />
+    <configValue name="S_PlaySuccess" displayName="S_PlaySuccess" format="string" defaultValue="Provider.PlayAnnGotDigits.script1.S_PlaySuccess" readOnly="true" required="true" />
+    <configValue name="E_SendDigit" displayName="E_SendDigit" format="string" defaultValue="Provider.PlayAnnGotDigits.script1.E_SendDigit" readOnly="true" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_AnswerCall_script1" displayName="" format="String" defaultValue="IVT.AnswerCall.script1" />
+    <configValue name="S_AnsweredCall" displayName="" format="String" description="" defaultValue="IVT.AnswerCall.script1.S_AnsweredCall" required="false" />
+    <configValue name="S_Hangup" format="String" defaultValue="IVT.AnswerCall.script1.S_Hangup" />
+    <configValue name="E_Hangup" displayName="" format="String" defaultValue="IVT.AnswerCall.script1.E_Hangup" />
+  </configuration>
+</install>

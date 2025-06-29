@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_GetLine_script1" displayName="" format="String" defaultValue="IVT.GetLine.script1" />
+    <configValue name="S_GetLineResponse" format="String" defaultValue="IVT.GetLine.script1.S_GetLineResponse" readOnly="false" />
+  </configuration>
+</install>

@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ipc", "Ipc\Ipc.csproj", "{0B86FE6C-6F31-4FF7-9F26-1B9D141F54F6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Udp", "Udp\Udp.csproj", "{DB084070-F2F6-430F-A65A-BA2A58559BDF}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{0B86FE6C-6F31-4FF7-9F26-1B9D141F54F6}.Debug.ActiveCfg = Debug|.NET
+		{0B86FE6C-6F31-4FF7-9F26-1B9D141F54F6}.Debug.Build.0 = Debug|.NET
+		{0B86FE6C-6F31-4FF7-9F26-1B9D141F54F6}.Release.ActiveCfg = Release|.NET
+		{0B86FE6C-6F31-4FF7-9F26-1B9D141F54F6}.Release.Build.0 = Release|.NET
+		{DB084070-F2F6-430F-A65A-BA2A58559BDF}.Debug.ActiveCfg = Debug|.NET
+		{DB084070-F2F6-430F-A65A-BA2A58559BDF}.Debug.Build.0 = Debug|.NET
+		{DB084070-F2F6-430F-A65A-BA2A58559BDF}.Release.ActiveCfg = Release|.NET
+		{DB084070-F2F6-430F-A65A-BA2A58559BDF}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

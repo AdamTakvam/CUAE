@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xmlScriptData name="..." type="master|slave" instanceType="singleton|multiInstance" description="..." xmlns="http://metreos.com/XmlScriptData.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--
+Reserved Words:
+  'session'
+  'event'   ??
+  'loopIndex'
+  'loopEnum'
+  'loopDictEnum'
+-->
+
+<!-- These lines affect inline C# code only -->
+<reference>...</reference>  <!-- ex: System.Data.dll -->
+<using>...</using>          <!-- ex: System.Data -->
+
+<globalVariables>
+	<configurationValue name="..">
+		<variable type="..." name="...">...</variable>
+	</configurationValue>
+
+	<variable type="..." name="...">...</variable>
+</globalVariables>
+
+<function id="." firstAction="...">
+	<event type="triggering|unsolicited|callback">...</event>
+    <eventParam name="..." type="literal|variable">...</eventParam>
+    
+	<parameter type="reference|value" name="...">
+	    <variable type="..." name="...">...</variable>
+	</parameter>
+    	
+    <variable type="..." name="..." />
+
+    <action id=".." type="native|provider">
+        <name>...</name>
+		<param name="..." type="literal|variable|csharp">...</param>
+		<timeout type="literal|variable|csharp">...</timeout>
+		<resultData field="resultData|..." type="variable|csharp">...</resultData>
+        <nextAction returnValue="default">...</nextAction>
+        <nextAction returnValue="success">...</nextAction>
+    <action>
+    
+    <action id="..." type="userCode">
+		<code language="csharp">
+			<![CDATA[
+			// public static string Execute()
+			// {
+			// Any number of statements
+			// Return a string (or null)
+			// }
+			]]>
+		</code>
+		<nextAction returnValue="default">...</nextAction>
+        <nextAction returnValue="success">...</nextAction>
+    </action>
+
+    <loop id="...." firstAction="...">
+        <!-- The current loop index is available as "loopIndex" -->
+        <!-- The loop enumerator is available as "loopEnum" or "loopDictEnum" as appropriate -->
+        
+        <count type="literal|variable|csharp" enumeration="int|enum|dictEnum">...</count>
+
+	    <action ... >
+	    </action>
+
+	    <action ... >
+	    </action>
+    	
+	    <!-- Inner loops -->
+	    <loop id="....." firstAction="...">
+            <!-- The current loop index is available as "loopIndex" -->
+            <!-- The loop enumerator is available as "loopEnum" or "loopDictEnum" as appropriate -->
+            
+            <count type="literal|variable|csharp" enumeration="int|enum|dictEnum">...</count>
+
+	        <action ... >
+	        </action>
+
+	        <action ... >
+	        </action>
+	        
+	        <nextAction returnValue="default">...</nextAction>
+	        <nextAction returnValue="success">...</nextAction>
+        </loop>
+    </loop>
+</function>
+</xmlScriptData>

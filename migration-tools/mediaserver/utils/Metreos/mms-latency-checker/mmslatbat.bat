@@ -1,0 +1,1 @@
+mmslat msip(127.0.0.1) samples(8) hairpin(1) msglvl(1)

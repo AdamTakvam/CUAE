@@ -1,0 +1,12 @@
+900
+a:HangupCall
+rns:*->905
+timeout:5->905
+
+905
+a:ForwardResponseToPeer     // If the peer did not send the Hangup action
+def->910                    //   it will simply ignore this response
+
+910
+a:Wait
+def->[Error_P2P_Callback]

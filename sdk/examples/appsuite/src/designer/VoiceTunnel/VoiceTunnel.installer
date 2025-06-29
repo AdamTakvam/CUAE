@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <!--
+    <configValue name="Intl_Dialing_Prefix" displayName="Intl Dialing Prefix" defaultValue="011" description="Prefix for international numbers" format="String" />
+    <configValue name="Local_Country_Code" displayName="Local Country Code" defaultValue="1" description="Country code where the server is located" format="String" />
+    <configValue name="Acct_Code_Length" displayName="Acct Code Length" defaultValue="0" description="Number of digits in the account code. 0 for no limit." format="Number" required="true" />	
+    <configValue name="PIN_Code_Length" displayName="PIN Code Length" defaultValue="0" description="Number of digits in the pin code. 0 for no limit." format="Number" required="true" />
+    <configValue name="Proj_Code_Length" displayName="Proj Code Length" defaultValue="3" description="Number of digits in the project code" format="Number" required="true" />
+    <configValue name="Client_Code_Length" displayName="Client Code Length" defaultValue="3" description="Number of digits in the client code" format="Number" required="true" />
+    <configValue name="Matter_Code_Length" displayName="Matter Code Length" defaultValue="3" description="Number of digits in the matter code" format="Number" required="true" />
+    -->
+    <configValue name="Receive_Digits_Timeout" displayName="Receive Digits Timeout" defaultValue="20000" description="Time in milliseconds before receive digits commands timeout" format="Number" required="true" />
+    <configValue name="Inter_Digit_Delay" displayName="Inter Digit Delay" defaultValue="1500" description="Time in milliseconds to observe between digits" format="Number" required="true" />
+    <configValue name="Num_Failed_Logins_Allowed" displayName="Num Failed Logins Allowed" defaultValue="3" description="Number of failed logins to allow before kicking the user from the system." format="Number" required="true" />
+    <configValue name="DB_Username" displayName="DB Username" defaultValue="root" description="The database username" format="String" required="true" />
+    <configValue name="DB_Password" displayName="DB Password" defaultValue="metreos" description="The database password" format="Password" required="true" />
+    <configValue name="DB_Address" displayName="DB Address" defaultValue="127.0.0.1" description="The data source for connecting to the database." format="String" required="true" />
+    <configValue name="DB_Port" displayName="DB Port" defaultValue="3306" description="The database machine port" format="String" required="true" />
+    <!--
+    <configValue name="LDAP_Server" displayName="LDAP Server" defaultValue="127.0.0.1" description="The LDAP server address" format="String" required="true" />
+    <configValue name="LDAP_Port" displayName="LDAP Port" defaultValue="8404" description="The LDAP server port number" format="Number" required="true" />
+    <configValue name="Use_Project_Codes" displayName="Use Project Codes" defaultValue="false" description="The system will prompt for a project code for this call" format="Boolean" required="true" />
+    <configValue name="Use_Client_Codes" displayName="Use Client Codes" defaultValue="false" description="The system will prompt for a client and matter code for this call" format="Boolean" required="true" />
+    -->
+    <configValue name="DialPlan" displayName="Dial Plan" defaultValue="false" description="A set of regular expressions to be applied to all outbound dial strings" format="Hashtable" required="true" />
+  </configuration>
+</install>

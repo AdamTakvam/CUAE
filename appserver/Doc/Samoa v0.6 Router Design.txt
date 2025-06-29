@@ -1,0 +1,121 @@
+Data Structures:
+  
+  AppTable [Hashtable]
+	AppName -> AppInfo
+
+  TriggerTable [Hashtable]
+ 	eventName -> ArrayList of TriggerIds
+
+  TriggerInfoTable [Hashtable]
+	TriggerId -> TriggerInfo
+
+  RouteTable [StringCollection]
+	RoutingGUID -> AppName
+
+  AppInfo [class]
+	MessageQueueWriter appQ
+	Hashtable sessionTriggers (SessionGUID -> StringCollection of slaveTriggerIds)
+	StringCollection masterTriggers (triggerIds)	
+
+  TriggerInfo [class]
+	bool enabled
+	string eventName
+	StringDictionary paramHash
+	string appName
+	string scriptName
+	string sessionGuid (for slaves)
+	int numHits (always -1 for master scripts)
+	Timer expireTimer (for slaves)
+
+  ForwardingTable [Hashtable]
+	Old RoutingGUID -> New RoutingGUID
+
+
+[ 'RegisterScript' ]
+
+- Router receives registration message from ARE.
+
+- Router creates a TriggerInfo object and fills in all available data.
+
+- Router adds TriggerInfo object to TriggerInfoTable and remembers the new ID.
+
+- Router adds event name and triggerId to TriggerTable
+
+- If appName does not exist in AppTable, a new one is created.
+
+- If a SessionGUID was specified, Router adds this triggerId to the sessionTriggers list in the AppInfo object.
+
+- If no SessionGUID was specified, Router adds this triggerId to the masterScripts list.
+
+
+[ EVENT HANDLING ]
+
+- Router receives an event from a provider.
+
+- Router checks to see if the RoutingGUID exists in RouteTable.
+
+- If so, see NON-TRIGGERING EVENT HANDLING
+
+- If not, Router checks the triggering criteria to see if a script is registered to handle the event.
+
+- If so, see TRIGGERING EVENT HANDLING. 
+
+- If not, Router sends a 'NoHandler' message to the originating provider.
+
+
+[ TRIGGERING EVENT HANDLING ]
+
+- If numTriggers is not -1, it is decremented. If zero, the trigger is deleted.
+
+- If the trigger is marked for deletion and the event is CallControl.IncomingCall and a 'to' field is specified, the value (DN) in the 'to' field is returned to the CallControlExtPool.
+
+- Router looks up the AppInfo of the corresponding application.
+
+- If no SessionGUID is specified in the TriggerInfo, Router uses the RoutingGUID.
+
+- Router updates AppInfo.sessionTriggers
+
+- Router sends the event w/SessionGUID. 
+
+- Router adds the RoutingGuid to the RouteTable with a reference to the AppInfo object.
+
+
+[ NON-TRIGGERING EVENT HANDLING ]
+
+- Router uses the RoutingGUID to lookup the corresponding AppInfo in the RouteTable
+
+- Router looks up the MsgQ writer for the application and forwards the message.
+
+
+[ 'ScriptEnded' ]
+
+- Router removes RoutingGUID from RouteTable.
+
+
+[ 'SessionEnded' ]
+
+- Router uses application name to get AppInfo
+
+- Router gets list of slaveTriggerIds corresponding to the SessionGUID
+
+- Router removes all triggerIds in list from TriggerInfoTable.
+
+
+[ 'UninstallApplication' ]
+
+- Router uses the application name to get AppInfo
+
+- Router performs 'SessionEnded' on all SessionGUIDs in sessionTriggers hash
+
+- Router removes all masterTriggerIds from TriggerInfoTable
+
+- Router disposes of app message queue writer
+
+- Router removes AppName from AppTable.
+
+
+[ SPECIAL ACTION: 'GetLocalExtension' ]
+
+- Router looks queries CallControlExtPool for a free DN
+
+- Router sends response to application

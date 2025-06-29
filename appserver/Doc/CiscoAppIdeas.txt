@@ -1,0 +1,18 @@
+Alarm System:  user is alerted when an alarm is triggered.  For example, Dow Chemical has a chemical spill... a user on the phone has an alert message barge in.
+
+Weather:
+
+TimeSheets: Just click a button to log in, log out
+
+Real-time Status:  For instance, a plant manager can monitor production when surveying the plant
+
+Sales Registers:  1.  Call a manager.  2.  Fraud alert to the manager.   
+
+
+Role-based calling.  Say 3 managers work throughout the day each with an 8 hour shift. The user selects to call the manager. The app then looks up which manager is working and calls them, instead of the user keeping up with 3 numbers.
+
+
+Rollover.  Say 3 managers all answer calls of a certain type.  The user selects to call the manager.  The application them looks up which manager is currently not on the phone and calls them.  
+
+
+Image "pop" when a person calls in.

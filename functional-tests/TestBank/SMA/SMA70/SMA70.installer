@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="SMA_SMA70_script1" displayName="SMA_SMA70_script1" format="string" defaultValue="SMA.SMA70.script1" readOnly="false" required="true" />
+    <configValue name="S_Simple1" displayName="S_Simple1" format="string" defaultValue="SMA.SMA70.script1.S_Simple1" readOnly="true" required="true" />
+    <configValue name="S_Simple2" displayName="S_Simple2" format="string" defaultValue="SMA.SMA70.script1.S_Simple2" readOnly="true" required="true" />
+    <configValue name="E_Event" displayName="E_Event" format="string" defaultValue="SMA.SMA70.script1.E_Event" readOnly="false" required="true" />
+    <configValue name="E_Shutdown" displayName="E_Shutdown" format="string" defaultValue="SMA.SMA70.script1.E_Shutdown" readOnly="true" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xmlScriptData name="TestScript" type="master" instanceType="multiInstance" description="Test Script" xmlns="http://metreos.com/XmlScriptData.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<reference>System.Data.dll</reference>  
+<using>System.Data</using>         
+
+<globalVariables>
+	<configurationValue name="SomeConfigValue">
+		<variable type="String" name="MyGlobalConfigVariable">DefaultValue</variable>
+	</configurationValue>
+
+	<variable type="String" name="MyGlobalVariable">DefaultValue</variable>
+</globalVariables>
+
+<function id="0" firstAction="1">
+	<event type="triggering">Metreos.Triggering.Event</event>
+    <eventParam name="to" type="variable">MyGlobalConfigVariable</eventParam>
+    
+	<parameter type="reference" name="from">
+	    <variable type="String" name="from">DefaultFromValue</variable>
+	</parameter>
+    	
+    <variable type="String" name="SomeLocalVariable" />
+
+    <action id="1" type="provider">
+        <name>Metreos.Provider.Action</name>
+		<param name="param1" type="csharp">from.ToString()</param>
+		<param name="param2" type="csharp">String.Format("From: {0}", from)</param>
+		<param name="param3" type="literal">whee</param>
+		<param name="param4" type="variable">SomeLocalVariable</param>
+		<timeout type="literal">500</timeout>
+		<resultData field="resultData" type="variable">SomeLocalVariable</resultData>
+        <nextAction returnValue="default">98</nextAction>
+        <nextAction returnValue="success">99</nextAction>
+    </action>
+    
+    <action id="99" type="userCode">
+		<code language="csharp">
+			<![CDATA[
+			public static string Execute(string from)
+			{
+				Hashtable hash = new Hashtable();
+				hash.Add("oooh", "aahh");
+				return from;
+			}
+			]]>
+		</code>
+		<nextAction returnValue="default">0</nextAction>
+        <nextAction returnValue="success">98</nextAction>
+    </action>
+
+    <loop id="2" firstAction="3">
+        <count type="csharp" enumeration="int">from.IndexOf("@")</count>
+
+	    <action id="3" type="provider">
+			<name>Metreos.Provider.Action</name>
+			<param name="param1" type="csharp">from.ToString()</param>
+			<param name="param2" type="csharp">String.Format("From: {0}", from)</param>
+			<param name="param3" type="literal">whee</param>
+			<param name="param4" type="variable">SomeLocalVariable</param>
+			<timeout type="literal">500</timeout>
+			<resultData field="resultData" type="variable">SomeLocalVariable</resultData>
+			<nextAction returnValue="default">98</nextAction>
+			<nextAction returnValue="success">99</nextAction>
+		</action>
+    	
+	    <!-- Inner loops -->
+	    <loop id="4" firstAction="5">
+            <!-- The current loop index is available as "loopIndex" -->
+            <!-- The loop enumerator is available as "loopEnum" or "loopDictEnum" as appropriate -->
+            
+            <count type="variable" enumeration="enum">SomeLocalVariable</count>
+
+	        <action id="5" type="provider">
+				<name>Metreos.Provider.Action</name>
+				<param name="param1" type="csharp">from.ToString()</param>
+				<param name="param2" type="csharp">String.Format("From: {0}", from)</param>
+				<param name="param3" type="literal">whee</param>
+				<param name="param4" type="variable">SomeLocalVariable</param>
+				<timeout type="literal">500</timeout>
+				<resultData field="resultData" type="variable">SomeLocalVariable</resultData>
+				<nextAction returnValue="default">98</nextAction>
+				<nextAction returnValue="success">99</nextAction>
+			</action>
+	        
+	        <nextAction returnValue="default">100</nextAction>
+	        <nextAction returnValue="success">101</nextAction>
+        </loop>
+        
+        <nextAction returnValue="default">102</nextAction>
+	    <nextAction returnValue="success">103</nextAction>
+    </loop>
+</function>
+</xmlScriptData>

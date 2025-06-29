@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SimpleEncryptor", "SimpleEncryptor.vbproj", "{52643C2F-81D7-492A-B887-96FDD18B5BFC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{52643C2F-81D7-492A-B887-96FDD18B5BFC}.Debug.ActiveCfg = Debug|.NET
+		{52643C2F-81D7-492A-B887-96FDD18B5BFC}.Debug.Build.0 = Debug|.NET
+		{52643C2F-81D7-492A-B887-96FDD18B5BFC}.Release.ActiveCfg = Release|.NET
+		{52643C2F-81D7-492A-B887-96FDD18B5BFC}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

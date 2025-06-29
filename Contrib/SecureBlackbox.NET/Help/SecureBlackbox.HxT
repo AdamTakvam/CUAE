@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE HelpTOC>
+<HelpTOC
+   DTDVersion = "1.0"
+   FileVersion = ""
+   ParentNodeIcon = "Book"
+>
+  <HelpTOCNode Title="EldoS SecureBlackbox" Url="SBB.NET/documentation/helponhelp.html">
+    <HelpTOCNode NodeType="TOC" Url="SBB.NET/documentation/helponhelp.html"/>
+  </HelpTOCNode>
+
+</HelpTOC>

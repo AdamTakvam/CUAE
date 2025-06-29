@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="CcmAdmin" displayName="CallManager Administrator Name" format="String" description="The CallManager Administrator with access rights to AXL-SOAP" defaultValue="Administrator" required="true" />
+    <configValue name="CcmPassword" displayName="CallManager Administrator Password" format="Password" description="The CallManager Administrative password" defaultValue="metreos" required="true" />
+    <configValue name="CcmPubIp" displayName="CallManager Publisher IP Address" format="String" description="The IP Address of the CallManager Publisher" defaultValue="10.1.1.1" required="true" />
+  </configuration>
+</install>

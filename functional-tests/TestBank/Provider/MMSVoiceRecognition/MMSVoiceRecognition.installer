@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_MMSVoiceRecognition_script1" format="String" defaultValue="Provider.MMSVoiceRecognition.script1" />
+    <configValue name="S_Failure" format="String" defaultValue="Provider.MMSVoiceRecognition.script1.S_Failure" />
+    <configValue name="S_HangUp" format="String" defaultValue="Provider.MMSVoiceRecognition.script1.S_HangUp" />
+    <configValue name="S_ReceiveCall" format="String" defaultValue="Provider.MMSVoiceRecognition.script1.S_ReceiveCall" />
+    <configValue name="E_AnswerCall" format="String" defaultValue="Provider.MMSVoiceRecognition.script1.E_AnswerCall" />
+  </configuration>
+</install>

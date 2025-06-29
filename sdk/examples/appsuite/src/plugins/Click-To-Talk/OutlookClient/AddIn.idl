@@ -1,0 +1,81 @@
+// AddIn.idl : IDL source for AddIn
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (AddIn.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(4BF0394E-C22F-455E-AC14-3F495928EA63),
+	dual,
+	helpstring("IMetreosPropPage Interface"),
+	pointer_default(unique)
+]
+interface IMetreosPropPage : IDispatch
+{
+};
+
+[
+	object,
+	uuid(43C7BC52-7359-45c4-80D9-3E4FCFFF982D),
+	dual,
+	helpstring("IConnect Interface"),
+	pointer_default(unique)
+]
+interface IConnect : IDispatch
+{
+};
+
+[
+	object,
+	uuid(71356E13-F364-4685-A1B2-C01A1EDE904C),
+	dual,
+	nonextensible,
+	helpstring("IMetreosToolbar Interface"),
+	pointer_default(unique)
+]
+interface IMetreosToolbar : IDispatch
+{
+};
+
+[
+	uuid(7D42B0A7-AAFE-4CFD-9172-F237103BC25F),
+	version(1.0),
+	helpstring("OutlookClient 1.0 Type Library")
+]
+library OutlookClientLib
+{
+    importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(11726890-24ED-4364-A49E-61A6D6FE39BE),
+		helpstring("Connect Class")
+	]
+	coclass Connect
+	{
+        [default] interface IConnect;
+	};
+
+	[
+		uuid(AAA18667-3166-438F-8056-A3DF63480550),
+		helpstring("MetreosPropPage Class")
+	]
+	coclass MetreosPropPage
+	{
+		[default] interface IMetreosPropPage;
+	};
+
+	[
+		uuid(9E3F01D1-2B5D-4742-984F-947A26CCCD7D),
+		helpstring("MetreosToolbar Class")
+	]
+	coclass MetreosToolbar
+	{
+		[default] interface IMetreosToolbar;
+	};
+};

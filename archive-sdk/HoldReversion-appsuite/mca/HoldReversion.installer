@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ReversionDelay" displayName="Reversion Delay" format="Number" description="The number of seconds that the application will wait for before playing the first ringback tone for a held call. Setting this value to 0 disables the ringback functionality." minValue="0" maxValue="1200" defaultValue="5" required="true" />
+    <configValue name="ReversionInterval" displayName="Reversion Interval" format="Number" description="The number of seconds between successive invocations of the ringback tone. Setting this value to 0 disables the repeating ringback functionality." minValue="0" maxValue="1200" defaultValue="5" required="true" />
+    <configValue name="Username" displayName="Username" format="String" description="Username of a CCM user with rights to control all phone devices which will be used with this application." defaultValue="metreos" required="true" />
+    <configValue name="Password" displayName="Password" format="Password" description="Password to the above-mentioned CCM user's account." defaultValue="metreos" required="true" />
+    <configValue name="Filename" displayName="Filename" format="String" description="Filename of an audio file on the CCM TFTP server. This file will be used as the ringback tone." defaultValue="chime.raw" required="true" />
+  </configuration>
+</install>

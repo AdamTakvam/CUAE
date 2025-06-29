@@ -1,0 +1,57 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ACE DLL", "ace_dll.vcproj", "{D2458AB2-B2F1-4013-8677-7C997B7C9E23}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ACE LIB", "ace_lib.vcproj", "{F23C7B8C-F520-4C01-BC81-80B12E8860EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = MFC Debug
+		ConfigName.2 = MFC Release
+		ConfigName.3 = Pharlap ETS Static Debug
+		ConfigName.4 = Pharlap ETS Static Release
+		ConfigName.5 = Release
+		ConfigName.6 = Static Debug
+		ConfigName.7 = Static Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Debug.ActiveCfg = Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Debug.Build.0 = Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.MFC Debug.ActiveCfg = MFC Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.MFC Debug.Build.0 = MFC Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.MFC Release.ActiveCfg = MFC Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.MFC Release.Build.0 = MFC Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Pharlap ETS Static Debug.ActiveCfg = Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Pharlap ETS Static Debug.Build.0 = Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Pharlap ETS Static Release.ActiveCfg = Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Pharlap ETS Static Release.Build.0 = Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Release.ActiveCfg = Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Release.Build.0 = Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Static Debug.ActiveCfg = Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Static Debug.Build.0 = Debug|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Static Release.ActiveCfg = Release|Win32
+		{D2458AB2-B2F1-4013-8677-7C997B7C9E23}.Static Release.Build.0 = Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Debug.ActiveCfg = Static Debug|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Debug.Build.0 = Static Debug|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.MFC Debug.ActiveCfg = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.MFC Debug.Build.0 = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.MFC Release.ActiveCfg = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.MFC Release.Build.0 = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Pharlap ETS Static Debug.ActiveCfg = Pharlap ETS Static Debug|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Pharlap ETS Static Debug.Build.0 = Pharlap ETS Static Debug|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Pharlap ETS Static Release.ActiveCfg = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Pharlap ETS Static Release.Build.0 = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Release.ActiveCfg = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Release.Build.0 = Pharlap ETS Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Static Debug.ActiveCfg = Static Debug|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Static Debug.Build.0 = Static Debug|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Static Release.ActiveCfg = Static Release|Win32
+		{F23C7B8C-F520-4C01-BC81-80B12E8860EA}.Static Release.Build.0 = Static Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

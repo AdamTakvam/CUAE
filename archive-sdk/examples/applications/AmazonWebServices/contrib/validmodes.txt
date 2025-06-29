@@ -1,0 +1,33 @@
+	
+Baby
+    mode=baby 
+Books
+    mode=books 
+Classical Music
+    mode=classical 
+DVD
+    mode=dvd 
+Electronics
+    mode=electronics 
+Outdoor Living
+    mode=garden 
+Kitchen & Housewares
+    mode=kitchen 
+Magazines
+    mode=magazines 
+Popular Music
+    mode=music 
+Computers
+    mode=pc-hardware 
+Camera & Photo
+    mode=photo 
+Software
+    mode=software 
+Toys & Games
+    mode=toys 
+Tools & Hardware
+    mode=universal 
+Video
+    mode=vhs 
+Computer & Video Games
+    mode=videogames

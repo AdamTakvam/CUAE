@@ -1,0 +1,4 @@
+900
+a:DeleteConnection
+rns:*->[Error_Hangup_NoMedia]
+timeout:5->[Error_Hangup_NoMedia]

@@ -1,0 +1,42 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            
+//  IIIIIII SSSSSS                                                            
+//    II    SS                          InstallShield (R)                     
+//    II    SSSSSS      (c) 1996-2002, InstallShield Software Corporation     
+//    II        SS                     All rights reserved.             
+//  IIIIIII SSSSSS                  
+//                                                                            
+//                                                                            
+//  This template script provides the code necessary to build an entry-point 
+//  function to be called in an InstallScript custom action. 
+//                                                                            
+//                                                                            
+//    File Name:  Setup.rul                                                   
+//                                                                            
+//  Description:  InstallShield script                                        
+//
+////////////////////////////////////////////////////////////////////////////////
+
+// Include Ifx.h for built-in InstallScript function prototypes, for Windows 
+// Installer API function prototypes and constants, and to declare code for 
+// the OnBegin and OnEnd events.
+#include "ifx.h"
+#include "shutdownrunningapp.rul"
+         
+                               
+export prototype ExFn_DummyAction(HWND);
+export prototype DeleteOutlookCache(HWND);
+
+function OnBegin()   
+begin             
+	while (ProcessRunning("OUTLOOK"))
+		MessageBox("Microsoft Outlook must not be running to proceed.  Please shutdown Outlook and click OK.", WARNING);
+	endwhile;
+end;
+           
+           
+function DeleteOutlookCache(hMSI)
+begin
+	DeleteFile(AppDataFolder ^ "Microsoft" ^ "Outlook" ^ "outcmd.dat");
+end;
+

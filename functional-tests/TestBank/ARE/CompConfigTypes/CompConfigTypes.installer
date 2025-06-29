@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="boolVar" displayName="" format="Bool" defaultValue="false" required="false" />
+    <configValue name="stringVar" format="String" description="" defaultValue="" />
+    <configValue name="numberVar" format="Number" defaultValue="0" />
+    <configValue name="datetimeVar" format="DateTime" defaultValue="00:00:00" />
+    <configValue name="ipaddressVar" format="IP_Address" defaultValue="1.1.1.1" />
+    <configValue name="tracelevelVar" format="TraceLevel" defaultValue="Verbose" />
+    <configValue name="arrayVar" format="Array" description="" defaultValue="" />
+    <configValue name="passwordVar" format="Password" defaultValue="" />
+    <configValue name="enumVar" displayName="enumVar" format="Dialpad" description="Enumerated list" defaultValue="#">
+      <EnumItem>#</EnumItem>
+      <EnumItem>*</EnumItem>
+      <EnumItem>0</EnumItem>
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+      <EnumItem>7</EnumItem>
+      <EnumItem>8</EnumItem>
+      <EnumItem>9</EnumItem>
+    </configValue>
+    <configValue name="hashTableVar" displayName="hashTableVar" format="HashTable" description="" defaultValue="" readOnly="false" />
+    <configValue name="string1Var" format="String" defaultValue="1" />
+    <configValue name="string2Var" format="String" defaultValue="2" />
+    <configValue name="string3Var" format="String" defaultValue="3" />
+    <configValue name="string4Var" format="String" defaultValue="4" />
+    <configValue name="string5Var" format="String" defaultValue="5" />
+    <configValue name="string6Var" format="String" defaultValue="6" />
+    <configValue name="string7Var" format="String" defaultValue="7" />
+    <configValue name="string8Var" format="String" defaultValue="8" />
+    <configValue name="string9Var" format="String" defaultValue="9" />
+    <configValue name="string0Var" format="String" defaultValue="0" />
+    <configValue name="number0Var" format="Number" defaultValue="0" />
+    <configValue name="number1Var" format="Number" defaultValue="1" />
+    <configValue name="number2Var" displayName="" format="Number" defaultValue="2" />
+    <configValue name="number3Var" format="Number" defaultValue="3" />
+    <configValue name="number4Var" format="Number" defaultValue="4" />
+    <configValue name="number5Var" format="Number" defaultValue="5" />
+    <configValue name="number6Var" format="Number" defaultValue="6" />
+    <configValue name="number7Var" format="Number" defaultValue="7" />
+    <configValue name="number8Var" format="Number" defaultValue="8" />
+    <configValue name="number9Var" format="Number" defaultValue="9" />
+    <configValue name="S_Signal" format="String" defaultValue="ARE.CompConfigTypes.script1.S_Signal" />
+    <configValue name="ARE_CompConfigTypes_script1" format="String" defaultValue="ARE.CompConfigTypes.script1" />
+  </configuration>
+</install>

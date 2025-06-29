@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jabber", "lib\Jabber.csproj", "{EC70E380-D959-4ABA-B8E5-776BDF58DBB5}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "console\ConsoleApplication1.csproj", "{908FA15B-2368-4AB2-9B41-FC978B67957B}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{EC70E380-D959-4ABA-B8E5-776BDF58DBB5}.Debug.ActiveCfg = Debug|.NET
+		{EC70E380-D959-4ABA-B8E5-776BDF58DBB5}.Debug.Build.0 = Debug|.NET
+		{EC70E380-D959-4ABA-B8E5-776BDF58DBB5}.Release.ActiveCfg = Release|.NET
+		{EC70E380-D959-4ABA-B8E5-776BDF58DBB5}.Release.Build.0 = Release|.NET
+		{908FA15B-2368-4AB2-9B41-FC978B67957B}.Debug.ActiveCfg = Debug|.NET
+		{908FA15B-2368-4AB2-9B41-FC978B67957B}.Debug.Build.0 = Debug|.NET
+		{908FA15B-2368-4AB2-9B41-FC978B67957B}.Release.ActiveCfg = Release|.NET
+		{908FA15B-2368-4AB2-9B41-FC978B67957B}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

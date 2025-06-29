@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cBarge", "Types\cBarge.csproj", "{DBE5E0AC-2209-44DF-B479-2415CB73F4E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeActions", "NativeActions\NativeActions.csproj", "{54836244-3081-4B53-9CFD-220E90298E20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBE5E0AC-2209-44DF-B479-2415CB73F4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE5E0AC-2209-44DF-B479-2415CB73F4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE5E0AC-2209-44DF-B479-2415CB73F4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE5E0AC-2209-44DF-B479-2415CB73F4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54836244-3081-4B53-9CFD-220E90298E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54836244-3081-4B53-9CFD-220E90298E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54836244-3081-4B53-9CFD-220E90298E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54836244-3081-4B53-9CFD-220E90298E20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

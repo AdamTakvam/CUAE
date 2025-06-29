@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE HelpCollection>
+<HelpCollection
+   DTDVersion = "1.0"
+   Id = ""
+   FileVersion = ""
+   LangId = "1033"
+   Font = ""
+   FontSize = "0"
+   Charset = "28591"
+   Title = "EldoS SecureBlackbox"
+   Copyright = "(c) 2002-2005, EldoS Corporation"
+>
+
+<AttributeDef
+   File = "SecureBlackbox.HxA"
+/>
+<TOCDef
+   File = "SecureBlackbox.HxT"
+/>
+<KeywordIndexDef
+   File = "SecureBlackbox_K.HxK"
+/>
+<KeywordIndexDef
+   File = "SecureBlackbox_A.HxK"
+/>
+<KeywordIndexDef
+   File = "SecureBlackbox_F.HxK"
+/>
+
+<ItemMoniker Name = "!DefaultTOC"
+                ProgId = "HxDs.HxHierarchy"
+                InitData = "COL_Master"/>
+
+   <ItemMoniker Name = "!DefaultFullTextSearch"
+                ProgId = "HxDs.HxFullTextSearch"
+                InitData = "AnyString"/>
+
+   <ItemMoniker Name="!DefaultKeywordIndex" 
+                ProgId="HxDs.HxIndex" 
+                InitData="K"/>
+   <ItemMoniker Name = "!DefaultContextWindowIndex"
+                ProgId = "HxDs.HxIndex"
+                InitData = "F"/>
+   <ItemMoniker Name = "!DefaultAssociativeIndex"
+                ProgId = "HxDs.HxIndex"
+                InitData = "A"/>
+   <ItemMoniker Name = "!DefaultNamedUrlIndex"
+                ProgId = "HxDs.HxIndex"
+                InitData = "NamedUrlIndex"/>
+
+</HelpCollection>

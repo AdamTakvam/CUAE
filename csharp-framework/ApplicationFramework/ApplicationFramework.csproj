@@ -1,0 +1,260 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{409ECB57-9B3B-49E2-AF71-3CD90DBA73EC}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.ApplicationFramework</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\autobuild\metreos.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.ApplicationFramework</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cscompmgd">
+      <Name>cscompmgd</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Name>Core</Name>
+      <Project>{2CD002F2-1A95-441D-BD2C-BC3EDB290E23}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Name>Interfaces</Name>
+      <Project>{402DD66C-D68E-4285-9B7C-84F1047A88F1}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggingFramework\LoggingFramework.csproj">
+      <Name>LoggingFramework</Name>
+      <Project>{6419383C-9AF2-4DA9-940E-E1015FA54B5C}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Messaging\Messaging.csproj">
+      <Name>Messaging</Name>
+      <Project>{AB5C9326-6449-4F21-8D80-48A1665C48F2}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Name>Utilities</Name>
+      <Project>{4B5D59A2-F37C-419B-8ED3-0A43D4572D4E}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\autobuild\AssemblyInfoCommon.cs">
+      <Link>AssemblyInfoCommon.cs</Link>
+    </Compile>
+    <Compile Include="ActionParameters\ActionParamBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ActionParameters\LiteralActionParam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ActionParameters\UserCodeActionParam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ActionParameters\VariableActionParam.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\ActionBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\NativeAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\ProviderAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Actions\UserCodeAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assembler\Assembler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assembler\Compiler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assembler\Exceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assembler\LibraryManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\ActionParamCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\AdoDbCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\CallConnectionMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\EventCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\MStringDictionary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\ResultDataCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\ScriptElementCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Collections\VariableCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CollectionVariableBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Function.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IClrTypeWrapper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="INativeAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IVariable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Loops\LiteralLoopCount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Loops\Loop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Loops\LoopCountBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Loops\UserCodeLoopCount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Loops\VariableLoopCount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ResultData\ResultDataBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ResultData\UserCodeResultData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ResultData\VariableResultData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScriptData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScriptElementBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScriptXml\XmlScriptData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SessionData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Variable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="ScriptXml\XmlScriptData.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ScriptXml\XmlScriptData_Example.xml" />
+    <None Include="..\..\autobuild\metreos.snk">
+      <Link>metreos.snk</Link>
+    </None>
+    <None Include="ScriptXml\XmlScriptData.xsx">
+      <DependentUpon>XmlScriptData.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

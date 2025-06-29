@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="licensing" default="Debug" basedir=".">
+
+    <description>Build script for TTSLicenseManager component</description>
+    <import file="../../autobuild/build.includes.xml" />
+
+    <property name="licManDirectory"        location="${Metreos.build.contribRoot}/FLEXlm/LicenseServer" />
+    <property name="sourceDirectory"        value="${Metreos.build.srcRoot}/licensing/TTSLicenseManager" />
+    <property name="deploymentDirectory"    value="${Metreos.build.buildDirectory}/LicenseServer" />
+    <property name="symbolDirectory"        value="${Metreos.build.buildDirectory}/LicenseServer/Symbols" />
+    
+    <target name="do-init">
+    </target>
+
+    <target name="do-clean">
+        <!-- <metreosVsNetTask dir="." solution="TTSLicMgr" /> -->
+        <delete dir="Debug" />
+        <delete dir="Release" />
+    </target>
+
+    <target name="do-build" >
+        <mkdir dir="${deploymentDirectory}" />
+        <mkdir dir="${deploymentDirectory}/Licenses" />
+        <metreosVsNetTask solution="TTSLicMgr" />
+    </target>
+
+    <target name="do-test" >
+    </target>
+
+    <target name="do-postbuild">
+        <copy todir="${deploymentDirectory}">
+            <fileset dir="${sourceDirectory}/${Metreos.build.target}" includes="ttslicmanager.exe" />
+        </copy>
+        <copy todir="${symbolDirectory}">
+            <fileset dir="${sourceDirectory}/${Metreos.build.target}" includes="ttslicmanager.pdb" />
+        </copy>
+    </target>
+</project>

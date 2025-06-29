@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+		<configValue name="CallOutNumber" displayName="Call Out Number" defaultValue="96892237" description="The number handling customer calls" format="string" />
+  </configuration>
+</install>

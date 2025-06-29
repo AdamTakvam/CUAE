@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGPKeysDemo", "PGPKeysDemo.csproj", "{A5A91B28-3810-40E5-B2E1-2D034F06C747}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{A5A91B28-3810-40E5-B2E1-2D034F06C747}.Debug.ActiveCfg = Debug|.NET
+		{A5A91B28-3810-40E5-B2E1-2D034F06C747}.Debug.Build.0 = Debug|.NET
+		{A5A91B28-3810-40E5-B2E1-2D034F06C747}.Release.ActiveCfg = Release|.NET
+		{A5A91B28-3810-40E5-B2E1-2D034F06C747}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

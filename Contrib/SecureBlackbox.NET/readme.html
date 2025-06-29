@@ -1,0 +1,163 @@
+<html>
+  <head>
+	<META NAME="ROBOTS" content="ALL">
+	<title>SecureBlackbox&trade; - SecureBlackbox read me</title>
+	<meta name="MSSmartTagsPreventParsing" content="TRUE">
+	<meta name="resource-type" content="document">
+	<meta name="copyright" content="EldoS Corporation">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>
+
+<body leftMargin="0" topMargin="0" marginwidth="0" marginheight="0">
+    <div id="content">
+
+        <div id="mainbox">
+			<table width="100%" border="0" cellspacing="1" cellpadding="0">
+	<tr>
+		<td>
+			<p class="TopicTitle">Installation</p>
+			<p class="TopicText">Welcome to SecureBlackbox. You have just installed .NET component library.
+			<br>Usually the files are integrated into Visual Studio, Borland C#Builder and Borland Delphi for .NET automatically. If you need to add the components to Toolbox manually, do the following:
+			<p class="TopicText">
+				In <b>Visual Studio 2005</b>
+				<ol>
+					<li>Use Main Menu -> Tools -> Choose Toolbox items to open Toolbox Customization dialog
+					<li>In the dialog that appears activate .NET Framework Components tab
+					<li>Use a filter to show only those components, which contain "SecureBlackbox" in the assembly name. To do this put "SecureBlackbox" to the filter box.
+					<li>Check all components that appear.
+					<li>If you don't find some component in the list, use Browse button to find and add the assembly, which contains the component, to the list
+				</ol>
+			<p class="TopicText">
+			<p class="TopicText">
+				In <b>Visual Studio.NET 2003</b>
+				<ol>
+					<li>Use Main Menu -> Tools -> Add / Remove Toolbox Items to open Toolbox Customization dialog
+					<li>In the dialog that appears activate .NET Framework Components tab
+					<li>Sort the list by name.
+					<li>Search the list for all components, which start with "TEl" and are located in SecureBlackbox assemblies.
+					<li>Check all components that you find.
+					<li>If you don't find some component in the list, use Browse button to find and add the assembly, which contains the component, to the list
+				</ol>
+			<p class="TopicText">
+				In  <b>Borland Developer Studio</b>, <b>Delphi for .NET</b> and <b>Borland C#Builder</b>
+				<ol>
+				<li>Use Main Menu -> Component -> Intalled .NET Components to open .NET Components dialog
+					<li>In the dialog that appears activate .NET Components tab
+					<li>Sort the list by name.
+					<li>Search the list for all components, which start with "TEl" and are located in SecureBlackbox assemblies.
+					<li>Check all components that you find.
+					<li>If you don't find some component in the list, use Browse button to find and add the assembly, which contains the component, to the list
+				</ol>
+
+			<p class="TopicTitle">Activation of evaluation version</p>
+			<p class="TopicText" align="justify">
+			SecureBlackbox components require a key, without which they can't be used. For evaluation purposes you will find a trial key in the folder where you installed SecureBlackbox.
+			The key is named "LicenseKey.der". To pass the license key to components, you need to call SetLicenseKey function which is located in SecureBlackbox assembly.
+			All sample projects include this call.
+			<p class="TopicText" align="justify">
+			You will find demo projects for C# and VB.NET in &lt;SecureBlackbox&gt;\Samples subfolder.
+			</p>
+			<p class="TopicTitle">Additional packages and sample projects</p>
+			<p class="TopicText">
+				SSLBlackbox includes not only SSL classes themselves, but also components that can be used with third-party libraries. Currently RemObjects SDK for .NET and RemObjects InternetPack are supported. These components are not installed by default. You will need to build and install the packages as described below.
+			</p>
+			<p class="TopicText">
+				<ul>
+					<li><span class="mainBold"><a name="adddelphi"></a>RemObjects products:</span><br>
+						You need to install the SSLConnection project located in &lt;SecureBlackbox&gt;\Classes\RemObjects.InternetPack folder. <br />
+						Note that you need to have RemObjects.InternetPack <i>1.0.1.49</i> and later to use SecureBlackbox.NET.						
+						<br>
+				</ul>
+			</p>
+
+			<p class="TopicTitle">Deployment</p>
+			<p class="TopicText">
+			You need to deploy the assemblies that your project refers to.<br>SecureBlackbox.dll is always used (even when it is not explicitly included into References list).<br />
+			Note, that some assemblies depend on other assemblies, even if the latter are not explicitly included into the project.
+			</p>
+
+			<p class="TopicText">
+			Dependencies are:
+			<ul>
+				<li><b>SecureBlackbox.PKI.dll</b> requires SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.SSLClient.dll</b> requires SecureBlackbox.SSLCommon.dll, SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.SSLServer.dll</b> requires SecureBlackbox.SSLCommon.dll, SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.SSLSocket.dll</b> requires SecureBlackbox.SSLCommon.dll, SecureBlackbox.PKI.dll and SecureBlackbox.dll. It also requires SecureBlackbox.SSLClient.dll if client sockets are used and SecureBlackbox.SSLServer.dll if server sockets are used.</li>
+				<li><b>SecureBlackbox.FTPS.dll</b> requires SecureBlackbox.SSLClient.dll, SecureBlackbox.SSLCommon.dll, SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.HTTPS.dll</b> requires SecureBlackbox.SSLClient.dll, SecureBlackbox.SSLCommon.dll, SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+
+				<li><b>SecureBlackbox.SSHClient.dll</b> requires SecureBlackbox.SSHCommon.dll and SecureBlackbox.dll. It can also require SecureBlackbox.PKI.dll if X.509 Certificates are used.</li>
+				<li><b>SecureBlackbox.SSHServer.dll</b> requires SecureBlackbox.SSHCommon.dll and SecureBlackbox.dll. It can also require SecureBlackbox.PKI.dll if X.509 Certificates are used.</li>
+				<li><b>SecureBlackbox.SFTP.dll</b> requires SecureBlackbox.SFTPCommon.dll, SecureBlackbox.SSHCommon.dll, SecureBlackbox.SSHClient.dll and SecureBlackbox.dll. It can also require SecureBlackbox.PKI.dll if X.509 Certificates are used.</li>
+				<li><b>SecureBlackbox.SFTPServer.dll</b> requires SecureBlackbox.SFTPCommon.dll, SecureBlackbox.SSHCommon.dll, SecureBlackbox.SSHServer.dll and SecureBlackbox.dll. It can also require SecureBlackbox.PKI.dll if X.509 Certificates are used.</li>
+				<li><b>SecureBlackbox.MIME.dll</b> requires SecureBlackbox.Charsets.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.SMIME.dll</b> requires SecureBlackbox.PKI.dll, SecureBlackbox.MIME.dll, SecureBlackbox.Charsets.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.PGP.dll</b> requires SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.PGPMIME.dll</b> requires SecureBlackbox.PGP.dll, SecureBlackbox.MIME.dll, SecureBlackbox.Charsets.dll and SecureBlackbox.dll. It can also require SecureBlackbox.PKI.dll if X.509 Certificates are used.</li>
+				<li><b>SecureBlackbox.PDF.dll</b> requires SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+				<li><b>SecureBlackbox.XML.dll</b> requires SecureBlackbox.PGP.dll, SecureBlackbox.Charsets.dll, SecureBlackbox.PKI.dll and SecureBlackbox.dll.</li>
+			</ul>
+			</p>
+			<p class="TopicText">
+				To deploy SecureBlackbox with your project, use your regular installer tool. DO NOT USE SecureBlackbox installation package (which you downloaded and installed for development) for deployment purposes.
+				<br>
+				When deploying the project, copy the above described assemblies to your application folder.
+				Questions about when and how to install the assemblies to Global Assembly Cache are discussed in <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconWorkingWithAssembliesGlobalAssemblyCache.asp">Working with Assemblies and the Global Assembly Cache</a> and
+				<a href="http://msdn2.microsoft.com/en-us/library/dkkx7f79(VS.80).aspx">How to: Install an Assembly into the Global Assembly Cache</a> articles.
+			</p>
+
+
+			<p class="TopicTitle">Documentation and support</p>
+
+						<p class="TopicText">See <a href="http://www.eldos.com/sbb/support.php">support page</a> for detailed information about support options.</p>
+
+			<p class="TopicTitle">Licensing and purchase</p>
+						<p class="TopicText">
+				You will find the licensing terms in the <a href="http://www.eldos.com/licenses/dev-standard_no_web.php?PRODUCT=SecureBlackbox">license agreement</a>. Use of SecureBlackbox is allowed ONLY if you comply to this agreement. Evaluation package can be used only to evaluate SecureBlackbox and MUST NOT be used in production.
+				<br />You can find out the price and order your copy of full SecureBlackbox license on <a href="http://www.eldos.com/sbb/order.php">order page</a>.
+			</p>
+
+
+			<p class="TopicTitle">Copyrights</p>
+
+<p class="TopicText">
+SecureBlackbox software is intellectual property of EldoS Corporation, protected by international copyright laws.<br>
+SecureBlackbox&reg; is a registered trademark of EldoS Corporation.
+</p>
+
+<p class="TopicTitle">Patents</p>
+
+<p class="TopicText">
+SecureBlackbox includes support for IDEA (International Data Encryption Algorithm), which is protected under a patent registered in the USA, Europe and Japan.
+<a href="http://www.mediacrypt.com/">MediaCrypt AG</a> holds all the relevant rights related to the distribution of the IDEA algorithm. Ascom, Switzerland holds the patents.
+</p>
+<p class="TopicText">
+You choose whether to use IDEA or not. SecureBlackbox provides a way to turn off IDEA support completely. Alternatively, you can aquire licenses from MediaCrypt AG.
+<br>
+IDEA is used in SSL / TLS, SSH and PGP algorithms and protocols. While in SSL / TLS and SSH protocols IDEA support can be turned off with no effect, with PGP the situation is more complicated.
+IDEA was used as a main encryption algorithm for storing PGP keys in PGP 2.x.. So if you don't use PGP, or you don't need to support PGP 2.x keys, you can safely disable IDEA in SecureBlackbox.
+</p>
+<p class="TopicText">
+To disable IDEA support in .NET edition, set global variable SBIDEA.Unit.IdeaSupported to false.
+<br>
+To disable IDEA support in VCL edition, set global variable SBIDEA.IdeaSupported to false.
+</p>
+
+
+			<p class="TopicTitle">DISCLAIMER</p>
+			<p class="TopicText">
+				IN NO EVENT SHALL SECUREBLACKBOX AUTHORS, OR ANY OTHER PARTY WHO MAY HAVE DISTRIBUTED THE SOFTWARE AS PERMITTED, BE LIABLE FOR DAMAGES, INCLUDING ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING BUT NOT LIMITED TO LOSS OF DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD PARTIES OR FAILURE OF THE SOFTWARE TO OPERATE WITH ANY OTHER PRODUCTS), EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+			</p>
+			<p class="TopicTitle">Contact information</p>
+			<p class="TopicText">SecureBlackbox is a product of EldoS Corporation.
+			The official SecureBlackbox homepage is <a href="http://www.eldos.com/sbb/" class="Alink">http://www.eldos.com/sbb/</a>.
+			</p>
+		</td>
+	</tr>
+</table>
+        </div>
+    </div>
+</body>
+</html>

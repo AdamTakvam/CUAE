@@ -1,0 +1,622 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AA99D75F-167C-4676-88E2-2703F125AE61}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.FunctionalTests.Standard</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.FunctionalTests.Standard</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugNoMax|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleaseNoMax|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Metreos.ApplicationFramework">
+      <Name>Metreos.ApplicationFramework</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.ApplicationFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Core">
+      <Name>Metreos.Core</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Core.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Interfaces">
+      <Name>Metreos.Interfaces</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Interfaces.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.LoggingFramework">
+      <Name>Metreos.LoggingFramework</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.LoggingFramework.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Messaging">
+      <Name>Metreos.Messaging</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Messaging.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Metreos.Samoa.FunctionalTestFramework, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Build\FunctionalTest\Metreos.Samoa.FunctionalTestFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.TestBank.ARE, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\work\TestNamingAssemblies\Metreos.TestBank.ARE.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.TestBank.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\work\TestNamingAssemblies\Metreos.TestBank.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.TestBank.Max, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\work\TestNamingAssemblies\Metreos.TestBank.Max.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.TestBank.Provider, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\work\TestNamingAssemblies\Metreos.TestBank.Provider.dll</HintPath>
+    </Reference>
+    <Reference Include="Metreos.Utilities">
+      <Name>Metreos.Utilities</Name>
+      <HintPath>..\..\..\Build\Framework\1.0\CoreAssemblies\Metreos.Utilities.dll</HintPath>
+      <AssemblyFolderKey>hklm\dn\metreos</AssemblyFolderKey>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfoCommon.cs">
+      <Link>AssemblyInfoCommon.cs</Link>
+    </Compile>
+    <Compile Include="ARE\ApplicationMobility\Install.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ApplicationMobility\InstallWithDatabase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ApplicationMobility\MediaFileProvisioning.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ApplicationMobility\MediaFileProvisioningMultiple.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Config\AppConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Config\AppPartitionConfig.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Config\AppPartitionConfigPerf.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Config\CompConfigTypes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Database\CloseConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Database\Connect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Database\ExecuteCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Database\ExecuteQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Database\SqlCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Deployment\ConcurrentDeployment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Deployment\SerialDeployment.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeActions\BadParamInNativeAction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeActions\BadParamInNativeAction2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeActions\InvalidTypeInNA.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeActions\ReferenceParamType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeActions\UnhandledExceptionInCustom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeTypes\NativeTypeToProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\NativeTypes\Standard\Hashtable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Partition\MultiPartition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Events\EventQueuing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Events\EventQueuing2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Events\Singleton.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Events\Stress\StressEventQueuing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\CallFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\Compare.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\Event.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\Forward.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\Loop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\SendEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\Sleep.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\ScriptComponents\Switch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Stress\MaximumScriptCount.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Stress\ScriptInitRate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\DuplicateGlobLocVarName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\DuplicateGlobLocVarName2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\DuplicateGlobLocVarName3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\GlobalByRef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\GlobalByRefPrimitive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\GlobalByValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\GlobalByValuePrimitive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\LocalByRef.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\LocalByRefPrimitive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\LocalByValue.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\ScriptLogic\Variables\LocalByValuePrimitive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\MasterSetSlaveTrigger.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\MasterSlaveControl.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\MasterSlaveControlNegative.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\MasterSlaveSessionDataSharing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionCleanCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionCleanConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionCleanConnectionAndCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionCleanConnectionsInConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionCleanFullConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionCleanMultiplelConnections.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionDataClear.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionDataCustomData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\Sessions\SessionDataDatabaseCreation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\SimultShutdownStartup1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\TriggerMatching\DuplicateMatch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\TriggerMatching\RegexAndStringMatch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\TriggerMatching\RegexMatch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ARE\TriggerMatching\StringMatch.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CallControl\IncomingCallControlPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CallControl\MultiOutgoingCallControlPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CallControl\OutgoingCallControlPanel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\MediaBench\MediaLatency.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\NoHandler.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Signalling\Stress\HighLoadSignalling.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Labels\Label1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Labels\Label2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Labels\Label3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Labels\Label4.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Labels\Label5.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop3.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop4.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop5.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop6.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelOneChildLoop7.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Max\WYSIWYG\Looping\LevelTwoChildLoop.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MultiProvider\CallMedia\HairPinning1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MultiProvider\CallMedia\HairPinning2.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProviderActions\NonLitProviderTimeout.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProviderActions\ProviderActionTimeout.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sandbox\Warren1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\H323\MakeSingleCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\H323\Stress\ContinuousCalls.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Http\SendResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Http\Stress\ContinuousSendResponse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\MMSVoiceRecognition.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\MMSVolumeDriver.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\MuteConferenceConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\PlayAnn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\PlayAnnDigit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\PlayAnnGotDigits.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\PlayAnnMaxTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\Record.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\RecordConference.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\RecordDigit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\RecordMaxTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\RecordSilence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\RecordUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\Abbreviations1.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\AllAsciiCharacters.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\EuropeanFormattedNumber.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\FileFileTTS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\FileTTS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\FileTTSFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\TTSFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\TTSFileTTS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\TTSMissing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\TTSTTSFile.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\MediaServer\TTS\TTSTTSTTS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\AddRegularTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\MinutelyTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\RemoveScriptTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\RemoveTriggerTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\ScriptTimerReoccurrence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\Timer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\TriggerTimer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleProvider\Timer\TriggerTimerReoccurrence.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\CallFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\H323Caller.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\InAndOut_H323.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\IncomingCall_H323.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\IncomingCall_H323_Load.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\IncomingCall_H323_Load_Remote.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\IncomingCall_SCCP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\IncomingCall_SIP.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\IncomingCall_SIP_Late.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\OutboundCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TestCallControl\SccpCall.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="Notes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,62 @@
+[Definitions]
+
+Create: Add a new application to the system.
+
+Change: Replace an existing application with a new one.
+
+Delete: Remove an application from the system.
+
+
+[Logical Flow]
+
+General:
+
+- The Session Manager creates a file system watcher for the configured application XML directory.
+
+- A management interface creates/changes/deletes a file in the configured application XML directory.
+
+- The watcher fires an event (created/changed/deleted) on Session Manager.
+
+Create:
+
+- The Create operation occurs as specified in "Action-Event Routing Architecture: Initialization".
+
+Change:
+
+- The event handler does a search by value to locate the DomainInfo associated with this file name.
+
+- The Session Manager calls SetAppData() on AppLoader with the name of the file that was modified.
+
+- AppLoader reassembles the file and copies the new ApplicationData object into all non-running apps.
+
+- AppLoader also stores a reference to the ApplicationData locally.
+
+- AppLoader sets the dirty flag on all running apps.
+
+- When StopApp is called, the new ApplicationData is put into the app which was running.
+
+Delete:
+
+- The event handler does a search by value to locate the DomainInfo associated with this file name.
+
+- The AppLoader sends a message to ED to remove triggering info for the app with this ID
+
+- The Session Manager calls SetAppData(null) on AppLoader.
+
+- AppLoader sets ApplicationData to null on all non-running apps.
+
+- AppLoader fails on all future StartApp requests.
+
+- AppLoader sets the local ApplicationData reference to null.
+
+- AppLoader sets the dirty flag on all running Apps. If there are no running apps, ClearAppData returns true, otherwise false.
+
+- AppLoader maintains a count of running apps
+
+- When StopApp is called, the ApplicationData reference is set to null on the app which was running.
+
+- AppLoader decrements the running app count and returns it in the StopApp method call.
+
+- When the number of running apps is zero, Session Manager unloads the domain.
+
+- Session Manager removes entry from appDomains hash.

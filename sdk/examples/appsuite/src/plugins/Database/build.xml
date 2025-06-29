@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="application-suite-database" default="Debug" basedir=".">
+
+	<description>Build script Application Suite Core</description>
+    <import file="../../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/AppSuite" />
+
+    <target name="do-init">
+        <mkdir dir="${deploymentDirectory}" />
+        <mkdir dir="${deploymentDirectory}/Actions" />
+        <mkdir dir="${deploymentDirectory}/Storage" />
+	</target>
+    
+    <target name="do-clean">
+        <delete dir="${deploymentDirectory}/Actions" />
+        <delete dir="${deploymentDirectory}/Storage" />
+        <delete includeEmptyDirs="true">
+            <fileset dir="." includes="**/bin/** **/obj/**" />
+        </delete>
+    </target>    
+        
+	<target name="do-build" >
+        <metreosMSBuildTask solution="ApplicationSuite" />
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+        <copy todir="${deploymentDirectory}/Actions" >
+            <fileset dir="Actions/bin/${Metreos.build.target}">
+                <include name="Metreos.ApplicationSuite.Actions.*" />
+            </fileset>
+        </copy>
+        <copy todir="${deploymentDirectory}/Storage" >
+            <fileset dir="Storage/bin/${Metreos.build.target}">
+                <include name="Metreos.ApplicationSuite.Storage.*" />
+            </fileset>
+        </copy>
+	</target>
+
+</project>

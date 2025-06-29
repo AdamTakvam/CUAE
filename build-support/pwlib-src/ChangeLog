@@ -1,0 +1,23 @@
+2005-02-13 17:44  csoutheren
+
+	* include/ptlib/ipsock.h, src/ptlib/common/sockets.cxx,
+	  src/ptlib/unix/socket.cxx: Backported more IPV6 fixes from
+	  Atlas-devel
+
+2005-02-06 18:54  csoutheren
+
+	* include/ptlib/ipsock.h, src/ptlib/common/sockets.cxx: Backported
+	  latest IPV6 changes from Atlas-devel
+
+2005-02-03 23:19  csoutheren
+
+	* pwlib_cfg.dxy, version.h, include/ptclib/url.h,
+	  include/ptclib/vxml.h, include/ptlib/ipsock.h,
+	  include/ptlib/lists.h, include/ptlib/pstring.h,
+	  src/ptclib/dtmf.cxx, src/ptclib/http.cxx, src/ptclib/vxml.cxx,
+	  src/ptlib/common/collect.cxx, src/ptlib/common/contain.cxx,
+	  src/ptlib/common/sockets.cxx, src/ptlib/msos/ptlib.cxx,
+	  src/ptlib/msos/win32.cxx, src/ptlib/msos/winserial.cxx,
+	  src/ptlib/unix/pipechan.cxx, src/ptlib/unix/serchan.cxx,
+	  src/ptlib/unix/tlibthrd.cxx: Backported patches from Atlas-devel
+

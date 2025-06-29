@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<!-- ARE TestBank -->
+<!-- Applications in TestBank/ARE  --> 
+<compileMax dir="TestBank/ARE/AppConfigPerformance" maxfile="AppConfigPerformance" />
+<compileMax dir="TestBank/ARE/BadParamInNativeAction" maxfile="BadParamInNativeAction" />
+<compileMax dir="TestBank/ARE/BadParamInNativeAction2" maxfile="BadParamInNativeAction2" />
+<compileMax dir="TestBank/ARE/CallFunction" maxfile="CallFunction" />
+<compileMax dir="TestBank/ARE/CloseConnection" maxfile="CloseConnection" />
+<compileMax dir="TestBank/ARE/Compare" maxfile="Compare" />
+<compileMax dir="TestBank/ARE/CompConfigTypes" maxfile="CompConfigTypes" />
+<compileMax dir="TestBank/ARE/Connect" maxfile="Connect" />
+<compileMax dir="TestBank/ARE/Database" maxfile="Database" />
+<compileMax dir="TestBank/ARE/DuplicateGlobLocVarName" maxfile="DuplicateGlobLocVarName" />
+<compileMax dir="TestBank/ARE/DuplicateGlobLocVarName2" maxfile="DuplicateGlobLocVarName2" />
+<compileMax dir="TestBank/ARE/DuplicateGlobLocVarName3" maxfile="DuplicateGlobLocVarName3" />
+<compileMax dir="TestBank/ARE/DuplicateMatch" maxfile="DuplicateMatch" />
+<compileMax dir="TestBank/ARE/EventQueuing" maxfile="EventQueuing" />
+<compileMax dir="TestBank/ARE/EventQueuing2" maxfile="EventQueuing2" />
+<compileMax dir="TestBank/ARE/ExecuteCommand" maxfile="ExecuteCommand" />
+<compileMax dir="TestBank/ARE/ExecuteQuery" maxfile="ExecuteQuery" />
+<compileMax dir="TestBank/ARE/Forward" maxfile="Forward" />
+<compileMax dir="TestBank/ARE/GlobalByRef" maxfile="GlobalByRef" />
+<compileMax dir="TestBank/ARE/GlobalByRefPrimitive" maxfile="GlobalByRefPrimitive" />
+<compileMax dir="TestBank/ARE/GlobalByValue" maxfile="GlobalByValue" />
+<compileMax dir="TestBank/ARE/GlobalByValuePrimitive" maxfile="GlobalByValuePrimitive" />
+<compileMax dir="TestBank/ARE/HashtableTest" maxfile="HashtableTest" />
+<compileMax dir="TestBank/ARE/InvalidTypeInNA" maxfile="InvalidTypeInNA" />
+<compileMax dir="TestBank/ARE/LocalByRef" maxfile="LocalByRef" />
+<compileMax dir="TestBank/ARE/LocalByRefPrimitive" maxfile="LocalByRefPrimitive" />
+<compileMax dir="TestBank/ARE/LocalByValue" maxfile="LocalByValue" />
+<compileMax dir="TestBank/ARE/LocalByValuePrimitive" maxfile="LocalByValuePrimitive" />
+<compileMax dir="TestBank/ARE/MasterSetSlaveTrigger" maxfile="MasterSetSlaveTrigger" />
+<compileMax dir="TestBank/ARE/MasterSlaveControl" maxfile="MasterSlaveControl" />
+<compileMax dir="TestBank/ARE/MasterSlaveControlNegative" maxfile="MasterSlaveControlNegative" />
+<compileMax dir="TestBank/ARE/MasterSlaveSessionDataSharing" maxfile="MasterSlaveSessionDataSharing" />
+<compileMax dir="TestBank/ARE/MediaFileProvisioning" maxfile="MediaFileProvisioning" />
+<compileMax dir="TestBank/ARE/MediaFileProvisioningMultiple" maxfile="MediaFileProvisioningMultiple" />
+<compileMax dir="TestBank/ARE/MultiPartition" maxfile="MultiPartitionTest" />
+<compileMax dir="TestBank/ARE/NativeTypeAndAction" maxfile="NativeTypeAndAction" />
+<compileMax dir="TestBank/ARE/NativeTypeToProvider" maxfile="NativeTypeToProvider" />
+<compileMax dir="TestBank/ARE/NonLitProviderTimeout" maxfile="NonLitProviderTimeout" />
+<compileMax dir="TestBank/ARE/OneEvent" maxfile="OneEvent" />
+<compileMax dir="TestBank/ARE/OneEvent2" maxfile="OneEvent2" />
+<compileMax dir="TestBank/ARE/OneSignal" maxfile="OneSignal" />
+<compileMax dir="TestBank/ARE/OneSignalAndWait" maxfile="OneSignalAndWait" />
+<compileMax dir="TestBank/ARE/ProviderActionTimeout" maxfile="ProviderActionTimeout" />
+<compileMax dir="TestBank/ARE/ReferenceTypeParam" maxfile="ReferenceTypeParam" />
+<compileMax dir="TestBank/ARE/RegexAndStringMatch" maxfile="RegexAndStringMatch" />
+<compileMax dir="TestBank/ARE/RegexMatch" maxfile="RegexMatch" />
+<compileMax dir="TestBank/ARE/ScriptInitRate" maxfile="ScriptInitRate" />
+<compileMax dir="TestBank/ARE/SendEvent" maxfile="SendEvent" />
+<compileMax dir="TestBank/ARE/SessionCleanCall" maxfile="SessionCleanCall" />
+<compileMax dir="TestBank/ARE/SessionCleanConnectionAndCall" maxfile="SessionCleanConnectionAndCall" />
+<compileMax dir="TestBank/ARE/SessionCleanConnections" maxfile="SessionCleanConnections" />
+<compileMax dir="TestBank/ARE/SessionCleanConnectionsInConference" maxfile="SessionCleanConnectionsInConference" />
+<compileMax dir="TestBank/ARE/SessionCleanFullConnection" maxfile="SessionCleanFullConnection" />
+<compileMax dir="TestBank/ARE/SessionCleanMultipleConnections" maxfile="SessionCleanMultipleConnections" />
+<compileMax dir="TestBank/ARE/SessionDataClear" maxfile="SessionDataClear" />
+<compileMax dir="TestBank/ARE/SessionDataCustomData" maxfile="SessionDataCustomData" />
+<compileMax dir="TestBank/ARE/SessionDataDatabaseCreation" maxfile="SessionDataDatabaseCreation" />
+<compileMax dir="TestBank/ARE/SimpleLoopTest" maxfile="SimpleLoopTest" />
+<compileMax dir="TestBank/ARE/Singleton" maxfile="Singleton" />
+<compileMax dir="TestBank/ARE/Sleep" maxfile="Sleep" />
+<compileMax dir="TestBank/ARE/SqlCommand" maxfile="SqlCommand" />
+<compileMax dir="TestBank/ARE/StressEventQueuing" maxfile="StressEventQueuing" />
+<compileMax dir="TestBank/ARE/StringMatch" maxfile="StringMatch" />
+<compileMax dir="TestBank/ARE/Switch" maxfile="Switch" />
+<compileMax dir="TestBank/ARE/UnhandledExceptionInCustom" maxfile="UnhandledExceptionInCustom" />
+<compileMax dir="TestBank/ARE/Warren1" maxfile="Warren1" />
+
+
+<!-- Core TestBank -->
+<!-- Applications in TestBank/Core -->
+<compileMax dir="TestBank/Core/HighLoadSignalling" maxfile="HighLoadSignalling" />
+<compileMax dir="TestBank/Core/MediaLatency" maxfile="MediaLatency" />
+<compileMax dir="TestBank/Core/NoHandler" maxfile="NoHandler" />
+
+
+<!-- Max TestBank -->
+<!-- Applications in TestBank/Max  --> 
+<compileMax dir="TestBank/Max/Label1" maxfile="Label1" />
+<compileMax dir="TestBank/Max/Label2" maxfile="Label2" />
+<compileMax dir="TestBank/Max/Label3" maxfile="Label3" />
+<compileMax dir="TestBank/Max/Label4" maxfile="Label4" />
+<compileMax dir="TestBank/Max/Label5" maxfile="Label5" />
+<compileMax dir="TestBank/Max/Label6" maxfile="Label6" />
+<compileMax dir="TestBank/Max/Label7" maxfile="Label7" />
+<compileMax dir="TestBank/Max/Label8" maxfile="Label8" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop" maxfile="LevelOneChildLoop" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop2" maxfile="LevelOneChildLoop2" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop3" maxfile="LevelOneChildLoop3" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop4" maxfile="LevelOneChildLoop4" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop5" maxfile="LevelOneChildLoop5" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop6" maxfile="LevelOneChildLoop6" />
+<compileMax dir="TestBank/Max/LevelOneChildLoop7" maxfile="LevelOneChildLoop7" />
+<compileMax dir="TestBank/Max/LevelTwoChildLoop" maxfile="LevelTwoChildLoop" />
+
+
+<!-- SMA TestBank -->
+<!-- Applications in TestBank/SMA  --> 
+<compileMax dir="TestBank/SMA/SMA133" maxfile="SMA133" />
+<compileMax dir="TestBank/SMA/SMA138" maxfile="SMA138" />
+<compileMax dir="TestBank/SMA/SMA70" maxfile="SMA70" />
+<compileMax dir="TestBank/SMA/SMA82" maxfile="SMA82" />
+
+
+<!-- Provider TestBank -->
+<!-- Applications in TestBank/Provider --> 
+<compileMax dir="TestBank/Provider/AddRegularTimer" maxfile="AddRegularTimer" />
+<compileMax dir="TestBank/Provider/BasicTTS" maxfile="BasicTTS" />
+<compileMax dir="TestBank/Provider/ContinuousCalls" maxfile="ContinuousCalls" />
+<compileMax dir="TestBank/Provider/ContinuousSendResponse" maxfile="ContinuousSendResponse" />
+<compileMax dir="TestBank/Provider/HairPinning1" maxfile="HairPinning1" />
+<compileMax dir="TestBank/Provider/HairPinning2" maxfile="HairPinning2" />
+<compileMax dir="TestBank/Provider/IncomingCallControlPanel" maxfile="IncomingCallControlPanel" />
+<compileMax dir="TestBank/Provider/IncomingCallEvent" maxfile="IncomingCallEvent" />
+<compileMax dir="TestBank/Provider/MakeCallAction" maxfile="MakeCallAction" />
+<compileMax dir="TestBank/Provider/MakeSingleCall" maxfile="MakeSingleCall" />
+<compileMax dir="TestBank/Provider/MinutelyTimer" maxfile="MinutelyTimer" />
+<compileMax dir="TestBank/Provider/MMSVoiceRecognition" maxfile="MMSVoiceRecognition" />
+<compileMax dir="TestBank/Provider/MMSVolumeDriver" maxfile="MMSVolumeDriver" />
+<compileMax dir="TestBank/Provider/MultiOutgoingCallControlPanel" maxfile="MultiOutgoingCallControlPanel" />
+<compileMax dir="TestBank/Provider/MuteConferenceConnection" maxfile="MuteConferenceConnection" />
+<compileMax dir="TestBank/Provider/OutgoingCallControlPanel" maxfile="OutgoingCallControlPanel" />
+<compileMax dir="TestBank/Provider/PlayAnn" maxfile="PlayAnn" />
+<compileMax dir="TestBank/Provider/PlayAnnDigit" maxfile="PlayAnnDigit" />
+<compileMax dir="TestBank/Provider/PlayAnnGotDigits" maxfile="PlayAnnGotDigits" />
+<compileMax dir="TestBank/Provider/PlayAnnMaxTime" maxfile="PlayAnnMaxTime" />
+<compileMax dir="TestBank/Provider/Record" maxfile="Record" />
+<compileMax dir="TestBank/Provider/RecordConference" maxfile="RecordConference" />
+<compileMax dir="TestBank/Provider/RecordDigit" maxfile="RecordDigit" />
+<compileMax dir="TestBank/Provider/RecordMaxTime" maxfile="RecordMaxTime" />
+<compileMax dir="TestBank/Provider/RecordSilence" maxfile="RecordSilence" />
+<compileMax dir="TestBank/Provider/RecordUtility" maxfile="RecordUtility" />
+<compileMax dir="TestBank/Provider/RemoveScriptTimer" maxfile="RemoveScriptTimer" />
+<compileMax dir="TestBank/Provider/RemoveTriggerTimer" maxfile="RemoveTriggerTimer" />
+<compileMax dir="TestBank/Provider/ScriptTimerReoccurrence" maxfile="ScriptTimerReoccurrence" />
+<compileMax dir="TestBank/Provider/SendResponse" maxfile="SendResponse" />
+<compileMax dir="TestBank/Provider/Timer" maxfile="Timer" />
+<compileMax dir="TestBank/Provider/TriggerTimer" maxfile="TriggerTimer" />
+<compileMax dir="TestBank/Provider/TriggerTimerReoccurence" maxfile="TriggerTimerReoccurence" />
+
+
+<!-- IVT TestBank -->
+<!-- Applications in TestBank/IVT--> 
+<compileMax dir="TestBank/IVT/AnswerCall" maxfile="AnswerCall" />
+<compileMax dir="TestBank/IVT/CreateDirectory" maxfile="CreateDirectory" />
+<compileMax dir="TestBank/IVT/CreateGraphicFileMenu" maxfile="CreateGraphicFileMenu" />
+<compileMax dir="TestBank/IVT/CreateGraphicMenu" maxfile="CreateGraphicMenu" />
+<compileMax dir="TestBank/IVT/CreateIconMenu" maxfile="CreateIconMenu" />
+<compileMax dir="TestBank/IVT/CreateImage" maxfile="CreateImage" />
+<compileMax dir="TestBank/IVT/CreateImageFile" maxfile="CreateImageFile" />
+<compileMax dir="TestBank/IVT/CreateInput" maxfile="CreateInput" />
+<compileMax dir="TestBank/IVT/CreateMenu" maxfile="CreateMenu" />
+<compileMax dir="TestBank/IVT/CreateStatus" maxfile="CreateStatus" />
+<compileMax dir="TestBank/IVT/CreateStatusFile" maxfile="CreateStatusFile" />
+<compileMax dir="TestBank/IVT/CreateText" maxfile="CreateText" />
+<compileMax dir="TestBank/IVT/DialUrl" maxfile="DialUrl" />
+<compileMax dir="TestBank/IVT/EMLogin" maxfile="EMLogin" />
+<compileMax dir="TestBank/IVT/EMLogout" maxfile="EMLogout" />
+<compileMax dir="TestBank/IVT/EMQueryDevices" maxfile="EMQueryDevices" />
+<compileMax dir="TestBank/IVT/GetDevice" maxfile="GetDevice" />
+<compileMax dir="TestBank/IVT/GetDeviceProfile" maxfile="GetDeviceProfile" />
+<compileMax dir="TestBank/IVT/GetLine" maxfile="GetLine" />
+<compileMax dir="TestBank/IVT/GetTranslationPattern" maxfile="GetTranslationPattern" />
+<compileMax dir="TestBank/IVT/JTapiAnswerCall" maxfile="JTapiAnswerCall" />
+<compileMax dir="TestBank/IVT/JTapiIncomingCallControlPanel" maxfile="JTapiIncomingCallControlPanel" />
+<compileMax dir="TestBank/IVT/JTapiMakeCall" maxfile="JTapiMakeCall" />
+<compileMax dir="TestBank/IVT/JTapiOutgoingCallControlPanel" maxfile="JTapiOutgoingCallControlPanel" />
+<compileMax dir="TestBank/IVT/MakeCall" maxfile="MakeCall" />
+<compileMax dir="TestBank/IVT/QueryDeviceListX" maxfile="QueryDeviceListX" />
+<compileMax dir="TestBank/IVT/QueryDeviceListXStress" maxfile="QueryDeviceListXStress" />
+<compileMax dir="TestBank/IVT/RedirectCall" maxfile="RedirectCall" />
+<compileMax dir="TestBank/IVT/SendExecute" maxfile="SendExecute" />
+<compileMax dir="TestBank/IVT/SimpleConference" maxfile="SimpleConference" />
+<compileMax dir="TestBank/IVT/SpecificMenu" maxfile="SpecificMenu" />
+<compileMax dir="TestBank/IVT/SpecificText" maxfile="SpecificText" />
+<compileMax dir="TestBank/IVT/UpdateDeviceProfile" maxfile="UpdateDeviceProfile" />
+<compileMax dir="TestBank/IVT/UpdateLine" maxfile="UpdateLine" />
+<compileMax dir="TestBank/IVT/UpdatePhone" maxfile="UpdatePhone" />
+<compileMax dir="TestBank/IVT/UpdateTranslationPattern" maxfile="UpdateTranslationPattern" />
+
+
+<!-- App TestBank -->
+<!-- Applications in TestBank/App --> 
+<compileMax dir="TestBank/App/AnswerCall" maxfile="AnswerCall" />
+<compileMax dir="TestBank/App/MakeCall" maxfile="MakeCall" />

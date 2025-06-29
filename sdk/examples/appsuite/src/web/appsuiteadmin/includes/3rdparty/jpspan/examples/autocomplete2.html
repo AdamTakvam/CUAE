@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>JPSpan test page</title>
+<!-- autocomplete lists -->
+<script type="text/javascript" src="actb/actb2.js"></script>
+<link rel="stylesheet" href="actb/actb2.css">
+<script type="text/javascript" src="autocomplete2_server.php?client"></script>
+<script type="text/javascript">
+var countries;
+var airports;
+function setCountries() {
+	var a = new autocomplete2(CountryCompletionHandler);
+    a.timeout = 3000;
+    a.clientErrorFunc = function(e) {
+		if ( e.code != 1003 ) {
+			alert(e);
+		}
+	}
+    a.getcountrylist();
+}
+var CountryCompletionHandler = {
+    // Callback method
+    getcountrylist: function(result) {
+    	countries = result;
+    }
+}
+
+function setAirports() {
+	c = document.getElementById('country');
+	var country = c.value;
+	var a = new autocomplete2(AirportCompletionHandler);
+    a.timeout = 3000;
+    a.clientErrorFunc = function(e) {
+		if ( e.code != 1003 ) {
+			alert(e);
+		}
+	}
+    a.getairports(country);
+}
+var AirportCompletionHandler = {
+    // Callback method
+    getairports: function(result2) {
+    	airports = result2;
+    }
+}
+setCountries();
+</script>
+</head>
+<body>
+<h1>Dependant Autocomplete Selection via JpSpan Example</h1>
+<h2>Step 1</h2>
+<p>Select a country:<br>
+<input id="country" name="country" size="35" type="text" autocomplete="off" value=""  language="javascript" onkeyup="actb_tocomplete(this, event,countries,false);" onblur="actb_removedisp(this);setAirports();" onkeydown="actb_checkkey(event);" onkeypress="return handleEnter(this, event)">
+</p>
+<p>&nbsp;</p>
+<h2>Step 2</h2>
+<p>Select an airport: (this is currently broken)<br>
+<input id="airport" name="airport" size="55" type="text" autocomplete="off" value=""  language="javascript" onkeyup="actb_tocomplete(this, event,airports,false);" onblur="actb_removedisp(this);" onkeydown="actb_checkkey(event);" onkeypress="return handleEnter(this, event)">
+</p>
+<p><button onClick="document.getElementById('country').value='';document.getElementById('airport').value='';" >Clear</button>
+<p><b>Note:</b> It might take a few seconds after you loose focus on the country box before the array is populated for the airport input because we are using asynchronus JpSpan calls.</p>
+</body>
+</html>

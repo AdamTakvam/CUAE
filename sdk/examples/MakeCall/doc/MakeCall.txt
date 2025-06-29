@@ -1,0 +1,21 @@
+MakeCall:
+
+Basic Function:
+---------------
+Make a call through http request. Play a message or a TTS and end the call.
+
+External Arguments:
+-------------------
+1. Number to call.
+2. Message or TTS choice.
+3. TTS text.
+
+Script By Script:
+-----------------
+
+OnGotRequest: Receive the number to call and make a call to it. Send a response back to http host. Go to wait state.
+OnMakeCall_Complete: Depending upon the incoing choice, either play a message or play a TTS text. Upon success, go to wait state. Upon failure in either play attempt, end the application.
+OnMakeCall_Failed: End the application.
+OnPlay_Complete: If message autostops, end the application. If the receiving party hangs up during the play, end the application.
+OnPlay_Failed: End the application.
+OnRemoteHangup: If calling party hung up, end the application.

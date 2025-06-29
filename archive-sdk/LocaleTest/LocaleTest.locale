@@ -1,0 +1,793 @@
+<?xml version="1.0"?>
+<LocaleTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cisco.com/LocaleTable.xsd">
+  <Locales readonly="false">
+    <Locale name="af-ZA" devmode="false" width="84">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Afrikaans (South Africa)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-AE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (U.A.E.)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-BH" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Bahrain)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-DZ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Algeria)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-EG" devmode="false" width="63">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Egypt)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-IQ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Iraq)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-JO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Jordan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-KW" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Kuwait)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-LB" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Lebanon)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-LY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Libya)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-MA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Morocco)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-OM" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Oman)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-QA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Qatar)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-SA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Saudi Arabia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-SY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Syria)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-TN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Tunisia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ar-YE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Arabic (Yemen)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="az-AZ-Cyrl" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Azeri (Cyrillic, Azerbaijan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="az-AZ-Latn" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Azeri (Latin, Azerbaijan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="be-BY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Belarusian (Belarus)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="bg-BG" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Bulgarian (Bulgaria)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="bs-BA-Latn" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Bosnian (Latin, Bosnia and Herzegovina)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ca-ES" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Catalan (Catalan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="cs-CZ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Czech (Czech Republic)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="cy-GB" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Welsh]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="da-DK" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Danish (Denmark)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="de-AT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[German (Austria)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="de-CH" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[German (Switzerland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="de-DE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[German (Germany)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="de-LI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[German (Liechtenstein)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="de-LU" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[German (Luxembourg)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="div-MV" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Divehi (Maldives)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="el-GR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Greek (Greece)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-AU" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Australia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-BZ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Belize)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-CA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Canada)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-CB" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Caribbean)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-GB" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (United Kingdom)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-IE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Ireland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-JM" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Jamaica)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-NZ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (New Zealand)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-PH" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Republic of the Philippines)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-TT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Trinidad and Tobago)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-US" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (United States)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-ZA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (South Africa)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-ZW" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[English (Zimbabwe)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-AR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Argentina)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-BO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Bolivia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-CL" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Chile)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-CO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Colombia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-CR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Costa Rica)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-DO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Dominican Republic)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-EC" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Ecuador)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-ES" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Spain)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-GT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Guatemala)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-HN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Honduras)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-MX" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Mexico)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-NI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Nicaragua)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-PA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Panama)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-PE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Peru)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-PR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Puerto Rico)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-PY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Paraguay)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-SV" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (El Salvador)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-UY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Uruguay)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="es-VE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Spanish (Venezuela)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="et-EE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Estonian (Estonia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="eu-ES" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Basque (Basque)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fa-IR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Persian (Iran)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fi-FI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Finnish (Finland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fo-FO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Faroese (Faroe Islands)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fr-BE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[French (Belgium)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fr-CA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[French (Canada)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fr-CH" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[French (Switzerland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fr-FR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[French (France)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fr-LU" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[French (Luxembourg)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="fr-MC" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[French (Principality of Monaco)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="gl-ES" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Galician (Galician)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="gu-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Gujarati (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="he-IL" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Hebrew (Israel)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="hi-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Hindi (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="hr-BA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Croatian (Bosnia and Herzegovina)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="hr-HR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Croatian (Croatia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="hu-HU" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Hungarian (Hungary)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="hy-AM" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Armenian (Armenia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="id-ID" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Indonesian (Indonesia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="is-IS" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Icelandic (Iceland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="it-CH" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Italian (Switzerland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="it-IT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Italian (Italy)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ja-JP" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Japanese (Japan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ka-GE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Georgian (Georgia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="kk-KZ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Kazakh (Kazakhstan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="kn-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Kannada (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="kok-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Konkani (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ko-KR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Korean (Korea)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ky-KG" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Kyrgyz (Kyrgyzstan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="lt-LT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Lithuanian (Lithuania)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="lv-LV" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Latvian (Latvia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="mi-NZ" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Maori]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="mk-MK" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Macedonian (Former Yugoslav Republic of Macedonia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="mn-MN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Mongolian (Cyrillic, Mongolia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="mr-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Marathi (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ms-BN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Malay (Brunei Darussalam)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ms-MY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Malay (Malaysia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="mt-MT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Maltese]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="nb-NO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Norwegian, Bokm†l (Norway)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="nl-BE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Dutch (Belgium)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="nl-NL" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Dutch (Netherlands)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="nn-NO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Norwegian, Nynorsk (Norway)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ns-ZA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Northern Sotho]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="pa-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Punjabi (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="pl-PL" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Polish (Poland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="pt-BR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Portuguese (Brazil)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="pt-PT" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Portuguese (Portugal)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="quz-BO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Quechua (Bolivia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="quz-EC" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Quechua (Ecuador)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="quz-PE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Quechua (Peru)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ro-RO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Romanian (Romania)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ru-RU" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Russian (Russia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sa-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sanskrit (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="se-FI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Northern (Finland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="se-NO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Northern (Norway)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="se-SE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Northern (Sweden)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sk-SK" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Slovak (Slovakia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sl-SI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Slovenian (Slovenia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sma-NO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Southern (Norway)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sma-SE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Southern (Sweden)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="smj-NO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Lule (Norway)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="smj-SE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Lule (Sweden)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="smn-FI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Inari (Finland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sms-FI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Sami, Skolt (Finland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sq-AL" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Albanian (Albania)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sr-BA-Cyrl" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Serbian (Cyrillic, Bosnia and Herzegovina)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sr-BA-Latn" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Serbian (Latin, Bosnia and Herzegovina)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sr-SP-Cyrl" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Serbian (Cyrillic, Serbia and Montenegro)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sr-SP-Latn" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Serbian (Latin, Serbia and Montenegro)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sv-FI" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Swedish (Finland)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sv-SE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Swedish (Sweden)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="sw-KE" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Kiswahili (Kenya)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="syr-SY" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Syriac (Syria)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ta-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Tamil (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="te-IN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Telugu (India)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="th-TH" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Thai (Thailand)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="tn-ZA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Tswana]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="tr-TR" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Turkish (Turkey)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="tt-RU" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Tatar (Russia)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="uk-UA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Ukrainian (Ukraine)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="ur-PK" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Urdu (Islamic Republic of Pakistan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="uz-UZ-Cyrl" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Uzbek (Cyrillic, Uzbekistan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="uz-UZ-Latn" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Uzbek (Latin, Uzbekistan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="vi-VN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Vietnamese (Vietnam)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="xh-ZA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Xhosa]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="zh-CN" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Chinese (People's Republic of China)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="zh-HK" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Chinese (Hong Kong S.A.R.)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="zh-MO" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Chinese (Macao S.A.R.)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="zh-SG" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Chinese (Singapore)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="zh-TW" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Chinese (Taiwan)]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="zu-ZA" devmode="false" width="100">
+      <PromptInfo ref="myString">
+        <Value><![CDATA[Zulu]]></Value>
+      </PromptInfo>
+    </Locale>
+  </Locales>
+  <Prompts>
+    <Prompt name="myString" height="55" />
+  </Prompts>
+</LocaleTable>

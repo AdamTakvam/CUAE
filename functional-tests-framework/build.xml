@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="functional-tests" default="Debug" basedir=".">
+
+	<description>Build script for Functional Tests</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.buildDirectory}/AppServer" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/functional-tests-framework" includes="**/bin/** **/obj/**" />
+        </delete>   
+    </target>    
+        
+	<target name="do-build" >
+        <metreosMSBuildTask solution="samoa-functional-tests" />
+        <!-- <metreosVsNetTask solution="samoa-functional-tests" /> --> 
+        <!-- <metreosVsNetTask solution="FunctionalTests" dir="FunctionalTests" /> -->
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+	</target>
+
+</project>

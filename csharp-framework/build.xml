@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="csharp-framework" default="Debug" basedir=".">
+
+	<description>Build script for C# Framework</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="deploymentDirectory"  value="${Metreos.build.frameworkDirectory}" />
+    <property name="AssemblyPrefix" value="Metreos" />
+
+    <target name="do-init">
+	</target>
+    
+    <target name="do-clean">
+        <delete includeEmptyDirs="true">
+            <!-- <fileset dir="${Metreos.build.srcRoot}/samoa-framework" includes="**/*.dll" excludes="sqlite.dll" /> -->
+            <!-- <fileset dir="${Metreos.build.srcRoot}/samoa-framework" includes="**/*.pdb" /> -->
+            <fileset dir="${Metreos.build.srcRoot}/csharp-framework" includes="**/bin/** **/obj/**" />
+        </delete>    
+
+        <!-- <metreosCmdTask root="${Metreos.build.srcRoot}" dir="samoa-framework" command="CleanAll.bat" /> -->
+    </target>    
+        
+    <target name="do-build" >
+        <!-- prep version string -->
+        <updateversionstring file="Interfaces/IBuild.cs" />
+
+        <metreosMSBuildTask solution="samoa-framework" />
+        <!-- <metreosVsNetTask solution="samoa-framework" /> -->
+
+    </target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+        
+	</target>
+
+</project>

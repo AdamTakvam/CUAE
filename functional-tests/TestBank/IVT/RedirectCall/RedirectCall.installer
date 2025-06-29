@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_RedirectCall_script1" displayName="" format="String" defaultValue="IVT.RedirectCall.script1" />
+    <configValue name="S_Redirect" displayName="" format="String" description="" defaultValue="IVT.RedirectCall.script1.S_Redirect" required="false" />
+  </configuration>
+</install>

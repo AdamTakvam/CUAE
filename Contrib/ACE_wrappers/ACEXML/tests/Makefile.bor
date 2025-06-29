@@ -1,0 +1,24 @@
+#
+# Makefile.bor,v 1.2 2002/06/04 21:13:27 kitty Exp
+# Makefile for building the ACE XML tests
+#
+
+NAMES = \
+        NamespaceSupport_Test \
+        Transcoder_Test \
+        HttpCharStream_Test
+
+OBJFILES = $(OBJDIR)\$(NAME).obj
+
+CFLAGS = \
+        $(ACE_CFLAGS) \
+        $(ACE_XML_CFLAGS)
+
+CPPDIR = .
+
+LIBFILES = \
+        $(ACE_LIB) \
+        $(ACE_XML_LIB)
+
+!include <$(ACE_ROOT)\include\makeinclude\recurse.bor>
+!include <$(ACE_ROOT)\include\makeinclude\build_exe.bor>

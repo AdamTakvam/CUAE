@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="To" displayName="To" format="String" required="false" />
+    <configValue name="UseTTS" displayName="Use TTS for Prompt" format="Bool" defaultValue="false" required="false" />
+    <configValue name="TTSMessage" displayName="TTS Message" format="String" defaultValue="Dynamic Goodbye" required="false" />
+  </configuration>
+</install>

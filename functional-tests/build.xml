@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE project [
+    <!ENTITY maxapps SYSTEM "build.maxapps.xml">
+]>
+<project name="functional-tests" default="Debug" basedir=".">
+
+	<description>Build script for Functional Tests</description>
+    <import file="../autobuild/build.includes.xml" />
+
+    <property name="work"                    value="${Metreos.build.srcRoot}/functional-tests/work" />
+    <property name="projectRoot"             value="${Metreos.build.srcRoot}/functional-tests" />
+    <property name="functionalTestFramework" value="${Metreos.build.buildDirectory}/FunctionalTest" />
+    <property name="deploymentDirectory"     value="${Metreos.build.buildDirectory}/FunctionalTestBank" />
+
+    <property name="testBankSourceDirectory" value="${Metreos.build.srcRoot}/functional-tests/TestBank" />
+    <property name="testBankAssemblyPrefix"  value="Metreos.TestBank" />
+    
+
+    <macrodef name="compileMax">
+        <attribute name="root" default="${projectRoot}" />
+        <attribute name="dir" default="." />
+        <attribute name="maxfile" default="project" />
+        <sequential>
+            <echo message="Compiling CUAD Application @{root}/@{dir}/@{maxfile}.max" />
+            <exec executable="${Metreos.build.buildDirectory}/MaxDesigner/MaxDesigner.exe">
+                <arg value="@{root}/@{dir}/@{maxfile}.max" />
+                <arg value="/b" />
+            </exec>
+        </sequential>
+    </macrodef>      
+
+    <macrodef name="maxappsgen">
+        <attribute name="basedir" default="." />
+        <attribute name="name" default="AssemblyName.Foobar" />
+        <attribute name="dest" default="." />
+        <attribute name="src"  default="Assembly.cs" />
+        <attribute name="tag"  default="TAG" />
+
+        <sequential>
+            <echo message="MaxAppsGen.exe -b:@{basedir} -n:@{name} -f:@{dest} -o:@{src} -t:@{tag}" />
+            <exec executable="${functionalTestFramework}/MaxAppsGen.exe">
+                <arg value="-b:@{basedir}" />
+                <arg value="-n:@{name}" />
+                <arg value="-f:@{dest}" />
+                <arg value="-o:@{src}" />
+                <arg value="-t:@{tag}" />
+            </exec>    
+        </sequential>
+    </macrodef>
+
+    <macrodef name="generateIntellisense">
+        <attribute name="name"   default="TEMPLATE" />
+        <attribute name="src"    default="${testBankSourceDirectory}" />
+        <attribute name="dest"   default="${work}/TestNamingAssemblies" />
+        <attribute name="prefix" default="${testBankAssemblyPrefix}" />
+        <sequential>
+            <maxappsgen
+                basedir="@{src}/@{name}" 
+                dest="@{dest}" 
+                name="@{prefix}.@{name}"
+                tag="@{name}" 
+                src="@{name}.cs"
+            />
+        </sequential>
+    </macrodef>      
+
+    <macrodef name="copyFunctionalTest">
+        <attribute name="name" />
+        <sequential>
+            <copy
+                file="${projectRoot}/@{name}/bin/${Metreos.build.target}/Metreos.FunctionalTests.@{name}.dll"
+                todir="${work}/FunctionalTests" />
+        </sequential>
+    </macrodef>
+
+    <macrodef name="copyCompiledTest">
+        <attribute name="name" />
+        <sequential>
+            <copy todir="${work}/CompiledTests/@{name}" flatten="true">
+                <fileset dir="${projectRoot}/TestBank/@{name}" includes="**/*.mca" />
+            </copy>
+        </sequential>
+    </macrodef>     
+
+    <target name="do-init">
+        <mkdir dir="${work}" />
+        <mkdir dir="${work}/TestNamingAssemblies" />
+        <mkdir dir="${work}/FunctionalTests" />
+        <mkdir dir="${work}/TestSupportFiles" />
+        <mkdir dir="${work}/AppScripts" />
+        <mkdir dir="${work}/CompiledTests" />
+        <mkdir dir="${work}/Installers" />
+        <mkdir dir="${work}/DbScripts" />
+        <mkdir dir="${work}/NativeActions" />
+        <mkdir dir="${work}/NativeTypes" />
+        <mkdir dir="${work}/Templates" />
+	</target>
+    
+    <target name="do-clean">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${Metreos.build.srcRoot}/functional-tests" includes="**/bin/** **/obj/**" />
+            <fileset dir="${Metreos.build.srcRoot}/functional-tests/PostBuild" includes="PostBuildEvent.bat *.dll *.pdb postbuild.txt" />
+            <fileset dir="${Metreos.build.srcRoot}/functional-tests/Application" includes="**/AppSuite/**" />
+        </delete> 
+        <delete dir="${work}" />
+    </target>    
+        
+	<target name="do-build" >
+
+        <!-- Generate Intellisense dll's for Testbank Max Apps -->
+        <generateIntellisense name="ARE" />
+        <generateIntellisense name="Core" />
+        <generateIntellisense name="Max" />
+        <generateIntellisense name="SMA" />
+        <generateIntellisense name="Provider" />
+        <generateIntellisense name="IVT" />
+        <generateIntellisense name="App" />
+
+        <!-- Compile functional test suite C# scripts into dll's-->
+        <metreosMSBuildTask solution="FunctionalTests" />
+
+        <!-- Copy test database creation script -->
+        <copy file="${projectRoot}/databasesetup.sql" todir="${work}/DbScripts" />
+
+        <!-- Copy functional test suite dll's -->
+        <copyFunctionalTest name="Standard" />
+        <copyFunctionalTest name="Regression0.1" />
+        <copyFunctionalTest name="Regression0.5" />
+        <copyFunctionalTest name="IVT2.0" />
+        <!-- <copyFunctionalTests name="Application" /> -->
+        
+        <!-- Copy NativeActions, NativeTypes -->
+        <copy file="${projectRoot}/NativeActions/bin/${Metreos.build.target}/Metreos.Native.FunctionalTests.dll"
+            todir="${work}/NativeActions" />
+        <copy file="${projectRoot}/NativeTypes/bin/${Metreos.build.target}/Metreos.Types.FunctionalTests.dll"
+            todir="${work}/NativeTypes" />
+
+        <!-- Compile Max Apps -->
+        &maxapps;
+
+        <!-- Copy Compiled Tests -->
+        <copyCompiledTest name="ARE" />
+        <copyCompiledTest name="Core" />
+        <copyCompiledTest name="Max" />
+        <copyCompiledTest name="SMA" />
+        <copyCompiledTest name="Provider" />
+        <copyCompiledTest name="IVT" />
+        <copyCompiledTest name="App" />
+
+        <!-- Remove debug symbols if not a debug build -->
+        <if>
+            <equals arg1="${Metreos.build.target}" arg2="Debug" />
+            <then>
+                <delete >
+                    <fileset dir="${work}" includes="**/*.pdb" />
+                </delete>
+            </then>
+        </if>
+
+	</target>
+
+    <target name="do-test" >
+    </target>    
+
+	<target name="do-postbuild">
+        <mkdir dir="${deploymentDirectory}" />
+        <copy todir="${deploymentDirectory}">
+            <fileset dir="${work}" />
+        </copy>
+	</target>
+
+</project>

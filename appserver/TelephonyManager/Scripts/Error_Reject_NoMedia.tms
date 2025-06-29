@@ -1,0 +1,7 @@
+900
+a:RejectCall
+rns:*->1000
+timeout:5->1000
+
+1000
+a:EndCall

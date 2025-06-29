@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="VoiceRecEnabled" displayName="VoiceRecEnabled" format="Bool" description="Voice Recognition is enabled" defaultValue="false" required="true" />
+    <configValue name="KeypadEnabled" displayName="KeypadEnabled" format="Bool" description="Keypad is enabled" defaultValue="true" required="true" />
+  </configuration>
+</install>

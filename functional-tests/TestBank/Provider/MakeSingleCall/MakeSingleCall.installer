@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_MakeSingleCall_script1" displayName="Provider_MakeSingleCall_script1" format="string" defaultValue="Provider.MakeSingleCall.script1" readOnly="true" required="true" />
+    <configValue name="S_Simple" displayName="S_Simple" format="string" defaultValue="Provider.MakeSingleCall.script1.S_Simple" readOnly="true" required="true" />
+    <configValue name="S_Failed" displayName="S_Failed" format="string" defaultValue="Provider.MakeSingleCall.script1.S_Failed" readOnly="true" required="true" />
+  </configuration>
+</install>

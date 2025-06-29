@@ -1,0 +1,117 @@
+TITLE: Design Document for Samoa Configuration Interface
+
+
+OVERVIEW
+
+This document describes the user interface for an active configuration tool
+for the "Samoa" application. 
+
+USE SCENARIO
+
+Users who need to execute configuration changes in Samoa will visit a URL 
+referencing a webpage residing on the Samoa server. They will be asked to 
+authenticate by entering a username and password. 
+
+After an appropriate username and password is provided, the user will be able 
+to review the existing configuration of Samoa, as well as determine summary
+data regarding the current status of running applications, providers, and 
+sessions within Samoa. This main webpage will present only overview statistics 
+and categories of application settings; users will need to "drill-down" into 
+specific areas to make changes.
+
+The system will dynamically generate individual webpages using the namespace
+provided by the Management API. Thus, if modules are modified or renamed, or if
+new modules are created, the interface will adapt accordingly. (Also, this design
+permits easy reuse of this code for other management interfaces elsewhere in
+the Metreos offerings.)
+
+WEB PAGE COMPONENTS
+
+
+default.aspx - This is the main entry page that all users will visit initially.
+It contains three controls: textboxes for username and password and a button to
+submit these values.
+
+main.aspx - The main window provides user login information and a general description
+of the use of the configuration tool. Statistical data regarding providers, 
+applications and sessions is shown (via a transparent inclusion of samoastats.aspx) 
+here as well. 
+
+A middle section on the page offers list of available providers and their status.
+Options to install, disable, enable or reload providers are displayed here. A
+similar section for applications, with an almost identical layout, is shown 
+immediately below. Both sections include the option to install new providers and
+applications, however, this feature will not be included initially.
+
+Finally, links to subpages offer access to configuration settings. Note: This page
+may require significant explanatory and help text to be usable.
+
+samoastats.aspx - This component of the system collates all Samoa summary 
+statistics and displays them in an easy-to-read format. This page is seperated 
+from the rest of the system so that this data can be easily published to other
+reporting mechanisms. It might be useful to be able to review the status of Samoa
+in other contexts and this will ease that process by allowing us to ship that data
+or have it readily available accordingly. 
+
+confirmproviderchange.aspx - This is a warning page presented any time a user
+attempts to make a change to the status of a provider. It explains the results 
+of this action and requires the user to explicitly confirm or cancel their action.
+
+confirmapplicationchange.aspx - This is a warning page presented any time a user
+attempts to make a change to the status of a provider. It explains the results 
+of this action and requires the user to explicitly confirm or cancel their action.
+
+configdisplay.aspx - This page REQUIRES an input parameter of the namespace 
+description (eg: "Samoa.Ed") and displays the configuration settings provided by 
+the Samoa API accordingly. Each setting is displayed using an appropriate control,
+either a sized textbox (for strings) or a dropdown (for short integer ranges). 
+As new types are determined and specified in the API, minimal changes need to be
+made to configdisplay.aspx to accomidate these changes. Lastly, a button marked
+"Review Proposed Changes" allows the user to advance past this screen after they
+have made some changes.
+
+reviewproposedchanges.aspx - This page may ONLY be called by submitting changes on 
+configdisplay.aspx. Once active, the page displays a subset of the 
+configuration settings provided by the Samoa API, specifically those changed 
+by the user in the previous screen. The settings are still displayed using
+controls, so the user can enter any last minute changes. 
+
+reviewcommittedchanges.aspx - This final page appears almost identical to 
+reviewproposedchanges.aspx, except that instead of an input control for each 
+of the fields, a short report indiciates the status of the change, and the
+most recent value of the variable. 
+
+INPUT VALIDATION AND VERIFICATION
+
+Web applications which depend heavily on user data input require strong
+input validation to ensure that only appropriate data is recorded, and that
+the user fully understand the valid ranges of values. This interface informs
+users of the appropriate type of data by displaying a sensible control, 
+visibly listing the range of values adjacent each entry box, and providing 
+direct feedback when proposed changes fail.
+
+SECURITY AND AUTHENTICATION
+
+ASPX Sessions, an object provided by the ASP.NET framework, will be used to
+track active users and maintain state as users move throughout the configuration
+system. These sessions depend on the use of cookies to individually identify a
+user's machine.
+
+Passwords will be initially sent in plaintext, with room in future versions 
+for methods of securing this data while in transport. Automatic security can
+be established by simply moving the entire application to an https secure 
+server.
+
+POTENTIAL ISSUES
+
+It is identified that multiple users on the configuration interface simulatenously
+could be viewing and modifying inaccurate data. For example, if Bob and Mary both
+load the configuration A=1, B=2 and C=3, and Bob changes B=25 while Mary changes 
+C=300, whoever submits their changes later will override the values of the other 
+user.
+
+While not planned in implementation for the first version, the design of multiple
+confirmation steps permits functionality to see if data "is dirty" to be easily 
+added. Future versions should implement some sort of system to combat these
+race conditions and improve overall usability.
+

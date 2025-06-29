@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_MakeCall_script1" displayName="IVT_MakeCall_script1" format="String" description="" defaultValue="IVT.MakeCall.script1" readOnly="true" required="true" />
+    <configValue name="S_Trigger" displayName="S_Trigger" format="String" defaultValue="IVT.MakeCall.script1.S_Trigger" readOnly="true" required="true" />
+    <configValue name="S_MakeCallComplete" displayName="S_MakeCallComplete" format="String" defaultValue="IVT.MakeCall.script1.S_MakeCallComplete" readOnly="true" required="true" />
+    <configValue name="S_Hangup" displayName="S_Hangup" format="String" defaultValue="IVT.MakeCall.script1.S_Hangup" readOnly="true" required="true" />
+    <configValue name="E_Hangup" displayName="E_Hangup" format="String" defaultValue="IVT.MakeCall.script1.E_Hangup" readOnly="true" required="true" />
+    <configValue name="E_Play" displayName="E_Play" format="String" description="" defaultValue="IVT.MakeCall.script1.E_Play" />
+    <configValue name="S_Play" displayName="S_Play" format="String" defaultValue="IVT.MakeCall.script1.S_Play" />
+    <configValue name="E_Record" displayName="E_Record" format="String" description="" defaultValue="IVT.MakeCall.script1.E_Record" />
+    <configValue name="S_Record" displayName="S_Record" format="String" defaultValue="IVT.MakeCall.script1.S_Record" />
+    <configValue name="E_PlayShort" displayName="" format="String" defaultValue="IVT.MakeCall.script1.E_PlayShort" />
+    <configValue name="S_PlayShort" displayName="" format="String" defaultValue="IVT.MakeCall.script1.S_PlayShort" />
+    <configValue name="E_PlayTone" format="String" defaultValue="IVT.MakeCall.script1.E_PlayTone" />
+    <configValue name="S_PlayTone" format="String" defaultValue="IVT.MakeCall.script1.S_PlayTone" />
+  </configuration>
+</install>

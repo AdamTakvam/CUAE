@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="XmlScriptData" targetNamespace="http://metreos.com/XmlScriptData.xsd" elementFormDefault="qualified" xmlns="http://metreos.com/XmlScriptData.xsd" xmlns:mstns="http://metreos.com/XmlScriptData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!-- Definition of simple types -->
+	<xs:simpleType name="xmlScriptDataInstanceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="singleton" />
+			<xs:enumeration value="multiInstance" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="xmlScriptDataType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="master" />
+			<xs:enumeration value="slave" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="parameterTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="reference" />
+			<xs:enumeration value="value" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eventParamTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="literal" />
+			<xs:enumeration value="variable" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eventTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="triggering" />
+			<xs:enumeration value="unsolicited" />
+			<xs:enumeration value="callback" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="actionTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="provider" />
+			<xs:enumeration value="native" />
+			<xs:enumeration value="userCode" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="resultDataTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="variable" />
+			<xs:enumeration value="csharp" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="paramType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="literal" />
+			<xs:enumeration value="variable" />
+			<xs:enumeration value="csharp" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="loopCountEnumType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="int" />
+			<xs:enumeration value="enum" />
+			<xs:enumeration value="dictEnum" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="languageType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="csharp" />
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- Definition of complex types -->
+	<xs:complexType name="loopCountType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="paramType" use="required" />
+				<xs:attribute name="enumeration" type="loopCountEnumType" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="loopType">
+		<xs:sequence>
+			<xs:element name="count" type="loopCountType" maxOccurs="1" minOccurs="1" nillable="false" />
+			<xs:element name="action" type="actionType" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="loop" type="loopType" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="nextAction" type="nextActionType" minOccurs="1" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:long" use="required" />
+		<xs:attribute name="firstAction" type="xs:long" use="required" />
+	</xs:complexType>
+	<xs:complexType name="actionParamType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+				<xs:attribute name="type" type="paramType" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="actionTimeoutType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="paramType" use="optional" default="literal" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="resultDataType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="field" type="xs:string" use="optional" default="ResultData" />
+				<xs:attribute name="type" type="resultDataTypeType" use="optional" default="variable" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="nextActionType">
+		<xs:simpleContent>
+			<xs:extension base="xs:long">
+				<xs:attribute name="returnValue" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="actionCodeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="language" type="languageType" use="optional" default="csharp" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="actionType">
+		<xs:sequence>
+			<xs:element name="code" type="actionCodeType" minOccurs="0" maxOccurs="1" nillable="false" />
+			<xs:element name="name" type="xs:string" minOccurs="0" maxOccurs="1" nillable="false" />
+			<xs:element name="param" type="actionParamType" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+			<xs:element name="timeout" type="actionTimeoutType" minOccurs="0" maxOccurs="1" nillable="false" />
+			<xs:element name="resultData" type="resultDataType" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+			<xs:element name="nextAction" type="nextActionType" minOccurs="1" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:long" use="required" />
+		<xs:attribute name="type" type="actionTypeType" use="required" />
+	</xs:complexType>
+	<xs:complexType name="eventType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="eventTypeType" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="eventParamType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+				<xs:attribute name="type" type="eventParamTypeType" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="functionType">
+		<xs:sequence>
+			<xs:element name="event" type="eventType" maxOccurs="1" minOccurs="0" nillable="false" />
+			<xs:element name="eventParam" type="eventParamType" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="parameter" type="parameterType" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="variable" type="variableType" maxOccurs="unbounded" minOccurs="0" nillable="true" />
+			<xs:element name="action" type="actionType" maxOccurs="unbounded" minOccurs="1" nillable="false" />
+			<xs:element name="loop" type="loopType" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string" use="required" />
+		<xs:attribute name="firstAction" type="xs:long" use="required" />
+	</xs:complexType>
+	<xs:complexType name="variableType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+				<xs:attribute name="type" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="parameterType">
+		<xs:sequence>
+			<xs:element name="variable" type="variableType" maxOccurs="1" minOccurs="0" nillable="true" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="parameterTypeType" use="required" />
+	</xs:complexType>
+	<xs:complexType name="configurationValueType">
+		<xs:sequence>
+			<xs:element name="variable" type="variableType" maxOccurs="1" minOccurs="1" nillable="true" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="globalVariablesType">
+		<xs:sequence>
+			<xs:element name="configurationValue" type="configurationValueType" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="variable" type="variableType" maxOccurs="unbounded" minOccurs="0" nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="XmlScriptData">
+		<xs:sequence>
+			<xs:element name="reference" type="xs:string" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="using" type="xs:string" maxOccurs="unbounded" minOccurs="0" nillable="false" />
+			<xs:element name="globalVariables" type="globalVariablesType" maxOccurs="1" minOccurs="0" nillable="false" />
+			<xs:element name="function" type="functionType" maxOccurs="unbounded" minOccurs="1" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="type" type="xmlScriptDataType" use="required" />
+		<xs:attribute name="instanceType" type="xmlScriptDataInstanceType" use="required" />
+		<xs:attribute name="description" type="xs:string" use="optional" />
+	</xs:complexType>
+	
+	<!-- Kick this monkey off -->
+	<xs:element name="xmlScriptData" type="XmlScriptData" />
+</xs:schema>

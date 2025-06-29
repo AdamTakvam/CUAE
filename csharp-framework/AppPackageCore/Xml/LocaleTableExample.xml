@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<LocaleTable xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.cisco.com/LocaleTable.xsd">
+  <Locales default="en- US" readonly="true">
+    <Locale name="en-US" devmode="true" width="60">
+      <PromptInfo ref="Prompt1">
+        <Value><![CDATA[Yeah you know how we do >]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Prompt2">
+        <Value><![CDATA[><><><><><>>< &&&& CDATA feels good]]></Value>
+      </PromptInfo>
+    </Locale>
+    <Locale name="en-UK" devmode="true">
+      <PromptInfo ref="Prompt1">
+        <Value><![CDATA[Yeah you know how we do >]]></Value>
+      </PromptInfo>
+      <PromptInfo ref="Prompt2">
+        <Value><![CDATA[><><><><><>>< &&&& CDATA feels good]]></Value>
+      </PromptInfo>
+    </Locale>
+  </Locales>
+  <Prompts>
+    <Prompt name="Prompt1" height="60" />
+  </Prompts>
+</LocaleTable>

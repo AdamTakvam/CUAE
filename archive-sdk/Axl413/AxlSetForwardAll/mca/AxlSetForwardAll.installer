@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="devicename" displayName="DeviceName" format="String" description="The devicename to use for this simple AXL example" defaultValue="" required="true" />
+    <configValue name="callManagerIP" displayName="CallManager IP" format="String" description="The IP address of CallManager" defaultValue="" required="true" />
+    <configValue name="ccmUsername" displayName="CallManager Administrator" format="String" description="The administrative username of CallManager" defaultValue="Administrator" required="true" />
+    <configValue name="ccmPassword" displayName="CallManager Admin Password" format="String" description="The administrative password of CallManager" defaultValue="metreos" required="true" />
+    <configValue name="linePosition" displayName="Line Position" format="LineNumbers" description="The line number to create the Forward All on" defaultValue="1" required="true">
+      <EnumItem>1</EnumItem>
+      <EnumItem>2</EnumItem>
+      <EnumItem>3</EnumItem>
+      <EnumItem>4</EnumItem>
+      <EnumItem>5</EnumItem>
+      <EnumItem>6</EnumItem>
+    </configValue>
+    <configValue name="forwardDN" displayName="Forward DN" format="String" description="The directory number to use when forwarding the call" defaultValue="" required="true" />
+    <configValue name="forwardCss" displayName="Forward CSS" format="String" description="The CSS to use when forwarding the call" required="true" />
+  </configuration>
+</install>

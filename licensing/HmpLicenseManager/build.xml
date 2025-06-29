@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="licensing" default="Debug" basedir=".">
+
+	<description>Build script for HmpLicenseManager component</description>
+    <import file="../../autobuild/build.includes.xml" />
+
+    <property name="deploymentLicenseServerDirectory"    value="${Metreos.build.buildDirectory}/LicenseServer" />
+    <property name="symbolDirectory"    			   value="${Metreos.build.buildDirectory}/LicenseServer/Symbols" />
+
+    <target name="do-init">
+    </target>
+
+    <target name="do-clean">
+        <delete dir="Debug" />
+        <delete dir="Release" />
+    </target>
+
+    <target name="do-build" >
+        <metreosVsNetTask dir="." solution="HmpLicMgr" />
+    </target>
+
+    <target name="do-test" >
+    </target>
+
+    <target name="do-postbuild">
+    	<copy todir="${deploymentLicenseServerDirectory}">
+    		<fileset dir="${Metreos.build.target}" includes="CUAEUtl1.dll" />
+    		<fileset dir="../LicKeyDll/lib" includes="CUAEUtl2.dll" />
+    		<fileset dir="." includes="240r240v200e240c240s240i_pur.lic" />
+    	</copy>
+    	<copy todir="${symbolDirectory}">
+    		<fileset dir="${Metreos.build.target}" includes="CUAEUtl1.pdb" />
+    		<fileset dir="../LicKeyDll/lib" includes="CUAEUtl2.pdb" />
+    	</copy>
+    </target>
+</project>

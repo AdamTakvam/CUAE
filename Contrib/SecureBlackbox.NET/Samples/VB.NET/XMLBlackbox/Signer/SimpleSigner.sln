@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SimpleSigner", "SimpleSigner.vbproj", "{FC32B833-D1A1-41FF-95C6-00F653A73699}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{FC32B833-D1A1-41FF-95C6-00F653A73699}.Debug.ActiveCfg = Debug|.NET
+		{FC32B833-D1A1-41FF-95C6-00F653A73699}.Debug.Build.0 = Debug|.NET
+		{FC32B833-D1A1-41FF-95C6-00F653A73699}.Release.ActiveCfg = Release|.NET
+		{FC32B833-D1A1-41FF-95C6-00F653A73699}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

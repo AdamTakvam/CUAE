@@ -1,0 +1,76 @@
+
+                         Shared read semaphore: SRVQ_RDLOCK
+                         Shared read semaphore: CLIQ_RDLOCK 
+
+NOTE: semaphores are not like mutexes -- any thread can acquire, any can release
+
+
+1. Server creates CLIQ_RDLOCK(ctor count 0 = locked)  
+
+2. Server get CLIQ write lock
+   Server writes  to CLIQ
+   Server releases CLIQ write lock
+   Server releases (increments) CLIQ_RDLOCK
+
+3. Client blocks on acquire() of CLIQ_RDLOCK (q not empty)
+   Client gets CLIQ write lock
+   Client dequeues
+   Client releases CLIQ write lock
+   
+
+
+ Writer
+  a. writes to qx
+  b. releases qx semaphore
+
+ Reader
+ a. blocks on qx acquire or timeout or signal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ***** This comment indicates that we need to look for
+  ***** how to wait on an entry appearing in the queue
+  ***** but getq does a this->msg_queue_->dequeue_head(...
+  ***** so that does not seem to be the case - waht gives?
+  ***** maybe tht's just the callk with the one arg, no imeout
+
+// Actually get the first ACE_Message_Block (no locking, so must be
+// called with locks held).  This method assumes that the queue has at
+// least one item in it when it is called.
+
+template <ACE_SYNCH_DECL> int
+ACE_Message_Queue<ACE_SYNCH_USE>::dequeue_head_i (ACE_Message_Block *&first_item)
+{
+
+
+***** Message_Queue_T.cpp(1294)
+// Remove an item from the front of the queue.  If timeout == 0 block
+// indefinitely (or until an alert occurs).  Otherwise, block for upto
+// the amount of time specified by timeout.
+
+int ACE_Message_Queue::dequeue_head(ACE_Message_Block *&first_item, ACE_Time_Value *timeout)
+{  
+  ACE_GUARD_RETURN (ACE_SYNCH_MUTEX_T, ace_mon, this->lock_, -1);
+
+  if (this->wait_not_empty_cond (ace_mon, timeout) == -1)  // ******* <<=====
+      return -1;
+
+  return this->dequeue_head_i (first_item);
+}
+

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_ContinuousSendResponse_script1" displayName="Provider_ContinuousSendResponse_script1" format="string" defaultValue="Provider.ContinuousSendResponse.script1" readOnly="true" required="true" />
+    <configValue name="expectedIncomingBody" displayName="expectedIncomingBody" format="string" readOnly="false" required="true" />
+    <configValue name="outgoingBody" displayName="outgoingBody" format="string" readOnly="false" required="true" />
+    <configValue name="checkBody" displayName="checkBody" format="string" readOnly="false" required="true" />
+  </configuration>
+</install>

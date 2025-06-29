@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_BasicTTS_script1" displayName="Provider_BasicTTS_script1" description="" defaultValue="Provider.BasicTTS.script1" readOnly="true" required="true" format="String" />
+    <configValue name="S_MadeCall" displayName="S_MadeCall" format="String" defaultValue="Provider.BasicTTS.script1.S_MadeCall" readOnly="true" required="true" />
+    <configValue name="E_Play" displayName="E_Play" format="String" description="" defaultValue="Provider.BasicTTS.script1.E_Play" readOnly="true" required="true" />
+    <configValue name="S_PlayComplete" displayName="S_PlayComplete" format="String" description="" defaultValue="Provider.BasicTTS.script1.S_PlayComplete" readOnly="true" required="true" />
+    <configValue name="S_Hangup" displayName="S_Hangup" format="String" description="" defaultValue="Provider.BasicTTS.script1.S_Hangup" readOnly="true" required="true" />
+  </configuration>
+</install>

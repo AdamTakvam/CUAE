@@ -1,0 +1,17 @@
+trigger:Metreos.CallControl.P2P.DeleteConnection
+
+1
+a:DeleteConnection
+rns:*->5
+timeout:5->900
+
+5
+a:SendActionSuccessToPeer
+def->1000
+
+900
+a:SendActionFailureToPeer
+def->1000
+
+1000
+a:EndScript

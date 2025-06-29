@@ -1,0 +1,74 @@
+1
+a:AssumePreferredTxCodec
+def->5
+
+5
+a:ReserveConnection
+rns:success->10
+rns:*->[Error_Respond_NoMedia]
+timeout:5->[Error_Respond_NoMedia]
+
+10
+a:AcceptCall
+rns:success->12
+rns:*->[Error_Reject_Media_Respond]
+timeout:5->[Error_Reject_Media_Respond]
+
+12
+a:SetMedia
+rns:success->15
+rns:*->[Error_Hangup_Media_Respond]
+timeout:5->[Error_Hangup_Media_Respond]
+
+15
+a:ForwardActionToProvider  // Forwards AnswerCall
+rns:success->20
+rns:*->100
+timeout:5->[Error_Hangup_Media_Respond]
+
+20
+a:Wait
+ens:GotCapabilities->300
+def->25
+
+25
+a:Wait
+dns:remoteMediaCaps=null->350
+def->30
+
+30
+a:SelectTxCodec
+def->35
+
+35
+a:SetMedia
+rns:success->40
+rns:*->[Error_Hangup_Media_Respond]
+timeout:5->[Error_Hangup_Media_Respond]
+
+40
+a:Wait
+dns:waitForMedia=None->[IncomingCall_NoWaitTxRx]
+def->[IncomingCall_WaitTxRx]   // None & TxRx are the only supported values right now
+
+100
+a:ForwardResponseToApp
+def->400
+
+300
+a:Wait						// See if the GotCapabilities was empty
+dns:remoteMediaCaps=null->[IncomingCall_LateMedia]
+def->20						// If not, keep going like we were
+
+350
+a:Wait						// Wait 5 seconds for a GotCapabilities
+ens:GotCapabilities->30     // If we don't get one, shut 'er down.
+timeout:5->[Error_Hangup_Media_Respond]
+
+400
+a:DeleteConnection
+rns:*->1000
+timeout:5->1000
+
+1000
+a:EndCall

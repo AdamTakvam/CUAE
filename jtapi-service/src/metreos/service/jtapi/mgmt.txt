@@ -1,0 +1,58 @@
+Here is the initialization / management sequence:
+
+Register (client -> jtapiservice)
+	ctiManagerIp+
+	username
+	password
+	deviceType
+	deviceName+
+
+Unregister (client -> jtapiservice)
+	deviceType
+	deviceName+
+
+Status (jtapiservice -> client)
+	status
+	deviceType
+	deviceName+
+	reason
+
+RegisterMediaCaps (client -> jtapiservice)
+	codec
+	framesize+
+
+UnregisterMediaCaps (client -> jtapiservice)
+	codec
+
+Notes:
+
+	ctiManagerIp+ means one or more cti manager ip. the
+	first is considered primary, the others secondary.
+	
+	type is ctiPort (2) or routePoint (3).
+	
+	deviceName+ means one or more device names.
+	
+	type/deviceName is unique. a device name by itself is not
+	unique.
+	
+	multiple online / offline messages may be sent regarding
+	the same cti manager / username / password / deviceType.
+	They are all treated as one (temporal issues aside).
+	
+	when a cti manager itself goes online or offline, it will
+	be reported as all the affected devices going online or
+	offline.
+	
+	when devices are reported online or offline, only the
+	devices listed are affected.
+
+Issues:
+
+	will there only be one username / password pair associated
+	with a given ctiManagerIp? that is, does every mention of a
+	given ctiManagerIp specify the same username and password?
+	[ the answer is no. different devices may require different
+	credentials to gain access at a given call manager. ]
+	
+	is framesize of a codec required? [ the answer is yes. ]

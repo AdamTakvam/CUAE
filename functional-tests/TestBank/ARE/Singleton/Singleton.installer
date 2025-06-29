@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_Singleton_script1" displayName="ARE_Singleton_script1" format="string" defaultValue="ARE.Singleton.script1" readOnly="true" required="true" />
+    <configValue name="S_Signal" displayName="S_Signal" format="string" defaultValue="ARE.Singleton.script1.S_Signal" readOnly="true" required="true" />
+  </configuration>
+</install>

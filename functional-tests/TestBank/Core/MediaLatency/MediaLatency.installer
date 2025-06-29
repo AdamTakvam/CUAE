@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Core_MediaLatency_script1" displayName="Core_MediaLatency_script1" format="String" defaultValue="Core.MediaLatency.script1" readOnly="true" required="true" />
+    <configValue name="S_Simple" displayName="S_Simple" format="String" defaultValue="Core.MediaLatency.script1.S_Simple" readOnly="true" required="true" />
+    <configValue name="E_Shutdown" displayName="E_Shutdown" format="String" defaultValue="Core.MediaLatency.script1.E_Shutdown" />
+  </configuration>
+</install>

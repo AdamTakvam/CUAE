@@ -1,0 +1,114 @@
+using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace SimpleSftpDemo
+{
+	/// <summary>
+	/// Summary description for AboutForm.
+	/// </summary>
+	public class frmAbout : System.Windows.Forms.Form
+	{
+		private System.Windows.Forms.Label lInfo;
+		private System.Windows.Forms.Label lProduct;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Button btnOK;
+		/// <summary>
+		/// Required designer variable.
+		/// </summary>
+		private System.ComponentModel.Container components = null;
+
+		public frmAbout()
+		{
+			//
+			// Required for Windows Form Designer support
+			//
+			InitializeComponent();
+
+			//
+			// TODO: Add any constructor code after InitializeComponent call
+			//
+		}
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		protected override void Dispose( bool disposing )
+		{
+			if( disposing )
+			{
+				if(components != null)
+				{
+					components.Dispose();
+				}
+			}
+			base.Dispose( disposing );
+		}
+
+		#region Windows Form Designer generated code
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
+		/// </summary>
+		private void InitializeComponent()
+		{
+			this.lInfo = new System.Windows.Forms.Label();
+			this.lProduct = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.btnOK = new System.Windows.Forms.Button();
+			this.SuspendLayout();
+			// 
+			// lInfo
+			// 
+			this.lInfo.Location = new System.Drawing.Point(48, 24);
+			this.lInfo.Name = "lInfo";
+			this.lInfo.Size = new System.Drawing.Size(208, 23);
+			this.lInfo.TabIndex = 0;
+			this.lInfo.Text = "ElSimpleSftpClient Demo Application";
+			// 
+			// lProduct
+			// 
+			this.lProduct.Location = new System.Drawing.Point(32, 48);
+			this.lProduct.Name = "lProduct";
+			this.lProduct.Size = new System.Drawing.Size(240, 23);
+			this.lProduct.TabIndex = 1;
+			this.lProduct.Text = "EldoS SecureBlackbox library (.NET edition)";
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(40, 72);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(208, 23);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "Copyright (C) 2004 EldoS Corporation";
+			// 
+			// btnOK
+			// 
+			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.btnOK.Location = new System.Drawing.Point(104, 104);
+			this.btnOK.Name = "btnOK";
+			this.btnOK.TabIndex = 3;
+			this.btnOK.Text = "OK";
+			// 
+			// frmAbout
+			// 
+			this.AcceptButton = this.btnOK;
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 14);
+			this.ClientSize = new System.Drawing.Size(272, 143);
+			this.Controls.Add(this.btnOK);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.lProduct);
+			this.Controls.Add(this.lInfo);
+			this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((System.Byte)(204)));
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.Name = "frmAbout";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "About";
+			this.ResumeLayout(false);
+
+		}
+		#endregion
+	}
+}

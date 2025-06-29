@@ -1,0 +1,180 @@
+[Definitions]
+
+AppGuid: Identifies the type of application and its corresponding AppDomain.
+
+InstanceGuid: Identifies an instance of an application. Contains AppGuid.
+
+RoutingGuid: identifies an app to a protocol provider. The protocol provider generates this Guid and uses it for internal transaction handling.
+
+
+[Data Structure Summary]
+
+AppLoader:
+
+Array(applications): 		value = struct InstanceInfo
+
+struct (InstanceInfo): 		interface IApplication
+			bool active
+			bool dirty
+
+Session Manager:
+
+Hash (appDomains): 		key = string AppGuid
+			value = struct DomainInfo
+
+struct (DomainInfo): 		ApplicationLoader reference
+			AppDomain reference
+			string appName
+			string fileName
+
+
+Event Distributor (ED):
+
+Complex (triggerTable): 	input = event name and params
+			output = string appGuid
+
+Hash (appQs):	 	key = string InstanceGuid
+			value = object MessageQueueWriter
+
+Hash (runningApps): 	key = string RoutingGuid
+			value = struct RunningAppInfo
+
+struct (RunningAppInfo): 	MessageQueueWriter reference
+			string InstanceGuid
+
+Hash (alias): 		key = string RoutingGuid
+	      		value = object ArrayList of RoutingGuids
+
+Hash (loadingApps):		key = RoutingGuid
+			value = triggering event (InternalMessage)
+
+
+[Logical Flow]
+
+Initialization:
+
+- Session Manager gets service app directory from global config.
+
+- Session Manager instantiates an AppDomain and Application loader for each xml file encountered.
+
+- Session Manager adds new info to appDomains hash.
+
+- AppLoader opens its xml file and parses it into an ApplicationData object.
+
+- AppLoader sends triggering info and AppGuid to ED.
+
+- ED adds triggering info to trigger table.
+
+- AppLoader reads default application pool size from global config.
+
+- AppLoader instantiates apps, and assigns ApplicationData to them.
+
+
+Loading Apps:
+
+- ED uses triggering info in event to determine the AppGuid which handles it.
+
+- ED stores the event (InternalMessage) and the RoutingGuid (key) in the loadingApps hash.
+
+- ED generates a LoadApp request based on incoming triggering event info and sends it to the Session Manager along with the AppGuid and RoutingGuid.
+
+- Session Manager calls ApplicationLoader.StartApp which returns the InstanceGuid, IApplication reference, and a boolean indicating success.
+
+- When StartApp is called, AppLoader locates an available InstanceId and activates that instance.
+
+- Note: AppLoader creates the InstanceGuids by combining the current application instance's index into the applications array (InstanceId) with the AppGuid.
+
+- AppLoader marks the entry for that InstanceId active.
+
+- AppLoader increments its running app counter.
+
+- Session Manager returns the InstanceGuid and RoutingGuid to ED in response to the LoadApp request.
+
+- ED retrieves a MessageQueueWriter instance from the applications hash.
+
+- If there is no entry or the entry is null, a MessageQueueWriter is created and the table is updated accordingly.
+
+- ED adds the MessageQueueWriter and InstanceGuid to a running apps hash with the protocol-provider-specified RoutingGuid as the key.
+
+- ED uses the loadingApps hash to retrieve the triggering event massage for this RoutingGuid.
+
+- ED sends startup message to the app.
+
+- If application starts successfully, ED sends triggering event to app.
+
+- If application fails to startup, ED sends a NoHandler message to PAL and originating provider
+
+- App stores RoutingGuid received in this message.
+
+- App sends RoutingGuid in all outbound messages.
+
+
+Routing Messages to Running Apps:
+
+- ED uses the RoutingGuid to lookup the MessageQueueWriter in the runningApps hash.
+
+- ED forwards message to that queue.
+
+
+Dynamic Application Pool Resizing:
+
+- When the AppLoader starts an application, it checks whether the application pool is more than 75% active.
+
+- If it is, the Application Loader will spawn a new thread to create another pool of applications like before.
+
+
+RoutingGuid forwarding:
+
+- An Application may send a forwarding request to the ED in the form of a Metreos.ApplicationControl.Forward action.
+
+- ED will update the routing entry for this app in the runningApps hash to contain the InstanceGuid and MessageQueueWriter corresponding to the requested RoutingGuid.
+
+- ED adds new entry to alias hash containing: key = destination RoutingGuid, value = ArrayList of RoutingGuids mapped to this one.
+
+
+App Termination:
+
+- Application requests termination by sending a Metreos.ApplicationControl.Exit message to the ED.
+
+- ED checks the alias table to see if there is an entry for the source RoutingGuid.
+
+- If there is, ED removes entries from runningApps table for all RoutingGuids in the corresponding ArrayList.
+
+- ED removes source RoutingGuid entry from runningApps table.
+
+- ED sends Shutdown message to application with the field FINAL = false.
+
+- When ShutdownComplete message is received, ED sends StopApp message to SessionManager containing InstanceGuid and the success or failure of the app's attempt to shut itself down.
+
+- Session Manager calls StopApp on the AppLoader with the InstanceGuid.
+
+- AppLoader sets the active flag to false for that InstanceGuid.
+
+- AppLoader decrements its running app counter and returns that number in the StopApp method call.
+
+- AppLoader checks the dirty flag and loads a new copy of the ApplicationData object if necessary. AppLoader then clears the dirty flag.
+
+- If the app did not shutdown successfully, AppLoader uses the IApplication interface to force a thread abortion.
+
+- If the method call on AppLoader threw an exception (AppDomain's hosed), the AppDomain is removed and reloaded.
+
+
+Shutdown:
+
+- ED sends shutdown messages to all running apps with the field FINAL = true.
+
+- Upon receiving shutdown message, apps remove their message queues and null all references. 
+
+- When ShutdownComplete message is received, ED sends StopApp message to SessionManager containing InstanceGuid and the success or failure of the app's attempt to shut itself down.
+
+- ED nulls all references.
+
+- SessionManager calls StopApps() on all AppLoaders. 
+
+- If apps are still running, AppLoader forcibly stops them.
+
+- AppLoader calls Cleanup on all apps.
+
+- Session Manager unloads all AppDomains.
+
+- Session Manager nulls all references.

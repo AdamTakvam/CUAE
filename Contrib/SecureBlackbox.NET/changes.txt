@@ -1,0 +1,483 @@
+	SecureBlackbox - version 4.0.94 - Released July 20, 2006
+---------------------------------------------------------------------------
+
+
+What's new:
+
+                              [           Legend:          ]
+                              [ + Added feature            ]
+                              [ * Improved/changed feature ]
+                              [ - Bug fixed                ]
+
+---
+July 20, 2006
+Version 4.4.0.94. Minor update.
+- [All] (PGP) Fixed the hanging in DecryptAndVerify() method. 
+
+---
+July 16, 2006
+Version 4.4.0.93. Minor update.
+
++ [All]	(SSH) FSecure private key format is supported. 
+* [All] (SSH) Connecting to Tectia 5 servers didn't work due to the bug in the server. Workaround added.
+- [.NET] (PKI) OCSP client request didn't include a signature and responder name. Fixed.
+
+---
+July 12, 2006
+Version 4.4.0.92. Minor update.
+
+* [All] (PKI) Now TElX509Certificate.LoadFrom*SPC and TElX509Certificate.LoadFrom*PFX attempt to load the end-entity certificate, if more than one certificate is present in the input data.
+* [All] (PKI) Now base64-encoded certificate, certificate request and CRL files are detected and loaded.
+* [All]	(SSH) SSH.com private keys, converted by F-Secure (from their private format) could not be loaded. Fixed.
+
+- [All]	(SFTP) Downloading and uploading of 0-byte-long files in synchronous mode or using TElSimpleSFTPClient was fixed (didn't work since build 90)
+- [.NET] (SFTP) File renaming didn't work with SFTP versions 5 and 6. Fixed.
+
+---
+July 9, 2006
+Version 4.4.0.91. Minor update.
+
+! [.NET, VCL] (PGP) Parameters of OnProgress event have been changed to support 64-bit files. Current code will be broken, unfortunately. 
+
++ [VCL] (SSL) Added RealThinClient helper classes for SSL support
++ [AX] (SFTP) Added IElSimpleSFTPClientX3 interface (ElSimpleSFTPClientX class now implements this interface), 
+  which provides access to recently added properties andd methods of ElSimpleSFTPClientX
++ [All] (SFTP) Added DownloadFiles/UploadFiles and DownloadStream/UploadStream methods to TElSimpleSFTPClient
+
+* [All] (PKI) Added ReplyCertificates to OCSP client 
+* [.NET, VCL] (PGP) Improved work with huge (over 2Gb) files
+
+- [All] (PKI) Fixed two minor bugs in OCSP client reply parser
+- [.NET] (PGP) Fixed a bug with validating detached and clear-signed signatures
+- [All] (PDF) Fixed a bug with signing a document with timestamping, when timestamp server returned large timestamp.
+- [All] (PDF) Fixed a bug with signing a document with timestamping, when timestamp client returned an error.
+
+---
+June 25, 2006
+Version 4.4.0.90. Minor update.
+
++ [.NET, VCL] (FTPS) Added CCC (Clear Command Channel) command.
++ [.NET, VCL] (PKI/HTTP) Added HTTP OCSP client to HTTPSBlackbox
+
+* [.NET, VCL] (SFTP) improved SFTP download speed again
+* [.NET, VCL] (SFTP) improved compatibility with various SFTP servers
+
+* [All] (PKI) Now TElX509Certificate.LoadFrom*() detects and handles Base64-encoded certificates (not PEM-formatted!)
+
+* [All] (PKI) Re-implemented OCSP client and server in order to achieve better standard conformance.
+
+- [.NET, VCL] (SFTP) fixed attribute-handling bugs in SFTP server
+- [.NET, VCL] (FTPS) Active mode got broken in build 86. Fixed.
+- [.NET] (PKI) problem with opening System Certificate Storages on .NET CF were fixed.
+- [.NET, VCL] (PGP) Fixed writing of armoured keyrings.
+
+---
+May 31, 2006
+Version 4.4.0.89. Minor update.
+
++ [.NET, VCL] (PKI) Added DefaultPolicy property to TSP server.
+
+- [.NET, VCL] (PKI) Fixed reading of PEM files with CRLF and LF mixed in a single data block.
+- [.NET, VCL] (PKI) Fixed certain Nonce- and Accuracy-related problems with TSP server.
+- [.NET] Fixed the problem with table-based charsets in SecureBlackbox.Charsets assembly.
+- [VCL] (SFTP) Fixed the memory leak, introduced in build 88 when uploading or downloading the files.
+
+---
+May 24, 2006
+Version 4.4.0.88. Minor update.
+
+! [All] (SFTP) Dramatically improved speed of file upload/download
+
++ [.NET, VCL] (SFTP) Added certain properties (UploadBlockSize, DownloadBlockSize, PipelineLength) for better control of upload/download operation speed
+
+* [.NET, VCL] (PKI) Added a workaround for handling reformatted MessageImprint, returned by some TSP servers.
+
+* [AX] (SSH) ElSSHKeyX.Headers now returns IUnknown (which you need to cast to IElStringListX)
+
+- [All] (SFTP) Fixed possible error, which could happen when the network connection is closed in SimpleSftpClient
+- [All] (PGP) Read-only secret key could not be loaded from keyring correctly due to a problem with setting Expires field.
+- [AX] (SSH) ElSimpleSSHClientX.MessageLoop event was not correctly fired if no handler was attached. Fixed.
+- [AX] (SSH) ElSSHKeyX could not be viewed in Watch window of Visual Basic. Fixed.
+
+---
+May 18, 2006
+Version 4.4.0.87. Internal update
+
+---
+May 16, 2006
+Version 4.4.0.86. Major update.
+
++ [.NET, VCL] (SSL) Added ElSimpleSSLClient.CanReceive() method.
+
+* [All] (PKI) Now no exception is raised if the loaded certificate contains unknown algorithms
+* [.NET, VCL] (PDF) Added an exception which is raised during attempt to apply MDP signature to the document with templates. Previously incorrect signature was applied.
+* [.NET, VCL] (PDF) Improved signing of certain documents. 
+* [.NET] (SSH) Fixed saving of SSH public key in OpenSSH format. Previously the prefix ended with 0x0 character, and this confused users.
+* [AX] (PKI) Now text-form OIDs can be passed to IElRelativeDistinguishedNameX.SetOID
+
+- [AX] (PKI) Fixed ElRelativeDistinguishedName class to write text data as PrintableString (otherwise the text is not displayed by Windows Certificate Manager)
+- [All] (PKI) Fixed TElRSAKeyMaterial which incorrectly saved PEM-encoded private key
+- [All] (PKI) Fixed ASN.1 writer which saved large integer values with leading zero (thus confusing some inflexible software like the one from RSA Security)
+- [All] Fixed the bug in ElSocket, which prevented connection of the socket, if LocalAddress was set for outgoing socket.
+
+---
+May 7, 2006
+Version 4.4.0.85. Major update for ActiveX.
+
+- (PKI) Fixed TElRSAKeyMaterial which incorrectly saved PEM-encoded private key
+- (PKI) Fixed ASN.1 writer which saved large integer values with leading zero (thus confusing some inflexible software like the one from RSA Security)
+
+---
+April 30, 2006
+Version 4.4.0.84. Release candidate.
+
++ [AX] (PGP) Added PGPBlackbox to ActiveX edition. PGPBlackbox/AX is now in beta since ActiveX/VB6 declarations are not present in documentation. 
+
+* [.NET, VCL] (PDF) Added possibility to Base16-encode the textual data in PDF signatures to avoid certain compatibility and charset management problems.
+* [.NET, VCL] (PDF) Added possibility to change appearance of existing signature fields.
+* [.NET, VCL] (SSH, SFTP) Now keyboard-interactive authentication can optionally be tried as the last authentication attempt (instead of the first, as before).
+- [VCL] (SSH, SFTP) minor fixes in SSH Indy IOHandlers.
+
+---
+April 19, 2006
+Version 4.4.0.83. Beta version.
+
+! [.NET] Changed installation procedures and deployment instructions
+
+! [.NET, VCL] Introduced new supplementary Charsets package (SecureBlackbox.Charsets assembly in .NET and ChsBBox in VCL).
+
++ [.NET, VCL] Added XMLBlackbox package to SecureBlackbox Professional
++ [.NET, VCL] Added BZip2 support (currently used in PGP)
+
+- [AX] (SSH, SFTP) Fixed a problem with accessing certain objects (SftpFileInfoX, SSHKeyX) from scripting environments or when using Variants (i.e. via IDispatch). 
+
+---
+April 13, 2006
+Version 4.4.*.82. Beta version.
+
+! Speed optimization in most symmetric encryption algorithms
+
++ [.NET, VCL] (SSH) Added SimpleSSHPortForwarding components
++ [.NET, VCL] (PKI) Added asynchronous operations in ElX509Certificate (generation)
++ [.NET, VCL] (PGP) Added asynchronous operations in PGP (key generation and signing / encryption)
+
+- [.NET, VCL] (HTTPS) Fixed certain authentication issues (including NTLM POST/PUT problems).
+- [VCL] (SSH, SFTP) Fixed IndySSH and IndySFTP classes which wwere not properly created in Indy 10 in design-time
+
+---
+March 31, 2006
+Version 4.3.0.81. Minor update for ActiveX. 
+- [.AX] (SSH, SFTP) Fixed keyboard authentication in SSH client
+
+---
+March 29, 2006
+Version 4.3.*.81. Release for .NET CF and Mono. 
+
+- [.NET] Fixed some resource leaks.
+
+---
+March 24, 2006
+Version 4.3.1.80. Release Candidate for .NET CF and Mono.
+
+---
+March 11, 2006
+Version 4.3.80. Minor update.
+
++ [VCL, .NET] (PKI)  Added high-level classes for symmetric encryption
++ [.NET] (PKI)  Fixed certain ASN.1 issues, that caused some certificates to be written incorrectly
++ [AX] (SFTP) Added C++ and VB samples for SimpleSFTP component
+
+- [AX] (SFTP) Fixed the access violation error which happened upon reconnection
+- [VCL, .NET] (FTPS) Fixed some bugs in FTPS handling of the Passive mode
+- [VCL, .NET] (HTTPS) Fixed a bug for 100-Continue response code handling
+- [VCL, .NET] (PGP) Fixed minor bug in PGP keys (Expires property was not initialized).
+
+
+---
+February 20, 2006
+Version 4.3.79. Major update.
+
+!!! [.NET] 
+!!!
+!!! Due to possible assembly conflicts in .NET 2.0, additional assemblies have been introduced. 
+!!!
+!!! SecureBlackbox.SSLCommon is now required by SecureBlackbox.SSLClient, SecureBlackbox.SSLServer, SecureBlackbox.SSLSocket
+!!! SecureBlackbox.SSHCommon is now required by SecureBlackbox.SSHClient, SecureBlackbox.SSHServer, SecureBlackbox.Sftp, SecureBlackbox.SFTPServer
+!!! SecureBlackbox.SFTPCommon is now required by SecureBlackbox.Sftp, SecureBlackbox.SFTPServer
+!!!
+
++ [VCL, .NET] Now it's possible to globally disable patented IDEA algorithm
+
++ [VCL, .NET] (PDF) Now PKCS#1 signing is supported by PDF signer
++ [VCL, .NET] (PDF) Added timestamping capabilities to PDF signer
++ [VCL, .NET] (PKI) Added timestamping capabilities to ElMessageSigner
++ [VCL, .NET] (PKI/HTTPS) Added HTTP Timestamping Protocol Client component
++ [VCL, .NET] (SSL) Added TLS extensions
+
+- [.NET] Fixed PEM.Decode function which in certain cases incorrectly handled encrypted PEM data. 
+- [All] (PKI) Fixed ElX509Certificate which didn't handle some EFS certificates correctly.
+
+---
+January 28, 2006
+Version 4.3.78. Beta version.
+
++ [VCL, .NET] (HTTPS) Added HTTP / HTTPS client component
++ [VCL, .NET] (PKI) Added Timestamping Protocol components
++ [VCL, .NET] (PKI) Added higher-level classes for RSA encryption and signing and for DSA signing
++ [VCL, .NET] (SSL) Added pre-shared key cipher suites
+
+* [All] (PKI) Now when the data is signed with TElMessageSigner, and AuthenticatedAtributes are added, hash is written according to CMS specification. Previously the application had to write the hash itself (as defined in PKCS#7). 
+
+- [VCL, .NET] (PGP) AES 256 was disabled. Fixed.
+
+---
+January 18, 2006
+Version 4.2.77. Minor update.
+
++ [VCL, .NET] (PKI) Added SBPEMProcessor class for PEM encoding/decoding operations.
+
+- [All] (SSL) Fixed SetLicenseKey method which prevented server-side TLS 1.x from working properly.
+- [VCL, .NET] (PDF) Fixed an issue with PDF document signatures when multiple certificates were passed to the signing handler.
+
+---
+January 13, 2006
+Version 4.2.76. Minor update.
+
++ [All] (SSH) Added new key exchange algorithm: SSH_KEX_DH_GROUP_14
++ [VCL, .NET] (PKI) Added methods for loading/saving many certificates to/from PKCS#7 format to ElCustomCertStorage class. Note, that only binary PKCS#7 files are handled (i.e. not base64-encoded). 
+
+- [All] Fixed MD2 support
+- [All] Fixed ElSharedResource implementation which could lead to problems with high multithreaded load on certificate storages, key storages and some other thread-safe classes.
+- [VCL, .NET] (FTPS) Fixed passive mode operations.
+- [VCL] (SSH) Fixed LocalPortForwarding demos
+- [.NET] Fixed installer which failed on the systems, which didn't have .NET Framework SDK 1.1 installed
+
+---
+December 24, 2005
+Version 4.2.75. Minor update.
+
+!!! [VCL, .NET] 
+	(SSL) Certain event type declarations have been moved from SBClient and SBServer to SBSSLCommon.
+	SBClient.TSBValidateCertificateEvent has been renamed to SBSSLCommon.TSBCertificateValidateEvent. 
+	Please see sample applications for details about the changes made.
+
+! [VCL] (SSL) SSLBBoxCli*.dpk packages have been added. Client-side SSL components have been moved from SSLBBoxSrv*.dpk to these new packages.
+  You need to install SSLBBoxCli*.dpk as well as SSLBBoxSrv*.dpk.
++ [VCL, .NET] (SSL) Added compression to SSL client and server
+
+---
+December 18, 2005
+Version 4.2.74. Minor update.
+
+* [VCL, .NET] (PDF) Added support for signing and decryption with non-exportable private keys, contained in Windows Certificate storage or in PKCS#11 storages. 
+* [AX] (SSH) Fixed key validation routine
+* [.NET] (SSH) Added SSH Server sample for C#
+
+---
+December 08, 2005
+Version 4.2.73. Major update.
+
++ [VCL, .NET] (FTPS) Added FTP / FTPS Client component. 
++ [VCL, .NET] (SFTP) Added SFTP 5 and SFTP 6 support.
++ [VCL, .NET] (SFTP) Added OnProgressEvent to ElSimpleSFTPSClient.
+* [All] (SSH) Fixed key re-exchange problems.
+- [VCL, .NET] (PDF) Fixed various bugs (mainly compatibility problems). 
+
+---
+November 14, 2005
+Version 4.1.72. Minor update (.NET edition only)
+
++ Added .NET 2.0 and Mono support. Note, that support is provided in a separate, "experimental" installation. .NET CF support is to come later.
+
++ (PDF) Fixed some signing issues with large files. 
+* (PKI) Generated certificates were not loaded by Java 1.4.x due to Java bug. Workaround added.
+
+---
+October 22, 2005
+Version 4.1.71. Major update
+
++ [VCL, .NET] (PDF) PDFBlackbox released
++ [All] (PGP) Added support for V3 secret keys encrypted with CAST5, Blowfish and AES128
++ [All] (SSL) Added support for Camellia ciphersuites
+* [VCL, .NET] (SFTP) Added TElSftpClient.UseUTF8 and TElSimpleSftpClient.UseUTF8 properties.
+* [All] (PGP) Added TElPGPReader.Passphrase and OutputStream properties
+- [All] (PGP) ElPGPKeyring raised an exception on empty keyrings. Fixed.
+
+---
+October 6, 2005
+Version 4.1.70. Beta version
+
++ [VCL, .NET] (PDF) PDFBlackbox BETA released
++ [VCL] (SSL) Added ElSecureServerSocket demo application
+- [VCL] (SSL) Fixed a problem with ElSecureServerSocket.OnClientDisconnect event (the event did not fire)
+- [VCL] (SSL) Fixed minor memory leak in ElSessionPool class
+- [VCL] (PKI) Fixed minor error in ElPKCS11CertStorage component (illegal token removal case)
+- [All] (SSL) Fixed minor error in server-side SSL classes (bad handshake with some Java clients)
+
+---
+October 1, 2005
+Version 4.0.69. Minor update
+
+- (Help) MS Help 2.0 documentation didn't show keyword index correctly. Fixed.
+- [.NET] (SSL) Fixed an error that prevented SSLSocket from working correctly in asynchronous mode.
+- [VCL] (PKI) Fixed memory leak in ElX509Certificate.LoadFrom* methods.
+- [AX] (SSL) Fixed certificate processing error in ElSecureServerX.
++ [All] (PKI) Added support for RSASSA-PSS and RSA-OAEP algorithms
+
+---
+September 17, 2005
+Version 4.0.68. Minor update
+
+- [.NET, VCL] (PGP) Fixed a problem with decrypting a file which was both encrypted and signed
+- [All] (SSH) Fixed a couple of minor bugs
+
+---
+August 26, 2005
+Version 4.0.67. Minor update
+
+- [VCL] Fixed a problem with setting the license key in evaluation version
+- [.NET] Fixed minor S/MIME problem with EncryptAndSign operation
+
+---
+August 15, 2005
+Version 4.0.66. Internal build
+
+- [VCL] (SSH) Fixed compatibility with Mocana server
+
+---
+August 15, 2005
+Version 4.0.65. Official release
+
+! MegaBlackbox has been renamed to SecureBlackbox Standard
+! License keys have been changed (.NET and ActiveX editions)
+
++ [.NET, VCL] (PKI) Added OCSP components
+
+---
+July 20, 2005
+Version 4.0.64. Beta version
+
++ [All] (SSL) TLS 1.1 support added
++ [All] (SSL) SimpleSSLClient component added
++ [.NET] (SSH) Added SSH server components
++ [.NET] (SSH) Added SFTP server components
++ [.NET] (MIME) Added DomainKeys for .NET
+
++ [.NET, VCL] (SSL) Added support for cipher renegotiation 
++ [.NET, VCL] (SSL) Added OnError event
++ [.NET, VCL] (PGP) Added RIPEMD and SHA 256/384/512 algorithms support
++ [.NET, VCL] (PKI) Added PKCS#5 and PKCS#8 support
++ [.NET, VCL] (PKI) TElGeneralName class got PermanentIdentifier member (RFC 4043)
+
+- [.NET, VCL] (PGP) fixed a memory leak in decompression
+- [VCL] (PKI) ElAuthenticodeVerifier.RemoveAuthenticode() method didn't work. Fixed.
+- [VCL] (MIME) Fixed DomainKeys canonicalization and signing. 
+
+---
+June 4, 2005
+Version 3.3.63. Internal release.
+
+---
+May 9, 2005
+Version 3.3.62. Minor update
++ [.NET] (PGP) RSA keys didn't work. Fixed.
+
+---
+May 8, 2005
+Version 3.3.61. Minor update
++ [AX] (PKI) Added SystemStores and PhysicalStores to ElWinCertStorage' DLL interface
++ [.NET, VCL] (MIME) Added SecureMail sample that shows how to use PGP/MIME and S/MIME
+* [All] (SSH) Added a workaround for an RSA public key authentication bug in F-Secure SSH server
+* [.NET, VCL] (MIME) Added support for non-S/MIME-compliant messages and messages with broken signature (before they were not unsigned, now they are unsigned with the warning about broken signature)
+
+---
+April 29, 2005
+Version 3.3.60. Minor update
+- [.NET] (MIME) Fixed a bug (introduced in build 59) which caused MIME parser to go to infinite loop
+- [.NET] (SSH) Fixed a bug (introduced in build 59) when SimpleSSHClient didn't work correctly
+- [.NET] (PKI) Fixed a very specific problem with certain Windows Certificate Storage operations failing on storages, other than CurrentUser
+
+---
+April 25, 2005
+Version 3.3.59. Minor update
+
++ [All]  (PKI) Added support for HMAC and AuthenticatedData subtype to PKCS#7 messages
++ [All]  (PKI) Added support for SHA 256/384/512 as a hashing algorithm for ElMessageSigner
++ [.NET, VCL] (SSH) Added CommandList property to CommandSSHTunnel in SSH client
+* [.NET, VCL] (MIME) Parsing speed significantly improved
+* [VCL] (SSH, SFTP) SSH server now supports authentication using several authentication methods at once (using OnFurtherAuthNeeded event)
+* [VCL] (SSH, SFTP) Improved worker loop (in SSH server handlers), which could cause 100% CPU load in certain cases
+* [.NET, VCL] (PGP) Implemented support for old PGP comment packet 
+* [.NET, VCL] (PGP) Implemented support for PGP private/experimental packets 
+* [.NET, VCL] (PGP) ElPGPKeyring class made thread-safe 
+- [All]  (PKI) The library didn't work correctly with keys with integer length, which had a number of bytes, not divisible by 4.
+- [.NET, VCL] (MIME) Fixed an issue with duplicate charset writing of the message part.
+- [.NET, VCL] (MIME) Charset was added/changed also when assemling from source. Fixed.
+- [.NET, VCL] (MIME) SMIME handler didn't handle encrypted multi-part messages. Fixed.
+- [All] (SSH, SFTP) SSH key class was improved to strip leading zeros from key's long integer values
+- [VCL] (SSH, SFTP) SSH server incorrectly reported public-key algorithms, for which it didn't have keys. Fixed.
+- [VCL] (SSH, SFTP) Fixed a problem in SFTP client (which could set) and SFTP server (which didn't understand) file type value of 0. Now FileType of ftFile is always set for default attributes on the client and now 0 is treated as ftFile on the server.
+- [VCL] (SFTP) SFTP server incorrectly handled invalid directory names. Fixed.
+- [VCL] (SFTP) TElSFTPSSHSubsystemHandler.Execute caused 100% CPU load. Fixed.
+- [VCL] (SSH) TElCustomSocketForwardingSSHSubsystemHandler.Execute caused 100% CPU load. Fixed.
+
+
+---
+April 10, 2005
+Version 3.3.58. Minor update
+- [.NET] (All) AES encryption fixed (AES192 and AES256 didn't work due to specifics of .NET assembly linker). 
+
+---
+April 5, 2005
+Version 3.3.57. Minor update
++ [All]  (SSH, SFTP) ElSimple*Client components got SOCKS and WebTunneling support
++ [All]  (SSH, SFTP) ElSimple*Client components support socket timeouts now
++ [All]  (SFTP) DownloadFile and UploadFile methods were added to ElSimple*Client component 
++ [AX]   (All) Helper classes for array transformations and binary file read/write operations were added 
++ [AX]   (SSH) Added support for dynamic tunnels (SSH 2 only)
++ [.NET, VCL] (MIME) EncoderSignTime and DecoderSignTime properties were added to TElMessageHandlerSMIME class
+* [VCL]  (SSL) ICS HTTPS Client has been fixed to work around recent ICS addition, which was made to prevent use of external (to ICS) SSL solutions like SecureBlackbox.
+* [VCL]  (SFTP) Improved compatibility of SFTP server code (and sample) with third-party clients (PuTTY and OpenSSH)
+- [.NET] (PKI) Fixed GetIssuerCertificate method which could produce OutOfRangeException
+- [.NET] (PKI) Fixed X509Certificate.DecryptWin32 metod (the bug which made it impossible to decrypt the data with Windows-contained certificate with non-exportable private key)
+- [.NET] (MIME) Fixed verification of S/MIME signed messages
+- [AX]   (PKI) Wrapper folder (necessary for DLL usage) was missing from PKIBlackbox installation. 
+
+
+---
+Version 3.3.56. Major update
++ [All]  (PKI) Added CRL property to ElCustomCertStorage for easier validation of the certificates
++ [VCL]  (MIME) DomainKeys support added
++ [.NET] (PGP) VB.NET samples for PGP.NET were added. 
++ [.NET] (SSL) RemObjects.InternetPack classes and samples added.
++ [.NET] (SSL) RemObjects SDK.NET samples added.
++ [VCL]  (SSL) NexusDB 2 SSL transport and demo added.
+* [AX]         Controls have been split into new libraries.
+- [.NET] (SSH, SFTP) Use of built-in socket sometimes caused 100% load and dramatic slowdown of operations. Fixed.
+- [.NET] (PKI) Large (over 65K) ASN.1 sequences could not be parsed. This bug mainly affected Certificate Revokation Lists. Fixed. 
+- [.NET] (MIME) Parsing of some multipart messages was done wrong. Fixed.
+- [All]  (SSL) Fixed a problem with client-side certificates in SSL3 (when both SSL3 and TLS1 were enabled with SSL3 being active).
+- [All]  (PKI) TElX509Certificate didn't correctly handle certain PEM files. Fixed.
+- [All]  (PKI) TElMessageDecryptor couldn't decrypt the data with certificate stored in WinCertStorage, if the private key couldn't be exported. Fixed.
+- [VCL]  (SFTP) Various fixes in SFTP server
+
+---
+Version 3.2.55. Minor update
++ [.NET] (PGP) Various PGP.NET bugs fixed.
++ [VCL] (SSH) SSH Server improved.
++ [VCL] (SFTP) SFTP Server added.
++ [All] (PKI) Added PEM format to CRL
++ [All] (PKI) Added a sample for Certificate Request generation
+* [VCL] (SSL) RemObjects demo was updated for RemObjects 3 for VCL
+* [VCL] (SSL) Indy demos (client and server) were updated for Indy 10
+- [.NET, VCL] (MIME) XMailer header was not set in certain cases. Fixed.
+- [All] (SSH, SFTP) if Simple*Client component failed to connect, next connection attempt would fail. Fixed.
+
+---
+Version 3.2.54. Minor update
+
++ [ALL] (SFTP) Added internal socket support to SimpleSSHClient and SimpleSFTPClient components. Now one must not necessarily provide own socket object (although this is possible).
++ [.NET] (PGP) PGP.NET beta is avaialble. Compression doesn't work in this beta.
++ [VCL] (SSH) SSH Server beta is available. Documentation is missing from this beta.
+- [ALL] (PKI) Fixed a memory leak in CRL class.
+

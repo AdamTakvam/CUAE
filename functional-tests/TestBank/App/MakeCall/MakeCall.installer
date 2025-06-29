@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="App_MakeCall_script1" displayName="" format="string" defaultValue="App.MakeCall.script1" readOnly="true" required="true" />
+    <configValue name="S_Hangup" format="String" defaultValue="App.MakeCall.script1.S_Hangup" />
+    <configValue name="S_MakeCall" displayName="" format="String" defaultValue="App.MakeCall.script1.S_MakeCall" />
+    <configValue name="E_Hangup" displayName="" format="String" defaultValue="App.MakeCall.script1.E_Hangup" />
+    <configValue name="S_MakeCallComplete" format="String" defaultValue="App.MakeCall.script1.S_MakeCallComplete" />
+  </configuration>
+</install>

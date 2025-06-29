@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SimpleFTPSDemo", "SimpleFTPSDemo.vbproj", "{E5B73786-F160-462A-BAA4-C0DE414AFFCE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{E5B73786-F160-462A-BAA4-C0DE414AFFCE}.Debug.ActiveCfg = Debug|.NET
+		{E5B73786-F160-462A-BAA4-C0DE414AFFCE}.Debug.Build.0 = Debug|.NET
+		{E5B73786-F160-462A-BAA4-C0DE414AFFCE}.Release.ActiveCfg = Release|.NET
+		{E5B73786-F160-462A-BAA4-C0DE414AFFCE}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

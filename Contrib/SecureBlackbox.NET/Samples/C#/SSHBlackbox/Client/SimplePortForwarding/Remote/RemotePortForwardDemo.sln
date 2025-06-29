@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemotePortForwardDemo", "RemotePortForwardDemo.csproj", "{DAE3981A-B18E-44E5-8DC4-5C1604DBF1B0}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{DAE3981A-B18E-44E5-8DC4-5C1604DBF1B0}.Debug.ActiveCfg = Debug|.NET
+		{DAE3981A-B18E-44E5-8DC4-5C1604DBF1B0}.Debug.Build.0 = Debug|.NET
+		{DAE3981A-B18E-44E5-8DC4-5C1604DBF1B0}.Release.ActiveCfg = Release|.NET
+		{DAE3981A-B18E-44E5-8DC4-5C1604DBF1B0}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

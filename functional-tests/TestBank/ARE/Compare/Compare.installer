@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_Compare_script1" displayName="ARE_Compare_script1" format="string" defaultValue="ARE.Compare.script1" readOnly="true" required="true" />
+    <configValue name="S_CompareResult" displayName="S_CompareResult" format="string" defaultValue="ARE.Compare.script1.S_CompareResult" readOnly="true" required="true" />
+    <configValue name="E_NotEqual" displayName="E_NotEqual" format="string" defaultValue="ARE.Compare.script1.E_NotEqual" readOnly="true" required="true" />
+    <configValue name="S_CompareResultNotEqual" displayName="S_CompareResultNotEqual" format="string" defaultValue="ARE.Compare.script1.S_CompareResultNotEqual" readOnly="true" required="true" />
+  </configuration>
+</install>

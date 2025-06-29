@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="DefaultTest" displayName="DefaultTest" format="String" description="Verify that the QAtype string parse test will reject the string INVALID" defaultValue="VALID" />
+    <configValue name="AssignTest" displayName="AssignTest" format="String" description="Verify that the QAtype string parse test will reject the string INVALID" defaultValue="VALID" />
+  </configuration>
+</install>

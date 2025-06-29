@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPPost", "HTTPPost.csproj", "{2973E598-002D-4A94-8FBD-092A1BF548D4}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Debug.ActiveCfg = Debug|.NET
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Debug.Build.0 = Debug|.NET
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Release.ActiveCfg = Release|.NET
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

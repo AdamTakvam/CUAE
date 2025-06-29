@@ -1,0 +1,40 @@
+1)  User 1 with  no appsuiteadmin defined device, no device in devices file
+2)  User 2 with  no appsuiteadmin defined device, with device in devices file (AAAAAA000000)
+3)  User 3 with  no appsuiteadmin defined device, with device duplicated with user 2 in devices file  (AAAAAA000000)
+4)  User 4 with  no appsuiteadmin defined device, with line number duplicated with user 2 in devices file (AAAAAA000001)
+5)  User 5 with  no appsuiteadmin defined device, with device in devices file with 2 lines (AAAAAA000002)
+6)  User 6 with  no appsuiteadmin defined device, with device in devices file but not in CCM (111111111111)
+7)  User 7 with  no appsuiteadmin defined device, with device in devices file with 0 lines (AAAAAA000003)
+
+8)  User 8 with  a  appsuiteadmin defined device, no device in devices file, no line number defined in apps  (AAAAAA000004)
+9)  User 9 with  a  appsuiteadmin defined device, with equivalent device in devices file, no line in apps (AAAAAA000005)
+10) User 10 with a  appsuiteadmin defined device, with equivalent device in devices file, correct line number (AAAAAA000006)
+11) User 11 with a  appsuiteadmin defined device, with non-equivalent device in devices file (apps:AAAAAA0000010, devices:AAAAAA000007)
+12) User 12 with a  appsuiteadmin defined device, no device in devices file, number shared with virtual device, with rigth line nmumber (SEPAAAAAAA000008)
+13) User 13 with a  appsuiteadmin defined device, with wrong line number, no device in devices file (AAAAAA000009)
+
+
+
+Real Devices:
+
+1)  SEPAAAAAA000000  = 700000
+2)  SEPAAAAAA000001  = 700000
+3)  SEPAAAAAA000002  = 700001, 700002
+4)  SEPAAAAAA000003  = no line
+5)  SEPAAAAAA000004  = 700003
+6)  SEPAAAAAA000005  = 700004
+7)  SEPAAAAAA000006  = 700005
+8)  SEPAAAAAA000007  = 700006
+9)  SEPAAAAAA000008  = 700007
+10) SEPAAAAAA000009  = 700008
+
+
+Virtual Devices:
+
+1)  SEPFFFFFF000002  = 700007
+2)  SEPFFFFFF000004  = no line
+3)  SEPFFFFFF000006  = 700010, 700011
+4)  SEPFFFFFF000020  = 700020
+
+After import
+User 2 has device associated in account

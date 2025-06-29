@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Metreos.Providers.JabberProvider" description="Description of your provider" xmlns="http://metreos.com/ActionEventPackage.xsd">
+  <actionList>
+    <action name="SendChat" type="provider" allowCustomParams="false" final="false" displayName="Action1" description="Performs my action">
+      <actionParam name="Direct" type="System.Boolean" displayName="Direct" use="optional" allowMultiple="false" description="True to send to a single person, false to send to the whole room" />
+      <actionParam name="timeout" type="System.Int32" displayName="Timeout" use="optional" allowMultiple="false" description="Amount of time to wait before AppServer should force the action fail." />
+      <actionParam name="To" type="System.String" displayName="To" use="optional" allowMultiple="false" description="Who to send the message to, if not to the whole room" />
+      <actionParam name="Body" type="System.String" displayName="Body" use="required" allowMultiple="false" description="The body of the message" />
+      <returnValue>
+        <EnumItem>Success</EnumItem>
+        <EnumItem>Failure</EnumItem>
+        <EnumItem>Timeout</EnumItem>
+      </returnValue>
+    </action>
+  </actionList>
+  <eventList>
+    <event name="BotCommand" type="triggering" displayName="Bot Command" description="A command has been issued to the bot">
+      <eventParam name="Full XML Body" type="System.String" displayName="Full XML Body" guaranteed="true" description="Full body of message" />
+      <eventParam name="Nick" type="System.String" displayName="Nick" guaranteed="true" description="Nick of user issuing command" />
+      <eventParam name="Type" type="System.String" displayName="Type" guaranteed="true" description="Type of message" />
+      <eventParam name="Command" type="System.String" displayName="Command" guaranteed="true" description="Body of message" />
+    </event>
+  </eventList>
+</package>

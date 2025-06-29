@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="testbed" default = "run_initial_db" basedir=".">
+
+	<property file="testbed.properties"/>
+	<target name="jdbc_details">
+
+		<property name="jdbcURL" value="jdbc:mysql://${testbed.appserver_ipaddress}:${testbed.db_port}/${testbed.appserver_mysql_dbname}" />
+		
+		<!-- Jdbc path -->
+		<property name="testbed.jdbc_path" value="${testbed.jdbc_path}" />
+		
+		<!-- Jdbc classpath -->
+		<property name="jdbcClasspath" value="com.mysql.jdbc.Driver" />
+	</target>
+	<target name = "intial_db">
+		<!--Build Path -->
+		<property name = "testbed.buildpath" value = "${testbed.buildpath}" />
+		<echo>${testbed.buildpath}</echo>
+		
+		<!--Build Version-->
+		<property name = "testbed.build" value = "${testbed.build}" />
+		<echo>${testbed.build}</echo>
+		
+		<!--Appserver's IP address-->
+		<property name = "testbed.appserver_ipaddress" value = "${testbed.appserver_ipaddress}" />
+		<echo>${testbed.appserver_ipaddress}</echo>
+		
+		<!--Media Server's IP address-->
+		<property name = "testbed.mediaserver_ipaddress" value = "${testbed.mediaserver_ipaddress}" />
+		<echo>${testbed.mediaserver_ipaddress}</echo>
+		
+		<!--CallManager system's IP address-->
+		<property name = "testbed.ccmserver.ipaddress" value = "${testbed.ccmserver.ipaddress}" />
+		<echo>${testbed.ccmserver.ipaddress}</echo>
+		
+		<!--Application server administrater-->
+		<property name = "testbed.appserver_admin" value = "${testbed.appserver_admin}" />
+		<echo>${testbed.appserver_admin}</echo>
+		
+		<!--Application server administrator password-->
+		<property name = "testbed.appserver_password" value = "${testbed.appserver_password}" />
+		<echo>${testbed.appserver_password}</echo>
+		
+		<!--Mysql database name that application server is using-->
+		<property name = "testbed.appserver_mysql_dbname" value = "${testbed.appserver_mysql_dbname}" />
+		<echo>${testbed.appserver_mysql_dbname}</echo>
+		
+		<!--Mysql database username-->
+		<property name = "testbed.appserver_mysql_username" value = "${testbed.appserver_mysql_username}" />
+		<echo>${testbed.appserver_mysql_username}</echo>
+		
+		<!--Mysql database password-->
+		<property name = "testbed.appserver_mysql_password" value = "${testbed.appserver_mysql_password}" />
+		<echo>${testbed.appserver_mysql_password}</echo>
+
+		<!-- Database connecting port-->
+		<property name="testbed.db_port" value="${testbed.db_port}" />
+		<echo>${testbed.intial_db_script}</echo>
+		
+		<!--Call manager system's administrator-->
+		<property name = "testbed.ccmadmin_username" value = "${testbed.ccmadmin_username}" />
+		<echo>${testbed.ccmadmin_username}</echo>
+		
+		<!--Call manager system Administrator's password-->
+		<property name = "testbed.ccmadmin_password" value = "${testbed.ccmadmin_password}" />
+		<echo>${testbed.ccmadmin_password}</echo>
+
+		<!-- Directory where intial db scritps reside -->
+		<property name="scriptPath" value="${testbed.intial_db_script}" />
+		<echo>${testbed.intial_db_script}</echo>
+		
+	</target>
+
+	<target name="run_initial_db" depends="jdbc_details,intial_db">
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			<transaction src="${scriptPath}" />
+		</sql>
+	</target>
+
+	<!-- For adding telephony server CCM details in the db -->
+	<target name="telephony_servers_ccm" depends="jdbc_details">
+		
+		<property name="telephony_server_ccm_name" value="${testbed.telephony_server_ccm_name}" />
+		<property name="telephony_server_ccm_version" value="${testbed.telephony_server_ccm_version}" />
+		<property name="telephony_server_ccm_address" value="${testbed.telephony_server_ccm_publisher_address}" />
+		<property name="telephony_server_ccm_administrator" value="${testbed.telephony_server_ccm_adminstrator}" />
+		<property name="telephony_server_ccm_password" value="${testbed.telephony_server_ccm_administrator_password}" />
+		<property name="telephony_server_ccm_db_snmp_community" value="${testbed.telephony_server_ccm_snmp_community}" />
+		<property name="telephony_server_ccm_description" value="${testbed.telephony_server_ccm_description}" />
+		<property name="testbed.telephony_server_ccm_db_script" value="${testbed.telephony_server_ccm_db_script}" />
+		
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			
+			<transaction src="${testbed.telephony_server_ccm_db_script}" />
+		</sql>
+	</target>
+
+	<!-- For adding telephony server SIP domain in the db -->
+	<target name="telephony_servers_sip_domain" depends="jdbc_details">
+		
+		<property name="telephony_server_sip_domain_name" value="${testbed.telephony_server_sip_domain_name}" />
+		<property name="telephony_server_sip_primary_registrar" value="${testbed.telephony_server_sip_primary_registrar}" />
+		<property name="telephony_server_sip_secondary_registrar" value="${testbed.telephony_server_sip_secondary_registrar}" />
+		<property name="telephony_server_sip_outbound_proxy" value="${testbed.telephony_server_sip_outbound_proxy}" />
+	
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			
+			<transaction src="${testbed.telephony_server_sip_domain_db_script}" />
+		</sql>
+	</target>
+
+	<!-- For adding Media Engine details in the db -->
+	<target name="media_engine" depends="jdbc_details">
+		
+		<property name="mediaengine_name" value="${testbed.mediaengine_name}" />
+		<property name="component_type" value="${testbed.mediaengine_component_type}" />
+		<property name="mediaengine_status" value="${testbed.mediaengine_status}" />
+		<property name="mediaengine_ip_address" value="${testbed.mediaengine_address}" />
+		<property name="mediaengine_password" value="${testbed.mediaengine_password}" />
+		<property name="connect_type" value="${testbed.mediaengine_connect_type}" />
+		
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			
+			<transaction src="${testbed.mediaengine_db_script}" />
+		</sql>
+	</target>
+
+	<!-- For adding H323 Gateway details in the db -->
+	<target name="h323_gateway" depends="jdbc_details">
+		
+		<property name="h323_name" value="${testbed.h323_name}" />
+		<property name="component_type" value="${testbed.h323_component_type}" />
+		<property name="h323_description" value="${testbed.h323_description}" />
+		<property name="h323_ip_address" value="${testbed.h323_address}" />
+		<property name="h323_addtogroup" value="${testbed.h323_addtogroup}" />
+		<property name="connect_type" value="${testbed.h323_component_type}" />
+		
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			
+			<transaction src="${testbed.h323_db_script}" />
+		</sql>
+	</target>
+
+	<!-- For adding SCCP subscriber details in the db -->
+	<target name="sccp_subscriber" depends="jdbc_details,telephony_servers_ccm">
+		
+		<property name="sccp_name" value="${testbed.sccpsubscriber_name}" />
+		<property name="sccp_address" value="${testbed.sccpsubscriber_address}" />
+				
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			
+			<transaction src="${testbed.sccp_db_script}" />
+		</sql>
+	</target>
+
+	<!-- For adding SCCP device pool details in the db -->
+	<target name="sccp_devicepool" depends="jdbc_details,sccp_subscriber">
+		
+		<property name="sccp_devicepool_name" value="${testbed.sccppool_name}" />
+		<property name="primary_subscriber" value="${testbed.sccpsubscriber_name}" />
+		<property name="secondary_subscriber" value="${testbed.sccppool_secondary_subscriber}" />
+		<property name="teritiary_subscriber" value="${testbed.sccppool_tertiary_subscriber}" />
+		<property name="quaternary_subscriber" value="${testbed.sccppool_quaternary_subscriber}" />
+		<property name="sccppool_type" value="${testbed.sccppool_component_type}" />
+		<property name="sccppool_version" value="${testbed.sccppool_version}" />
+		<property name="srst" value="${testbed.sccppool_srst}" />
+		<property name="sccp_devicepool_status" value="${testbed.sccppool_status}" />
+		<property name="sccppool_description" value="${testbed.sccppool_description}" />
+		<property name="addtogroup" value="${testbed.sccppool_addtogroup}" />
+		<property name="telephony_server_ccm_name" value="${testbed.telephony_server_ccm_name}" />
+		<property name="telephony_server_ccm_address" value="${testbed.telephony_server_ccm_publisher_address}" />
+		<property name="sccp_name" value="${testbed.sccpsubscriber_name}" />
+		<property name="sccp_address" value="${testbed.sccpsubscriber_address}" />
+		 
+				
+		<sql driver="${jdbcClasspath}" url="${jdbcURL}" userid="${testbed.appserver_mysql_username}" password="${testbed.appserver_mysql_password}">
+			<classpath>
+				<pathelement path="${testbed.jdbc_path}" />
+			</classpath>
+			
+			<transaction src="${testbed.sccp_pool_db_script}" />
+		</sql>
+	</target>
+
+</project>

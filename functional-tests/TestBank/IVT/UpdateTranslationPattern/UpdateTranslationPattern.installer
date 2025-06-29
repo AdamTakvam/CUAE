@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_UpdateTranslationPattern_script1" displayName="" format="String" defaultValue="IVT.UpdateTranslationPattern.script1" />
+    <configValue name="S_UpdateTranslationPatternResponse" format="String" defaultValue="IVT.UpdateTranslationPattern.script1.S_UpdateTranslationPatternResponse" readOnly="false" />
+  </configuration>
+</install>

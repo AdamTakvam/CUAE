@@ -1,0 +1,1 @@
+This is the part of DomainKeys sample, which creates public and private keys for DNS record.

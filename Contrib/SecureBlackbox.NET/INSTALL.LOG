@@ -1,0 +1,1288 @@
+***  Installation Started 12/05/2006 11:15  ***
+Title: SecureBlackbox.NET Installation
+Source: C:\DOCUME~1\ACHANE~1.ADA\LOCALS~1\Temp\GLBB24.tmp | 12-05-2006 | 11:15:38 | 71680
+Made Dir: C:\Program Files\EldoS
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: SecureBlackbox.NET
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: SecureBlackbox.NET
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: C:\PROGRA~1\EldoS\SECURE~1.NET\UNWISE.EXE C:\PROGRA~1\EldoS\SECURE~1.NET\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\SECURE~1.NET\UNWISE.EXE C:\SECURE~1.NET\INSTALL.LOG
+File Tree: C:\Program Files\EldoS\SecureBlackbox.NET\Help\H2Reg_Log.txt
+Execute Program: C:\Program Files\EldoS\SecureBlackbox.NET\Help\H2Reg.exe -u "cmdfile=C:\Program Files\EldoS\SecureBlackbox.NET\Help\H2reg.ini"
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.Charsets
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.PKI
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.PGP
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.PGPMIME
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.MIME
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SMIME
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSLCommon
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSLClient
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSLServer
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSLSocket
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.FTPS
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.HTTP
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSHCommon
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSHClient
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SSHServer
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SFTPCommon
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SFTP
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.SFTPServer
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.PDF
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\SDK\v1.1\\Bin\gacutil.exe -u Secureblackbox.XML
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\LicenseKey.der | 01-13-2006 | 15:35:26 | | 512 | e25560fb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\styles.css | 07-12-2006 | 16:46:28 | | 8028 | 509975bb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\changes.txt | 07-20-2006 | 12:36:42 | | 23461 | 31ad1340
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\readme.html | 07-12-2006 | 16:46:28 | | 11428 | 46ce259c
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Certificates
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Certificates\cert.cer | 07-29-2004 | 14:42:00 | | 581 | 69fcd79c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Certificates\cert.key | 07-29-2004 | 14:42:00 | | 607 | 9731b0ca
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Certificates\cert.pem | 07-29-2004 | 14:42:00 | | 1776 | 32ade56e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Certificates\cert.pfx | 07-29-2004 | 14:42:00 | | 1621 | 2a8fc069
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Certificates\cert.res | 04-12-2005 | 20:50:58 | | 1708 | 6f296cdc
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\password.txt | 12-13-2005 | 10:26:40 | | 61 | 16004ce
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\private.ietf | 12-13-2005 | 10:26:40 | | 862 | bca9f976
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\private.openssh | 02-07-2006 | 11:22:10 | | 981 | a600a22f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\private.putty | 02-07-2006 | 11:22:10 | | 857 | 322390da
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\public.ietf | 12-13-2005 | 10:26:42 | | 276 | ab33f7dd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\public.openssh | 02-07-2006 | 11:22:10 | | 214 | 933576d7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SSHKeys\public.putty | 12-13-2005 | 10:26:42 | | 276 | ab33f7dd
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\PGPKeys
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\PGPKeys\password.txt | 12-13-2005 | 10:26:40 | | 61 | 16004ce
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\PGPKeys\secbbox.pkr | 04-12-2006 | 19:19:28 | | 2777 | 3c3eddd0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\PGPKeys\secbbox.skr | 04-12-2006 | 19:19:28 | | 3772 | 194c16cd
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Help
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.chm | 07-08-2006 | 15:35:28 | | 3538382 | 2a5c136c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.HxA | 07-08-2006 | 15:48:02 | | 402 | 10d445f1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.HxC | 07-08-2006 | 15:48:02 | | 1349 | 2d356c4c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.HxI | 07-08-2006 | 15:48:54 | 0.0.0.0 | 194476 | 321597d7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.HxS | 07-08-2006 | 15:48:54 | 0.0.0.0 | 2823646 | df4d85bf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.HxT | 07-08-2006 | 15:48:02 | | 327 | c1d2e535
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox_A.HxK | 07-08-2006 | 15:48:02 | | 260 | 5f9c296b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox_F.HxK | 07-08-2006 | 15:48:02 | | 260 | 198e0dfe
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox_K.HxK | 07-08-2006 | 15:48:02 | | 258 | 618ade0b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\H2reg.ini | 07-08-2006 | 15:48:02 | | 4098 | c94f4ce3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Help\H2Reg.exe | 09-26-2003 | 00:33:18 | 1.3.6.0 | 182272 | ce8a99d6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.Charsets.dll | 08-24-2006 | 06:36:48 | 4.4.0.94 | 540160 | 8c532c3a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.dll | 08-24-2006 | 06:36:48 | 4.4.0.94 | 941568 | 1b7ac27e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.FTPS.dll | 08-24-2006 | 06:36:54 | 4.4.0.94 | 46592 | e5c7ff0e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.HTTP.dll | 08-24-2006 | 06:36:56 | 4.4.0.94 | 58880 | 8ab7f938
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.MIME.dll | 08-24-2006 | 06:36:58 | 4.4.0.94 | 181248 | 4dea6e63
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PDF.dll | 08-24-2006 | 06:36:52 | 4.4.0.94 | 232960 | c4f6715a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PGP.dll | 08-24-2006 | 06:36:50 | 4.4.0.94 | 393728 | 6e21d24c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PGPMIME.dll | 08-24-2006 | 06:37:00 | 4.4.0.94 | 31232 | b5c5dd6e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PKI.dll | 08-24-2006 | 06:36:50 | 4.4.0.94 | 571904 | 762e4dc1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTP.dll | 08-24-2006 | 06:36:58 | 4.4.0.94 | 88064 | 1613dc63
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPCommon.dll | 08-24-2006 | 06:36:58 | 4.4.0.94 | 93184 | 62214d64
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPServer.dll | 08-24-2006 | 06:36:58 | 4.4.0.94 | 55296 | dcfc241f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SMIME.dll | 08-24-2006 | 06:37:00 | 4.4.0.94 | 50176 | c6fb06d2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHClient.dll | 08-24-2006 | 06:36:56 | 4.4.0.94 | 194560 | 747ec796
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHCommon.dll | 08-24-2006 | 06:36:56 | 4.4.0.94 | 391680 | c494d71d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHServer.dll | 08-24-2006 | 06:36:56 | 4.4.0.94 | 123392 | 7af93aa0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLClient.dll | 08-24-2006 | 06:36:54 | 4.4.0.94 | 154112 | 597df5a3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLCommon.dll | 08-24-2006 | 06:36:52 | 4.4.0.94 | 43520 | 81be5e20
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLServer.dll | 08-24-2006 | 06:36:54 | 4.4.0.94 | 124416 | 8b75b3a3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLSocket.dll | 08-24-2006 | 06:37:40 | 4.4.0.94 | 36864 | 25bc44eb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.XML.dll | 08-24-2006 | 06:36:52 | 4.4.0.94 | 353792 | d2e383ce
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\AboutForm.cs | 12-02-2005 | 17:15:40 | | 3542 | a9b92db6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\AboutForm.resx | 12-02-2005 | 17:15:40 | | 8667 | 334ec3f1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\App.ico | 12-02-2005 | 13:22:10 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\AssemblyInfo.cs | 12-02-2005 | 13:22:10 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\ConnPropsForm.cs | 12-02-2005 | 16:35:52 | | 15010 | 364443d5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\ConnPropsForm.resx | 12-02-2005 | 16:35:52 | | 22221 | eab0b98f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\MainWin.cs | 01-09-2006 | 16:42:44 | | 27683 | cea1981b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\MainWin.resx | 12-21-2005 | 00:14:50 | | 23608 | 35b226ee
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\SimpleFTPSDemo.csproj | 02-15-2006 | 19:08:20 | | 6135 | ea799c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\SimpleFTPSDemo.sln | 12-02-2005 | 13:22:10 | | 913 | fab6dc48
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\SimpleFTPSDemo_VS2005.csproj | 02-17-2006 | 01:00:22 | | 5357 | 1729fa26
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\FTPSBlackbox\Client\SimpleFTPSDemo_VS2005.sln | 02-17-2006 | 01:00:22 | | 925 | 7ae31ba0
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\App.ico | 01-23-2006 | 16:08:14 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\AssemblyInfo.cs | 01-23-2006 | 16:08:14 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\GetMain.cs | 01-23-2006 | 21:08:46 | | 13360 | 1a8b6f78
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\GetMain.resx | 01-23-2006 | 20:50:24 | | 14859 | 61690cc0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\HTTPSGet.csproj | 02-15-2006 | 14:31:26 | | 5247 | c3ef5b87
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\HTTPSGet.sln | 02-17-2006 | 00:35:16 | | 901 | c075328
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\HTTPSGet_VS2005.csproj | 02-16-2006 | 23:39:16 | | 4868 | 8b301cf4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPGet\HTTPSGet_VS2005.sln | 02-16-2006 | 23:39:16 | | 913 | 4153a952
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\App.ico | 01-23-2006 | 20:28:32 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\AssemblyInfo.cs | 01-23-2006 | 20:28:32 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\HTTPPost.csproj | 02-15-2006 | 14:31:02 | | 5247 | 9b9ca61a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\HTTPPost.sln | 01-23-2006 | 20:28:32 | | 901 | defd2cd3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\HTTPPost_VS2005.csproj | 02-16-2006 | 23:36:50 | | 4868 | 25ae4850
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\HTTPPost_VS2005.sln | 02-16-2006 | 23:36:50 | | 913 | c12c14ed
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\MainWin.cs | 01-23-2006 | 23:46:58 | | 8037 | 5efc850a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\MainWin.resx | 01-23-2006 | 23:27:02 | | 11520 | 36a6c87f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\HTTPBlackbox\HTTPPost\readme.txt | 01-23-2006 | 23:26:26 | | 361 | 72837c01
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS\App.ico | 02-18-2006 | 01:19:56 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS\AssemblyInfo.cs | 09-24-2005 | 01:58:50 | | 2492 | d12125dc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS\DomainKeysDNS.csproj | 11-02-2005 | 18:02:08 | | 4893 | 4c379c7b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS\frmMain.cs | 05-16-2006 | 19:47:30 | | 16554 | 34bd348d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS\frmMain.resx | 10-18-2005 | 12:04:28 | | 20197 | 4c4cf24e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\DomainKeys\DNS\readme.txt | 11-02-2005 | 17:58:18 | | 92 | 2faf430b
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\App.ico | 03-20-2005 | 19:36:28 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\AssemblyInfo.cs | 03-20-2005 | 19:36:28 | | 2415 | 323afad
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\Form1.cs | 01-11-2006 | 21:51:34 | | 55330 | 1e66ec2c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\Form1.resx | 03-21-2005 | 11:43:14 | | 44145 | b3ac6119
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\MimeMaker.csproj | 05-29-2006 | 18:27:30 | | 5706 | 9b57b1b2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\MimeMaker.sln | 03-20-2005 | 19:36:30 | | 903 | d642efee
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\MimeMaker_VS2005.csproj | 05-29-2006 | 18:37:18 | | 5061 | b6024aa7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\MimeMaker_VS2005.sln | 02-17-2006 | 01:27:28 | | 915 | fdd5fd0f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\PasswordRequestForm.cs | 03-21-2005 | 02:45:00 | | 3528 | 3745711
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\PasswordRequestForm.resx | 03-21-2005 | 02:45:00 | | 8692 | b1672738
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Maker\readme.txt | 03-17-2005 | 22:05:52 | | 114 | bc792e52
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\App.ico | 05-07-2005 | 19:39:26 | | 4398 | d29a438c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\AssemblyInfo.cs | 05-07-2005 | 19:39:28 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\PassRequestForm.cs | 05-07-2005 | 19:39:28 | | 4780 | 3f616292
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\PassRequestForm.resx | 05-07-2005 | 19:39:28 | | 9258 | 9c3c6a9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\SecureMail.csproj | 05-29-2006 | 18:28:16 | | 6527 | 9b0526ae
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\SecureMail.sln | 05-07-2005 | 19:39:28 | | 905 | a2d16091
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\SecureMailWin.cs | 02-17-2006 | 01:46:52 | | 95158 | 24a99dd8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\SecureMailWin.resx | 05-07-2005 | 19:39:28 | | 216404 | 739751f9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\SecureMail_VS2005.csproj | 05-29-2006 | 18:37:48 | | 5654 | 644586b9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\SecureMail_VS2005.sln | 02-17-2006 | 01:46:28 | | 917 | 32a01d03
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\StringQueryForm.cs | 05-07-2005 | 19:39:28 | | 4078 | 6f1c22c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\SecureMail\StringQueryForm.resx | 05-07-2005 | 19:39:28 | | 15538 | 541b5801
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\App.ico | 04-09-2004 | 14:52:40 | | 1406 | e9c118a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\AssemblyInfo.cs | 04-09-2004 | 14:52:38 | | 2415 | 323afad
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\EldoS MIMEBlackbox Demo.asc | 05-16-2005 | 13:04:14 | | 3412 | 31620d6e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer.cs | 01-11-2006 | 21:51:34 | | 40320 | c6c3822d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer.csproj | 05-29-2006 | 18:27:54 | | 8961 | 3e623eb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer.resx | 04-16-2004 | 19:04:50 | | 17022 | 3b1adcf5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer.sln | 03-20-2005 | 14:52:06 | | 1193 | 8146c8cd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_Binary.cs | 04-29-2005 | 23:35:20 | | 23510 | e340bcbf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_Binary.resx | 04-16-2004 | 19:04:50 | | 20714 | 6772066a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_CertDetails.cs | 05-16-2005 | 13:04:14 | | 26555 | b70842d7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_CertDetails.resx | 05-16-2005 | 13:04:16 | | 26824 | e476a92c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_Options.cs | 03-20-2005 | 18:57:14 | | 13186 | b203913f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_Options.resx | 04-09-2004 | 14:52:38 | | 15160 | b96b6485
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_OptionsPGPMime.cs | 05-16-2005 | 13:04:16 | | 15754 | 55b72311
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_OptionsPGPMime.resx | 05-16-2005 | 13:04:16 | | 21158 | 92a85412
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_OptionsSMime.cs | 05-16-2005 | 13:04:16 | | 18035 | 3c60acc9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_OptionsSMime.resx | 05-16-2005 | 13:04:16 | | 16980 | 9a9a40e7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_PlugControl.cs | 11-18-2005 | 15:37:36 | | 18892 | bc7cc3fc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_PlugControl.resx | 04-09-2004 | 14:52:38 | | 6380 | 34f52adf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_SMime.cs | 05-16-2005 | 13:04:16 | | 11158 | 82946ecd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_SMime.resx | 05-16-2005 | 13:04:16 | | 13673 | 7ffa2e98
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_VS2005.csproj | 05-29-2006 | 18:37:34 | | 7044 | 29ee0855
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\MimeViewer_VS2005.sln | 02-17-2006 | 01:43:46 | | 917 | 3c141443
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\PassRequestForm.cs | 05-16-2005 | 13:04:16 | | 4780 | 5b7c55a3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\PassRequestForm.resx | 05-16-2005 | 13:04:16 | | 9258 | 9c3c6a9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\readme.txt | 03-17-2005 | 22:12:08 | | 83 | 8fb17c5e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\StringQueryForm.cs | 05-16-2005 | 13:04:16 | | 4078 | 64672f74
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\MIMEBlackbox\Viewer\StringQueryForm.resx | 05-16-2005 | 13:04:16 | | 15538 | 541b5801
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\AssemblyInfo.cs | 12-13-2005 | 23:54:02 | | 2781 | da07da16
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\Global.asax | 12-13-2005 | 23:54:02 | | 74 | 90cdb3a1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\Global.asax.cs | 12-13-2005 | 23:54:02 | | 1444 | f4e3365f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\Global.asax.resx | 12-13-2005 | 23:54:02 | | 1733 | cee2cd6f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\MainForm.aspx | 12-13-2005 | 23:54:02 | | 3522 | 1ffe22f7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\MainForm.aspx.cs | 05-16-2006 | 21:17:16 | | 11772 | 5787b68c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\MainForm.aspx.resx | 12-13-2005 | 23:54:02 | | 5317 | d0c630e2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\PDFDemo.csproj | 12-13-2005 | 23:54:02 | | 6262 | d154f5c7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\PDFDemo.csproj.webinfo | 12-13-2005 | 23:54:02 | | 112 | 3b4c01d0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\readme.txt | 01-12-2006 | 20:57:00 | | 234 | 8dac6dec
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\Web.config | 12-13-2005 | 23:54:02 | | 4445 | f302136b
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\ASPNet\files
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\App.ico | 08-29-2005 | 19:01:16 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\AssemblyInfo.cs | 08-29-2005 | 19:01:16 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\Form1.cs | 05-16-2006 | 21:17:08 | | 21472 | 10ad2a74
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\Form1.resx | 10-18-2005 | 12:04:28 | | 20286 | c40d45c3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\readme.txt | 11-04-2005 | 20:11:52 | | 94 | c7d9f509
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\TinyEncryptor.csproj | 10-22-2005 | 19:51:04 | | 5659 | 451ec144
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\TinyEncryptor_VS2005.csproj | 02-17-2006 | 00:06:18 | | 4887 | 31775092
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Encryptor\TinyEncryptor_VS2005.sln | 02-17-2006 | 00:06:32 | | 928 | 82b25dd7
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\App.ico | 08-29-2005 | 19:02:20 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\AssemblyInfo.cs | 08-29-2005 | 19:02:20 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\EncPropsForm.cs | 10-22-2005 | 19:51:04 | | 7877 | 42db185f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\EncPropsForm.resx | 08-29-2005 | 19:02:20 | | 12226 | 6c3f4fcd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\Form1.cs | 01-11-2006 | 21:51:30 | | 11961 | f3e5b642
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\Form1.resx | 10-18-2005 | 12:04:28 | | 11045 | 4431958f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\PasswordRequestForm.cs | 10-22-2005 | 19:51:04 | | 3942 | 1c70efd2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\PasswordRequestForm.resx | 10-22-2005 | 19:51:04 | | 8692 | 47bc9783
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\readme.txt | 11-04-2005 | 20:12:36 | | 161 | 410ebb55
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\SigPropsForm.cs | 02-15-2006 | 02:24:56 | | 9967 | 7fec830c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\SigPropsForm.resx | 10-21-2005 | 18:03:02 | | 13837 | f084f0d6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\TinyProcessor.csproj | 02-17-2006 | 00:09:28 | | 6040 | a6636eb9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\TinyProcessor_VS2005.csproj | 02-17-2006 | 00:09:44 | | 5071 | 5ed130c2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Processor\TinyProcessor_VS2005.sln | 02-17-2006 | 00:07:40 | | 928 | 75d4a265
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\App.ico | 08-29-2005 | 19:03:40 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\AssemblyInfo.cs | 08-29-2005 | 19:03:40 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\Form1.cs | 05-16-2006 | 21:17:12 | | 21729 | 5fe4f12b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\Form1.resx | 02-15-2006 | 02:24:56 | | 22457 | 18f6d73
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\readme.txt | 11-04-2005 | 20:12:06 | | 103 | 6ce8c0e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\TinySigner.csproj | 02-17-2006 | 00:10:42 | | 4991 | 1cd4c77f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\TinySigner.sln | 05-25-2006 | 14:36:30 | | 905 | f30df31b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\TinySigner_VS2005.csproj | 02-17-2006 | 00:11:32 | | 4607 | 661de05a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PDFBlackbox\Signer\TinySigner_VS2005.sln | 02-17-2006 | 00:11:56 | | 922 | 7796005b
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\AssemblyInfo.cs | 12-13-2005 | 02:20:12 | | 2781 | da07da16
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Default.aspx | 12-13-2005 | 02:20:12 | | 3349 | 224e0802
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Default.aspx.cs | 07-08-2006 | 18:09:16 | | 9007 | e6311483
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Default.aspx.resx | 12-13-2005 | 02:20:12 | | 5317 | d0c630e2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Global.asax | 12-13-2005 | 02:20:12 | | 74 | 1344d595
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Global.asax.cs | 12-13-2005 | 02:20:12 | | 1444 | fcd7e731
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Global.asax.resx | 12-13-2005 | 02:20:12 | | 1733 | cee2cd6f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\PGPDemo.csproj | 12-13-2005 | 02:20:12 | | 6513 | 6751e5c3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\PGPDemo.csproj.webinfo | 12-13-2005 | 02:20:12 | | 112 | d880255e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\PGPDemo.sln | 07-08-2006 | 13:58:30 | | 924 | ab5e45a8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\readme.txt | 01-12-2006 | 21:01:56 | | 380 | 6738a5b7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\Web.config | 12-13-2005 | 02:20:12 | | 4445 | f302136b
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\files
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\files\fake | 01-12-2006 | 21:10:52 | | 18 | 1eb6cad6
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\keys
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\ASPNet\keys\fake | 01-12-2006 | 21:10:52 | | 18 | 1eb6cad6
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\App.ico | 01-13-2005 | 14:08:02 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\AssemblyInfo.cs | 01-13-2005 | 14:08:02 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\Form1.cs | 07-14-2006 | 19:02:44 | | 54093 | 70f506f1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\Form1.resx | 05-07-2005 | 20:55:46 | | 51320 | d6511212
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\PassRequestForm.cs | 03-06-2005 | 12:18:04 | | 4782 | 19786245
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\PassRequestForm.resx | 03-06-2005 | 12:18:04 | | 9258 | 9c3c6a9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\PGPFilesDemo.csproj | 07-14-2006 | 19:00:54 | | 5613 | a308e626
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\PGPFilesDemo.sln | 02-04-2005 | 22:12:54 | | 909 | 184ca909
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\PGPFilesDemo_VS2005.csproj | 07-14-2006 | 19:02:04 | | 4844 | aa5f30f5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\PGPFilesDemo_VS2005.sln | 02-17-2006 | 00:15:52 | | 921 | 2e0df9b7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\readme.txt | 03-17-2005 | 01:46:28 | | 136 | c0f83b35
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\SignaturesForm.cs | 03-06-2005 | 12:19:14 | | 4709 | 71f71703
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPFiles\SignaturesForm.resx | 03-06-2005 | 12:19:14 | | 7801 | 864d1da0
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\AboutForm.cs | 03-06-2005 | 00:59:56 | | 3645 | ee6c44b5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\AboutForm.resx | 03-06-2005 | 00:59:54 | | 8669 | 39c727f4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\App.ico | 01-13-2005 | 14:10:36 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\AssemblyInfo.cs | 01-13-2005 | 14:10:36 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\Form1.cs | 02-19-2006 | 14:17:54 | | 34874 | fec8e94a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\Form1.resx | 03-01-2005 | 21:15:02 | | 37399 | 74fd515b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\GenerateKeyForm.cs | 03-06-2005 | 03:07:40 | | 20438 | 75f8b43f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\GenerateKeyForm.resx | 03-06-2005 | 01:12:16 | | 28206 | 501306c6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\ImportKeyForm.cs | 03-06-2005 | 01:12:06 | | 3689 | 217a19ce
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\ImportKeyForm.resx | 03-06-2005 | 01:12:06 | | 8669 | 70af0781
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\LoadSaveKeyringForm.cs | 03-06-2005 | 01:12:40 | | 6672 | 6d303d25
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\LoadSaveKeyringForm.resx | 03-06-2005 | 01:12:40 | | 12254 | 86561ed7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\PassphraseRequestForm.cs | 03-06-2005 | 01:12:22 | | 3563 | 8fa2b73f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\PassphraseRequestForm.resx | 03-06-2005 | 01:12:22 | | 8691 | b786fec1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\PGPKeysDemo.csproj | 07-20-2006 | 11:23:26 | | 7847 | fe0c92e1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\PGPKeysDemo.sln | 02-04-2005 | 22:17:40 | | 907 | 7b2f7ae7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\PGPKeysDemo_VS2005.csproj | 07-20-2006 | 11:23:26 | | 6112 | 954abd86
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\PGPKeysDemo_VS2005.sln | 02-17-2006 | 00:20:12 | | 919 | 73ec57bb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\readme.txt | 03-17-2005 | 01:47:26 | | 120 | da446b4a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\SelectKeyForm.cs | 03-06-2005 | 01:12:30 | | 4928 | 31219be
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\SelectKeyForm.resx | 03-06-2005 | 01:12:30 | | 9075 | 741c2ff
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PGPBlackbox\PGPKeys\Utils.cs | 03-06-2005 | 01:12:42 | | 3919 | dbc1f598
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertDemo
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\App.ico | 01-30-2005 | 02:40:34 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\AssemblyInfo.cs | 01-30-2005 | 02:40:34 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\CertReqDemo.csproj | 07-20-2006 | 11:23:28 | | 4877 | ee32adc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\CertReqDemo.sln | 01-30-2005 | 02:40:34 | | 907 | 6b1a2246
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\CertReqDemo_VS2005.csproj | 07-20-2006 | 11:23:28 | | 4456 | 5ba2e138
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\CertReqDemo_VS2005.sln | 02-17-2006 | 00:21:42 | | 919 | b32abcb7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\CSRDemoForm.cs | 01-11-2006 | 21:51:32 | | 28249 | eca12788
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\CSRDemoForm.resx | 02-04-2005 | 17:52:10 | | 33096 | b3abe3a5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\CertReqDemo\readme.txt | 03-17-2005 | 01:02:02 | | 271 | dc59e7a6
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\App.ico | 05-27-2004 | 14:31:12 | | 4398 | d29a438c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\AssemblyInfo.cs | 05-27-2004 | 14:31:12 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\MessagesDemo.csproj | 05-27-2004 | 21:49:06 | | 5506 | 76a71a9a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\MessagesDemo.sln | 04-18-2004 | 00:52:28 | | 909 | b3b0c0f4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\MessagesDemoMain.cs | 01-11-2006 | 21:51:30 | | 52250 | 79566667
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\MessagesDemoMain.resx | 04-25-2005 | 01:14:32 | | 216578 | 7772157
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\MessagesDemo_VS2005.csproj | 02-16-2006 | 23:41:34 | | 4539 | fcbbb62
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\MessagesDemo_VS2005.sln | 02-20-2006 | 00:16:22 | | 914 | c0c3ff92
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\readme.txt | 03-17-2005 | 01:06:28 | | 250 | 85eaa5bb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\StringQueryForm.cs | 05-27-2004 | 14:31:12 | | 4080 | 284b1f05
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\StringQueryForm.resx | 05-27-2004 | 14:31:12 | | 15542 | 53c72623
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\MessagesDemo\vtitle.bmp | 05-27-2004 | 14:31:12 | | 111410 | 67005904
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\App.ico | 07-07-2006 | 19:39:16 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\AssemblyInfo.cs | 07-07-2006 | 19:39:16 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\InputDlgForm.cs | 07-07-2006 | 21:02:38 | | 3518 | c02d57f6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\InputDlgForm.resx | 07-07-2006 | 21:02:20 | | 8688 | 2f96f1f8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\Main.cs | 07-20-2006 | 11:23:30 | | 17741 | 559345fd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\Main.resx | 07-07-2006 | 21:08:16 | | 17397 | a9b956b1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\OCSPClient.csproj | 07-07-2006 | 20:56:12 | | 6614 | 78410d0e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\OCSPClient.sln | 07-07-2006 | 19:39:16 | | 905 | e2208420
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\OCSPClient_VS2005.csproj | 07-07-2006 | 21:13:12 | | 5593 | 98f6a6e6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\PKIBlackbox\OCSPClient\OCSPClient_VS2005.sln | 07-08-2006 | 14:03:40 | | 910 | b58a1ce5
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\App.ico | 05-27-2004 | 14:50:22 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\AssemblyInfo.cs | 05-27-2004 | 14:50:22 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\Form1.cs | 07-07-2006 | 18:05:16 | | 42242 | 63adaa87
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\Form1.resx | 02-19-2006 | 21:10:28 | | 6221 | d7735aa5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\ProgressWindow.cs | 02-19-2006 | 21:10:28 | | 4761 | 655a79db
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\ProgressWindow.resx | 05-27-2004 | 14:50:22 | | 7588 | b52b0f28
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\PromptForm.cs | 04-12-2006 | 08:49:48 | | 3864 | fc2508b9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\PromptForm.resx | 04-12-2006 | 08:49:48 | | 8695 | 91310ef1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\readme.txt | 03-17-2005 | 20:29:08 | | 310 | d34dc66f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\Sftp.csproj | 04-12-2006 | 19:17:16 | | 6302 | 2cab73cb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\Sftp.sln | 05-27-2004 | 15:03:38 | | 893 | e381ac3f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\Sftp_VS2005.csproj | 04-12-2006 | 19:17:16 | | 5425 | cb173c9b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\Sftp_VS2005.sln | 02-17-2006 | 00:33:04 | | 905 | afbafa46
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\StringQueryForm.cs | 05-27-2004 | 14:50:22 | | 4072 | 54d4a248
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\Client\StringQueryForm.resx | 05-27-2004 | 14:50:22 | | 10554 | cdfb5004
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\AboutForm.cs | 11-15-2004 | 19:56:12 | | 3393 | afff7ebb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\AboutForm.resx | 11-15-2004 | 19:56:12 | | 8663 | 46ed4e95
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\App.ico | 11-15-2004 | 19:56:12 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\AssemblyInfo.cs | 11-15-2004 | 19:56:12 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\ConnPropsForm.cs | 05-07-2005 | 20:55:48 | | 7616 | ea81a59a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\ConnPropsForm.resx | 05-07-2005 | 20:55:48 | | 14379 | 9eeb8607
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\Form1.cs | 07-07-2006 | 18:05:16 | | 30662 | 7192ee73
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\Form1.resx | 11-15-2004 | 19:56:12 | | 39431 | 11be7b99
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\InputDlgForm.cs | 11-15-2004 | 19:56:12 | | 3522 | b57f3199
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\InputDlgForm.resx | 11-15-2004 | 19:56:12 | | 8688 | f6d844b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\ProgressForm.cs | 11-15-2004 | 19:56:12 | | 5625 | 5185224
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\ProgressForm.resx | 11-15-2004 | 19:56:14 | | 12075 | 934bdce7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\PromptForm.cs | 04-12-2006 | 08:57:32 | | 3874 | fe34e884
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\PromptForm.resx | 04-12-2006 | 08:57:32 | | 8695 | 91310ef1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\readme.txt | 04-12-2006 | 19:17:18 | | 156 | dc0039d0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo.csproj | 04-12-2006 | 19:17:18 | | 6779 | 10000d6f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo.sln | 01-03-2005 | 02:11:38 | | 913 | 9bfc870e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo_VS2005.csproj | 04-12-2006 | 19:17:18 | | 5686 | fddfd4ab
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo_VS2005.sln | 02-17-2006 | 00:49:06 | | 925 | e7b19999
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\1.bmp | 05-24-2004 | 13:41:04 | | 822 | 33e22e24
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\2.bmp | 05-24-2004 | 13:41:04 | | 822 | 2a330266
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\3.bmp | 05-24-2004 | 13:41:04 | | 822 | 256d65cd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\4.bmp | 05-24-2004 | 13:41:04 | | 822 | bf46541b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\5.bmp | 05-24-2004 | 13:41:04 | | 822 | 2bc38bb7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\App.ico | 05-24-2004 | 13:41:04 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\AssemblyInfo.cs | 05-24-2004 | 13:41:04 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\Form1.cs | 03-08-2006 | 21:03:18 | | 19504 | f351dc96
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\Form1.resx | 03-08-2006 | 21:03:18 | | 31957 | 386a5ad
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\ForwardingMain.cs | 03-03-2006 | 02:58:02 | | 19932 | 48aff27
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding.csproj | 03-08-2006 | 21:03:18 | | 6367 | 2f29f94e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding.sln | 05-24-2004 | 13:41:04 | | 923 | a2e0568d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding_VS2005.csproj | 02-17-2006 | 00:25:50 | | 4487 | deb40858
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding_VS2005.sln | 02-17-2006 | 00:25:50 | | 935 | b1222c6b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\LocalPortForwarding\readme.txt | 03-20-2005 | 21:00:16 | | 741 | 4403cdc8
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\AboutForm.cs | 11-01-2005 | 18:18:58 | | 3806 | ff6f39c4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\AboutForm.resx | 11-01-2005 | 18:18:58 | | 8696 | 5cf5abaf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\App.ico | 11-01-2005 | 18:18:58 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\AssemblyInfo.cs | 11-01-2005 | 18:18:58 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\ConnPropsForm.cs | 11-01-2005 | 18:19:00 | | 6680 | 2896248f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\ConnPropsForm.resx | 11-01-2005 | 18:19:00 | | 13184 | afa2226a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\Form1.cs | 04-12-2006 | 19:17:16 | | 21377 | decc02c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\Form1.resx | 11-01-2005 | 18:19:00 | | 20291 | c504e502
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\KeyAddForm.cs | 11-01-2005 | 18:19:00 | | 5321 | 21540b17
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\KeyAddForm.resx | 11-01-2005 | 18:19:00 | | 11524 | ecb46d21
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\PromptForm.cs | 04-12-2006 | 08:41:08 | | 3873 | 561bd751
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\PromptForm.resx | 04-12-2006 | 08:41:10 | | 8695 | 91310ef1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\PubKeyCliDemo.csproj | 04-12-2006 | 19:17:16 | | 6557 | 9c468d79
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\PubKeyCliDemo.sln | 11-01-2005 | 18:19:00 | | 911 | 33fcef7b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\PubKeyCliDemo_VS2005.csproj | 04-12-2006 | 19:17:16 | | 5632 | 612fbc77
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\PubKey\Client\PubKeyCliDemo_VS2005.sln | 02-17-2006 | 00:29:16 | | 923 | eb37a4c4
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\1.bmp | 05-24-2004 | 15:31:12 | | 822 | 33e22e24
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\2.bmp | 05-24-2004 | 15:31:12 | | 822 | 2a330266
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\3.bmp | 05-24-2004 | 15:31:12 | | 822 | 256d65cd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\4.bmp | 05-24-2004 | 15:31:12 | | 822 | bf46541b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\5.bmp | 05-24-2004 | 15:31:12 | | 822 | 2bc38bb7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\App.ico | 05-24-2004 | 15:31:12 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\AssemblyInfo.cs | 05-24-2004 | 15:31:12 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\Form1.cs | 03-08-2006 | 21:03:20 | | 20055 | dee816ec
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\Form1.resx | 03-08-2006 | 21:03:20 | | 31745 | c1975950
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\ForwardingMain.cs | 03-03-2006 | 02:58:54 | | 19668 | ecac7173
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\readme.txt | 03-18-2005 | 00:20:02 | | 348 | e96d4fa2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding.csproj | 03-08-2006 | 21:03:20 | | 6331 | 44121e01
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding.sln | 05-24-2004 | 15:31:12 | | 925 | 1c925e7e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding_VS2005.csproj | 02-17-2006 | 00:31:50 | | 4489 | 6e8558ed
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding_VS2005.sln | 02-17-2006 | 00:31:50 | | 937 | c6dfd718
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\App.ico | 03-30-2006 | 15:25:02 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\AssemblyInfo.cs | 03-30-2006 | 15:25:02 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\Form1.cs | 03-30-2006 | 15:25:02 | | 26890 | 51c0e6a8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\Form1.resx | 03-30-2006 | 15:25:02 | | 33624 | 5a218afe
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo.csproj | 03-30-2006 | 15:25:02 | | 5348 | cc56f7bc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo.sln | 03-30-2006 | 15:25:02 | | 925 | 8c922af9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo_VS2005.csproj | 03-30-2006 | 15:25:02 | | 4534 | 4bbed950
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo_VS2005.sln | 03-30-2006 | 15:25:02 | | 937 | 6a7a540
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\App.ico | 03-30-2006 | 15:26:12 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\AssemblyInfo.cs | 03-30-2006 | 15:26:12 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\Form1.cs | 03-30-2006 | 15:26:12 | | 26965 | 5b283e74
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\Form1.resx | 03-30-2006 | 15:26:12 | | 33624 | c66dee9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo.csproj | 03-30-2006 | 15:26:12 | | 5350 | e856ead0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo.sln | 03-30-2006 | 15:26:12 | | 927 | cee189c1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo_VS2005.csproj | 03-30-2006 | 15:26:12 | | 4536 | 569e9582
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo_VS2005.sln | 03-30-2006 | 15:26:12 | | 939 | 884af055
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\AboutForm.cs | 11-15-2004 | 19:57:50 | | 3431 | bb2e45f7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\AboutForm.resx | 11-15-2004 | 19:57:50 | | 8675 | 81d2aed1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\App.ico | 11-15-2004 | 19:57:50 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\AssemblyInfo.cs | 11-15-2004 | 19:57:50 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\ConnPropsForm.cs | 05-07-2005 | 20:55:48 | | 8951 | ddbf13e3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\ConnPropsForm.resx | 05-07-2005 | 20:55:48 | | 16048 | 7bc795de
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\Form1.cs | 05-24-2006 | 22:36:52 | | 18782 | 3a407f0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\Form1.resx | 04-12-2006 | 19:17:18 | | 25115 | 7574cee8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\PromptForm.cs | 04-12-2006 | 09:03:00 | | 3873 | f669acf7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\PromptForm.resx | 04-12-2006 | 09:03:00 | | 8695 | 91310ef1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\readme.txt | 04-12-2006 | 19:17:18 | | 201 | ab19760b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo.csproj | 04-12-2006 | 19:17:18 | | 5975 | 236fa6f4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo.sln | 03-20-2005 | 17:51:12 | | 911 | 13c45a1c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo_VS2005.csproj | 04-12-2006 | 19:17:18 | | 5200 | 4c79d954
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo_VS2005.sln | 02-17-2006 | 00:50:36 | | 923 | 5a6e9721
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\App.ico | 05-24-2004 | 20:02:18 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\AssemblyInfo.cs | 05-24-2004 | 20:02:18 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\Demo.csproj | 04-12-2006 | 19:17:16 | | 5207 | 6f101dfb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\Demo.sln | 05-24-2004 | 20:02:18 | | 893 | 61661cd5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\Demo_VS2005.csproj | 04-12-2006 | 19:17:16 | | 4705 | b454f468
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\Demo_VS2005.sln | 02-17-2006 | 00:24:58 | | 905 | 45c78947
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\Form1.cs | 04-12-2006 | 19:17:16 | | 23591 | 7668237e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\Form1.resx | 05-25-2004 | 16:06:46 | | 19984 | db4d52c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\PromptForm.cs | 04-11-2006 | 23:29:12 | | 3864 | b8109f2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\PromptForm.resx | 04-11-2006 | 23:29:12 | | 8695 | 91310ef1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHDemo\readme.txt | 04-12-2006 | 19:17:16 | | 440 | dede8922
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\App.ico | 02-17-2006 | 00:23:30 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\AssemblyInfo.cs | 08-27-2005 | 00:48:42 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\frmGetPassword.cs | 08-30-2005 | 11:01:14 | | 4901 | fb16d358
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\frmGetPassword.resx | 08-30-2005 | 11:01:14 | | 10937 | 832bf40d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\frmMain.cs | 02-17-2006 | 00:35:22 | | 23154 | 545865cc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\frmMain.resx | 08-28-2005 | 18:22:56 | | 24000 | b59dcc10
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\readme.txt | 11-02-2005 | 17:54:50 | | 60 | 1442f1c3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\SSHKeys.csproj | 02-15-2006 | 19:16:24 | | 5371 | a50d15b5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\SSHKeys_VS2005.csproj | 02-17-2006 | 00:51:36 | | 4798 | cd025948
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Client\SSHKeys\SSHKeys_VS2005.sln | 02-17-2006 | 00:51:38 | | 916 | c904324f
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\App.ico | 11-21-2005 | 06:39:38 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\AssemblyInfo.cs | 11-21-2005 | 06:39:38 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\DemoSettings.cs | 12-18-2005 | 13:12:14 | | 6804 | c8b817ec
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmAbout.cs | 12-18-2005 | 13:12:14 | | 3546 | 592d3e3b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmAbout.resx | 11-21-2005 | 06:39:38 | | 8115 | 97259c36
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmGetKey.cs | 12-18-2005 | 01:31:18 | | 3662 | 3c07497c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmGetKey.resx | 12-18-2005 | 01:31:18 | | 8676 | 5a08d0cd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmGetPwd.cs | 12-18-2005 | 13:12:14 | | 6464 | 5d5d1e53
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmGetPwd.resx | 11-21-2005 | 06:39:38 | | 12112 | 5b45637e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmMain.cs | 02-19-2006 | 21:10:28 | | 15571 | 60c0503
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmMain.resx | 12-18-2005 | 13:12:14 | | 25167 | edb0a027
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmSettings.cs | 02-07-2006 | 21:20:34 | | 15853 | 4a5d9672
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmSettings.resx | 12-18-2005 | 13:12:14 | | 23630 | aeafc0dd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmUser.cs | 01-26-2006 | 21:55:20 | | 9541 | 1b8bbe7e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\frmUser.resx | 12-03-2005 | 00:38:26 | | 13821 | ecc0113d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\Globals.cs | 12-18-2005 | 13:12:14 | | 3723 | 898def6e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\Logger.cs | 06-25-2006 | 17:23:34 | | 835 | 1105e7d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\readme.txt | 12-18-2005 | 01:37:16 | | 191 | c6cd8d1a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\ServerListener.cs | 06-25-2006 | 17:23:34 | | 5795 | 6346d2f3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\SFTPSession.cs | 06-25-2006 | 17:23:34 | | 21723 | 709cd07
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\SSHServer.NET.csproj | 05-09-2006 | 22:15:48 | | 8921 | b3c28df8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\SSHServer.NET.sln | 05-09-2006 | 22:15:04 | | 911 | 8426fca6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\SSHServer.NET_VS2005.csproj | 02-20-2006 | 11:50:16 | | 6913 | bf17f7a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\SSHServer.NET_VS2005.sln | 02-17-2006 | 00:59:16 | | 928 | 4e4e831f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\SSHSession.cs | 06-25-2006 | 17:23:34 | | 18563 | d0357828
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\UserInfo.cs | 01-26-2006 | 21:55:20 | | 5958 | 92a2a2ab
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSHBlackbox\Server\SSHServerDemo\Utils.cs | 02-18-2006 | 20:24:32 | | 2611 | cdba8049
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\App.ico | 05-27-2004 | 14:23:02 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\AssemblyInfo.cs | 05-27-2004 | 14:23:02 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\Client.csproj | 02-15-2006 | 14:30:30 | | 5634 | d78e782f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\Client.sln | 05-27-2004 | 14:23:02 | | 897 | a0e4f17a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\Client_VS2005.csproj | 02-16-2006 | 23:03:50 | | 4896 | 18b84340
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\Client_VS2005.sln | 02-16-2006 | 23:00:56 | | 909 | 8fe5334f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\MainClientWnd.cs | 02-20-2006 | 11:50:04 | | 18606 | cb5b9220
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\MainClientWnd.resx | 02-19-2006 | 21:10:24 | | 5814 | ba983fa2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\readme.txt | 03-17-2005 | 19:02:20 | | 345 | b0ac42a7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\SelectCertForm.cs | 06-04-2005 | 15:48:08 | | 15304 | cfec1c3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\SelectCertForm.resx | 06-04-2005 | 15:48:08 | | 14412 | 3e984124
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\StringQueryForm.cs | 06-04-2005 | 15:48:08 | | 4087 | bf1975de
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Client\StringQueryForm.resx | 06-04-2005 | 15:48:08 | | 15538 | 541b5801
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\App.ico | 05-27-2004 | 14:26:16 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\AssemblyInfo.cs | 05-27-2004 | 14:26:16 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\MainServerWnd.cs | 02-20-2006 | 11:50:06 | | 21539 | 62bb44c6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\MainServerWnd.resx | 02-19-2006 | 21:10:24 | | 5814 | ba983fa2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\readme.txt | 03-17-2005 | 19:02:48 | | 283 | d2abb1ff
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\SelectCertForm.cs | 06-04-2005 | 15:48:08 | | 15304 | e6d9c16c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\SelectCertForm.resx | 06-04-2005 | 15:48:08 | | 14412 | e0953e24
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\Server.csproj | 02-15-2006 | 14:30:44 | | 5647 | e7101859
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\Server.sln | 05-27-2004 | 14:26:16 | | 897 | 281a0d70
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\Server_VS2005.csproj | 02-16-2006 | 23:30:48 | | 4909 | 7460f9cf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\Server_VS2005.sln | 02-16-2006 | 23:36:00 | | 902 | 60162601
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\StringQueryForm.cs | 06-04-2005 | 15:48:08 | | 4087 | 5403decf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\Chat\Server\StringQueryForm.resx | 06-04-2005 | 15:48:08 | | 15538 | 541b5801
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\InternetPackDemo.sln | 03-08-2005 | 18:13:38 | | 1488 | 8d12caab
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo\App.ico | 05-27-2004 | 14:05:54 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo\AssemblyInfo.cs | 05-27-2004 | 14:05:54 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo\ClientConnectionDemo.csproj | 07-20-2006 | 11:23:48 | | 6417 | 6eed5e88
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo\Form1.cs | 01-11-2006 | 21:51:34 | | 7990 | 212e92d2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo\Form1.resx | 05-27-2004 | 14:05:54 | | 9840 | 52d3434c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ClientConnectionDemo\readme.txt | 03-17-2005 | 22:32:22 | | 382 | d6530420
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo\App.ico | 05-14-2004 | 13:22:48 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo\AssemblyInfo.cs | 05-14-2004 | 13:22:48 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo\Form1.cs | 01-11-2006 | 21:51:34 | | 9244 | a50ef6d6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo\Form1.resx | 05-25-2004 | 14:48:10 | | 9846 | ae4e5241
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo\readme.txt | 03-17-2005 | 23:20:42 | | 320 | 376da160
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\RemObjects.InternetPack\ServerConnectionDemo\ServerConnectionDemo.csproj | 03-08-2005 | 18:13:38 | | 6616 | ce470d19
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Chat.sln | 03-08-2005 | 17:48:00 | | 13611 | b13c8ae3
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client\App.ico | 03-05-2004 | 19:15:32 | | 22486 | c3017ff7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client\AssemblyInfo.cs | 01-19-2005 | 13:19:42 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client\ChatClient.csproj | 02-15-2006 | 19:07:30 | | 6518 | cde78f44
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client\Main.cs | 01-23-2006 | 17:32:46 | | 11423 | a045f0d5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client\Main.resx | 01-22-2005 | 17:50:02 | | 47301 | 79b78d6d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Client\readme.txt | 03-17-2005 | 19:07:22 | | 91 | 48b624fe
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\App.ico | 03-05-2004 | 18:16:18 | | 22486 | 1e988f08
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\AssemblyInfo.cs | 01-18-2005 | 22:10:12 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\ChatLibrary_Events.cs | 01-22-2005 | 18:00:30 | | 2249 | 4b0d8a66
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\ChatLibrary_Intf.cs | 01-22-2005 | 18:00:44 | | 3347 | 1358fdea
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\ChatLibrary_Invk.cs | 01-22-2005 | 18:00:54 | | 2438 | 68c9d2a2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\ChatServer.csproj | 02-15-2006 | 19:07:46 | | 7148 | 6d91ee08
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\ChatService_Impl.cs | 01-21-2005 | 16:31:12 | | 2692 | 5dc3023
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\Main.cs | 01-23-2006 | 17:32:54 | | 5778 | a9b9c1f5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\Main.resx | 01-22-2005 | 17:50:02 | | 44017 | 7cef6fef
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\RemObjects\SDK.NET\Chat\Server\readme.txt | 03-17-2005 | 19:07:22 | | 91 | 48b624fe
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\AboutForm.cs | 05-15-2005 | 23:16:32 | | 3669 | e355f548
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\AboutForm.resx | 05-15-2005 | 23:16:32 | | 8678 | d2fc2df8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\AssemblyInfo.cs | 04-02-2005 | 19:51:48 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\ConnPropsForm.cs | 05-15-2005 | 23:54:20 | | 5405 | 78e392a5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\ConnPropsForm.resx | 05-15-2005 | 23:54:20 | | 11466 | 836af5ae
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\Form1.cs | 02-17-2006 | 01:18:46 | | 18749 | ed12b901
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\Form1.resx | 05-15-2005 | 23:25:32 | | 20706 | c97fddbc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\readme.txt | 05-16-2005 | 01:11:18 | | 177 | d9c2591f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\RequestPasswordForm.cs | 04-02-2005 | 19:51:48 | | 3550 | 7610db52
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\RequestPasswordForm.resx | 04-02-2005 | 19:51:48 | | 8681 | 2fc7ee68
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SendDataForm.cs | 04-02-2005 | 19:51:48 | | 3542 | 1e2baff9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SendDataForm.resx | 04-02-2005 | 19:51:48 | | 8668 | d1f5813e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SSLClientDemo.csproj | 02-15-2006 | 19:08:00 | | 6628 | 86005203
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SSLClientDemo.sln | 05-15-2005 | 21:46:44 | | 911 | 94709a32
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SSLClientDemo_VS2005.csproj | 02-17-2006 | 00:22:28 | | 5600 | dc45ae80
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SSLClientDemo_VS2005.sln | 02-17-2006 | 00:22:28 | | 923 | 59f93172
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SSLOptionsForm.cs | 06-04-2005 | 18:41:38 | | 13320 | ede659b5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SimpleSSLDemo\SSLOptionsForm.resx | 06-04-2005 | 18:41:38 | | 16696 | 5f156a04
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\App.ico | 05-27-2004 | 14:15:24 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\AssemblyInfo.cs | 05-27-2004 | 14:15:24 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\Form1.cs | 02-19-2006 | 21:10:28 | | 28699 | e7984210
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\Form1.resx | 02-19-2006 | 21:10:28 | | 6190 | e1b4179a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\readme.txt | 03-17-2005 | 19:26:44 | | 206 | 309db9e6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\SSLSocketDemo.csproj | 02-15-2006 | 19:09:06 | | 4853 | 4d590af5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\SSLSocketDemo.sln | 04-18-2004 | 00:52:28 | | 911 | e81165fd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\SSLSocketDemo_VS2005.csproj | 02-17-2006 | 01:06:12 | | 4520 | d0429023
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLClientDemo\SSLSocketDemo_VS2005.sln | 02-17-2006 | 01:06:12 | | 923 | d115c2fb
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\App.ico | 05-26-2004 | 20:07:54 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\AssemblyInfo.cs | 05-26-2004 | 20:07:54 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\Client.csproj | 02-15-2006 | 14:26:36 | | 5981 | 9999e442
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\Client.sln | 05-26-2004 | 20:07:54 | | 897 | 6cd6c0f1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\Client_VS2005.csproj | 02-17-2006 | 01:19:52 | | 5221 | 57328bf0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\Client_VS2005.sln | 02-17-2006 | 01:19:52 | | 909 | bff5a7db
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\Form1.cs | 01-11-2006 | 21:51:34 | | 11432 | 2489763b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\Form1.resx | 05-26-2004 | 20:07:54 | | 10948 | 5c260d3a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\SelectCertForm.cs | 06-05-2005 | 23:22:42 | | 15868 | e3386e3b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\SelectCertForm.resx | 06-05-2005 | 23:22:42 | | 14412 | 3f4738ef
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\StringQueryForm.cs | 06-05-2005 | 23:22:42 | | 4074 | f63df49a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Client\StringQueryForm.resx | 06-05-2005 | 23:22:42 | | 15538 | 541b5801
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\App.ico | 05-26-2004 | 20:07:54 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\AssemblyInfo.cs | 05-26-2004 | 20:07:54 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\Form1.cs | 02-19-2006 | 21:10:30 | | 12913 | 97a89fbc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\Form1.resx | 06-10-2005 | 14:28:40 | | 12145 | 3c7c529c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\readme.txt | 03-17-2005 | 20:44:04 | | 260 | a7eb9faa
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\SelectCertForm.cs | 06-05-2005 | 23:22:42 | | 15868 | e29d5be2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\SelectCertForm.resx | 06-05-2005 | 23:22:42 | | 14412 | 3f4738ef
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\Server.csproj | 02-18-2006 | 12:24:46 | | 5942 | 5c290e85
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\Server.sln | 05-26-2004 | 20:07:54 | | 897 | d78364f3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\Server_VS2005.csproj | 02-17-2006 | 01:25:42 | | 5196 | 9be6f7c9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\Server_VS2005.sln | 02-17-2006 | 01:25:16 | | 909 | 43b28d49
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\StringQueryForm.cs | 06-05-2005 | 23:22:42 | | 4074 | 1d275f8b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\SSLBlackbox\SSLSocketDemo\Server\StringQueryForm.resx | 06-05-2005 | 23:22:42 | | 15538 | 541b5801
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\App.ico | 04-27-2006 | 22:39:10 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\AssemblyInfo.cs | 04-27-2006 | 22:39:10 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\EncForm.cs | 04-27-2006 | 22:39:10 | | 23279 | bf7e9cc7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\EncForm.resx | 04-27-2006 | 22:39:10 | | 26343 | 7485e63d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\MainForm.cs | 05-18-2006 | 21:08:00 | | 31296 | d7b90905
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\MainForm.resx | 04-27-2006 | 22:39:10 | | 15553 | 6dc92438
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\SimpleEncryptor.csproj | 05-29-2006 | 13:50:52 | | 5364 | 66b34371
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\SimpleEncryptor.sln | 04-27-2006 | 22:39:10 | | 915 | bfee58c2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\SimpleEncryptor_VS2005.csproj | 05-29-2006 | 13:51:10 | | 4870 | 6855878c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Encryptor\SimpleEncryptor_VS2005.sln | 04-27-2006 | 22:39:12 | | 920 | 768c9da6
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\App.ico | 04-27-2006 | 22:39:12 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\AssemblyInfo.cs | 04-27-2006 | 22:39:12 | | 2426 | 5da85543
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\MainForm.cs | 05-18-2006 | 21:08:00 | | 28284 | f4f07c16
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\MainForm.resx | 04-27-2006 | 22:39:12 | | 16108 | d2099155
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\ReferenceForm.cs | 04-27-2006 | 22:39:12 | | 13632 | a7122425
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\ReferenceForm.resx | 04-27-2006 | 22:39:12 | | 14897 | 1846d385
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\ReferencesForm.cs | 04-27-2006 | 22:39:12 | | 5516 | fbf71037
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\ReferencesForm.resx | 04-27-2006 | 22:39:12 | | 9262 | 10eb91f7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\SignForm.cs | 04-27-2006 | 22:39:12 | | 20430 | 931f58e9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\SignForm.resx | 04-27-2006 | 22:39:12 | | 21912 | 22c6be43
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\SimpleSigner.csproj | 05-29-2006 | 13:51:54 | | 6131 | 4e0fea48
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\SimpleSigner.sln | 04-27-2006 | 22:39:12 | | 909 | 7b116e1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\SimpleSigner_VS2005.csproj | 05-29-2006 | 13:52:18 | | 5419 | b3bb0310
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\C#\XMLBlackbox\Signer\SimpleSigner_VS2005.sln | 04-27-2006 | 22:39:12 | | 921 | c33a943d
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\AboutForm.resx | 12-02-2005 | 17:16:22 | | 8676 | ac1e1ea1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\AboutForm.vb | 12-02-2005 | 17:16:22 | | 3166 | 882a224a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\AssemblyInfo.vb | 12-02-2005 | 17:13:00 | | 1044 | 83d2a012
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\ConnPropsForm.resx | 12-02-2005 | 18:16:12 | | 22261 | 21b75652
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\ConnPropsForm.vb | 12-19-2005 | 23:19:08 | | 13464 | 6ed67062
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\MainWin.resx | 12-19-2005 | 23:11:34 | | 23677 | f9697d9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\MainWin.vb | 02-17-2006 | 17:40:06 | | 25382 | 80e5e4af
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\SimpleFTPSDemo.sln | 12-02-2005 | 17:13:00 | | 913 | 9c237724
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\SimpleFTPSDemo.vbproj | 02-15-2006 | 19:32:50 | | 6085 | 91f9d570
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\SimpleFTPSDemo_VS2005.sln | 02-17-2006 | 18:41:28 | | 925 | c98155bf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\FTPSBlackbox\Client\SimpleFTPSDemo_VS2005.vbproj | 02-17-2006 | 18:41:28 | | 5724 | c97073ac
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\AssemblyInfo.vb | 01-23-2006 | 17:49:46 | | 1044 | 54d1fbe3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\HTTPSGet.sln | 01-23-2006 | 17:51:34 | | 901 | 5aadbc4f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\HTTPSGet.vbproj | 02-15-2006 | 19:36:34 | | 5458 | 85a9eef4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\HTTPSGet_VS2005.sln | 02-17-2006 | 14:03:22 | | 913 | 918a089b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\HTTPSGet_VS2005.vbproj | 02-17-2006 | 14:03:22 | | 5285 | d0327632
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\MainWin.resx | 01-23-2006 | 20:49:58 | | 14890 | f9d6e3e1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPGet\MainWin.vb | 02-17-2006 | 14:03:40 | | 11671 | ed020a4d
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\AssemblyInfo.vb | 01-23-2006 | 23:33:32 | | 1044 | d22ef80
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\HTTPPost.sln | 01-23-2006 | 23:33:34 | | 901 | 5c54e2a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\HTTPPost.vbproj | 02-15-2006 | 19:36:24 | | 5456 | edf879c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\HTTPPost_VS2005.sln | 02-17-2006 | 14:01:48 | | 913 | 710db54c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\HTTPPost_VS2005.vbproj | 02-17-2006 | 14:01:48 | | 5281 | b9bfe330
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\MainWin.resx | 01-23-2006 | 23:40:00 | | 11539 | 4ed3115f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\MainWin.vb | 02-17-2006 | 14:02:00 | | 7160 | ce603636
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\readme.txt | 01-23-2006 | 23:26:26 | | 361 | 72837c01
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\HTTPBlackbox\HTTPPost\simple_upload.php | 01-23-2006 | 16:08:34 | | 2024 | 5509cef5
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys\DNS
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys\DNS\AssemblyInfo.vb | 10-19-2005 | 11:11:44 | | 1044 | ca71874d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys\DNS\DomainKeysDNS.vbproj | 05-29-2006 | 18:38:24 | | 5126 | 2d63c1be
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys\DNS\frmMain.resx | 10-19-2005 | 11:11:44 | | 20244 | b146ad03
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys\DNS\frmMain.vb | 05-16-2006 | 19:49:48 | | 17496 | e010cd01
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\DomainKeys\DNS\readme.txt | 11-02-2005 | 18:00:10 | | 92 | 2faf430b
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\AssemblyInfo.vb | 01-30-2003 | 13:00:04 | | 1044 | dfc9ff0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\frmMain.resx | 03-21-2005 | 11:43:26 | | 43615 | 23763290
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\frmMain.vb | 02-17-2006 | 14:41:56 | | 56570 | fc20f99b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\Maker.sln | 01-30-2003 | 13:00:12 | | 895 | 889a285a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\Maker.vbproj | 05-29-2006 | 18:38:40 | | 6184 | e332d9d0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\Maker_VS2005.sln | 02-17-2006 | 18:42:42 | | 907 | ec56613
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\Maker_VS2005.vbproj | 05-29-2006 | 18:39:56 | | 5707 | fd294356
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\PasswordRequestForm.resx | 03-21-2005 | 02:47:12 | | 8703 | 6ae8cb1e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\PasswordRequestForm.vb | 03-21-2005 | 02:47:12 | | 3684 | 7d49c60a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Maker\readme.txt | 03-17-2005 | 22:05:52 | | 114 | bc792e52
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\App.ico | 05-07-2005 | 19:40:26 | | 4398 | d29a438c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\AssemblyInfo.vb | 05-07-2005 | 19:40:26 | | 1044 | ef3c35cd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\PassRequestForm.resx | 05-07-2005 | 19:40:26 | | 9258 | 9c3c6a9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\PassRequestForm.vb | 05-07-2005 | 19:40:26 | | 5722 | cd7c5716
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\RDN.vb | 05-07-2005 | 19:40:26 | | 2126 | 742a3e1d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\SecureMail.sln | 05-07-2005 | 19:40:26 | | 905 | 32c6f43d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\SecureMail.vbproj | 05-29-2006 | 18:39:04 | | 6776 | 2512c93
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\SecureMailWin.resx | 05-07-2005 | 19:40:26 | | 216404 | 739751f9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\SecureMailWin.vb | 02-19-2006 | 21:04:32 | | 117066 | b4d2e24
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\SecureMail_VS2005.sln | 02-19-2006 | 21:04:04 | | 922 | d1e6335
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\SecureMail_VS2005.vbproj | 05-29-2006 | 18:40:14 | | 5625 | b36174f0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\StringQueryForm.resx | 05-07-2005 | 19:40:26 | | 15538 | 541b5801
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\SecureMail\StringQueryForm.vb | 02-19-2006 | 21:04:32 | | 5089 | 72d5e531
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\AssemblyInfo.vb | 01-30-2003 | 23:37:10 | | 1044 | 4f8bfcf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\EldoS MIMEBlackbox Demo.asc | 05-16-2005 | 13:05:14 | | 3412 | 31620d6e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer.resx | 08-25-2004 | 01:23:54 | | 6433 | 930271a5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer.vb | 02-19-2006 | 21:08:44 | | 41634 | 5c1db475
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_Binary.resx | 08-25-2004 | 00:54:12 | | 6445 | ceab66b5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_Binary.vb | 05-12-2005 | 18:59:52 | | 23666 | 9498211
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_CertDetails.resx | 05-16-2005 | 13:05:14 | | 26824 | e476a92c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_CertDetails.vb | 02-19-2006 | 21:08:22 | | 26995 | f6f7af7b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_Options.resx | 08-25-2004 | 00:17:26 | | 6446 | 86d81183
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_Options.vb | 02-19-2006 | 21:08:22 | | 12792 | b226ec38
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_OptionsPGPMime.resx | 05-16-2005 | 13:05:14 | | 21158 | 92a85412
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_OptionsPGPMime.vb | 05-16-2005 | 13:05:14 | | 18050 | 255eb283
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_OptionsSMime.resx | 05-16-2005 | 13:05:14 | | 16980 | 9a9a40e7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_OptionsSMime.vb | 05-16-2005 | 13:05:14 | | 20510 | 8fd5c8b4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_PlugControl.resx | 08-25-2004 | 00:12:22 | | 6450 | 4c26adaf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_PlugControl.vb | 02-19-2006 | 21:09:24 | | 19016 | 92d2b4fa
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_SMime.resx | 05-16-2005 | 13:05:14 | | 13673 | 7ffa2e98
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\MimeViewer_SMime.vb | 05-16-2005 | 13:05:16 | | 12967 | d266d8f5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\PassRequestForm.resx | 05-16-2005 | 13:05:16 | | 9258 | 9c3c6a9c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\PassRequestForm.vb | 05-16-2005 | 13:05:16 | | 5196 | 4f4773c1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\RDN.vb | 05-16-2005 | 13:05:16 | | 2126 | 742a3e1d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\readme.txt | 03-17-2005 | 22:12:08 | | 83 | 8fb17c5e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\StringQueryForm.resx | 05-16-2005 | 13:05:16 | | 15538 | 541b5801
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\StringQueryForm.vb | 02-19-2006 | 21:08:24 | | 4568 | ed81c99d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\Viewer.sln | 01-30-2003 | 23:37:16 | | 897 | 95f7e9d4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\Viewer.vbproj | 05-29-2006 | 18:39:26 | | 9119 | 4176e93e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\Viewer_VS2005.sln | 02-19-2006 | 21:05:24 | | 914 | a2e88e9f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\MIMEBlackbox\Viewer\Viewer_VS2005.vbproj | 05-29-2006 | 18:40:50 | | 7337 | 1d8929e2
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\AssemblyInfo.vb | 10-22-2005 | 01:33:54 | | 1044 | 771fa954
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\frmMain.resx | 10-22-2005 | 02:21:02 | | 20333 | e2f4b89b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\frmMain.vb | 05-16-2006 | 21:17:40 | | 23019 | 78683dec
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\readme.txt | 11-04-2005 | 20:11:52 | | 94 | c7d9f509
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\TinyEncryptor.vbproj | 11-02-2005 | 18:02:42 | | 4890 | 10d7bf4d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\TinyEncryptor_VS2005.sln | 02-17-2006 | 21:48:12 | | 928 | 7b26ac95
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Encryptor\TinyEncryptor_VS2005.vbproj | 02-17-2006 | 21:47:02 | | 4853 | d80ffe12
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\AssemblyInfo.vb | 10-22-2005 | 05:02:54 | | 1044 | 19740a98
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmEncryptionProps.resx | 10-22-2005 | 05:02:54 | | 12245 | d94bac9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmEncryptionProps.vb | 10-22-2005 | 05:02:54 | | 8147 | 7f7ff765
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmGetPassword.resx | 10-22-2005 | 05:02:54 | | 8695 | 3ef4fcf4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmGetPassword.vb | 10-22-2005 | 05:02:54 | | 3305 | 99fc26f0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmMain.resx | 10-22-2005 | 05:02:54 | | 11062 | 688343dd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmMain.vb | 02-17-2006 | 22:08:30 | | 13424 | 782d77ee
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmSignatureProps.resx | 02-15-2006 | 02:26:30 | | 13868 | 858f1e5d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\frmSignatureProps.vb | 02-17-2006 | 22:08:46 | | 10234 | 2529be73
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\readme.txt | 11-04-2005 | 20:12:36 | | 161 | 410ebb55
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\TinyProcessor.vbproj | 11-02-2005 | 18:02:50 | | 6063 | 779c3163
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\TinyProcessor_VS2005.sln | 02-17-2006 | 22:07:42 | | 928 | 4ef3d6fb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Processor\TinyProcessor_VS2005.vbproj | 02-17-2006 | 22:07:18 | | 5549 | 947bf517
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\AssemblyInfo.vb | 10-22-2005 | 02:20:42 | | 1044 | 5db71731
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\frmMain.resx | 02-15-2006 | 02:26:30 | | 22509 | e9348a1a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\frmMain.vb | 05-16-2006 | 21:17:42 | | 22992 | a5bb7799
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\readme.txt | 11-04-2005 | 20:12:06 | | 103 | 6ce8c0e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\TinySigner.vbproj | 02-18-2006 | 12:25:38 | | 5579 | d2419649
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\TinySigner_VS2005.sln | 02-17-2006 | 22:13:56 | | 922 | ae88c3f7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PDFBlackbox\Signer\TinySigner_VS2005.vbproj | 02-17-2006 | 22:14:32 | | 5268 | 83fc4600
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\AssemblyInfo.vb | 03-06-2005 | 12:05:04 | | 1044 | 15b1f37f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\Form1.resx | 05-07-2005 | 20:56:10 | | 48526 | 7369d1e8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\Form1.vb | 07-14-2006 | 19:06:32 | | 55926 | 60b0878b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\PassRequestForm.resx | 03-06-2005 | 12:24:54 | | 9268 | b4a2d445
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\PassRequestForm.vb | 02-17-2006 | 22:26:34 | | 4503 | b7897ce2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\PGPFilesDemo.sln | 03-06-2005 | 12:05:06 | | 909 | b05aecc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\PGPFilesDemo.vbproj | 07-14-2006 | 19:07:14 | | 5463 | c7f761fc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\PGPFilesDemo_VS005.sln | 02-17-2006 | 22:23:10 | | 924 | 6234deb0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\PGPFilesDemo_VS005.vbproj | 07-14-2006 | 19:07:22 | | 5100 | 3f5c7394
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\readme.txt | 03-17-2005 | 01:46:28 | | 136 | c0f83b35
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\SignaturesForm.resx | 03-06-2005 | 12:21:34 | | 7808 | 3ad105ff
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPFilesDemo\SignaturesForm.vb | 02-17-2006 | 22:27:16 | | 4670 | c2704a2d
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\AboutForm.resx | 03-06-2005 | 01:16:00 | | 8678 | e7b76343
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\AboutForm.vb | 03-06-2005 | 01:16:00 | | 3317 | 6d8c6235
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\AssemblyInfo.vb | 03-06-2005 | 00:53:56 | | 1044 | 27bccca4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\Form1.resx | 07-14-2005 | 23:22:42 | | 37488 | e3cdeb05
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\Form1.vb | 02-17-2006 | 22:29:06 | | 36193 | e95d6f69
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\GenerateKeyForm.resx | 03-06-2005 | 03:15:18 | | 28267 | f32ca02d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\GenerateKeyForm.vb | 08-04-2005 | 21:11:22 | | 18863 | 5bd4f5a7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\ImportKeyForm.resx | 03-06-2005 | 01:16:10 | | 8677 | db1b7fce
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\ImportKeyForm.vb | 03-06-2005 | 03:01:20 | | 3296 | d5a56610
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\LoadSaveKeyringForm.resx | 03-06-2005 | 01:16:10 | | 12274 | e7cd82e2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\LoadSaveKeyringForm.vb | 02-17-2006 | 22:28:36 | | 6290 | 6614c224
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\PassphraseRequestForm.resx | 03-06-2005 | 01:15:36 | | 8698 | 34436a54
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\PassphraseRequestForm.vb | 03-06-2005 | 01:15:36 | | 3190 | 4eb7721e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\PGPKeysDemo.sln | 03-06-2005 | 00:53:56 | | 907 | 7f7f0abd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\PGPKeysDemo.vbproj | 03-11-2005 | 13:08:50 | | 7648 | 129e43ba
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\PGPKeysDemo_VS2005.sln | 02-17-2006 | 22:28:16 | | 924 | b4d857b0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\PGPKeysDemo_VS2005.vbproj | 02-17-2006 | 22:27:52 | | 6532 | 2aaedfe5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\readme.txt | 03-17-2005 | 01:47:26 | | 120 | da446b4a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\SelectKeyForm.resx | 03-06-2005 | 02:19:18 | | 9085 | 1cc96251
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\SelectKeyForm.vb | 08-04-2005 | 14:55:56 | | 4235 | 99621a1f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PGPBlackbox\PGPKeysDemo\Utils.vb | 03-06-2005 | 01:40:16 | | 3436 | d9676ac5
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\AssemblyInfo.vb | 08-22-2004 | 12:52:42 | | 1044 | 817fd271
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\CertDemo.sln | 08-22-2004 | 12:52:48 | | 901 | 813c7963
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\CertDemo.vbproj | 04-25-2005 | 01:24:26 | | 5975 | db08193b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\CertDemo_VS2005.sln | 02-17-2006 | 22:36:24 | | 918 | e3dc8886
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\CertDemo_VS2005.vbproj | 02-17-2006 | 22:35:50 | | 5394 | e551b4e3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\frmMain.resx | 05-12-2005 | 18:38:20 | | 52554 | ec9721e6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\frmMain.vb | 02-17-2006 | 22:39:54 | | 99232 | f1d43a02
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\Module1.vb | 08-22-2004 | 14:12:20 | | 334 | be53f6f2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\NewCertWizard.resx | 05-12-2005 | 18:38:20 | | 67325 | 40484280
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\NewCertWizard.vb | 02-17-2006 | 22:38:04 | | 77773 | 241f763c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\readme.txt | 03-17-2005 | 01:00:24 | | 226 | d73fd582
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\StorageSelectForm.resx | 08-22-2004 | 13:06:30 | | 8690 | f33baa50
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\StorageSelectForm.vb | 02-17-2006 | 22:40:12 | | 5708 | fa21af29
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\StringQueryForm.resx | 08-22-2004 | 12:59:00 | | 15542 | ce7a26c6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertDemo\StringQueryForm.vb | 02-17-2006 | 22:40:12 | | 4585 | 1408aaa3
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\AssemblyInfo.vb | 02-04-2005 | 22:34:26 | | 1044 | 389de420
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\CertReqDemo.sln | 02-04-2005 | 22:34:34 | | 907 | e15351d4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\CertReqDemo.vbproj | 04-25-2005 | 01:24:32 | | 4390 | 53496d86
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\CertReqDemo_VS2005.sln | 02-17-2006 | 22:41:56 | | 924 | 2d14043e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\CertReqDemo_VS2005.vbproj | 02-17-2006 | 22:41:46 | | 4481 | b884351a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\CSRDemoForm.resx | 02-05-2005 | 00:01:54 | | 33182 | a6797f8c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\CSRDemoForm.vb | 02-17-2006 | 22:42:04 | | 26300 | b50fe040
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\Form1.resx | 02-04-2005 | 22:40:58 | | 6439 | cb58b293
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\Form1.vb | 02-04-2005 | 22:40:58 | | 1171 | f94d53b1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\CertReqDemo\readme.txt | 03-17-2005 | 01:02:02 | | 271 | dc59e7a6
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\App.ico | 08-18-2004 | 01:03:46 | | 4398 | d29a438c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\AssemblyInfo.vb | 08-18-2004 | 01:00:42 | | 1044 | 3c00699f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\MessagesDemoMain.resx | 04-25-2005 | 01:14:44 | | 216804 | ad4041c6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\MessagesDemoMain.vb | 02-17-2006 | 22:57:46 | | 58306 | ec47e895
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\MessagesDemoVB.sln | 08-21-2004 | 18:44:32 | | 913 | 6338105e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\MessagesDemoVB.vbproj | 04-25-2005 | 01:24:40 | | 5214 | e9ea4d55
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\MessagesDemoVB_VS2005.sln | 02-17-2006 | 22:53:22 | | 930 | 489ed8d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\MessagesDemoVB_VS2005.vbproj | 02-17-2006 | 22:53:16 | | 4956 | cd76a855
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\readme.txt | 03-17-2005 | 01:06:28 | | 250 | 85eaa5bb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\StringQueryForm.resx | 08-18-2004 | 13:49:50 | | 15542 | ce7a26c6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\MessagesDemo\StringQueryForm.vb | 02-17-2006 | 22:57:24 | | 4585 | 1408aaa3
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\AssemblyInfo.vb | 07-08-2006 | 14:00:08 | | 1044 | 2456f6f3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\Form1.resx | 07-08-2006 | 16:15:32 | | 17423 | 91ed8e67
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\Form1.vb | 07-20-2006 | 11:25:24 | | 18539 | 6022e6c3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\InputDlgForm.resx | 11-18-2004 | 17:59:56 | | 8699 | 1f371ae9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\InputDlgForm.vb | 11-18-2004 | 17:59:56 | | 3559 | cbdfb2cb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\OCSPClient.sln | 07-14-2006 | 11:32:22 | | 905 | 30913312
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\OCSPClient.vbproj | 07-08-2006 | 18:14:28 | | 6876 | d56af0b7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\OCSPClient_VS2005.sln | 07-20-2006 | 11:25:24 | | 912 | 55da5580
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\PKIBlackbox\OCSPClient\OCSPClient_VS2005.vbproj | 07-20-2006 | 11:25:24 | | 6876 | d56af0b7
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\AboutForm.resx | 11-18-2004 | 17:59:56 | | 8675 | b5ae68cb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\AboutForm.vb | 11-18-2004 | 17:59:56 | | 3478 | 964064ba
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\AssemblyInfo.vb | 11-18-2004 | 17:59:56 | | 1044 | 19359654
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\ConnPropsForm.resx | 05-07-2005 | 20:56:10 | | 14392 | 87083c57
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\ConnPropsForm.vb | 02-17-2006 | 23:01:04 | | 7898 | 3b6c6b41
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\Form1.resx | 11-18-2004 | 17:59:56 | | 35417 | 2c412d73
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\Form1.vb | 07-07-2006 | 18:06:50 | | 32246 | 86cba15
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\InputDlgForm.resx | 11-18-2004 | 17:59:56 | | 8699 | 1f371ae9
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\InputDlgForm.vb | 11-18-2004 | 17:59:56 | | 3559 | cbdfb2cb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\ProgressForm.resx | 11-18-2004 | 17:59:56 | | 12110 | 245d965
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\ProgressForm.vb | 11-18-2004 | 17:59:56 | | 6173 | fcf07605
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\readme.txt | 03-17-2005 | 20:29:46 | | 195 | da387bc2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo.sln | 03-20-2005 | 20:46:00 | | 913 | 5ca22476
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo.vbproj | 02-15-2006 | 19:39:36 | | 6796 | 882a3b6a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo_VS2005.sln | 02-17-2006 | 23:00:24 | | 930 | 651a0b69
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\SimpleSftpDemo_VS2005.vbproj | 02-17-2006 | 23:00:18 | | 5982 | ffc7b1dd
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\StringQueryForm.resx | 05-01-2005 | 15:57:54 | | 8706 | 78f78a20
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SFTPBlackbox\SimpleSFTPDemo\StringQueryForm.vb | 02-17-2006 | 23:01:04 | | 3949 | 281a876f
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\AssemblyInfo.vb | 03-08-2006 | 21:05:06 | | 1044 | 22306652
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\Form1.resx | 03-03-2006 | 03:01:54 | | 31828 | 19dd3072
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\Form1.vb | 03-03-2006 | 03:01:54 | | 20572 | a54e9958
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\ForwardingMain.vb | 03-03-2006 | 03:01:54 | | 22541 | 147dab68
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding.sln | 08-21-2004 | 14:59:56 | | 923 | 89fb3a5b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding.vbproj | 03-08-2006 | 21:05:06 | | 5528 | df56e72e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding_VS2005.sln | 02-17-2006 | 23:08:26 | | 940 | 62e2df6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\LocalPortForwarding_VS2005.vbproj | 02-17-2006 | 23:08:22 | | 4833 | b66bb81d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\LocalPortForwarding\readme.txt | 03-20-2005 | 21:00:06 | | 743 | f25422e4
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\PubKey
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\AssemblyInfo.vb | 08-21-2004 | 14:02:48 | | 1044 | 90380e37
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\Form1.resx | 03-03-2006 | 03:02:54 | | 31806 | bdad512e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\Form1.vb | 03-03-2006 | 03:02:54 | | 20696 | ad25e61f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\ForwardingMain.vb | 03-03-2006 | 03:02:54 | | 22245 | 324c850
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\readme.txt | 03-18-2005 | 00:20:02 | | 348 | e96d4fa2
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding.sln | 08-21-2004 | 14:03:00 | | 925 | f50bde36
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding.vbproj | 03-08-2006 | 21:05:08 | | 5906 | 42a49d63
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding_VS2005.sln | 02-17-2006 | 23:13:40 | | 942 | 72a57227
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\RemotePortForwarding\RemotePortForwarding_VS2005.vbproj | 02-17-2006 | 23:13:36 | | 5014 | 2740fd9c
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\AssemblyInfo.vb | 03-30-2006 | 17:33:22 | | 1044 | fe7e8a85
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\Form1.resx | 03-30-2006 | 17:33:22 | | 33628 | c7f756c1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\Form1.vb | 03-30-2006 | 17:33:22 | | 26062 | 375dad3c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo.sln | 03-30-2006 | 17:33:22 | | 925 | 650986c1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo.vbproj | 03-30-2006 | 17:33:22 | | 4873 | a38ba5aa
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo_VS2005.sln | 03-30-2006 | 17:33:22 | | 937 | 7883f6c0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Local\LocalPortForwardDemo_VS2005.vbproj | 03-30-2006 | 17:33:22 | | 4859 | f26d3c9
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\AssemblyInfo.vb | 03-30-2006 | 17:34:20 | | 1044 | d7e7959a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\Form1.resx | 03-30-2006 | 17:34:20 | | 33628 | adfb6245
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\Form1.vb | 03-30-2006 | 17:34:20 | | 26136 | dbd856d8
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo.sln | 03-30-2006 | 17:34:20 | | 927 | b24f68aa
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo.vbproj | 03-30-2006 | 17:34:20 | | 4876 | dd07928d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo_VS2005.sln | 03-30-2006 | 17:34:20 | | 939 | 79b2857a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimplePortForwarding\Remote\RemotePortForwardDemo_VS2005.vbproj | 03-30-2006 | 17:34:20 | | 4864 | 94639a3
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\AboutForm.resx | 11-18-2004 | 17:57:58 | | 8675 | 12cb1e26
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\AboutForm.vb | 11-18-2004 | 17:57:58 | | 3535 | 9190d141
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\AssemblyInfo.vb | 11-18-2004 | 17:57:58 | | 1044 | 97073cff
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\ConnPropsForm.resx | 05-07-2005 | 20:56:10 | | 16081 | 3cb03b17
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\ConnPropsForm.vb | 02-17-2006 | 23:24:28 | | 9379 | 7c5ad792
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\Form1.resx | 05-07-2005 | 20:56:10 | | 22753 | 5e882127
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\Form1.vb | 04-13-2006 | 13:01:40 | | 19667 | 8fd2c840
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\PromptForm.resx | 04-12-2006 | 23:04:54 | | 8704 | c91292fe
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\PromptForm.vb | 04-12-2006 | 23:04:54 | | 3907 | 10f139a4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\readme.txt | 03-18-2005 | 00:06:32 | | 201 | b13f88a7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo.sln | 03-20-2005 | 20:57:40 | | 911 | ba14c5d4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo.vbproj | 04-13-2006 | 13:01:40 | | 6239 | be011444
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo_VS2005.sln | 02-17-2006 | 23:23:46 | | 928 | bb555f91
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\SimpleSSHDemo_VS2005.vbproj | 04-13-2006 | 13:01:40 | | 5737 | 91a2b079
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\StringQueryForm.resx | 05-01-2005 | 15:57:56 | | 8706 | 78f78a20
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SimpleSSHDemo\StringQueryForm.vb | 02-17-2006 | 23:24:22 | | 3949 | 281a876f
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\AssemblyInfo.vb | 08-20-2004 | 17:23:24 | | 1044 | b3a9106e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\frmMain.resx | 02-19-2006 | 21:11:12 | | 6190 | 9fe6f2fe
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\frmMain.vb | 04-13-2006 | 13:01:38 | | 25908 | d76c892
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\PromptForm.resx | 04-12-2006 | 23:11:46 | | 8704 | c91292fe
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\PromptForm.vb | 04-12-2006 | 23:11:46 | | 3907 | 10f139a4
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\readme.txt | 03-17-2005 | 20:09:10 | | 476 | 4b3b9265
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\SSHDemo.sln | 08-20-2004 | 17:23:32 | | 899 | ce9ea997
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\SSHDemo.vbproj | 04-13-2006 | 13:01:38 | | 5808 | 1ce46343
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\SSHDemo_VS2005.sln | 02-17-2006 | 23:26:14 | | 916 | 7b88eb03
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\SSHDemo_VS2005.vbproj | 04-13-2006 | 13:01:38 | | 5425 | 8820dbb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\StringQueryForm.resx | 08-21-2004 | 13:23:46 | | 8706 | 78f78a20
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHDemo\StringQueryForm.vb | 02-17-2006 | 23:26:26 | | 3949 | 281a876f
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\AssemblyInfo.vb | 08-27-2005 | 02:18:18 | | 1044 | 80f7f71a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\frmGetPassword.resx | 08-30-2005 | 10:53:58 | | 10370 | a0ef6fbe
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\frmGetPassword.vb | 02-17-2006 | 23:27:48 | | 4722 | c3e5c01c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\frmMain.resx | 08-30-2005 | 10:53:58 | | 25174 | 25668c11
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\frmMain.vb | 05-04-2006 | 19:54:50 | | 25970 | 6a9fe286
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\readme.txt | 11-02-2005 | 17:54:50 | | 60 | 1442f1c3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\SSHKeys.sln | 05-04-2006 | 19:53:06 | | 899 | 17ceaa21
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\SSHKeys.vbproj | 02-15-2006 | 19:38:58 | | 5470 | e08a666
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\SSHKeys_VS2005.sln | 02-17-2006 | 23:27:32 | | 916 | f25ee35c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSHBlackbox\Client\SSHKeys\SSHKeys_VS2005.vbproj | 02-17-2006 | 23:28:22 | | 5244 | db237f98
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\AssemblyInfo.vb | 08-19-2004 | 13:24:46 | | 1044 | d20b816a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\Client.sln | 08-19-2004 | 13:24:56 | | 897 | cde7342
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\Client.vbproj | 02-15-2006 | 19:33:04 | | 6053 | 72d8d1e5
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\Client_VS2005.sln | 02-17-2006 | 23:29:00 | | 914 | c5c1bc5d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\Client_VS2005.vbproj | 02-17-2006 | 23:28:52 | | 5549 | d2931198
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\frmMain.resx | 08-19-2004 | 19:45:48 | | 13093 | 8049ad22
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\frmMain.vb | 02-19-2006 | 21:11:12 | | 17470 | 8fe3a906
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\RDN.vb | 06-04-2005 | 15:51:54 | | 2126 | 742a3e1d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\readme.txt | 03-17-2005 | 19:02:20 | | 345 | b0ac42a7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\SelectCertForm.resx | 06-10-2005 | 14:29:02 | | 14425 | 5c60851c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\SelectCertForm.vb | 02-19-2006 | 21:11:12 | | 17569 | 3f568636
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\StringQueryForm.resx | 06-04-2005 | 15:51:54 | | 15538 | 541b5801
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Client\StringQueryForm.vb | 02-17-2006 | 23:29:36 | | 4574 | 4955ebb9
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\AssemblyInfo.vb | 08-19-2004 | 20:19:10 | | 1044 | 359def38
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\frmMain.resx | 06-04-2005 | 18:42:02 | | 14226 | 7009da1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\frmMain.vb | 02-19-2006 | 21:11:12 | | 20436 | f576994a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\RDN.vb | 06-04-2005 | 15:51:54 | | 2126 | 742a3e1d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\readme.txt | 03-17-2005 | 19:02:48 | | 283 | d2abb1ff
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\SelectCertForm.resx | 06-10-2005 | 14:29:02 | | 14425 | 5c60851c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\SelectCertForm.vb | 02-17-2006 | 23:31:24 | | 17571 | a45c5db7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\Server.sln | 08-19-2004 | 20:19:14 | | 897 | 65aa86ae
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\Server.vbproj | 02-15-2006 | 19:33:14 | | 6053 | 75234238
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\Server_VS2005.sln | 02-17-2006 | 23:30:58 | | 914 | 4a8e1d8d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\Server_VS2005.vbproj | 02-17-2006 | 23:30:58 | | 5618 | afc8a66c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\StringQueryForm.resx | 06-04-2005 | 15:51:54 | | 15538 | 541b5801
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\Chat\Server\StringQueryForm.vb | 02-17-2006 | 23:31:32 | | 4574 | 4955ebb9
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\AssemblyInfo.vb | 08-19-2004 | 22:30:04 | | 1044 | ea003353
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\frmMain.resx | 06-04-2005 | 18:42:04 | | 17146 | f4951f67
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\frmMain.vb | 02-17-2006 | 23:32:36 | | 17511 | d6ad5151
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\readme.txt | 05-16-2005 | 01:11:18 | | 177 | d9c2591f
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\SSLClientDemo.sln | 08-19-2004 | 23:04:00 | | 911 | c5995b99
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\SSLSocketDemo.vbproj | 02-15-2006 | 19:33:26 | | 5137 | 6b23a99d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\SSLSocketDemo_VS2005.sln | 02-17-2006 | 23:32:30 | | 928 | dcb4b1cf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SimpleSSLDemo\SSLSocketDemo_VS2005.vbproj | 02-17-2006 | 23:32:24 | | 5052 | 575b84a3
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\AssemblyInfo.vb | 08-19-2004 | 22:30:04 | | 1044 | ea003353
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\frmMain.resx | 02-19-2006 | 21:11:12 | | 6017 | 99e107e1
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\frmMain.vb | 02-19-2006 | 21:11:12 | | 26057 | b3dd2a05
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\readme.txt | 03-17-2005 | 19:26:44 | | 206 | 309db9e6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\SSLClientDemo.sln | 08-19-2004 | 23:04:00 | | 911 | c5995b99
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\SSLSocketDemo.vbproj | 02-15-2006 | 19:33:36 | | 5137 | 6b23a99d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\SSLSocketDemo_VS2005.sln | 02-17-2006 | 23:33:24 | | 928 | dcb4b1cf
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLClientDemo\SSLSocketDemo_VS2005.vbproj | 02-17-2006 | 23:33:04 | | 5052 | 575b84a3
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\App.ico | 08-19-2004 | 00:42:54 | | 1078 | 9eca8a4e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\AssemblyInfo.vb | 08-19-2004 | 00:42:38 | | 1044 | 42dc6f76
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\Client.sln | 08-19-2004 | 13:24:40 | | 897 | 882769bc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\Client.vbproj | 02-15-2006 | 19:33:46 | | 5715 | c79178cc
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\Client_VS2005.sln | 02-17-2006 | 23:34:08 | | 914 | eeb367ec
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\Client_VS2005.vbproj | 02-17-2006 | 23:34:04 | | 5430 | a223c32a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\Form1.resx | 08-19-2004 | 01:14:52 | | 12790 | 529070af
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\Form1.vb | 02-17-2006 | 23:35:48 | | 9981 | e2562ef0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Client\readme.txt | 03-17-2005 | 20:42:18 | | 323 | 660811f0
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\AssemblyInfo.vb | 01-30-2003 | 10:36:28 | | 1044 | 59434fc7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\Form1.resx | 06-10-2005 | 14:29:04 | | 11512 | f61fcb6e
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\Form1.vb | 02-17-2006 | 23:39:42 | | 13167 | d4d48017
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\RDN.vb | 06-04-2005 | 19:24:42 | | 2126 | 742a3e1d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\readme.txt | 03-17-2005 | 20:44:04 | | 260 | a7eb9faa
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\SelectCertForm.resx | 06-04-2005 | 19:24:42 | | 14425 | 5c60851c
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\SelectCertForm.vb | 02-17-2006 | 23:38:22 | | 17571 | a45c5db7
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\Server.sln | 01-30-2003 | 10:36:36 | | 897 | 86f03e9d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\Server.vbproj | 02-15-2006 | 19:36:10 | | 6517 | e293238b
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\Server_VS2005.sln | 02-17-2006 | 23:38:06 | | 914 | c81ec482
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\Server_VS2005.vbproj | 02-17-2006 | 23:38:00 | | 5917 | 28b93325
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\StringQueryForm.resx | 06-04-2005 | 19:24:42 | | 15538 | 541b5801
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\SSLBlackbox\SSLSocketDemo\Server\StringQueryForm.vb | 02-17-2006 | 23:38:30 | | 4574 | 4955ebb9
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\AssemblyInfo.vb | 04-27-2006 | 22:40:12 | | 1044 | 6e1bc0e3
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\EncForm.resx | 04-27-2006 | 22:40:12 | | 26407 | 99ece40d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\EncForm.vb | 04-27-2006 | 22:40:12 | | 25254 | 1b511a34
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\MainForm.resx | 04-27-2006 | 22:40:12 | | 15586 | b02bcd84
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\MainForm.vb | 05-16-2006 | 10:27:50 | | 39775 | e1660961
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\SimpleEncryptor.sln | 04-27-2006 | 22:40:12 | | 915 | c3fd7bba
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\SimpleEncryptor.vbproj | 05-29-2006 | 13:52:42 | | 5370 | cb28803a
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\SimpleEncryptor_VS2005.sln | 04-27-2006 | 22:40:12 | | 927 | 97aca476
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Encryptor\SimpleEncryptor_VS2005.vbproj | 05-29-2006 | 13:53:06 | | 5067 | 4ead0bf2
+Made Dir: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\AssemblyInfo.vb | 04-27-2006 | 22:40:30 | | 1044 | 6a2e4fcb
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\MainForm.resx | 04-27-2006 | 22:40:30 | | 16142 | 70f576b0
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\MainForm.vb | 05-29-2006 | 13:54:12 | | 35041 | e101e8ea
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\ReferenceForm.resx | 04-27-2006 | 22:40:30 | | 14928 | a0a98d04
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\ReferenceForm.vb | 04-27-2006 | 22:40:30 | | 14925 | 2f939679
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\ReferencesForm.resx | 04-27-2006 | 22:40:30 | | 9273 | 161cee59
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\ReferencesForm.vb | 04-27-2006 | 22:40:30 | | 6107 | 52ecf193
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\SignForm.resx | 04-27-2006 | 22:40:32 | | 21961 | e0a673e6
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\SignForm.vb | 04-27-2006 | 22:40:32 | | 22155 | 147b1a91
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\SimpleSigner.sln | 04-27-2006 | 22:40:32 | | 909 | 93724d4d
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\SimpleSigner.vbproj | 05-29-2006 | 13:53:36 | | 6129 | cf93de59
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\SimpleSigner_VS2005.sln | 04-27-2006 | 22:40:32 | | 921 | 55accaae
+File Copy: C:\Program Files\EldoS\SecureBlackbox.NET\Samples\VB.NET\XMLBlackbox\Signer\SimpleSigner_VS2005.vbproj | 05-29-2006 | 13:53:20 | | 5502 | 2c3a27cc
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.Charsets.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PGP.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PDF.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.XML.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PKI.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLCommon.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLClient.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLServer.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLSocket.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.FTPS.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.HTTP.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHCommon.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHClient.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHServer.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPCommon.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTP.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2003
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPServer.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.Charsets.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PGP.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PDF.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.XML.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PKI.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLCommon.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLClient.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLServer.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLSocket.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.FTPS.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.HTTP.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHCommon.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHClient.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHServer.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPCommon.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTP.dll
+RegDB Root: 1
+RegDB Key: Software\RemObjects\Everwood\Assemblies\Install\Visual Studio .NET 2005
+RegDB Val: SecureBlackbox
+RegDB Name: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPServer.dll
+RegDB Root: 1
+RegDB Key: Software\Eldos\SecureBlackbox
+RegDB Val: C:\Program Files\EldoS\SecureBlackbox.NET
+RegDB Name: InstallPath.NET
+RegDB Root: 1
+Shell Link: C:\Documents and Settings\achaney.ADAMPC\Start Menu\Programs\Crap\History Of Changes.lnk
+Link Info: C:\WINDOWS\system32\notepad.exe |  |  | 0 | 1 | 0 | "C:\Program Files\EldoS\SecureBlackbox.NET\changes.txt"
+Shell Link: C:\Documents and Settings\achaney.ADAMPC\Start Menu\Programs\Crap\Uninstall SecureBlackbox.lnk
+Link Info: C:\Program Files\EldoS\SecureBlackbox.NET\UNWISE.EXE |  |  | 0 | 1 | 0 | 
+Shell Link: C:\Documents and Settings\achaney.ADAMPC\Start Menu\Programs\Crap\Read Me.lnk
+Link Info: C:\Program Files\EldoS\SecureBlackbox.NET\readme.html |  |  | 0 | 1 | 0 | 
+Shell Link: C:\Documents and Settings\achaney.ADAMPC\Start Menu\Programs\Crap\Sample projects.lnk
+Link Info: C:\Program Files\EldoS\SecureBlackbox.NET\Samples |  |  | 0 | 1 | 0 | 
+Shell Link: C:\Documents and Settings\achaney.ADAMPC\Start Menu\Programs\Crap\Documentation (HTMLHelp).lnk
+Link Info: C:\Program Files\EldoS\SecureBlackbox.NET\Help\SecureBlackbox.chm |  |  | 0 | 1 | 0 | 
+Shell Link: C:\Documents and Settings\achaney.ADAMPC\Start Menu\Programs\Crap\Documentation (MS Help 2.0).lnk
+Link Info: C:\Program Files\Common Files\Microsoft Shared\Help\dexplore.exe | C:\Program Files\EldoS\SecureBlackbox.NET |  | 0 | 1 | 0 | /helpcol ms-help://SecureBlackbox.NET
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.Charsets.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.FTPS.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.HTTP.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.MIME.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PDF.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PGP.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PGPMIME.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.PKI.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTP.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPCommon.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SFTPServer.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SMIME.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHClient.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHCommon.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSHServer.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLClient.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLCommon.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLServer.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.SSLSocket.dll
+Could not Self-Register: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.XML.dll
+RegDB Key: SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\SecureBlackbox.NET
+RegDB Val: C:\Program Files\EldoS\SecureBlackbox.NET
+RegDB Root: 2
+RegDB Old: C:\SecureBlackbox.NET
+RegDB Root: 1
+RegDB Tree: Software\Microsoft\.NETFramework\AssemblyFolders\SecureBlackbox.NET
+RegDB Root: 2
+Execute Program: C:\Program Files\Microsoft Visual Studio 8\Common7\IDE\\devenv.exe /setup
+Execute Program: C:\Program Files\Microsoft Visual Studio .NET 2003\Common7\IDE\\devenv.exe /setup
+Execute Program: C:\WINDOWS\system32\cmd.exe /c start http://www.eldos.com/uninstall/result_new.php?Product=SecureBlackbox^&Subproduct=SecureBlackbox.NET
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: 4.4
+RegDB Name: DisplayVersion
+RegDB Root: 2
+RegDB Old: 3.0
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: http://www.eldos.com/documentation/sbb/documentation/toc.html
+RegDB Name: HelpLink
+RegDB Root: 2
+RegDB Old: http://www.secureblackbox.com/support.html
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: EldoS Corporation
+RegDB Name: Publisher
+RegDB Root: 2
+RegDB Old: EldoS Corporation
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: http://www.eldos.com/sbb/support.php
+RegDB Name: URLInfoAbout
+RegDB Root: 2
+RegDB Old: http://www.secureblackbox.com/feedback.html
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\SecureBlackbox.NET
+RegDB Val: C:\Program Files\EldoS\SecureBlackbox.NET\SecureBlackbox.ico,-0
+RegDB Name: DisplayIcon
+RegDB Root: 2
+RegDB Old: C:\SecureBlackbox.NET\secbbox.dll,-0
+User Rights: Admin

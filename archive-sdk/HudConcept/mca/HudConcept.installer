@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="dbHost" displayName="Database Host" format="String" description="The hostname of the database" defaultValue="localhost" required="true" />
+    <configValue name="dbUser" displayName="Database Username" format="String" description="The username of the database" defaultValue="root" readOnly="false" required="true" />
+    <configValue name="dbPass" displayName="Database Password" format="Password" description="The password of the database" defaultValue="metreos" required="true" />
+    <configValue name="dbName" displayName="Database name" format="String" description="The name of the database to connect to" defaultValue="hud" required="true" />
+    <configValue name="appServerIp" displayName="Address of the Application Server" format="String" description="" defaultValue="10.1.10.6" readOnly="false" required="true" />
+    <configValue name="refreshRate" displayName="Call Stat Refresh Rate" format="String" description="The rate at which phones request for call stats" defaultValue="5" required="true" />
+  </configuration>
+</install>

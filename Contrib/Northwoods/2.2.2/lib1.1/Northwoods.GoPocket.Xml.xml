@@ -1,0 +1,1455 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Northwoods.GoPocket.Xml</name>
+    </assembly>
+    <members>
+        <member name="T:Northwoods.Go.Xml.GoXmlWriter">
+            <summary>
+            Write customizable XML, using class-specific <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s.
+            </summary>
+            <remarks>
+            <para>
+            To produce XML, this class opens a <see cref="P:Northwoods.Go.Xml.GoXmlWriter.XmlTextWriter"/>,
+            generates XML instructions, starts a root element, and then
+            iterates twice over the set of <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/>.
+            The first pass (implemented by <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateDefinitions"/>)
+            gives each object a chance to detect and remember shared objects and
+            set up other definitions in preliminary XML elements that are part of the root.
+            The second pass (implemented by <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRenderings"/>)
+            actually produces elements for the <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/>.
+            </para>
+            <para>
+            You must provide type-specific customizations by supplying instances of
+            <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>.  Each transformer is associated with a <c>Type</c>.
+            As this writer processes each object that it is rendering, it searches
+            for the appropriate transformer to invoke, starting with that type and
+            trying its base types.
+            </para>
+            <para>
+            By default there are no transformers registered for this writer, so this
+            writer is unable to actually do anything with the specified <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/>.
+            You will need to call <see cref="M:Northwoods.Go.Xml.GoXmlWriter.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)"/> for each class of object
+            for which you want to produce XML.
+            These calls to <see cref="M:Northwoods.Go.Xml.GoXmlWriter.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)"/> are typically done in an override
+            of <see cref="M:Northwoods.Go.Xml.GoXmlWriter.RegisterTransformers"/>.
+            </para>
+            <para>
+            For the <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateDefinitions"/> pass, <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Define(System.Object)"/>
+            calls <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateDefinitions(System.Object)"/> on the registered transformer
+            for the object's <c>Type</c>.
+            </para>
+            <para>
+            For the <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRenderings"/> pass, <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Render(System.Object)"/>
+            calls <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateElement(System.Object)"/>,
+            <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateAttributes(System.Object)"/>, and
+            <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateBody(System.Object)"/> on the registered transformer
+            for the object's <c>Type</c>.
+            </para>
+            <para>
+            The various <c>Invoke...</c> methods do the actual lookup for a transformer
+            and invoke the respective method on the first transformer found.
+            </para>
+            </remarks>
+            <example>
+            <code>
+              public class SimpleXmlWriter : GoXmlWriter {
+                public SimpleXmlWriter() {
+                  this.RootElementName = "graph";
+                }
+                
+                public override void RegisterTransformers() {
+                  AddTransformer(new SimpleXmlTransformBasicNode());
+                  AddTransformer(new SimpleXmlTransformLink());
+                }
+                
+                // override behavior to generate all nodes before any links
+                protected override void GenerateRenderings() {
+                  foreach (Object obj in this.Objects) {
+                    if (!(obj is IGoLink))
+                      Render(obj);
+                  }
+                  foreach (Object obj in this.Objects) {
+                    if (obj is IGoLink)
+                      Render(obj);
+                    }
+                  }
+                }
+              }
+            </code>
+            See the description of <see cref="T:Northwoods.Go.Xml.GoXmlTransformer"/> for example transformer definitions.
+            Then this writer could be used as follows:
+            <code>
+            public void SaveSimpleXml(String path) {
+              SimpleXmlWriter xw = new SimpleXmlWriter();
+              xw.Objects = myView.Document;
+              Stream file = null;
+              try {
+                file = File.Open(path, FileMode.Create);
+                xw.Generate(file);
+              } finally {
+                if (file != null)
+                  file.Close();
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.#ctor">
+            <summary>
+            Create a writer with a set of <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s defined.
+            </summary>
+            <remarks>
+            This just calls <see cref="M:Northwoods.Go.Xml.GoXmlWriter.RegisterTransformers"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.RegisterTransformers">
+            <summary>
+            This method creates instances of all of the standard <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s
+            to be used when generating XML.
+            </summary>
+            <remarks>
+            If you want your own writer, override this method to make
+            sure all of your customized transformer instances are added automatically.
+            Just call <see cref="M:Northwoods.Go.Xml.GoXmlWriter.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)"/> with new instances
+            of all of the transformers for the kinds of <c>GoObject</c>s
+            that you want to handle.
+            By default this method does not register any transformers.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)">
+            <summary>
+            Cause this XML writer to use the given <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> for
+            objects of the type given by the transformer's <see cref="P:Northwoods.Go.Xml.IGoXmlTransformer.TransformerType"/>.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.SetTransformer(System.Type,Northwoods.Go.Xml.IGoXmlTransformer)">
+            <summary>
+            Cause this XML writer to use the given <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> for
+            objects of the type given by <paramref name="t"/>.
+            </summary>
+            <param name="t"></param>
+            <param name="g"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.GetTransformer(System.Type)">
+            <summary>
+            Returns the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> associated with a given type.
+            </summary>
+            <param name="t"></param>
+            <returns>
+            a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>, or null if none is specified
+            for the exact <c>Type</c> <paramref name="t"/>
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.FindShared(System.Object)">
+            <summary>
+            Find an identifier associated with an object that can be referenced.
+            </summary>
+            <param name="obj"></param>
+            <returns>a string if the object is present; null otherwise</returns>
+            <remarks>
+            Call <see cref="M:Northwoods.Go.Xml.GoXmlWriter.MakeShared(System.Object)"/> to add an object to this writer's table
+            of shared objects.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.MakeShared(System.Object)">
+            <summary>
+            Add an object to the table of shared objects.
+            </summary>
+            <param name="obj"></param>
+            <returns>a unique identifier for this shared object</returns>
+            <remarks>
+            This does nothing if the <paramref name="obj"/> is already
+            in the table, but just returns its identifier.
+            This calls <see cref="M:Northwoods.Go.Xml.GoXmlWriter.FindShared(System.Object)"/> to see if the object
+            is already known as a shared object.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.ClearAllShareds">
+            <summary>
+            Remove all objects from the table of shared objects.
+            </summary>
+            <remarks>
+            This also resets the IDs returned by calls to <see cref="M:Northwoods.Go.Xml.GoXmlWriter.MakeShared(System.Object)"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.SetXmlTextWriter(System.Xml.XmlTextWriter)">
+            <summary>
+            Only a subclass of a <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/> can provide a
+            value for the <see cref="P:Northwoods.Go.Xml.GoXmlWriter.XmlTextWriter"/> property.
+            </summary>
+            <param name="w">an <c>XmlTextWriter</c> initialized at the
+            start of <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Generate(System.IO.Stream)"/>, or null at the end of
+            <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Generate(System.IO.Stream)"/> after closing the <c>XmlTextWriter</c></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.Generate(System.IO.Stream)">
+            <summary>
+            Start an <see cref="P:Northwoods.Go.Xml.GoXmlWriter.XmlTextWriter"/> and generate XML.
+            </summary>
+            <param name="file"></param>
+            <remarks>
+            This calls, in order, <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateInstructions"/>, 
+            <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRootElement"/>, <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRootAttributes"/>, 
+            <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateDefinitions"/>, and <see cref="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRenderings"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.Initialize">
+            <summary>
+            Do the initialization needed by <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Generate(System.IO.Stream)"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.GenerateInstructions">
+            <summary>
+            Generate XML instructions before the root element.
+            </summary>
+            <remarks>
+            By default this does nothing.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRootElement">
+            <summary>
+            Start the root element, using <see cref="P:Northwoods.Go.Xml.GoXmlWriter.RootElementName"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRootAttributes">
+            <summary>
+            Generate attributes for the root element.
+            </summary>
+            <remarks>
+            By default this does nothing.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.GenerateDefinitions">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Define(System.Object)"/> for each object in <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/>.
+            </summary>
+            <remarks>
+            This gives each object a chance to identify common objects
+            and perhaps produce some shared elements that precede the
+            regular rendering.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.GenerateRenderings">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Render(System.Object)"/> for each object in <see cref="P:Northwoods.Go.Xml.GoXmlWriter.Objects"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.Define(System.Object)">
+            <summary>
+            This may produce shared elements that precede the regular rendering of the objects.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            If <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeSkipObject(System.Type,System.Object)"/> returns true, no definition elements are generated.
+            Otherwise this calls <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateDefinitions(System.Type,System.Object)"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.Render(System.Object)">
+            <summary>
+            This produces an element for an object, including any nested elements that help represent the rendering.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            If <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeSkipObject(System.Type,System.Object)"/> returns true, no element is generated.
+            Otherwise this starts writing an element by calling <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateElement(System.Type,System.Object)"/>,
+            <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateAttributes(System.Type,System.Object)"/> and then <see cref="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateBody(System.Type,System.Object)"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.InvokeSkipObject(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.SkipObject(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <returns>
+            This returns the result of calling <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.SkipObject(System.Object)"/>.
+            If no transformer is found, this returns false.
+            </returns>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to method call.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateDefinitions(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateDefinitions(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to method call.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateElement(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateElement(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to method call.
+            </remarks>
+            <returns>
+            True if an element was started.
+            This returns the result of calling <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateElement(System.Object)"/>.
+            If no transformer is found, this returns false.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateAttributes(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateAttributes(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to method call.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlWriter.InvokeGenerateBody(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateBody(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to method call.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlWriter.Objects">
+            <summary>
+            Gets or sets the collection of objects to be rendered
+            </summary>
+            <value>
+            This must be set before calling <see cref="M:Northwoods.Go.Xml.GoXmlWriter.Generate(System.IO.Stream)"/>.
+            </value>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlWriter.XmlTextWriter">
+            <summary>
+            Gets the <c>XmlTextWriter</c> used to actually write XML to the output stream.
+            </summary>
+            <remarks>
+            The value is constructed and initialized during XML generation, and is
+            automatically closed afterwards.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlWriter.RootElementName">
+            <summary>
+            Gets or sets the name of the root element.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Xml.GoXmlReader">
+            <summary>
+            Read customizable XML, using class-specific <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s,
+            using an <c>XmlDocument</c> or just an <c>XmlTextReader</c>.
+            </summary>
+            <remarks>
+            <para>
+            Depending on which overload of <c>Consume</c> is called, you can either
+            traverse an <c>XmlDocument</c> that you supply, you can load an <c>XmlDocument</c>
+            from a Stream (if <see cref="P:Northwoods.Go.Xml.GoXmlReader.UseDOM"/> is true), or you can just handle the
+            elements as they are read in by an <c>XmlTextReader</c>.
+            The processing of XML elements is basically done in a single pass, but there
+            is built-in functionality for a second pass to fix up references in objects.
+            </para>
+            <para>
+            You must provide type-specific customizations by supplying instances of
+            <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>.  Each transformer is associated with a <c>Type</c>
+            (<see cref="P:Northwoods.Go.Xml.IGoXmlTransformer.TransformerType"/>) and an <c>ElementName</c> string
+            (<see cref="P:Northwoods.Go.Xml.IGoXmlTransformer.ElementName"/>).
+            </para>
+            <para>
+            By default there are no transformers registered for this reader, so this
+            reader is unable to actually do anything with the XML elements it sees.
+            You will need to call <see cref="M:Northwoods.Go.Xml.GoXmlReader.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)"/> for each class of object
+            for which you want to consume XML.
+            These calls to <see cref="M:Northwoods.Go.Xml.GoXmlReader.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)"/> are typically done in an override
+            of <see cref="M:Northwoods.Go.Xml.GoXmlReader.RegisterTransformers"/>.
+            </para>
+            <para>
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootBody(System.Object)"/> does the bulk of the work to traverse the
+            elements in the <c>XmlDocument</c> root, or (if <see cref="P:Northwoods.Go.Xml.GoXmlReader.UseDOM"/> is false)
+            just to read elements from the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/>.
+            As this reader processes each element, it calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConstructObject"/>.
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConstructObject"/> calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeAllocate"/> to actually
+            allocate an object, and if an object is allocated, calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeConsumeAttributes(System.Type,System.Object)"/>
+            and <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeConsumeBody(System.Type,System.Object)"/> to actually reconstruct the rest of the object.
+            </para>
+            <para>
+            Although most of the information that needs to be reconstructed will be held in
+            attributes of the element representing an object, there will sometimes be references
+            to other objects.  If you can be sure that the references will be to objects that
+            have already been read, you can call <see cref="M:Northwoods.Go.Xml.GoXmlReader.MakeShared(System.String,System.Object)"/> to remember an object
+            by a key string, and you can call <see cref="M:Northwoods.Go.Xml.GoXmlReader.FindShared(System.String)"/> to recover that object
+            by using the same key.
+            </para>
+            <para>
+            However, if the reference is to something that might not yet have been read and
+            constructed, you can make use of the delayed-references mechanism that this reader offers.
+            You can just call <see cref="M:Northwoods.Go.Xml.GoXmlReader.AddDelayedRef(System.Object,System.String,System.String)"/> to remember the referring object,
+            the property or other identifying string of the reference in this referring object,
+            and the reference string to the referred-to object.  This reference string is the
+            same as the key used to identify shared objects.
+            </para>
+            <para>
+            Then the <see cref="M:Northwoods.Go.Xml.GoXmlReader.ProcessDelayedObjects"/> method, called as a "second pass"
+            after all of the elements in the XML root have been read, iterates over all of those
+            delayed references, calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.FindShared(System.String)"/> to resolve the reference,
+            and then calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeUpdateReference(System.Type,System.Object,System.String,System.Object)"/> so that the transformer
+            gets a chance to fix up the reference.
+            </para>
+            <para>
+            The various <c>Invoke...</c> methods do the actual lookup for a transformer
+            and invoke the respective method on the first transformer found.
+            </para>
+            </remarks>
+            <example>
+            <code>
+            public class SimpleXmlReader : GoXmlReader {
+              public SimpleXmlReader() {}
+              
+              public override void RegisterTransformers() {
+                AddTransformer(new SimpleXmlTransformBasicNode());
+                AddTransformer(new SimpleXmlTransformLink());
+              }
+            }
+            </code>
+            See the description of <see cref="T:Northwoods.Go.Xml.GoXmlTransformer"/> for example transformer definitions.
+            Then this reader could be used as follows:
+            <code>
+            public void LoadSimpleXml(String path) {
+              myView.Document.Clear();  // assume we're replacing current document contents
+              Stream file = null;
+              try {
+                SimpleXmlReader r = new SimpleXmlReader();
+                file = File.Open(path, FileMode.Open);
+                // by default the result is an ArrayList, but can be customized
+                // to be some other kind of collection, such as GoDocument
+                ArrayList a = r.Consume(file) as ArrayList;
+                foreach (Object obj in a) {
+                  IGoLink link = obj as IGoLink;
+                  if (link != null) {
+                    myView.Document.LinksLayer.Add(link.GoObject);
+                  } else {
+                    myView.Document.DefaultLayer.Add(obj as GoObject);
+                  }
+                }
+              } finally {
+                if (file != null)
+                  file.Close();
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.#ctor">
+            <summary>
+            Create a reader with a set of <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s defined.
+            </summary>
+            <remarks>
+            This just calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.RegisterTransformers"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.RegisterTransformers">
+            <summary>
+            This method creates instances of all of the standard <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s
+            to be used when consuming XML.
+            </summary>
+            <remarks>
+            If you want your own customized reader, override this method to make
+            sure all of your customized transformer instances are added automatically.
+            By default this does not register any transformers.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.AddTransformer(Northwoods.Go.Xml.IGoXmlTransformer)">
+            <summary>
+            Cause this XML reader to use the given <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> for
+            objects of the type given by the transformer's <see cref="P:Northwoods.Go.Xml.IGoXmlTransformer.TransformerType"/>.
+            </summary>
+            <param name="g"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.SetTransformer(System.Type,Northwoods.Go.Xml.IGoXmlTransformer)">
+            <summary>
+            Cause this XML reader to use the given <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> for
+            objects of the type given by <paramref name="t"/>.
+            </summary>
+            <param name="t"></param>
+            <param name="g"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.GetTransformer(System.Type)">
+            <summary>
+            Returns the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> associated with a given type.
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.FindShared(System.String)">
+            <summary>
+            Look up a shared object in a hashtable.
+            </summary>
+            <param name="key">a String</param>
+            <returns>an object, or null if not found</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.MakeShared(System.String,System.Object)">
+            <summary>
+            Remember an object in a hashtable, using a particular name
+            </summary>
+            <param name="key">a String name</param>
+            <param name="val">some object</param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ClearAllShareds">
+            <summary>
+            Remove all objects from the table of shared objects.
+            </summary>
+            <remarks>
+            This also resets the IDs returned by calls to <see cref="M:Northwoods.Go.Xml.GoXmlReader.MakeShared(System.String,System.Object)"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.AddDelayedRef(System.Object,System.String,System.String)">
+            <summary>
+            Remember an object, one of its properties, and the string representation
+            of a reference to another object.
+            </summary>
+            <param name="val"></param>
+            <param name="prop"></param>
+            <param name="refstr"></param>
+            <remarks>
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ProcessDelayedObjects"/> uses this stored information
+            to fix up references.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ClearAllDelayeds">
+            <summary>
+            Remove all entries from the table of delayed references.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.SetXmlTextReader(System.Xml.XmlTextReader)">
+            <summary>
+            Only a subclass of a <see cref="T:Northwoods.Go.Xml.GoXmlReader"/> can provide a
+            value for the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/> property.
+            </summary>
+            <param name="w">an <c>XmlTextReader</c> initialized at the
+            start of <see cref="M:Northwoods.Go.Xml.GoXmlReader.Consume(System.IO.Stream)"/>, or set to null at the end of 
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.Consume(System.IO.Stream)"/> after closing the <c>XmlTextReader</c></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.SetXmlDocument(System.Xml.XmlDocument)">
+            <summary>
+            Only a subclass of a <see cref="T:Northwoods.Go.Xml.GoXmlReader"/> can provide a value
+            for the DOM.
+            </summary>
+            <param name="d">an <c>XmlDocument</c> loaded from the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/>
+            by <see cref="M:Northwoods.Go.Xml.GoXmlReader.LoadDOM"/> if <see cref="P:Northwoods.Go.Xml.GoXmlReader.UseDOM"/> is true</param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.Consume(System.IO.Stream)">
+            <summary>
+            Start an <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/> and consume XML.
+            </summary>
+            <param name="file">a <c>Stream</c></param>
+            <returns>
+            an object that represents the whole document, as returned by <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement"/>
+            </returns>
+            <remarks>
+            This does some initialization, creates a <c>XmlTextReader</c>,
+            calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.LoadDOM"/> to perhaps create a <c>XmlDocument</c>.
+            Then it calls, in order, <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeInstructions"/>,
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement"/>, <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootAttributes(System.Object)"/>,
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootBody(System.Object)"/>, <see cref="M:Northwoods.Go.Xml.GoXmlReader.ProcessDelayedObjects"/>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.Consume(System.Xml.XmlDocument)">
+            <summary>
+            Consume an <c>XmlDocument</c>
+            </summary>
+            <param name="doc">an <c>XmlDocument</c></param>
+            <returns>
+            an object that represents the whole document, as returned by <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement"/>
+            </returns>
+            <remarks>
+            After some initialization, this calls, in order, <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeInstructions"/>,
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement"/>, <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootAttributes(System.Object)"/>,
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootBody(System.Object)"/>, and <see cref="M:Northwoods.Go.Xml.GoXmlReader.ProcessDelayedObjects"/>.
+            This does not use a <c>XmlTextReader</c> or call <see cref="M:Northwoods.Go.Xml.GoXmlReader.LoadDOM"/>,
+            since an <c>XmlDocument</c> is supplied.
+            <see cref="P:Northwoods.Go.Xml.GoXmlReader.UseDOM"/> is set to true.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.Initialize">
+            <summary>
+            Do the initialization needed by <see cref="M:Northwoods.Go.Xml.GoXmlReader.Consume(System.IO.Stream)"/>
+            and <see cref="M:Northwoods.Go.Xml.GoXmlReader.Consume(System.Xml.XmlDocument)"/>.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.LoadDOM">
+            <summary>
+            This method constructs and loads an <c>XmlDocument</c>
+            from the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/> if <see cref="P:Northwoods.Go.Xml.GoXmlReader.UseDOM"/>
+            is true.
+            </summary>
+            <remarks>
+            If this does load a <c>XmlDocument</c> from the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/>,
+            it sets the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/> property to null afterwards,
+            and sets the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlDocument"/> property to that new <c>XmlDocument</c>.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ConsumeInstructions">
+            <summary>
+            Consume XML instructions before the root element.
+            </summary>
+            <remarks>
+            By default this does nothing.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement">
+            <summary>
+            Start the root element.
+            </summary>
+            <returns>
+            By default this returns an empty <c>ArrayList</c>.
+            You could override this to return a particular collection or
+            collection-like object, such as a <c>GoDocument</c> or an
+            <c>IGoCollection</c>.  If you do, you'll need to override
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootAttributes(System.Object)"/> and <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootBody(System.Object)"/>
+            correspondingly.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootAttributes(System.Object)">
+            <summary>
+            Consume attributes for the root element.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            By default this does nothing but return its argument.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootBody(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConstructObject"/> for each element found in the root element.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            The default implementation assumes <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement"/>
+            returns an <c>ArrayList</c> representing the collection of objects
+            to be read from the XML.
+            If you have overridden <see cref="M:Northwoods.Go.Xml.GoXmlReader.ConsumeRootElement"/> to return
+            a different kind of object, you'll need to override this method too.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ProcessDelayedObjects">
+            <summary>
+            This method fixes up any objects that had references that were unable to
+            be resolved during the regular Consume steps.
+            </summary>
+            <remarks>
+            This uses the information remembered from calls to <see cref="M:Northwoods.Go.Xml.GoXmlReader.AddDelayedRef(System.Object,System.String,System.String)"/>.
+            For each object/property pair that was delayed, this method calls
+            <see cref="M:Northwoods.Go.Xml.GoXmlReader.FindShared(System.String)"/> to get the real object corresponding to the
+            saved string reference, and calls <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeUpdateReference(System.Type,System.Object,System.String,System.Object)"/>
+            to actually assign the object's property with that reference.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.ConstructObject">
+            <summary>
+            This produces an object from the current element.
+            </summary>
+            <remarks>
+            If <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeAllocate"/> produces an object,
+            this starts reading an element by calling <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeConsumeAttributes(System.Type,System.Object)"/>
+            and then <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeConsumeBody(System.Type,System.Object)"/>, passing it that object.
+            This method will return null if <see cref="M:Northwoods.Go.Xml.GoXmlReader.InvokeAllocate"/> returns null.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.InvokeAllocate">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.Allocate"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            </remarks>
+            <returns>
+            This returns the result of calling <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.Allocate"/>.
+            If no transformer is found, this returns false.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.InvokeConsumeAttributes(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeAttributes(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to the method call.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.InvokeConsumeBody(System.Type,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeBody(System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/> parameter is passed to the method call.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlReader.InvokeUpdateReference(System.Type,System.Object,System.String,System.Object)">
+            <summary>
+            Call the <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.UpdateReference(System.Object,System.String,System.Object)"/> method of the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>
+            that is associated with the given <paramref name="type"/>.
+            </summary>
+            <param name="type"></param>
+            <param name="obj"></param>
+            <param name="prop"></param>
+            <param name="referred"></param>
+            <remarks>
+            This searches for a <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> starting at the
+            <paramref name="type"/> and proceeding up the type hierarchy.
+            The <paramref name="obj"/>, <paramref name="prop"/>, and <paramref name="referred"/>
+            parameter values are passed to the method call.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader">
+            <summary>
+            Gets the <c>XmlTextReader</c> used to actually read XML from the input stream.
+            </summary>
+            <remarks>
+            The value is constructed and initialized during XML generation, and is
+            automatically closed afterwards.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlReader.UseDOM">
+            <summary>
+            Gets or sets whether the <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/>s should
+            use the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlDocument"/> or the <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/>.
+            </summary>
+            <value>this defaults to true</value>
+            <remarks>
+            The DOM is typically used to make it easier to handle references
+            between objects.
+            </remarks>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlReader.XmlDocument">
+            <summary>
+            Gets the <c>XmlDocument</c> that was loaded from the stream/file.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlReader.CurrentNode">
+            <summary>
+            Gets or sets the current <c>XmlNode</c> of the DOM that this reader
+            is looking at.
+            </summary>
+            <remarks>
+            This property needs to be maintained by implementations of
+            <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeBody(System.Object)"/>.
+            </remarks>
+        </member>
+        <member name="T:Northwoods.Go.Xml.IGoXmlTransformer">
+            <summary>
+            This interface represents the methods that <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/> or <see cref="T:Northwoods.Go.Xml.GoXmlReader"/>
+            will call to generate or consume XML for an arbitrary type of object.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.SkipObject(System.Object)">
+            <summary>
+            Return true if the <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/> should not generate XML for an object.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateDefinitions(System.Object)">
+            <summary>
+            This method is called in a first pass over the objects,
+            remembering any shared objects and perhaps rendering definition elements for those shared objects.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateElement(System.Object)">
+            <summary>
+            Start an element for an object.
+            </summary>
+            <param name="obj"></param>
+            <returns>true if an element was started</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateAttributes(System.Object)">
+            <summary>
+            Generate attributes for the current element, helping to render an object.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateBody(System.Object)">
+            <summary>
+            Generate text and/or nested elements that render an object.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.Allocate">
+            <summary>
+            Construct an object, given the current state of the <see cref="T:Northwoods.Go.Xml.GoXmlReader"/>.
+            </summary>
+            <returns>an object, or null if the current element does not require creating an object</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeAttributes(System.Object)">
+            <summary>
+            Use attribute values to further initialize the object constructed by <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.Allocate"/>.
+            </summary>
+            <param name="obj">the object constructed by <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.Allocate"/></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeBody(System.Object)">
+            <summary>
+            Read any text or elements contained in the current element to continue building the object.
+            </summary>
+            <param name="obj">the object constructed by <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.Allocate"/></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.IGoXmlTransformer.UpdateReference(System.Object,System.String,System.Object)">
+            <summary>
+            Update the property named by <paramref name="prop"/> in the given object
+            to the <paramref name="referred"/> object.
+            </summary>
+            <param name="obj">an object being constructed, with a reference property that was delayed and now needs updating</param>
+            <param name="prop">the name of the reference property belonging to <paramref name="obj"/> that needs to be updated</param>
+            <param name="referred">the object that the property should be referring to</param>
+        </member>
+        <member name="P:Northwoods.Go.Xml.IGoXmlTransformer.Writer">
+            <summary>
+            Gets or sets which <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/> is using this transformer.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.IGoXmlTransformer.Reader">
+            <summary>
+            Gets or sets which <see cref="T:Northwoods.Go.Xml.GoXmlReader"/> is using this transformer.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.IGoXmlTransformer.TransformerType">
+            <summary>
+            Gets or sets the <c>Type</c> for which these transformer methods apply.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.IGoXmlTransformer.ElementName">
+            <summary>
+            Gets or sets the element name for this transformer.
+            </summary>
+        </member>
+        <member name="T:Northwoods.Go.Xml.GoXmlTransformer">
+            <summary>
+            This abstract class holds methods called by <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/>
+            and <see cref="T:Northwoods.Go.Xml.GoXmlReader"/>,
+            used to generate or parse XML for objects of a particular class.
+            </summary>
+            <remarks>
+            <para>
+            When you define transformers for your application's object classes,
+            you will want to inherit from this class.
+            This provides standard implementations for all of the
+            <see cref="T:Northwoods.Go.Xml.IGoXmlTransformer"/> methods, which basically just call the
+            same method on the base type's transformer.
+            The various <c>Base...</c> methods are provided as separate methods so
+            that you can call them in your overrides.
+            </para>
+            <para>
+            To make it easier to access the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Writer"/>'s and
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Reader"/>'s properties and methods,
+            a number of their properties and methods are provided here also,
+            whose implementations just delegate to the writer or reader.
+            </para>
+            </remarks>
+            <example>
+            This continues the examples given with the description of <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/>
+            and <see cref="T:Northwoods.Go.Xml.GoXmlReader"/>,
+            defining simple transformers for <c>GoBasicNode</c> and <c>GoLabeledLink</c>.
+            <code>
+              public class SimpleXmlTransformBasicNode : GoXmlTransformer {
+                public SimpleXmlTransformBasicNode() {
+                  this.TransformerType = typeof(GoBasicNode);
+                  this.ElementName = "node";
+                }
+                
+                // make sure we remember a unique ID for each node, so that
+                // links can refer to them.
+                public override void GenerateDefinitions(Object obj) {
+                  GoBasicNode n = (GoBasicNode)obj;
+                  this.Writer.MakeShared(n);
+                }
+                
+                public override void GenerateAttributes(Object obj) {
+                  GoBasicNode n = (GoBasicNode)obj;
+                  XmlTextWriter w = this.XmlTextWriter;
+                  String id = this.Writer.FindShared(n);
+                  if (id != null)
+                    w.WriteAttributeString("id", id);
+                  w.WriteAttributeString("label", n.Text);
+                  w.WriteAttributeString("xy", StringVal(n.Location));
+                }
+                
+                public override Object Allocate() {
+                  GoBasicNode n = new GoBasicNode();
+                  // you might want to do other common initialization here
+                  return n;
+                }
+                
+                public override void ConsumeAttributes(Object obj) {
+                  GoBasicNode n = (GoBasicNode)obj;
+                  String id = StringAttr("id", null);
+                  if (id != null)
+                    this.Reader.MakeShared(id, n);
+                    n.Text =  StringAttr("label", null);
+                    n.Location = PointFAttr("xy", new PointF(100, 100));
+                  }
+                }
+              }
+              
+              public class SimpleXmlTransformLink : GoXmlTransformer {
+                public SimpleXmlTransformLink() {
+                  this.TransformerType = typeof(GoLabeledLink);
+                  this.ElementName = "link";
+                }
+                
+                public override void GenerateAttributes(Object obj) {
+                  GoLabeledLink ll = (GoLabeledLink)obj;
+                  XmlTextWriter w = this.XmlTextWriter;
+                  GoNode n = ll.FromNode as GoNode;
+                  if (n != null) {
+                    String id = this.Writer.FindShared(n);
+                    if (id != null)
+                      w.WriteAttributeString("from", id);
+                  }
+                  n = ll.ToNode as GoNode;
+                  if (n != null) {
+                    String id = this.Writer.FindShared(n);
+                    if (id != null)
+                      w.WriteAttributeString("to", id);
+                  }
+                }
+                
+                public override void GenerateBody(Object obj) {
+                  GoLabeledLink ll = (GoLabeledLink)obj;
+                  XmlTextWriter w = this.XmlTextWriter;
+                  if (ll != null) {
+                    GoText lab = ll.MidLabel as GoText;
+                    if (lab != null)
+                      w.WriteString(lab.Text);
+                  }
+                }
+                
+                public override Object Allocate() {
+                  GoLabeledLink ll = new GoLabeledLink();
+                  // you might want to do other common initialization here
+                  return ll;
+                }
+                
+                public override void ConsumeAttributes(Object obj) {
+                  GoLabeledLink ll = (GoLabeledLink)obj;
+                  String fromid = StringAttr("from", null);
+                  GoBasicNode from = this.Reader.FindShared(fromid) as GoBasicNode;
+                  if (from != null)
+                    ll.FromPort = from.Port;
+                  String toid = StringAttr("to", null);
+                  GoBasicNode to = this.Reader.FindShared(toid) as GoBasicNode;
+                  if (to != null)
+                    ll.ToPort = to.Port;
+                }
+                
+                public override void ConsumeBody(Object obj) {
+                  GoLabeledLink ll = (GoLabeledLink)obj;
+                  XmlTextReader r = this.XmlTextReader;
+                  String str = null;
+                  // handle both XmlTextReader and XmlDocument
+                  if (r != null &amp;&amp; !r.IsEmptyElement) {
+                    while (r.Read()) {
+                      if (r.NodeType == XmlNodeType.Text) {
+                        str = r.Value;
+                      } else if (r.NodeType == XmlNodeType.EndElement) {
+                        break;
+                      }
+                    }
+                  } else if (this.CurrentNode != null) {
+                    XmlNode node = this.CurrentNode;
+                    str = node.InnerText;
+                  }
+                  if (str != null) {
+                    GoText lab = new GoText();
+                    lab.Text = str;
+                    lab.Selectable = false;
+                    ll.MidLabel = lab;
+                  }
+                  ll.RealLink.CalculateStroke();
+                }
+              }
+            </code>
+            </example>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.#ctor">
+            <summary>
+            Construct a transformer that has no <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Writer"/> yet.
+            </summary>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.SkipObject(System.Object)">
+            <summary>
+            Return true if the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Writer"/> should not generate XML for an object.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseSkipObject(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.GenerateDefinitions(System.Object)">
+            <summary>
+            Generate elements for the definitions section of the document, rendering any shared objects
+            that this object needs to refer to.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateDefinitions(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.GenerateElement(System.Object)">
+            <summary>
+            Start producing an XML element for a given object.
+            </summary>
+            <param name="obj"></param>
+            <returns>true if it started an element</returns>
+            <remarks>
+            By default this starts an element named by <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.ElementName"/>, if it is non-null.
+            If <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.ElementName"/> is null, this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateElement(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.GenerateAttributes(System.Object)">
+            <summary>
+            Generate attributes for the current element, helping to render an object.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateAttributes(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.GenerateBody(System.Object)">
+            <summary>
+            Generate any nested elements that are part of the rendering of an object.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateBody(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.Allocate">
+            <summary>
+            Override this method to construct a new object for the current XML element.
+            </summary>
+            <returns>
+            An object of type <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>, or null if no object
+            needs to be created for the current element.
+            </returns>
+            <remarks>
+            By default this returns null.
+            This should be overridden to construct an object.
+            The construction may need to use the values of some attributes on the current XML element
+            in order to decide what to construct or which constructor to call.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.ConsumeAttributes(System.Object)">
+            <summary>
+            Consume attributes for the current element, helping to initialize most of the object's properties.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseConsumeAttributes(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.ConsumeBody(System.Object)">
+            <summary>
+            Consume elements that help define more details of an object.
+            </summary>
+            <param name="obj"></param>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseConsumeBody(System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.UpdateReference(System.Object,System.String,System.Object)">
+            <summary>
+            Fix up a reference property whose value was delayed until the referred-to-object
+            became available.
+            </summary>
+            <param name="obj"></param>
+            <param name="prop"></param>
+            <param name="referred"></param>
+            <remarks>
+            By default this just calls <see cref="M:Northwoods.Go.Xml.GoXmlTransformer.BaseUpdateReference(System.Object,System.String,System.Object)"/>, to allow this
+            <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType"/>'s base <c>Type</c> to provide a default behavior.
+            </remarks>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseSkipObject(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.SkipObject(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateDefinitions(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateDefinitions(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateElement(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateElement(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateAttributes(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateAttributes(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseGenerateBody(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.GenerateBody(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseConsumeAttributes(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeAttributes(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseConsumeBody(System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.ConsumeBody(System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BaseUpdateReference(System.Object,System.String,System.Object)">
+            <summary>
+            Call <see cref="M:Northwoods.Go.Xml.IGoXmlTransformer.UpdateReference(System.Object,System.String,System.Object)"/> on the parent-Type's transformer.
+            </summary>
+            <param name="obj"></param>
+            <param name="prop"></param>
+            <param name="referred"></param>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringRef(System.Object)">
+            <summary>
+            Return a string that references a shared object.
+            </summary>
+            <param name="val"></param>
+            <returns>This returns the ID returned by a call to <see cref="M:Northwoods.Go.Xml.GoXmlWriter.MakeShared(System.Object)"/>.</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.String)">
+            <summary>
+            Produce a string representing the given string value.
+            </summary>
+            <param name="val"></param>
+            <returns>just the value <paramref name="val"/> itself</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Int32)">
+            <summary>
+            Produce a string representing the given integer value.
+            </summary>
+            <param name="val"></param>
+            <returns>a string</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Single)">
+            <summary>
+            Produce a string representing the given single float value.
+            </summary>
+            <param name="val"></param>
+            <returns>a string</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Boolean)">
+            <summary>
+            Produce a string representing the given boolean value.
+            </summary>
+            <param name="val"></param>
+            <returns>"true" or "false"</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(Northwoods.Go.PointF)">
+            <summary>
+            Produce a string representing the given <c>PointF</c> value.
+            </summary>
+            <param name="val"></param>
+            <returns>the X Y values separated by a space</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Drawing.SizeF)">
+            <summary>
+            Produce a string representing the given <c>SizeF</c> value.
+            </summary>
+            <param name="val"></param>
+            <returns>the Width Height values separated by a space</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Drawing.RectangleF)">
+            <summary>
+            Produce a string representing the given <c>RectangleF</c> value.
+            </summary>
+            <param name="val"></param>
+            <returns>the X Y Width Height values, separated by spaces</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Drawing.Color)">
+            <summary>
+            Produce a string representing the given <c>Color</c> value.
+            </summary>
+            <param name="val"></param>
+            <returns>the ARGB value as a string</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Type)">
+            <summary>
+            Produce a string representing the given <c>Type</c>
+            </summary>
+            <param name="val"></param>
+            <returns>the <c>FullName</c> of the type</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Int32[])">
+            <summary>
+            Produce a string representing the given array of integers.
+            </summary>
+            <param name="val"></param>
+            <returns>a string of integer values separated by spaces</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Single[])">
+            <summary>
+            Produce a string representing the given array of single floats.
+            </summary>
+            <param name="val"></param>
+            <returns>a string of single float values separated by spaces</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(Northwoods.Go.PointF[])">
+            <summary>
+            Produce a string representing the given array of <c>PointF</c>.
+            </summary>
+            <param name="val"></param>
+            <returns>a string of X Y pairs, all separated by spaces</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringVal(System.Drawing.Color[])">
+            <summary>
+            Produce a string representing the given array of colors.
+            </summary>
+            <param name="val"></param>
+            <returns>a string of color values separated by spaces</returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.RefAttr(System.String,System.Object)">
+            <summary>
+            Find a shared object referenced by a given attribute.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            An object found in the table of shared object, indexed by the value of the attribute.
+            If the attribute's value is the string "null" or if its value is not found in the
+            shared object table, this method returns null/Nothing.
+            If the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.StringAttr(System.String,System.String)">
+            <summary>
+            Return an attribute's string value.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            The value of the attribute named by <paramref name="name"/>;
+            if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.Int32Attr(System.String,System.Int32)">
+            <summary>
+            Parse an attribute's string value as a integer.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            An integer parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.SingleAttr(System.String,System.Single)">
+            <summary>
+            Parse an attribute's string value as a single float.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A single float parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.BooleanAttr(System.String,System.Boolean)">
+            <summary>
+            Parse an attribute's string value as a boolean.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A boolean parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.PointFAttr(System.String,Northwoods.Go.PointF)">
+            <summary>
+            Parse an attribute's string value as a <c>PointF</c>.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A <c>PointF</c> parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.SizeFAttr(System.String,System.Drawing.SizeF)">
+            <summary>
+            Parse an attribute's string value as a <c>SizeF</c>.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A <c>SizeF</c> parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.RectangleFAttr(System.String,System.Drawing.RectangleF)">
+            <summary>
+            Parse an attribute's string value as a <c>RectangleF</c>.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A <c>RectangleF</c> parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.ColorAttr(System.String,System.Drawing.Color)">
+            <summary>
+            Parse an attribute's string value as a <c>Color</c>.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A <c>Color</c> parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.TypeAttr(System.String,System.Type)">
+            <summary>
+            Parse an attribute's string value as a <c>Type</c>.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            A <c>Type</c> parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.Int32ArrayAttr(System.String,System.Int32[])">
+            <summary>
+            Parse an attribute's string value as an array of integers.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            An array of integers parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.SingleArrayAttr(System.String,System.Single[])">
+            <summary>
+            Parse an attribute's string value as an array of single floats.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            An array of single floats parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.PointFArrayAttr(System.String,Northwoods.Go.PointF[])">
+            <summary>
+            Parse an attribute's string value as an array of <c>PointF</c>.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            An array of <c>PointF</c>s parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="M:Northwoods.Go.Xml.GoXmlTransformer.ColorArrayAttr(System.String,System.Drawing.Color[])">
+            <summary>
+            Parse an attribute's string value as an array of color values.
+            </summary>
+            <param name="name">the name of the attribute</param>
+            <param name="def">the default value to return if the attribute is not present</param>
+            <returns>
+            An array of colors parsed from the value of the attribute named by <paramref name="name"/>;
+            if there is a parsing exception or if the attribute is not present, this method returns the value of <paramref name="def"/>.
+            </returns>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.Writer">
+            <summary>
+            Gets or sets the <see cref="T:Northwoods.Go.Xml.GoXmlWriter"/> that is using this transformer.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.Reader">
+            <summary>
+            Gets or sets the <see cref="T:Northwoods.Go.Xml.GoXmlReader"/> that is using this transformer.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.ElementName">
+            <summary>
+            Gets or sets the name of the principal element used to render this object.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.TransformerType">
+            <summary>
+            Returns the <c>Type</c> for which these transformer methods apply.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.XmlTextWriter">
+            <summary>
+            Get the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Writer"/>'s <see cref="P:Northwoods.Go.Xml.GoXmlWriter.XmlTextWriter"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.XmlTextReader">
+            <summary>
+            Get the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Reader"/>'s <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlTextReader"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.XmlDocument">
+            <summary>
+            Get the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Reader"/>'s <see cref="P:Northwoods.Go.Xml.GoXmlReader.XmlDocument"/>.
+            </summary>
+        </member>
+        <member name="P:Northwoods.Go.Xml.GoXmlTransformer.CurrentNode">
+            <summary>
+            Get the <see cref="P:Northwoods.Go.Xml.GoXmlTransformer.Reader"/>'s <see cref="P:Northwoods.Go.Xml.GoXmlReader.CurrentNode"/>, an <c>XmlNode</c>.
+            </summary>
+        </member>
+    </members>
+</doc>

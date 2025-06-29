@@ -1,0 +1,26 @@
+HKCR
+{
+	OutlookClient.MetreosToolbar.1 = s 'MetreosToolbar Class'
+	{
+		CLSID = s '{9E3F01D1-2B5D-4742-984F-947A26CCCD7D}'
+	}
+	OutlookClient.MetreosToolbar = s 'MetreosToolbar Class'
+	{
+		CLSID = s '{9E3F01D1-2B5D-4742-984F-947A26CCCD7D}'
+		CurVer = s 'OutlookClient.MetreosToolbar.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {9E3F01D1-2B5D-4742-984F-947A26CCCD7D} = s 'MetreosToolbar Class'
+		{
+			ProgID = s 'OutlookClient.MetreosToolbar.1'
+			VersionIndependentProgID = s 'OutlookClient.MetreosToolbar'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{7D42B0A7-AAFE-4CFD-9172-F237103BC25F}'
+		}
+	}
+}

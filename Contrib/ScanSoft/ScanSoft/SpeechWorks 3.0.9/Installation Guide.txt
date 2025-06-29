@@ -1,0 +1,575 @@
+Installation Guide
+SpeechWorks OpenSpeech(tm) Recognizer 3.0
+
+Copyright (c) 2005 Nuance Communications, Inc.
+Proprietary and Confidential
+
+28 December, 2005
+
+All rights reserved. No part of this work covered by the copyright hereon 
+may be reproduced or used in any form or by any means - graphic, electronic, 
+or mechanical, including photocopying, recording, taping, or any information 
+storage and retrieval systems - without the permission of the publisher.
+
+Published by:
+
+Nuance Communications, Inc. 
+One Wayside Road  
+Burlington, MA  01803-4609
+
+
+Copyright (c) 1996 - 2005 by Nuance Communications, Inc. Speechify, SpeechWorks, OpenSpeech, and OpenSpeech Recognizer are trademarks of ScanSoft International, Inc. All other trademarks are the properties of their respective owners.
+
+DialogModules, OpenSpeech, Productivity Without Boundaries, ScanSoft, the ScanSoft logo, SMARTRecognizer, SpeechCare, Speechify, SpeechSecure, SpeechSpot, SpeechSite, SpeechWorks, the SpeechWorks logo, and SpeechWork­sHere are trademarks or registered trademarks of ScanSoft, Inc. or its licensors in the United States and/or other coun­tries.  This document may also contain other trademarks, which are the property of their respective owners.
+
+Portions of the OpenSpeech Recognizer Software are subject to copyrights of AT&T Corp., E-Speech Corporations, Bell Communications Research, Inc., European Telecommunications Standards Institute and GlobeTrotter Software, Inc.
+
+U.S. Patent Nos. 5,765,130; 5,809,494; 5,995,928; 6,061,651; and 6,173,266. One or more patents may be pending in the United States and other countries.
+
+If you have trouble with this installation, or find any errors in the software or documentation, please contact:
+
+Technical Support
+617-428-4444 (ask "Technical Support")
+techsupport@speechworks.com
+
+
+
+
+Table of Contents
+
+(( 1 ))	Hardware and Software Requirements
+(( 2 ))	Installing SpeechWorks OpenSpeech Recognizer 3.0
+	A. Installing OpenSpeech Recognizer 3.0 for Windows
+	B. Installing OpenSpeech Recognizer 3.0 for Linux
+	C. Installing OpenSpeech Recognizer 3.0 for Solaris
+(( 3 ))	Configuring the OpenSpeech Recognizer 3.0 Environment
+        A. Windows
+        B. Linux and Solaris
+
+
+
+(( 1 ))	Hardware and Software Requirements
+
+
+-- Windows Software Requirements:
+   -----------------------------------
+   * One of the following Windows operating systems:
+     - Windows 2000 Professional or Server with Service Pack 2
+     - Windows 2003 Server Enterprise Edition
+     - Windows XP Professional with Service Pack 2
+   * Adobe Acrobat Reader 4 or later (to view PDF documentation)
+   * (Optional) Microsoft Visual C++ 6.0 with Service Pack 3 for voice 
+     processing platform integration and/or OSR 3.0 application
+     development via the C API
+
+-- Linux Software Requirements:
+   ----------------------------
+   * Red Hat Linux 7.2 or Red Hat Advanced Server 2.1
+   * Red Hat Enterprise Server 3.0
+   * Adobe Acrobat Reader 4 or later (to view PDF documentation)
+   * (Optional) An ANSI C compiler for voice processing platform integration 
+     and/or OSR 3.0 application development via the C API
+   * openssl096b-0.9.6b-13 (*note this is not the default with RH ES 3.0)
+     - for Red Hat Enterprise Server 3.0, you will need to install a compatible version of openssl
+     - Insert RedHat ES 3.0 CD #3 (should automount)
+     - rpm -ivh /mnt/cdrom/RedHat/RPMS/openssl096b-0.9.6b-13.i386.rpm
+     - to verify the package is installed 
+       rpm -qa | grep openssl
+       openssl-0.9.7a-22.1        
+       openssl-devel-0.9.7a-22.1 
+       openssl096b-0.9.6b-13   <- this package is required package for OSR3.0.3 compatibility
+
+
+-- Hardware Requirements:
+   ----------------------
+   * Intel Pentium III or Pentium 4-based computer (the processor must support
+     streaming SIMD extensions)
+   * 256 MB RAM
+   * On Windows, 50 MB of free disk space for the OSR 3.0 run-time software
+     (includes 8 MB for the OSR 3.0 documentation)
+   * On Red Hat Linux, 75 MB of free disk space for the OSR 3.0 run-time software
+     (includes 8 MB for the OSR 3.0 documentation)
+   * Sufficient free disk space for at least one Language Pack.  Some typical disk
+     space requirements for Language Packs available with OSR 3.0 are:
+
+     Language                     Space required
+
+     US English                    80 MB
+     Typical language pack	   20-50 MB
+
+
+   * 10 MB of free disk space for the OSR 3.0 tuning data directory
+     (1 GB recommended)
+
+
+
+(( 2 ))	Installing SpeechWorks OpenSpeech Recognizer 3.0
+
+
+OpenSpeech Recognizer 3.0 comes with an automated installation program. 
+Follow these steps (described below) to ensure a proper installation. 
+
+1. OSR 3.0 requires third-party software in order to function.  Before 
+   installing OSR 3.0, verify that the target system meets the third-party 
+   software requirements listed in section 1, and perform upgrades
+   where necessary.
+2. Before installing OSR 3.0, verify that the target system meets the 
+   hardware requirements listed in section 1, and perform upgrades
+   where necessary.
+3. Install OSR 3.0 from the FTP download.
+4. Configure your system.
+
+In order to complete these steps successfully, you must be logged on to 
+your Windows system as an Administrator, or your Linux system as root.  The
+next sections describe each of these steps.
+
+Once you have verified that your hardware meets the minimum requirements 
+listed above and have performed required third party software installations 
+or upgrades, you may install OpenSpeech Recognizer from the OpenSpeech 
+Recognizer 3.0 installation files. 
+
+A. Installing/Uninstalling OpenSpeech Recognizer 3.0 for Windows
+================================================================
+
+With OpenSpeech Recognizer 3.0, the installation process makes it simple to 
+install the OpenSpeech Recognizer run-time engine, language packs, and/or
+grammar converters.
+
+NEW INSTALLATIONS
+-----------------
+
+1. Installing the core recognizer software
+
+- Download OpenSpeech Recognizer 3.0 from www.scansoft.com.
+- Log into Windows with an account having Administrator privileges.
+- Double-click on the setup.exe application to begin the install.
+- Follow the on-screen instructions, reading the Welcome screen and the 
+  Software License Agreement.
+- Choose one or more components to install, using the displayed information 
+  to make sure you have sufficient disk space:
+
+  Installation Option		  Description
+  -------------------		  -----------
+  OpenSpeech Recognizer           Speech recognition run-time engine, SDK, and 
+                                  documentation
+
+  (sub-component) Server Support  Installs all of the necessary files, services, and
+				  registry variables to run OSR in server mode.
+				  You must select "OpenSpeech Recognizer" to
+				  use this subcomponent.  With this configuration,
+				  an OSR client is required in order to connect to it.
+
+  Grammar Translators             Translators for various grammar formats into
+                                  the XML format that is supported by the
+                                  OpenSpeech Recognizer at run-time.
+
+  3rd Party Licensing Components  Small-footprint daemons required to provide
+				  OSR 3.0 with run-time licenses.  If you
+				  unselect this component, you will have to
+				  install a FLEXlm license server manually,
+				  as well as install the SpeechWorks vendor
+				  daemon separately.  OSR 3.0 will NOT operate
+				  without licenses, so SpeechWorks does not
+				  recommend unselecting this component at any
+				  time.  There is detailed information about
+				  licensing in the OSR 3.0 Licensing Handbook.
+
+  OpenSpeech Recognizer Client    Speech recognition client engine and documentation.
+				  Specify just this if you want the machine to be 
+				  client only.
+
+- Choose a target directory for the OSR 3.0 software.
+  The default is "C:\Program Files\SpeechWorks\OpenSpeech Recognizer"
+
+2. Installing a language pack
+
+- Download an OpenSpeech Recognizer 3.0 Language Pack from www.scansoft.com.
+- Log into Windows with an account having Administrator privileges.
+- Double-click on the setup.exe application to begin the install.
+- Follow the on-screen instructions, reading the Welcome screen and the 
+  Software License Agreement.
+- The language pack data files will be installed to the target directory used for
+  the core recognizer install.
+
+REMOVAL/MAINTENANCE INSTALLATIONS
+---------------------------------
+If your system already contains a version of OSR 3.0 or an OSR 3.0 Language Pack
+(note, this is *not* the same thing as an upgrade from OSR 1.0), do the following.
+
+- Log into Windows with an account having Administrator privileges.
+- Double-click on the setup.exe application to begin the install.
+- Follow the on-screen instructions, reading the Welcome screen and the 
+  Software License Agreement.
+- Choose a maintenance option:
+
+  Maintenance Option		  Description
+  ------------------		  -----------
+  Modify (core install only)	  Add components or remove installed components 
+				  (see the section immediately above)
+
+  Repair			  Restore missing files and replace changed
+				  files with their defaults from the install package
+
+  Remove			  Uninstall OSR 3.0 or a language pack completely.
+				  ***This may not remove local grammar/inet 
+				  cache directories, log files, or your own 
+				  files. You will need to remove these files 
+				  manually.
+
+SILENT INSTALLATIONS
+--------------------
+It is possible to install from the command line.  When doing so, NO dialogs
+will be presented; uninstallations will proceed without confirmation,
+new installs will use all default components, etc.
+
+Change to the directory containing the setup.exe file.
+
+- To install the product:		
+        start /wait msiexec /i "OpenSpeech Recognizer 3.0.msi" /qn
+ 
+- To uninstall the product:	
+	start /wait msiexec /x "OpenSpeech Recognizer 3.0.msi" /qn
+
+- To install a language pack:
+	start /wait msiexec /i "OpenSpeech Recognizer 3.0 - <language name> Language Pack.msi" /qn
+
+- To uninstall a language pack:
+	start /wait msiexec /x "OpenSpeech Recognizer 3.0 - <language name> Language Pack.msi" /qn
+
+You should substitute the language name (e.g. "US English") in place of
+"<language name>" above.
+
+B. Installing/Uninstalling OpenSpeech Recognizer 3.0 for Linux
+==============================================================
+
+OpenSpeech Recognizer 3.0 is packaged in Linux rpm format. 
+
+There are four distinct rpm packages:
+
+- OSR-3.0.x.i386.rpm contains the software for OSR and OSR Server 
+supported on Red Hat 7 and Red Hat Advanced Server 2.1.
+
+- OSR-Client-3.0.x.i386.rpm contains the software for OSR Client 
+supported on Red Hat 7 and Red Hat Advanced Server 2.1.
+
+- OSR-3.0.x.i386-rhel3.rpm contains the software for OSR and OSR Server 
+supported on Red Hat Enterprise Linux 3.0.
+
+- OSR-Client-3.0.x.i386-rhel3.rpm contains the software for OSR Client 
+supported on Red Hat Enterprise Linux 3.0.
+
+
+Download the required OpenSpeech Recognizer 3.0 from www.scansoft.com according
+to your target operating system for the installation. 
+
+Log into the target Linux operating system with an account having root privileges.
+
+NEW INSTALLATIONS (NO VERSION OF OSR PRESENT AT ALL - Red Hat 7 and Red Hat Advanced Server 2.1)
+------------------------------------------------------------------------------------------------
+- To install the OSR software or the OSR Server software, run the following
+  command (as root):
+ 
+  rpm -Uvh OSR-3.0-x.i386.rpm (where "x" is this version of OSR 3.0)
+  For example, for OSR 3.0.0:
+  rpm -Uvh OSR-3.0-0.i386.rpm
+
+  The default directory is /usr/local/SpeechWorks/OpenSpeech_Recognizer.
+
+  To install at a location other than the default location, 
+  specify "--prefix" option.  For example, 
+  rpm -Uvh --prefix /home/myOSR OSR-3.0-x.i386.rpm
+
+
+- To install the OSR client software, run the following
+  command (as root):
+ 
+  rpm -Uvh OSR-Client-3.0-x.i386.rpm (where "x" is this version of OSR 3.0)
+  For example, for OSR 3.0.0:
+  rpm -Uvh OSR-Client-3.0-0.i386.rpm
+
+  The default directory is  /usr/local/SpeechWorks/OpenSpeech_Recognizer_Client
+
+
+NEW INSTALLATIONS (NO VERSION OF OSR PRESENT AT ALL - Red Hat Enterpise Linux 3.0)
+----------------------------------------------------------------------------------
+- To install the OSR software or the OSR Server software, run the following
+  command (as root):
+ 
+  rpm -Uvh OSR-3.0-x.i386-rhel3.rpm (where "x" is this version of OSR 3.0)
+  For example, for OSR 3.0.4:
+  rpm -Uvh OSR-3.0-4.i386-rhel3.rpm
+
+  The default directory is /usr/local/SpeechWorks/OpenSpeech_Recognizer.
+
+  To install at a location other than the default location, 
+  specify "--prefix" option.  For example, 
+  rpm -Uvh --prefix /home/myOSR OSR-3.0-x.i386-rhel3.rpm
+
+
+- To install the OSR client software, run the following
+  command (as root):
+ 
+  rpm -Uvh OSR-Client-3.0-x.i386-rhel3.rpm (where "x" is this version of OSR 3.0)
+  For example, for OSR 3.0.4:
+  rpm -Uvh OSR-Client-3.0-4.i386-rhel3.rpm
+
+  The default directory is  /usr/local/SpeechWorks/OpenSpeech_Recognizer_Client
+
+
+
+REMOVAL/MAINTENANCE INSTALLATIONS 
+---------------------------------
+All commands must be run as root.
+
+- To uninstall the product:
+  rpm -v --erase OSR-3.0-X
+  rpm -v --erase OSR-Client-3.0-X
+
+- To repair the product installation (Red Hat 7 and Advanced Server 2.1):
+  rpm -v --replacepkgs OSR-3.0-X.i386.rpm
+  rpm -v --replacepkgs OSR-Client-3.0-X.i386.rpm
+
+
+- To repair the product installation (Red Hat Enterprise Linux 3.0):
+  rpm -v --replacepkgs OSR-3.0-X.i386-rhel3.rpm
+  rpm -v --replacepkgs OSR-Client-3.0-X.i386-rhel3.rpm
+
+
+For language pack installation on Linux, consult the Release Notes included
+with each language pack.
+
+
+
+C. Installing/Uninstalling OpenSpeech Recognizer 3.0 for Solaris
+================================================================
+
+   OpenSpeech Recognizer 3.0 is packaged as a CPIO file.  
+
+   - Download OpenSpeech Recognizer 3.0 from developer.scansoft.com.
+   - Log into Solaris with an account having root privileges.
+   - If a previous version of OSR exists on this machine, remove it
+     first (see below) before installing a newer version.
+
+
+   NEW INSTALLATIONS (NO VERSION OF OSR PRESENT)
+   ---------------------------------------------
+
+   To install the OSR client software, run the following commands (as
+   root):
+
+     mkdir /usr/local/SpeechWorks         # Skip if already exists
+     mkdir /usr/local/SpeechWorks/OpenSpeech_Recognizer_Client
+     cd /usr/local/SpeechWorks/OpenSpeech_Recognizer_Client
+
+     cpio -idumV -I OSR-Client-3.0.x-sparc-solaris.cpio
+
+   where "x" is this version of OSR 3.0 (for example, the filename for
+   OSR 3.0.3 is OSR-Client-3.0.3-sparc-solaris.cpio)
+
+   After installing the product, set up your system according to
+   Section 3B below.
+
+
+   REMOVAL INSTALLATIONS
+   ---------------------
+
+   To uninstall the OSR client software, run the following command, as
+   root.  You should back up any configuration files or other files
+   you want to preserve before executing this command.  This command
+   assumes you installed the product in the default directory.
+
+  1. Remove the files from the system:
+
+     rm -rf /usr/local/SpeechWorks/OpenSpeech_Recognizer_Client
+
+  2. Clean the environment:
+     a. Delete SWISRSDK variable
+     b. Remove the $SWISRSDK/bin from PATH
+     c. Remove the $SWISRSDK/lib from LD_LIBRARY_PATH.
+
+
+(( 3 ))	Configuring the OpenSpeech Recognizer 3.0 Environment
+
+
+A. Windows
+==========
+
+- Open the SpeechWorks.cfg text configuration file for editing.  This
+  file is located in your installation directory.
+
+  ** Alternatively, you can use environment variables.  Environment variables
+     will override settings in SpeechWorks.cfg!!!!
+
+- Set and modify the following values:
+
+  SWIlicenseServerList:
+	  Replace "27000@localhost" with the actual location of your license
+	  server.  If it's to run on your install machine, no change is
+	  needed, unless you wish to add other servers.  See the "OSR 3.0
+          Licensing Handbook" for instructions on how to change this, or add
+          more servers.
+
+  SWIsvcMonAutoStart:
+	  Set to yes (this instructs the SWIsvcMonitor service to automatically
+	  start the OSRServer when the windows service is started).
+
+- If you installed the client software on this machine, you must configure the available
+  OSR Servers in the SWIsvrConfig.xml file. Please consult the OSR Client/Server Operator's Guide.
+
+- If you are running the OSR Server software, you must run both the SWIsvcMonitor and the OSRServer.
+  Restart the "SpeechWorks OSR CS Server" service and execute "swisvc -start" from the command line.
+
+- Windows XP Service Pack 2
+ 
+  Windows XP Service Pack 2 contains a new feature introduced by Microsoft, called the
+  Windows Security Center.  This is not an optional component; it will be automatically
+  installed with Service Pack 2.  Some consideration for the Security Center components
+  must be made when configuring OSR.  The Security Center has three components:
+
+   1. Windows Firewall
+   2. Automatic Updates
+   3. Virus Protection
+
+   A note about Security Center shield colors
+   ------------------------------------------
+   Not all Security Center tools impact a typical user of OSR.  Microsoft ships Windows XP 
+   SP2 with all settings set to “optimal” – this turns the respective shield icons in the 
+   Security Center green.  For the shield to remain green:
+   - Windows Firewall must be ON and "dangerous" ports must not be in the exceptions
+   - Automatic Updates must be set to "download and install updates automatically"
+   - Virus Protection must have a virus software program installed, automated, and
+     registered with eTrust.
+   This is just a Microsoft design decision and running a computer with any of the shield 
+   colors set to yellow or red does not necessarily indicate a problem.
+
+      1. Windows Firewall
+      -------------------
+      When installing the OSR software on the Windows XP Professional operating system, the 
+      firewall must allow access to any TCP ports needed by remote OSR computers connecting
+      to the firewalled computer, including additional ports needed by your platform.
+
+      The default “green shield” settings for Windows Firewall will block license 
+      enforcement operations for any license client connections from a remote computer,
+      and will block client/server operations if the client and server are on different
+      computers.  Therefore, changes to the Windows Firewall are required.
+
+      o If the computer will act as an OSR License Server and serve remote OSR license
+        connections: the TCP port(s) required by the OSR license client must be opened on
+        the OSR License Server
+      o If the computer will act an OSR Server in the OSR/Client Server configuration:
+        the TCP ports required by the OSR Client must be opened on the OSR Server.
+
+      The general procedure to access the Firewall is:
+
+      o	From the Start Menu or Control Panel, choose “Security Center”
+      o	Highlight “Windows Firewall” with the mouse.
+      o Choices:
+	- Disabling: If the machine will not be connected to the internet, or an easier 
+          installation is desired, disable Windows Firewall.  The shield icon will turn red.
+          Disabling the entire Windows Firewall is a potential security risk.  Do this only 
+          if the machine will not be connected directly to the public internet, or if you 
+          already have a site-wide firewall, or if you require the most simple installation.
+        - Open the ports: click the “Add Port” dialog in the “Exceptions” tab in Windows
+          Firewall to add the proper ports for client/server operations and licensing 
+          operations to the list.  See the OSR Licensing Handbook and Client/Server Operations 
+          guide for the list of ports to use.  If finer grain control is required, the
+          “Advanced” tab in Windows Firewall (“Network Connection Settings” dialog) will allow 
+          for greater fine-tuning.  Depending on your settings, the shield color for Windows
+          Firewall may turn yellow.
+        - Allow the executables freedom: you can add the OSRServer.exe program to the 
+          exceptions list in the “Exceptions” tab if you are running Client/Server; you can
+          add the lmgrd.exe and swilmgrd.exe programs to enable remote license server connections
+          if the firewalled computer is running a license server. Depending on your settings,
+          the shield color for Windows Firewall may turn yellow.
+        - Reactionary: When a remote computer attemps a network connection to a firewalled
+          computer, a Windows Security Alert dialog box opens.  Click “Unblock” in this dialog
+          to allow the connection.  NOTE: this "reactionary" method requires supervision for 
+          the first of each kind of connection, and may cause all calls to fail until the
+          ports are unblocked!  Depending on your settings, the shield color for Windows
+          Firewall may turn yellow.
+
+      2. Automatic Updates
+      --------------------
+      Disabling automatic updates or taking manual control of the updates will turn the 
+      shield’s color from green to yellow (manual control) or red (disabled).  This will 
+      not affect OSR operations.
+
+      3. Virus Protection
+      -------------------
+      ScanSoft typically recommends that virus software not run alongside an OSR server 
+      for optimal performance reasons.  If the computer is not connected to the Internet, 
+      this does not introduce risk.  Even if the computer is connected to the Internet, but is 
+      not used for web browsing or reading e-mail and downloading files, there is lesser risk.
+
+      If no anti-virus software is registered with Windows, the shield will turn red.  This will 
+      not affect OSR operations and actually reflects the ideal situation for a standalone 
+      OSR server.  If the anti-virus software is out-of-date with eTrust, the shield will 
+      turn yellow.  This will not affect OSR operations.
+
+  Please refer to the Microsoft documentation shipping with Windows XP Service Pack 2 for
+  authoritative instructions on how to access Security Center features.  Also, keep in mind
+  that while ScanSoft has experienced no problems with modifying the settings or changing
+  the shield colors in Windows Security Center, having any shield color in a non-optimal
+  (non-green) state is considered to be a SECURITY RISK by Microsoft.
+
+
+B. Linux and Solaris
+====================
+
+- Open the SpeechWorks.cfg text configuration file for editing.  This
+  file is located in your installation directory.
+
+  ** Alternatively, you can use environment variables.  Environment variables
+     will override settings in SpeechWorks.cfg!!!!
+
+- Set and modify the following values:
+
+  SWIlicenseServerList:
+	  Replace "27000@localhost" with the actual location of your license
+	  server.  If it's to run on your install machine, no change is
+	  needed, unless you wish to add other servers.  See the "OSR 3.0
+          Licensing Handbook" for instructions on how to change this, or add
+          more servers.
+
+- Modify your environment as follows:
+
+     Add SWISRSDK to your environment.  SWISRSDK should point to your
+     chosen OSR installation directory.  For example (assuming csh or
+     tcsh):
+
+       For OSR and OSR Server:
+         setenv SWISRSDK /usr/local/SpeechWorks/OpenSpeech_Recognizer
+
+       For OSR Client:
+         setenv SWISRSDK \
+            /usr/local/SpeechWorks/OpenSpeech_Recognizer_Client
+
+     For Red Hat Enterprise Server 3.0 to avoid bugs in the default pthread library, 
+     you must add the following path to your LD_LIBRARY_PATH for both client and server installations:
+     (SPR #10376, 10358)
+     
+     setenv LD_LIBRARY_PATH /lib/i686:$SWISRSDK/lib
+
+
+     For other Red Hat versions of Linux and for Solaris installations, use the following path:
+
+     setenv LD_LIBRARY_PATH $SWISRSDK/lib
+
+
+
+     Add $SWISRSK/bin to your PATH.  This will allow you to run the
+     OSR 2.0 programs without having to specify the full path to the
+     bin directory.  For example (assuming csh or tcsh):
+
+        setenv PATH "$SWISRSDK/bin:$PATH"
+
+   - If you installed the OSR Client software on this machine, you
+     must configure the available OSR Servers in the file
+     $SWISRSDK/config/SWIsvrConfig.xml file.  Please consult the OSR
+     Client-Server Operator's Guide.
+
+   - If you installed the OSR Server software, you must run both the
+     SWIsvcMonitor and the OSRServer.  Start the SWIsvcMonitor as a
+     system daemon, then execute "swisvc -start" from the command
+     line.  You should be able to observe threads from both
+     "OSRServer" and "SWIsvcMonitor" processes using "ps -Af".

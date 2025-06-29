@@ -1,0 +1,951 @@
+
+Notes on terminating GetDigits on digit pattern
+===============================================
+
+1. Scenario
+Session 1 ConxID 1 joins conference
+
+A GetDigits is started on Conx 1 with a termination condition of "digitPattern xxxxxx"
+
+MmsMqAppAdapter::buildTerminationConditionParameters translates 
+this to DX_METREOS_DIGPATTERN, and inserts a MMSP_DIGITLIST parameter 
+to the parameter map when that is the case.
+
+MmsSessionC::getTerminationConditionParameters finds this non-HMP termcond, 
+and sets session state variables accordingly. The MMSP_DIGITLIST is extracted 
+in a clone of MmsSession::getDigitListParameters(), which is modified 
+to return the digit list.
+-- isWatchingDigitPattern = strlen(digitlist) > 0; 
+-- char digitlist[16];  (this must be always memset zero in OnCommandEnd)
+
+
+2. How to monitor a pattern in MmsSession::handleSendDigits	
+
+I believe we should test incoming digits against pattern before sending to ipm_SendDigits, 
+because we would not want to terminate on an HMP event and then decide to terminate manually, 
+once the command has terminated. We should a pointer matchcount into the pattern indicating 
+where we are in the pattern
+
+
+
+
+Notes on gathering digits on conference party
+=============================================
+
+1. Trigger
+GetDigits command on a connection which is in conference
+
+2. Thoughts
+The command should get through, since no command is active.
+When the command ends, we need to BusDisco the voice from IP, single duplex,
+but not disturb the conference hookup to the IP
+
+3. Code points
+mmsSession.HandleReceiveDigits
+session.IsConferenceParty()    	-- not utility session
+session.IsInConference()      	-- any session including utility
+mmsSessionD.switchFromConferenceToVoice()  -- example listen
+MmsDeviceVoice::receiveDigits(MMS_DV_TPT_LIST* tptlist, int mode)
+MmsSessionB::handleEventVoxDigitsReceived()
+MmsThreadPool::onServicePoolEvent()
+
+
+
+Notes on conference disconnect and delete logic
+===============================================
+
+Why is this a sticky problem? The reason is that once a conference is
+removed from HMP, HMP can immediately reassign that conference ID. The
+HMP conference is removed before the entire teardown process is complete.
+We obviously do not want to lock out HMP from creating any new conference
+while we are tearing down a single conference. Could we perhaps delay
+deletion of the HMP conference until all the rest of the teardown has
+been conpleted?
+
+
+// OnSessionEnd()
+// 
+//   handleConferenceDisconnect()
+// 
+//   conferenceMgr->leaveConference(session, conferenceID);
+// 
+//       findByConferenceID()
+//       xlock;
+//       ** "Session n leaves conference m"
+// 
+//       MmsConference::leave(session)
+// 
+//         deviceConference->leave(conferenceID, IPorVox);
+// 
+//           conferences->get(conferenceID);
+//           conference->xlock.acquire();              
+//           busDisconnect()
+// 
+//           if  (conference->size() == 1)           
+//           {    // MmsHmpConference->teardown(); // no-op
+//                unlock         
+//                teardown(conferenceID);  
+//                   conferences->remove(conferenceID);  
+//                   dcb_delconf(conferenceID);   // ** HMP CONFID NOW GONE
+//           }                                            
+//           else{dcb_remfromconf(); unlock }
+// 
+//         session->confinfo().clear();                 
+//         conferees.remove(session);  
+//
+//       xunlock;
+// 
+//       teardownConference()      
+//           
+//          MmsConference* conference = findByConferenceID   
+//          conference->teardown(); 
+//             // WE DO NOT WANT TO RE-DELETE THE HMP CONF HERE IF FINAL
+//             // CONFEREE REMOVED ABOVE BECAUSE IF SO THE CONF ID COULD
+//             // HAVE BEEN REASSIGNED ALREADY
+//             deviceConference->teardown
+//             session->confinfo().clear();
+// 
+//          ** "conference %d closed"                                
+//          delete conference;            // KEEP AN EYE ON THIS ERASE                                   
+//          conferences.erase(conferences.find(conferenceID));
+
+
+Notes on changing IP/port on an existing connection
+===================================================
+1. Assumption is caller does not necessarily provide conference ID if applicable
+2. If caller were to provide conference ID we could just disco and reconnect
+3. We'll need to unlisten and relisten voice OR conference, AFTER async connect
+4. But we can't do it after, since we must stop the IP in order to restart
+5. So we need to unlisten voice OR conf; indicate in member var which one if any;
+   stop the IP, do the remote connect, and relisten whatever on event
+6. Seems like no advantage -- may as well just disco internally
+   No use in adding extra code if we wind up essentially doing a disco anyway
+7. Check out what the connect event uses to determine if it should hook conf
+   a. if flatmap flag IS_CONFERENCE it does a handleConferenceConnect
+   b  handleConferenceConnect could therefore check if already in conference,
+      and if so, relisten
+8. Should we attempt to reconnect voice, or just cancel it at the outset.
+  
+
+Notes on periodic session timeout scan
+======================================
+1. It should not be necessary to include a mutex in every session
+   if we remember that (a) session manager cannot assign either
+   commands or events to service threads while doing a scan; and
+   (b) a thread inserts its ID on entry and removes it on exit.
+2. During the scan smgr should ignore sessions assigned to threads
+   which have short durations, but should regard those which have
+   been inactive for some time, as the thread may in fact be hung.
+
+3. What are we scanning for?
+   a. Sessions idle which have not rcvd a command in sessionTimeoutSecs
+   b. Session waiting which have not received an event in commandTimeoutMs
+
+4. What do we do if session times out?
+   a. There is no command pending so we won't try to push an event to client.
+      We'll merely close the session, unbinding the session ID.
+   b. How do we close a session?
+      1. session->onSessionEnd();             // ... unmap & tear down session
+      2. m_sessionPool->returnSessionToAvailablePool(session);
+   c. What do we do if session->currentThreadHandle?
+      1. Log the thread hung - performance may be degraded
+      2. The message should log periodically
+      3. We have to assume the command cannot complete, therefore we
+         can and should put the session back into service 
+   c. What do we do if was a conference participant? 
+
+5. What do we do when command times out?
+   a. If not waiting, and session->currentThreadHandle
+      either do as 4.c, or if not session->isInfiniteSessionTimeout,
+      could just wait for the session to timeout.
+   a. Get session->waitinfo(); int eventType; int eventID;
+   b. session->cancelAsyncEventNotification(waitinfo.eventType);
+   c. setFlatMapRetcode(session->flatmap(), MMS_ERROR_TIMEOUT_OPERATION);
+      setFlatMapFlag(session->flatmap(), IS_ERROR);
+      sessionManager->postMessage(MMSM_SERVICEPOOLTASK_RETURN, (long)session);
+
+More notes on session setup and teardown
+========================================
+1. Session setup/teardown points
+
+   a. At time connect request is recognized by session manager
+      onSessionStart():
+      1. assign connection ID 
+      2. session state busy
+      3. set sessionTimeoutSecs to config default
+
+   b. At time session timeout parameter is extracted
+      onAssignSessionTimeout()
+      1. assign value to session.sessionTimeoutSecs
+
+   c. On command assignment to service (smgr context)
+      onCommandStart()
+      1. Reset session timer to sessionTimeoutSecs;     
+      2. set session.commandTimeoutMs to config default
+      3. attach parameter map
+      
+   d. On event assignment to service (smgr context)
+      onEventSink();
+      1. Reset session timer to sessionTimeoutSecs;     
+      2. Reset command timer to commandTimeoutMs
+
+   e. Service thread start
+      1. ACE_Thread_Manager::instance()->thr_self(currentThreadHandle);
+
+   f. Command service start (post-parameter extract) 
+      1. Extract command timeout parameter & if present assign commandTimeoutMs 
+
+   g. Media command launch(mode)      
+      1. Set command timer to commandTimeoutMs
+      2. If async, voice media state = waiting
+
+   h. Media command return (mode)
+      1. ?
+
+   i. Event service start (post-dispatch map extract)  
+      1. Countdown command and session timers 
+         (do this here only if we decide not to use a session object lock)
+      2. this->waiting = FALSE;
+          
+   j. Service thread exit
+      1. currentThreadHandle = 0
+
+   k. On return from service (always command end or error)
+      1. If connect and error, sessionend()
+
+   l. Command end
+      1. voice media state = idle
+      2. setOperationTimer(NULL)
+
+   m. Session end (disconnect or timeout)
+      1. Command end ?
+      1. setSessionTimer(NULL)
+      2. Stop IP
+      3. session.clear();
+      x. MmsSessionPool::returnSessionToAvailablePool
+
+Notes on parameter map contents for various server commands
+===========================================================
+1. Parameter constants: mmsParameterMap.h
+   Command constants:   mmsServerCmdHeader.h
+
+2. Connect or modify connection - MMS_SERVERCMD_CONNECT
+   a. Port MMSP_PORT_NUMBER  (int)                    
+   b, IP - MMSP_IP_ADDRESS   
+   c. Call ID MMSP_CALL_ID
+   d. Coder type  MMSP_CONNECTION_ATTRIBUTES
+   e. Frame size  MMSP_CONNECTION_ATTRIBUTES
+   f. Frames/Pkt  MMSP_CONNECTION_ATTRIBUTES
+   g. Enable VAD  MMSP_CONNECTION_ATTRIBUTES
+   h. Coder payload type  MMSP_CONNECTION_ATTRIBUTES
+   i. Redundancy payload type MMSP_CONNECTION_ATTRIBUTES
+   j. Join or create conference MMSP_CONFERENCE_ATTRIBUTES 
+   k. Sound tone when conferee added/removed  MMSP_CONFERENCE_ATTRIBUTES
+   l. But no tone for r/o or monitor conferees MMSP_CONFERENCE_ATTRIBUTES
+   m. Conferee kibitzer only  MMSP_CONFEREE_ATTRIBUTES
+   n. Conferee read only MMSP_CONFEREE_ATTRIBUTES
+   o. Conferee receives tariff tone MMSP_CONFEREE_ATTRIBUTES
+   p. Conferee is the coach MMSP_CONFEREE_ATTRIBUTES
+   q. Conferee is the pupil MMSP_CONFEREE_ATTRIBUTES
+
+3. Disconnect
+   a. Connection ID
+
+4. Media Request Play
+   x. Connection ID
+   a. File list   MMSP_FILELIST
+   b. Data format MMSP_PLAY_RECORD_ATTRIBUTES
+   c. Bit rate    MMSP_PLAY_RECORD_ATTRIBUTES
+   d. Termination MMSP_TERMINATION_CONDITIONS
+
+5. Media Request Record
+   x. Connection ID
+   a. File list   MMSP_FILELIST
+   b. Data format MMSP_PLAY_RECORD_ATTRIBUTES
+   c. Bit rate    MMSP_PLAY_RECORD_ATTRIBUTES
+   d. Termination MMSP_TERMINATION_CONDITIONS
+   e. Tone        MMSP_PLAY_RECORD_ATTRIBUTES
+
+6. Media Request record transaction
+   a. Connection ID
+   b. Connection ID of second IP
+   c. Record file MMSP_FILESPEC
+   d. Data format MMSP_PLAY_RECORD_ATTRIBUTES
+   e. Bit rate    MMSP_PLAY_RECORD_ATTRIBUTES
+   f. Termination MMSP_TERMINATION_CONDITIONS
+   g. Tone        MMSP_PLAY_RECORD_ATTRIBUTES
+
+7. Media Request play tone
+   x. Connection ID
+   a. Freq/Ampl 1 MMSP_FREQUENCY_AMPLITUDE 
+   b. Freq/Ampl 2 MMSP_FREQUENCY_AMPLITUDE
+   c. Duration    MMSP_DURATION
+   d. Termination MMSP_TERMINATION_CONDITIONS
+
+8. Media request receive digits
+   x. Connection ID
+   b. Termination MMSP_TERMINATION_CONDITIONS
+   c. Digits      MMSP_RECEIVE_DIGITS_RETURN_BUFFER
+   
+9. Media request assign volume adjustment digit
+   x. Connection ID
+   b. Digit             MMSP_VOLSPEED_DIGIT
+   c. Adjustment value  MMSP_VOLSPEED_DIGIT
+
+10.Media request assign speed adjustment digit
+   x. Connection ID
+   b. Digit             MMSP_VOLSPEED_DIGIT
+   c. Adjustment value  MMSP_VOLSPEED_DIGIT
+
+11.Media request adjust volume
+   x. Connection ID
+   a. Action            MMSP_VOLSPEED_ADJUSTMENT
+   b. Adjustment value  MMSP_VOLSPEED_ADJUSTMENT
+
+12.Media request adjust speed
+   x. Connection ID
+   a. Action            MMSP_VOLSPEED_ADJUSTMENT
+   b. Adjustment value  MMSP_VOLSPEED_ADJUSTMENT
+
+13.Media request clear volume and speed adjustments
+   x. Connection ID
+
+14.Conference create - same as 2 connect
+   x. Call ID
+   a. See connect for conference attributes, conferee attributes
+
+15.Conference join - same as 2 connect
+   x. Call ID
+   a. See connect for conferee attributes
+
+16,Conference leave - same as 3 disconnect
+   x. Call ID to look up conference
+   x. Connection ID to look up session
+   x. Session->conferenceID() to verify conferee   
+
+17.Conference resources remaining
+   x. Call ID to look up conference
+   x. Connection ID to look up session
+   x. Session->conferenceID() to verify conferee 
+   a. Return the value in map->returncode
+
+18.Conference add monitor channel
+   x. Call ID to look up conference
+
+19.Conference remove monitor channel
+   x. Call ID to look up conference
+
+20.Conference listen on monitor channel - same as 2 connect
+   x. Call ID
+   a. See connect for conferee attributes
+
+21.Conference unlisten on monitor channel
+   x. Call ID
+   a. Same as leave 
+
+22.Conference conferee set coach
+   x. Call ID to look up conference
+   x. Connection ID to look up session
+   x. Session->conferenceID() to verify conferee 
+
+23.Conference conferee set pupil
+   x. Call ID to look up conference
+   x. Connection ID to look up session
+   x. Session->conferenceID() to verify conferee 
+
+24.Conference conferee set tariff tone
+   x. Call ID to look up conference
+   x. Connection ID to look up session
+   x. Session->conferenceID() to verify conferee 
+
+25.Conference request enable volume control for conferee
+   x  Call ID
+   x. Connection ID
+   a. Vol control on/off      MMSP_CONFERENCE_VOLCONTROL
+   b. Vol control up digit    MMSP_CONFERENCE_VOLCONTROL
+   c. Vol control reset digit MMSP_CONFERENCE_VOLCONTROL
+   d. Vol control down digit  MMSP_CONFERENCE_VOLCONTROL
+
+26.Conference is volume control enabled
+   x. Call ID to look up conference
+   a. Return the value in map->returncode
+
+
+
+How to allocate embedded parameter maps
+=======================================
+1. Do do this in the slickest manner it would be great if we could do
+   a single allocation, and map the embedded maps onto segments of
+   the larger allocation.
+2. The way to do this is to marshal the embedded map into preformatted
+   area of host map -- see new flatmaptest.
+
+
+Latest revelation on paging resources
+=====================================
+1. Consider that a conference resource may be able to be swapped for a
+   passive monitor connection.
+
+
+Notes on a separate session manager
+===================================
+1. Current session manager would become SERV, the server manager - 
+   server queue listener
+
+2. New session manager SMGR combines connection/voice manager with 
+   conference manager.
+
+3. When SERV receives any request, it sends it on to SMGR. 
+   a. So is the SERV thread being utilized fully, if that's all it does?
+   b. SERV receives heartbeats and other timer notifications, monitors
+      process components, hosts instance data for session and thread
+      pools, etc
+
+   c. The diagram would change slightly from previous design,
+      in that the session manager is no longer the listener.
+
+                ------
+               | EVNT |<-
+                ------    \      ------
+                   v        \   ------ |
+    -----      ---------       ------ |    ------
+         |    | Session | --> | POOL |    | TIM1 |
+    SRVQ |\   | Manager |<--  ------      |      |
+         |  \  ---------     /             ------
+         |    \       A    /                  |
+    CLIQ |      \ --------                    |
+         |<----- |  SERV  | ------------------
+         |       |        |
+         |        --------  \
+         |                    \
+    -----                     MAIN
+
+
+4. What happens SERV receives connect request?
+   a. Gets message on SRVQ
+   b. Determines message is media function
+   c. Forwards to SMGR
+
+5. What happens when SMGR gets media control message from SERV
+   a. Inspects parameter map do determine request
+   b. If connect, assign a session from pool, otherwise look up session
+   c. Set session state
+   d. Send POOL a MMSM_SESSIONTASK with session number param
+   e. Go idle waiting for messages from EVNT, SERV, or POOL
+
+6. What happens when async event fires
+   a. When event fires, EVNT sends MMSM_MEDIAEVENT to SMGR with event/data
+   b. SMGR looks up waiting session, saves info, deletes DispatchMap*
+   c. SMGR might at this point hand the session off to a work thread 
+      to complete the work, for example if the command has not 
+      finished playing all files; or it might handle wrapup of 
+      the session immediately.
+   d. If request is incomplete, Send POOL a MMSM_SESSIONTASK 
+      else (e) ...
+   e. If request is complete, set voice device state to IDLE,
+      - set return data and termination bits in the parameter map,
+      - sets session state to MEDIAREQUEST_COMPLETE,
+      - sets the session return code (command result),
+      - Do a session.cleanupOperation() which may include the following:
+      - MMSM_MEDIAREQUEST_COMPLETE to SERV, with session ID as param. 
+   f. Go idle again as in (5.e)
+
+7. What happens when SERV gets MMSM_MEDIAREQUEST_COMPLETE  
+   a. Gets sessionID = msg->param(), and looks up session
+   b. Sets parameter map return code from session info:
+   c. MMSM_SERVERCMD_RETURN, command, map, REUSE_SHAREDMEM(maplength));
+
+8. What happens when POOL gets MMSM_SESSIONTASK
+   a. Looks up session
+   b. Checks if device in place, if not, get (voice or conf) resource
+      -- if resource error, MMSM_MEDIAREQUEST_ERROR to SMGR 
+   c. switch on media request (command, eg PLAY)
+   d. switch on session state (eg INITIAL)
+   e. if async, register for async event
+   f. execute the indicated media API 
+   g. if synchronous, such as connect, MMSM_MEDIAREQUEST_COMPLETE to SMGR
+   h. service thread goes idle 
+
+
+**** design task flow  
+a. Launched by SMGR. SMGR loads it up with SESS and POOL at ctor
+   b. SMGR starts a request with POOL. POOL marks SESS entry BUSY,
+      causing SMGR to subsequently reject any incoming requests
+      for that session (no simultaneous requests on a session in
+      other words).
+   c. POOL registers a one-shot event(HEVT*, SessionID), marks state
+      (what is being waited on) in the SESS entry, and launches an 
+      async command
+   d. Event fires. HDLR posts a message to the MmsTask* registered,
+      which is in this case HEVT, including the SESS ID.
+   e. HEVT looks up the session SESS ID.
+   f. HEVT post a WORK request for SESS entry to POOL.
+   g. This continues until command in completed or error, at which
+      point SESS is marked not busy, and a RETURN is posted to SMGR
+
+ 
+
+Notes on session registering for async events
+==============================================
+1. A session is intialized with among other things, the TASK which
+   is monitoring async events, pTaskEventHandler
+
+2. For example, prior to calling ipDevice->startReceiveDigits(),
+   the Session[i], will do this: 
+
+   HmpEventRegistry* eventRegistry = HmpEventRegistry::instance();
+
+   eventRegistry->registerOneShotEvent(deviceIP->handle(), IPMEV_DIGITS_RECEIVED, 
+                  m_sessionID, eventRegistry->assignEventID(), pTaskEventHandler, 
+                  sizeof(IPM_DIGIT_INFO), m_returnDataBuffer);
+
+
+
+Notes on assigning resources to a sssion
+========================================
+1. Each time we assign a voice resource to a session we will do:
+   this->busConnect(ipResource, FULLDUPLEX);
+
+
+
+Notes on returning data across the process boundary:
+====================================================
+   Our procedure for doing this is for client to insert a blank map entry 
+   into the map sent to server, which we will overwrite with return data.
+   We'll do a find on that parameter key to get a pointer to the entry,  
+   plus its length, and will strncpy the return value into the map entry.
+   For example, to return received digits:
+   len = map->find(MMS_PARAM_RECEIVE_DIGITS_RETURN_BUFFER, &paramdata);
+   if  (len) strncpy(paramdata, m_digitBuf.dg_value, len-1); 
+   Client determines number of digits via strlen(returndata) - 1
+   Another method is similar to above except we insert a flatmap* as follows:
+   (a) server allocates map2 from shared memory, and (b) Overwrites a map1 
+   parameter as above, with the pointer to map2. (c) When client process and 
+   unpacks map1, it eventually sends the map2* back to server for deletion
+   in a MMSM_DISPOSE server queue message. 
+
+
+
+Notes on registering an event handler
+=====================================
+1. When we fire off a one-shot event, such as an async play, we specify
+   the event handler, which is the handler in singleton HmpEventRegistry
+2. However, unsolicited events may fire at any time. Do we want these
+   to go through the default event handler (singleton class HMP)? 
+   a. The default handler would need to know which task to notify
+   b. We would need to be able to register with HMP class for notification
+3. We could specify that unsolicited events go thru the handler in
+   HmpEventRegistry by registering that handler as the default handler:
+   a. sr_enbhdlr(EV_ANYDEV,EV_ANYEVT,(HMPEVENTHANDLER)HmpEventRegistry::eventHandler)
+4. We need to be able to register a default dispatchee in HmpEventRegistry
+   so that we do not need to register for every possible event.
+5. We need to modify HmpEventRegistry so that register is not always one-shot
+6. Add a registerForDefaultEvent to HmpEventRegistry which registers the
+   task*, and calls sr_enbhdlr(EV_ANYDEV,EV_ANYEVT
+7. Perhaps we do not want to do that though -- we may not want to see
+   all events. Perhaps we could initialize the handler with the events
+   we do wish to see, in a separate table.
+
+Notes on receiving data from firing event
+=========================================
+1. Since we do not process information in the event handler, we need to
+   get the event data back to the session doing the processing
+2. For example, if a IPMEV_RECEIVE_DIGITS fires, we need to copy
+   the digit data (sr_getevtdatap()) prior to returning from the
+   event handler.
+3. Perhaps we should register a return buffer
+4. Or the handler could allocate a buffer and attach it to the returned 
+   dispatch map.
+5. Or both ways: if the caller registered a buffer and length, use the
+   buffer; otherwise check length in event type switch, allocate and return
+
+
+Notes on device pool/manager
+=============================
+1. How many resources should we load initially?
+   a) This should be a config option
+   b) Default to all IP, voice = min(ipcount,voicecount), all conf
+        config->HMP.maxConnections  
+        config->HMP.maxInitialResourcesIP  
+        config->HMP.maxInitialResourcesVoice  
+        config->HMP.maxInitialResourcesConference 
+   c) The ceiling on connections is mmsBuild.h
+      MEDIASERVER_CUSTOMER_CONCURRENCY_LICENSES  
+
+   d) Our maximum IP resources available are 
+      m_deviceCounts.getDeviceCount(MEDIA_RESOURCE_TYPE_IP);
+   e) Our server instance max connections tempmaxconx is temporarily
+      min(config->HMP->maxConnections,MEDIASERVER_CUSTOMER_CONCURRENCY_LICENSES);  
+   f) Our max IP tempmaxIP is min(ipdevicecount, tempmaxconx);
+   g) config->Calculated.maxConnections = min(tempmaxconx, tempmaxIP);
+   h) config->Calculated.maxMediaResourcesIP = maxconx;
+   i) config->Calculated.maxMediaResourcesVoice =  
+      m_deviceCounts.getDeviceCount(MEDIA_RESOURCE_TYPE_VOICE);
+   j) initialIP = min(config->HMP.maxInitialResourcesIP,
+      config->Calculated.maxMediaResourcesIP; 
+      initialIP = max(1, initialIP);
+      initialVoice = min(config->HMP.maxInitialResourcesVoice,
+      config->Calculated.maxMediaResourcesVoice;
+      initialVoice = max(1, initialVoice);
+      initialConf = min(config->HMP.maxInitialResourcesConf,
+      config->Calculated.maxMediaResourcesConf;
+      NOTE if hmp ip count is zero abort - if voice 0 warn no voice - if conf zero warn
+      ERROR if config minimum greater HMP board count
+
+2. How to wait on available device
+   a) Do we want to release() semaphore on every addition to available pool?
+   b) Or do we want to check if waiting, and if so, release()?
+   c) (b) is not atomic
+   d) We may need to do all that in a critical section then
+   e) GetVoiceResource(timeout, int useidle)
+       
+      2. If resourcePoolAvailableCount(voice, usidle) == 0
+            while(semaphore->tryaquire() != -1) { }  // Ensure we have the lock
+
+      3. Where is this lock released?
+         a. If make a voice device available, or make a voice device idle
+            we check the resourcePoolAvailableCount(voice, usidle)
+            if zero, we semaphore->release()
+
+Notes on what may be pageable
+=============================
+1. I do not see how conference participants could be swapped out even
+   if not active participants, since they would then cease to hear the
+   conference.
+
+Notes on callback and event handling
+====================================
+1. The way we are doing service pool, a specific thread cannot receive
+   a callback unless it somehow creates an event and waits on the event
+   to be fired from elsewhere, since otherwise the thread is blocking 
+   on the message queue. State should therefore always be maintained
+   elsewhere and passed to a thread
+
+2. Potential bottleneck: if extensive asynch calls, a lot of activity
+   comes thru SMGR task queue. No pump on this queue. Should we offload
+   HMP event monitor to another thread/task HEVT? If so, how do we 
+   interact with SESS. SESS is in SMGR and HEVT would need access to
+   POOL as well in order to assign work. Q: under what conditions could
+   we have SMGR and HEVT simultaneously wishing to write to the same
+   SESS obj. Recall that each has a busy flag. 
+
+3. Let's plan on that. How does HEVT work?       
+   a. Launched by SMGR. SMGR loads it up with SESS and POOL at ctor
+   b. SMGR starts a request with POOL. POOL marks SESS entry BUSY,
+      causing SMGR to subsequently reject any incoming requests
+      for that session (no simultaneous requests on a session in
+      other words).
+   c. POOL registers a one-shot event(HEVT*, SessionID), marks state
+      (what is being waited on) in the SESS entry, and launches an 
+      async command
+   d. Event fires. HDLR posts a message to the MmsTask* registered,
+      which is in this case HEVT, including the SESS ID.
+   e. HEVT looks up the session SESS ID.
+   f. HEVT post a WORK request for SESS entry to POOL.
+   g. This continues until command in completed or error, at which
+      point SESS is marked not busy, and a RETURN is posted to SMGR
+ 
+
+
+Notes on resource tracking
+==========================
+1. IP resources painted on equal # of sessions at start
+2. IP resx hosts either a voice or a confx resx
+3. Any device in use is in an inuse map, any device available is in avail map.
+4. How do we determine if a resource is idle?
+   a. Only a voice resource (VRES) may be idle (verify this)
+   b. A VRES is idle once an operation on it has completed,
+      or if no operation has occurred on it for (configurable) ms
+   c. How do we monitor a VRES for idleness?
+      - countdown timer in VRES obj, as well as inuse flag
+      - monitor VRES whenever need an extra vres 
+        If not inuse countdown. if expired, borrow it
+      - Or use initial time - use timeofday to calculate subtracting
+   d. How about an idle vres map
+      -  {timeofday <-> handle}  {handle <-> struct{info ... timeofday; sessionid}
+      -  Whenever VRES inuse, remove from idle table
+      -  When not in use, add to idle table
+      -  When (POOL) needs a VRES, wait on non-empty vres table;
+         pick an idle vres using some strategy.
+         Detach it from whatever SESS it is attached to
+
+Notes on obtaining resources
+============================
+1. Perhaps we should attach the other resources to the IP resource.
+   IP would therefore be the "parent". This could permit us to
+   hook up and unhook resources more easily.
+
+2. HMP event notification need not always go to SMGR? If for example
+   we are initializing a device, the handling thread can receive a
+   callback instead of a message NO! It can however go to event manager 
+
+3. What does it mean to "detach" a vox resource from a session?
+   a. We actually detach it from the IP resource?
+   b. I believe it means to
+      - stop the session -- ip->stop()
+      - to restart session means start() means ip->setRemoteMediaInfo()
+      - mark the session as having no voice resource
+
+
+What are the interfaces to resources
+====================================
+1. Resource inventory
+   a. deviceCount;
+
+2. Generalresource implements inventory
+   a. count()
+   b. open()
+   c. close()
+   d. start()
+   e. stop()
+
+3. IP resource implements Generalresource
+   a. startsession
+   b. stopsession
+   c. attachapplicationresource
+
+4. Appresource implements Generalresource
+   a. (listen(timeslot)
+   b.  unlisten()
+
+3. Voice resource implements Appresource
+
+4. Conf resource implements Appresource
+
+
+Get resources
+    Vox resource:
+    ip listen
+    dx listen    // connect vox channel to timeslot
+
+    Conf resource
+    ip listen
+
+If voice 
+   setremotemediainfo
+
+
+
+Notes on IP resource allocation
+=====================================
+1. Once a session is established, an Ip resource cannot be swapped out.
+2. Given (1), and given n IP licenses, we may as well "paint" 
+   n Session objects initially, with the n IP resources.
+3. Given (2) the ceiling on concurrent sessions is number of IP
+   resources, true?
+4. We should still make it easy to assign IP resources and move them
+   around, in case something comes up, or in case we do not wish
+   to preassign everything, or in case METREOS license is less than
+   IP license, and therefore allows for dynamic increase, or on-demand
+   increase and subsequent billing (bill for resources used)
+
+
+Notes on resource allocation for conferencing
+=============================================
+1. How do we know it is a confererence connection request?
+   a. The PA identifies it as such, and clearly marks the flatmap
+
+2. In what scope is a conference established?
+   a. A managerial scope, at a similar level to session manager
+   
+3. What are the options for conference management?
+   a. Session manager
+      1. Advantages
+         a. Simple, reduced code
+         b. No need to handshake with SMGR, POOL
+      2. Disdvantages
+         a. Blocks other SMGR activities during any HMP wait
+             
+   b. Conference manager task, controlled by session manager
+      1. Advantages
+         a. Can monitor participants apart from SMGR
+         b. POOL can carry on a dialog with CONF w/o SMGR involvmnt
+         c. With many conferences, may be too much for SMGR
+      2. Disadvantages
+         a. Complexity
+
+4. What are options for creating a conference? 
+   a. SMGR recognizes and hands work to CONF
+   b. SMGR hands work to POOL, POOL recognizes and negotiates
+      with CONF
+
+5. How does a "Session" relate to a "conference"?
+   a. Conferees ARE Session objects (is this true?). SO ...
+   b. When CONF establishes, the initial Session (first conferee)
+      must be available.
+      1. SMGR marks a session inUse prior to handing it off to CONF
+      2. CONF establishes conference with first conferee. 
+         Thus there is no POOL activity at all here.
+         Is the fact that we do not use a POOL thread a problem?
+
+6. How did the MMS demo hook up conferences
+   a. conference->join() returns CDT[conferee].chan_lts
+   b. hmpConfereeTimeslot = join()
+   c. SC_TSINFO info; info.sc_tsarrayp = &hmpConfereeTimeslot;
+   d. deviceIP.listen(&info);
+
+          
+
+Server side objects (where to put the queue listener?)
+
+                             --------
+                           --------  |
+-----      ---------      -------  |-     ---------
+     |    | Session |--->| CONX0 |-  <-- | Connexn |
+SRVQ |--->| Manager |<--- -------    --> | Monitor |
+     |     ---------     /                ---------
+     |   /        A    /                    |
+CLIQ |<-/     --------                      |
+     |       | Server | --------------------
+     |       | Object |
+     |        --------  \
+     |                   \
+-----                     MAIN
+
+
+
+
+
+                       APP OBJ
+                      -----------------
+   LISTENER          | Session (Conxn) |
+  -------------      | - - - - - - - - |
+ | Session Mgr |     | threadInfo      |
+ | - - - - - - |     | hmpResxHandle   |
+ | app*        |     | hmpResxHandle   |       -------------
+ |             |     |                 |      | Conx Thread |
+  -------------       -----------------       | - - - - - - |
+                                              | session*    |
+   APP OBJ            APP OBJ                 |             |
+  -------------       -----------------       |             |
+ | HMP Resourc |     | Thread Pool Obj |      |             |
+ | - - - - - - |     | - - - - - - - - |       -------------
+ | session*    |     | Mutex           |
+ |             |     | addThreads()    |
+  -------------      | removeThreads() |
+                     |                 |
+                      -----------------
+
+LISTENER
+Listener also hosts the session manager object
+
+1. Receive request from client
+
+2. Look up Session
+
+3. Place work (parameter map) on thread pool queue
+
+4. Receive message from HMP event handler
+
+5. Look up session and place work(map) on thread pool queue
+
+6. Receive RETURN message from thread & forward to client
+
+7. Receive DISPOSE message from thread & forward to client
+
+
+
+APP
+
+How does App handle Session objects
+===================================
+
+1. How may sessions maximum?
+   a. Determined by maximum HMP connections, unless virtual sessions
+   b. App has a method determineMaxSessions()
+      which for now gets config::serverParams.maxConnectionThreads
+   c. To avoid increasing/decreasing size of array, we may want to
+      use an array of 256 all the time. Also customizes a product for
+      specific max number of connections.
+
+2. Will a Session be written concurrently? Probably not. No mutex needed
+
+3. On CONX request, Session is initialized and messaged to an available
+   thread. When connection is established, thread unloads connection object.
+
+4. On media request, app looks up connection ID, gets session object,
+   and messages a thread. Thread interprets parameters, registers
+   for event callback, executes async event, and goes idle. Callback
+   comes to the app, with event ID and session ID. App reassigns Session
+   to a thread.
+
+5. This means that we have much less need to monitor threads themselves,
+   unless we have to do synchronous operations that could hang. 
+
+7. App interates all session objects periodically updating their countdowns.
+
+8. Threads always become available between operations. So we can
+   have fewer threads than available connections if necessary.
+   If we have a single pool queue, then we can merely queue up the
+   request even though a thread may not be available.
+
+9. On long operations we may want to clone the parameter map,
+   and let client delete the shared memory.
+
+
+What does a Session object consist of?
+======================================
+1. Info on current thread host
+2. Info on current client (conx ID, protocol?)
+3. Info on current command
+4. Logic to acquire resources necessary for command (in thread context)
+   and to return resources
+5. Ability to suspend waiting for HMP async event completion. 
+   Session will detach from thread.
+6. Parameter map reference, or a clone of the map
+7. Countdown object so can time the event out.
+
+
+
+
+Thread Pool
+===================================
+
+x. How many threads are created? config::serverParams.initialConnectionThreads
+
+x. Does each thread need a message queue? Or can a thread block on some
+   lock until it is passed some work to do?  There's not a lot of overhead
+   to the queue, since it's nodes external to it.
+
+x. How does a thread execute a command? Possibilities:
+   1. Pass it a command *object*, which has a known method?
+
+   2. Just pass it the parameter map. Session has all necessary methods.
+
+   3. Pass it the map. Session instantiates appropriate command object,
+      using the map as a parameter. In fact, all thread does is execute
+      new command()->run(&map); *** best so far ***
+
+      b. In this scenario, we only need one task for the thread pool, with
+      each thread removing command messages from the queue. If we do it
+      this way, we must ensure that we do not need to communicate with
+      other threads, and that each thread always does the same thing.
+
+      c. If we use a single task, how do we monitor connection threads?
+      How does a particular thread respond? We could send one ping, and
+      each thread passes it on, with a count in the parameter.
+
+      d. If we use tasks, is it any different? Can a monitor cancel
+      a hung thread without crashing the server? Probably not. All we
+      can do is log that it appears to be out of service.
+
+      e. We can use a countdown time in the thread's entry in the pool
+      and time how long it has been since the thread responded.
+      We can also use a countdown in the command and attempt to time
+      it out, although tht does not help if thread is hung.
+
+      f. If we use a single task for the pool, how do we call wait for
+      a callback, and how do we notify the thread of the async event.
+      Do we check if a message is for us and pass it on (seems lame).
+      Do we stop executing and call back to the manager, who reassigns
+      task to a thread at that time? (this has advantange of not leaving
+      a thread in limbo during a long event -- note that the Session
+      object state remains intact here - we do not destroy the session
+      until a close, or until it times out.
+
+      g. Async callback should be able to call back either a thread or
+      the manager. If manager, manager must be able to identify which
+      session is waiting, as well as event ID (OR 16-bit values?)
+      We should be able to call back th thread if for instance (a) it is
+      a short event, (b) we cannot detach from thread, eg in a conference
+      scenario, etc.

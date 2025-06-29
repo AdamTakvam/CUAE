@@ -1,0 +1,37 @@
+1
+a:ForwardActionToProvider	// Accept
+rns:success->5
+rns:*->[Error_P2P_RespondToPeer]
+timeout:5->[Error_P2P_RespondToPeer]
+
+5
+a:ForwardResponseToPeer
+def->10
+
+10
+a:Wait
+ans:AnswerCall->15
+ens:GotCapabilities->100
+ens:MediaEstablished->100
+ans:Hangup->[Error_P2P_Hangup]
+ens:RemoteHangup->[Error_P2P_HangupPeer]
+timeout:90->[Error_P2P_Hangup]
+
+15
+a:ForwardActionToProvider       // Forwards AnswerCall
+rns:success->20
+rns:*->[Error_P2P_Hangup_Respond]
+timeout:5->[Error_P2P_Hangup_Respond]
+
+20
+a:ForwardResponseToPeer
+def->25
+
+25
+a:Wait                          // TODO: Support NoWaitTxRx
+def->[IncomingCall_P2P_WaitTxRx]
+
+100
+a:SetPeerMedia
+rns:*->10
+timeout:5->[Error_P2P_Hangup]

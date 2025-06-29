@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_RemoveScriptTimer_script1" displayName="Provider_RemoveScriptTimer_script1" format="string" defaultValue="Provider.RemoveScriptTimer.script1" readOnly="true" required="true" />
+    <configValue name="E_Shutdown" displayName="E_Shutdown" format="string" defaultValue="Provider.RemoveScriptTimer.script1.E_Shutdown" readOnly="true" required="true" />
+    <configValue name="S_Fired" displayName="S_Fired" format="string" defaultValue="Provider.RemoveScriptTimer.script1.S_Fired" readOnly="true" required="true" />
+    <configValue name="S_Load" displayName="S_Load" format="string" defaultValue="Provider.RemoveScriptTimer.script1.S_Load" readOnly="true" required="true" />
+  </configuration>
+</install>

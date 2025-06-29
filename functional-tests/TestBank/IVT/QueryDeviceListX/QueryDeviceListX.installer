@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="IVT_QueryDeviceListX_script1" displayName="IVT_QueryDeviceListX_script1" format="string" defaultValue="IVT.QueryDeviceListX.script1" readOnly="true" required="true" />
+    <configValue name="S_QueryResult" displayName="S_QueryResult" format="string" defaultValue="IVT.QueryDeviceListX.script1.S_QueryResult" readOnly="true" required="true" />
+  </configuration>
+</install>

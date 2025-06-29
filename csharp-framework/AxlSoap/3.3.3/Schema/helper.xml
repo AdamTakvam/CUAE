@@ -1,0 +1,153 @@
+
+<!-- APIRequest Extension -->
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- APIResponse Extension -->
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- StandardResponse Extension -->
+<xsd:sequence>
+	<xsd:element name="return">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="(true)|(false)|(\{........-....-....-....-............\})"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- GetNumPlanPattern Extension -->
+<xsd:sequence>
+	<xsd:choice>
+		<xsd:element name="uuid" type="axl:XUUID"/>
+		<xsd:sequence>
+			<xsd:element name="pattern" type="xsd:string"/>
+			<xsd:choice>
+				<xsd:element name="routePartitionId" type="axl:XUUID"/>
+				<xsd:element name="routePartitionName" type="axl:String50"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:annotation>
+					<xsd:documentation>Some NumPlans do not require a Route Filter, thus these elements can be null.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="routeFilterId" type="axl:XUUID"/>
+				<xsd:element name="routeFilterName" type="axl:String50"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:choice>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- UpdateNumPlanPattern Extension -->
+<xsd:sequence>
+	<xsd:choice>
+		<xsd:element name="uuid" type="axl:XUUID"/>
+		<xsd:sequence>
+			<xsd:element name="pattern" type="xsd:string"/>
+			<xsd:choice>
+				<xsd:element name="routePartitionId" type="axl:XUUID"/>
+				<xsd:element name="routePartitionName" type="axl:String50"/>
+			</xsd:choice>
+			<xsd:choice>
+				<xsd:annotation>
+					<xsd:documentation>Some NumPlans do not require a Route Filter, thus these elements can be null.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="routeFilterId" type="axl:XUUID"/>
+				<xsd:element name="routeFilterName" type="axl:String50"/>
+			</xsd:choice>
+		</xsd:sequence>
+	</xsd:choice>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- NameAndGUIDRequest Extension -->
+<xsd:sequence>
+	<xsd:choice>
+		<xsd:element name="name" type="axl:String128" nillable="false">
+			<xsd:annotation>
+				<xsd:documentation>Not nullable.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:element name="uuid" type="axl:XUUID" nillable="false">
+			<xsd:annotation>
+				<xsd:documentation>Not nullable.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+	</xsd:choice>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- ListBySearchString Extension -->
+<xsd:sequence>
+	<xsd:element name="searchString" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>The string to search for.  Can contain SQL wildcard characters.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- ListPhoneResponse Extension -->
+<xsd:sequence>
+	<xsd:element name="return">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="phone" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="name" type="axl:String50" nillable="false"/>
+							<xsd:element name="product" type="axl:XProduct" nillable="false"/>
+							<xsd:element name="model" type="axl:XModel" nillable="false"/>
+						</xsd:sequence>
+						<xsd:attribute name="uuid" type="axl:XUUID" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- ListCSSResponse Extension -->
+<xsd:sequence>
+	<xsd:element name="return">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="callingSearchSpace" type="axl:XCallingSearchSpace" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>
+
+<!-- GetServiceParamaterReq Extension -->
+<xsd:sequence>
+	<xsd:choice>
+		<xsd:element name="uuid" type="axl:XUUID">
+			<xsd:annotation>
+				<xsd:documentation>The pkid of the service parameter in the ProcessConfig table.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:element>
+		<xsd:sequence>
+			<xsd:element name="name" type="axl:String50">
+				<xsd:annotation>
+					<xsd:documentation>Name of the service parameter. Not nullable.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:choice>
+				<xsd:annotation>
+					<xsd:documentation>The process Node that this the service parameter belongs to. Not nullable.</xsd:documentation>
+				</xsd:annotation>
+				<xsd:element name="processNodeId" type="axl:XUUID"/>
+				<xsd:element name="processNodeName" type="axl:String50"/>
+			</xsd:choice>
+			<xsd:element name="service" type="axl:XService">
+				<xsd:annotation>
+					<xsd:documentation>The service that this service parameter belongs to.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:choice>
+</xsd:sequence>
+<xsd:attribute name="sequence" type="xsd:unsignedLong" use="optional"/>

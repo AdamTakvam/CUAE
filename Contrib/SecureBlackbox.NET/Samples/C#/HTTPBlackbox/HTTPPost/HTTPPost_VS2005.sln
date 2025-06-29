@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPPost_VS2005", "HTTPPost_VS2005.csproj", "{2973E598-002D-4A94-8FBD-092A1BF548D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2973E598-002D-4A94-8FBD-092A1BF548D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,1 @@
+This sample demonstrates how to sign the PDF file. For signature verification see TinyProcessor sample.

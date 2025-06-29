@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="RecordAgent" default="Debug" basedir=".">
+  <description>Build script for RecordAgent</description>
+
+  <import file="../../autobuild/build.includes.xml" />
+
+
+  <property name="appName"                  value="RecordAgent" />
+  <property name="deploymentDirectory"      value="${Metreos.build.buildDirectory}/AppSuite/${appName}" />
+
+  <target name="do-init">
+    <mkdir dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-clean">
+    <delete includeEmptyDirs="true">
+        <fileset dir="${Metreos.build.srcRoot}/application-suite/RecordAgent" includes="**/bin/** **/obj/**" />
+    </delete>
+    <delete dir="bin" />
+    <delete dir="obj" />
+    <delete dir="${deploymentDirectory}" />
+  </target>
+
+  <target name="do-build">
+    <!-- build app -->
+    <metreosMSBuildTask root="${Metreos.build.srcRoot}" dir="application-suite/RecordAgent" solution="RecordAgent" />    
+  </target>
+
+  <target name="do-test">
+  </target>
+
+  <target name="do-postbuild">
+  </target>
+  
+</project>

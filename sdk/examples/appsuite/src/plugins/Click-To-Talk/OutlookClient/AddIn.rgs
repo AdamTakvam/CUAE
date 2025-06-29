@@ -1,0 +1,26 @@
+HKCR
+{
+	OutlookClient.Connect.1 = s 'Connect Class'
+	{
+		CLSID = s '{11726890-24ED-4364-A49E-61A6D6FE39BE}'
+	}
+	OutlookClient.Connect = s 'Connect Class'
+	{
+		CLSID = s '{11726890-24ED-4364-A49E-61A6D6FE39BE}'
+		CurVer = s 'OutlookClient.Connect.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove '{11726890-24ED-4364-A49E-61A6D6FE39BE}' = s 'Connect Class'
+		{
+			ProgID = s 'OutlookClient.Connect.1'
+			VersionIndependentProgID = s 'OutlookClient.Connect'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{7D42B0A7-AAFE-4CFD-9172-F237103BC25F}'
+		}
+	}
+}

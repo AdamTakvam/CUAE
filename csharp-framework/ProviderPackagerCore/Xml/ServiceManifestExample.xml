@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ServiceManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://cisco.com/ServiceManifest.xsd">
+    <Service Filename="MyService.exe" Name="MyService" DisplayName="My Awesome Service" Username="cuae" Password="cuae">
+        <Argument>-debug</Argument>
+        <Argument>port:80</Argument>
+    </Service>
+</ServiceManifest>

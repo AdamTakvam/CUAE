@@ -1,0 +1,52 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpRequestGen", "HttpRequestGen.csproj", "{94BA6B90-06B5-478E-BCC3-AA086C11AC89}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{B3D074C1-B1FE-44C7-94EF-3DDE1FB86149}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickDialSim", "Window\QuickDialSim.csproj", "{BA5C0045-209A-4A8A-BF28-5D9BE53F1A87}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallGenerator", "CallGenerator\CallGenerator.csproj", "{67A07CA5-04A4-4FD5-8D03-BBD716DDFBB9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LdapQuery", "LdapQuery\LdapQuery.csproj", "{D97AD6D0-3770-41DE-B88E-3284C9F29BF6}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{94BA6B90-06B5-478E-BCC3-AA086C11AC89}.Debug.ActiveCfg = Debug|.NET
+		{94BA6B90-06B5-478E-BCC3-AA086C11AC89}.Debug.Build.0 = Debug|.NET
+		{94BA6B90-06B5-478E-BCC3-AA086C11AC89}.Release.ActiveCfg = Release|.NET
+		{94BA6B90-06B5-478E-BCC3-AA086C11AC89}.Release.Build.0 = Release|.NET
+		{B3D074C1-B1FE-44C7-94EF-3DDE1FB86149}.Debug.ActiveCfg = Debug|.NET
+		{B3D074C1-B1FE-44C7-94EF-3DDE1FB86149}.Debug.Build.0 = Debug|.NET
+		{B3D074C1-B1FE-44C7-94EF-3DDE1FB86149}.Release.ActiveCfg = Release|.NET
+		{B3D074C1-B1FE-44C7-94EF-3DDE1FB86149}.Release.Build.0 = Release|.NET
+		{BA5C0045-209A-4A8A-BF28-5D9BE53F1A87}.Debug.ActiveCfg = Debug|.NET
+		{BA5C0045-209A-4A8A-BF28-5D9BE53F1A87}.Release.ActiveCfg = Release|.NET
+		{BA5C0045-209A-4A8A-BF28-5D9BE53F1A87}.Release.Build.0 = Release|.NET
+		{67A07CA5-04A4-4FD5-8D03-BBD716DDFBB9}.Debug.ActiveCfg = Debug|.NET
+		{67A07CA5-04A4-4FD5-8D03-BBD716DDFBB9}.Debug.Build.0 = Debug|.NET
+		{67A07CA5-04A4-4FD5-8D03-BBD716DDFBB9}.Release.ActiveCfg = Release|.NET
+		{67A07CA5-04A4-4FD5-8D03-BBD716DDFBB9}.Release.Build.0 = Release|.NET
+		{D97AD6D0-3770-41DE-B88E-3284C9F29BF6}.Debug.ActiveCfg = Debug|.NET
+		{D97AD6D0-3770-41DE-B88E-3284C9F29BF6}.Debug.Build.0 = Debug|.NET
+		{D97AD6D0-3770-41DE-B88E-3284C9F29BF6}.Release.ActiveCfg = Release|.NET
+		{D97AD6D0-3770-41DE-B88E-3284C9F29BF6}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

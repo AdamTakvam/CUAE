@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<install xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+  <configValue name="ProxyUserId" description="The username of the porxy user" format="string" readOnly="false">mobility</configValue>
+	<configValue name="ProxyUserPassword" description="The password of the proxy user" format="string" readOnly="false">metreos</configValue>	
+  <configValue name="LoginURL" description="The full url of the page specified by CallManager to log in to" format="string" readOnly="false">http://callmanager/LoginService/login.asp</configValue>
+</configuration>
+</install>

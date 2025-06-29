@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_MuteConferenceConnection_script1" displayName="Provider_MuteConferenceConnection_script1" format="string" defaultValue="Provider.MuteConferenceConnection.script1" readOnly="true" required="true" />
+    <configValue name="S_FailureToStart" displayName="S_FailureToStart" format="string" defaultValue="Provider.MuteConferenceConnection.script1.S_FailureToStart" readOnly="true" required="true" />
+    <configValue name="S_Started" displayName="S_Started" format="string" defaultValue="Provider.MuteConferenceConnection.script1.S_Started" readOnly="true" required="true" />
+    <configValue name="S_RecordFailed" displayName="S_RecordFailed" format="string" defaultValue="Provider.MuteConferenceConnection.script1.S_RecordFailed" readOnly="true" required="true" />
+    <configValue name="S_RecordSuccess" displayName="S_RecordSuccess" format="string" defaultValue="Provider.MuteConferenceConnection.script1.S_RecordSuccess" readOnly="true" required="true" />
+    <configValue name="S_FirstPlayDone" displayName="S_FirstPlayDone" format="string" defaultValue="Provider.MuteConferenceConnection.script1.S_FirstPlayDone" readOnly="true" required="true" />
+    <configValue name="E_SendDigit" displayName="E_SendDigit" format="string" defaultValue="Provider.MuteConferenceConnection.script1.E_SendDigit" readOnly="true" required="true" />
+  </configuration>
+</install>

@@ -1,0 +1,205 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C28B765B-D196-4FD9-9E2F-A870A4B2B55C}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Metreos.AxlSoap</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\..\autobuild\metreos.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Metreos.AxlSoap</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Services2">
+      <Name>Microsoft.Web.Services2</Name>
+      <HintPath>C:\Program Files\Microsoft WSE\v2.0\Microsoft.Web.Services2.dll</HintPath>
+      <AssemblyFolderKey>hklm\microsoft wse 2.0</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2CD002F2-1A95-441D-BD2C-BC3EDB290E23}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoggingFramework\LoggingFramework.csproj">
+      <Name>LoggingFramework</Name>
+      <Project>{6419383C-9AF2-4DA9-940E-E1015FA54B5C}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\autobuild\AssemblyInfoCommon.cs">
+      <Link>AssemblyInfoCommon.cs</Link>
+    </Compile>
+    <Compile Include="3.3.3\AXLAPISoapClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="4.1.3\AXLAPISoapClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="5.0.1\Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="5.0.4\modified_schema\AXLAPIService.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="5.0.4\modified_schema\AXLAPISoapClient.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="6.0.1\AXLAPISoapClient.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IAxlSoap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="3.3.3\Schema\axl.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="3.3.3\Schema\AXLAPI.wsdl" />
+    <Content Include="3.3.3\Schema\axlsoap.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="4.1.3\Schema\axl.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="4.1.3\Schema\AXLAPI.wsdl" />
+    <Content Include="4.1.3\Schema\AXLEnums.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="4.1.3\Schema\axlmessage.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="4.1.3\Schema\axlsoap.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="4.1.3\Schema\helper.xml" />
+    <Content Include="5.0.4\modified_schema\axl.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="5.0.4\modified_schema\AXLAPI.wsdl" />
+    <Content Include="5.0.4\original_schema\axl.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="5.0.4\original_schema\AXLAPI.wsdl" />
+    <Content Include="5.0.4\original_schema\AXLEnums.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="5.0.4\original_schema\axlmessage.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="5.0.4\original_schema\axlsoap.xsd">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="..\..\autobuild\metreos.snk">
+      <Link>metreos.snk</Link>
+    </None>
+    <None Include="3.3.3\Schema\axl.xsx">
+      <DependentUpon>axl.xsd</DependentUpon>
+    </None>
+    <None Include="4.1.3\Schema\axl.xsx">
+      <DependentUpon>axl.xsd</DependentUpon>
+    </None>
+    <None Include="4.1.3\Schema\axlsoap.xsx">
+      <DependentUpon>axlsoap.xsd</DependentUpon>
+    </None>
+    <None Include="5.0.4\modified_schema\axl.xsx">
+      <DependentUpon>axl.xsd</DependentUpon>
+    </None>
+    <None Include="5.0.4\original_schema\axlmessage.xsx">
+      <DependentUpon>axlmessage.xsd</DependentUpon>
+    </None>
+    <None Include="6.0.1\Schema\AXLAPI.wsdl" />
+    <None Include="6.0.1\Schema\AXLSoap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="licenses.licx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

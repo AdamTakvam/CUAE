@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GraphicMenu", "GraphicMenu.vbproj", "{4D137B33-8BF1-4654-8793-7C0EDE1DDBD3}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{4D137B33-8BF1-4654-8793-7C0EDE1DDBD3}.Debug.ActiveCfg = Debug|.NET
+		{4D137B33-8BF1-4654-8793-7C0EDE1DDBD3}.Debug.Build.0 = Debug|.NET
+		{4D137B33-8BF1-4654-8793-7C0EDE1DDBD3}.Release.ActiveCfg = Release|.NET
+		{4D137B33-8BF1-4654-8793-7C0EDE1DDBD3}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

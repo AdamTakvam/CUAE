@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_StressEventQueuing_script1" displayName="ARE_StressEventQueuing_script1" format="string" defaultValue="ARE.StressEventQueuing.script1" readOnly="true" required="true" />
+    <configValue name="S_Trigger" displayName="S_Trigger" format="string" defaultValue="ARE.StressEventQueuing.script1.S_Trigger" readOnly="true" required="true" />
+    <configValue name="S_QueuedEvent" displayName="S_QueuedEvent" format="string" defaultValue="ARE.StressEventQueuing.script1.S_QueuedEvent" readOnly="true" required="true" />
+    <configValue name="E_QueuedEvent" displayName="E_QueuedEvent" format="string" defaultValue="ARE.StressEventQueuing.script1.E_QueuedEvent" readOnly="true" required="true" />
+    <configValue name="E_Shutdown" displayName="E_Shutdown" format="string" defaultValue="ARE.StressEventQueuing.script1.E_Shutdown" readOnly="true" required="true" />
+  </configuration>
+</install>

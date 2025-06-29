@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="TestSettingsSchema" targetNamespace="http://tempuri.org/TestSettings.xsd" elementFormDefault="qualified"
+	xmlns="http://tempuri.org/TestSettings.xsd" xmlns:mstns="http://tempuri.org/TestSettings.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:complexType name="variableType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	
+	<xs:complexType name="testType">
+		<xs:sequence>
+			<xs:element name ="success" type="xs:boolean" nillable="false" default="false" />
+			<xs:element name="variables" type="variableType" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required" />
+	</xs:complexType>
+	
+	<!-- Cracks 19 demons upside its head and yells with savage glee -->
+	<xs:element name="TestSettings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tests" type="testType" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_Forward_script1" displayName="ARE_Forward_script1" format="string" defaultValue="ARE.Forward.script1" readOnly="true" required="true" />
+    <configValue name="S_Script1Load" displayName="S_Script1Load" format="string" defaultValue="ARE.Forward.script1.S_Script1Load" readOnly="true" required="true" />
+    <configValue name="S_ForwardTest" displayName="S_ForwardTest" format="string" defaultValue="ARE.Forward.script1.S_ForwardTest" readOnly="true" required="true" />
+    <configValue name="E_ForwardTo" displayName="E_ForwardTo" format="string" defaultValue="ARE.Forward.script1.E_ForwardTo" readOnly="true" required="true" />
+    <configValue name="E_ForwardTest" displayName="E_ForwardTest" format="string" defaultValue="ARE.Forward.script1.E_ForwardTest" readOnly="true" required="true" />
+  </configuration>
+</install>

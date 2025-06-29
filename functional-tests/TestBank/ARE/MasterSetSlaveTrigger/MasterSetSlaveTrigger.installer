@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="ARE_MasterSetSlaveTrigger_master1" format="String" defaultValue="ARE.MasterSetSlaveTrigger.master1" />
+    <configValue name="S_EnabledSlave" format="String" defaultValue="ARE.MasterSetSlaveTrigger.master1.S_EnabledSlave" />
+    <configValue name="S_Shutdown" format="String" defaultValue="ARE.MasterSetSlaveTrigger.master1.S_Shutdown" />
+    <configValue name="ARE_MasterSetSlaveTrigger_slave1" format="String" defaultValue="ARE.MasterSetSlaveTrigger.slave1" />
+    <configValue name="S_Triggered" format="String" defaultValue="ARE.MasterSetSlaveTrigger.slave1.S_Triggered" />
+    <configValue name="S_Shutdown2" format="String" defaultValue="ARE.MasterSetSlaveTrigger.slave1.S_Shutdown2" />
+    <configValue name="E_Shutdown" format="String" defaultValue="ARE.MasterSetSlaveTrigger.master1.E_Shutdown" />
+  </configuration>
+</install>

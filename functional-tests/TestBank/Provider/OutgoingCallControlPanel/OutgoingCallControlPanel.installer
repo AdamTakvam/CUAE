@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="Provider_OutgoingCallControlPanel_script1" displayName="" format="string" defaultValue="Provider.OutgoingCallControlPanel.script1" readOnly="true" required="true" />
+    <configValue name="S_MakeCall" displayName="" format="string" defaultValue="Provider.OutgoingCallControlPanel.script1.S_MakeCall" readOnly="true" required="true" />
+    <configValue name="S_Consult" displayName="" format="string" defaultValue="Provider.OutgoingCallControlPanel.script1.S_Consult" readOnly="true" required="true" />
+    <configValue name="S_Blind" displayName="" format="string" defaultValue="Provider.OutgoingCallControlPanel.script1.S_Blind" readOnly="true" required="true" />
+    <configValue name="S_Play" displayName="" format="string" defaultValue="Provider.OutgoingCallControlPanel.script1.S_Play" readOnly="true" required="true" />
+    <configValue name="S_Hold" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.S_Hold" />
+    <configValue name="E_MakeCall" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.E_MakeCall" />
+    <configValue name="E_Consult" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.E_Consult" />
+    <configValue name="E_Blind" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.E_Blind" />
+    <configValue name="E_Play" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.E_Play" />
+    <configValue name="S_Hangup" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.S_Hangup" />
+    <configValue name="E_Hangup" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.E_Hangup" />
+    <configValue name="S_Started" displayName="" format="String" defaultValue="Provider.OutgoingCallControlPanel.script1.S_Started" />
+  </configuration>
+</install>

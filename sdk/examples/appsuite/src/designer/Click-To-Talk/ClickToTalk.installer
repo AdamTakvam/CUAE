@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<install xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://metreos.com/AppInstaller.xsd">
+  <configuration>
+    <configValue name="CCM_Device_Username" displayName="CCM_Device_Username" format="String" description="CallManager User associated with all phone devices which will use this application" defaultValue="metreos" required="true" />
+    <configValue name="CCM_Device_Password" displayName="CCM_Device_Password" format="Password" description="Password of CallManager user" defaultValue="metreos" required="true" />
+    <configValue name="DatabaseName" displayName="DatabaseName" format="String" description="The name of the application suite database" defaultValue="application_suite" required="true" />
+    <configValue name="Server" displayName="Server" format="String" description="Address of the server" defaultValue="localhost" required="true" />
+    <configValue name="Port" displayName="Port" format="Number" description="Port of the database server" defaultValue="3306" required="true" />
+    <configValue name="Username" displayName="Username" format="String" description="Database server username" defaultValue="root" required="true" />
+    <configValue name="Password" displayName="Password" format="Password" description="Database server password" defaultValue="metreos" required="true" />
+    <configValue name="SMTP_Server" displayName="SMTP_Server" format="String" description="Mail server address" defaultValue="mail.metreos.com" required="false" />
+    <configValue name="SMTP_Username" displayName="SMTP_Username" format="String" description="Mail server username" required="false" />
+    <configValue name="SMTP_Password" displayName="SMTP_Password" format="Password" description="Mail server password" required="false" />
+    <configValue name="SMTP_FromAddress" displayName="SMTP_FromAddress" format="String" description="Mail identity to masquerade as" defaultValue="administrator@appsuite" required="false" />
+    <configValue name="SMTP_Subject" displayName="SMTP_Subject" format="String" description="Subject line of email containing the recorded conference" defaultValue="Your recorded conference" required="false" />
+    <configValue name="SMTP_Body" displayName="SMTP_Body" format="String" description="Body of email containing the recorded conference" defaultValue="Your conference recording should be attached to this message" required="false" />
+    <configValue name="AppServerDN" displayName="AppServerDN" format="Number" description="Dialed number of the Application Server" required="true" />
+    <configValue name="AppServerIP" displayName="AppServerIP" format="String" description="IP Address of the Application Server" defaultValue="" required="true" />
+    <configValue name="RecordFileURL" displayName="RecordFileURL" format="String" description="Location of recorded audio files" defaultValue="http://&lt;IpAddress&gt;/media/" required="true" />
+    <configValue name="SendRecordedFileAsLink" displayName="SendRecordedFileAsLink" format="Bool" description="If set to true, only a link will be sent to the recorded file as opposed to attaching the file to the email" defaultValue="true" required="true" />
+    <configValue name="DialPlan" displayName="DialPlan" format="HashTable" description="Regular expressions to be applied to the target dial string" required="false" />
+    <configValue name="RecordFileExpireTime" displayName="RecordFileExpireTime" format="String" description="Number of days until recorded file is deleted" defaultValue="1" required="true" />
+  </configuration>
+</install>

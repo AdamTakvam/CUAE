@@ -1,0 +1,22 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeAction", "NativeAction\NativeAction.csproj", "{B5078E09-6A4E-434C-9A02-50562926F132}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DebugMethodCallTrace|Any CPU = DebugMethodCallTrace|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5078E09-6A4E-434C-9A02-50562926F132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5078E09-6A4E-434C-9A02-50562926F132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5078E09-6A4E-434C-9A02-50562926F132}.DebugMethodCallTrace|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5078E09-6A4E-434C-9A02-50562926F132}.DebugMethodCallTrace|Any CPU.Build.0 = Debug|Any CPU
+		{B5078E09-6A4E-434C-9A02-50562926F132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5078E09-6A4E-434C-9A02-50562926F132}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

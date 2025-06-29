@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="AppManifest" targetNamespace="http://metreos.com/AppManifest.xsd" elementFormDefault="qualified" xmlns="http://metreos.com/AppManifest.xsd" xmlns:mstns="http://metreos.com/AppManifest.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:simpleType name="dependencyTypes">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="provider" />
+			<xs:enumeration value="application" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="dependencyType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="type" type="dependencyTypes" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="checksumType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="filename" type="xs:string" use="required" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="summaryType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"  />
+			<xs:element name="displayName" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="version" type="xs:string" />
+			<xs:element name="frameworkVersion" type="xs:string" />
+			<xs:element name="description" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="company" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="author" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="copyright" type="xs:string" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="dependenciesType">
+		<xs:sequence>
+			<xs:element name="dependency" type="dependencyType" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="checksumsType">
+		<xs:sequence>
+			<xs:element name="checksum" type="checksumType" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="manifestType">
+		<xs:sequence>
+			<xs:element name="summary" type="summaryType" />
+			<xs:element name="dependencies" type="dependenciesType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="checksums" type="checksumsType" />
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Show 'em how it's done -->
+	<xs:element name="manifest" type="manifestType" />
+</xs:schema>
